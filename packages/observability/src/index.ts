@@ -20,6 +20,31 @@ export type AuditEvent = {
   occurredAt: string;
 };
 
+export interface AuditSink {
+  write(event: AuditEvent): Promise<void>;
+}
+
+export class JsonConsoleAuditSink implements AuditSink {
+  async write(event: AuditEvent): Promise<void> {
+    console.info(JSON.stringify({ type: "audit", ...redactLogPayload(event) }));
+  }
+}
+
+export type ErrorContext = Readonly<{
+  requestId?: string;
+  actorId?: string;
+  resourceType?: string;
+  resourceId?: string;
+}>;
+
+export interface ErrorTracker {
+  capture(error: unknown, context?: ErrorContext): void;
+}
+
+export class NoopErrorTracker implements ErrorTracker {
+  capture(_error: unknown, _context?: ErrorContext): void {}
+}
+
 export function redactLogPayload(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(redactLogPayload);
 

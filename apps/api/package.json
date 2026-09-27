@@ -12,12 +12,15 @@
     "test": "vitest run --passWithNoTests",
     "prisma:generate": "prisma generate",
     "prisma:validate": "prisma validate",
-    "prisma:migrate": "prisma migrate dev"
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:migrate:reset:ci": "prisma migrate reset --force"
   },
   "dependencies": {
     "@negarin/config": "workspace:*",
     "@negarin/contracts": "workspace:*",
     "@negarin/observability": "workspace:*",
+    "@negarin/queue": "workspace:*",
     "@nestjs/common": "12.1.0",
     "@nestjs/core": "12.1.0",
     "@nestjs/platform-fastify": "12.1.0",
