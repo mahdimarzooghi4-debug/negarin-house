@@ -10,6 +10,7 @@ All backlog items must reference the relevant product rule, architecture decisio
 
 - [Engineering Backlog](./phase-1-engineering-backlog.md)
 - [Sprint 0 — Foundation](./sprint-0-foundation.md)
+- [Sprint 1 — Identity and Application Shells](./sprint-1-identity-and-shells.md)
 - [Product → Engineering Traceability](./phase-1-traceability.md)
 
 ## GitHub Epic issues
