@@ -18,7 +18,7 @@ export async function createApplication(): Promise<NestFastifyApplication> {
   });
 
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, adapter, {
-    logger: config.NODE_ENV !== "test"
+    logger: config.NODE_ENV === "test" ? false : undefined
   });
 
   app.setGlobalPrefix("api/v1");
