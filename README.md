@@ -14,6 +14,10 @@ Figma remains the canonical visual/product design source for UI/UX, while this r
 
 **Phase 1 Technical Architecture: DEFINED**
 
+**Phase 1 Engineering Backlog: DEFINED**
+
+**Sprint 0 / Foundation: READY TO START**
+
 Canonical design file:
 - Figma: https://www.figma.com/design/Uo0ifnpFmJFhWqaEVmVOZ1/Negarin-House
 
@@ -44,7 +48,7 @@ Current Phase 1 surfaces:
 - policy-based authorization
 - GitHub Actions CI/CD
 
-See `docs/architecture/` and `docs/decisions/`.
+See `docs/architecture/`, `docs/decisions/`, and `docs/backlog/`.
 
 ## Delivery process
 
@@ -63,4 +67,4 @@ Business → Technical → Scrum/Product Backlog → Sprint → Code → Code Re
 
 ## Next step
 
-Build the **Engineering Backlog + Sprint 0 / Foundation plan** from the accepted Product/UX and Technical Architecture.
+Start **Epic E0 / Sprint 0 — Platform Foundation** in GitHub Issue #5 and scaffold the actual monorepo/applications/packages.
