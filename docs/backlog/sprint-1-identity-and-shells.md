@@ -44,6 +44,10 @@ The next E1-S3 slice wires a reusable Nest guard to bearer sessions and the live
 
 Authenticated clients can list only their own active role grants, select a grant by ID, and read the resulting server-derived context using a bearer session. The list is available before a grant is selected; the context read requires an active grant. Responses use `no-store`. The API rechecks session expiry/revocation and grant ownership on selection and reads; another user's grant never becomes an active context. This contract supports a future mobile client, but no public OTP endpoint, SMS provider, browser cookie, or mobile secure storage is enabled yet. The HTTP tests create sessions through the internal test transport only.
 
+## OTP delivery failure boundary
+
+If an OTP provider rejects delivery, the core invalidates that challenge's code before returning a generic delivery error. A code that arrives late after an ambiguous provider failure cannot create a session. The existing resend interval and hourly request cap still apply; a subsequent successful request issues a new code. PostgreSQL integration tests cover this recovery. Provider selection, IP/device throttling, HTTP entry points, and browser/mobile credential storage remain open.
+
 ## Sprint completion gate
 
 Sprint 1 remains open until identity/session, membership resolution, API enforcement, web shell, and relevant CI and Stage QA evidence are complete. Passing this first policy slice alone does not close E1, E2, or Sprint 1.
