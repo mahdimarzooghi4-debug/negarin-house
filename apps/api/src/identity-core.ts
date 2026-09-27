@@ -131,9 +131,14 @@ export class IdentityCore {
       try {
         return await action();
       } catch (error) {
-        if (attempt >= 2 || !error || typeof error !== "object" || !("code" in error) || (error.code !== "P2034" && error.code !== "P2002")) {
+        const code = error && typeof error === "object" && "code" in error ? error.code : null;
+        const cause = error && typeof error === "object" && "cause" in error ? error.cause : null;
+        const originalCode = cause && typeof cause === "object" && "originalCode" in cause ? cause.originalCode
+          : error && typeof error === "object" && "originalCode" in error ? error.originalCode : null;
+        if (attempt >= 4 || (code !== "P2034" && code !== "P2002" && originalCode !== "40001")) {
           throw error;
         }
+        await new Promise((resolve) => setTimeout(resolve, 10 * (attempt + 1)));
       }
     }
   }
