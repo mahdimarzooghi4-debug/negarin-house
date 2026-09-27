@@ -4,12 +4,11 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadConfig } from "@negarin/config";
 import { createFoundationWorker } from "@negarin/queue";
 import type { NestFastifyApplication } from "@nestjs/platform-fastify";
-import type { Worker } from "bullmq";
 import { createApplication } from "./app.js";
 
 describe("API integration", () => {
   let app: NestFastifyApplication;
-  let worker: Worker;
+  let worker: ReturnType<typeof createFoundationWorker>;
   let processedJob: Promise<string>;
 
   beforeAll(async () => {
