@@ -12,6 +12,8 @@ Figma remains the canonical visual/product design source for UI/UX, while this r
 
 **Phase 1 Product/UX Architecture: READY FOR IMPLEMENTATION**
 
+**Phase 1 Technical Architecture: DEFINED**
+
 Canonical design file:
 - Figma: https://www.figma.com/design/Uo0ifnpFmJFhWqaEVmVOZ1/Negarin-House
 
@@ -28,6 +30,21 @@ Current Phase 1 surfaces:
 - Shared Design System
 - End-to-End Prototype Audit
 - Phase 1 Release Readiness
+
+## Technical baseline
+
+- TypeScript monorepo
+- pnpm + Turborepo
+- Next.js web
+- NestJS modular-monolith API
+- PostgreSQL + Prisma
+- Redis + BullMQ
+- S3-compatible object storage
+- REST/JSON + OpenAPI
+- policy-based authorization
+- GitHub Actions CI/CD
+
+See `docs/architecture/` and `docs/decisions/`.
 
 ## Delivery process
 
@@ -46,4 +63,4 @@ Business → Technical → Scrum/Product Backlog → Sprint → Code → Code Re
 
 ## Next step
 
-Define and approve **Phase 1 Technical Architecture**, then convert it into the engineering backlog and Sprint 0 foundation.
+Build the **Engineering Backlog + Sprint 0 / Foundation plan** from the accepted Product/UX and Technical Architecture.
