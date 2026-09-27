@@ -2,6 +2,10 @@
 
 Status: **READY FOR IMPLEMENTATION**
 
+## Mobile application scope update
+
+The product owner confirmed an independent Negarin mobile application in addition to the responsive website. The initial mobile roles, workflows, Android/iOS release order, and distribution must be specified in Product/UX and Sprint planning. Mobile uses the same backend rules and authorization as web; responsive layouts alone do not settle native screen scope. See ADR-0007.
+
 ## Locked product rules
 
 ### Artist
