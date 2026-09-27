@@ -6,7 +6,7 @@ export interface OtpTransport {
 }
 
 export class IdentityError extends Error {
-  constructor(readonly code: "invalid-phone" | "rate-limited" | "invalid-code") {
+  constructor(readonly code: "invalid-phone" | "rate-limited" | "invalid-code" | "delivery-failed") {
     super(code);
   }
 }
@@ -68,11 +68,20 @@ export class IdentityCore {
       } else {
         await tx.otpChallenge.create({ data: { id, phone, ...fields } });
       }
-      return "issued" as const;
+      return { id, codeHash: fields.codeHash };
     }, { isolationLevel: "Serializable" }));
 
     if (result === "rate-limited") throw new IdentityError("rate-limited");
-    await this.transport.send(phone, code);
+    try {
+      await this.transport.send(phone, code);
+    } catch {
+      // A provider can fail after accepting a message. Invalidate this code even if it arrives later.
+      await this.database.otpChallenge.updateMany({
+        where: { id: result.id, codeHash: result.codeHash, consumedAt: null },
+        data: { consumedAt: now }
+      });
+      throw new IdentityError("delivery-failed");
+    }
   }
 
   async verifyCode(phone: string, code: string, now = new Date()): Promise<{ userId: string; sessionToken: string }> {
