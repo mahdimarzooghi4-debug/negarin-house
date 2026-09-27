@@ -131,6 +131,7 @@ Translate the Figma design system into reusable production components and role-a
 - RTL/LTR shells
 - Artist mobile bottom navigation
 - locale message architecture
+- mobile app foundation: React Native/TypeScript, shared API contracts, role-aware navigation, secure session storage, RTL/LTR behavior, and independent build/test gates (ADR-0007)
 
 ### Acceptance
 - Persian desktop organization portals use canonical RTL shell
@@ -141,6 +142,7 @@ Translate the Figma design system into reusable production components and role-a
 - Artist domestic money displays as Toman
 - shared UI does not grant business permissions
 - critical components pass accessibility baseline
+- mobile release roles and workflows are approved in Product/UX before screen implementation; no mobile-only authorization or financial calculations
 
 Dependency: E0
 
