@@ -77,13 +77,13 @@ Default local endpoints:
 - API readiness: `http://localhost:4000/api/v1/ready`
 - OpenAPI UI in development/stage: `http://localhost:4000/docs`
 
-The non-production foundation queue smoke endpoint is:
+The development/test foundation queue smoke endpoint is:
 
 ```text
 POST /api/v1/foundation/jobs
 ```
 
-It is intentionally unavailable in Production and is not a product API.
+It is intentionally unavailable in Stage and Production and is not a product API.
 
 ## Security rule
 
