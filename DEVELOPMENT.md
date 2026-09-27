@@ -1,6 +1,6 @@
 # Development Setup
 
-Sprint 0 foundation is still in progress. These steps describe the intended local baseline and will be verified before Issue #5 is closed.
+Sprint 0 foundation is tracked in Issue #5. This document describes the reproducible local baseline.
 
 ## Requirements
 
@@ -8,53 +8,83 @@ Sprint 0 foundation is still in progress. These steps describe the intended loca
 - pnpm 12.7.x
 - Docker with Compose
 
-## Local infrastructure
+## Bootstrap
 
-Copy the example environment:
+Copy the environment:
 
 ```bash
 cp .env.example .env
 ```
 
-Start PostgreSQL and Redis:
+Start PostgreSQL, Redis, and local S3-compatible storage:
 
 ```bash
 docker compose up -d
 ```
 
-## Install
+MinIO endpoints:
+
+- S3 API: `http://localhost:9000`
+- Local console: `http://localhost:9001`
+
+Create the local bucket `negarin-local` once through the MinIO console before exercising real uploads.
+
+Install exactly from the committed lockfile:
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 ```
 
-The repository will switch to a frozen-lockfile install after `pnpm-lock.yaml` is generated and committed.
-
-## Foundation commands
+## Database
 
 ```bash
 pnpm db:generate
 pnpm db:validate
+pnpm db:migrate:deploy
+```
+
+To reset a disposable development/test database:
+
+```bash
+pnpm db:migrate:reset:ci
+```
+
+Never run the reset command against Stage or Production.
+
+## Quality
+
+```bash
 pnpm lint
 pnpm typecheck
 pnpm test
 pnpm build
+pnpm test:e2e
 ```
 
-Run all applications in development:
+The API integration test requires PostgreSQL and Redis. The storage package validates signed S3-compatible URLs without requiring a network call.
+
+## Run applications
 
 ```bash
 pnpm dev
 ```
 
-Default local ports:
+Default local endpoints:
 
 - Web: `http://localhost:3000`
 - API: `http://localhost:4000`
 - API health: `http://localhost:4000/api/v1/health`
 - API readiness: `http://localhost:4000/api/v1/ready`
-- OpenAPI UI in non-production: `http://localhost:4000/docs`
+- OpenAPI UI in development/stage: `http://localhost:4000/docs`
 
-## Product rule
+The development/test foundation queue smoke endpoint is:
 
-Route visibility is never authorization. The route placeholders created in Sprint 0 are not security boundaries; authorization is implemented server-side under Epic E1.
+```text
+POST /api/v1/foundation/jobs
+```
+
+It is intentionally unavailable in Stage and Production and is not a product API.
+
+## Security rule
+
+Route visibility is never authorization. Portal placeholders are not security boundaries; server-side authorization is implemented under Epic E1.

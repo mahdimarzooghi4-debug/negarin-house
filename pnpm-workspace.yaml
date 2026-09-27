@@ -6,5 +6,6 @@ allowBuilds:
   "@prisma/engines": true
   prisma: true
   esbuild: true
+  protobufjs: true
   "@scarf/scarf": false
   msgpackr-extract: false

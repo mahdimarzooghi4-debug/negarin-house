@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "@negarin/config": "workspace:*",
-    "bullmq": "6.3.9",
+    "@negarin/observability": "workspace:*",
+    "@negarin/queue": "workspace:*",
     "dotenv": "18.0.4"
   },
   "devDependencies": {
