@@ -23,6 +23,7 @@ model IdentityUser {
   phone     String        @unique
   createdAt DateTime      @default(now())
   sessions  AuthSession[]
+  roleGrants RoleGrant[]
 
   @@map("identity_users")
 }
@@ -50,8 +51,44 @@ model AuthSession {
   tokenHash String       @unique
   expiresAt DateTime
   revokedAt DateTime?
+  activeGrantId String?    @db.Uuid
   createdAt DateTime     @default(now())
 
   @@index([userId])
   @@map("auth_sessions")
+}
+
+enum IdentityRole {
+  customer
+  artist
+  staff
+  service_partner
+  supporting_organization
+  corporate_buyer
+  export_partner
+}
+
+model RoleGrant {
+  id              String       @id @default(uuid()) @db.Uuid
+  userId          String       @db.Uuid
+  user            IdentityUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role            IdentityRole
+  organizationId  String?      @db.Uuid
+  exportPartnerId String?      @db.Uuid
+  revokedAt       DateTime?
+  createdAt       DateTime     @default(now())
+  staffDomains    StaffDomainGrant[]
+
+  @@index([userId, revokedAt])
+  @@map("role_grants")
+}
+
+model StaffDomainGrant {
+  id        String    @id @default(uuid()) @db.Uuid
+  roleGrantId String  @db.Uuid
+  roleGrant RoleGrant @relation(fields: [roleGrantId], references: [id], onDelete: Cascade)
+  domain    String
+
+  @@unique([roleGrantId, domain])
+  @@map("staff_domain_grants")
 }

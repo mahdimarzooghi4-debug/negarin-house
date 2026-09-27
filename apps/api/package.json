@@ -17,6 +17,7 @@
     "prisma:migrate:reset:ci": "prisma migrate reset --force"
   },
   "dependencies": {
+    "@negarin/authz": "workspace:*",
     "@negarin/config": "workspace:*",
     "@negarin/contracts": "workspace:*",
     "@negarin/observability": "workspace:*",
