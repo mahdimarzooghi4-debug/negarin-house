@@ -33,6 +33,7 @@ Use a TypeScript monorepo:
 ```text
 apps/
   web/          Next.js web application
+  mobile/       React Native mobile application (planned; not scaffolded in Sprint 0)
   api/          NestJS API application
   worker/       background jobs / async processing
 
@@ -49,7 +50,7 @@ packages/
 
 ### Frontend
 
-**Next.js + React + TypeScript**, web-first and responsive.
+**Next.js + React + TypeScript** for the responsive web application; **React Native + TypeScript** for the independent mobile application (ADR-0007).
 
 One web application serves the current Phase 1 surfaces with route groups and role-aware navigation:
 
@@ -63,7 +64,7 @@ One web application serves the current Phase 1 surfaces with route groups and ro
 
 The UI may render different shells by role/locale, but authorization is never delegated to the UI.
 
-Native iOS/Android applications are not required by the current Product/UX source. The web application should remain PWA-capable without making offline behavior a Phase 1 requirement.
+The product owner confirmed a mobile application. Its first-release roles, workflows, platform order, and distribution remain Product/UX and Sprint decisions. The web application remains responsive; a PWA does not replace the mobile requirement. Both clients use the same API and server-side authorization. No mobile build was delivered in Sprint 0.
 
 ### Backend
 
@@ -132,6 +133,7 @@ The database stores metadata and object references, not binary file contents.
 ```mermaid
 flowchart LR
     Browser[Web / Mobile Browser]
+    Mobile[Native Mobile App]
     Web[Next.js Web]
     API[NestJS API]
     Worker[Worker]
@@ -144,6 +146,7 @@ flowchart LR
 
     Browser --> Web
     Web --> API
+    Mobile --> API
     API --> PG
     API --> Redis
     API --> Obj

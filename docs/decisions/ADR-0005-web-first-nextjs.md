@@ -1,6 +1,6 @@
 # ADR-0005 — Web-First Responsive Application
 
-- Status: Accepted
+- Status: Superseded by ADR-0007 for mobile application scope
 - Date: 2026-09-27
 
 ## Context
