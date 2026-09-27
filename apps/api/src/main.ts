@@ -1,6 +1,7 @@
 import "dotenv/config";
 import "reflect-metadata";
 import { randomUUID } from "node:crypto";
+import type { IncomingMessage } from "node:http";
 import { NestFactory } from "@nestjs/core";
 import { FastifyAdapter, type NestFastifyApplication } from "@nestjs/platform-fastify";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
@@ -12,7 +13,7 @@ async function bootstrap(): Promise<void> {
   const config = loadConfig();
 
   const adapter = new FastifyAdapter({
-    genReqId: (request) => {
+    genReqId: (request: IncomingMessage) => {
       const incoming = request.headers["x-request-id"];
       return typeof incoming === "string" && incoming.length > 0 ? incoming : randomUUID();
     }
