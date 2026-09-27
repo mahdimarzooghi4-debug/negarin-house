@@ -1,0 +1,22 @@
+{
+  "name": "@negarin/worker",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/main.js",
+    "lint": "eslint src",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@negarin/config": "workspace:*",
+    "bullmq": "6.3.9",
+    "dotenv": "18.0.4"
+  },
+  "devDependencies": {
+    "tsx": "4.23.15"
+  }
+}
