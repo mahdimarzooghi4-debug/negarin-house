@@ -40,6 +40,10 @@ Grant provisioning has no public API. Organization/Partner registries and their 
 
 The next E1-S3 slice wires a reusable Nest guard to bearer sessions and the live active context resolver. Missing, expired, or revoked credentials return 401. After a service loads a resource from its own trusted query, policy decisions map forbidden access to 403 and concealed cross-owner resources to 404. HTTP integration tests exercise both responses and live grant/permission revocation. The test resource controller is not registered in the product API; product data endpoints and browser cookie/CSRF handling remain separate delivery work.
 
+## Context HTTP contract
+
+Authenticated clients can list only their own active role grants, select a grant by ID, and read the resulting server-derived context using a bearer session. The list is available before a grant is selected; the context read requires an active grant. Responses use `no-store`. The API rechecks session expiry/revocation and grant ownership on selection and reads; another user's grant never becomes an active context. This contract supports a future mobile client, but no public OTP endpoint, SMS provider, browser cookie, or mobile secure storage is enabled yet. The HTTP tests create sessions through the internal test transport only.
+
 ## Sprint completion gate
 
 Sprint 1 remains open until identity/session, membership resolution, API enforcement, web shell, and relevant CI and Stage QA evidence are complete. Passing this first policy slice alone does not close E1, E2, or Sprint 1.
