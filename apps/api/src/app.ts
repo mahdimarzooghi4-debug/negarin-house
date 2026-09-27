@@ -33,7 +33,7 @@ export async function createApplication(): Promise<NestFastifyApplication> {
 
   const document = SwaggerModule.createDocument(app, openApiConfig);
 
-  if (config.NODE_ENV !== "production") {
+  if (config.NODE_ENV === "development" || config.NODE_ENV === "stage") {
     SwaggerModule.setup("docs", app, document);
   }
 
