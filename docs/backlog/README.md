@@ -12,6 +12,22 @@ All backlog items must reference the relevant product rule, architecture decisio
 - [Sprint 0 — Foundation](./sprint-0-foundation.md)
 - [Product → Engineering Traceability](./phase-1-traceability.md)
 
+## GitHub Epic issues
+
+- #5 — E0 Platform Foundation / Sprint 0
+- #6 — E1 Identity, Authentication & Authorization
+- #7 — E2 Shared UI, Localization & Application Shells
+- #8 — E3 Artist & Product Lifecycle
+- #9 — E4 Customer Commerce & Standard Artist Fulfillment
+- #10 — E5 Artist Finance, Settlement & Growth
+- #11 — E6 Service Partner Execution
+- #12 — E7 Supporting Organization
+- #13 — E8 Corporate Buyer & Multi-Artist Procurement
+- #14 — E9 Export Network & Protected International Transaction
+- #15 — E10 Admin Operations
+- #16 — E11 Reporting, Notifications & Cross-Portal Read Models
+- #17 — E12 End-to-End Hardening & Release
+
 ## Delivery order
 
 1. Sprint 0 / Foundation
