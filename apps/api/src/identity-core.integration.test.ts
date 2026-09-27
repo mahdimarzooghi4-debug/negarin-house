@@ -44,4 +44,26 @@ describe("identity persistence", () => {
     await expect(identity.verifyCode(number, actualCode, new Date(start.getTime() + 3000))).rejects.toMatchObject({ code: "invalid-code" });
     expect(await database.authSession.count({ where: { user: { phone: number } } })).toBe(0);
   });
+
+  it("invalidates an ambiguous code after delivery failure and permits a later retry", async () => {
+    const number = phone();
+    let undeliveredCode = "";
+    const failing = new IdentityCore(database, {
+      async send(_phone, code) {
+        undeliveredCode = code;
+        throw new Error("provider unavailable: sensitive diagnostic");
+      }
+    }, "test-secret-with-at-least-thirty-two-characters");
+
+    await expect(failing.requestCode(number, start)).rejects.toMatchObject({ code: "delivery-failed" });
+    const challenge = await database.otpChallenge.findUniqueOrThrow({ where: { phone: number } });
+    expect(challenge.consumedAt).not.toBeNull();
+    await expect(identity.verifyCode(number, undeliveredCode, new Date(start.getTime() + 1000)))
+      .rejects.toMatchObject({ code: "invalid-code" });
+    await expect(identity.requestCode(number, new Date(start.getTime() + 1000)))
+      .rejects.toMatchObject({ code: "rate-limited" });
+    await identity.requestCode(number, new Date(start.getTime() + 61_000));
+    const freshCode = sent.at(-1)?.code ?? "";
+    expect((await identity.verifyCode(number, freshCode, new Date(start.getTime() + 62_000))).sessionToken).toBeTruthy();
+  });
 });
