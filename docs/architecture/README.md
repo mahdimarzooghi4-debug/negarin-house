@@ -16,14 +16,16 @@ Phase 1 Technical Architecture is now defined and ready to drive the engineering
 - [ADR-0002 — TypeScript Monorepo](../decisions/ADR-0002-typescript-monorepo.md)
 - [ADR-0003 — Modular Monolith First](../decisions/ADR-0003-modular-monolith-first.md)
 - [ADR-0004 — PostgreSQL + Prisma](../decisions/ADR-0004-postgresql-and-prisma.md)
-- [ADR-0005 — Web-First Next.js](../decisions/ADR-0005-web-first-nextjs.md)
+- [ADR-0005 — Web-First Next.js (mobile scope superseded)](../decisions/ADR-0005-web-first-nextjs.md)
 - [ADR-0006 — Policy-Based Authorization](../decisions/ADR-0006-policy-based-authorization.md)
+- [ADR-0007 — Negarin Mobile Application](../decisions/ADR-0007-native-mobile-client.md)
 
 ## Implementation baseline
 
 - TypeScript monorepo
 - pnpm + Turborepo
 - Next.js web app
+- React Native mobile app (planned after Sprint 0)
 - NestJS modular-monolith API
 - worker process for async jobs
 - PostgreSQL + Prisma
