@@ -43,3 +43,60 @@ export type Policy<Resource, Action extends string> = (
 export function denyByDefault(): AuthorizationDecision {
   return { allowed: false, reason: "forbidden" };
 }
+
+const allow: AuthorizationDecision = { allowed: true };
+const conceal: AuthorizationDecision = { allowed: false, reason: "not-found" };
+
+/** Inputs are resolved from a trusted session and server-side resource query. */
+export function canEditArtistProduct(
+  context: AuthorizationContext,
+  product: Readonly<{ artistUserId: string }>
+): AuthorizationDecision {
+  if (context.activeRole !== "artist") return denyByDefault();
+  return context.userId === product.artistUserId ? allow : conceal;
+}
+
+export function canReadCorporateOrder(
+  context: AuthorizationContext,
+  order: Readonly<{ buyerOrganizationId: string }>
+): AuthorizationDecision {
+  if (context.activeRole !== "corporate-buyer") return denyByDefault();
+  return context.organizationId === order.buyerOrganizationId ? allow : conceal;
+}
+
+export function canReadServiceRequest(
+  context: AuthorizationContext,
+  request: Readonly<{
+    assignedPartnerOrganizationId: string | null;
+    assignedPartnerUserId?: string | null;
+  }>
+): AuthorizationDecision {
+  if (context.activeRole !== "service-partner") return denyByDefault();
+  return context.organizationId &&
+    context.organizationId === request.assignedPartnerOrganizationId &&
+    (!request.assignedPartnerUserId || context.userId === request.assignedPartnerUserId)
+    ? allow
+    : conceal;
+}
+
+export function canReadArtistDomesticFinance(
+  context: AuthorizationContext,
+  finance: Readonly<{ artistUserId: string }>
+): AuthorizationDecision {
+  if (context.activeRole === "artist") {
+    return context.userId === finance.artistUserId ? allow : conceal;
+  }
+  if (context.activeRole === "staff") {
+    return context.staffPermissionDomains?.includes("finance") ? allow : denyByDefault();
+  }
+  return denyByDefault();
+}
+
+export function canAccessStaffDomain(
+  context: AuthorizationContext,
+  domain: StaffPermissionDomain
+): AuthorizationDecision {
+  return context.activeRole === "staff" && context.staffPermissionDomains?.includes(domain)
+    ? allow
+    : denyByDefault();
+}
