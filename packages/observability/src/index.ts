@@ -26,7 +26,8 @@ export interface AuditSink {
 
 export class JsonConsoleAuditSink implements AuditSink {
   async write(event: AuditEvent): Promise<void> {
-    console.info(JSON.stringify({ type: "audit", ...redactLogPayload(event) }));
+    const redacted = redactLogPayload(event) as Record<string, unknown>;
+    console.info(JSON.stringify({ type: "audit", ...redacted }));
   }
 }
 
