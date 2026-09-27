@@ -45,6 +45,7 @@ jobs:
       S3_BUCKET: negarin-test
       S3_ACCESS_KEY_ID: negarin
       S3_SECRET_ACCESS_KEY: negarin-test-secret
+      OTEL_SDK_DISABLED: "true"
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4

@@ -1,5 +1,10 @@
 import { describe, expect, it, vi } from "vitest";
-import { JsonConsoleAuditSink, NoopErrorTracker, redactLogPayload } from "./index.js";
+import {
+  JsonConsoleAuditSink,
+  NoopErrorTracker,
+  redactLogPayload,
+  startNodeTelemetry
+} from "./index.js";
 
 describe("observability foundation", () => {
   it("redacts common secret and financial fields", () => {
@@ -31,5 +36,10 @@ describe("observability foundation", () => {
 
   it("provides a safe no-op error tracker boundary", () => {
     expect(() => new NoopErrorTracker().capture(new Error("sample"))).not.toThrow();
+  });
+
+  it("keeps telemetry disabled in tests", async () => {
+    const telemetry = await startNodeTelemetry("negarin-test");
+    await expect(telemetry.shutdown()).resolves.toBeUndefined();
   });
 });

@@ -1,8 +1,10 @@
 import "dotenv/config";
 import { loadConfig } from "@negarin/config";
+import { startNodeTelemetry } from "@negarin/observability";
 import { createFoundationWorker, FOUNDATION_QUEUE } from "@negarin/queue";
 
 const config = loadConfig();
+const telemetry = await startNodeTelemetry("negarin-worker");
 const worker = createFoundationWorker(config.REDIS_URL);
 
 worker.on("completed", (job) => {
@@ -26,6 +28,7 @@ worker.on("error", (error) => {
 
 async function shutdown(): Promise<void> {
   await worker.close();
+  await telemetry.shutdown();
   process.exit(0);
 }
 

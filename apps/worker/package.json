@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@negarin/config": "workspace:*",
+    "@negarin/observability": "workspace:*",
     "@negarin/queue": "workspace:*",
     "dotenv": "18.0.4"
   },
