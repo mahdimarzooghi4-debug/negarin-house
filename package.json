@@ -1,0 +1,26 @@
+{
+  "name": "negarin-house",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@12.5.1",
+  "engines": { "node": ">=22.18.0" },
+  "scripts": {
+    "dev": "turbo dev --parallel",
+    "build": "turbo build",
+    "lint": "eslint .",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test",
+    "test:e2e": "playwright test",
+    "db:generate": "pnpm --filter @negarin/api prisma:generate",
+    "db:validate": "pnpm --filter @negarin/api prisma:validate"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.20.4",
+    "eslint": "10.11.0",
+    "turbo": "2.11.2",
+    "typescript": "7.0.2",
+    "typescript-eslint": "8.70.0",
+    "vitest": "5.0.1"
+  }
+}
