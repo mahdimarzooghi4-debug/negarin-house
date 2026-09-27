@@ -8,7 +8,7 @@ export class FoundationController {
   async enqueueFoundationJob() {
     const config = loadConfig();
 
-    if (config.NODE_ENV === "production") {
+    if (config.NODE_ENV !== "development" && config.NODE_ENV !== "test") {
       throw new NotFoundException();
     }
 
