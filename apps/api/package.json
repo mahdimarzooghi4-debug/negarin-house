@@ -1,0 +1,37 @@
+{
+  "name": "@negarin/api",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm prisma:generate && tsx watch src/main.ts",
+    "build": "pnpm prisma:generate && tsc -p tsconfig.json",
+    "start": "node dist/main.js",
+    "lint": "eslint src prisma.config.ts",
+    "typecheck": "pnpm prisma:generate && tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "prisma:generate": "prisma generate",
+    "prisma:validate": "prisma validate",
+    "prisma:migrate": "prisma migrate dev"
+  },
+  "dependencies": {
+    "@negarin/config": "workspace:*",
+    "@negarin/contracts": "workspace:*",
+    "@negarin/observability": "workspace:*",
+    "@nestjs/common": "12.1.0",
+    "@nestjs/core": "12.1.0",
+    "@nestjs/platform-fastify": "12.1.0",
+    "@nestjs/swagger": "12.0.2",
+    "@prisma/adapter-pg": "7.10.0",
+    "@prisma/client": "7.10.0",
+    "dotenv": "18.0.4",
+    "pg": "8.23.0",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "prisma": "7.10.0",
+    "tsx": "4.23.15",
+    "@types/node": "22.20.4"
+  }
+}

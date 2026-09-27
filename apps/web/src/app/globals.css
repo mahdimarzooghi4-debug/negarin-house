@@ -1,0 +1,39 @@
+:root {
+  color-scheme: light;
+  --negarin-navy: #0f172a;
+  --negarin-canvas: #f8fafc;
+  --negarin-surface: #ffffff;
+  --negarin-border: #e2e8f0;
+  --negarin-text: #0f172a;
+  --negarin-muted: #64748b;
+  --negarin-info: #0ea5e9;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--negarin-canvas);
+  color: var(--negarin-text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body { min-height: 100vh; }
+
+a { color: inherit; }
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.panel {
+  background: var(--negarin-surface);
+  border: 1px solid var(--negarin-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.muted { color: var(--negarin-muted); }
