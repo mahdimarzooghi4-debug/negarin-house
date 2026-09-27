@@ -32,9 +32,11 @@ describe("API integration", () => {
   });
 
   afterAll(async () => {
-    await app.close();
-    await worker.close();
-  });
+    await Promise.all([
+      app.close(),
+      worker.close(true)
+    ]);
+  }, 10_000);
 
   it("serves health through the real HTTP adapter", async () => {
     const response = await app.inject({
