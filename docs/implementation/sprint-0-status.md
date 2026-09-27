@@ -4,7 +4,7 @@ Parent: #5 — Platform Foundation / Sprint 0
 
 Branch: `feat/sprint-0-hardening`
 
-Status: **HARDENING IN PROGRESS**
+Status: **PR #20 READY FOR MERGE — CI GREEN, REVIEW COMPLETE**
 
 ## Implemented in code
 
@@ -31,10 +31,14 @@ Status: **HARDENING IN PROGRESS**
 ## Still required before Sprint 0 can close
 
 - [x] regenerate lockfile after telemetry dependency changes
-- [ ] make hardening PR CI fully green
-- [ ] verify clean bootstrap through CI evidence
+- [x] make hardening PR CI fully green — CI run #30, commit `b38fc9c64dc70988166015ba0422ee7d26602c49`
+- [x] verify clean bootstrap through CI evidence — frozen install, Prisma generate/validate/reset/deploy succeeded in run #30
 - [x] remove temporary lockfile bootstrap workflow before merge
-- [ ] final PR review for architecture/product-rule regressions
+- [x] final PR review for architecture/product-rule regressions — no product formulas or payment routing added; foundation job endpoint restricted to development/test
+
+## CI evidence
+
+GitHub Actions CI run #30 completed successfully on `b38fc9c64dc70988166015ba0422ee7d26602c49`: frozen install, Prisma generate/validate/reset/deploy, production dependency audit, lint, typecheck, unit/integration tests, build, Chromium install, and Playwright E2E all passed. This is PR evidence; Stage deployment and Release Approval remain separate steps.
 
 ## Product safety
 
