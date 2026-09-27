@@ -33,8 +33,8 @@ describe("API integration", () => {
 
   afterAll(async () => {
     await Promise.all([
-      app.close(),
-      worker.close(true)
+      app?.close(),
+      worker?.close(true)
     ]);
   }, 10_000);
 
