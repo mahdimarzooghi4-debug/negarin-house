@@ -5,7 +5,7 @@ Sprint 0 foundation is still in progress. These steps describe the intended loca
 ## Requirements
 
 - Node.js 22.x
-- pnpm 12.x
+- pnpm 12.7.x
 - Docker with Compose
 
 ## Local infrastructure
