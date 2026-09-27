@@ -24,6 +24,12 @@ Create real server-derived identity, session, and authorization foundations, the
 - Policies do not imply that authentication, database-scoped queries, or HTTP enforcement is complete.
 - No direct Corporate/Export Partner → Artist payment command or unresolved financial formula is introduced.
 
+## Identity core progress
+
+The next E1-S1 slice adds database records for identity users, one-time challenges, and revocable sessions. The API core hashes OTP values with a server secret and challenge ID, hashes random session tokens at rest, enforces challenge expiry and attempt/request limits, consumes an OTP once, and resolves/revokes sessions. The SMS delivery dependency is an interface. The implementation is exercised against PostgreSQL in CI.
+
+No OTP transport, secret provisioning, browser cookie, mobile secure storage, HTTP rate limiter, membership resolver, or public login endpoint is wired by this slice. The server must supply a high-entropy secret from its secret store; the code does not ship a default. Before enabling login, add transport failure handling, IP/device throttling, secure cookie and CSRF rules for web, mobile token handling, and end-to-end HTTP tests. Product-facing authentication is not yet complete.
+
 ## Sprint completion gate
 
 Sprint 1 remains open until identity/session, membership resolution, API enforcement, web shell, and relevant CI and Stage QA evidence are complete. Passing this first policy slice alone does not close E1, E2, or Sprint 1.
