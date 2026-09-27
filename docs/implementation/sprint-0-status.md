@@ -30,10 +30,10 @@ Status: **HARDENING IN PROGRESS**
 
 ## Still required before Sprint 0 can close
 
-- [ ] regenerate lockfile after telemetry dependency changes
+- [x] regenerate lockfile after telemetry dependency changes
 - [ ] make hardening PR CI fully green
 - [ ] verify clean bootstrap through CI evidence
-- [ ] remove temporary lockfile bootstrap workflow before merge
+- [x] remove temporary lockfile bootstrap workflow before merge
 - [ ] final PR review for architecture/product-rule regressions
 
 ## Product safety
