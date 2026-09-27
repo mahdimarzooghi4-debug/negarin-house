@@ -75,7 +75,7 @@ Default local endpoints:
 - API: `http://localhost:4000`
 - API health: `http://localhost:4000/api/v1/health`
 - API readiness: `http://localhost:4000/api/v1/ready`
-- OpenAPI UI in non-production: `http://localhost:4000/docs`
+- OpenAPI UI in development/stage: `http://localhost:4000/docs`
 
 The non-production foundation queue smoke endpoint is:
 
