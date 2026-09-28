@@ -48,6 +48,10 @@ Authenticated clients can list only their own active role grants, select a grant
 
 If an OTP provider rejects delivery, the core invalidates that challenge's code before returning a generic delivery error. A code that arrives late after an ambiguous provider failure cannot create a session. The existing resend interval and hourly request cap still apply; a subsequent successful request issues a new code. PostgreSQL integration tests cover this recovery. Provider selection, IP/device throttling, HTTP entry points, and browser/mobile credential storage remain open.
 
+## Shared web shell progress
+
+The web portal routes now share a responsive sidebar and role-specific menu definitions. Desktop panels use the same Negarin navy sidebar palette; RTL domestic portals and the LTR Export Partner shell share the component. Authentication and customer routes remain outside the staff sidebar. Content is an explicit unconnected empty state, and the routes do not claim to authenticate or authorize users. No sample customer, product, order, or financial data is shown. OTP transport, payment provider, and hosted server are not available, so this slice does not turn login, payment, or deployment on.
+
 ## Sprint completion gate
 
 Sprint 1 remains open until identity/session, membership resolution, API enforcement, web shell, and relevant CI and Stage QA evidence are complete. Passing this first policy slice alone does not close E1, E2, or Sprint 1.

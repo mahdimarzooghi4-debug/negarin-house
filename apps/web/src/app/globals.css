@@ -1,6 +1,9 @@
 :root {
   color-scheme: light;
   --negarin-navy: #0f172a;
+  --negarin-sidebar-active: #1e293b;
+  --negarin-sidebar-muted: #9ca3af;
+  --negarin-accent: #07a7b2;
   --negarin-canvas: #f8fafc;
   --negarin-surface: #ffffff;
   --negarin-border: #e2e8f0;
@@ -37,3 +40,198 @@ main {
 }
 
 .muted { color: var(--negarin-muted); }
+
+.portal-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--negarin-canvas);
+}
+
+.portal-sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex: 0 0 272px;
+  flex-direction: column;
+  width: 272px;
+  height: 100vh;
+  min-height: 640px;
+  padding: 24px 16px 18px;
+  overflow-y: auto;
+  background: var(--negarin-navy);
+  color: #fff;
+}
+
+.portal-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 4px 8px 20px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-mark,
+.user-avatar {
+  display: grid;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--negarin-accent);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.brand-copy,
+.portal-sidebar-footer > span:last-child {
+  display: grid;
+  gap: 4px;
+}
+
+.brand-copy strong,
+.portal-sidebar-footer strong { font-size: 15px; }
+.brand-copy small,
+.portal-sidebar-footer small { color: var(--negarin-sidebar-muted); font-size: 11px; }
+
+.portal-navigation {
+  display: grid;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.portal-nav-item {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+  border-radius: 10px;
+  color: var(--negarin-sidebar-muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.portal-nav-item.is-active {
+  background: var(--negarin-sidebar-active);
+  color: var(--negarin-accent);
+  font-weight: 700;
+}
+
+.nav-marker {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+}
+
+.portal-nav-item.is-active .nav-marker {
+  border-color: currentColor;
+  background: currentColor;
+}
+
+.portal-sidebar-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 12px 8px 0;
+}
+
+.user-avatar {
+  flex-basis: 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #263449;
+  color: var(--negarin-sidebar-muted);
+  font-size: 16px;
+}
+
+.portal-main {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  flex: 1;
+  margin: 0;
+  padding: 36px clamp(20px, 4vw, 64px);
+}
+
+.portal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto 28px;
+  max-width: 1200px;
+}
+
+.portal-header h1,
+.public-shell h1 { margin: 0; font-size: clamp(26px, 3vw, 36px); }
+.portal-description { margin: 8px 0 0; color: var(--negarin-muted); }
+.eyebrow { margin: 0 0 8px; color: var(--negarin-accent); font-size: 12px; font-weight: 700; }
+
+.connection-badge {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  background: #fff;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.portal-content-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 48px);
+  border: 1px solid var(--negarin-border);
+  border-radius: 16px;
+  background: var(--negarin-surface);
+  box-shadow: 0 8px 24px rgb(15 23 42 / 4%);
+}
+
+.portal-content-card h2 { margin: 18px 0 8px; font-size: 22px; }
+.portal-content-card p { max-width: 680px; line-height: 1.8; }
+.empty-state-mark { color: var(--negarin-accent); font-size: 30px; font-weight: 800; }
+
+.connection-notice {
+  margin-top: 28px;
+  padding: 16px;
+  border: 1px solid var(--negarin-border);
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #475569;
+  line-height: 1.8;
+}
+
+.public-shell { min-height: 100vh; max-width: 900px; padding-top: 12vh; }
+
+@media (max-width: 760px) {
+  .portal-layout { flex-direction: column; }
+  .portal-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    flex-basis: auto;
+    padding: 12px 16px;
+  }
+  .portal-brand { min-height: 44px; padding: 0 4px 10px; }
+  .brand-mark { width: 36px; height: 36px; flex-basis: 36px; }
+  .portal-navigation {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .portal-nav-item { min-height: 38px; flex: 0 0 auto; white-space: nowrap; }
+  .portal-sidebar-footer { display: none; }
+  .portal-main { padding: 24px 16px 40px; }
+  .portal-header { flex-direction: column; gap: 14px; margin-bottom: 20px; }
+}
