@@ -50,7 +50,7 @@ If an OTP provider rejects delivery, the core invalidates that challenge's code 
 
 ## Shared web shell progress
 
-The web portal routes now share a responsive sidebar and role-specific menu definitions. Desktop panels use the same Negarin navy sidebar palette; RTL domestic portals and the LTR Export Partner shell share the component. Authentication and customer routes remain outside the staff sidebar. Content is an explicit unconnected empty state, and the routes do not claim to authenticate or authorize users. No sample customer, product, order, or financial data is shown. OTP transport, payment provider, and hosted server are not available, so this slice does not turn login, payment, or deployment on.
+The web portal routes share a responsive sidebar and role-specific menu definitions. The shared shell follows the approved Figma palette: light teal sidebar (`#EAF6F3`), soft teal active state (`#D3EDE8`), dark teal active content (`#0B6963`), and the Negarin PNG logo in a white frame. RTL domestic portals and the LTR Export Partner shell use the same component. Export Partner shell copy and its seven navigation labels are available at locale routes for `tr-TR`, `ar`, `ru`, `en`, `zh-CN`, `fr`, and `es`; Arabic is RTL. Full feature-page content localization remains part of the corresponding portal stories. Authentication and customer routes remain outside the staff sidebar. Content is an explicit unconnected empty state; the routes do not claim to authenticate or authorize users, and no sample customer, product, order, or financial data is shown. OTP transport, payment provider, and hosted server are not available, so this slice does not turn login, payment, or deployment on.
 
 ## Sprint completion gate
 

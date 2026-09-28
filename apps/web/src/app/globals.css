@@ -1,9 +1,11 @@
 :root {
   color-scheme: light;
   --negarin-navy: #0f172a;
-  --negarin-sidebar-active: #1e293b;
-  --negarin-sidebar-muted: #9ca3af;
-  --negarin-accent: #07a7b2;
+  --negarin-sidebar-background: #eaf6f3;
+  --negarin-sidebar-active: #d3ede8;
+  --negarin-sidebar-muted: #405654;
+  --negarin-sidebar-active-content: #0b6963;
+  --negarin-accent: #0c7570;
   --negarin-canvas: #f8fafc;
   --negarin-surface: #ffffff;
   --negarin-border: #e2e8f0;
@@ -58,8 +60,9 @@ main {
   min-height: 640px;
   padding: 24px 16px 18px;
   overflow-y: auto;
-  background: var(--negarin-navy);
-  color: #fff;
+  background: var(--negarin-sidebar-background);
+  color: var(--negarin-text);
+  border-inline-end: 1px solid var(--negarin-border);
 }
 
 .portal-brand {
@@ -84,6 +87,17 @@ main {
   color: #fff;
   font-size: 20px;
   font-weight: 800;
+}
+
+.brand-logo {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  padding: 4px;
+  border: 1px solid var(--negarin-border);
+  border-radius: 10px;
+  background: #fff;
+  object-fit: contain;
 }
 
 .brand-copy,
@@ -117,7 +131,7 @@ main {
 
 .portal-nav-item.is-active {
   background: var(--negarin-sidebar-active);
-  color: var(--negarin-accent);
+  color: var(--negarin-sidebar-active-content);
   font-weight: 700;
 }
 
@@ -147,8 +161,8 @@ main {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #263449;
-  color: var(--negarin-sidebar-muted);
+  background: #e2e8f0;
+  color: var(--negarin-text);
   font-size: 16px;
 }
 
@@ -223,6 +237,7 @@ main {
   }
   .portal-brand { min-height: 44px; padding: 0 4px 10px; }
   .brand-mark { width: 36px; height: 36px; flex-basis: 36px; }
+  .brand-logo { width: 36px; height: 36px; flex-basis: 36px; }
   .portal-navigation {
     display: flex;
     gap: 6px;
