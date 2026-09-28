@@ -209,9 +209,7 @@ main {
   box-shadow: 0 8px 24px rgb(15 23 42 / 4%);
 }
 
-.portal-content-card h2 { margin: 18px 0 8px; font-size: 22px; }
 .portal-content-card p { max-width: 680px; line-height: 1.8; }
-.empty-state-mark { color: var(--negarin-accent); font-size: 30px; font-weight: 800; }
 
 .connection-notice {
   margin-top: 28px;
