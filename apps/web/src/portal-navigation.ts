@@ -1,4 +1,6 @@
 import type { PortalKey } from "./portal-registry";
+import type { PartnerLocale } from "@negarin/i18n";
+import { getPartnerMessages } from "./partner-localization";
 
 export type PortalNavigationItem = { label: string; active?: boolean };
 
@@ -52,18 +54,12 @@ const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
     { label: "ارسال و تحویل" },
     { label: "گزارش‌ها" },
     { label: "حساب و دسترسی‌ها" }
-  ],
-  partner: [
-    { label: "Dashboard", active: true },
-    { label: "Artist network" },
-    { label: "Export products" },
-    { label: "Orders" },
-    { label: "Delivery" },
-    { label: "Reports" },
-    { label: "Account" }
   ]
 };
 
-export function getPortalNavigation(portal: PortalKey): readonly PortalNavigationItem[] {
+export function getPortalNavigation(portal: PortalKey, locale: PartnerLocale = "en"): readonly PortalNavigationItem[] {
+  if (portal === "partner") {
+    return getPartnerMessages(locale).navigation.map((label, index) => ({ label, active: index === 0 }));
+  }
   return navigation[portal] ?? [];
 }
