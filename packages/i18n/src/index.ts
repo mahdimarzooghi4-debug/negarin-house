@@ -21,15 +21,31 @@ export function isolateBusinessId(value: string): string {
   return "\u2066" + value + "\u2069";
 }
 
+export type MoneyFormatOptions = Omit<Intl.NumberFormatOptions, "style" | "currency">;
+export type MoneyAmount = number | bigint;
+
+function assertFiniteMoneyAmount(amount: MoneyAmount): void {
+  if (typeof amount === "number" && !Number.isFinite(amount)) {
+    throw new RangeError("Money amount must be finite");
+  }
+}
+
+/** Formats Artist domestic amounts explicitly as Toman; this does not infer currency from locale. */
+export function formatArtistDomesticToman(amount: MoneyAmount): string {
+  assertFiniteMoneyAmount(amount);
+  return `${new Intl.NumberFormat(domesticLocale).format(amount)} تومان`;
+}
+
 export function formatMoney(
-  amount: number,
+  amount: MoneyAmount,
   currency: string,
   locale: SupportedLocale,
-  options?: Intl.NumberFormatOptions
+  options?: MoneyFormatOptions
 ): string {
+  assertFiniteMoneyAmount(amount);
   return new Intl.NumberFormat(locale, {
+    ...options,
     style: "currency",
-    currency,
-    ...options
+    currency
   }).format(amount);
 }
