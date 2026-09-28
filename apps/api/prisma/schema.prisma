@@ -24,8 +24,34 @@ model IdentityUser {
   createdAt DateTime      @default(now())
   sessions  AuthSession[]
   roleGrants RoleGrant[]
+  artistProducts ArtistProduct[]
 
   @@map("identity_users")
+}
+
+enum ProductPublicationStatus {
+  draft
+  under_review
+  changes_requested
+  approved
+  published
+}
+
+model ArtistProduct {
+  id                String                   @id @default(uuid()) @db.Uuid
+  artistUserId      String                   @db.Uuid
+  artist            IdentityUser             @relation(fields: [artistUserId], references: [id], onDelete: Restrict)
+  title             String
+  description       String?
+  priceToman        BigInt
+  publicationStatus ProductPublicationStatus @default(draft)
+  archivedAt        DateTime?
+  createdAt         DateTime                 @default(now())
+  updatedAt         DateTime                 @updatedAt
+
+  @@index([artistUserId, archivedAt, updatedAt])
+  @@index([publicationStatus, archivedAt])
+  @@map("artist_products")
 }
 
 model OtpChallenge {
