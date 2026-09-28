@@ -12,6 +12,7 @@ The product owner confirmed an independent Negarin mobile application in additio
 - Artist owns the product.
 - Artist sets the product price.
 - Negarin does not edit or approve Artist price.
+- Archiving is reversible: it removes a product from public display and new purchases while retaining its record and history.
 - Negarin reviews content, images, required information, and publication quality.
 - Domestic Artist-facing finance is shown in Toman.
 

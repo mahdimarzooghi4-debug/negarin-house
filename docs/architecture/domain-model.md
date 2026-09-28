@@ -31,6 +31,7 @@ Private credentials and private financial fields are not exposed through generic
 - ProductImage
 - ProductAvailability
 - ArtistPrice
+- ProductPublicationStatus
 - PublicationReview
 - PublicationDecision
 - ExportEligibility
@@ -43,6 +44,8 @@ Important invariants:
 1. ArtistPrice is Artist-owned.
 2. PublicationReview does not approve price.
 3. ExportEligibility, ExportPublicationApproval, and MarketAvailability are separate concepts.
+4. Archiving is reversible; it does not delete the product or its historical order and sales records.
+5. Product ownership and ArtistPrice remain Artist-scoped. Publication review does not grant price mutation authority.
 
 ## Orders
 

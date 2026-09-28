@@ -159,6 +159,7 @@ Implement Artist profile/product ownership and publication review without price-
 - ArtistPrice
 - media upload
 - product availability
+- reversible Artist product archive/restore
 - publication review submission
 - Admin review/approve/request revision
 - publication status
@@ -176,6 +177,9 @@ Implement Artist profile/product ownership and publication review without price-
 - Artist sees review feedback
 - public/read-only price views are role-appropriate
 - product IDs remain stable across Artist/Admin/Buyer/Partner views
+- archive hides a product from public discovery and new purchases without deleting its record or history
+- only the owning Artist can edit price or archive/restore a product; cross-Artist IDs are concealed
+- Admin publication review has no Artist price mutation command
 
 Dependencies: E0, E1, E2
 
