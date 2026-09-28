@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { TextField, tokens } from "./index.js";
+import { EmptyState, TextField, tokens } from "./index.js";
 
 function luminance(hex: string): number {
   const channels = hex.match(/[0-9a-f]{2}/gi)?.map((channel) => parseInt(channel, 16) / 255);
@@ -64,5 +64,21 @@ describe("TextField", () => {
 
     expect(markup).toContain('aria-describedby="account-context email-hint"');
     expect(markup).toContain('dir="auto"');
+  });
+});
+
+describe("EmptyState", () => {
+  it("renders a labeled region with the supplied localized content", () => {
+    const markup = renderToStaticMarkup(createElement(EmptyState, {
+      title: "پوستهٔ پنل آماده است",
+      description: "پس از ورود امن و اتصال داده‌های واقعی، محتوای پنل نمایش داده می‌شود.",
+      note: "در این پیش‌نمایش دادهٔ نمونه نمایش داده نمی‌شود."
+    }));
+
+    expect(markup).toContain('<section aria-labelledby="negarin-empty-state-');
+    expect(markup).toContain("پوستهٔ پنل آماده است");
+    expect(markup).toContain("اتصال داده‌های واقعی");
+    expect(markup).toContain("دادهٔ نمونه نمایش داده نمی‌شود");
+    expect(markup).toContain('aria-hidden="true"');
   });
 });

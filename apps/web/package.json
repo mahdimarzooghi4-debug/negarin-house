@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@negarin/i18n": "workspace:*",
+    "@negarin/ui": "workspace:*",
     "next": "16.3.6",
     "react": "19.3.0",
     "react-dom": "19.3.0"

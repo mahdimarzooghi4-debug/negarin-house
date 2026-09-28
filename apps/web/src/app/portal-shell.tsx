@@ -2,6 +2,7 @@ import type { PortalKey } from "../portal-registry";
 import { getPortalNavigation } from "../portal-navigation";
 import { getPartnerMessages } from "../partner-localization";
 import type { PartnerLocale } from "@negarin/i18n";
+import { EmptyState } from "@negarin/ui";
 import Image from "next/image";
 
 export function PortalShell({
@@ -94,22 +95,16 @@ export function PortalShell({
           </span>
         </header>
 
-        <section className="portal-content-card" aria-labelledby="portal-empty-title">
-          <div className="empty-state-mark" aria-hidden="true">{partnerMessages ? "N" : "ن"}</div>
-          <h2 id="portal-empty-title">
-            {partnerMessages?.shellReady ?? (isEnglish ? "Portal shell is ready" : "پوستهٔ پنل آماده است")}
-          </h2>
-          <p>
-            {partnerMessages?.shellDescription ?? (isEnglish
-              ? "This section will show your role-specific content after secure sign-in and live data are connected."
-              : "پس از اتصال ورود امن و داده‌های واقعی، محتوای این بخش برای نقش شما نمایش داده می‌شود.")}
-          </p>
-          <p className="muted">
-            {partnerMessages?.dataNotice ?? (isEnglish
-              ? "This preview contains no sample operational or financial data."
-              : "در این پیش‌نمایش، اطلاعات عملیاتی یا مالی نمونه نمایش داده نمی‌شود.")}
-          </p>
-        </section>
+        <EmptyState
+          mark={partnerMessages ? "N" : "ن"}
+          title={partnerMessages?.shellReady ?? (isEnglish ? "Portal shell is ready" : "پوستهٔ پنل آماده است")}
+          description={partnerMessages?.shellDescription ?? (isEnglish
+            ? "This section will show your role-specific content after secure sign-in and live data are connected."
+            : "پس از اتصال ورود امن و داده‌های واقعی، محتوای این بخش برای نقش شما نمایش داده می‌شود.")}
+          note={partnerMessages?.dataNotice ?? (isEnglish
+            ? "This preview contains no sample operational or financial data."
+            : "در این پیش‌نمایش، اطلاعات عملیاتی یا مالی نمونه نمایش داده نمی‌شود.")}
+        />
       </main>
     </div>
   );

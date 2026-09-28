@@ -90,3 +90,36 @@ export function TextField({
     </div>
   );
 }
+
+type EmptyStateProps = {
+  title: string;
+  description: string;
+  note?: string;
+  mark?: string;
+};
+
+export function EmptyState({ title, description, note, mark = "ن" }: EmptyStateProps) {
+  const titleId = `negarin-empty-state-${useId()}`;
+
+  return (
+    <section
+      aria-labelledby={titleId}
+      style={{
+        boxSizing: "border-box",
+        width: "100%",
+        maxWidth: 1200,
+        margin: "0 auto",
+        padding: "clamp(24px, 4vw, 48px)",
+        border: `1px solid ${tokens.border}`,
+        borderRadius: 16,
+        background: tokens.surface,
+        boxShadow: "0 8px 24px rgb(15 23 42 / 4%)"
+      }}
+    >
+      <div aria-hidden="true" style={{ color: tokens.accent, fontSize: 30, fontWeight: 800 }}>{mark}</div>
+      <h2 id={titleId} style={{ margin: "18px 0 8px", color: tokens.text, fontSize: 22 }}>{title}</h2>
+      <p style={{ maxWidth: 680, color: tokens.text, lineHeight: 1.8 }}>{description}</p>
+      {note && <p style={{ maxWidth: 680, color: tokens.muted, lineHeight: 1.8 }}>{note}</p>}
+    </section>
+  );
+}
