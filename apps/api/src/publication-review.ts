@@ -1,16 +1,21 @@
 import {
-  BadRequestException, ConflictException, ForbiddenException, Injectable, NotFoundException
+  BadRequestException, ConflictException, ForbiddenException, Inject, Injectable, NotFoundException
 } from "@nestjs/common";
 import { canAccessStaffDomain, canEditArtistProduct, type AuthorizationContext } from "@negarin/authz";
+import type { ObjectStorage } from "@negarin/storage";
 import { PrismaService } from "./prisma.service.js";
 import { enforceDecision } from "./authorization.guard.js";
+import { OBJECT_STORAGE } from "./artist-product-media.js";
 
 const decisions = ["approved", "changes_requested"] as const;
 export type PublicationReviewDecision = (typeof decisions)[number];
 
 @Injectable()
 export class PublicationReviewService {
-  constructor(private readonly database: PrismaService) {}
+  constructor(
+    private readonly database: PrismaService,
+    @Inject(OBJECT_STORAGE) private readonly storage: ObjectStorage
+  ) {}
 
   async submit(context: AuthorizationContext, productId: string) {
     this.requireArtist(context);
@@ -60,9 +65,31 @@ export class PublicationReviewService {
     const products = await this.database.artistProduct.findMany({
       where: { publicationStatus: "under_review", archivedAt: null },
       orderBy: [{ createdAt: "asc" }, { id: "asc" }],
-      select: { id: true, title: true, description: true, publicationStatus: true, createdAt: true }
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        publicationStatus: true,
+        createdAt: true,
+        media: {
+          where: { status: "ready" },
+          orderBy: [{ createdAt: "asc" }, { id: "asc" }],
+          select: { id: true, objectKey: true, contentType: true }
+        }
+      }
     });
-    return products.map((product) => ({ ...product, createdAt: product.createdAt.toISOString() }));
+    return Promise.all(products.map(async (product) => ({
+      id: product.id,
+      title: product.title,
+      description: product.description,
+      publicationStatus: product.publicationStatus,
+      createdAt: product.createdAt.toISOString(),
+      media: await Promise.all(product.media.map(async (item) => ({
+        id: item.id,
+        contentType: item.contentType,
+        readUrl: await this.storage.createReadUrl(item.objectKey)
+      })))
+    })));
   }
 
   async decide(context: AuthorizationContext, productId: string, decision: PublicationReviewDecision, feedback?: string) {

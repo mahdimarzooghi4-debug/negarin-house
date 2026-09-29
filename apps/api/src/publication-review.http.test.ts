@@ -61,6 +61,7 @@ describe("Product publication review HTTP contract", () => {
     expect(queue.statusCode).toBe(200);
     expect(queue.json()).toHaveLength(1);
     expect(queue.json()[0]).not.toHaveProperty("priceToman");
+    expect(queue.json()[0].media).toEqual([]);
 
     const requested = await app.inject({
       method: "POST", url: `/api/v1/staff/publication-reviews/${productId}/decision`, headers: reviewer,
