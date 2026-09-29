@@ -2,9 +2,13 @@
 
 Parent: #5 — Platform Foundation / Sprint 0
 
-Branch: `feat/sprint-0-hardening`
+Delivery branch: `feat/sprint-0-hardening`
 
-Status: **PR #20 READY FOR MERGE — CI GREEN, REVIEW COMPLETE**
+Status: **CLOSED — PR #20 MERGED; Issue #5 CLOSED**
+
+PR head: `1f2da6fd3d6df1c9f143e1601647ed6843820628`
+
+Merge commit: `cc17de2e52f41c0e0b71119783f669af09a9432d`
 
 ## Implemented in code
 
@@ -28,17 +32,18 @@ Status: **PR #20 READY FOR MERGE — CI GREEN, REVIEW COMPLETE**
 - [x] Stage deployment contract
 - [x] CI definition: frozen install, migrations, security audit, unit/integration/build/E2E
 
-## Still required before Sprint 0 can close
+## Closure checklist
 
 - [x] regenerate lockfile after telemetry dependency changes
-- [x] make hardening PR CI fully green — CI run #30, commit `b38fc9c64dc70988166015ba0422ee7d26602c49`
-- [x] verify clean bootstrap through CI evidence — frozen install, Prisma generate/validate/reset/deploy succeeded in run #30
+- [x] make hardening PR CI fully green — CI run #31 on PR head `1f2da6fd3d6df1c9f143e1601647ed6843820628`
+- [x] verify clean bootstrap through CI evidence — frozen install, Prisma generate/validate/reset/deploy succeeded in run #31
 - [x] remove temporary lockfile bootstrap workflow before merge
-- [x] final PR review for architecture/product-rule regressions — no product formulas or payment routing added; foundation job endpoint restricted to development/test
+- [x] verify the merged PR's product-safety statement and development/test-only foundation job boundary
+- [x] record that PR #20 has no formal GitHub review submissions
 
 ## CI evidence
 
-GitHub Actions CI run #30 completed successfully on `b38fc9c64dc70988166015ba0422ee7d26602c49`: frozen install, Prisma generate/validate/reset/deploy, production dependency audit, lint, typecheck, unit/integration tests, build, Chromium install, and Playwright E2E all passed. This is PR evidence; Stage deployment and Release Approval remain separate steps.
+GitHub Actions [CI run #31](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36341285262) completed successfully on PR head `1f2da6fd3d6df1c9f143e1601647ed6843820628`. Frozen install, Prisma generate/validate/reset/deploy, production dependency audit, lint, typecheck, unit/integration tests, build, Chromium install, and Playwright E2E all passed. PR #20 was merged as `cc17de2e52f41c0e0b71119783f669af09a9432d`; GitHub reports Issue #5 closed as completed. Stage deployment and Release Approval remain separate steps.
 
 ## Product safety
 
@@ -46,4 +51,4 @@ This slice does not introduce Artist price control by Admin, FX/fee formulas, le
 
 ## Closure rule
 
-Issue #5 closes only after the hardening PR is green, reviewed, merged, and all Sprint 0 exit criteria are satisfied.
+Issue #5 is closed after the hardening PR passed CI and was merged. Stage QA, Release Approval, and Production deployment are outside Sprint 0 closure.
