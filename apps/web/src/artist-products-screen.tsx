@@ -124,7 +124,7 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
       const response = await mutate(`/api/artist/products/${encodeURIComponent(product.id)}/submit-review`, "POST");
       if (!response.ok) {
         setError(response.status === 409
-          ? "برای ارسال به بررسی، اطلاعات محصول و بارگذاری تصویرها باید کامل باشد."
+          ? "وضعیت محصول اجازهٔ ارسال برای بازبینی را نمی‌دهد؛ فهرست را تازه کن."
           : "ارسال محصول برای بررسی انجام نشد.");
         return;
       }
