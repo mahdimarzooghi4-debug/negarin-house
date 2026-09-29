@@ -4,8 +4,8 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `647ed09f12d89f7f9fe8a61429593a75cf0f3ba5` |
-| CI | [GitHub Actions run #87](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36606809990): success |
+| Code commit verified by CI | `07a62eae51ecd82c1a635127fcc8152a021062ac` |
+| CI | [GitHub Actions run #89](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36612998304): success |
 
 ## Delivered and verified
 
@@ -21,17 +21,19 @@
 - Mutating browser requests use same-origin Next.js routes; the server reads the expected `negarin_session` cookie and forwards its Bearer token to the API. No cookie is issued by this page, and unauthenticated visitors see a connection-required empty state with no sample product/price.
 - Web route tests verify same-origin protection, signed URL secrecy, body-size limits, storage forwarding, and upload completion. Playwright smoke checks cover the unauthenticated Artist workspace, staff review queue, and partner locale shell.
 - The API permits review submission without images, does not define a minimum image count, and rejects submission while any upload is pending.
-- An Android-only React Native foundation is available at `apps/mobile`, with the shared Negarin logo, a Persian RTL bootstrap screen, and Android system UI theme support. Root CI run #87 verified frozen install, mobile lint/typecheck/test, and Android JavaScript bundle export as part of the complete monorepo gates.
+- An Android-only React Native foundation is available at `apps/mobile`, with the shared Negarin logo, a Persian RTL bootstrap screen, and Android system UI theme support.
+- The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. No token issuance, OTP screen, login endpoint, or logout/revocation flow is connected.
+- Root CI run #89 verified frozen install, Prisma gates, audit, lint, typecheck, full tests, monorepo build (including Android bundle export), and Playwright E2E on the current code commit.
 
 ## Android validation and release scope
 
-- Local `expo prebuild --platform android --no-install` completed successfully and processed the Android icon configuration. The generated native directory is local-only and ignored by Git.
+- Local `expo prebuild --platform android --no-install --clean` completed successfully, processing the Android icon, system theme, and SecureStore backup plugin. The generated native directory is local-only and ignored by Git.
 - The CI build exports the Android JavaScript bundle; it does not produce or install an APK/AAB. No Android device/emulator QA has been run.
 - Role-specific mobile journeys await Product/UX acceptance and Sprint planning. The stable Android application ID, signing, distribution channel, and supported-device matrix also remain release-planning decisions.
 
 ## CI evidence
 
-Run #87 completed all configured gates successfully for commit `647ed09f12d89f7f9fe8a61429593a75cf0f3ba5`: frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full test suite, monorepo build, Chromium install, and Playwright E2E smoke. API tests run with one Vitest worker because concurrent Serializable OTP tests previously produced PostgreSQL serialization conflicts.
+Run #89 completed all configured gates successfully for commit `07a62eae51ecd82c1a635127fcc8152a021062ac`: frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full test suite, monorepo build, Chromium install, and Playwright E2E smoke. API tests run with one Vitest worker because concurrent Serializable OTP tests previously produced PostgreSQL serialization conflicts.
 
 This is automated CI evidence for the cited commit. It is not Stage QA, Release Approval, or Production evidence.
 
