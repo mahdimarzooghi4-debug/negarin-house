@@ -5,7 +5,8 @@
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
 | Code commit verified by CI | `07a62eae51ecd82c1a635127fcc8152a021062ac` |
-| CI | [GitHub Actions run #89](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36612998304): success |
+| Code CI | [GitHub Actions run #89](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36612998304): success |
+| Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 
 ## Delivered and verified
 
@@ -33,15 +34,18 @@
 
 ## CI evidence
 
-Run #89 completed all configured gates successfully for commit `07a62eae51ecd82c1a635127fcc8152a021062ac`: frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full test suite, monorepo build, Chromium install, and Playwright E2E smoke. API tests run with one Vitest worker because concurrent Serializable OTP tests previously produced PostgreSQL serialization conflicts.
+Run #89 completed all configured gates successfully for code commit `07a62eae51ecd82c1a635127fcc8152a021062ac`: frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full test suite, monorepo build, Chromium install, and Playwright E2E smoke. API tests run with one Vitest worker because concurrent Serializable OTP tests previously produced PostgreSQL serialization conflicts.
 
-This is automated CI evidence for the cited commit. It is not Stage QA, Release Approval, or Production evidence.
+Run #91 completed all configured gates successfully for product decision documentation commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`. The update records that public catalog visibility must not be inferred from the `approved` or `published` states until Product defines the rule.
+
+This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
 ## Remaining Sprint 1 work and constraints
 
 - No OTP/SMS provider is available; public login and session delivery remain disabled.
 - The product/API slice has no Stage deployment or Stage QA evidence because no hosted Stage server is available.
 - No payment gateway is available; purchase, payment, and settlement flows remain unimplemented.
+- Customer public catalog work awaits the Product decision on whether `approved` or `published` makes an active product publicly visible, or whether a separate publish action is required.
 - Mobile scope is Android. iOS is out of scope. Android app release identity and device QA are still open.
 - PR #35 has no submitted GitHub review yet and remains draft.
 
