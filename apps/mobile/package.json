@@ -6,6 +6,7 @@
   "dependencies": {
     "expo": "~57.0.26",
     "expo-status-bar": "~57.0.1",
+    "expo-system-ui": "~57.0.4",
     "react": "19.2.3",
     "react-native": "0.86.3"
   },
@@ -21,5 +22,7 @@
     "test": "node --test test/*.test.mjs",
     "build": "expo export --platform android --output-dir dist"
   },
-  "engines": { "node": ">=22.18.0" }
+  "engines": {
+    "node": ">=22.18.0"
+  }
 }
