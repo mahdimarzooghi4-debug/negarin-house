@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
+import Image from "next/image";
 import { Button, EmptyState, TextField } from "@negarin/ui";
 import type { ArtistProduct } from "./artist-api";
 
@@ -10,6 +11,16 @@ type InitialState =
   | { kind: "unavailable" };
 
 type EditorState = { id?: string; title: string; description: string; priceToman: string };
+type ProductMedia = {
+  id: string;
+  contentType: string;
+  contentLength: number;
+  status: "pending" | "ready";
+  readUrl: string | null;
+};
+
+const acceptedImageTypes = new Set(["image/jpeg", "image/png", "image/webp"]);
+const maxImageBytes = 10 * 1024 * 1024;
 
 const statusLabels: Record<ArtistProduct["publicationStatus"], string> = {
   draft: "پیش‌نویس",
@@ -41,6 +52,7 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
   const [archiveProduct, setArchiveProduct] = useState<ArtistProduct | null>(null);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [mediaByProduct, setMediaByProduct] = useState<Record<string, ProductMedia[]>>({});
 
   async function reload() {
     const response = await fetch("/api/artist/products", { cache: "no-store" });
@@ -53,6 +65,87 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
     setProducts(await response.json() as ArtistProduct[]);
     setConnected(true);
     return true;
+  }
+
+  async function reloadMedia(productId: string) {
+    const response = await fetch(`/api/artist/products/${encodeURIComponent(productId)}/media`, { cache: "no-store" });
+    if (response.status === 401 || response.status === 403) {
+      setConnected(false);
+      setProducts([]);
+      return;
+    }
+    if (!response.ok) throw new Error("دریافت تصویرهای محصول انجام نشد.");
+    const media = await response.json() as ProductMedia[];
+    setMediaByProduct((current) => ({ ...current, [productId]: media }));
+  }
+
+  useEffect(() => {
+    const activeProducts = products.filter((product) => !product.archivedAt);
+    void Promise.all(activeProducts.map((product) => reloadMedia(product.id))).catch(() => {
+      setError("دریافت وضعیت تصویرهای محصول انجام نشد.");
+    });
+  }, [products]);
+
+  async function uploadFile(product: ArtistProduct, file: File, existingMedia?: ProductMedia): Promise<boolean> {
+    if (!acceptedImageTypes.has(file.type)) {
+      setError("فقط تصویرهای JPEG، PNG یا WebP قابل بارگذاری هستند.");
+      return false;
+    }
+    if (file.size < 1 || file.size > maxImageBytes) {
+      setError("حجم هر تصویر باید حداکثر ۱۰ مگابایت باشد.");
+      return false;
+    }
+    if (existingMedia && (existingMedia.contentType !== file.type || existingMedia.contentLength !== file.size)) {
+      setError("برای تکمیل این بارگذاری، همان نوع و اندازهٔ فایل قبلی را انتخاب کن.");
+      return false;
+    }
+
+    setPending(true);
+    setError(null);
+    try {
+      let mediaId = existingMedia?.id;
+      if (!mediaId) {
+        const created = await mutate(`/api/artist/products/${encodeURIComponent(product.id)}/media`, "POST", {
+          contentType: file.type,
+          contentLength: file.size
+        });
+        if (!created.ok) {
+          setError(created.status === 409
+            ? "این محصول در وضعیت فعلی امکان تغییر تصویر ندارد."
+            : "آماده‌سازی بارگذاری تصویر انجام نشد.");
+          return false;
+        }
+        mediaId = (await created.json() as { id: string }).id;
+      }
+
+      const uploaded = await fetch(
+        `/api/artist/products/${encodeURIComponent(product.id)}/media/${encodeURIComponent(mediaId)}`,
+        { method: "PUT", headers: { "Content-Type": file.type }, body: file, cache: "no-store" }
+      );
+      if (!uploaded.ok) {
+        setError(uploaded.status === 409
+          ? "وضعیت محصول یا بارگذاری تغییر کرده است. تصویرها را تازه‌سازی کن."
+          : "بارگذاری تصویر کامل نشد؛ فایل در انتظار باقی مانده و می‌توانی دوباره تلاش کنی.");
+        await reloadMedia(product.id);
+        return false;
+      }
+      await reloadMedia(product.id);
+      return true;
+    } catch {
+      setError("ارتباط با سرویس تصویر برقرار نشد؛ اگر بارگذاری نیمه‌کاره مانده باشد می‌توانی دوباره تلاش کنی.");
+      try { await reloadMedia(product.id); } catch { /* Keep the upload error visible. */ }
+      return false;
+    } finally {
+      setPending(false);
+    }
+  }
+
+  async function uploadSelected(product: ArtistProduct, files: FileList | null) {
+    if (!files?.length) return;
+    for (const file of Array.from(files)) {
+      const uploaded = await uploadFile(product, file);
+      if (!uploaded) break;
+    }
   }
 
   async function save(event: FormEvent<HTMLFormElement>) {
@@ -166,7 +259,10 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
         <EmptyState title="هنوز محصولی ثبت نشده" description="برای شروع، محصولی را با عنوان، توضیح و قیمت تومانی خودت ثبت کن." />
       ) : (
         <div className="artist-product-list">
-          {products.map((product) => (
+          {products.map((product) => {
+            const productMedia = mediaByProduct[product.id] ?? [];
+            const hasPendingMedia = productMedia.some((media) => media.status === "pending");
+            return (
             <article className={`artist-product-card${product.archivedAt ? " is-archived" : ""}`} key={product.id}>
               <div className="artist-product-card-main">
                 <div className="artist-product-card-title">
@@ -177,6 +273,50 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
                 </div>
                 {product.description && <p>{product.description}</p>}
                 <strong className="artist-product-price">{toman(product.priceToman)}</strong>
+                {!product.archivedAt && product.publicationStatus !== "under_review" && (
+                  <div className="artist-product-media" aria-label="تصویرهای محصول">
+                    <div className="artist-product-media-heading">
+                      <strong>تصویرهای محصول</strong>
+                      <label className="product-media-picker">
+                        افزودن تصویر
+                        <input
+                          type="file"
+                          accept="image/jpeg,image/png,image/webp"
+                          multiple
+                          disabled={pending}
+                          onChange={(event) => {
+                            void uploadSelected(product, event.currentTarget.files);
+                            event.currentTarget.value = "";
+                          }}
+                        />
+                      </label>
+                    </div>
+                    {hasPendingMedia && <p className="product-media-pending-note">برای ارسال محصول به بررسی، بارگذاری‌های ناتمام را تکمیل کن.</p>}
+                    {productMedia.length > 0 ? (
+                      <div className="artist-product-media-list">
+                        {productMedia.map((media) => media.status === "ready" && media.readUrl ? (
+                          <a key={media.id} href={media.readUrl} target="_blank" rel="noreferrer" aria-label="بازکردن تصویر محصول">
+                            <Image src={media.readUrl} alt={`تصویر محصول ${product.title}`} width={128} height={96} unoptimized />
+                          </a>
+                        ) : (
+                          <label key={media.id} className="product-media-pending">
+                            <span>بارگذاری تصویر ناتمام است؛ همان فایل را دوباره انتخاب کن.</span>
+                            <input
+                              type="file"
+                              accept="image/jpeg,image/png,image/webp"
+                              disabled={pending}
+                              onChange={(event) => {
+                                const file = event.currentTarget.files?.[0];
+                                if (file) void uploadFile(product, file, media);
+                                event.currentTarget.value = "";
+                              }}
+                            />
+                          </label>
+                        ))}
+                      </div>
+                    ) : <p className="artist-product-media-empty">هنوز تصویری برای این محصول بارگذاری نشده است.</p>}
+                  </div>
+                )}
               </div>
               <div className="artist-product-actions">
                 {product.archivedAt ? (
@@ -188,7 +328,7 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
                       ویرایش
                     </Button>
                     {(product.publicationStatus === "draft" || product.publicationStatus === "changes_requested") && (
-                      <Button disabled={pending} onClick={() => void submitReview(product)}>ارسال برای بررسی</Button>
+                      <Button disabled={pending || hasPendingMedia} onClick={() => void submitReview(product)}>ارسال برای بررسی</Button>
                     )}
                     <button className="product-archive-link" disabled={pending} onClick={() => { setError(null); setArchiveProduct(product); }}>
                       بایگانی
@@ -197,7 +337,8 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
                 )}
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       )}
 

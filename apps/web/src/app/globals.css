@@ -258,11 +258,22 @@ a.portal-nav-item { text-decoration: none; }
 }
 
 .artist-product-card.is-archived { background: #f8fafc; }
-.artist-product-card-main { min-width: 0; }
+.artist-product-card-main { min-width: 0; flex: 1; }
 .artist-product-card-title { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
 .artist-product-card-title h3 { margin: 0; font-size: 17px; }
 .artist-product-card-main > p { margin: 9px 0; color: var(--negarin-muted); line-height: 1.7; white-space: pre-wrap; }
 .artist-product-price { display: inline-block; margin-top: 12px; color: var(--negarin-sidebar-active-content); }
+.artist-product-media { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--negarin-border); }
+.artist-product-media-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--negarin-text); font-size: 13px; }
+.product-media-picker { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid #b8ddd5; border-radius: 9px; background: #eff9f6; color: var(--negarin-sidebar-active-content); font-weight: 600; cursor: pointer; }
+.product-media-picker input, .product-media-pending input { display: block; max-width: 100%; margin-top: 6px; font: inherit; font-size: 12px; }
+.product-media-picker input { width: 155px; }
+.artist-product-media-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 10px; }
+.artist-product-media-list a { display: block; width: 128px; height: 96px; overflow: hidden; border: 1px solid var(--negarin-border); border-radius: 10px; background: #f1f5f9; }
+.artist-product-media-list img { width: 100%; height: 100%; object-fit: cover; }
+.product-media-pending { display: block; max-width: 320px; padding: 10px; border: 1px dashed #d6a75a; border-radius: 10px; color: #805a1f; font-size: 12px; line-height: 1.6; }
+.product-media-pending-note { margin: 8px 0 0; color: #805a1f; font-size: 12px; }
+.artist-product-media-empty { margin: 8px 0 0; color: var(--negarin-muted); font-size: 12px; }
 
 .product-status {
   display: inline-flex;
