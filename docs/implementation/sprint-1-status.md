@@ -18,7 +18,7 @@
 - A new RTL Artist product workspace is available at `/artist/products`: it reads real API data, supports Artist-owned product creation/editing/archive/restore, shows review status, and presents the archive confirmation flow.
 - Mutating browser requests use same-origin Next.js routes; the server reads the expected `negarin_session` cookie and forwards its Bearer token to the API. No cookie is issued by this page, and unauthenticated visitors see a connection-required empty state with no sample product/price.
 - The new Playwright smoke check covers that unauthenticated product state. Partner locale smoke checks continue to cover the shared shell.
-- This web slice does not include image upload controls or the staff review queue UI. API review submission still requires at least one ready image, so a usable session plus the separate media-management UI is needed to complete that workflow from the browser.
+- This web slice does not include image upload controls or the staff review queue UI. The API allows review submission without images but rejects submission while any upload is pending; the page currently exposes no way to manage media.
 
 ## CI evidence
 
@@ -29,7 +29,7 @@ This is automated CI evidence for the cited commit. It is not Stage QA, Release 
 ## Remaining Sprint 1 work and constraints
 
 - No OTP/SMS provider is available; public login and session delivery remain disabled.
-- Artist image upload controls and the staff review queue frontend remain to be implemented before these workflows are usable end to end in web.
+- Artist image upload controls and the staff review queue frontend remain to be implemented before these workflows are usable end to end in web. API submission requires uploads to be complete when present; it does not currently define a minimum image count.
 - The product/API slice has no Stage deployment or Stage QA evidence because no hosted Stage server is available.
 - No payment gateway is available; purchase, payment, and settlement flows remain unimplemented.
 - Mobile scope is Android. iOS is out of scope. Mobile workflows and design acceptance still need Product/UX and Sprint planning before implementation.
