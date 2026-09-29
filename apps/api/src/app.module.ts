@@ -14,6 +14,8 @@ import { ArtistProductMediaController } from "./artist-product-media.controller.
 import { ArtistProductMediaService, OBJECT_STORAGE } from "./artist-product-media.js";
 import { ServicePartnerAssignmentsController } from "./service-partner-assignments.controller.js";
 import { ServicePartnerAssignmentsService } from "./service-partner-assignments.js";
+import { StaffServiceAssignmentsController } from "./staff-service-assignments.controller.js";
+import { StaffServiceAssignmentsService } from "./staff-service-assignments.js";
 
 @Module({
   controllers: [
@@ -23,7 +25,8 @@ import { ServicePartnerAssignmentsService } from "./service-partner-assignments.
     ArtistProductsController,
     PublicationReviewController,
     ArtistProductMediaController,
-    ServicePartnerAssignmentsController
+    ServicePartnerAssignmentsController,
+    StaffServiceAssignmentsController
   ],
   providers: [
     PrismaService,
@@ -32,6 +35,7 @@ import { ServicePartnerAssignmentsService } from "./service-partner-assignments.
     PublicationReviewService,
     ArtistProductMediaService,
     ServicePartnerAssignmentsService,
+    StaffServiceAssignmentsService,
     {
       provide: OBJECT_STORAGE,
       useFactory: () => {

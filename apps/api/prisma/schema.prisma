@@ -27,6 +27,7 @@ model IdentityUser {
   artistProducts ArtistProduct[]
   productPublicationEvents ProductPublicationEvent[]
   serviceAssignments ServiceAssignment[] @relation("ServiceAssignmentUser")
+  authoredServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentAuthor")
 
   @@map("identity_users")
 }
@@ -130,11 +131,14 @@ model ServiceAssignment {
   partnerOrganization   Organization   @relation(fields: [partnerOrganizationId], references: [id], onDelete: Restrict)
   assignedPartnerUserId String?        @db.Uuid
   assignedPartnerUser   IdentityUser?  @relation("ServiceAssignmentUser", fields: [assignedPartnerUserId], references: [id], onDelete: Restrict)
+  assignedByUserId      String?        @db.Uuid
+  assignedBy            IdentityUser?  @relation("ServiceAssignmentAuthor", fields: [assignedByUserId], references: [id], onDelete: Restrict)
   assignedAt            DateTime       @default(now())
   createdAt             DateTime       @default(now())
 
   @@index([partnerOrganizationId, assignedPartnerUserId, assignedAt])
   @@index([serviceRequestId, assignedAt])
+  @@index([assignedByUserId, createdAt])
   @@map("service_assignments")
 }
 
