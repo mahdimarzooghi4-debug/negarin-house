@@ -1,9 +1,11 @@
 # Sprint 1 Implementation Status
 
-Status: **IN PROGRESS**  
-GitHub PR: [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35) (draft; not merged)  
-Code commit verified by CI: `3712bbdab49513441b0755be0fa913b3ac023c79`  
-CI: GitHub Actions run [#70](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36586774294) — **success**
+| Status | Evidence |
+|---|---|
+| Sprint | In progress |
+| GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
+| Code commit verified by CI | `3712bbdab49513441b0755be0fa913b3ac023c79` |
+| CI | [GitHub Actions run #70](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36586774294): success |
 
 ## Delivered and verified
 
