@@ -44,3 +44,13 @@ test("unconfigured sign-in and customer portals do not present a fake login or c
   await expect(page.getByText("فروشگاه مشتری پس از آماده‌شدن API و تجربهٔ خرید به این پوسته متصل می‌شود.")).toBeVisible();
   await expect(page.getByRole("button", { name: /سفارش|پرداخت/ })).toHaveCount(0);
 });
+
+test("artist product workspace requires a real session and does not invent products", async ({ page }) => {
+  await page.goto("/artist/products");
+
+  await expect(page.getByRole("heading", { name: "محصولات" })).toBeVisible();
+  await expect(page.getByText("اتصال حساب هنرمند فعال نیست")).toBeVisible();
+  await expect(page.getByText("در این صفحه محصول یا قیمت نمونه نمایش داده نمی‌شود.")).toBeVisible();
+  await expect(page.getByRole("button", { name: "افزودن محصول" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: /ارسال برای بررسی|بایگانی/ })).toHaveCount(0);
+});

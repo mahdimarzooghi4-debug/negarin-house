@@ -2,13 +2,13 @@ import type { PortalKey } from "./portal-registry";
 import type { PartnerLocale } from "@negarin/i18n";
 import { getPartnerMessages } from "./partner-localization";
 
-export type PortalNavigationItem = { label: string; active?: boolean };
+export type PortalNavigationItem = { label: string; active?: boolean; href?: string };
 
 const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
   artist: [
     { label: "پیشخوان", active: true },
     { label: "فروشگاه من" },
-    { label: "محصولات" },
+    { label: "محصولات", href: "/artist/products" },
     { label: "سفارش‌ها" },
     { label: "رشد من" },
     { label: "خدمات" },
