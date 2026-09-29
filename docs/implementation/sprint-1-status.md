@@ -10,6 +10,7 @@
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
 | Service Partner assigned request detail | Commit `1d856a0bfdd7e23cafdc0d6d9c7b94e71b4ce313`, verified by [CI run #100](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36623722611): success |
+| Service Partner access-state handling | Commit `8f7b245c93b23eb422bcec7e0a16c4b6957cd5b5`, verified by [CI run #102](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36624962410): success |
 | Service Partner authorization tests | Commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, verified by [CI run #93](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36618211205): success |
 
 ## Delivered and verified
@@ -30,6 +31,7 @@
 - Service Partner HTTP tests verify organization/user assignment filtering, same-organization user assignment visibility, no-store responses, unauthenticated denial, other-role denial, and omission of Artist/financial fields.
 - The RTL Service Partner web inbox is available at `/service-partner/assignments`. Its server-side loader uses the existing session-cookie-to-Bearer boundary and displays only the API's title, summary, assignment time, and request time. Missing-session, service-unavailable, and empty states contain no sample requests or Artist data; no request actions or lifecycle statuses are invented.
 - A read-only request detail API and page are available at `GET /api/v1/service-partner/assignments/:assignmentId` and `/service-partner/assignments/:assignmentId`. The database query scopes by active organization and either organization-wide or current-user assignment; other assignments are concealed as 404. The response/page expose only the same partner-facing fields as the inbox.
+- The Service Partner pages distinguish missing/invalid sessions (401) from role or organization authorization denial (403); a concealed assignment is shown as unavailable without revealing whether another user's assignment exists. Unit tests cover these states.
 - An Android-only React Native foundation is available at `apps/mobile`, with the shared Negarin logo, a Persian RTL bootstrap screen, and Android system UI theme support.
 - The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. No token issuance, OTP screen, login endpoint, or logout/revocation flow is connected.
 - Root CI run #89 verified frozen install, Prisma gates, audit, lint, typecheck, full tests, monorepo build (including Android bundle export), and Playwright E2E on the current code commit.
@@ -53,6 +55,8 @@ Run #96 completed all configured gates successfully for the follow-up HTTP autho
 Run #98 completed all configured gates successfully for Service Partner web inbox commit `89a258628dc758bfccce009fd467b070081f634c`, including frozen install, Prisma gates, security audit, lint, typecheck, tests, monorepo build, Chromium installation, and Playwright E2E smoke.
 
 Run #100 completed all configured gates successfully for Service Partner read-only detail commit `1d856a0bfdd7e23cafdc0d6d9c7b94e71b4ce313`, including scoped detail authorization tests, migrations, build, and Playwright E2E smoke.
+
+Run #102 completed all configured gates successfully for Service Partner 401/403/404 page-state handling commit `8f7b245c93b23eb422bcec7e0a16c4b6957cd5b5`, including unit tests, build, and Playwright E2E smoke.
 
 Run #93 completed all configured gates successfully for authorization test commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, including the expanded Service Partner assignment-isolation matrix.
 
