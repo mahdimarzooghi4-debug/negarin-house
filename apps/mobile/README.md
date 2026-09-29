@@ -28,3 +28,5 @@ pnpm --filter @negarin/mobile build
 The build command exports the JavaScript bundle for Android. It does not produce
 an installable APK/AAB or replace device QA. Login and account flows remain
 disabled until the authentication provider and mobile journeys are approved.
+The stable Android application ID, signing, and distribution channel must be
+decided during release planning before creating a distributable build.
