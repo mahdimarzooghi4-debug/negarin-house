@@ -30,3 +30,12 @@ an installable APK/AAB or replace device QA. Login and account flows remain
 disabled until the authentication provider and mobile journeys are approved.
 The stable Android application ID, signing, and distribution channel must be
 decided during release planning before creating a distributable build.
+
+## Session storage boundary
+
+The app has a small adapter for storing an opaque session token with
+`expo-secure-store`. It does not issue tokens, implement login/logout, or call
+an authentication endpoint. The public OTP delivery path and session lifecycle
+must be available before the adapter is connected to an authentication flow.
+The Android config plugin also excludes SecureStore preferences from Android
+backup and device transfer.

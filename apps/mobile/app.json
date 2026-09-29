@@ -3,10 +3,20 @@
     "name": "خانه نگارین",
     "slug": "negarin-house",
     "version": "0.1.0",
-    "platforms": ["android"],
+    "platforms": [
+      "android"
+    ],
     "orientation": "portrait",
     "icon": "../web/public/brand/negarin-logo.png",
     "userInterfaceStyle": "light",
+    "plugins": [
+      [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true
+        }
+      ]
+    ],
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#EAF6F3",
