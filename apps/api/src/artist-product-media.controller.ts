@@ -35,4 +35,14 @@ export class ArtistProductMediaController {
       parseArtistProductId(mediaId)
     );
   }
+
+  @Post(":mediaId/upload-url")
+  @Header("Cache-Control", "no-store")
+  refreshUploadUrl(@Req() request: AuthorizedRequest, @Param("productId") productId: string, @Param("mediaId") mediaId: string) {
+    return this.media.refreshUploadUrl(
+      request.authorizationContext!,
+      parseArtistProductId(productId),
+      parseArtistProductId(mediaId)
+    );
+  }
 }

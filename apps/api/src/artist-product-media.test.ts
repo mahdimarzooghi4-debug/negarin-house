@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { BadRequestException } from "@nestjs/common";
+import { BadRequestException, ConflictException, NotFoundException } from "@nestjs/common";
 import type { ObjectStorage } from "@negarin/storage";
 import type { AuthorizationContext } from "@negarin/authz";
 import { ArtistProductMediaService, parseProductMediaUploadRequest } from "./artist-product-media.js";
@@ -76,6 +76,36 @@ describe("Artist product media upload contract", () => {
       contentLength: 1024
     }));
     expect(database.artistProductMedia.create).toHaveBeenCalledOnce();
+  });
+
+  it("refreshes an upload URL for the same pending object and exact signed metadata", async () => {
+    const { service, storage } = fixture();
+    const result = await service.refreshUploadUrl(context, productId, mediaId);
+
+    expect(result).toEqual({ id: mediaId, uploadUrl: "https://storage/upload", expiresAt: "2026-09-29T14:00:00.000Z" });
+    expect(storage.createUploadUrl).toHaveBeenCalledWith({
+      objectKey: `artists/${context.userId}/products/${productId}/key`,
+      contentType: "image/jpeg",
+      contentLength: 1024
+    });
+  });
+
+  it("does not refresh a completed media upload", async () => {
+    const { service, storage, database } = fixture();
+    database.artistProductMedia.findFirst.mockResolvedValue({
+      id: mediaId, productId, objectKey: "ready-key", contentType: "image/jpeg", contentLength: 1024, status: "ready"
+    });
+
+    await expect(service.refreshUploadUrl(context, productId, mediaId)).rejects.toThrow(ConflictException);
+    expect(storage.createUploadUrl).not.toHaveBeenCalled();
+  });
+
+  it("does not reveal media belonging to another product", async () => {
+    const { service, storage, database } = fixture();
+    database.artistProductMedia.findFirst.mockResolvedValue(null);
+
+    await expect(service.refreshUploadUrl(context, productId, mediaId)).rejects.toThrow(NotFoundException);
+    expect(storage.createUploadUrl).not.toHaveBeenCalled();
   });
 
   it("marks media ready only after stored length and content type match the upload contract", async () => {

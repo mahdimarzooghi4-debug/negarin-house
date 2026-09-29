@@ -52,6 +52,15 @@ describe("Artist product media HTTP contract", () => {
     expect(upload.json().uploadUrl).toContain("X-Amz-Signature");
     expect(upload.json()).not.toHaveProperty("objectKey");
 
+    const mediaId = upload.json<{ id: string }>().id;
+    const refreshed = await app.inject({
+      method: "POST", url: `/api/v1/artist/products/${productId}/media/${mediaId}/upload-url`, headers: artist
+    });
+    expect(refreshed.statusCode).toBe(201);
+    expect(refreshed.headers["cache-control"]).toBe("no-store");
+    expect(refreshed.json().uploadUrl).toContain("X-Amz-Signature");
+    expect(refreshed.json()).not.toHaveProperty("objectKey");
+
     expect((await app.inject({
       method: "POST", url: `/api/v1/artist/products/${productId}/submit-review`, headers: artist
     })).statusCode).toBe(409);
@@ -62,5 +71,8 @@ describe("Artist product media HTTP contract", () => {
       method: "POST", url: `/api/v1/artist/products/${productId}/media/upload-url`, headers: artist,
       payload: { contentType: "image/svg+xml", contentLength: 100 }
     })).statusCode).toBe(400);
+    expect((await app.inject({
+      method: "POST", url: `/api/v1/artist/products/${productId}/media/${mediaId}/upload-url`, headers: otherArtist
+    })).statusCode).toBe(404);
   });
 });

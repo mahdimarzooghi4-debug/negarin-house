@@ -38,6 +38,20 @@ export class ArtistProductMediaService {
     }
   }
 
+  async refreshUploadUrl(context: AuthorizationContext, productId: string, mediaId: string) {
+    await this.ownedWritableProduct(context, productId);
+    const media = await this.database.artistProductMedia.findFirst({ where: { id: mediaId, productId } });
+    if (!media) throw new NotFoundException();
+    if (media.status !== "pending") throw new ConflictException("media-upload-not-pending");
+
+    const upload = await this.storage.createUploadUrl({
+      objectKey: media.objectKey,
+      contentType: media.contentType,
+      contentLength: media.contentLength
+    });
+    return { id: media.id, uploadUrl: upload.url, expiresAt: upload.expiresAt };
+  }
+
   async completeUpload(context: AuthorizationContext, productId: string, mediaId: string) {
     await this.ownedWritableProduct(context, productId);
     const media = await this.database.artistProductMedia.findFirst({ where: { id: mediaId, productId } });
