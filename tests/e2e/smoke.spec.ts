@@ -74,3 +74,11 @@ test("service partner assignment inbox requires a real session and does not inve
   await expect(page.locator(".portal-nav-item").filter({ hasText: "درخواست‌های تخصیص‌یافته" }))
     .toHaveAttribute("href", "/service-partner/assignments");
 });
+
+test("service partner request details stay behind assignment authorization", async ({ page }) => {
+  await page.goto("/service-partner/assignments/00000000-0000-4000-8000-000000000001");
+
+  await expect(page.getByRole("heading", { name: "جزئیات درخواست" })).toBeVisible();
+  await expect(page.getByText("اتصال حساب همکار خدمات فعال نیست")).toBeVisible();
+  await expect(page.getByRole("link", { name: "بازگشت به درخواست‌های تخصیص‌یافته" })).toHaveCount(0);
+});

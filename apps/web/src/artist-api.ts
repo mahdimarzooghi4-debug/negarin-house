@@ -87,3 +87,13 @@ export async function loadServicePartnerAssignments() {
   if (result.status === 401 || result.status === 403) return { kind: "connection-required" } as const;
   return { kind: "unavailable" } as const;
 }
+
+export async function loadServicePartnerAssignment(assignmentId: string) {
+  const result = await requestArtistApi(`service-partner/assignments/${encodeURIComponent(assignmentId)}`);
+  if (result.status === 200 && result.data && typeof result.data === "object") {
+    return { kind: "ready", assignment: result.data as ServicePartnerAssignment } as const;
+  }
+  if (result.status === 401 || result.status === 403) return { kind: "connection-required" } as const;
+  if (result.status === 404) return { kind: "not-found" } as const;
+  return { kind: "unavailable" } as const;
+}

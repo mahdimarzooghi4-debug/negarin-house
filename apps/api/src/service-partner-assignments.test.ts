@@ -68,4 +68,57 @@ describe("Service Partner assigned request read model", () => {
     })).rejects.toMatchObject({ status: 403 });
     expect(findMany).not.toHaveBeenCalled();
   });
+
+  it("scopes detail lookup before selecting the partner-facing projection", async () => {
+    const assignedAt = new Date("2026-09-29T12:00:00.000Z");
+    const createdAt = new Date("2026-09-28T12:00:00.000Z");
+    const findFirst = vi.fn().mockResolvedValue({
+      id: "assignment-id",
+      partnerOrganizationId: "partner-org-id",
+      assignedPartnerUserId: null,
+      assignedAt,
+      serviceRequest: {
+        id: "service-request-id",
+        partnerTitle: "Product photography",
+        partnerSummary: null,
+        createdAt
+      }
+    });
+    const service = new ServicePartnerAssignmentsService({
+      serviceAssignment: { findFirst }
+    } as never);
+    const context: AuthorizationContext = {
+      userId: "partner-user-id",
+      activeRole: "service-partner",
+      organizationId: "partner-org-id"
+    };
+
+    await expect(service.get(context, "assignment-id")).resolves.toEqual({
+      assignmentId: "assignment-id",
+      requestId: "service-request-id",
+      title: "Product photography",
+      summary: null,
+      assignedAt: assignedAt.toISOString(),
+      requestedAt: createdAt.toISOString()
+    });
+    expect(findFirst).toHaveBeenCalledWith({
+      where: {
+        id: "assignment-id",
+        partnerOrganizationId: "partner-org-id",
+        OR: [
+          { assignedPartnerUserId: null },
+          { assignedPartnerUserId: "partner-user-id" }
+        ]
+      },
+      select: {
+        id: true,
+        partnerOrganizationId: true,
+        assignedPartnerUserId: true,
+        assignedAt: true,
+        serviceRequest: {
+          select: { id: true, partnerTitle: true, partnerSummary: true, createdAt: true }
+        }
+      }
+    });
+  });
 });

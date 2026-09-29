@@ -48,11 +48,19 @@ describe("Service Partner assignments HTTP contract", () => {
     const request = await database.serviceRequest.create({
       data: { partnerTitle: "Packing assistance", partnerSummary: "Prepare assigned items." }
     });
-    await database.serviceAssignment.createMany({ data: [
-      { serviceRequestId: request.id, partnerOrganizationId: organizationId },
-      { serviceRequestId: request.id, partnerOrganizationId: organizationId, assignedPartnerUserId: partnerColleague.userId },
-      { serviceRequestId: request.id, partnerOrganizationId: otherOrganizationId }
-    ] });
+    const organizationAssignment = await database.serviceAssignment.create({
+      data: { serviceRequestId: request.id, partnerOrganizationId: organizationId }
+    });
+    const userAssignment = await database.serviceAssignment.create({
+      data: {
+        serviceRequestId: request.id,
+        partnerOrganizationId: organizationId,
+        assignedPartnerUserId: partnerColleague.userId
+      }
+    });
+    const otherOrganizationAssignment = await database.serviceAssignment.create({
+      data: { serviceRequestId: request.id, partnerOrganizationId: otherOrganizationId }
+    });
 
     const response = await app.inject({
       method: "GET", url: "/api/v1/service-partner/assignments", headers: partner
@@ -70,11 +78,29 @@ describe("Service Partner assignments HTTP contract", () => {
     expect(response.json()[0]).not.toHaveProperty("artistUserId");
     expect(response.json()[0]).not.toHaveProperty("priceToman");
 
-    const colleagueResponse = await app.inject({
-      method: "GET", url: "/api/v1/service-partner/assignments", headers: partnerColleague
+    const organizationDetail = await app.inject({
+      method: "GET", url: `/api/v1/service-partner/assignments/${organizationAssignment.id}`, headers: partner
     });
-    expect(colleagueResponse.statusCode).toBe(200);
-    expect(colleagueResponse.json()).toHaveLength(2);
+    expect(organizationDetail.statusCode).toBe(200);
+    expect(organizationDetail.headers["cache-control"]).toBe("no-store");
+    expect(organizationDetail.json()).toMatchObject({ assignmentId: organizationAssignment.id, requestId: request.id });
+    expect(organizationDetail.json()).not.toHaveProperty("partnerOrganizationId");
+
+    expect((await app.inject({
+      method: "GET", url: `/api/v1/service-partner/assignments/${userAssignment.id}`, headers: partner
+    })).statusCode).toBe(404);
+    expect((await app.inject({
+      method: "GET", url: `/api/v1/service-partner/assignments/${userAssignment.id}`, headers: partnerColleague
+    })).statusCode).toBe(200);
+    expect((await app.inject({
+      method: "GET", url: `/api/v1/service-partner/assignments/${organizationAssignment.id}`, headers: otherPartner
+    })).statusCode).toBe(404);
+    expect((await app.inject({
+      method: "GET", url: `/api/v1/service-partner/assignments/${otherOrganizationAssignment.id}`, headers: otherArtist
+    })).statusCode).toBe(403);
+    expect((await app.inject({
+      method: "GET", url: `/api/v1/service-partner/assignments/${organizationAssignment.id}`
+    })).statusCode).toBe(401);
 
     expect((await app.inject({ method: "GET", url: "/api/v1/service-partner/assignments", headers: otherPartner })).json()).toEqual([
       expect.objectContaining({ requestId: request.id })

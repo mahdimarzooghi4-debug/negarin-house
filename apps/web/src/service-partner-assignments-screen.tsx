@@ -47,7 +47,11 @@ export function ServicePartnerAssignmentsScreen({ initialState }: { initialState
           {initialState.assignments.map((assignment) => (
             <article className="service-partner-assignment-card" key={assignment.assignmentId}>
               <div className="service-partner-assignment-card-heading">
-                <h3>{assignment.title}</h3>
+                <h3>
+                  <a href={`/service-partner/assignments/${encodeURIComponent(assignment.assignmentId)}`}>
+                    {assignment.title}
+                  </a>
+                </h3>
               </div>
               {assignment.summary && <p className="service-partner-assignment-summary">{assignment.summary}</p>}
               <dl className="service-partner-assignment-dates">
