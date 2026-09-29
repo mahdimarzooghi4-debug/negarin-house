@@ -9,6 +9,9 @@ describe("role portal navigation", () => {
     ]);
     expect(getPortalNavigation("admin").map(({ label }) => label)).toContain("بین‌الملل");
     expect(getPortalNavigation("artist").some(({ label }) => label === "بین‌الملل")).toBe(false);
+    expect(getPortalNavigation("artist").find(({ label }) => label === "محصولات")?.href).toBe("/artist/products");
+    expect(getPortalNavigation("admin").find(({ label }) => label === "بازبینی محصولات")?.href)
+      .toBe("/admin/publication-reviews");
   });
 
   it("keeps authentication and customer routes outside staff sidebars", () => {

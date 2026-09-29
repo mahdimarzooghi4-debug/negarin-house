@@ -11,6 +11,15 @@ export type ArtistProduct = {
   updatedAt: string;
 };
 
+export type PublicationReviewItem = {
+  id: string;
+  title: string;
+  description: string | null;
+  publicationStatus: "under_review";
+  createdAt: string;
+  media: Array<{ id: string; contentType: string; readUrl: string }>;
+};
+
 const sessionCookieName = "negarin_session";
 
 function apiOrigin() {
@@ -47,6 +56,15 @@ export async function loadArtistProducts() {
   const result = await requestArtistApi("artist/products?includeArchived=true");
   if (result.status === 200 && Array.isArray(result.data)) {
     return { kind: "ready", products: result.data as ArtistProduct[] } as const;
+  }
+  if (result.status === 401 || result.status === 403) return { kind: "connection-required" } as const;
+  return { kind: "unavailable" } as const;
+}
+
+export async function loadPublicationReviews() {
+  const result = await requestArtistApi("staff/publication-reviews");
+  if (result.status === 200 && Array.isArray(result.data)) {
+    return { kind: "ready", items: result.data as PublicationReviewItem[] } as const;
   }
   if (result.status === 401 || result.status === 403) return { kind: "connection-required" } as const;
   return { kind: "unavailable" } as const;

@@ -54,3 +54,12 @@ test("artist product workspace requires a real session and does not invent produ
   await expect(page.getByRole("button", { name: "افزودن محصول" })).toHaveCount(0);
   await expect(page.getByRole("button", { name: /ارسال برای بررسی|بایگانی/ })).toHaveCount(0);
 });
+
+test("staff publication review queue requires staff permission and never shows product prices", async ({ page }) => {
+  await page.goto("/admin/publication-reviews");
+
+  await expect(page.getByRole("heading", { name: "بازبینی محصولات" })).toBeVisible();
+  await expect(page.getByText("دسترسی بررسی فعال نیست")).toBeVisible();
+  await expect(page.getByText("قیمت هنرمند در صف بازبینی نمایش داده نمی‌شود.")).toBeVisible();
+  await expect(page.getByRole("button", { name: /تأیید محتوا|درخواست اصلاح/ })).toHaveCount(0);
+});
