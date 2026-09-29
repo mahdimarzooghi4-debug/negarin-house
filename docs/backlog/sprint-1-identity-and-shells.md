@@ -36,6 +36,10 @@ The next E1-S2 slice stores server-administered role grants, organization or Exp
 
 The `Organization` registry now stores Service Partner, Supporting Organization, and Corporate Buyer scopes. `RoleGrant` records can reference registered organizations, and the resolver rejects a grant whose role does not match the organization kind. The migration backfills inferable organization scopes and aborts on conflicting organization-kind IDs. No organization/member provisioning API or administrative approval workflow is exposed yet; Export Partner registry work also remains open. Grant provisioning has no public API. API guards, HTTP context switching, and cross-portal data queries must use this resolver before product endpoints are exposed.
 
+## Service Partner assignment authoring progress
+
+Staff with the live `services` permission can append an assignment for an existing service request through `POST /api/v1/admin/service-assignments`. The API accepts only a registered Service Partner organization; an optional individual assignee must have an active Service Partner grant in that same organization. Each new assignment stores the authoring staff user ID. Legacy assignments retain a null author because their original actor is not recoverable. This endpoint does not create service requests, alter existing assignments, or define lifecycle, schedule, or deliverable rules. No authoring panel or organization/member provisioning UI is exposed yet.
+
 ## HTTP authorization boundary
 
 The next E1-S3 slice wires a reusable Nest guard to bearer sessions and the live active context resolver. Missing, expired, or revoked credentials return 401. After a service loads a resource from its own trusted query, policy decisions map forbidden access to 403 and concealed cross-owner resources to 404. HTTP integration tests exercise both responses and live grant/permission revocation. The test resource controller is not registered in the product API; product data endpoints and browser cookie/CSRF handling remain separate delivery work.

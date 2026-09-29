@@ -86,17 +86,17 @@ describe("Staff Service Partner assignment authoring HTTP contract", () => {
     const organization = await database.organization.create({ data: { kind: "service_partner" } });
     const request = await database.serviceRequest.create({ data: { partnerTitle: "Local request" } });
     const staff = await signInStaff(["products"]);
+    const servicesStaff = await signInStaff(["services"]);
     const payload = { requestId: request.id, partnerOrganizationId: organization.id };
 
     const noDomain = await app.inject({ method: "POST", url: "/api/v1/admin/service-assignments", headers: staff, payload });
     expect(noDomain.statusCode).toBe(403);
     expect((await app.inject({ method: "POST", url: "/api/v1/admin/service-assignments", payload })).statusCode).toBe(401);
-    expect((await app.inject({ method: "POST", url: "/api/v1/admin/service-assignments", headers: staff,
+    expect((await app.inject({ method: "POST", url: "/api/v1/admin/service-assignments", headers: servicesStaff,
       payload: { ...payload, extra: true } })).statusCode).toBe(400);
-    expect((await app.inject({ method: "POST", url: "/api/v1/admin/service-assignments", headers: staff,
+    expect((await app.inject({ method: "POST", url: "/api/v1/admin/service-assignments", headers: servicesStaff,
       payload: { ...payload, assignedPartnerUserId: randomUUID() } })).statusCode).toBe(400);
 
-    const servicesStaff = await signInStaff(["services"]);
     expect((await app.inject({ method: "POST", url: "/api/v1/admin/service-assignments", headers: servicesStaff,
       payload: { ...payload, assignedPartnerUserId: randomUUID() } })).statusCode).toBe(400);
     expect((await app.inject({ method: "POST", url: "/api/v1/admin/service-assignments", headers: servicesStaff,
