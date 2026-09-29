@@ -34,7 +34,7 @@ The identity core slice did not wire OTP transport, secret provisioning, browser
 
 The next E1-S2 slice stores server-administered role grants, organization or Export Partner scope, and staff permission domains. A session selects only a grant belonging to its user. Every protected context resolution rereads session validity, grant revocation, and current staff domains from PostgreSQL. Invalid role/scope combinations fail closed; a client-provided role or organization ID cannot become an authorization context by itself.
 
-Grant provisioning has no public API. Organization/Partner registries and their administrative approval workflows are not implemented by this slice. API guards, HTTP context switching, and cross-portal data queries must use this resolver in later slices before product endpoints are exposed.
+The `Organization` registry now stores Service Partner, Supporting Organization, and Corporate Buyer scopes. `RoleGrant` records can reference registered organizations, and the resolver rejects a grant whose role does not match the organization kind. The migration backfills inferable organization scopes and aborts on conflicting organization-kind IDs. No organization/member provisioning API or administrative approval workflow is exposed yet; Export Partner registry work also remains open. Grant provisioning has no public API. API guards, HTTP context switching, and cross-portal data queries must use this resolver before product endpoints are exposed.
 
 ## HTTP authorization boundary
 
