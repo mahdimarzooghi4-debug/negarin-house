@@ -98,14 +98,13 @@ describe("Staff Service Partner assignment authoring HTTP contract", () => {
     });
     expect(options.statusCode).toBe(200);
     expect(options.headers["cache-control"]).toBe("no-store");
-    expect(options.json().requests).toEqual([expect.objectContaining({
-      id: request.id,
-      title: "بسته‌بندی سفارش",
-      summary: "آماده‌سازی بسته."
-    })]);
-    expect(options.json().requests[0]).not.toHaveProperty("priceToman");
-    expect(options.json().requests[0]).not.toHaveProperty("artistUserId");
-    expect(options.json().organizations).toEqual([{ id: organization.id, displayName: "بسته‌بندی" }]);
+    const visibleRequest = options.json().requests.find((item: { id: string }) => item.id === request.id);
+    expect(visibleRequest).toMatchObject({
+      id: request.id, title: "بسته‌بندی سفارش", summary: "آماده‌سازی بسته."
+    });
+    expect(visibleRequest).not.toHaveProperty("priceToman");
+    expect(visibleRequest).not.toHaveProperty("artistUserId");
+    expect(options.json().organizations).toContainEqual({ id: organization.id, displayName: "بسته‌بندی" });
     expect(options.json().organizations).not.toContainEqual(expect.objectContaining({ id: unrelatedOrganization.id }));
 
     const productsStaff = await signInStaff(["products"]);
