@@ -4,13 +4,14 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `3712bbdab49513441b0755be0fa913b3ac023c79` |
-| CI | [GitHub Actions run #70](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36586774294): success |
+| Code commit verified by CI | `ce1b2bf523fb5db30378fe77a5fff2291ab919c5` |
+| CI | [GitHub Actions run #73](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36587813918): success |
 
 ## Delivered and verified
 
 - Artist-owned product CRUD and reversible archive behavior are guarded by server-derived Artist ownership; price remains Artist-controlled.
 - Artist publication submission, staff review permission, approve/request-changes decisions, and append-only review history are implemented. Review payloads omit Artist price.
+- When Artist content or images cause an approved/published product to return to draft, the status change is written to publication history in the same database transaction. Price-only edits preserve status and do not create publication events.
 - The staff review queue includes ready product images through signed read URLs; it does not return storage object keys.
 - Artist media uploads are limited to JPEG, PNG, and WebP up to 10 MiB. Completion checks stored object metadata and promotes the staged upload to a unique final object key.
 - Artists can request a fresh signed URL for a still-pending upload. The stored key and signed MIME/length contract remain unchanged; ready uploads and another Artist's media are denied or concealed.
@@ -18,7 +19,7 @@
 
 ## CI evidence
 
-Run #70 completed all configured gates successfully: frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full test suite, build, and Playwright E2E smoke.
+Run #73 completed all configured gates successfully: frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full test suite, build, and Playwright E2E smoke.
 
 This is automated CI evidence for the cited commit. It is not Stage QA, Release Approval, or Production evidence.
 
