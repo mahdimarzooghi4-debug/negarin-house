@@ -57,6 +57,18 @@ describe("server-side relationship policies", () => {
     expect(canReadServiceRequest(partner, { assignedPartnerOrganizationId: "partner-a", assignedPartnerUserId: "user-a" })).toEqual({ allowed: true });
   });
 
+  it("requires organization context and denies the same assignment to every other role", () => {
+    const assignment = { assignedPartnerOrganizationId: "partner-a", assignedPartnerUserId: "user-a" };
+    expect(canReadServiceRequest(context("service-partner"), assignment)).toEqual({ allowed: false, reason: "not-found" });
+
+    for (const role of roles.filter((candidate) => candidate !== "service-partner")) {
+      expect(canReadServiceRequest(context(role, { organizationId: "partner-a" }), assignment)).toEqual({
+        allowed: false,
+        reason: "forbidden"
+      });
+    }
+  });
+
   it("keeps domestic Artist finance private and checks staff finance permission", () => {
     const finance = { artistUserId: "user-a" };
     expect(canReadArtistDomesticFinance(context("artist"), finance)).toEqual({ allowed: true });
