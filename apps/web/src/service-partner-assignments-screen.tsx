@@ -4,6 +4,7 @@ import type { ServicePartnerAssignment } from "./artist-api";
 type AssignmentsState =
   | { kind: "ready"; assignments: ServicePartnerAssignment[] }
   | { kind: "connection-required" }
+  | { kind: "access-denied" }
   | { kind: "unavailable" };
 
 function formatDate(value: string) {
@@ -15,10 +16,14 @@ export function ServicePartnerAssignmentsScreen({ initialState }: { initialState
   if (initialState.kind !== "ready") {
     return (
       <EmptyState
-        title={initialState.kind === "connection-required" ? "اتصال حساب همکار خدمات فعال نیست" : "درخواست‌ها در دسترس نیستند"}
+        title={initialState.kind === "connection-required"
+          ? "اتصال حساب همکار خدمات فعال نیست"
+          : initialState.kind === "access-denied" ? "دسترسی همکار خدمات فعال نیست" : "درخواست‌ها در دسترس نیستند"}
         description={initialState.kind === "connection-required"
           ? "پس از فعال‌شدن ورود امن، درخواست‌های تخصیص‌یافته از سرویس دریافت می‌شوند."
-          : "سرویس درخواست‌ها در حال حاضر پاسخ نمی‌دهد. کمی بعد دوباره تلاش کن."}
+          : initialState.kind === "access-denied"
+            ? "برای دیدن این صفحه، نقش فعال همکار خدمات و دسترسی سازمانی معتبر لازم است."
+            : "سرویس درخواست‌ها در حال حاضر پاسخ نمی‌دهد. کمی بعد دوباره تلاش کن."}
         note="در این صفحه درخواست یا اطلاعات هنرمند نمونه نمایش داده نمی‌شود."
       />
     );

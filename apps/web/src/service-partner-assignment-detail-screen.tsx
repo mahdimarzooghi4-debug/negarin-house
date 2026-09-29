@@ -4,6 +4,7 @@ import type { ServicePartnerAssignment } from "./artist-api";
 type DetailState =
   | { kind: "ready"; assignment: ServicePartnerAssignment }
   | { kind: "connection-required" }
+  | { kind: "access-denied" }
   | { kind: "not-found" }
   | { kind: "unavailable" };
 
@@ -18,10 +19,14 @@ export function ServicePartnerAssignmentDetailScreen({ initialState }: { initial
       <EmptyState
         title={initialState.kind === "connection-required"
           ? "اتصال حساب همکار خدمات فعال نیست"
-          : initialState.kind === "not-found" ? "درخواست در دسترس نیست" : "سرویس درخواست‌ها در دسترس نیست"}
+          : initialState.kind === "access-denied"
+            ? "دسترسی همکار خدمات فعال نیست"
+            : initialState.kind === "not-found" ? "درخواست در دسترس نیست" : "سرویس درخواست‌ها در دسترس نیست"}
         description={initialState.kind === "connection-required"
           ? "پس از فعال‌شدن ورود امن، جزئیات درخواست‌های تخصیص‌یافته از سرویس دریافت می‌شوند."
-          : initialState.kind === "not-found"
+          : initialState.kind === "access-denied"
+            ? "برای دیدن این صفحه، نقش فعال همکار خدمات و دسترسی سازمانی معتبر لازم است."
+            : initialState.kind === "not-found"
             ? "درخواست پیدا نشد یا به این حساب تخصیص داده نشده است."
             : "سرویس درخواست‌ها در حال حاضر پاسخ نمی‌دهد. کمی بعد دوباره تلاش کن."}
         note="اطلاعات درخواست‌های خارج از دسترسی حساب نمایش داده نمی‌شود."
