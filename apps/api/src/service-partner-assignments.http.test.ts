@@ -70,6 +70,12 @@ describe("Service Partner assignments HTTP contract", () => {
     expect(response.json()[0]).not.toHaveProperty("artistUserId");
     expect(response.json()[0]).not.toHaveProperty("priceToman");
 
+    const colleagueResponse = await app.inject({
+      method: "GET", url: "/api/v1/service-partner/assignments", headers: partnerColleague
+    });
+    expect(colleagueResponse.statusCode).toBe(200);
+    expect(colleagueResponse.json()).toHaveLength(2);
+
     expect((await app.inject({ method: "GET", url: "/api/v1/service-partner/assignments", headers: otherPartner })).json()).toEqual([
       expect.objectContaining({ requestId: request.id })
     ]);
