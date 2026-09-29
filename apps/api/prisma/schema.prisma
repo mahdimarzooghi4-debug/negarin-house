@@ -50,6 +50,7 @@ model ArtistProduct {
   createdAt         DateTime                 @default(now())
   updatedAt         DateTime                 @updatedAt
   publicationEvents ProductPublicationEvent[]
+  media             ArtistProductMedia[]
 
   @@index([artistUserId, archivedAt, updatedAt])
   @@index([publicationStatus, archivedAt])
@@ -68,6 +69,26 @@ model ProductPublicationEvent {
 
   @@index([productId, createdAt])
   @@map("product_publication_events")
+}
+
+enum ProductMediaStatus {
+  pending
+  ready
+}
+
+model ArtistProductMedia {
+  id            String            @id @default(uuid()) @db.Uuid
+  productId     String            @db.Uuid
+  product       ArtistProduct     @relation(fields: [productId], references: [id], onDelete: Cascade)
+  objectKey     String            @unique
+  contentType   String
+  contentLength Int
+  status        ProductMediaStatus @default(pending)
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+
+  @@index([productId, status, createdAt])
+  @@map("artist_product_media")
 }
 
 model OtpChallenge {

@@ -22,6 +22,10 @@ export class PublicationReviewService {
       if (product.publicationStatus !== "draft" && product.publicationStatus !== "changes_requested") {
         throw new ConflictException("product-not-submittable");
       }
+      const pendingMedia = await transaction.artistProductMedia.count({
+        where: { productId, status: "pending" }
+      });
+      if (pendingMedia > 0) throw new ConflictException("product-media-upload-pending");
 
       const updated = await transaction.artistProduct.updateMany({
         where: { id: productId, archivedAt: null, publicationStatus: product.publicationStatus },

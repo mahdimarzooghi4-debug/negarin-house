@@ -208,6 +208,9 @@ importers:
       '@negarin/queue':
         specifier: workspace:*
         version: link:../../packages/queue
+      '@negarin/storage':
+        specifier: workspace:*
+        version: link:../../packages/storage
       '@nestjs/common':
         specifier: 12.1.0
         version: 12.1.0(reflect-metadata@0.2.2)(rxjs@7.8.2)
