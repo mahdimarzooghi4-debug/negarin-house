@@ -16,6 +16,12 @@ The product owner confirmed an independent Android application in addition to th
 - Negarin reviews content, images, required information, and publication quality.
 - Domestic Artist-facing finance is shown in Toman.
 
+### Product catalog visibility — open Product decision
+- The current API distinguishes `approved` from `published`; the staff review decision records `approved`.
+- The product handoff says archived products leave public display, but does not define which publication status makes an active product visible in the customer catalog or whether a separate publish action is required.
+- Customer catalog implementation must wait for that visibility rule. It must not infer public visibility from either status.
+- This does not block Artist product management or the internal publication review queue.
+
 ### Growth
 Canonical levels:
 1. جوانه
