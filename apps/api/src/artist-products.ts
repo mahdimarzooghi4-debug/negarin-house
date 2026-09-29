@@ -43,19 +43,29 @@ export class ArtistProductsService {
   }
 
   async update(context: AuthorizationContext, id: string, input: ArtistProductWrite) {
-    const product = await this.ownedProduct(context, id);
-    if (product.archivedAt) throw new ConflictException("product-archived");
-    if (product.publicationStatus === "under_review") throw new ConflictException("product-under-review");
     const contentChanged = Object.hasOwn(input, "title") || Object.hasOwn(input, "description");
-    const publicationStatus = contentChanged &&
-      (product.publicationStatus === "approved" || product.publicationStatus === "published")
-      ? "draft"
-      : product.publicationStatus;
-    const updated = await this.database.artistProduct.updateMany({
-      where: { id, artistUserId: context.userId, archivedAt: null, publicationStatus: product.publicationStatus },
-      data: { ...input, publicationStatus }
+    await this.database.$transaction(async (transaction) => {
+      const product = await transaction.artistProduct.findUnique({ where: { id } });
+      if (!product) throw new NotFoundException();
+      enforceDecision(canEditArtistProduct(context, { artistUserId: product.artistUserId }));
+      if (product.archivedAt) throw new ConflictException("product-archived");
+      if (product.publicationStatus === "under_review") throw new ConflictException("product-under-review");
+
+      const publicationStatus = contentChanged &&
+        (product.publicationStatus === "approved" || product.publicationStatus === "published")
+        ? "draft"
+        : product.publicationStatus;
+      const updated = await transaction.artistProduct.updateMany({
+        where: { id, artistUserId: context.userId, archivedAt: null, publicationStatus: product.publicationStatus },
+        data: { ...input, publicationStatus }
+      });
+      if (updated.count !== 1) throw new ConflictException("product-state-changed");
+      if (publicationStatus === "draft" && product.publicationStatus !== "draft") {
+        await transaction.productPublicationEvent.create({
+          data: { productId: id, actorUserId: context.userId, status: "draft" }
+        });
+      }
     });
-    if (updated.count !== 1) throw new ConflictException("product-state-changed");
     return this.get(context, id);
   }
 

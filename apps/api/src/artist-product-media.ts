@@ -96,6 +96,9 @@ export class ArtistProductMediaService {
             data: { publicationStatus: "draft" }
           });
           if (reset.count !== 1) throw new ConflictException("product-state-changed");
+          await transaction.productPublicationEvent.create({
+            data: { productId, actorUserId: context.userId, status: "draft" }
+          });
         }
         return { id: media.id, status: "ready" as const, objectKey };
       });

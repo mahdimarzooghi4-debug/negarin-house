@@ -30,7 +30,8 @@ function fixture(stored = { contentType: "image/jpeg", contentLength: 1024 }, pu
       findUnique: vi.fn(),
       findMany: vi.fn(),
       delete: vi.fn()
-    }
+    },
+    productPublicationEvent: { create: vi.fn() }
   };
   Object.assign(database, {
     $transaction: vi.fn(async (callback: (transaction: typeof database) => Promise<unknown>) => callback(database))
@@ -133,6 +134,9 @@ describe("Artist product media upload contract", () => {
       where: { id: productId, archivedAt: null, publicationStatus: "approved" },
       data: { publicationStatus: "draft" }
     }));
+    expect(database.productPublicationEvent.create).toHaveBeenCalledWith({
+      data: { productId, actorUserId: context.userId, status: "draft" }
+    });
   });
 
   it("does not accept a stored object whose metadata differs from the signed upload", async () => {

@@ -91,12 +91,20 @@ describe("Product publication review HTTP contract", () => {
       payload: { priceToman: "790000" }
     });
     expect(priceOnly.json().publicationStatus).toBe("approved");
+    const priceHistory = await app.inject({ method: "GET", url: `/api/v1/artist/products/${productId}/review-history`, headers: artist });
+    expect(priceHistory.json()).not.toEqual(expect.arrayContaining([
+      expect.objectContaining({ status: "draft" })
+    ]));
     const contentEdit = await app.inject({
       method: "PATCH", url: `/api/v1/artist/products/${productId}`, headers: artist,
       payload: { title: "گلدان سفال تازه" }
     });
     expect(contentEdit.json().publicationStatus).toBe("draft");
     expect(contentEdit.json().priceToman).toBe("790000");
+    const updatedHistory = await app.inject({ method: "GET", url: `/api/v1/artist/products/${productId}/review-history`, headers: artist });
+    expect(updatedHistory.json()).toEqual(expect.arrayContaining([
+      expect.objectContaining({ status: "draft", feedback: null })
+    ]));
   });
 
   it("requires the products staff permission and hides other Artists' review history", async () => {
