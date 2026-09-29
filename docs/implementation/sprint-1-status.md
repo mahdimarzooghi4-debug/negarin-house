@@ -7,6 +7,7 @@
 | Code commit verified by CI | `07a62eae51ecd82c1a635127fcc8152a021062ac` |
 | Code CI | [GitHub Actions run #89](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36612998304): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
+| Service Partner authorization tests | Commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, verified by [CI run #93](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36618211205): success |
 
 ## Delivered and verified
 
@@ -22,6 +23,7 @@
 - Mutating browser requests use same-origin Next.js routes; the server reads the expected `negarin_session` cookie and forwards its Bearer token to the API. No cookie is issued by this page, and unauthenticated visitors see a connection-required empty state with no sample product/price.
 - Web route tests verify same-origin protection, signed URL secrecy, body-size limits, storage forwarding, and upload completion. Playwright smoke checks cover the unauthenticated Artist workspace, staff review queue, and partner locale shell.
 - The API permits review submission without images, does not define a minimum image count, and rejects submission while any upload is pending.
+- Service Partner authorization tests verify that organization context is required and that the same assigned request is denied to every other role; this is policy coverage, not an implemented Service Partner request panel.
 - An Android-only React Native foundation is available at `apps/mobile`, with the shared Negarin logo, a Persian RTL bootstrap screen, and Android system UI theme support.
 - The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. No token issuance, OTP screen, login endpoint, or logout/revocation flow is connected.
 - Root CI run #89 verified frozen install, Prisma gates, audit, lint, typecheck, full tests, monorepo build (including Android bundle export), and Playwright E2E on the current code commit.
@@ -38,6 +40,8 @@ Run #89 completed all configured gates successfully for code commit `07a62eae51e
 
 Run #91 completed all configured gates successfully for product decision documentation commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`. The update records that public catalog visibility must not be inferred from the `approved` or `published` states until Product defines the rule.
 
+Run #93 completed all configured gates successfully for authorization test commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, including the expanded Service Partner assignment-isolation matrix.
+
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
 ## Remaining Sprint 1 work and constraints
@@ -46,6 +50,7 @@ This is automated CI evidence. It is not Stage QA, Release Approval, or Producti
 - The product/API slice has no Stage deployment or Stage QA evidence because no hosted Stage server is available.
 - No payment gateway is available; purchase, payment, and settlement flows remain unimplemented.
 - Customer public catalog work awaits the Product decision on whether `approved` or `published` makes an active product publicly visible, or whether a separate publish action is required.
+- Service Partner request data/API/panel remain unimplemented; future access must remain scoped to actual assignments.
 - Mobile scope is Android. iOS is out of scope. Android app release identity and device QA are still open.
 - PR #35 has no submitted GitHub review yet and remains draft.
 
