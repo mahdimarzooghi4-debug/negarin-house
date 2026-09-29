@@ -4,8 +4,8 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `3b0496b2b4f812d9995d68c1ba26aeedc8d91326` |
-| CI | [GitHub Actions run #82](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36600344744): success |
+| Code commit verified by CI | `0b2793b0c59cae52439bfe73505cb67a7525e9c4` |
+| CI | [GitHub Actions run #84](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36602599496): success |
 
 ## Delivered and verified
 
@@ -17,23 +17,23 @@
 - Artists can request a fresh signed URL for a still-pending upload. The stored key and signed MIME/length contract remain unchanged; ready uploads and another Artist's media are denied or concealed.
 - A new RTL Artist product workspace is available at `/artist/products`: it reads real API data, supports Artist-owned product creation/editing/archive/restore, shows review status, and presents the archive confirmation flow.
 - A staff publication review queue is available at `/admin/publication-reviews`: authorized staff can see product content and signed ready-image previews, approve content, or request changes with required feedback. Artist prices are omitted.
+- The Artist product page can add multiple JPEG, PNG, or WebP images (up to 10 MiB each), show signed previews, and retry pending uploads by selecting the same file. The same-origin web handler keeps signed upload URLs server-side and bounds streamed bodies.
 - Mutating browser requests use same-origin Next.js routes; the server reads the expected `negarin_session` cookie and forwards its Bearer token to the API. No cookie is issued by this page, and unauthenticated visitors see a connection-required empty state with no sample product/price.
-- Playwright smoke checks cover the unauthenticated Artist workspace, staff review queue, and partner locale shell.
-- The Artist web page does not yet expose image upload or media management controls. The API permits submission without images, does not define a minimum image count, and rejects submission while any upload is pending.
+- Web route tests verify same-origin protection, signed URL secrecy, body-size limits, storage forwarding, and upload completion. Playwright smoke checks cover the unauthenticated Artist workspace, staff review queue, and partner locale shell.
+- The API permits review submission without images, does not define a minimum image count, and rejects submission while any upload is pending.
 
 ## CI evidence
 
-Run #82 completed all configured gates successfully for commit `3b0496b2b4f812d9995d68c1ba26aeedc8d91326`: frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full test suite, build, Chromium install, and Playwright E2E smoke. API tests run with one Vitest worker because concurrent Serializable OTP tests previously produced PostgreSQL serialization conflicts.
+Run #84 completed all configured gates successfully for commit `0b2793b0c59cae52439bfe73505cb67a7525e9c4`: frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full test suite, build, Chromium install, and Playwright E2E smoke. API tests run with one Vitest worker because concurrent Serializable OTP tests previously produced PostgreSQL serialization conflicts.
 
 This is automated CI evidence for the cited commit. It is not Stage QA, Release Approval, or Production evidence.
 
 ## Remaining Sprint 1 work and constraints
 
 - No OTP/SMS provider is available; public login and session delivery remain disabled.
-- Artist image upload and media management controls remain before product media is usable end to end in web. API submission requires uploads to be complete when present; it does not define a minimum image count.
 - The product/API slice has no Stage deployment or Stage QA evidence because no hosted Stage server is available.
 - No payment gateway is available; purchase, payment, and settlement flows remain unimplemented.
 - Mobile scope is Android. iOS is out of scope. Mobile workflows and design acceptance still need Product/UX and Sprint planning before implementation.
 - PR #35 has no submitted GitHub review yet and remains draft.
 
-Sprint 1 remains open until identity/session, Artist image management, Stage QA, and release gates are completed with real evidence.
+Sprint 1 remains open until identity/session, Stage QA, and release gates are completed with real evidence.
