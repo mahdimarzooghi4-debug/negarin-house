@@ -63,3 +63,14 @@ test("staff publication review queue requires staff permission and never shows p
   await expect(page.getByText("قیمت هنرمند در صف بازبینی نمایش داده نمی‌شود.")).toBeVisible();
   await expect(page.getByRole("button", { name: /تأیید محتوا|درخواست اصلاح/ })).toHaveCount(0);
 });
+
+test("service partner assignment inbox requires a real session and does not invent requests", async ({ page }) => {
+  await page.goto("/service-partner/assignments");
+
+  await expect(page.getByRole("heading", { name: "درخواست‌های تخصیص‌یافته" }).first()).toBeVisible();
+  await expect(page.getByText("اتصال حساب همکار خدمات فعال نیست")).toBeVisible();
+  await expect(page.getByText("در این صفحه درخواست یا اطلاعات هنرمند نمونه نمایش داده نمی‌شود.")).toBeVisible();
+  await expect(page.getByRole("button")).toHaveCount(0);
+  await expect(page.locator(".portal-nav-item").filter({ hasText: "درخواست‌های تخصیص‌یافته" }))
+    .toHaveAttribute("href", "/service-partner/assignments");
+});

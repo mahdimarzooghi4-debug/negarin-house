@@ -12,6 +12,8 @@ describe("role portal navigation", () => {
     expect(getPortalNavigation("artist").find(({ label }) => label === "محصولات")?.href).toBe("/artist/products");
     expect(getPortalNavigation("admin").find(({ label }) => label === "بازبینی محصولات")?.href)
       .toBe("/admin/publication-reviews");
+    expect(getPortalNavigation("service-partner").find(({ label }) => label === "درخواست‌های تخصیص‌یافته")?.href)
+      .toBe("/service-partner/assignments");
   });
 
   it("keeps authentication and customer routes outside staff sidebars", () => {

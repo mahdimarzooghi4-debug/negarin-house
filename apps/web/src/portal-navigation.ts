@@ -32,7 +32,7 @@ const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
   ],
   "service-partner": [
     { label: "پیشخوان", active: true },
-    { label: "درخواست‌های تخصیص‌یافته" },
+    { label: "درخواست‌های تخصیص‌یافته", href: "/service-partner/assignments" },
     { label: "برنامهٔ اجرا" },
     { label: "تحویل‌ها" },
     { label: "تاریخچه" },

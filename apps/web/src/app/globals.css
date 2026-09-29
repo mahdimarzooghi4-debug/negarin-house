@@ -377,6 +377,21 @@ a.portal-nav-item { text-decoration: none; }
 .staff-review-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .staff-review-notice { margin: 12px 0; padding: 12px 14px; border: 1px solid #b7e3cc; border-radius: 10px; background: #effaf4; color: #176b43; }
 
+.service-partner-assignments { width: min(100%, 1200px); margin: 0 auto; }
+.service-partner-assignments-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 20px; }
+.service-partner-assignments-heading h2 { margin: 0; font-size: 21px; }
+.service-partner-assignments-heading p { margin: 7px 0 0; color: var(--negarin-muted); line-height: 1.7; }
+.service-partner-assignment-count { padding: 8px 12px; border: 1px solid var(--negarin-border); border-radius: 999px; background: #fff; color: var(--negarin-sidebar-active-content); font-size: 13px; white-space: nowrap; }
+.service-partner-assignment-list { display: grid; gap: 14px; }
+.service-partner-assignment-card { display: grid; gap: 14px; padding: 20px; border: 1px solid var(--negarin-border); border-radius: 16px; background: var(--negarin-surface); box-shadow: 0 6px 18px rgb(15 23 42 / 3%); }
+.service-partner-assignment-card-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.service-partner-assignment-card-heading h3 { margin: 0; font-size: 17px; }
+.service-partner-assignment-summary { margin: 0; color: #475569; line-height: 1.8; white-space: pre-wrap; }
+.service-partner-assignment-dates { display: flex; flex-wrap: wrap; gap: 12px 32px; margin: 0; padding-top: 13px; border-top: 1px solid var(--negarin-border); }
+.service-partner-assignment-dates div { display: grid; gap: 5px; }
+.service-partner-assignment-dates dt { color: var(--negarin-muted); font-size: 12px; }
+.service-partner-assignment-dates dd { margin: 0; color: var(--negarin-text); font-size: 13px; }
+
 @media (max-width: 760px) {
   .portal-layout { flex-direction: column; }
   .portal-sidebar {
@@ -407,6 +422,7 @@ a.portal-nav-item { text-decoration: none; }
   .product-editor-backdrop, .product-archive-backdrop { align-items: end; padding: 12px; }
   .product-editor, .product-archive-dialog { max-height: 92vh; padding: 22px 18px; border-radius: 18px 18px 12px 12px; }
   .staff-review-heading, .staff-review-card-heading { flex-direction: column; align-items: stretch; }
+  .service-partner-assignments-heading, .service-partner-assignment-card-heading { flex-direction: column; align-items: stretch; }
   .staff-review-card { padding: 18px; }
   .staff-review-media a { width: calc(50% - 5px); height: 130px; }
 }

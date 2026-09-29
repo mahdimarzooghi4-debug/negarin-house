@@ -20,6 +20,15 @@ export type PublicationReviewItem = {
   media: Array<{ id: string; contentType: string; readUrl: string }>;
 };
 
+export type ServicePartnerAssignment = {
+  assignmentId: string;
+  requestId: string;
+  title: string;
+  summary: string | null;
+  assignedAt: string;
+  requestedAt: string;
+};
+
 const sessionCookieName = "negarin_session";
 
 function apiOrigin() {
@@ -65,6 +74,15 @@ export async function loadPublicationReviews() {
   const result = await requestArtistApi("staff/publication-reviews");
   if (result.status === 200 && Array.isArray(result.data)) {
     return { kind: "ready", items: result.data as PublicationReviewItem[] } as const;
+  }
+  if (result.status === 401 || result.status === 403) return { kind: "connection-required" } as const;
+  return { kind: "unavailable" } as const;
+}
+
+export async function loadServicePartnerAssignments() {
+  const result = await requestArtistApi("service-partner/assignments");
+  if (result.status === 200 && Array.isArray(result.data)) {
+    return { kind: "ready", assignments: result.data as ServicePartnerAssignment[] } as const;
   }
   if (result.status === 401 || result.status === 403) return { kind: "connection-required" } as const;
   return { kind: "unavailable" } as const;
