@@ -41,6 +41,10 @@ describe("Service Partner assignments HTTP contract", () => {
   it("returns only assignments for the active organization and user scope", async () => {
     const organizationId = randomUUID();
     const otherOrganizationId = randomUUID();
+    await database.organization.createMany({ data: [
+      { id: organizationId, kind: "service_partner" },
+      { id: otherOrganizationId, kind: "service_partner" }
+    ] });
     const partner = await signIn("service-partner", organizationId);
     const partnerColleague = await signIn("service-partner", organizationId);
     const otherPartner = await signIn("service-partner", otherOrganizationId);

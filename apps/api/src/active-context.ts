@@ -21,6 +21,7 @@ type Grant = {
   userId: string;
   role: keyof typeof roleMap;
   organizationId: string | null;
+  organization: { kind: "service_partner" | "supporting_organization" | "corporate_buyer" } | null;
   exportPartnerId: string | null;
   revokedAt: Date | null;
   staffDomains: Array<{ domain: string }>;
@@ -29,10 +30,15 @@ type Grant = {
 function contextFromGrant(grant: Grant): AuthorizationContext | null {
   if (grant.revokedAt) return null;
   const activeRole = roleMap[grant.role];
-  const organizationRole = ["service-partner", "supporting-organization", "corporate-buyer"].includes(activeRole);
+  const organizationKinds = {
+    "service-partner": "service_partner",
+    "supporting-organization": "supporting_organization",
+    "corporate-buyer": "corporate_buyer"
+  } as const;
+  const expectedOrganizationKind = organizationKinds[activeRole as keyof typeof organizationKinds];
 
-  if (organizationRole) {
-    if (!grant.organizationId || grant.exportPartnerId) return null;
+  if (expectedOrganizationKind) {
+    if (!grant.organizationId || grant.exportPartnerId || grant.organization?.kind !== expectedOrganizationKind) return null;
     return { userId: grant.userId, activeRole, organizationId: grant.organizationId };
   }
   if (activeRole === "export-partner") {
@@ -61,7 +67,7 @@ export class ActiveContextResolver {
 
     const grant = await this.database.roleGrant.findFirst({
       where: { id: session.activeGrantId, userId: session.userId, revokedAt: null },
-      include: { staffDomains: true }
+      include: { staffDomains: true, organization: { select: { kind: true } } }
     });
     return grant ? contextFromGrant(grant) : null;
   }
@@ -74,7 +80,7 @@ export class ActiveContextResolver {
 
     const grant = await this.database.roleGrant.findFirst({
       where: { id: grantId, userId: session.userId, revokedAt: null },
-      include: { staffDomains: true }
+      include: { staffDomains: true, organization: { select: { kind: true } } }
     });
     const context = grant ? contextFromGrant(grant) : null;
     if (!context) return null;

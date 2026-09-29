@@ -1,6 +1,6 @@
 import "dotenv/config";
 import "reflect-metadata";
-import { randomInt, randomUUID } from "node:crypto";
+import { randomInt } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { NestFastifyApplication } from "@nestjs/platform-fastify";
 import { createApplication } from "./app.js";
@@ -32,8 +32,9 @@ describe("identity context HTTP contract", () => {
   it("lists only the user's grants, switches context, and reflects revocation", async () => {
     const user = await signIn();
     const other = await signIn();
+    const organization = await database.organization.create({ data: { kind: "corporate_buyer" } });
     const grant = await database.roleGrant.create({ data: {
-      userId: user.userId, role: "corporate_buyer", organizationId: randomUUID()
+      userId: user.userId, role: "corporate_buyer", organizationId: organization.id
     } });
     const foreign = await database.roleGrant.create({ data: {
       userId: other.userId, role: "artist"

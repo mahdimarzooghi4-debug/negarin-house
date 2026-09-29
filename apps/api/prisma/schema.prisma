@@ -31,6 +31,25 @@ model IdentityUser {
   @@map("identity_users")
 }
 
+enum OrganizationKind {
+  service_partner
+  supporting_organization
+  corporate_buyer
+}
+
+model Organization {
+  id                 String             @id @default(uuid()) @db.Uuid
+  kind               OrganizationKind
+  displayName        String?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  roleGrants         RoleGrant[]
+  serviceAssignments ServiceAssignment[]
+
+  @@index([kind, createdAt])
+  @@map("organizations")
+}
+
 enum ProductPublicationStatus {
   draft
   under_review
@@ -108,6 +127,7 @@ model ServiceAssignment {
   serviceRequestId      String         @db.Uuid
   serviceRequest        ServiceRequest @relation(fields: [serviceRequestId], references: [id], onDelete: Cascade)
   partnerOrganizationId String         @db.Uuid
+  partnerOrganization   Organization   @relation(fields: [partnerOrganizationId], references: [id], onDelete: Restrict)
   assignedPartnerUserId String?        @db.Uuid
   assignedPartnerUser   IdentityUser?  @relation("ServiceAssignmentUser", fields: [assignedPartnerUserId], references: [id], onDelete: Restrict)
   assignedAt            DateTime       @default(now())
@@ -164,12 +184,14 @@ model RoleGrant {
   user            IdentityUser @relation(fields: [userId], references: [id], onDelete: Cascade)
   role            IdentityRole
   organizationId  String?      @db.Uuid
+  organization    Organization? @relation(fields: [organizationId], references: [id], onDelete: Restrict)
   exportPartnerId String?      @db.Uuid
   revokedAt       DateTime?
   createdAt       DateTime     @default(now())
   staffDomains    StaffDomainGrant[]
 
   @@index([userId, revokedAt])
+  @@index([organizationId, role, revokedAt])
   @@map("role_grants")
 }
 

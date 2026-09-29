@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { randomInt, randomUUID } from "node:crypto";
+import { randomInt } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { ActiveContextResolver } from "./active-context.js";
 import { IdentityCore } from "./identity-core.js";
@@ -26,8 +26,9 @@ describe("active context from server grants", () => {
   it("rejects another user's grant and rechecks revocation on every read", async () => {
     const first = await signIn();
     const second = await signIn();
+    const organization = await database.organization.create({ data: { kind: "corporate_buyer" } });
     const grant = await database.roleGrant.create({ data: {
-      userId: first.userId, role: "corporate_buyer", organizationId: randomUUID()
+      userId: first.userId, role: "corporate_buyer", organizationId: organization.id
     } });
 
     expect(await resolver.select(second.sessionToken, grant.id)).toBeNull();
@@ -56,6 +57,16 @@ describe("active context from server grants", () => {
   it("fails closed for an invalid role scope", async () => {
     const { userId, sessionToken } = await signIn();
     const grant = await database.roleGrant.create({ data: { userId, role: "export_partner" } });
+    expect(await resolver.select(sessionToken, grant.id)).toBeNull();
+    expect(await resolver.resolve(sessionToken)).toBeNull();
+  });
+
+  it("fails closed when the organization kind does not match the granted role", async () => {
+    const { userId, sessionToken } = await signIn();
+    const organization = await database.organization.create({ data: { kind: "service_partner" } });
+    const grant = await database.roleGrant.create({ data: {
+      userId, role: "corporate_buyer", organizationId: organization.id
+    } });
     expect(await resolver.select(sessionToken, grant.id)).toBeNull();
     expect(await resolver.resolve(sessionToken)).toBeNull();
   });
