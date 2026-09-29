@@ -9,7 +9,7 @@
     "start": "node dist/main.js",
     "lint": "eslint src prisma.config.ts",
     "typecheck": "pnpm prisma:generate && tsc -p tsconfig.json --noEmit",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run --passWithNoTests --maxWorkers=1",
     "prisma:generate": "prisma generate",
     "prisma:validate": "prisma validate",
     "prisma:migrate": "prisma migrate dev",
