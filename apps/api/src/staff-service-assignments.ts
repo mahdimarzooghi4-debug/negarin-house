@@ -14,6 +14,30 @@ export type ServiceAssignmentInput = {
 export class StaffServiceAssignmentsService {
   constructor(private readonly database: PrismaService) {}
 
+  async options(context: AuthorizationContext) {
+    enforceDecision(canAccessStaffDomain(context, "services"));
+    const [requests, organizations] = await Promise.all([
+      this.database.serviceRequest.findMany({
+        orderBy: [{ createdAt: "desc" }, { id: "asc" }],
+        select: { id: true, partnerTitle: true, partnerSummary: true, createdAt: true }
+      }),
+      this.database.organization.findMany({
+        where: { kind: "service_partner" },
+        orderBy: [{ displayName: "asc" }, { id: "asc" }],
+        select: { id: true, displayName: true }
+      })
+    ]);
+    return {
+      requests: requests.map((request) => ({
+        id: request.id,
+        title: request.partnerTitle,
+        summary: request.partnerSummary,
+        createdAt: request.createdAt.toISOString()
+      })),
+      organizations
+    };
+  }
+
   async assign(context: AuthorizationContext, input: ServiceAssignmentInput) {
     enforceDecision(canAccessStaffDomain(context, "services"));
 

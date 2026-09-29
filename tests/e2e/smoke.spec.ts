@@ -64,6 +64,20 @@ test("staff publication review queue requires staff permission and never shows p
   await expect(page.getByRole("button", { name: /تأیید محتوا|درخواست اصلاح/ })).toHaveCount(0);
 });
 
+test("staff service assignment page uses the nine Admin groups and requires real authorization", async ({ page }) => {
+  await page.goto("/admin/service-assignments");
+
+  await expect(page.getByRole("heading", { name: "تخصیص خدمات" })).toBeVisible();
+  await expect(page.getByText("ورود کارکنان فعال نیست")).toBeVisible();
+  await expect(page.getByText("در این صفحه دادهٔ نمونه نمایش داده نمی‌شود.")).toBeVisible();
+  await expect(page.getByRole("button", { name: "ثبت تخصیص" })).toHaveCount(0);
+  await expect(page.locator(".portal-nav-item")).toHaveCount(10);
+  await expect(page.locator(".portal-nav-item").filter({ hasText: "بازار" }))
+    .toHaveAttribute("href", "/admin/publication-reviews");
+  await expect(page.locator(".portal-nav-item").filter({ hasText: "رشد و خدمات" }))
+    .toHaveAttribute("href", "/admin/service-assignments");
+});
+
 test("service partner assignment inbox requires a real session and does not invent requests", async ({ page }) => {
   await page.goto("/service-partner/assignments");
 

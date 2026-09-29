@@ -7,11 +7,16 @@ describe("role portal navigation", () => {
       "پیشخوان", "فروشگاه من", "محصولات", "سفارش‌ها", "رشد من",
       "خدمات", "فرصت‌ها", "مالی", "عضویت", "روایت‌ها"
     ]);
-    expect(getPortalNavigation("admin").map(({ label }) => label)).toContain("بین‌الملل");
+    expect(getPortalNavigation("admin").map(({ label }) => label)).toEqual([
+      "داشبورد", "هنرمندان", "بازار", "سفارش و ارسال", "رشد و خدمات",
+      "فرصت‌ها", "مالی و عضویت", "بین‌الملل", "گزارش‌ها", "تنظیمات"
+    ]);
     expect(getPortalNavigation("artist").some(({ label }) => label === "بین‌الملل")).toBe(false);
     expect(getPortalNavigation("artist").find(({ label }) => label === "محصولات")?.href).toBe("/artist/products");
-    expect(getPortalNavigation("admin").find(({ label }) => label === "بازبینی محصولات")?.href)
+    expect(getPortalNavigation("admin").find(({ label }) => label === "بازار")?.href)
       .toBe("/admin/publication-reviews");
+    expect(getPortalNavigation("admin").find(({ label }) => label === "رشد و خدمات")?.href)
+      .toBe("/admin/service-assignments");
     expect(getPortalNavigation("service-partner").find(({ label }) => label === "درخواست‌های تخصیص‌یافته")?.href)
       .toBe("/service-partner/assignments");
   });

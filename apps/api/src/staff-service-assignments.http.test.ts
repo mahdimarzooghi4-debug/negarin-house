@@ -82,6 +82,39 @@ describe("Staff Service Partner assignment authoring HTTP contract", () => {
     expect(userAssignment.json()).toMatchObject({ assignedPartnerUserId: memberId, assignedByUserId: staff.userId });
   });
 
+  it("returns only real request and Service Partner organization choices to services staff", async () => {
+    const organization = await database.organization.create({
+      data: { kind: "service_partner", displayName: "بسته‌بندی" }
+    });
+    const unrelatedOrganization = await database.organization.create({
+      data: { kind: "corporate_buyer", displayName: "خریدار سازمانی" }
+    });
+    const request = await database.serviceRequest.create({
+      data: { partnerTitle: "بسته‌بندی سفارش", partnerSummary: "آماده‌سازی بسته." }
+    });
+    const servicesStaff = await signInStaff(["services"]);
+    const options = await app.inject({
+      method: "GET", url: "/api/v1/admin/service-assignments/options", headers: servicesStaff
+    });
+    expect(options.statusCode).toBe(200);
+    expect(options.headers["cache-control"]).toBe("no-store");
+    expect(options.json().requests).toEqual([expect.objectContaining({
+      id: request.id,
+      title: "بسته‌بندی سفارش",
+      summary: "آماده‌سازی بسته."
+    })]);
+    expect(options.json().requests[0]).not.toHaveProperty("priceToman");
+    expect(options.json().requests[0]).not.toHaveProperty("artistUserId");
+    expect(options.json().organizations).toEqual([{ id: organization.id, displayName: "بسته‌بندی" }]);
+    expect(options.json().organizations).not.toContainEqual(expect.objectContaining({ id: unrelatedOrganization.id }));
+
+    const productsStaff = await signInStaff(["products"]);
+    expect((await app.inject({
+      method: "GET", url: "/api/v1/admin/service-assignments/options", headers: productsStaff
+    })).statusCode).toBe(403);
+    expect((await app.inject({ method: "GET", url: "/api/v1/admin/service-assignments/options" })).statusCode).toBe(401);
+  });
+
   it("rejects missing membership, wrong staff domain, bad input, and unauthenticated writes", async () => {
     const organization = await database.organization.create({ data: { kind: "service_partner" } });
     const request = await database.serviceRequest.create({ data: { partnerTitle: "Local request" } });

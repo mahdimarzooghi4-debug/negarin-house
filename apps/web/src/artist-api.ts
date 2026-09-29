@@ -29,6 +29,11 @@ export type ServicePartnerAssignment = {
   requestedAt: string;
 };
 
+export type StaffServiceAssignmentOptions = {
+  requests: Array<{ id: string; title: string; summary: string | null; createdAt: string }>;
+  organizations: Array<{ id: string; displayName: string | null }>;
+};
+
 const sessionCookieName = "negarin_session";
 
 function apiOrigin() {
@@ -97,5 +102,18 @@ export async function loadServicePartnerAssignment(assignmentId: string) {
   if (result.status === 401) return { kind: "connection-required" } as const;
   if (result.status === 403) return { kind: "access-denied" } as const;
   if (result.status === 404) return { kind: "not-found" } as const;
+  return { kind: "unavailable" } as const;
+}
+
+export async function loadStaffServiceAssignmentOptions() {
+  const result = await requestArtistApi("admin/service-assignments/options");
+  if (result.status === 200 && result.data && typeof result.data === "object") {
+    const data = result.data as Partial<StaffServiceAssignmentOptions>;
+    if (Array.isArray(data.requests) && Array.isArray(data.organizations)) {
+      return { kind: "ready", options: data as StaffServiceAssignmentOptions } as const;
+    }
+  }
+  if (result.status === 401) return { kind: "connection-required" } as const;
+  if (result.status === 403) return { kind: "access-denied" } as const;
   return { kind: "unavailable" } as const;
 }

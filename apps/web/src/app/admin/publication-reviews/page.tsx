@@ -9,7 +9,7 @@ export default async function PublicationReviewsPage() {
   return (
     <PortalShell
       portal="admin"
-      activeNavigation="بازبینی محصولات"
+      activeNavigation="بازار"
       connectionActive={initialState.kind === "ready"}
       title="بازبینی محصولات"
       description="بررسی محتوای محصول‌های ارسالی هنرمندان"

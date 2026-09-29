@@ -20,10 +20,9 @@ const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
   admin: [
     { label: "داشبورد", active: true },
     { label: "هنرمندان" },
-    { label: "بازار" },
-    { label: "بازبینی محصولات", href: "/admin/publication-reviews" },
+    { label: "بازار", href: "/admin/publication-reviews" },
     { label: "سفارش و ارسال" },
-    { label: "رشد و خدمات" },
+    { label: "رشد و خدمات", href: "/admin/service-assignments" },
     { label: "فرصت‌ها" },
     { label: "مالی و عضویت" },
     { label: "بین‌الملل" },
