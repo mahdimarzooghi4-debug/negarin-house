@@ -26,6 +26,7 @@ model IdentityUser {
   roleGrants RoleGrant[]
   artistProducts ArtistProduct[]
   productPublicationEvents ProductPublicationEvent[]
+  serviceAssignments ServiceAssignment[] @relation("ServiceAssignmentUser")
 
   @@map("identity_users")
 }
@@ -89,6 +90,32 @@ model ArtistProductMedia {
 
   @@index([productId, status, createdAt])
   @@map("artist_product_media")
+}
+
+model ServiceRequest {
+  id             String              @id @default(uuid()) @db.Uuid
+  partnerTitle   String
+  partnerSummary String?
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+  assignments    ServiceAssignment[]
+
+  @@map("service_requests")
+}
+
+model ServiceAssignment {
+  id                    String         @id @default(uuid()) @db.Uuid
+  serviceRequestId      String         @db.Uuid
+  serviceRequest        ServiceRequest @relation(fields: [serviceRequestId], references: [id], onDelete: Cascade)
+  partnerOrganizationId String         @db.Uuid
+  assignedPartnerUserId String?        @db.Uuid
+  assignedPartnerUser   IdentityUser?  @relation("ServiceAssignmentUser", fields: [assignedPartnerUserId], references: [id], onDelete: Restrict)
+  assignedAt            DateTime       @default(now())
+  createdAt             DateTime       @default(now())
+
+  @@index([partnerOrganizationId, assignedPartnerUserId, assignedAt])
+  @@index([serviceRequestId, assignedAt])
+  @@map("service_assignments")
 }
 
 model OtpChallenge {

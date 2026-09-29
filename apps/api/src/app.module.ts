@@ -12,6 +12,8 @@ import { PublicationReviewController } from "./publication-review.controller.js"
 import { PublicationReviewService } from "./publication-review.js";
 import { ArtistProductMediaController } from "./artist-product-media.controller.js";
 import { ArtistProductMediaService, OBJECT_STORAGE } from "./artist-product-media.js";
+import { ServicePartnerAssignmentsController } from "./service-partner-assignments.controller.js";
+import { ServicePartnerAssignmentsService } from "./service-partner-assignments.js";
 
 @Module({
   controllers: [
@@ -20,7 +22,8 @@ import { ArtistProductMediaService, OBJECT_STORAGE } from "./artist-product-medi
     IdentityContextController,
     ArtistProductsController,
     PublicationReviewController,
-    ArtistProductMediaController
+    ArtistProductMediaController,
+    ServicePartnerAssignmentsController
   ],
   providers: [
     PrismaService,
@@ -28,6 +31,7 @@ import { ArtistProductMediaService, OBJECT_STORAGE } from "./artist-product-medi
     ArtistProductsService,
     PublicationReviewService,
     ArtistProductMediaService,
+    ServicePartnerAssignmentsService,
     {
       provide: OBJECT_STORAGE,
       useFactory: () => {
