@@ -13,6 +13,7 @@
 | Service Partner access-state handling | Commit `8f7b245c93b23eb422bcec7e0a16c4b6957cd5b5`, verified by [CI run #102](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36624962410): success |
 | Organization registry and context validation | Commit `f5353cf4fae019fcd44151425fffd2f9670de3d7`, verified by [CI run #104](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36626783684): success |
 | Service assignment authoring API | Commit `eb67808de3f9134210579a2315d888be72efe889`, verified by [CI run #108](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36628941018): success |
+| Staff service assignment options and Admin page | Commit `e8d3ad6aa8138a4016a2684cd159dd086ba1c407`, verified by [CI run #111](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36632451376): success |
 | Service Partner authorization tests | Commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, verified by [CI run #93](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36618211205): success |
 
 ## Delivered and verified
@@ -35,7 +36,8 @@
 - A read-only request detail API and page are available at `GET /api/v1/service-partner/assignments/:assignmentId` and `/service-partner/assignments/:assignmentId`. The database query scopes by active organization and either organization-wide or current-user assignment; other assignments are concealed as 404. The response/page expose only the same partner-facing fields as the inbox.
 - The Service Partner pages distinguish missing/invalid sessions (401) from role or organization authorization denial (403); a concealed assignment is shown as unavailable without revealing whether another user's assignment exists. Unit tests cover these states.
 - A persisted `Organization` registry now covers Service Partner, Supporting Organization, and Corporate Buyer organizations. Role grants and Service Partner assignments reference registered organizations; active-context resolution verifies that the grant role matches the organization's kind. The migration backfills inferable organization scopes and aborts if one ID is used for conflicting organization kinds. Organization/member provisioning endpoints are not exposed.
-- Staff with the live `services` permission can append an assignment for an existing service request through `POST /api/v1/admin/service-assignments`. The API requires a registered Service Partner organization, validates an optional individual assignee against an active grant in that same organization, and stores the authoring staff user ID. Legacy assignment authors remain null because their actors cannot be recovered. This API does not create requests, alter existing assignments, or add lifecycle, schedule, or deliverable rules. No authoring panel is exposed yet.
+- Staff with the live `services` permission can append an assignment for an existing service request through `POST /api/v1/admin/service-assignments`. The API requires a registered Service Partner organization, validates an optional individual assignee against an active grant in that same organization, and stores the authoring staff user ID. Legacy assignment authors remain null because their actors cannot be recovered. This API does not create requests, alter existing assignments, or add lifecycle, schedule, or deliverable rules.
+- Staff can read real request and Service Partner organization choices from `GET /api/v1/admin/service-assignments/options`. The RTL authoring page is available at `/admin/service-assignments` under the existing “رشد و خدمات” navigation group; publication review is linked under “بازار”, preserving the approved nine Admin groups. The page uses same-origin writes, no-store responses, and truthful missing-session/forbidden/unavailable/empty states. It assigns to an organization and does not display sample requests or organizations.
 - An Android-only React Native foundation is available at `apps/mobile`, with the shared Negarin logo, a Persian RTL bootstrap screen, and Android system UI theme support.
 - The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. No token issuance, OTP screen, login endpoint, or logout/revocation flow is connected.
 - Root CI run #89 verified frozen install, Prisma gates, audit, lint, typecheck, full tests, monorepo build (including Android bundle export), and Playwright E2E on the current code commit.
@@ -68,6 +70,10 @@ Run #107 failed because one test expected input validation to precede authorizat
 
 Run #108 completed all configured gates successfully for staff Service Partner assignment authoring commit `eb67808de3f9134210579a2315d888be72efe889`, including migration reset/deploy, authorization HTTP tests, build, and Playwright E2E smoke.
 
+Run #110 failed because the options integration test assumed an otherwise empty database; the other API fixtures had already added requests and organizations. The assertion now targets its own fixture records.
+
+Run #111 completed all configured gates successfully for staff assignment options and Admin page commit `e8d3ad6aa8138a4016a2684cd159dd086ba1c407`, including PostgreSQL tests, web route tests, build, and Playwright E2E smoke.
+
 Run #93 completed all configured gates successfully for authorization test commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, including the expanded Service Partner assignment-isolation matrix.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
@@ -78,7 +84,7 @@ This is automated CI evidence. It is not Stage QA, Release Approval, or Producti
 - The product/API slice has no Stage deployment or Stage QA evidence because no hosted Stage server is available.
 - No payment gateway is available; purchase, payment, and settlement flows remain unimplemented.
 - Customer public catalog work awaits the Product decision on whether `approved` or `published` makes an active product publicly visible, or whether a separate publish action is required.
-- Service Partner assignment list/detail and staff assignment authoring API are implemented. The authoring panel, organization/member provisioning, request creation, lifecycle transitions, and schedules/deliverables remain unimplemented.
+- Service Partner assignment list/detail and staff assignment API/page are implemented. Organization/member provisioning, request creation, lifecycle transitions, and schedules/deliverables remain unimplemented.
 - Mobile scope is Android. iOS is out of scope. Android app release identity and device QA are still open.
 - PR #35 has no submitted GitHub review yet and remains draft.
 

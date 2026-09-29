@@ -38,7 +38,7 @@ The `Organization` registry now stores Service Partner, Supporting Organization,
 
 ## Service Partner assignment authoring progress
 
-Staff with the live `services` permission can append an assignment for an existing service request through `POST /api/v1/admin/service-assignments`. The API accepts only a registered Service Partner organization; an optional individual assignee must have an active Service Partner grant in that same organization. Each new assignment stores the authoring staff user ID. Legacy assignments retain a null author because their original actor is not recoverable. This endpoint does not create service requests, alter existing assignments, or define lifecycle, schedule, or deliverable rules. No authoring panel or organization/member provisioning UI is exposed yet.
+Staff with the live `services` permission can append an assignment for an existing service request through `POST /api/v1/admin/service-assignments`. The options API returns existing requests and registered Service Partner organizations only; the RTL page is available under the existing Admin “Growth and Services” group at `/admin/service-assignments`. The API accepts only a registered Service Partner organization; an optional individual assignee must have an active Service Partner grant in that same organization. Each new assignment stores the authoring staff user ID. Legacy assignments retain a null author because their original actor is not recoverable. This endpoint does not create service requests, alter existing assignments, or define lifecycle, schedule, or deliverable rules. Organization/member provisioning and request creation remain open.
 
 ## HTTP authorization boundary
 
