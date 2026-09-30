@@ -64,6 +64,19 @@ export function canReadCorporateOrder(
   return context.organizationId === order.buyerOrganizationId ? allow : conceal;
 }
 
+/**
+ * The resource must already be a persisted SupportRelationship selected by a
+ * server-side query. A matching organization may read that relationship only;
+ * this policy does not grant Artist administration or finance access.
+ */
+export function canReadSupportRelationship(
+  context: AuthorizationContext,
+  relationship: Readonly<{ supportingOrganizationId: string }>
+): AuthorizationDecision {
+  if (context.activeRole !== "supporting-organization") return denyByDefault();
+  return context.organizationId === relationship.supportingOrganizationId ? allow : conceal;
+}
+
 export function canReadServiceRequest(
   context: AuthorizationContext,
   request: Readonly<{

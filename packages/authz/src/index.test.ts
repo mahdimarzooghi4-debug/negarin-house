@@ -3,6 +3,7 @@ import {
   canEditArtistProduct,
   canReadArtistDomesticFinance,
   canReadCorporateOrder,
+  canReadSupportRelationship,
   canAccessStaffDomain,
   canReadServiceRequest,
   denyByDefault,
@@ -46,6 +47,15 @@ describe("server-side relationship policies", () => {
     expect(canReadCorporateOrder(buyer, { buyerOrganizationId: "buyer-a" })).toEqual({ allowed: true });
     expect(canReadCorporateOrder(buyer, { buyerOrganizationId: "buyer-b" })).toEqual({ allowed: false, reason: "not-found" });
     expect(canReadCorporateOrder(context("corporate-buyer"), { buyerOrganizationId: "buyer-a" })).toEqual({ allowed: false, reason: "not-found" });
+  });
+
+  it("allows a Supporting Organization to read only its persisted support relationships", () => {
+    const relationship = { supportingOrganizationId: "support-org-a" };
+    expect(canReadSupportRelationship(context("supporting-organization", { organizationId: "support-org-a" }), relationship)).toEqual({ allowed: true });
+    expect(canReadSupportRelationship(context("supporting-organization", { organizationId: "support-org-b" }), relationship)).toEqual({ allowed: false, reason: "not-found" });
+    expect(canReadSupportRelationship(context("supporting-organization"), relationship)).toEqual({ allowed: false, reason: "not-found" });
+    expect(canReadSupportRelationship(context("artist", { userId: "artist-a", organizationId: "support-org-a" }), relationship)).toEqual({ allowed: false, reason: "forbidden" });
+    expect(canReadSupportRelationship(context("staff", { staffPermissionDomains: ["reports"], organizationId: "support-org-a" }), relationship)).toEqual({ allowed: false, reason: "forbidden" });
   });
 
   it("requires an actual Service Partner assignment", () => {
