@@ -4,8 +4,8 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `67650fce262fd446ec927707f5ac60a83b8cf87b` |
-| Code CI | [GitHub Actions run #156](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36701379715): success |
+| Code commit verified by CI | `99293570eb018704e1663a23f9011c2c19e98e5c` |
+| Code CI | [GitHub Actions run #158](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36703264466): success |
 | Code CI | [GitHub Actions run #154](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36699888271): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
@@ -17,6 +17,7 @@
 | Export Partner locale E2E | Commit `27f22dd17a95777c460347cc84b76f31ce68f248`, verified by [CI run #152](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36698741696): success |
 | Export Publication review policy | Commit `5daabe55deb2af2af1c46e1a59ba5224607c28b7`, verified by [CI run #154](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36699888271): success |
 | Export Partner order-read policy | Commit `67650fce262fd446ec927707f5ac60a83b8cf87b`, verified by [CI run #156](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36701379715): success |
+| Supporting Organization and Corporate Buyer shell E2E | Commit `99293570eb018704e1663a23f9011c2c19e98e5c`, verified by [CI run #158](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36703264466): success |
 | Service assignment authoring API | Commit `eb67808de3f9134210579a2315d888be72efe889`, verified by [CI run #108](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36628941018): success |
 | Staff service assignment options and Admin page | Commit `e8d3ad6aa8138a4016a2684cd159dd086ba1c407`, verified by [CI run #111](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36632451376): success |
 | Bounded same-origin JSON writes | Commit `f8143b50d37b4bd93c4ee2fecc77b10c9b4e17b6`, verified by [CI run #113](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36668167128): success |
@@ -63,6 +64,7 @@
 - Services-authorized staff can read submitted ready deliverables at `/admin/service-deliverables`. The API returns request title/summary, partner display name, file metadata, and short-lived signed read URLs; it omits storage keys, actor IDs, Artist identifiers, and prices. The page is read-only and does not mark files reviewed or complete. Each submission now includes the same assignment, response, file-registration, and submission timestamps in a chronological history; user IDs and storage keys stay hidden.
 - Staff can create requests from `/admin/service-requests` and read real request and Service Partner organization choices from `GET /api/v1/admin/service-assignments/options`. The RTL assignment page is available at `/admin/service-assignments` under the existing “رشد و خدمات” navigation group; publication review is linked under “بازار”, preserving the approved nine Admin groups. Both forms use same-origin writes, no-store responses, and truthful missing-session/forbidden/unavailable/empty states. They do not display sample requests or organizations.
 - Playwright checks all seven approved Export Partner locales for the shared shell, exact `lang` and `dir`, seven navigation items, one logo, and the absence of the Portuguese route; Arabic is RTL and the other six locales are LTR.
+- Playwright covers the Supporting Organization and Corporate Buyer shell routes, checking RTL direction, role navigation counts, truthful shared empty states, and no operational buttons or linked workflows while their business flows remain unimplemented.
 - An Android-only React Native foundation is available at `apps/mobile`, with the shared Negarin logo, a Persian RTL bootstrap screen, and Android system UI theme support.
 - The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. No token issuance, OTP screen, login endpoint, or logout/revocation flow is connected.
 - Root CI run #89 verified frozen install, Prisma gates, audit, lint, typecheck, full tests, monorepo build (including Android bundle export), and Playwright E2E on the current code commit.
@@ -172,6 +174,8 @@ Run #152 completed all configured gates successfully for Export Partner localiza
 Run #154 completed all configured gates successfully for the Export Publication review authorization policy at code head `5daabe55deb2af2af1c46e1a59ba5224607c28b7`, including Prisma gates, security audit, lint, typecheck, all tests, build, and Playwright E2E smoke. The policy only checks the `international` staff permission; export review states and transitions are not implemented.
 
 Run #156 completed all configured gates successfully for Export Partner order-read authorization policy commit `67650fce262fd446ec927707f5ac60a83b8cf87b`, including Prisma migration reset/deploy, security audit, lint, typecheck, full tests, monorepo build, and Playwright E2E smoke. The policy conceals an order outside the active registered Export Partner organization and denies other roles; no order or payment flow was added.
+
+Run #158 completed all configured gates successfully for Supporting Organization and Corporate Buyer shell Playwright coverage commit `99293570eb018704e1663a23f9011c2c19e98e5c`, including migrations, security audit, lint, typecheck, full tests, build, and E2E. The new browser check verifies both RTL role shells, navigation counts, truthful empty states, and absence of operational actions or sample data.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
