@@ -4,8 +4,8 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `27f22dd17a95777c460347cc84b76f31ce68f248` |
-| Code CI | [GitHub Actions run #152](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36698741696): success |
+| Code commit verified by CI | `5daabe55deb2af2af1c46e1a59ba5224607c28b7` |
+| Code CI | [GitHub Actions run #154](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36699888271): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
@@ -14,6 +14,7 @@
 | Organization registry and context validation | Commit `f5353cf4fae019fcd44151425fffd2f9670de3d7`, verified by [CI run #104](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36626783684): success |
 | Export Partner Organization registry | Commit `130587095fe77a867f2ebcf005e7c771e2fb33b6`, verified by [CI run #150](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36695628469): success |
 | Export Partner locale E2E | Commit `27f22dd17a95777c460347cc84b76f31ce68f248`, verified by [CI run #152](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36698741696): success |
+| Export Publication review policy | Commit `5daabe55deb2af2af1c46e1a59ba5224607c28b7`, verified by [CI run #154](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36699888271): success |
 | Service assignment authoring API | Commit `eb67808de3f9134210579a2315d888be72efe889`, verified by [CI run #108](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36628941018): success |
 | Staff service assignment options and Admin page | Commit `e8d3ad6aa8138a4016a2684cd159dd086ba1c407`, verified by [CI run #111](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36632451376): success |
 | Bounded same-origin JSON writes | Commit `f8143b50d37b4bd93c4ee2fecc77b10c9b4e17b6`, verified by [CI run #113](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36668167128): success |
@@ -45,6 +46,7 @@
 - The Service Partner pages distinguish missing/invalid sessions (401) from role or organization authorization denial (403); a concealed assignment is shown as unavailable without revealing whether another user's assignment exists. Unit tests cover these states.
 - A persisted `Organization` registry now covers Service Partner, Supporting Organization, and Corporate Buyer organizations. Role grants and Service Partner assignments reference registered organizations; active-context resolution verifies that the grant role matches the organization's kind. The migration backfills inferable organization scopes and aborts if one ID is used for conflicting organization kinds. Organization/member provisioning endpoints are not exposed.
 - Export Partner identity now uses the same `Organization` registry. A guarded migration moves legacy `RoleGrant.exportPartnerId` values into `organizationId`, aborts on cross-kind identifier collisions, and clears the legacy scope field; the active-context resolver accepts Export Partner grants only when they point to a registered `export_partner` organization. No provisioning, order, or payment flow is added.
+- The shared authorization package permits Export Publication review actions only to staff grants carrying the `international` permission domain. Other roles and staff with unrelated or missing domains are denied; the policy adds no export status or transition.
 - The HTTP authorization-boundary integration test denies a Supporting Organization access to an Artist domestic-finance resource with 403 and no resource identifier. This test-only route exercises the live session/context guard and does not expose a finance endpoint or data model.
 - The shared authorization package has a fail-closed policy for reading an already-persisted `SupportRelationship`: only a Supporting Organization in the same organization scope is allowed; cross-organization resources are concealed, and other roles are denied. This policy primitive does not add a SupportRelationship model, endpoint, Artist administration, or finance access.
 - Corporate Buyer HTTP integration tests deny access to Artist product list/detail/create/edit/archive operations and deny Artist domestic-finance reads with 403. The Artist's product price and state remain unchanged; no public catalog, order, or finance endpoint is added.
@@ -74,7 +76,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 | Service Partner | Organization/user-scoped inbox/detail and recorded activity history, one-time assignment accept/decline, scoped private uploads after acceptance, and one-time submit-for-review for ready deliverables | Artist-initiated request intake, scheduling, execution progress, staff review outcomes/history, completion, and organization/member provisioning remain open; upload `pending/ready` are technical states only. |
 | Supporting Organization | Organization registry/context, HTTP-tested denial of Artist product and domestic-finance access, and an organization-scoped SupportRelationship read-policy primitive | Program/referral/relationship data models and endpoints, support usage, organization users, and scoped reports remain open. |
 | Corporate Buyer | Organization registry/context, shared shell, HTTP-tested denial of Artist product-management/domestic-finance access, and organization-scoped order-read policy with full role matrix tests | Public catalog, purchase request, proposal, order, allocation, and delivery flow remain open. |
-| Export Partner | Organization registry/context, localized role shell for the seven approved locales with all-locale Playwright direction/structure coverage, and HTTP-tested denial of Artist product-management and domestic-finance access | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
+| Export Partner | Organization registry/context, all-locale Playwright shell coverage, HTTP-tested denial of Artist product-management/domestic-finance access, and an `international`-permission policy primitive for export-publication review | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
 | Shared identity | Session, role-grant, active-context, and API authorization primitives | Public OTP delivery/login and browser/mobile credential flows remain disabled until a provider and required controls are available. |
 | Android app | Android foundation and secure session storage adapter | Role-specific journeys, release identity, signing, and device validation remain open; iOS is out of scope. |
 
@@ -163,6 +165,8 @@ Run #149 failed during migration reset because the new PostgreSQL enum value in 
 Run #150 completed all configured gates successfully for Export Partner organization registration code head `130587095fe77a867f2ebcf005e7c771e2fb33b6`, including Prisma migration reset/deploy, security audit, lint, typecheck, full tests, build, and Playwright E2E smoke.
 
 Run #152 completed all configured gates successfully for Export Partner localization Playwright coverage code head `27f22dd17a95777c460347cc84b76f31ce68f248`, including frozen install, Prisma gates, audit, lint, typecheck, full tests, build, and E2E smoke across the supported shell routes.
+
+Run #154 completed all configured gates successfully for the Export Publication review authorization policy at code head `5daabe55deb2af2af1c46e1a59ba5224607c28b7`, including Prisma gates, security audit, lint, typecheck, all tests, build, and Playwright E2E smoke. The policy only checks the `international` staff permission; export review states and transitions are not implemented.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
