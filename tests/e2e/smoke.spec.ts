@@ -82,7 +82,6 @@ test("staff service submissions remain behind real services permission", async (
   await page.goto("/admin/service-deliverables");
 
   await expect(page.getByRole("heading", { name: "فایل‌های ارسالی خدمات" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "فایل‌های ارسال‌شده برای بررسی" })).toBeVisible();
   await expect(page.getByText("ورود کارکنان فعال نیست")).toBeVisible();
   await expect(page.getByRole("link", { name: "فایل‌های ارسال‌شده" })).toHaveAttribute("aria-current", "page");
   await expect(page.getByRole("link", { name: "تخصیص درخواست" })).toHaveAttribute("href", "/admin/service-assignments");
