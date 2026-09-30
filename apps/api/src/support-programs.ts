@@ -1,4 +1,4 @@
-import { BadRequestException, ForbiddenException, Injectable } from "@nestjs/common";
+import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 import type { AuthorizationContext } from "@negarin/authz";
 import { PrismaService } from "./prisma.service.js";
 
@@ -39,12 +39,39 @@ export class SupportProgramsService {
     };
   }
 
+  async update(context: AuthorizationContext, programId: string, input: SupportProgramInput) {
+    const organizationId = this.requireOrganization(context);
+    const updated = await this.database.supportProgram.updateMany({
+      where: { id: programId, organizationId },
+      data: { name: input.name, description: input.description }
+    });
+    if (updated.count !== 1) throw new NotFoundException();
+    const program = await this.database.supportProgram.findFirstOrThrow({
+      where: { id: programId, organizationId },
+      select: { id: true, name: true, description: true, createdAt: true, updatedAt: true }
+    });
+    return {
+      id: program.id,
+      name: program.name,
+      description: program.description,
+      createdAt: program.createdAt.toISOString(),
+      updatedAt: program.updatedAt.toISOString()
+    };
+  }
+
   private requireOrganization(context: AuthorizationContext): string {
     if (context.activeRole !== "supporting-organization" || !context.organizationId) {
       throw new ForbiddenException();
     }
     return context.organizationId;
   }
+}
+
+export function parseSupportProgramId(value: string): string {
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value)) {
+    throw new BadRequestException();
+  }
+  return value;
 }
 
 export function parseSupportProgramInput(body: unknown): SupportProgramInput {

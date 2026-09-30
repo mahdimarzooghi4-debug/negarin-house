@@ -20,6 +20,7 @@ export function SupportingOrganizationProgramsScreen({ initialState }: { initial
   const [state, setState] = useState<InitialState>(initialState);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
@@ -31,8 +32,10 @@ export function SupportingOrganizationProgramsScreen({ initialState }: { initial
     setError(null);
     setNotice(null);
     try {
-      const response = await fetch("/api/supporting-organization/programs", {
-        method: "POST", headers: { "Content-Type": "application/json" },
+      const response = await fetch(editingId
+        ? `/api/supporting-organization/programs/${encodeURIComponent(editingId)}`
+        : "/api/supporting-organization/programs", {
+        method: editingId ? "PATCH" : "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, description: description.trim() || null }), cache: "no-store"
       });
       if (response.status === 401) { setState({ kind: "connection-required" }); return; }
@@ -42,10 +45,13 @@ export function SupportingOrganizationProgramsScreen({ initialState }: { initial
         return;
       }
       const created = await response.json() as SupportProgram;
-      setState((current) => current.kind === "ready" ? { kind: "ready", programs: [created, ...current.programs] } : current);
+      setState((current) => current.kind === "ready" ? { kind: "ready", programs: editingId
+        ? current.programs.map((program) => program.id === editingId ? created : program)
+        : [created, ...current.programs] } : current);
       setName("");
       setDescription("");
-      setNotice("برنامهٔ حمایتی ثبت شد.");
+      setEditingId(null);
+      setNotice(editingId ? "تغییرات برنامه ذخیره شد." : "برنامهٔ حمایتی ثبت شد.");
     } catch {
       setError("ارتباط با سرویس برنامه‌های حمایتی برقرار نشد.");
     } finally {
@@ -64,15 +70,22 @@ export function SupportingOrganizationProgramsScreen({ initialState }: { initial
       <label><span>نام برنامه</span><input value={name} onChange={(event) => setName(event.target.value)} maxLength={200} required /></label>
       <label><span>شرح برنامه</span><textarea value={description} onChange={(event) => setDescription(event.target.value)} maxLength={5000} rows={4} /></label>
       <div className="staff-service-assignment-actions"><Button type="submit" disabled={submitting || !name.trim()}>
-        {submitting ? "در حال ثبت…" : "ثبت برنامه"}
+        {submitting ? "در حال ذخیره…" : editingId ? "ذخیرهٔ تغییرات" : "ثبت برنامه"}
       </Button></div>
+      {editingId && <Button type="button" variant="secondary" onClick={() => {
+        setEditingId(null); setName(""); setDescription(""); setError(null); setNotice(null);
+      }}>لغو ویرایش</Button>}
     </form>
     <div className="artist-service-requests-list" aria-label="برنامه‌های حمایتی سازمان">
       <h3>برنامه‌های ثبت‌شده</h3>
       {state.programs.length === 0 ? <EmptyState title="برنامه‌ای ثبت نشده" description="برنامه‌های این سازمان پس از ثبت در اینجا نمایش داده می‌شوند." /> :
         state.programs.map((program) => <article className="artist-service-request-card" key={program.id}>
           <div className="staff-review-card-heading"><div><h4>{program.name}</h4></div>
-            <time dateTime={program.createdAt}>ثبت: {new Date(program.createdAt).toLocaleDateString("fa-IR")}</time></div>
+            <div><time dateTime={program.createdAt}>ثبت: {new Date(program.createdAt).toLocaleDateString("fa-IR")}</time>
+              <Button type="button" variant="secondary" onClick={() => {
+                setEditingId(program.id); setName(program.name); setDescription(program.description ?? "");
+                setError(null); setNotice(null);
+              }}>ویرایش</Button></div></div>
           {program.description && <p className="staff-review-description">{program.description}</p>}
         </article>)}
     </div>

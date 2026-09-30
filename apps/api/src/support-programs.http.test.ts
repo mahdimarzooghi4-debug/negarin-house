@@ -54,6 +54,14 @@ describe("Supporting Organization support program HTTP contract", () => {
     expect((await app.inject({ method: "GET", url: "/api/v1/supporting-organization/programs", headers: orgAMember })).json())
       .toEqual([expect.objectContaining({ id: created.json().id, name: "آموزش سفال" })]);
     expect((await app.inject({ method: "GET", url: "/api/v1/supporting-organization/programs", headers: orgBMember })).json()).toEqual([]);
+    const changed = await app.inject({ method: "PATCH", url: `/api/v1/supporting-organization/programs/${created.json().id}`,
+      headers: orgAMember, payload: { name: "آموزش سفال پیشرفته", description: "شرح به‌روز" } });
+    expect(changed.statusCode).toBe(200);
+    expect(changed.json()).toMatchObject({ name: "آموزش سفال پیشرفته", description: "شرح به‌روز" });
+    expect((await app.inject({ method: "PATCH", url: `/api/v1/supporting-organization/programs/${created.json().id}`,
+      headers: orgBMember, payload: { name: "دسترسی غیرمجاز" } })).statusCode).toBe(404);
+    expect((await app.inject({ method: "PATCH", url: "/api/v1/supporting-organization/programs/not-a-uuid",
+      headers: orgAMember, payload: { name: "نام" } })).statusCode).toBe(400);
     expect((await app.inject({ method: "GET", url: "/api/v1/supporting-organization/programs", headers: artist })).statusCode).toBe(403);
     expect((await app.inject({ method: "POST", url: "/api/v1/supporting-organization/programs", headers: artist, payload: { name: "X" } })).statusCode).toBe(403);
     expect((await app.inject({ method: "GET", url: "/api/v1/supporting-organization/programs" })).statusCode).toBe(401);
