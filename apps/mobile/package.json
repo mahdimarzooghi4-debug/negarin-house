@@ -4,6 +4,7 @@
   "private": true,
   "main": "index.ts",
   "dependencies": {
+    "@negarin/authz": "workspace:*",
     "expo": "~57.0.26",
     "expo-secure-store": "~57.0.4",
     "expo-status-bar": "~57.0.1",

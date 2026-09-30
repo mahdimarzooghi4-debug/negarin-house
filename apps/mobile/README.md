@@ -19,10 +19,10 @@ creates local native Android files that are ignored by Git.
 ## Validation
 
 ```sh
-pnpm --filter @negarin/mobile test
-pnpm --filter @negarin/mobile lint
-pnpm --filter @negarin/mobile typecheck
-pnpm --filter @negarin/mobile build
+pnpm turbo run test --filter=@negarin/mobile
+pnpm turbo run lint --filter=@negarin/mobile
+pnpm turbo run typecheck --filter=@negarin/mobile
+pnpm turbo run build --filter=@negarin/mobile
 ```
 
 The build command exports the JavaScript bundle for Android. It does not produce
@@ -45,3 +45,11 @@ stored bearer token to `/api/v1/identity/logout`, then clears secure storage on
 success or when the API reports that the session is already invalid. Network
 and server failures preserve the token so revocation can be retried. The helper
 is not connected to a login screen or a user-facing mobile journey yet.
+
+## Identity API boundary
+
+The Android client can list the server's selectable grants, read the current
+authorization context, and select one of the user's own grants. It reads the
+opaque token from SecureStore for each request, validates the API payload shape,
+and uses the server-returned context as authoritative. It does not store a
+client-selected role, create grants, issue sessions, or enable login/OTP.
