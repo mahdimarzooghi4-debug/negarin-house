@@ -4,8 +4,8 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `9849caaa9acd1b4961868c1cca458e24ce0bc4c9` |
-| Code CI | [GitHub Actions run #179](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36719825762): success |
+| Code commit verified by CI | `b0f031f0a252e4b2b8efeb88abe42546724df2eb` |
+| Code CI | [GitHub Actions run #183](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36729569290): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
@@ -45,6 +45,7 @@
 - Artists can request a fresh signed URL for a still-pending upload. The stored key and signed MIME/length contract remain unchanged; ready uploads and another Artist's media are denied or concealed.
 - A new RTL Artist product workspace is available at `/artist/products`: it reads real API data, supports Artist-owned product creation/editing/archive/restore, shows review status, and presents the archive confirmation flow.
 - A staff publication review queue is available at `/admin/publication-reviews`: authorized staff can see product content and signed ready-image previews, approve content, or request changes with required feedback. Artist prices are omitted.
+- Admin controls public visibility through a distinct publish/unpublish action after content approval. Only active `published` products appear in the public Customer catalog; the catalog and details show Artist-set Toman prices and ready signed images, expose no Artist identity or storage keys, and provide no purchase action.
 - The Artist product page can add multiple JPEG, PNG, or WebP images (up to 10 MiB each), show signed previews, and retry pending uploads by selecting the same file. The same-origin web handler keeps signed upload URLs server-side and bounds streamed bodies.
 - Browser requests use same-origin Next.js routes; the server reads the expected `negarin_session` cookie and forwards its Bearer token to the API. No cookie is issued by this page, and unauthenticated visitors see a connection-required empty state with no sample product/price. The same-origin `POST /api/identity/logout` bridge calls the API revocation endpoint and clears a valid or stale cookie; it preserves the cookie when the API is unavailable so the request can be retried.
 - Web route tests verify same-origin protection, signed URL secrecy, body-size limits, storage forwarding, and upload completion. Playwright smoke checks cover the unauthenticated Artist workspace, staff review queue, Service Partner inbox and detail page, and partner locale shell. Same-origin browser JSON writes use a shared 64 KiB streaming limit; oversized bodies are rejected before forwarding.
@@ -88,7 +89,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 
 | Role / capability | Implemented in code | Remaining role code |
 |---|---|---|
-| Customer | Shared portal shell only | Public catalog visibility rule is undecided; catalog, purchase, and order tracking are not implemented. Payment flow also awaits a provider. |
+| Customer | Read-only public catalog and product detail for products published by Admin | Purchase and order tracking remain unimplemented; payment flow awaits a provider. |
 | Artist | Product CRUD, media, publication submission/status, and review feedback | Customer-order fulfillment, finance/settlement, Growth, and approved mobile journeys remain open. |
 | Admin / Staff | Publication review, services-authorized ServiceRequest authoring and Service Partner assignment authoring, and a read-only submitted-deliverable view | Artist-initiated service intake, staff review outcomes, and operational features for other domains remain open and must use scoped permissions. |
 | Service Partner | Organization/user-scoped inbox/detail and recorded activity history, one-time assignment accept/decline, scoped private uploads after acceptance, and one-time submit-for-review for ready deliverables | Artist-initiated request intake, scheduling, execution progress, staff review outcomes/history, completion, and organization/member provisioning remain open; upload `pending/ready` are technical states only. |
@@ -112,7 +113,7 @@ Role implementation and automated CI are the current focus. Stage deployment and
 
 Run #89 completed all configured gates successfully for code commit `07a62eae51ecd82c1a635127fcc8152a021062ac`: frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full test suite, monorepo build, Chromium install, and Playwright E2E smoke. API tests run with one Vitest worker because concurrent Serializable OTP tests previously produced PostgreSQL serialization conflicts.
 
-Run #91 completed all configured gates successfully for product decision documentation commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`. The update records that public catalog visibility must not be inferred from the `approved` or `published` states until Product defines the rule.
+Run #91 completed all configured gates successfully for product decision documentation commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`. That earlier handoff left public catalog visibility open; the product decision is now recorded in `docs/product/phase-1-handoff.md` and implemented by code head `b0f031f0a252e4b2b8efeb88abe42546724df2eb`.
 
 Run #95 completed all configured gates successfully for Service Partner assignment API commit `ee3311cfb94d2e46d2a751514835fdccda522408`, including Prisma migration reset/deploy, API tests, and build.
 
@@ -210,6 +211,8 @@ Run #179 completed every configured CI gate successfully for Android identity-st
 
 Run #181 completed every configured CI gate successfully for Android explicit grant-selection commit `3ccd88bc4ed69ab0669f133bf795e93d99046ee4`, including frozen install, Prisma gates, security audit, lint, typecheck, full tests, monorepo build, and Playwright E2E smoke. Mobile tests verify that only a currently selectable grant is submitted and that the returned server context matches its role and organization scope.
 
+Run #183 completed every configured gate successfully for Admin-controlled Customer catalog publication head `b0f031f0a252e4b2b8efeb88abe42546724df2eb`, including frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full tests, monorepo build, and Playwright E2E. HTTP tests verify that approval alone does not expose a product, authorized Admin publication does, unpublishing hides it, and Customer responses omit Artist identifiers and storage keys.
+
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
 ## Remaining Sprint 1 work and constraints
@@ -217,7 +220,7 @@ This is automated CI evidence. It is not Stage QA, Release Approval, or Producti
 - No OTP/SMS provider is available; public login and session delivery remain disabled.
 - The product/API slice has no Stage deployment or Stage QA evidence because no hosted Stage server is available.
 - No payment gateway is available; purchase, payment, and settlement flows remain unimplemented.
-- Customer public catalog work awaits the Product decision on whether `approved` or `published` makes an active product publicly visible, or whether a separate publish action is required.
+- Customer public catalog and detail are implemented as read-only surfaces. Purchase and order tracking still need their own product rules and an available payment provider.
 - Service Partner assignment list/detail and recorded activity history, staff request/assignment authoring pages and APIs, one-time accept/decline response, scoped private deliverable uploads after acceptance, and one-time submit-for-review are implemented. Request creation is currently staff-side only; Artist-initiated intake, organization/member provisioning, scheduling, execution, staff review outcomes/history, and completion remain unimplemented. The staff submitted-deliverables view and its activity history are read-only.
 - Mobile scope is Android. iOS is out of scope. Android app release identity and device QA are still open.
 - PR #35 has no submitted GitHub review yet and remains draft.

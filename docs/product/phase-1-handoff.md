@@ -16,11 +16,11 @@ The product owner confirmed an independent Android application in addition to th
 - Negarin reviews content, images, required information, and publication quality.
 - Domestic Artist-facing finance is shown in Toman.
 
-### Product catalog visibility — open Product decision
-- The current API distinguishes `approved` from `published`; the staff review decision records `approved`.
-- The product handoff says archived products leave public display, but does not define which publication status makes an active product visible in the customer catalog or whether a separate publish action is required.
-- Customer catalog implementation must wait for that visibility rule. It must not infer public visibility from either status.
-- This does not block Artist product management or the internal publication review queue.
+### Product catalog visibility — decided
+- Admin decides whether a content-approved product is shown in the public Customer catalog.
+- Content approval and public visibility are separate actions. Approval sets the product to `approved`; an authorized Admin must explicitly publish it before it becomes `published` and visible.
+- Admin can unpublish a product, returning it to `approved` and removing it from the public catalog. Archived products remain excluded.
+- The Customer catalog and product detail are read-only in this slice. They display the Artist-set product price in Toman; no purchase, order, payment, fee, or settlement behavior is defined here.
 
 ### Growth
 Canonical levels:
