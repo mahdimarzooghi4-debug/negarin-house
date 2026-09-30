@@ -62,7 +62,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 | Artist | Product CRUD, media, publication submission/status, and review feedback | Customer-order fulfillment, finance/settlement, Growth, and approved mobile journeys remain open. |
 | Admin / Staff | Publication review, Service Partner assignment authoring, and a read-only submitted-deliverable view for staff with the services permission | Review outcomes and operational features for other domains remain open and must use scoped permissions. |
 | Service Partner | Organization/user-scoped inbox/detail and recorded activity history, one-time assignment accept/decline, scoped private uploads after acceptance, and one-time submit-for-review for ready deliverables | Request creation, scheduling, execution progress, staff review outcomes/history, completion, and organization/member provisioning remain open; upload `pending/ready` are technical states only. |
-| Supporting Organization | Organization registry/context primitives and shared shell | Programs, referrals, support relationships/usage, users, and scoped reports remain open. |
+| Supporting Organization | Organization registry/context primitives, shared shell, and HTTP-tested denial of Artist product access | Programs, referrals, support relationships/usage, users, and scoped reports remain open. |
 | Corporate Buyer | Organization registry/context primitives and shared shell | Purchase request, proposal, order, allocation, and delivery flow remain open. |
 | Export Partner | Localized role shell for the seven approved locales | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
 | Shared identity | Session, role-grant, active-context, and API authorization primitives | Public OTP delivery/login and browser/mobile credential flows remain disabled until a provider and required controls are available. |
@@ -129,6 +129,8 @@ Run #130 completed all configured gates successfully for code head `e761eb14bd7e
 Run #131 completed all configured gates successfully for Sprint 1 status documentation commit `86e67e8a6404e2980da66b6b8cdae170cc3513e6`.
 
 Run #132 completed all configured gates successfully for code head `0f76d6df020b1401079eb1e7c7b8a62db5f30771`, including frozen install, Prisma gates, security audit, lint, typecheck, full tests, monorepo build, Chromium installation, and Playwright E2E smoke. This adds the already-recorded activity timeline to the services-authorized staff submission view; no review result or completion state is introduced.
+
+Run #134 completed all configured gates successfully for code head `cff6570f4dd0fe4862ce18819afa670bc26c1475`, including frozen install, Prisma gates, security audit, lint, typecheck, full tests, monorepo build, Chromium installation, and Playwright E2E smoke. The API integration test verifies a Supporting Organization cannot list, view, create, edit, or archive Artist products, and cannot change Artist prices.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
