@@ -50,7 +50,7 @@ describe("HTTP authorization boundary", () => {
   }, "test-secret-with-at-least-thirty-two-characters");
   const resolver = new ActiveContextResolver(database);
 
-  async function session(role: "artist" | "staff" | "supporting_organization" | "corporate_buyer", domains: string[] = []) {
+  async function session(role: "artist" | "staff" | "supporting_organization" | "corporate_buyer" | "export_partner", domains: string[] = []) {
     const phone = `+1555${randomInt(1_000_000, 9_999_999)}`;
     await identity.requestCode(phone);
     const signed = await identity.verifyCode(phone, codes.get(phone) ?? "");
@@ -60,6 +60,7 @@ describe("HTTP authorization boundary", () => {
     const grant = await database.roleGrant.create({ data: {
       userId: signed.userId, role,
       ...(organization ? { organizationId: organization.id } : {}),
+      ...(role === "export_partner" ? { exportPartnerId: randomUUID() } : {}),
       staffDomains: { create: domains.map((domain) => ({ domain })) }
     } });
     await resolver.select(signed.sessionToken, grant.id);
@@ -127,6 +128,19 @@ describe("HTTP authorization boundary", () => {
 
     const response = await app.inject({ method: "GET", url: `/test-resources/finance/${id}`,
       headers: { authorization: `Bearer ${buyer.sessionToken}` } });
+
+    expect(response.statusCode).toBe(403);
+    expect(response.json()).not.toHaveProperty("id");
+  });
+
+  it("denies Export Partner access to Artist domestic finance over HTTP", async () => {
+    const artist = await session("artist");
+    const partner = await session("export_partner");
+    const id = randomUUID();
+    owners.set(id, artist.userId);
+
+    const response = await app.inject({ method: "GET", url: `/test-resources/finance/${id}`,
+      headers: { authorization: `Bearer ${partner.sessionToken}` } });
 
     expect(response.statusCode).toBe(403);
     expect(response.json()).not.toHaveProperty("id");
