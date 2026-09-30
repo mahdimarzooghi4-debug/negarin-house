@@ -36,6 +36,9 @@ describe("identity context HTTP contract", () => {
     const grant = await database.roleGrant.create({ data: {
       userId: user.userId, role: "corporate_buyer", organizationId: organization.id
     } });
+    const artistGrant = await database.roleGrant.create({ data: {
+      userId: user.userId, role: "artist"
+    } });
     const mismatchedOrganization = await database.organization.create({ data: { kind: "service_partner" } });
     const invalidGrant = await database.roleGrant.create({ data: {
       userId: user.userId, role: "corporate_buyer", organizationId: mismatchedOrganization.id
@@ -52,8 +55,11 @@ describe("identity context HTTP contract", () => {
     const list = await get("grants");
     expect(list.statusCode).toBe(200);
     expect(list.headers["cache-control"]).toBe("no-store");
-    expect(list.json().grants).toEqual([{ id: grant.id, role: "corporate_buyer",
-      organizationId: grant.organizationId, exportPartnerId: null }]);
+    expect(list.json().grants).toHaveLength(2);
+    expect(list.json().grants).toEqual(expect.arrayContaining([
+      { id: grant.id, role: "corporate_buyer", organizationId: grant.organizationId, exportPartnerId: null },
+      { id: artistGrant.id, role: "artist", organizationId: null, exportPartnerId: null }
+    ]));
     expect(list.json().activeGrantId).toBeNull();
     expect((await select(foreign.id)).statusCode).toBe(401);
     expect((await select(invalidGrant.id)).statusCode).toBe(401);
@@ -61,8 +67,16 @@ describe("identity context HTTP contract", () => {
     expect((await select(grant.id)).json()).toEqual({ userId: user.userId,
       activeRole: "corporate-buyer", organizationId: grant.organizationId });
     expect((await get("context")).statusCode).toBe(200);
+    expect((await select(artistGrant.id)).json()).toEqual({ userId: user.userId, activeRole: "artist" });
+    expect((await get("context")).json()).toEqual({ userId: user.userId, activeRole: "artist" });
+    expect((await select(grant.id)).json()).toEqual({ userId: user.userId,
+      activeRole: "corporate-buyer", organizationId: grant.organizationId });
     await database.roleGrant.update({ where: { id: grant.id }, data: { revokedAt: new Date() } });
     expect((await get("context")).statusCode).toBe(401);
+    expect((await get("grants")).json()).toEqual({ activeGrantId: null, grants: [
+      { id: artistGrant.id, role: "artist", organizationId: null, exportPartnerId: null }
+    ] });
+    await database.roleGrant.update({ where: { id: artistGrant.id }, data: { revokedAt: new Date() } });
     expect((await get("grants")).json()).toEqual({ activeGrantId: null, grants: [] });
     await identity.revokeSession(user.sessionToken);
     expect((await get("grants")).statusCode).toBe(401);
