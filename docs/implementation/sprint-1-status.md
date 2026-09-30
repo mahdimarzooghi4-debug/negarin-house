@@ -4,8 +4,8 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `7c4affdac719ae3e9f8770e0b7249aa64e9966e0` |
-| Code CI | [GitHub Actions run #177](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36718225206): success |
+| Code commit verified by CI | `9849caaa9acd1b4961868c1cca458e24ce0bc4c9` |
+| Code CI | [GitHub Actions run #179](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36719825762): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
@@ -20,6 +20,7 @@
 | Browser session logout bridge | Commit `b0918a563e2dcde0c4568e8d6ec81f056fa5cb82`, verified by [CI run #162](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36707801768): success |
 | Android bearer-session logout boundary | Commit `16da2db0f15d58c1bdae22f9c96d1d6b891aeebd`, verified by [CI run #170](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36713859045): success |
 | Android identity API client | Commit `c777f40b69ba6db2a95a6057a40db8ac9fd33641`, included in code head verified by [CI run #177](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36718225206): success |
+| Android identity state resolver | Commit `9849caaa9acd1b4961868c1cca458e24ce0bc4c9`, verified by [CI run #179](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36719825762): success |
 | Selectable identity grant discovery | Commit `ef2ddd4a2482ac11dc6115fa8f0e78490086fdcd`, verified by [CI run #164](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36709822036): success |
 | Same-session role switching regression | Commit `1ac5050bbdc4387702a9fe4480056df67cfe8904`, verified by [CI run #166](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36710844293): success |
 | Direct Artist payment authorization guard | Commit `a8d86439e60a70ba670429db5d1822ebefe36d15`, verified by [CI run #168](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36712247886): success |
@@ -75,6 +76,7 @@
 - Playwright covers the Supporting Organization and Corporate Buyer shell routes, checking RTL direction, role navigation counts, truthful shared empty states, and no operational buttons or linked workflows while their business flows remain unimplemented.
 - An Android-only React Native foundation is available at `apps/mobile`, with the shared Negarin logo, a Persian RTL bootstrap screen, and Android system UI theme support.
 - Android now has an identity API client for grant discovery, active-context reads, and server-authoritative grant selection. It reads the opaque token from SecureStore per request, validates API response shapes, and does not issue sessions, create role grants, or add login/UI.
+- A mobile identity-state resolver maps server responses to signed-out, no-grants, grant-selection-required, or active-context states. It never assigns a default role and rejects a context that does not match the selected grant.
 - The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. A tested Android logout boundary calls the existing bearer-session revocation API; it clears the local token after 204 or an already-invalid-session 401 and retains it after network/server failure. It is not connected to a login screen or exposed as a user-facing journey. The browser also has a same-origin logout bridge. No token issuance, OTP screen, or login endpoint is connected.
 - Root CI run #89 verified frozen install, Prisma gates, audit, lint, typecheck, full tests, monorepo build (including Android bundle export), and Playwright E2E on the current code commit.
 
@@ -91,8 +93,8 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 | Supporting Organization | Organization registry/context, HTTP-tested denial of Artist product and domestic-finance access, and an organization-scoped SupportRelationship read-policy primitive | Program/referral/relationship data models and endpoints, support usage, organization users, and scoped reports remain open. |
 | Corporate Buyer | Organization registry/context, shared shell, HTTP-tested denial of Artist product-management/domestic-finance access, and organization-scoped order-read policy with full role matrix tests | Public catalog, purchase request, proposal, order, allocation, and delivery flow remain open. |
 | Export Partner | Organization registry/context, all-locale Playwright shell coverage, HTTP-tested denial of Artist product-management/domestic-finance access, `international`-permission policy primitive for export-publication review, and organization-scoped order-read policy primitive | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
-| Shared identity | Session, role-grant discovery and selection, active-context, API authorization primitives, bearer-session logout, same-origin browser logout bridge, and Android logout boundary/API client | Public OTP delivery/login and cookie issuance remain disabled until a provider and required controls are available; mobile logout has no user-facing login/session journey wired yet. |
-| Android app | Android foundation, secure session storage adapter, tested bearer-session logout boundary, and identity API client for grants/context | User-facing role journeys, release identity, signing, and device validation remain open; iOS is out of scope. |
+| Shared identity | Session, role-grant discovery and selection, active-context, API authorization primitives, bearer-session logout, same-origin browser logout bridge, and Android logout/API/state boundaries | Public OTP delivery/login and cookie issuance remain disabled until a provider and required controls are available; mobile logout has no user-facing login/session journey wired yet. |
+| Android app | Android foundation, secure session storage adapter, tested bearer-session logout boundary, identity API client, and server-derived identity-state resolver | User-facing role journeys, release identity, signing, and device validation remain open; iOS is out of scope. |
 
 ## Delivery gate update
 
@@ -201,6 +203,8 @@ Run #170 completed every configured CI gate successfully for Android bearer-sess
 Runs #172–176 stopped at frozen install and did not reach application tests. The PR branch contained a truncated `pnpm-lock.yaml` blob beginning with tool-output text; the complete lockfile was restored at code head `7c4affdac719ae3e9f8770e0b7249aa64e9966e0`.
 
 Run #177 completed every configured CI gate successfully for code head `7c4affdac719ae3e9f8770e0b7249aa64e9966e0`, including frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full tests, monorepo build, Chromium installation, and Playwright E2E smoke. This head includes the Android identity API client for grant discovery, active-context reads, and grant selection; it does not connect login or OTP.
+
+Run #179 completed every configured CI gate successfully for Android identity-state resolver commit `9849caaa9acd1b4961868c1cca458e24ce0bc4c9`, including Prisma gates, audit, lint, typecheck, full tests, build, and Playwright E2E smoke. Mobile unit tests cover signed-out, no-grant, selection-required, active-context, and grant/context mismatch states. No session is issued and no local role is chosen.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
