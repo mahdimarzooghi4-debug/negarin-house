@@ -4,8 +4,8 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `f482d695dfed2e0fabc966c52edc0a35ddfd945c` |
-| Code CI | [GitHub Actions run #89](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36612998304): success |
+| Code commit verified by CI | `bd1d7514c5f7bd7f0cc324f345c1a74f5dd4fbf5` |
+| Code CI | [GitHub Actions run #124](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36674472500): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
@@ -19,6 +19,7 @@
 | Role coverage and deferred Stage gate | Commit `5e2706f9d248feec5d8738ad34d6b055c432fabf`, verified by [CI run #116](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36669853344): success |
 | Service Partner scoped deliverable uploads | Commit `26699bea3fa083e1781cc8a373b30d50d1357c3a`, verified by [CI run #118](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36671444014): success |
 | Service Partner assignment response | Commit `f482d695dfed2e0fabc966c52edc0a35ddfd945c`, verified by [CI run #121](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36673024943): success |
+| Service Partner deliverable submission | Commit `a16a2aa9c79148feeca17a56fb9ecba1e205434a`, included in verified head `bd1d7514c5f7bd7f0cc324f345c1a74f5dd4fbf5`, CI run #124: success |
 
 ## Delivered and verified
 
@@ -42,7 +43,8 @@
 - A persisted `Organization` registry now covers Service Partner, Supporting Organization, and Corporate Buyer organizations. Role grants and Service Partner assignments reference registered organizations; active-context resolution verifies that the grant role matches the organization's kind. The migration backfills inferable organization scopes and aborts if one ID is used for conflicting organization kinds. Organization/member provisioning endpoints are not exposed.
 - Staff with the live `services` permission can append an assignment for an existing service request through `POST /api/v1/admin/service-assignments`. The API requires a registered Service Partner organization, validates an optional individual assignee against an active grant in that same organization, and stores the authoring staff user ID. Legacy assignment authors remain null because their actors cannot be recovered. This API does not create requests, alter existing assignments, or add lifecycle, schedule, or deliverable rules.
 - Service Partners can respond once to an assignment with accept/decline. The API rechecks organization and individual assignment scope, records an append-only response event, and rejects a second response. Upload is available only after acceptance. This records the partner response; it does not mark work complete or reviewed.
-- Service Partners can list and attach scoped PDF/JPEG/PNG/WebP deliverables to an accepted request through a same-origin upload flow. The API verifies assignment scope and object metadata, promotes completed files to private unique keys, and exposes signed read URLs only for ready files; the only upload states are technical `pending` and `ready`. 
+- Service Partners can list and attach scoped PDF/JPEG/PNG/WebP deliverables to an accepted request through a same-origin upload flow. The API verifies assignment scope and object metadata, promotes completed files to private unique keys, and exposes signed read URLs only for ready files; the only upload states are technical `pending` and `ready`.
+- A Service Partner can submit a ready deliverable for Negarin review once. The API records the submission actor and timestamp in an append-only relation, rejects pending or repeated submissions, and returns `submittedAt` without adding a review decision or treating submission as completion.
 - Staff can read real request and Service Partner organization choices from `GET /api/v1/admin/service-assignments/options`. The RTL authoring page is available at `/admin/service-assignments` under the existing “رشد و خدمات” navigation group; publication review is linked under “بازار”, preserving the approved nine Admin groups. The page uses same-origin writes, no-store responses, and truthful missing-session/forbidden/unavailable/empty states. It assigns to an organization and does not display sample requests or organizations.
 - An Android-only React Native foundation is available at `apps/mobile`, with the shared Negarin logo, a Persian RTL bootstrap screen, and Android system UI theme support.
 - The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. No token issuance, OTP screen, login endpoint, or logout/revocation flow is connected.
@@ -57,7 +59,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 | Customer | Shared portal shell only | Public catalog visibility rule is undecided; catalog, purchase, and order tracking are not implemented. Payment flow also awaits a provider. |
 | Artist | Product CRUD, media, publication submission/status, and review feedback | Customer-order fulfillment, finance/settlement, Growth, and approved mobile journeys remain open. |
 | Admin / Staff | Publication review and Service Partner assignment authoring | Operational features for the other domains remain open and must use scoped permissions. |
-| Service Partner | Organization/user-scoped inbox/detail, one-time assignment accept/decline, and scoped private deliverable uploads after acceptance | Request creation, scheduling, execution/review/completion workflow, and organization/member provisioning remain open; upload `pending/ready` are technical states only. |
+| Service Partner | Organization/user-scoped inbox/detail, one-time assignment accept/decline, scoped private uploads after acceptance, and one-time submit-for-review for ready deliverables | Request creation, scheduling, execution progress, Negarin review outcome, completion, and organization/member provisioning remain open; upload `pending/ready` are technical states only. |
 | Supporting Organization | Organization registry/context primitives and shared shell | Programs, referrals, support relationships/usage, users, and scoped reports remain open. |
 | Corporate Buyer | Organization registry/context primitives and shared shell | Purchase request, proposal, order, allocation, and delivery flow remain open. |
 | Export Partner | Localized role shell for the seven approved locales | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
@@ -112,6 +114,8 @@ Run #121 completed all configured gates successfully for Service Partner assignm
 
 Run #93 completed all configured gates successfully for authorization test commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, including the expanded Service Partner assignment-isolation matrix.
 
+Run #124 completed all configured gates successfully for code head `bd1d7514c5f7bd7f0cc324f345c1a74f5dd4fbf5`, including frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, all tests, build, Chromium installation, and Playwright E2E smoke. This head includes the Service Partner deliverable submission change from commit `a16a2aa9c79148feeca17a56fb9ecba1e205434a`.
+
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
 ## Remaining Sprint 1 work and constraints
@@ -120,7 +124,7 @@ This is automated CI evidence. It is not Stage QA, Release Approval, or Producti
 - The product/API slice has no Stage deployment or Stage QA evidence because no hosted Stage server is available.
 - No payment gateway is available; purchase, payment, and settlement flows remain unimplemented.
 - Customer public catalog work awaits the Product decision on whether `approved` or `published` makes an active product publicly visible, or whether a separate publish action is required.
-- Service Partner assignment list/detail, staff assignment API/page, one-time accept/decline response, and scoped private deliverable uploads after acceptance are implemented. Organization/member provisioning, request creation, scheduling, execution, Negarin review, and completion remain unimplemented.
+- Service Partner assignment list/detail, staff assignment API/page, one-time accept/decline response, scoped private deliverable uploads after acceptance, and one-time submit-for-review are implemented. Organization/member provisioning, request creation, scheduling, execution, Negarin review outcome, and completion remain unimplemented.
 - Mobile scope is Android. iOS is out of scope. Android app release identity and device QA are still open.
 - PR #35 has no submitted GitHub review yet and remains draft.
 
