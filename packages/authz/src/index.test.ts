@@ -3,6 +3,7 @@ import {
   canEditArtistProduct,
   canReadArtistDomesticFinance,
   canReadCorporateOrder,
+  canReadExportPartnerOrder,
   canReviewExportPublication,
   canReadSupportRelationship,
   canAccessStaffDomain,
@@ -50,6 +51,20 @@ describe("server-side relationship policies", () => {
     expect(canReadCorporateOrder(context("corporate-buyer"), order)).toEqual({ allowed: false, reason: "not-found" });
     for (const role of roles.filter((candidate) => candidate !== "corporate-buyer")) {
       expect(canReadCorporateOrder(context(role, { organizationId: "buyer-a" }), order)).toEqual({
+        allowed: false,
+        reason: "forbidden"
+      });
+    }
+  });
+
+  it("isolates Export Partner orders by registered organization", () => {
+    const order = { exportPartnerId: "export-partner-a" };
+    expect(canReadExportPartnerOrder(context("export-partner", { exportPartnerId: "export-partner-a" }), order)).toEqual({ allowed: true });
+    expect(canReadExportPartnerOrder(context("export-partner", { exportPartnerId: "export-partner-b" }), order)).toEqual({ allowed: false, reason: "not-found" });
+    expect(canReadExportPartnerOrder(context("export-partner"), order)).toEqual({ allowed: false, reason: "not-found" });
+
+    for (const role of roles.filter((candidate) => candidate !== "export-partner")) {
+      expect(canReadExportPartnerOrder(context(role, { exportPartnerId: "export-partner-a" }), order)).toEqual({
         allowed: false,
         reason: "forbidden"
       });

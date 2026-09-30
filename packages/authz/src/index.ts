@@ -64,6 +64,15 @@ export function canReadCorporateOrder(
   return context.organizationId === order.buyerOrganizationId ? allow : conceal;
 }
 
+/** Export Partner order access is limited to the registered active organization. */
+export function canReadExportPartnerOrder(
+  context: AuthorizationContext,
+  order: Readonly<{ exportPartnerId: string }>
+): AuthorizationDecision {
+  if (context.activeRole !== "export-partner") return denyByDefault();
+  return context.exportPartnerId === order.exportPartnerId ? allow : conceal;
+}
+
 /**
  * The resource must already be a persisted SupportRelationship selected by a
  * server-side query. A matching organization may read that relationship only;
