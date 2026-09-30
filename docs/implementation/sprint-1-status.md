@@ -14,6 +14,7 @@
 | Organization registry and context validation | Commit `f5353cf4fae019fcd44151425fffd2f9670de3d7`, verified by [CI run #104](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36626783684): success |
 | Service assignment authoring API | Commit `eb67808de3f9134210579a2315d888be72efe889`, verified by [CI run #108](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36628941018): success |
 | Staff service assignment options and Admin page | Commit `e8d3ad6aa8138a4016a2684cd159dd086ba1c407`, verified by [CI run #111](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36632451376): success |
+| Bounded same-origin JSON writes | Commit `f8143b50d37b4bd93c4ee2fecc77b10c9b4e17b6`, verified by [CI run #113](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36668167128): success |
 | Service Partner authorization tests | Commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, verified by [CI run #93](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36618211205): success |
 
 ## Delivered and verified
@@ -28,7 +29,7 @@
 - A staff publication review queue is available at `/admin/publication-reviews`: authorized staff can see product content and signed ready-image previews, approve content, or request changes with required feedback. Artist prices are omitted.
 - The Artist product page can add multiple JPEG, PNG, or WebP images (up to 10 MiB each), show signed previews, and retry pending uploads by selecting the same file. The same-origin web handler keeps signed upload URLs server-side and bounds streamed bodies.
 - Mutating browser requests use same-origin Next.js routes; the server reads the expected `negarin_session` cookie and forwards its Bearer token to the API. No cookie is issued by this page, and unauthenticated visitors see a connection-required empty state with no sample product/price.
-- Web route tests verify same-origin protection, signed URL secrecy, body-size limits, storage forwarding, and upload completion. Playwright smoke checks cover the unauthenticated Artist workspace, staff review queue, Service Partner inbox and detail page, and partner locale shell.
+- Web route tests verify same-origin protection, signed URL secrecy, body-size limits, storage forwarding, and upload completion. Playwright smoke checks cover the unauthenticated Artist workspace, staff review queue, Service Partner inbox and detail page, and partner locale shell. Same-origin browser JSON writes use a shared 64 KiB streaming limit; oversized bodies are rejected before forwarding.
 - The API permits review submission without images, does not define a minimum image count, and rejects submission while any upload is pending.
 - Service Partner assignments have a read-only API at `GET /api/v1/service-partner/assignments`. Its database query scopes results to the active partner organization and either organization-wide or current-user assignments; its response contains only partner-facing title, summary, assignment time, and request time.
 - Service Partner HTTP tests verify organization/user assignment filtering, same-organization user assignment visibility, no-store responses, unauthenticated denial, other-role denial, and omission of Artist/financial fields.
@@ -73,6 +74,8 @@ Run #108 completed all configured gates successfully for staff Service Partner a
 Run #110 failed because the options integration test assumed an otherwise empty database; the other API fixtures had already added requests and organizations. The assertion now targets its own fixture records.
 
 Run #111 completed all configured gates successfully for staff assignment options and Admin page commit `e8d3ad6aa8138a4016a2684cd159dd086ba1c407`, including PostgreSQL tests, web route tests, build, and Playwright E2E smoke.
+
+Run #113 completed all configured gates successfully for same-origin JSON body-limit commit `f8143b50d37b4bd93c4ee2fecc77b10c9b4e17b6`, including bounded-reader tests, PostgreSQL API tests, build, and Playwright E2E smoke.
 
 Run #93 completed all configured gates successfully for authorization test commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, including the expanded Service Partner assignment-isolation matrix.
 
