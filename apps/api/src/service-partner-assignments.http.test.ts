@@ -175,6 +175,12 @@ describe("Service Partner assignments HTTP contract", () => {
     })).statusCode).toBe(404);
     expect((await app.inject({
       method: "POST",
+      url: `/api/v1/service-partner/assignments/${userAssignment.id}/response`,
+      headers: partnerColleague,
+      payload: { response: "accepted" }
+    })).statusCode).toBe(201);
+    expect((await app.inject({
+      method: "POST",
       url: `/api/v1/service-partner/assignments/${userAssignment.id}/deliverables/upload-url`,
       headers: partnerColleague,
       payload: { fileName: "report.pdf", contentType: "application/pdf", contentLength: 2048 }

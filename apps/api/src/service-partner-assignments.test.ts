@@ -11,6 +11,7 @@ describe("Service Partner assigned request read model", () => {
       partnerOrganizationId: "partner-org-id",
       assignedPartnerUserId: "partner-user-id",
       assignedAt,
+      responseStatus: "accepted",
       serviceRequest: {
         id: "service-request-id",
         partnerTitle: "Product photography",
@@ -33,7 +34,8 @@ describe("Service Partner assigned request read model", () => {
       title: "Product photography",
       summary: "Photograph the assigned product set.",
       assignedAt: assignedAt.toISOString(),
-      requestedAt: createdAt.toISOString()
+      requestedAt: createdAt.toISOString(),
+      responseStatus: "accepted"
     }]);
     expect(findMany).toHaveBeenCalledWith({
       where: {
@@ -49,6 +51,7 @@ describe("Service Partner assigned request read model", () => {
         partnerOrganizationId: true,
         assignedPartnerUserId: true,
         assignedAt: true,
+        responseStatus: true,
         serviceRequest: {
           select: { id: true, partnerTitle: true, partnerSummary: true, createdAt: true }
         }
@@ -77,6 +80,7 @@ describe("Service Partner assigned request read model", () => {
       partnerOrganizationId: "partner-org-id",
       assignedPartnerUserId: null,
       assignedAt,
+      responseStatus: "awaiting_response",
       serviceRequest: {
         id: "service-request-id",
         partnerTitle: "Product photography",
@@ -99,7 +103,8 @@ describe("Service Partner assigned request read model", () => {
       title: "Product photography",
       summary: null,
       assignedAt: assignedAt.toISOString(),
-      requestedAt: createdAt.toISOString()
+      requestedAt: createdAt.toISOString(),
+      responseStatus: "awaiting_response"
     });
     expect(findFirst).toHaveBeenCalledWith({
       where: {
@@ -115,6 +120,7 @@ describe("Service Partner assigned request read model", () => {
         partnerOrganizationId: true,
         assignedPartnerUserId: true,
         assignedAt: true,
+        responseStatus: true,
         serviceRequest: {
           select: { id: true, partnerTitle: true, partnerSummary: true, createdAt: true }
         }
