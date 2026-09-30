@@ -33,6 +33,34 @@ test("English and French partner portals share the same shell and navigation str
   await expect(page.getByText("Cet aperçu ne contient aucune donnée opérationnelle ou financière fictive.")).toBeVisible();
 });
 
+test("all seven Export Partner locales use the same shell with the approved text direction", async ({ page }) => {
+  const localeDirections = [
+    ["tr-TR", "ltr"],
+    ["ar", "rtl"],
+    ["ru", "ltr"],
+    ["en", "ltr"],
+    ["zh-CN", "ltr"],
+    ["fr", "ltr"],
+    ["es", "ltr"]
+  ] as const;
+
+  for (const [locale, direction] of localeDirections) {
+    await page.goto(`/partner/${locale}`);
+    const shell = page.locator(".portal-layout");
+    await expect(shell).toHaveAttribute("dir", direction);
+    await expect(shell).toHaveAttribute("lang", locale);
+    await expect(page.locator(".portal-sidebar")).toBeVisible();
+    await expect(page.locator(".portal-nav-item")).toHaveCount(7);
+    await expect(page.locator(".portal-brand img")).toHaveCount(1);
+    await expect(page.locator(".connection-badge")).toBeVisible();
+  }
+});
+
+test("Portuguese is outside the supported Export Partner routes", async ({ page }) => {
+  await page.goto("/partner/pt-BR");
+  await expect(page.getByRole("heading", { name: "404" })).toBeVisible();
+});
+
 test("unconfigured sign-in and customer portals do not present a fake login or checkout", async ({ page }) => {
   await page.goto("/auth");
   await expect(page.getByRole("heading", { name: "احراز هویت" })).toBeVisible();
