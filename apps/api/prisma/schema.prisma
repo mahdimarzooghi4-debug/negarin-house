@@ -29,6 +29,7 @@ model IdentityUser {
   serviceAssignments ServiceAssignment[] @relation("ServiceAssignmentUser")
   authoredServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentAuthor")
   createdServiceRequests ServiceRequest[] @relation("ServiceRequestAuthor")
+  requestedArtistServiceRequests ServiceRequest[] @relation("ArtistServiceRequestRequester")
   serviceAssignmentResponses ServiceAssignmentEvent[]
   uploadedServiceDeliverables ServiceDeliverable[]
   serviceDeliverableSubmissions ServiceDeliverableSubmission[]
@@ -123,11 +124,14 @@ model ServiceRequest {
   partnerSummary  String?
   createdByUserId String?             @db.Uuid
   createdBy       IdentityUser?       @relation("ServiceRequestAuthor", fields: [createdByUserId], references: [id], onDelete: SetNull)
+  requestedByArtistUserId String?     @db.Uuid
+  requestedByArtist IdentityUser?     @relation("ArtistServiceRequestRequester", fields: [requestedByArtistUserId], references: [id], onDelete: Restrict)
   createdAt       DateTime            @default(now())
   updatedAt       DateTime            @updatedAt
   assignments     ServiceAssignment[]
 
   @@index([createdByUserId, createdAt])
+  @@index([requestedByArtistUserId, createdAt])
 
   @@map("service_requests")
 }

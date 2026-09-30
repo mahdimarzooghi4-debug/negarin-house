@@ -4,6 +4,10 @@ const { requestArtistApi } = vi.hoisted(() => ({ requestArtistApi: vi.fn() }));
 
 vi.mock("./artist-api", () => ({
   isSameOriginRequest: (request: Request) => request.headers.get("origin") === new URL(request.url).origin,
+  readLimitedJsonBody: async (request: Request) => {
+    try { return { kind: "ready", value: await request.json() as unknown }; }
+    catch { return { kind: "invalid" }; }
+  },
   requestArtistApi
 }));
 
@@ -11,6 +15,7 @@ import { GET as getOptions } from "./app/api/admin/service-assignments/options/r
 import { POST as createAssignment } from "./app/api/admin/service-assignments/route";
 import { POST as createServiceRequest } from "./app/api/admin/service-requests/route";
 import { GET as getSubmissions } from "./app/api/admin/service-deliverables/route";
+import { GET as getArtistRequests, POST as createArtistRequest } from "./app/api/artist/service-requests/route";
 
 describe("staff service assignment same-origin routes", () => {
   beforeEach(() => requestArtistApi.mockReset());
@@ -33,6 +38,34 @@ describe("staff service assignment same-origin routes", () => {
     expect(response.headers.get("cache-control")).toBe("no-store");
     expect(await response.json()).toEqual(items);
     expect(requestArtistApi).toHaveBeenCalledWith("admin/service-deliverables");
+  });
+
+  it("loads and submits Artist service requests through the scoped same-origin boundary", async () => {
+    const items = [{ requestId: "request-1", title: "عکاسی محصول", assignedAt: null }];
+    requestArtistApi.mockResolvedValueOnce({ status: 200, data: items });
+    const list = await getArtistRequests();
+    expect(list.status).toBe(200);
+    expect(list.headers.get("cache-control")).toBe("no-store");
+    expect(await list.json()).toEqual(items);
+    expect(requestArtistApi).toHaveBeenCalledWith("artist/service-requests");
+
+    requestArtistApi.mockReset().mockResolvedValue({ status: 201, data: items[0] });
+    const body = { title: "عکاسی محصول", description: "تصویرهای کاتالوگ" };
+    const crossOrigin = await createArtistRequest(new Request("http://localhost/api/artist/service-requests", {
+      method: "POST", headers: { Origin: "https://attacker.invalid" }, body: JSON.stringify(body)
+    }));
+    expect(crossOrigin.status).toBe(403);
+    expect(requestArtistApi).not.toHaveBeenCalled();
+
+    const response = await createArtistRequest(new Request("http://localhost/api/artist/service-requests", {
+      method: "POST", headers: { Origin: "http://localhost", "Content-Type": "application/json" }, body: JSON.stringify(body)
+    }));
+    expect(response.status).toBe(201);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(await response.json()).toEqual(items[0]);
+    expect(requestArtistApi).toHaveBeenCalledWith("artist/service-requests", {
+      method: "POST", body: JSON.stringify(body)
+    });
   });
 
   it("forwards assignment writes only from same-origin requests", async () => {

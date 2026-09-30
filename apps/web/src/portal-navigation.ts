@@ -11,7 +11,7 @@ const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
     { label: "محصولات", href: "/artist/products" },
     { label: "سفارش‌ها" },
     { label: "رشد من" },
-    { label: "خدمات" },
+    { label: "خدمات", href: "/artist/services" },
     { label: "فرصت‌ها" },
     { label: "مالی" },
     { label: "عضویت" },

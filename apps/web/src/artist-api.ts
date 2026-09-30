@@ -86,6 +86,14 @@ export type StaffServiceDeliverableSubmission = {
   readUrl: string;
 };
 
+export type ArtistServiceRequest = {
+  requestId: string;
+  title: string;
+  description: string | null;
+  requestedAt: string;
+  assignedAt: string | null;
+};
+
 const sessionCookieName = "negarin_session";
 const maxJsonBodyBytes = 64 * 1024;
 
@@ -207,6 +215,16 @@ export async function loadCustomerCatalogItem(productId: string) {
     if (response.status === 404) return { kind: "not-found" } as const;
     if (response.ok) return { kind: "ready", item: await response.json() as CustomerCatalogItem } as const;
   } catch { /* Surface a stable empty state when API is not configured or reachable. */ }
+  return { kind: "unavailable" } as const;
+}
+
+export async function loadArtistServiceRequests() {
+  const result = await requestArtistApi("artist/service-requests");
+  if (result.status === 200 && Array.isArray(result.data)) {
+    return { kind: "ready", requests: result.data as ArtistServiceRequest[] } as const;
+  }
+  if (result.status === 401) return { kind: "connection-required" } as const;
+  if (result.status === 403) return { kind: "access-denied" } as const;
   return { kind: "unavailable" } as const;
 }
 

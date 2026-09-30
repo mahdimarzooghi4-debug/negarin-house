@@ -105,6 +105,15 @@ test("artist product workspace requires a real session and does not invent produ
   await expect(page.getByRole("button", { name: /ارسال برای بررسی|بایگانی/ })).toHaveCount(0);
 });
 
+test("Artist services intake requires an Artist session and shows no sample requests", async ({ page }) => {
+  await page.goto("/artist/services");
+
+  await expect(page.getByRole("heading", { name: "خدمات هنرمند" })).toBeVisible();
+  await expect(page.getByText("اتصال حساب هنرمند فعال نیست")).toBeVisible();
+  await expect(page.getByRole("button", { name: "ثبت درخواست برای ادمین" })).toHaveCount(0);
+  await expect(page.locator(".portal-nav-item").filter({ hasText: "خدمات" })).toHaveAttribute("href", "/artist/services");
+});
+
 test("staff publication review queue requires staff permission and never shows product prices", async ({ page }) => {
   await page.goto("/admin/publication-reviews");
 
