@@ -34,8 +34,14 @@ decided during release planning before creating a distributable build.
 ## Session storage boundary
 
 The app has a small adapter for storing an opaque session token with
-`expo-secure-store`. It does not issue tokens, implement login/logout, or call
-an authentication endpoint. The public OTP delivery path and session lifecycle
-must be available before the adapter is connected to an authentication flow.
+`expo-secure-store`. It does not issue tokens or implement login. The public OTP
+delivery path and a user-facing session lifecycle must be available before the
+adapter is connected to an authentication flow.
 The Android config plugin also excludes SecureStore preferences from Android
 backup and device transfer.
+
+The logout boundary is available for a future authenticated flow. It posts the
+stored bearer token to `/api/v1/identity/logout`, then clears secure storage on
+success or when the API reports that the session is already invalid. Network
+and server failures preserve the token so revocation can be retried. The helper
+is not connected to a login screen or a user-facing mobile journey yet.
