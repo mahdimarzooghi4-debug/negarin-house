@@ -61,4 +61,24 @@ describe("identity context HTTP contract", () => {
     await identity.revokeSession(user.sessionToken);
     expect((await get("grants")).statusCode).toBe(401);
   });
+
+  it("revokes a bearer session through logout before a role context is selected", async () => {
+    const user = await signIn();
+    const headers = { authorization: `Bearer ${user.sessionToken}` };
+    const logout = () => app.inject({
+      method: "POST",
+      url: "/api/v1/identity/logout",
+      headers
+    });
+
+    const response = await logout();
+    expect(response.statusCode).toBe(204);
+    expect(response.headers["cache-control"]).toBe("no-store");
+    expect((await app.inject({
+      method: "GET",
+      url: "/api/v1/identity/grants",
+      headers
+    })).statusCode).toBe(401);
+    expect((await logout()).statusCode).toBe(401);
+  });
 });

@@ -1,5 +1,5 @@
 import {
-  BadRequestException, Body, Controller, Get, Header, Post, Req,
+  BadRequestException, Body, Controller, Get, Header, HttpCode, Post, Req,
   UnauthorizedException, UseGuards
 } from "@nestjs/common";
 import type { AuthorizationContext } from "@negarin/authz";
@@ -37,6 +37,23 @@ export class IdentityContextController {
       orderBy: { createdAt: "asc" }
     });
     return { activeGrantId: session.activeGrantId, grants };
+  }
+
+  /** Revoke this bearer session without requiring a role grant to be selected. */
+  @Post("logout")
+  @HttpCode(204)
+  @Header("Cache-Control", "no-store")
+  async logout(@Req() request: AuthorizedRequest): Promise<void> {
+    const now = new Date();
+    const revoked = await this.database.authSession.updateMany({
+      where: {
+        tokenHash: hashSessionToken(bearer(request)),
+        revokedAt: null,
+        expiresAt: { gt: now }
+      },
+      data: { revokedAt: now }
+    });
+    if (revoked.count !== 1) throw new UnauthorizedException();
   }
 
   @Get("context")
