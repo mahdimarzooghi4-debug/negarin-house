@@ -43,6 +43,26 @@
 - The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. No token issuance, OTP screen, login endpoint, or logout/revocation flow is connected.
 - Root CI run #89 verified frozen install, Prisma gates, audit, lint, typecheck, full tests, monorepo build (including Android bundle export), and Playwright E2E on the current code commit.
 
+## Role implementation coverage
+
+This is a code-coverage snapshot, not a release or Stage sign-off.
+
+| Role / capability | Implemented in code | Remaining role code |
+|---|---|---|
+| Customer | Shared portal shell only | Public catalog visibility rule is undecided; catalog, purchase, and order tracking are not implemented. Payment flow also awaits a provider. |
+| Artist | Product CRUD, media, publication submission/status, and review feedback | Customer-order fulfillment, finance/settlement, Growth, and approved mobile journeys remain open. |
+| Admin / Staff | Publication review and Service Partner assignment authoring | Operational features for the other domains remain open and must use scoped permissions. |
+| Service Partner | Organization/user-scoped assigned-request inbox and read-only detail | Request lifecycle actions, scheduling, deliverables, and organization/member provisioning remain open; no extra status flow is assumed. |
+| Supporting Organization | Organization registry/context primitives and shared shell | Programs, referrals, support relationships/usage, users, and scoped reports remain open. |
+| Corporate Buyer | Organization registry/context primitives and shared shell | Purchase request, proposal, order, allocation, and delivery flow remain open. |
+| Export Partner | Localized role shell for the seven approved locales | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
+| Shared identity | Session, role-grant, active-context, and API authorization primitives | Public OTP delivery/login and browser/mobile credential flows remain disabled until a provider and required controls are available. |
+| Android app | Android foundation and secure session storage adapter | Role-specific journeys, release identity, signing, and device validation remain open; iOS is out of scope. |
+
+## Delivery gate update
+
+Role implementation and automated CI are the current focus. Stage deployment and Stage QA will start only after the agreed role flows have been implemented and reviewed. No hosted Stage server is currently available, so no Stage or release evidence is claimed. Release approval and production remain later gates.
+
 ## Android validation and release scope
 
 - Local `expo prebuild --platform android --no-install --clean` completed successfully, processing the Android icon, system theme, and SecureStore backup plugin. The generated native directory is local-only and ignored by Git.
@@ -91,4 +111,4 @@ This is automated CI evidence. It is not Stage QA, Release Approval, or Producti
 - Mobile scope is Android. iOS is out of scope. Android app release identity and device QA are still open.
 - PR #35 has no submitted GitHub review yet and remains draft.
 
-Sprint 1 remains open until identity/session, Stage QA, and release gates are completed with real evidence.
+Sprint 1 remains open while agreed role code is being delivered. Stage QA and release gates are deferred until role implementation and review are complete and a hosted Stage environment is available.
