@@ -13,6 +13,9 @@ BEGIN
   IF EXISTS (
     SELECT scoped."id"
     FROM (
+      SELECT "id", "kind"::text AS "kind"
+      FROM "organizations"
+      UNION ALL
       SELECT "exportPartnerId" AS "id", 'export_partner' AS "kind"
       FROM "role_grants"
       WHERE "role" = 'export_partner' AND "exportPartnerId" IS NOT NULL
@@ -37,7 +40,7 @@ BEGIN
 END $$;
 
 INSERT INTO "organizations" ("id", "kind", "displayName", "createdAt", "updatedAt")
-SELECT DISTINCT "exportPartnerId", 'export_partner', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+SELECT DISTINCT "exportPartnerId", 'export_partner'::"OrganizationKind", NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
 FROM "role_grants"
 WHERE "role" = 'export_partner' AND "exportPartnerId" IS NOT NULL
 ON CONFLICT ("id") DO NOTHING;
