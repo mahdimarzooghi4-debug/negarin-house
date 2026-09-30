@@ -4,14 +4,15 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `5bbfd15685ea8085f0b71bdcc6b128a0fb559aac` |
-| Code CI | [GitHub Actions run #147](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36694333980): success |
+| Code commit verified by CI | `130587095fe77a867f2ebcf005e7c771e2fb33b6` |
+| Code CI | [GitHub Actions run #150](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36695628469): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
 | Service Partner assigned request detail | Commit `1d856a0bfdd7e23cafdc0d6d9c7b94e71b4ce313`, verified by [CI run #100](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36623722611): success |
 | Service Partner access-state handling | Commit `8f7b245c93b23eb422bcec7e0a16c4b6957cd5b5`, verified by [CI run #102](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36624962410): success |
 | Organization registry and context validation | Commit `f5353cf4fae019fcd44151425fffd2f9670de3d7`, verified by [CI run #104](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36626783684): success |
+| Export Partner Organization registry | Commit `130587095fe77a867f2ebcf005e7c771e2fb33b6`, verified by [CI run #150](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36695628469): success |
 | Service assignment authoring API | Commit `eb67808de3f9134210579a2315d888be72efe889`, verified by [CI run #108](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36628941018): success |
 | Staff service assignment options and Admin page | Commit `e8d3ad6aa8138a4016a2684cd159dd086ba1c407`, verified by [CI run #111](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36632451376): success |
 | Bounded same-origin JSON writes | Commit `f8143b50d37b4bd93c4ee2fecc77b10c9b4e17b6`, verified by [CI run #113](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36668167128): success |
@@ -42,6 +43,7 @@
 - A read-only request detail API and page are available at `GET /api/v1/service-partner/assignments/:assignmentId` and `/service-partner/assignments/:assignmentId`. The database query scopes by active organization and either organization-wide or current-user assignment; other assignments are concealed as 404. The response/page expose only the same partner-facing fields as the inbox.
 - The Service Partner pages distinguish missing/invalid sessions (401) from role or organization authorization denial (403); a concealed assignment is shown as unavailable without revealing whether another user's assignment exists. Unit tests cover these states.
 - A persisted `Organization` registry now covers Service Partner, Supporting Organization, and Corporate Buyer organizations. Role grants and Service Partner assignments reference registered organizations; active-context resolution verifies that the grant role matches the organization's kind. The migration backfills inferable organization scopes and aborts if one ID is used for conflicting organization kinds. Organization/member provisioning endpoints are not exposed.
+- Export Partner identity now uses the same `Organization` registry. A guarded migration moves legacy `RoleGrant.exportPartnerId` values into `organizationId`, aborts on cross-kind identifier collisions, and clears the legacy scope field; the active-context resolver accepts Export Partner grants only when they point to a registered `export_partner` organization. No provisioning, order, or payment flow is added.
 - The HTTP authorization-boundary integration test denies a Supporting Organization access to an Artist domestic-finance resource with 403 and no resource identifier. This test-only route exercises the live session/context guard and does not expose a finance endpoint or data model.
 - The shared authorization package has a fail-closed policy for reading an already-persisted `SupportRelationship`: only a Supporting Organization in the same organization scope is allowed; cross-organization resources are concealed, and other roles are denied. This policy primitive does not add a SupportRelationship model, endpoint, Artist administration, or finance access.
 - Corporate Buyer HTTP integration tests deny access to Artist product list/detail/create/edit/archive operations and deny Artist domestic-finance reads with 403. The Artist's product price and state remain unchanged; no public catalog, order, or finance endpoint is added.
@@ -70,7 +72,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 | Service Partner | Organization/user-scoped inbox/detail and recorded activity history, one-time assignment accept/decline, scoped private uploads after acceptance, and one-time submit-for-review for ready deliverables | Artist-initiated request intake, scheduling, execution progress, staff review outcomes/history, completion, and organization/member provisioning remain open; upload `pending/ready` are technical states only. |
 | Supporting Organization | Organization registry/context, HTTP-tested denial of Artist product and domestic-finance access, and an organization-scoped SupportRelationship read-policy primitive | Program/referral/relationship data models and endpoints, support usage, organization users, and scoped reports remain open. |
 | Corporate Buyer | Organization registry/context, shared shell, HTTP-tested denial of Artist product-management/domestic-finance access, and organization-scoped order-read policy with full role matrix tests | Public catalog, purchase request, proposal, order, allocation, and delivery flow remain open. |
-| Export Partner | Localized role shell for the seven approved locales, and HTTP-tested denial of Artist product-management and domestic-finance access | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
+| Export Partner | Organization registry/context, localized role shell for the seven approved locales, and HTTP-tested denial of Artist product-management and domestic-finance access | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
 | Shared identity | Session, role-grant, active-context, and API authorization primitives | Public OTP delivery/login and browser/mobile credential flows remain disabled until a provider and required controls are available. |
 | Android app | Android foundation and secure session storage adapter | Role-specific journeys, release identity, signing, and device validation remain open; iOS is out of scope. |
 
@@ -151,6 +153,12 @@ Run #143 completed all configured gates successfully for the aligned service ass
 Run #145 completed all configured gates successfully for the Supporting Organization relationship-scope authorization policy at code head `f1e7c3be6983680af770ddeffad2e33808d5baef`, including Prisma gates, security audit, lint, typecheck, full tests, build, and Playwright E2E smoke. The policy covers only the organization scope of an existing relationship and does not add its data model or workflow.
 
 Run #147 completed all configured gates successfully for the Corporate Buyer order-read authorization matrix at code head `5bbfd15685ea8085f0b71bdcc6b128a0fb559aac`, including Prisma gates, security audit, lint, typecheck, full tests, build, and Playwright E2E smoke.
+
+Run #148 completed all configured gates successfully for Sprint 1 status documentation commit `27078e2e892b9818fa5b88f2a83d89a6e5993386`.
+
+Run #149 failed during migration reset because the new PostgreSQL enum value in the Export Partner backfill was inferred as text. The migration now casts it explicitly; no later CI gates ran in #149.
+
+Run #150 completed all configured gates successfully for Export Partner organization registration code head `130587095fe77a867f2ebcf005e7c771e2fb33b6`, including Prisma migration reset/deploy, security audit, lint, typecheck, full tests, build, and Playwright E2E smoke.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
