@@ -51,8 +51,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22.20.0
-      - run: corepack enable
-      - run: corepack prepare pnpm@12.7.0 --activate
+      - uses: pnpm/setup@v3
+        with:
+          version: 12.7.0
+          install: false
       - run: pnpm install --frozen-lockfile
       - run: pnpm db:generate
       - run: pnpm db:validate
