@@ -4,8 +4,8 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `0d4ccaf42d3dee1da3d6f65aa02e82ada7dd21dc` |
-| Code CI | [GitHub Actions run #138](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36686608546): success |
+| Code commit verified by CI | `f786b76d1a13bed646e98c9c2a2fc26dad22a743` |
+| Code CI | [GitHub Actions run #140](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36687556296): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
@@ -44,6 +44,7 @@
 - A persisted `Organization` registry now covers Service Partner, Supporting Organization, and Corporate Buyer organizations. Role grants and Service Partner assignments reference registered organizations; active-context resolution verifies that the grant role matches the organization's kind. The migration backfills inferable organization scopes and aborts if one ID is used for conflicting organization kinds. Organization/member provisioning endpoints are not exposed.
 - The HTTP authorization-boundary integration test denies a Supporting Organization access to an Artist domestic-finance resource with 403 and no resource identifier. This test-only route exercises the live session/context guard and does not expose a finance endpoint or data model.
 - Corporate Buyer HTTP integration tests deny access to Artist product list/detail/create/edit/archive operations and deny Artist domestic-finance reads with 403. The Artist's product price and state remain unchanged; no public catalog, order, or finance endpoint is added.
+- Export Partner HTTP integration tests deny access to Artist product list/detail/create/edit/archive operations and Artist domestic-finance reads with 403. This protects the domestic finance boundary and price control; no export order or payment flow is implemented by these tests.
 - Staff with the live `services` permission can append an assignment for an existing service request through `POST /api/v1/admin/service-assignments`. The API requires a registered Service Partner organization, validates an optional individual assignee against an active grant in that same organization, and stores the authoring staff user ID. Legacy assignment authors remain null because their actors cannot be recovered. This API does not create requests, alter existing assignments, or add lifecycle, schedule, or deliverable rules.
 - Service Partners can respond once to an assignment with accept/decline. The API rechecks organization and individual assignment scope, records an append-only response event, and rejects a second response. Upload is available only after acceptance. This records the partner response; it does not mark work complete or reviewed.
 - Service Partners can list and attach scoped PDF/JPEG/PNG/WebP deliverables to an accepted request through a same-origin upload flow. The API verifies assignment scope and object metadata, promotes completed files to private unique keys, and exposes signed read URLs only for ready files; the only upload states are technical `pending` and `ready`.
@@ -66,7 +67,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 | Service Partner | Organization/user-scoped inbox/detail and recorded activity history, one-time assignment accept/decline, scoped private uploads after acceptance, and one-time submit-for-review for ready deliverables | Request creation, scheduling, execution progress, staff review outcomes/history, completion, and organization/member provisioning remain open; upload `pending/ready` are technical states only. |
 | Supporting Organization | Organization registry/context primitives, shared shell, and HTTP-tested denial of Artist product and domestic-finance access | Programs, referrals, support relationships/usage, users, and scoped reports remain open. |
 | Corporate Buyer | Organization registry/context primitives, shared shell, and HTTP-tested denial of Artist product-management and domestic-finance access | Public catalog, purchase request, proposal, order, allocation, and delivery flow remain open. |
-| Export Partner | Localized role shell for the seven approved locales | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
+| Export Partner | Localized role shell for the seven approved locales, and HTTP-tested denial of Artist product-management and domestic-finance access | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
 | Shared identity | Session, role-grant, active-context, and API authorization primitives | Public OTP delivery/login and browser/mobile credential flows remain disabled until a provider and required controls are available. |
 | Android app | Android foundation and secure session storage adapter | Role-specific journeys, release identity, signing, and device validation remain open; iOS is out of scope. |
 
@@ -137,6 +138,8 @@ Run #134 completed all configured gates successfully for code head `cff6570f4dd0
 Run #136 completed all configured gates successfully for code head `07b69d3cc15f195a98c52532098c9f220094bfe8`, including frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full tests, monorepo build, Chromium installation, and Playwright E2E smoke. The live authorization-guard integration test denies a Supporting Organization access to the Artist domestic-finance resource with HTTP 403.
 
 Run #138 completed all configured gates successfully for code head `0d4ccaf42d3dee1da3d6f65aa02e82ada7dd21dc`, including frozen install, Prisma gates, security audit, lint, typecheck, full tests, monorepo build, Chromium installation, and Playwright E2E smoke. Corporate Buyer integration tests verify denial of Artist product-management routes and domestic-finance access.
+
+Run #140 completed all configured gates successfully for code head `f786b76d1a13bed646e98c9c2a2fc26dad22a743`, including frozen install, Prisma gates, security audit, lint, typecheck, full tests, monorepo build, Chromium installation, and Playwright E2E smoke. Export Partner integration tests verify denial of Artist product-management routes and domestic-finance access.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
