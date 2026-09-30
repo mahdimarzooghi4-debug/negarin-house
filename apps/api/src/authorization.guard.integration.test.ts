@@ -54,13 +54,12 @@ describe("HTTP authorization boundary", () => {
     const phone = `+1555${randomInt(1_000_000, 9_999_999)}`;
     await identity.requestCode(phone);
     const signed = await identity.verifyCode(phone, codes.get(phone) ?? "");
-    const organization = role === "supporting_organization" || role === "corporate_buyer"
+    const organization = role === "supporting_organization" || role === "corporate_buyer" || role === "export_partner"
       ? await database.organization.create({ data: { kind: role } })
       : undefined;
     const grant = await database.roleGrant.create({ data: {
       userId: signed.userId, role,
       ...(organization ? { organizationId: organization.id } : {}),
-      ...(role === "export_partner" ? { exportPartnerId: randomUUID() } : {}),
       staffDomains: { create: domains.map((domain) => ({ domain })) }
     } });
     await resolver.select(signed.sessionToken, grant.id);

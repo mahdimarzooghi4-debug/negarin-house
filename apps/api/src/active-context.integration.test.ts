@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { randomInt } from "node:crypto";
+import { randomInt, randomUUID } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { ActiveContextResolver } from "./active-context.js";
 import { IdentityCore } from "./identity-core.js";
@@ -59,6 +59,22 @@ describe("active context from server grants", () => {
     const grant = await database.roleGrant.create({ data: { userId, role: "export_partner" } });
     expect(await resolver.select(sessionToken, grant.id)).toBeNull();
     expect(await resolver.resolve(sessionToken)).toBeNull();
+  });
+
+  it("resolves Export Partner scope from the registered organization and rejects legacy unregistered scope", async () => {
+    const { userId, sessionToken } = await signIn();
+    const unregistered = await database.roleGrant.create({ data: {
+      userId, role: "export_partner", exportPartnerId: randomUUID()
+    } });
+    expect(await resolver.select(sessionToken, unregistered.id)).toBeNull();
+
+    const organization = await database.organization.create({ data: { kind: "export_partner" } });
+    const grant = await database.roleGrant.create({ data: {
+      userId, role: "export_partner", organizationId: organization.id
+    } });
+    expect(await resolver.select(sessionToken, grant.id)).toEqual({
+      userId, activeRole: "export-partner", exportPartnerId: organization.id
+    });
   });
 
   it("fails closed when the organization kind does not match the granted role", async () => {

@@ -26,7 +26,9 @@ describe("Artist product HTTP contract", () => {
         userId: user.userId,
         role,
         ...(organizationId ? { organizationId } : {}),
-        ...(role === "export_partner" ? { exportPartnerId: randomUUID() } : {}),
+        ...(role === "export_partner" ? {
+          organizationId: (await database.organization.create({ data: { kind: "export_partner" } })).id
+        } : {}),
         ...(role === "staff" ? { staffDomains: { create: [{ domain: "products" }] } } : {})
       }
     });

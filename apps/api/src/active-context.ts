@@ -21,7 +21,7 @@ type Grant = {
   userId: string;
   role: keyof typeof roleMap;
   organizationId: string | null;
-  organization: { kind: "service_partner" | "supporting_organization" | "corporate_buyer" } | null;
+  organization: { kind: "service_partner" | "supporting_organization" | "corporate_buyer" | "export_partner" } | null;
   exportPartnerId: string | null;
   revokedAt: Date | null;
   staffDomains: Array<{ domain: string }>;
@@ -33,17 +33,15 @@ function contextFromGrant(grant: Grant): AuthorizationContext | null {
   const organizationKinds = {
     "service-partner": "service_partner",
     "supporting-organization": "supporting_organization",
-    "corporate-buyer": "corporate_buyer"
+    "corporate-buyer": "corporate_buyer",
+    "export-partner": "export_partner"
   } as const;
   const expectedOrganizationKind = organizationKinds[activeRole as keyof typeof organizationKinds];
 
   if (expectedOrganizationKind) {
     if (!grant.organizationId || grant.exportPartnerId || grant.organization?.kind !== expectedOrganizationKind) return null;
+    if (activeRole === "export-partner") return { userId: grant.userId, activeRole, exportPartnerId: grant.organizationId };
     return { userId: grant.userId, activeRole, organizationId: grant.organizationId };
-  }
-  if (activeRole === "export-partner") {
-    if (!grant.exportPartnerId || grant.organizationId) return null;
-    return { userId: grant.userId, activeRole, exportPartnerId: grant.exportPartnerId };
   }
   if (grant.organizationId || grant.exportPartnerId) return null;
   if (activeRole === "staff") {
