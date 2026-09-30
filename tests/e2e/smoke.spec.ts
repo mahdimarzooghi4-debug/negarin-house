@@ -73,17 +73,20 @@ test("unconfigured sign-in and customer catalog do not present a fake login or c
   await expect(page.getByRole("button", { name: /سفارش|پرداخت/ })).toHaveCount(0);
 });
 
-test("Supporting Organization and Corporate Buyer shells stay truthful until their workflows are implemented", async ({ page }) => {
+test("Supporting Organization programs require a real organization session; Corporate Buyer shell stays truthful", async ({ page }) => {
   const emptyState = "در این پیش‌نمایش، اطلاعات عملیاتی یا مالی نمونه نمایش داده نمی‌شود.";
 
   await page.goto("/supporting-organization");
   await expect(page.getByRole("heading", { name: "سازمان حامی" })).toBeVisible();
   await expect(page.locator(".portal-layout")).toHaveAttribute("dir", "rtl");
-  await expect(page.getByRole("region", { name: "پوستهٔ پنل آماده است" })).toBeVisible();
-  await expect(page.getByText(emptyState)).toBeVisible();
   await expect(page.locator(".portal-nav-item")).toHaveCount(6);
-  await expect(page.getByRole("button")).toHaveCount(0);
-  await expect(page.locator(".portal-navigation a")).toHaveCount(0);
+  await expect(page.locator(".portal-navigation a")).toHaveCount(1);
+  await expect(page.locator(".portal-navigation a")).toHaveAttribute("href", "/supporting-organization/programs");
+  await page.goto("/supporting-organization/programs");
+  await expect(page.getByRole("heading", { name: "برنامه‌های حمایتی" }).first()).toBeVisible();
+  await expect(page.getByText("اتصال حساب سازمان حامی فعال نیست")).toBeVisible();
+  await expect(page.getByRole("button", { name: "ثبت برنامه" })).toHaveCount(0);
+  await expect(page.getByText("در این صفحه دادهٔ نمونه نمایش داده نمی‌شود.")).toBeVisible();
 
   await page.goto("/corporate-buyer");
   await expect(page.getByRole("heading", { name: "خریدار سازمانی" })).toBeVisible();

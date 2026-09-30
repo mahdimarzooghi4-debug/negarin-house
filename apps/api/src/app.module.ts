@@ -26,6 +26,8 @@ import { CustomerCatalogController } from "./customer-catalog.controller.js";
 import { CustomerCatalogService } from "./customer-catalog.js";
 import { ArtistServiceRequestsController } from "./artist-service-requests.controller.js";
 import { ArtistServiceRequestsService } from "./artist-service-requests.js";
+import { SupportProgramsController } from "./support-programs.controller.js";
+import { SupportProgramsService } from "./support-programs.js";
 
 @Module({
   controllers: [
@@ -41,7 +43,8 @@ import { ArtistServiceRequestsService } from "./artist-service-requests.js";
     StaffServiceRequestsController,
     StaffServiceDeliverablesController,
     CustomerCatalogController,
-    ArtistServiceRequestsController
+    ArtistServiceRequestsController,
+    SupportProgramsController
   ],
   providers: [
     PrismaService,
@@ -56,6 +59,7 @@ import { ArtistServiceRequestsService } from "./artist-service-requests.js";
     StaffServiceDeliverablesService,
     CustomerCatalogService,
     ArtistServiceRequestsService,
+    SupportProgramsService,
     {
       provide: OBJECT_STORAGE,
       useFactory: () => {

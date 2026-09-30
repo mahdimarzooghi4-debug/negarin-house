@@ -54,9 +54,23 @@ model Organization {
   updatedAt          DateTime           @updatedAt
   roleGrants         RoleGrant[]
   serviceAssignments ServiceAssignment[]
+  supportPrograms    SupportProgram[]
 
   @@index([kind, createdAt])
   @@map("organizations")
+}
+
+model SupportProgram {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @db.Uuid
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  name           String
+  description    String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([organizationId, createdAt])
+  @@map("support_programs")
 }
 
 enum ProductPublicationStatus {

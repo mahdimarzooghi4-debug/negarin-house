@@ -19,6 +19,8 @@ describe("role portal navigation", () => {
       .toBe("/admin/service-assignments");
     expect(getPortalNavigation("service-partner").find(({ label }) => label === "درخواست‌های تخصیص‌یافته")?.href)
       .toBe("/service-partner/assignments");
+    expect(getPortalNavigation("supporting-organization").find(({ label }) => label === "برنامه‌های حمایتی")?.href)
+      .toBe("/supporting-organization/programs");
   });
 
   it("keeps authentication and customer routes outside staff sidebars", () => {

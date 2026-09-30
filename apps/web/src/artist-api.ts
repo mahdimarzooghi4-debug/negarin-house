@@ -100,6 +100,14 @@ export type ArtistServiceRequest = {
   completedAt: string | null;
 };
 
+export type SupportProgram = {
+  id: string;
+  name: string;
+  description: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
 const sessionCookieName = "negarin_session";
 const maxJsonBodyBytes = 64 * 1024;
 
@@ -228,6 +236,16 @@ export async function loadArtistServiceRequests() {
   const result = await requestArtistApi("artist/service-requests");
   if (result.status === 200 && Array.isArray(result.data)) {
     return { kind: "ready", requests: result.data as ArtistServiceRequest[] } as const;
+  }
+  if (result.status === 401) return { kind: "connection-required" } as const;
+  if (result.status === 403) return { kind: "access-denied" } as const;
+  return { kind: "unavailable" } as const;
+}
+
+export async function loadSupportPrograms() {
+  const result = await requestArtistApi("supporting-organization/programs");
+  if (result.status === 200 && Array.isArray(result.data)) {
+    return { kind: "ready", programs: result.data as SupportProgram[] } as const;
   }
   if (result.status === 401) return { kind: "connection-required" } as const;
   if (result.status === 403) return { kind: "access-denied" } as const;

@@ -39,7 +39,7 @@ const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
   ],
   "supporting-organization": [
     { label: "پیشخوان", active: true },
-    { label: "برنامه‌های حمایتی" },
+    { label: "برنامه‌های حمایتی", href: "/supporting-organization/programs" },
     { label: "ارجاع هنرمندان" },
     { label: "تعهدها و مصرف" },
     { label: "گزارش‌ها" },
