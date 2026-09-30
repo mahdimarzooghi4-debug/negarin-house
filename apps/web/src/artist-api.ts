@@ -35,6 +35,54 @@ export type StaffServiceAssignmentOptions = {
 };
 
 const sessionCookieName = "negarin_session";
+const maxJsonBodyBytes = 64 * 1024;
+
+export type LimitedJsonBody =
+  | { kind: "ready"; value: unknown }
+  | { kind: "invalid" }
+  | { kind: "too-large" };
+
+/** Read a browser JSON body with a hard byte limit before parsing or forwarding it. */
+export async function readLimitedJsonBody(request: Request): Promise<LimitedJsonBody> {
+  const declaredLength = request.headers.get("content-length");
+  if (declaredLength !== null) {
+    if (!/^\d+$/.test(declaredLength)) return { kind: "invalid" };
+    if (Number(declaredLength) > maxJsonBodyBytes) return { kind: "too-large" };
+  }
+  if (!request.body) return { kind: "invalid" };
+
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  try {
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      size += value.byteLength;
+      if (size > maxJsonBodyBytes) {
+        await reader.cancel().catch(() => undefined);
+        return { kind: "too-large" };
+      }
+      chunks.push(value);
+    }
+  } catch {
+    return { kind: "invalid" };
+  } finally {
+    reader.releaseLock();
+  }
+
+  const bytes = new Uint8Array(size);
+  let offset = 0;
+  for (const chunk of chunks) {
+    bytes.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  try {
+    return { kind: "ready", value: JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)) as unknown };
+  } catch {
+    return { kind: "invalid" };
+  }
+}
 
 function apiOrigin() {
   const value = process.env.NEGARIN_API_URL ?? "http://127.0.0.1:4000";

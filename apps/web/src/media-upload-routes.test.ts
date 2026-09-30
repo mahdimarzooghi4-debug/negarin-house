@@ -2,8 +2,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const { requestArtistApi } = vi.hoisted(() => ({ requestArtistApi: vi.fn() }));
 
-vi.mock("./artist-api", () => ({
-  isSameOriginRequest: (request: Request) => request.headers.get("origin") === new URL(request.url).origin,
+vi.mock("./artist-api", async (importOriginal) => ({
+  ...await importOriginal<typeof import("./artist-api")>(),
   requestArtistApi
 }));
 
