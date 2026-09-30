@@ -4,8 +4,8 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `84d81f8d392db29fa2056385642c268c0e01144f` |
-| Code CI | [GitHub Actions run #143](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36689462672): success |
+| Code commit verified by CI | `f1e7c3be6983680af770ddeffad2e33808d5baef` |
+| Code CI | [GitHub Actions run #145](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36692764813): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
@@ -43,6 +43,7 @@
 - The Service Partner pages distinguish missing/invalid sessions (401) from role or organization authorization denial (403); a concealed assignment is shown as unavailable without revealing whether another user's assignment exists. Unit tests cover these states.
 - A persisted `Organization` registry now covers Service Partner, Supporting Organization, and Corporate Buyer organizations. Role grants and Service Partner assignments reference registered organizations; active-context resolution verifies that the grant role matches the organization's kind. The migration backfills inferable organization scopes and aborts if one ID is used for conflicting organization kinds. Organization/member provisioning endpoints are not exposed.
 - The HTTP authorization-boundary integration test denies a Supporting Organization access to an Artist domestic-finance resource with 403 and no resource identifier. This test-only route exercises the live session/context guard and does not expose a finance endpoint or data model.
+- The shared authorization package has a fail-closed policy for reading an already-persisted `SupportRelationship`: only a Supporting Organization in the same organization scope is allowed; cross-organization resources are concealed, and other roles are denied. This policy primitive does not add a SupportRelationship model, endpoint, Artist administration, or finance access.
 - Corporate Buyer HTTP integration tests deny access to Artist product list/detail/create/edit/archive operations and deny Artist domestic-finance reads with 403. The Artist's product price and state remain unchanged; no public catalog, order, or finance endpoint is added.
 - Export Partner HTTP integration tests deny access to Artist product list/detail/create/edit/archive operations and Artist domestic-finance reads with 403. This protects the domestic finance boundary and price control; no export order or payment flow is implemented by these tests.
 - Staff with the live `services` permission can create a ServiceRequest through `POST /api/v1/admin/service-requests`, providing the partner-facing title and optional summary. The API trims and validates the title, normalizes a blank summary to null, records the creating staff user, and rejects unknown fields. This is staff-side request record creation; it is not Artist-initiated intake and does not assign a partner or add scheduling, execution, or lifecycle rules.
@@ -66,7 +67,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 | Artist | Product CRUD, media, publication submission/status, and review feedback | Customer-order fulfillment, finance/settlement, Growth, and approved mobile journeys remain open. |
 | Admin / Staff | Publication review, services-authorized ServiceRequest authoring and Service Partner assignment authoring, and a read-only submitted-deliverable view | Artist-initiated service intake, staff review outcomes, and operational features for other domains remain open and must use scoped permissions. |
 | Service Partner | Organization/user-scoped inbox/detail and recorded activity history, one-time assignment accept/decline, scoped private uploads after acceptance, and one-time submit-for-review for ready deliverables | Artist-initiated request intake, scheduling, execution progress, staff review outcomes/history, completion, and organization/member provisioning remain open; upload `pending/ready` are technical states only. |
-| Supporting Organization | Organization registry/context primitives, shared shell, and HTTP-tested denial of Artist product and domestic-finance access | Programs, referrals, support relationships/usage, users, and scoped reports remain open. |
+| Supporting Organization | Organization registry/context, HTTP-tested denial of Artist product and domestic-finance access, and an organization-scoped SupportRelationship read-policy primitive | Program/referral/relationship data models and endpoints, support usage, organization users, and scoped reports remain open. |
 | Corporate Buyer | Organization registry/context primitives, shared shell, and HTTP-tested denial of Artist product-management and domestic-finance access | Public catalog, purchase request, proposal, order, allocation, and delivery flow remain open. |
 | Export Partner | Localized role shell for the seven approved locales, and HTTP-tested denial of Artist product-management and domestic-finance access | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
 | Shared identity | Session, role-grant, active-context, and API authorization primitives | Public OTP delivery/login and browser/mobile credential flows remain disabled until a provider and required controls are available. |
@@ -145,6 +146,8 @@ Run #140 completed all configured gates successfully for code head `f786b76d1a13
 Run #142 completed all configured gates successfully for staff ServiceRequest authoring code head `ebcde55de9d89ddbc1b79ff8294796db7434f2af`, including migration reset/deploy, authorization and validation tests, build, and Playwright E2E smoke.
 
 Run #143 completed all configured gates successfully for the aligned service assignment empty state at code head `84d81f8d392db29fa2056385642c268c0e01144f`, including frozen install, Prisma gates, security audit, lint, typecheck, all tests, build, Chromium installation, and Playwright E2E smoke.
+
+Run #145 completed all configured gates successfully for the Supporting Organization relationship-scope authorization policy at code head `f1e7c3be6983680af770ddeffad2e33808d5baef`, including Prisma gates, security audit, lint, typecheck, full tests, build, and Playwright E2E smoke. The policy covers only the organization scope of an existing relationship and does not add its data model or workflow.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
