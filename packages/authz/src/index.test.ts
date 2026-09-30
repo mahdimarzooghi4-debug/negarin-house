@@ -43,10 +43,16 @@ describe("server-side relationship policies", () => {
   });
 
   it("isolates Corporate Buyer orders by organization", () => {
-    const buyer = context("corporate-buyer", { organizationId: "buyer-a" });
-    expect(canReadCorporateOrder(buyer, { buyerOrganizationId: "buyer-a" })).toEqual({ allowed: true });
-    expect(canReadCorporateOrder(buyer, { buyerOrganizationId: "buyer-b" })).toEqual({ allowed: false, reason: "not-found" });
-    expect(canReadCorporateOrder(context("corporate-buyer"), { buyerOrganizationId: "buyer-a" })).toEqual({ allowed: false, reason: "not-found" });
+    const order = { buyerOrganizationId: "buyer-a" };
+    expect(canReadCorporateOrder(context("corporate-buyer", { organizationId: "buyer-a" }), order)).toEqual({ allowed: true });
+    expect(canReadCorporateOrder(context("corporate-buyer", { organizationId: "buyer-b" }), order)).toEqual({ allowed: false, reason: "not-found" });
+    expect(canReadCorporateOrder(context("corporate-buyer"), order)).toEqual({ allowed: false, reason: "not-found" });
+    for (const role of roles.filter((candidate) => candidate !== "corporate-buyer")) {
+      expect(canReadCorporateOrder(context(role, { organizationId: "buyer-a" }), order)).toEqual({
+        allowed: false,
+        reason: "forbidden"
+      });
+    }
   });
 
   it("allows a Supporting Organization to read only its persisted support relationships", () => {
