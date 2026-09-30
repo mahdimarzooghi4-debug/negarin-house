@@ -4,7 +4,7 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `07a62eae51ecd82c1a635127fcc8152a021062ac` |
+| Code commit verified by CI | `26699bea3fa083e1781cc8a373b30d50d1357c3a` |
 | Code CI | [GitHub Actions run #89](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36612998304): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
@@ -17,6 +17,7 @@
 | Bounded same-origin JSON writes | Commit `f8143b50d37b4bd93c4ee2fecc77b10c9b4e17b6`, verified by [CI run #113](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36668167128): success |
 | Service Partner authorization tests | Commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, verified by [CI run #93](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36618211205): success |
 | Role coverage and deferred Stage gate | Commit `5e2706f9d248feec5d8738ad34d6b055c432fabf`, verified by [CI run #116](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36669853344): success |
+| Service Partner scoped deliverable uploads | Commit `26699bea3fa083e1781cc8a373b30d50d1357c3a`, verified by [CI run #118](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36671444014): success |
 
 ## Delivered and verified
 
@@ -39,6 +40,7 @@
 - The Service Partner pages distinguish missing/invalid sessions (401) from role or organization authorization denial (403); a concealed assignment is shown as unavailable without revealing whether another user's assignment exists. Unit tests cover these states.
 - A persisted `Organization` registry now covers Service Partner, Supporting Organization, and Corporate Buyer organizations. Role grants and Service Partner assignments reference registered organizations; active-context resolution verifies that the grant role matches the organization's kind. The migration backfills inferable organization scopes and aborts if one ID is used for conflicting organization kinds. Organization/member provisioning endpoints are not exposed.
 - Staff with the live `services` permission can append an assignment for an existing service request through `POST /api/v1/admin/service-assignments`. The API requires a registered Service Partner organization, validates an optional individual assignee against an active grant in that same organization, and stores the authoring staff user ID. Legacy assignment authors remain null because their actors cannot be recovered. This API does not create requests, alter existing assignments, or add lifecycle, schedule, or deliverable rules.
+- Service Partners can list and attach scoped PDF/JPEG/PNG/WebP deliverables to an assigned request through a same-origin upload flow. The API verifies assignment scope and object metadata, promotes completed files to private unique keys, and exposes signed read URLs only for ready files; the only upload states are technical `pending` and `ready`.
 - Staff can read real request and Service Partner organization choices from `GET /api/v1/admin/service-assignments/options`. The RTL authoring page is available at `/admin/service-assignments` under the existing “رشد و خدمات” navigation group; publication review is linked under “بازار”, preserving the approved nine Admin groups. The page uses same-origin writes, no-store responses, and truthful missing-session/forbidden/unavailable/empty states. It assigns to an organization and does not display sample requests or organizations.
 - An Android-only React Native foundation is available at `apps/mobile`, with the shared Negarin logo, a Persian RTL bootstrap screen, and Android system UI theme support.
 - The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. No token issuance, OTP screen, login endpoint, or logout/revocation flow is connected.
@@ -53,7 +55,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 | Customer | Shared portal shell only | Public catalog visibility rule is undecided; catalog, purchase, and order tracking are not implemented. Payment flow also awaits a provider. |
 | Artist | Product CRUD, media, publication submission/status, and review feedback | Customer-order fulfillment, finance/settlement, Growth, and approved mobile journeys remain open. |
 | Admin / Staff | Publication review and Service Partner assignment authoring | Operational features for the other domains remain open and must use scoped permissions. |
-| Service Partner | Organization/user-scoped assigned-request inbox and read-only detail | Request lifecycle actions, scheduling, deliverables, and organization/member provisioning remain open; no extra status flow is assumed. |
+| Service Partner | Organization/user-scoped assigned-request inbox/detail and scoped private deliverable uploads | Request lifecycle actions, scheduling/review workflow, and organization/member provisioning remain open; upload `pending/ready` are technical states only. |
 | Supporting Organization | Organization registry/context primitives and shared shell | Programs, referrals, support relationships/usage, users, and scoped reports remain open. |
 | Corporate Buyer | Organization registry/context primitives and shared shell | Purchase request, proposal, order, allocation, and delivery flow remain open. |
 | Export Partner | Localized role shell for the seven approved locales | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
@@ -100,6 +102,8 @@ Run #113 completed all configured gates successfully for same-origin JSON body-l
 
 Run #116 completed all configured gates successfully for role coverage and deferred Stage gate documentation commit `5e2706f9d248feec5d8738ad34d6b055c432fabf`, including migrations, security audit, lint, typecheck, tests, build, and Playwright E2E smoke.
 
+Run #118 completed all configured gates successfully for Service Partner scoped deliverable uploads commit `26699bea3fa083e1781cc8a373b30d50d1357c3a`, including Prisma migration reset/deploy, scoped authorization tests, API and web tests, monorepo build, Chromium installation, and Playwright E2E smoke.
+
 Run #93 completed all configured gates successfully for authorization test commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, including the expanded Service Partner assignment-isolation matrix.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
@@ -110,7 +114,7 @@ This is automated CI evidence. It is not Stage QA, Release Approval, or Producti
 - The product/API slice has no Stage deployment or Stage QA evidence because no hosted Stage server is available.
 - No payment gateway is available; purchase, payment, and settlement flows remain unimplemented.
 - Customer public catalog work awaits the Product decision on whether `approved` or `published` makes an active product publicly visible, or whether a separate publish action is required.
-- Service Partner assignment list/detail and staff assignment API/page are implemented. Organization/member provisioning, request creation, lifecycle transitions, and schedules/deliverables remain unimplemented.
+- Service Partner assignment list/detail, staff assignment API/page, and scoped private deliverable uploads are implemented. Organization/member provisioning, request creation, lifecycle transitions, and scheduling/review workflow remain unimplemented.
 - Mobile scope is Android. iOS is out of scope. Android app release identity and device QA are still open.
 - PR #35 has no submitted GitHub review yet and remains draft.
 
