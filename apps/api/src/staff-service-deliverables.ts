@@ -28,6 +28,8 @@ export class StaffServiceDeliverablesService {
         assignment: {
           select: {
             id: true,
+            assignedAt: true,
+            responseEvents: { select: { type: true, createdAt: true } },
             serviceRequest: { select: { partnerTitle: true, partnerSummary: true } },
             partnerOrganization: { select: { displayName: true } }
           }
@@ -38,6 +40,27 @@ export class StaffServiceDeliverablesService {
     const result = await Promise.all(deliverables.map(async (deliverable) => {
       const submission = deliverable.submission;
       if (!submission) return null;
+      const history: StaffServiceDeliverableHistoryEvent[] = [
+        { type: "assigned", createdAt: deliverable.assignment.assignedAt.toISOString() }
+      ];
+      for (const event of deliverable.assignment.responseEvents) {
+        history.push({
+          type: event.type as "accepted" | "declined",
+          createdAt: event.createdAt.toISOString()
+        });
+      }
+      history.push({
+        type: "deliverable_added",
+        createdAt: deliverable.createdAt.toISOString(),
+        fileName: deliverable.fileName,
+        uploadStatus: "ready"
+      });
+      history.push({
+        type: "deliverable_submitted",
+        createdAt: submission.createdAt.toISOString(),
+        fileName: deliverable.fileName
+      });
+      history.sort((left, right) => left.createdAt.localeCompare(right.createdAt));
       return {
         deliverableId: deliverable.id,
         assignmentId: deliverable.assignment.id,
@@ -49,9 +72,17 @@ export class StaffServiceDeliverablesService {
         contentLength: deliverable.contentLength,
         uploadedAt: deliverable.createdAt.toISOString(),
         submittedAt: submission.createdAt.toISOString(),
+        history,
         readUrl: await this.storage.createReadUrl(deliverable.objectKey)
       };
     }));
     return result.filter((item): item is NonNullable<typeof item> => item !== null);
   }
 }
+
+export type StaffServiceDeliverableHistoryEvent = {
+  type: "assigned" | "accepted" | "declined" | "deliverable_added" | "deliverable_submitted";
+  createdAt: string;
+  fileName?: string;
+  uploadStatus?: "pending" | "ready";
+};

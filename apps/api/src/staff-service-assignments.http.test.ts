@@ -127,6 +127,11 @@ describe("Staff Service Partner assignment authoring HTTP contract", () => {
       partnerOrganizationId: organization.id,
       responseStatus: "accepted"
     } });
+    await database.serviceAssignmentEvent.create({ data: {
+      assignmentId: assignment.id,
+      actorUserId: partnerUserId,
+      type: "accepted"
+    } });
     const readyDeliverable = await database.serviceDeliverable.create({ data: {
       assignmentId: assignment.id,
       uploadedByUserId: partnerUserId,
@@ -178,6 +183,16 @@ describe("Staff Service Partner assignment authoring HTTP contract", () => {
     const listedSubmission = response.json().find((item: { deliverableId: string }) => item.deliverableId === readyDeliverable.id);
     expect(listedSubmission.readUrl).toContain("X-Amz-Signature");
     expect(listedSubmission).toHaveProperty("submittedAt");
+    expect(listedSubmission.history).toEqual(expect.arrayContaining([
+      expect.objectContaining({ type: "assigned" }),
+      expect.objectContaining({ type: "accepted" }),
+      expect.objectContaining({ type: "deliverable_added", fileName: "packing-list.pdf", uploadStatus: "ready" }),
+      expect.objectContaining({ type: "deliverable_submitted", fileName: "packing-list.pdf" })
+    ]));
+    for (const event of listedSubmission.history) {
+      expect(event).not.toHaveProperty("actorUserId");
+      expect(event).not.toHaveProperty("objectKey");
+    }
     for (const field of ["objectKey", "actorUserId", "uploadedByUserId", "artistUserId", "priceToman"]) {
       expect(listedSubmission).not.toHaveProperty(field);
     }

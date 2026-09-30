@@ -14,6 +14,14 @@ function formatBytes(value: number) {
   return `${new Intl.NumberFormat("fa-IR", { maximumFractionDigits: 1 }).format(value / 1024)} کیلوبایت`;
 }
 
+const historyLabels = {
+  assigned: "تخصیص درخواست",
+  accepted: "تخصیص پذیرفته شد",
+  declined: "تخصیص رد شد",
+  deliverable_added: "فایل برای بارگذاری ثبت شد",
+  deliverable_submitted: "فایل برای بررسی نگارین ارسال شد"
+} as const;
+
 export function StaffServiceDeliverableScreen({ initialState }: { initialState: PageState }) {
   if (initialState.kind !== "ready") {
     const messages = {
@@ -48,6 +56,21 @@ export function StaffServiceDeliverableScreen({ initialState }: { initialState: 
                 <div><dt>اندازه</dt><dd>{formatBytes(item.contentLength)}</dd></div>
                 <div><dt>زمان ارسال</dt><dd><time dateTime={item.submittedAt}>{formatDate(item.submittedAt)}</time></dd></div>
               </dl>
+              <details className="staff-service-submission-history">
+                <summary>تاریخچهٔ ثبت‌شده</summary>
+                <ol>
+                  {item.history.map((event, index) => (
+                    <li key={`${event.type}-${event.createdAt}-${index}`}>
+                      <div>
+                        <strong>{historyLabels[event.type]}</strong>
+                        {event.fileName && <span>{event.fileName}</span>}
+                        {event.uploadStatus && <span>وضعیت فنی بارگذاری: {event.uploadStatus === "ready" ? "آماده" : "در انتظار تکمیل"}</span>}
+                      </div>
+                      <time dateTime={event.createdAt}>{formatDate(event.createdAt)}</time>
+                    </li>
+                  ))}
+                </ol>
+              </details>
               <a href={item.readUrl} target="_blank" rel="noreferrer">بازکردن فایل</a>
             </li>
           ))}

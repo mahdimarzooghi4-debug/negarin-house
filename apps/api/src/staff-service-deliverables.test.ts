@@ -15,6 +15,8 @@ const row = {
   submission: { createdAt: new Date("2026-09-30T09:00:00.000Z") },
   assignment: {
     id: "assignment-1",
+    assignedAt: new Date("2026-09-30T07:00:00.000Z"),
+    responseEvents: [{ type: "accepted", createdAt: new Date("2026-09-30T07:30:00.000Z") }],
     serviceRequest: { partnerTitle: "آماده‌سازی سفارش", partnerSummary: "بسته‌بندی آثار." },
     partnerOrganization: { displayName: "بسته‌بندی نوین" }
   }
@@ -55,11 +57,18 @@ describe("Staff service deliverable submissions", () => {
       contentLength: 1200,
       uploadedAt: "2026-09-30T08:00:00.000Z",
       submittedAt: "2026-09-30T09:00:00.000Z",
+      history: [
+        { type: "assigned", createdAt: "2026-09-30T07:00:00.000Z" },
+        { type: "accepted", createdAt: "2026-09-30T07:30:00.000Z" },
+        { type: "deliverable_added", createdAt: "2026-09-30T08:00:00.000Z", fileName: "packing-list.pdf", uploadStatus: "ready" },
+        { type: "deliverable_submitted", createdAt: "2026-09-30T09:00:00.000Z", fileName: "packing-list.pdf" }
+      ],
       readUrl: "https://storage.invalid/read"
     }]);
     expect(storage.createReadUrl).toHaveBeenCalledWith(row.objectKey);
     expect(result[0]).not.toHaveProperty("objectKey");
     expect(result[0]).not.toHaveProperty("actorUserId");
+    expect(result[0]?.history.every((event) => !("actorUserId" in event))).toBe(true);
   });
 
   it.each<AuthorizationContext>([

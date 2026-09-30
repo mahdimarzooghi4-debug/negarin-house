@@ -482,6 +482,13 @@ a.portal-nav-item { text-decoration: none; }
 .staff-service-submissions-list dt { margin-bottom: 4px; color: var(--negarin-muted); font-size: 12px; }
 .staff-service-submissions-list dd { margin: 0; overflow-wrap: anywhere; color: var(--negarin-text); font-size: 14px; }
 .staff-service-submissions-list a { width: fit-content; color: var(--negarin-sidebar-active-content); font-weight: 700; text-underline-offset: 3px; }
+.staff-service-submission-history { border-top: 1px solid var(--negarin-border); padding-top: 12px; }
+.staff-service-submission-history summary { width: fit-content; color: var(--negarin-sidebar-active-content); font-size: 13px; font-weight: 700; cursor: pointer; }
+.staff-service-submission-history ol { display: grid; gap: 0; margin: 8px 0 0; padding: 0; list-style: none; }
+.staff-service-submission-history li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-right: 2px solid #b9d6d1; }
+.staff-service-submission-history li > div { display: grid; gap: 4px; min-width: 0; }
+.staff-service-submission-history li strong { font-size: 13px; }
+.staff-service-submission-history li span, .staff-service-submission-history time { color: var(--negarin-muted); font-size: 12px; overflow-wrap: anywhere; }
 .service-partner-assignment-history { display: grid; gap: 12px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--negarin-border); }
 .service-partner-assignment-history h3 { margin: 0; font-size: 17px; }
 .service-partner-assignment-history ol { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
@@ -494,4 +501,5 @@ a.portal-nav-item { text-decoration: none; }
   .staff-service-submissions-list li { padding: 16px; }
   .staff-service-submissions-list dl { grid-template-columns: minmax(0, 1fr); }
   .service-partner-assignment-history li { flex-direction: column; gap: 4px; }
+  .staff-service-submission-history li { flex-direction: column; gap: 4px; }
 }

@@ -65,6 +65,7 @@ export type StaffServiceDeliverableSubmission = {
   contentLength: number;
   uploadedAt: string;
   submittedAt: string;
+  history: ServicePartnerAssignmentHistoryEvent[];
   readUrl: string;
 };
 
