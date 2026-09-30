@@ -31,12 +31,9 @@ export class IdentityContextController {
       where: { tokenHash: hashSessionToken(bearer(request)) }
     });
     if (!session || session.revokedAt || session.expiresAt <= new Date()) throw new UnauthorizedException();
-    const grants = await this.database.roleGrant.findMany({
-      where: { userId: session.userId, revokedAt: null },
-      select: { id: true, role: true, organizationId: true, exportPartnerId: true },
-      orderBy: { createdAt: "asc" }
-    });
-    return { activeGrantId: session.activeGrantId, grants };
+    const grants = await this.resolver.listSelectableGrants(session.userId);
+    const activeGrantId = grants.some(({ id }) => id === session.activeGrantId) ? session.activeGrantId : null;
+    return { activeGrantId, grants };
   }
 
   /** Revoke this bearer session without requiring a role grant to be selected. */

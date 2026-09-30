@@ -56,6 +56,17 @@ function contextFromGrant(grant: Grant): AuthorizationContext | null {
 export class ActiveContextResolver {
   constructor(private readonly database: PrismaService) {}
 
+  async listSelectableGrants(userId: string) {
+    const grants = await this.database.roleGrant.findMany({
+      where: { userId, revokedAt: null },
+      include: { staffDomains: true, organization: { select: { kind: true } } },
+      orderBy: { createdAt: "asc" }
+    });
+    return grants
+      .filter((grant) => contextFromGrant(grant) !== null)
+      .map(({ id, role, organizationId, exportPartnerId }) => ({ id, role, organizationId, exportPartnerId }));
+  }
+
   async resolve(token: string, now = new Date()): Promise<AuthorizationContext | null> {
     if (!token) return null;
     const session = await this.database.authSession.findUnique({
