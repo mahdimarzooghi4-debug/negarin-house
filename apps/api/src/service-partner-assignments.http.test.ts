@@ -213,6 +213,29 @@ describe("Service Partner assignments HTTP contract", () => {
     expect(submissionList.json()).toEqual(expect.arrayContaining([
       expect.objectContaining({ id: readyDeliverable.id, status: "ready", submittedAt: submissionResponse.json().submittedAt })
     ]));
+    const assignmentHistory = await app.inject({
+      method: "GET",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}`,
+      headers: partner
+    });
+    expect(assignmentHistory.statusCode).toBe(200);
+    expect(assignmentHistory.json().history).toEqual(expect.arrayContaining([
+      expect.objectContaining({ type: "accepted" }),
+      expect.objectContaining({
+        type: "deliverable_added",
+        fileName: "final-report.pdf",
+        uploadStatus: "ready"
+      }),
+      expect.objectContaining({
+        type: "deliverable_submitted",
+        fileName: "final-report.pdf",
+        createdAt: submissionResponse.json().submittedAt
+      })
+    ]));
+    for (const event of assignmentHistory.json().history) {
+      expect(event).not.toHaveProperty("actorUserId");
+      expect(event).not.toHaveProperty("objectKey");
+    }
 
     expect((await app.inject({
       method: "POST",

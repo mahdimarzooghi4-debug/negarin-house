@@ -47,6 +47,13 @@ export function ServicePartnerAssignmentDetailScreen({
   }
 
   const { assignment } = initialState;
+  const historyLabels = {
+    assigned: "تخصیص درخواست",
+    accepted: "تخصیص پذیرفته شد",
+    declined: "تخصیص رد شد",
+    deliverable_added: "فایل برای بارگذاری ثبت شد",
+    deliverable_submitted: "فایل برای بررسی نگارین ارسال شد"
+  } as const;
   return (
     <article className="service-partner-assignment-detail" aria-labelledby="service-partner-assignment-title">
       <a className="service-partner-assignment-back" href="/service-partner/assignments">بازگشت به درخواست‌های تخصیص‌یافته</a>
@@ -62,6 +69,25 @@ export function ServicePartnerAssignmentDetailScreen({
           <dd><time dateTime={assignment.requestedAt}>{formatDate(assignment.requestedAt)}</time></dd>
         </div>
       </dl>
+      <section className="service-partner-assignment-history" aria-labelledby="service-partner-assignment-history-title">
+        <h3 id="service-partner-assignment-history-title">تاریخچهٔ درخواست</h3>
+        {assignment.history?.length ? (
+          <ol>
+            {assignment.history.map((event, index) => (
+              <li key={`${event.type}-${event.createdAt}-${index}`}>
+                <div>
+                  <strong>{historyLabels[event.type]}</strong>
+                  {event.fileName && <span className="service-partner-assignment-history-file">{event.fileName}</span>}
+                  {event.uploadStatus && <span className="service-partner-assignment-history-status">
+                    وضعیت فنی بارگذاری: {event.uploadStatus === "ready" ? "آماده" : "در انتظار تکمیل"}
+                  </span>}
+                </div>
+                <time dateTime={event.createdAt}>{formatDate(event.createdAt)}</time>
+              </li>
+            ))}
+          </ol>
+        ) : <p className="service-partner-deliverable-hint">رویدادی برای نمایش ثبت نشده است.</p>}
+      </section>
       <ServicePartnerAssignmentResponse assignment={assignment} />
       {assignment.responseStatus === "accepted" ? (
         <ServicePartnerDeliverablesPanel assignmentId={assignment.assignmentId} initialState={deliverablesState} />

@@ -75,12 +75,22 @@ describe("Service Partner assigned request read model", () => {
   it("scopes detail lookup before selecting the partner-facing projection", async () => {
     const assignedAt = new Date("2026-09-29T12:00:00.000Z");
     const createdAt = new Date("2026-09-28T12:00:00.000Z");
+    const responseAt = new Date("2026-09-29T13:00:00.000Z");
+    const deliverableAt = new Date("2026-09-29T14:00:00.000Z");
+    const submittedAt = new Date("2026-09-29T15:00:00.000Z");
     const findFirst = vi.fn().mockResolvedValue({
       id: "assignment-id",
       partnerOrganizationId: "partner-org-id",
       assignedPartnerUserId: null,
       assignedAt,
       responseStatus: "awaiting_response",
+      responseEvents: [{ type: "accepted", createdAt: responseAt }],
+      deliverables: [{
+        fileName: "sample.pdf",
+        status: "ready",
+        createdAt: deliverableAt,
+        submission: { createdAt: submittedAt }
+      }],
       serviceRequest: {
         id: "service-request-id",
         partnerTitle: "Product photography",
@@ -104,7 +114,13 @@ describe("Service Partner assigned request read model", () => {
       summary: null,
       assignedAt: assignedAt.toISOString(),
       requestedAt: createdAt.toISOString(),
-      responseStatus: "awaiting_response"
+      responseStatus: "awaiting_response",
+      history: [
+        { type: "assigned", createdAt: assignedAt.toISOString() },
+        { type: "accepted", createdAt: responseAt.toISOString() },
+        { type: "deliverable_added", createdAt: deliverableAt.toISOString(), fileName: "sample.pdf", uploadStatus: "ready" },
+        { type: "deliverable_submitted", createdAt: submittedAt.toISOString(), fileName: "sample.pdf" }
+      ]
     });
     expect(findFirst).toHaveBeenCalledWith({
       where: {
@@ -121,6 +137,16 @@ describe("Service Partner assigned request read model", () => {
         assignedPartnerUserId: true,
         assignedAt: true,
         responseStatus: true,
+        responseEvents: { select: { type: true, createdAt: true } },
+        deliverables: {
+          orderBy: [{ createdAt: "asc" }, { id: "asc" }],
+          select: {
+            fileName: true,
+            status: true,
+            createdAt: true,
+            submission: { select: { createdAt: true } }
+          }
+        },
         serviceRequest: {
           select: { id: true, partnerTitle: true, partnerSummary: true, createdAt: true }
         }

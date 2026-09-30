@@ -78,6 +78,16 @@ export class ServicePartnerAssignmentsService {
         assignedPartnerUserId: true,
         assignedAt: true,
         responseStatus: true,
+        responseEvents: { select: { type: true, createdAt: true } },
+        deliverables: {
+          orderBy: [{ createdAt: "asc" }, { id: "asc" }],
+          select: {
+            fileName: true,
+            status: true,
+            createdAt: true,
+            submission: { select: { createdAt: true } }
+          }
+        },
         serviceRequest: {
           select: {
             id: true,
@@ -94,6 +104,32 @@ export class ServicePartnerAssignmentsService {
       assignedPartnerOrganizationId: assignment.partnerOrganizationId,
       assignedPartnerUserId: assignment.assignedPartnerUserId
     }));
+    const history: ServicePartnerAssignmentHistoryEvent[] = [
+      { type: "assigned", createdAt: assignment.assignedAt.toISOString() }
+    ];
+    for (const event of assignment.responseEvents) {
+      history.push({
+        type: event.type as "accepted" | "declined",
+        createdAt: event.createdAt.toISOString()
+      });
+    }
+    for (const deliverable of assignment.deliverables) {
+      history.push({
+        type: "deliverable_added",
+        createdAt: deliverable.createdAt.toISOString(),
+        fileName: deliverable.fileName,
+        uploadStatus: deliverable.status
+      });
+      if (deliverable.submission) {
+        history.push({
+          type: "deliverable_submitted",
+          createdAt: deliverable.submission.createdAt.toISOString(),
+          fileName: deliverable.fileName
+        });
+      }
+    }
+    history.sort((left, right) => left.createdAt.localeCompare(right.createdAt));
+
     return {
       assignmentId: assignment.id,
       requestId: assignment.serviceRequest.id,
@@ -101,7 +137,8 @@ export class ServicePartnerAssignmentsService {
       summary: assignment.serviceRequest.partnerSummary,
       assignedAt: assignment.assignedAt.toISOString(),
       requestedAt: assignment.serviceRequest.createdAt.toISOString(),
-      responseStatus: assignment.responseStatus
+      responseStatus: assignment.responseStatus,
+      history
     };
   }
 
@@ -152,6 +189,13 @@ export class ServicePartnerAssignmentsService {
 }
 
 export type ServiceAssignmentResponse = "accepted" | "declined";
+
+export type ServicePartnerAssignmentHistoryEvent = {
+  type: "assigned" | "accepted" | "declined" | "deliverable_added" | "deliverable_submitted";
+  createdAt: string;
+  fileName?: string;
+  uploadStatus?: "pending" | "ready";
+};
 
 export function parseServiceAssignmentResponse(body: unknown): ServiceAssignmentResponse {
   if (!body || typeof body !== "object" || Array.isArray(body)) throw new BadRequestException();

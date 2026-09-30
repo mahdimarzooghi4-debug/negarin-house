@@ -28,6 +28,14 @@ export type ServicePartnerAssignment = {
   assignedAt: string;
   requestedAt: string;
   responseStatus: "awaiting_response" | "accepted" | "declined";
+  history?: ServicePartnerAssignmentHistoryEvent[];
+};
+
+export type ServicePartnerAssignmentHistoryEvent = {
+  type: "assigned" | "accepted" | "declined" | "deliverable_added" | "deliverable_submitted";
+  createdAt: string;
+  fileName?: string;
+  uploadStatus?: "pending" | "ready";
 };
 
 export type ServicePartnerDeliverable = {
