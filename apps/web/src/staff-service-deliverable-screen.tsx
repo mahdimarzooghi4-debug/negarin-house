@@ -1,5 +1,6 @@
 import { EmptyState } from "@negarin/ui";
 import type { StaffServiceDeliverableSubmission } from "./artist-api";
+import { StaffServiceDeliverableReviewActions } from "./staff-service-deliverable-review-actions";
 
 type PageState =
   | { kind: "ready"; items: StaffServiceDeliverableSubmission[] }
@@ -19,7 +20,10 @@ const historyLabels = {
   accepted: "تخصیص پذیرفته شد",
   declined: "تخصیص رد شد",
   deliverable_added: "فایل برای بارگذاری ثبت شد",
-  deliverable_submitted: "فایل برای بررسی نگارین ارسال شد"
+  deliverable_submitted: "فایل برای بررسی نگارین ارسال شد",
+  deliverable_approved: "تحویل تأیید شد",
+  deliverable_changes_requested: "برای تحویل اصلاح درخواست شد",
+  service_completed: "خدمت تکمیل شد"
 } as const;
 
 export function StaffServiceDeliverableScreen({ initialState }: { initialState: PageState }) {
@@ -37,7 +41,7 @@ export function StaffServiceDeliverableScreen({ initialState }: { initialState: 
     <section className="staff-service-submissions" aria-labelledby="staff-service-submissions-title">
       <div className="staff-service-submissions-heading">
         <h2 id="staff-service-submissions-title">فایل‌های ارسال‌شده برای بررسی</h2>
-        <p>فایل‌هایی که شریک خدماتی برای نگارین فرستاده است. این صفحه فقط نمایش می‌دهد و نتیجهٔ بررسی ثبت نمی‌کند.</p>
+        <p>فایل‌های ارسال‌شده را بررسی کنید. تأیید تحویل، خدمت را تکمیل می‌کند؛ درخواست اصلاح همراه یادداشت برای شریک خدماتی ثبت می‌شود.</p>
       </div>
       {initialState.items.length === 0 ? (
         <EmptyState title="فایلی ارسال نشده" description="پس از ارسال یک فایل آماده از سوی شریک خدماتی، اطلاعات آن در این فهرست دیده می‌شود." />
@@ -72,6 +76,7 @@ export function StaffServiceDeliverableScreen({ initialState }: { initialState: 
                 </ol>
               </details>
               <a href={item.readUrl} target="_blank" rel="noreferrer">بازکردن فایل</a>
+              <StaffServiceDeliverableReviewActions item={item} />
             </li>
           ))}
         </ul>

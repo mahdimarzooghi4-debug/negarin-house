@@ -30,6 +30,8 @@ model IdentityUser {
   authoredServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentAuthor")
   createdServiceRequests ServiceRequest[] @relation("ServiceRequestAuthor")
   requestedArtistServiceRequests ServiceRequest[] @relation("ArtistServiceRequestRequester")
+  completedServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentCompletion")
+  reviewedServiceDeliverables ServiceDeliverableReviewEvent[]
   serviceAssignmentResponses ServiceAssignmentEvent[]
   uploadedServiceDeliverables ServiceDeliverable[]
   serviceDeliverableSubmissions ServiceDeliverableSubmission[]
@@ -152,6 +154,9 @@ model ServiceAssignment {
   createdAt             DateTime       @default(now())
   deliverables          ServiceDeliverable[]
   responseEvents        ServiceAssignmentEvent[]
+  completedAt           DateTime?
+  completedByUserId     String?        @db.Uuid
+  completedBy           IdentityUser?  @relation("ServiceAssignmentCompletion", fields: [completedByUserId], references: [id], onDelete: Restrict)
 
   @@index([partnerOrganizationId, assignedPartnerUserId, assignedAt])
   @@index([serviceRequestId, assignedAt])
@@ -214,9 +219,29 @@ model ServiceDeliverableSubmission {
   actorUserId    String           @db.Uuid
   actor          IdentityUser     @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
   createdAt      DateTime         @default(now())
+  review         ServiceDeliverableReviewEvent?
 
   @@index([actorUserId, createdAt])
   @@map("service_deliverable_submissions")
+}
+
+enum ServiceDeliverableReviewDecision {
+  approved
+  changes_requested
+}
+
+model ServiceDeliverableReviewEvent {
+  id           String                            @id @default(uuid()) @db.Uuid
+  submissionId String                            @unique @db.Uuid
+  submission   ServiceDeliverableSubmission      @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  actorUserId  String                            @db.Uuid
+  actor        IdentityUser                      @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  decision     ServiceDeliverableReviewDecision
+  feedback     String?
+  createdAt    DateTime                          @default(now())
+
+  @@index([actorUserId, createdAt])
+  @@map("service_deliverable_review_events")
 }
 
 model OtpChallenge {

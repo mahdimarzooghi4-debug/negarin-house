@@ -30,7 +30,7 @@ export class ServiceDeliverablesService {
       orderBy: [{ createdAt: "asc" }, { id: "asc" }],
       select: {
         id: true, fileName: true, contentType: true, contentLength: true, status: true, objectKey: true, createdAt: true,
-        submission: { select: { createdAt: true } }
+        submission: { select: { createdAt: true, review: { select: { decision: true, feedback: true, createdAt: true } } } }
       }
     });
     return Promise.all(files.map(async (file) => ({
@@ -41,7 +41,12 @@ export class ServiceDeliverablesService {
       status: file.status,
       readUrl: file.status === "ready" ? await this.storage.createReadUrl(file.objectKey) : null,
       createdAt: file.createdAt.toISOString(),
-      submittedAt: file.submission?.createdAt.toISOString() ?? null
+      submittedAt: file.submission?.createdAt.toISOString() ?? null,
+      review: file.submission?.review ? {
+        decision: file.submission.review.decision,
+        feedback: file.submission.review.feedback,
+        reviewedAt: file.submission.review.createdAt.toISOString()
+      } : null
     })));
   }
 
@@ -170,13 +175,15 @@ export class ServiceDeliverablesService {
         id: true,
         partnerOrganizationId: true,
         assignedPartnerUserId: true,
-        responseStatus: true
+        responseStatus: true,
+        completedAt: true
       }
     });
     if (!assignment) throw new NotFoundException();
     if (requireAccepted && assignment.responseStatus !== "accepted") {
       throw new ConflictException("service-assignment-not-accepted");
     }
+    if (requireAccepted && assignment.completedAt) throw new ConflictException("service-assignment-completed");
     enforceDecision(canReadServiceRequest(context, {
       assignedPartnerOrganizationId: assignment.partnerOrganizationId,
       assignedPartnerUserId: assignment.assignedPartnerUserId

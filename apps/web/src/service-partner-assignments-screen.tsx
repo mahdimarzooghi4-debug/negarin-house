@@ -57,6 +57,7 @@ export function ServicePartnerAssignmentsScreen({ initialState }: { initialState
                     {assignment.title}
                   </a>
                 </h3>
+                <span className="product-status">{assignment.completedAt ? "خدمت تکمیل شد" : assignment.responseStatus === "awaiting_response" ? "در انتظار پاسخ" : assignment.responseStatus === "accepted" ? "در حال انجام" : "تخصیص رد شد"}</span>
               </div>
               {assignment.summary && <p className="service-partner-assignment-summary">{assignment.summary}</p>}
               <dl className="service-partner-assignment-dates">

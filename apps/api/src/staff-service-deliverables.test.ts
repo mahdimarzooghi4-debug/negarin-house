@@ -12,10 +12,13 @@ const row = {
   contentLength: 1200,
   objectKey: "private/service/deliverable-1",
   createdAt: new Date("2026-09-30T08:00:00.000Z"),
-  submission: { createdAt: new Date("2026-09-30T09:00:00.000Z") },
+  submission: { id: "submission-1", createdAt: new Date("2026-09-30T09:00:00.000Z"), review: {
+    decision: "changes_requested", feedback: "اصلاح تصویر", createdAt: new Date("2026-09-30T10:00:00.000Z")
+  } },
   assignment: {
     id: "assignment-1",
     assignedAt: new Date("2026-09-30T07:00:00.000Z"),
+    completedAt: null,
     responseEvents: [{ type: "accepted", createdAt: new Date("2026-09-30T07:30:00.000Z") }],
     serviceRequest: { partnerTitle: "آماده‌سازی سفارش", partnerSummary: "بسته‌بندی آثار." },
     partnerOrganization: { displayName: "بسته‌بندی نوین" }
@@ -61,8 +64,11 @@ describe("Staff service deliverable submissions", () => {
         { type: "assigned", createdAt: "2026-09-30T07:00:00.000Z" },
         { type: "accepted", createdAt: "2026-09-30T07:30:00.000Z" },
         { type: "deliverable_added", createdAt: "2026-09-30T08:00:00.000Z", fileName: "packing-list.pdf", uploadStatus: "ready" },
-        { type: "deliverable_submitted", createdAt: "2026-09-30T09:00:00.000Z", fileName: "packing-list.pdf" }
+        { type: "deliverable_submitted", createdAt: "2026-09-30T09:00:00.000Z", fileName: "packing-list.pdf" },
+        { type: "deliverable_changes_requested", createdAt: "2026-09-30T10:00:00.000Z", fileName: "packing-list.pdf" }
       ],
+      review: { decision: "changes_requested", feedback: "اصلاح تصویر", reviewedAt: "2026-09-30T10:00:00.000Z" },
+      assignmentCompletedAt: null,
       readUrl: "https://storage.invalid/read"
     }]);
     expect(storage.createReadUrl).toHaveBeenCalledWith(row.objectKey);

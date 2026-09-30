@@ -52,7 +52,10 @@ export function ServicePartnerAssignmentDetailScreen({
     accepted: "تخصیص پذیرفته شد",
     declined: "تخصیص رد شد",
     deliverable_added: "فایل برای بارگذاری ثبت شد",
-    deliverable_submitted: "فایل برای بررسی نگارین ارسال شد"
+    deliverable_submitted: "فایل برای بررسی نگارین ارسال شد",
+    deliverable_approved: "تحویل تأیید شد",
+    deliverable_changes_requested: "برای تحویل اصلاح درخواست شد",
+    service_completed: "خدمت تکمیل شد"
   } as const;
   return (
     <article className="service-partner-assignment-detail" aria-labelledby="service-partner-assignment-title">
@@ -81,6 +84,7 @@ export function ServicePartnerAssignmentDetailScreen({
                   {event.uploadStatus && <span className="service-partner-assignment-history-status">
                     وضعیت فنی بارگذاری: {event.uploadStatus === "ready" ? "آماده" : "در انتظار تکمیل"}
                   </span>}
+                  {event.feedback && <span className="service-partner-assignment-history-status">یادداشت: {event.feedback}</span>}
                 </div>
                 <time dateTime={event.createdAt}>{formatDate(event.createdAt)}</time>
               </li>
@@ -90,7 +94,7 @@ export function ServicePartnerAssignmentDetailScreen({
       </section>
       <ServicePartnerAssignmentResponse assignment={assignment} />
       {assignment.responseStatus === "accepted" ? (
-        <ServicePartnerDeliverablesPanel assignmentId={assignment.assignmentId} initialState={deliverablesState} />
+        <ServicePartnerDeliverablesPanel assignmentId={assignment.assignmentId} completed={assignment.completedAt !== null} initialState={deliverablesState} />
       ) : (
         <p className="service-partner-deliverable-hint service-partner-deliverable-locked">
           بارگذاری فایل پس از پذیرش تخصیص در دسترس است.

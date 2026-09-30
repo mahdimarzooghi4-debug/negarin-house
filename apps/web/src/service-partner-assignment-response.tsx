@@ -46,16 +46,16 @@ export function ServicePartnerAssignmentResponse({ assignment }: { assignment: S
     <section className="service-partner-response" aria-labelledby="service-partner-response-title">
       <div>
         <h3 id="service-partner-response-title">پاسخ به تخصیص</h3>
-        <p role="status">{labels[status]}</p>
+        <p role="status">{assignment.completedAt ? "خدمت تکمیل شد" : labels[status]}</p>
       </div>
-      {status === "awaiting_response" && (
+      {!assignment.completedAt && status === "awaiting_response" && (
         <div className="service-partner-response-actions">
           <button type="button" disabled={busy} onClick={() => void respond("accepted")}>پذیرش تخصیص</button>
           <button type="button" className="secondary" disabled={busy} onClick={() => void respond("declined")}>رد تخصیص</button>
         </div>
       )}
       {message && <p className="service-partner-response-message" role="alert">{message}</p>}
-      <small>این پاسخ فقط دریافت تخصیص را ثبت می‌کند و به معنی تکمیل یا تأیید کار نیست.</small>
+      {!assignment.completedAt && <small>این پاسخ فقط دریافت تخصیص را ثبت می‌کند و به معنی تکمیل یا تأیید کار نیست.</small>}
     </section>
   );
 }

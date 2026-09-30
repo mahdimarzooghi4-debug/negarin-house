@@ -44,15 +44,17 @@ export type ServicePartnerAssignment = {
   summary: string | null;
   assignedAt: string;
   requestedAt: string;
+  completedAt: string | null;
   responseStatus: "awaiting_response" | "accepted" | "declined";
   history?: ServicePartnerAssignmentHistoryEvent[];
 };
 
 export type ServicePartnerAssignmentHistoryEvent = {
-  type: "assigned" | "accepted" | "declined" | "deliverable_added" | "deliverable_submitted";
+  type: "assigned" | "accepted" | "declined" | "deliverable_added" | "deliverable_submitted" | "deliverable_approved" | "deliverable_changes_requested" | "service_completed";
   createdAt: string;
   fileName?: string;
   uploadStatus?: "pending" | "ready";
+  feedback?: string;
 };
 
 export type ServicePartnerDeliverable = {
@@ -64,6 +66,7 @@ export type ServicePartnerDeliverable = {
   readUrl: string | null;
   createdAt: string;
   submittedAt: string | null;
+  review: { decision: "approved" | "changes_requested"; feedback: string | null; reviewedAt: string } | null;
 };
 
 export type StaffServiceAssignmentOptions = {
@@ -82,6 +85,8 @@ export type StaffServiceDeliverableSubmission = {
   contentLength: number;
   uploadedAt: string;
   submittedAt: string;
+  review: { decision: "approved" | "changes_requested"; feedback: string | null; reviewedAt: string } | null;
+  assignmentCompletedAt: string | null;
   history: ServicePartnerAssignmentHistoryEvent[];
   readUrl: string;
 };
@@ -92,6 +97,7 @@ export type ArtistServiceRequest = {
   description: string | null;
   requestedAt: string;
   assignedAt: string | null;
+  completedAt: string | null;
 };
 
 const sessionCookieName = "negarin_session";

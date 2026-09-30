@@ -29,6 +29,7 @@ export class ServicePartnerAssignmentsService {
         assignedPartnerUserId: true,
         assignedAt: true,
         responseStatus: true,
+        completedAt: true,
         serviceRequest: {
           select: {
             id: true,
@@ -52,7 +53,8 @@ export class ServicePartnerAssignmentsService {
         summary: assignment.serviceRequest.partnerSummary,
         assignedAt: assignment.assignedAt.toISOString(),
         requestedAt: assignment.serviceRequest.createdAt.toISOString(),
-        responseStatus: assignment.responseStatus
+        responseStatus: assignment.responseStatus,
+        completedAt: assignment.completedAt?.toISOString() ?? null
       };
     });
   }
@@ -78,6 +80,7 @@ export class ServicePartnerAssignmentsService {
         assignedPartnerUserId: true,
         assignedAt: true,
         responseStatus: true,
+        completedAt: true,
         responseEvents: { select: { type: true, createdAt: true } },
         deliverables: {
           orderBy: [{ createdAt: "asc" }, { id: "asc" }],
@@ -85,7 +88,7 @@ export class ServicePartnerAssignmentsService {
             fileName: true,
             status: true,
             createdAt: true,
-            submission: { select: { createdAt: true } }
+            submission: { select: { createdAt: true, review: { select: { decision: true, feedback: true, createdAt: true } } } }
           }
         },
         serviceRequest: {
@@ -126,8 +129,17 @@ export class ServicePartnerAssignmentsService {
           createdAt: deliverable.submission.createdAt.toISOString(),
           fileName: deliverable.fileName
         });
+        if (deliverable.submission.review) {
+          history.push({
+            type: deliverable.submission.review.decision === "approved" ? "deliverable_approved" : "deliverable_changes_requested",
+            createdAt: deliverable.submission.review.createdAt.toISOString(),
+            fileName: deliverable.fileName,
+            feedback: deliverable.submission.review.feedback ?? undefined
+          });
+        }
       }
     }
+    if (assignment.completedAt) history.push({ type: "service_completed", createdAt: assignment.completedAt.toISOString() });
     history.sort((left, right) => left.createdAt.localeCompare(right.createdAt));
 
     return {
@@ -138,6 +150,7 @@ export class ServicePartnerAssignmentsService {
       assignedAt: assignment.assignedAt.toISOString(),
       requestedAt: assignment.serviceRequest.createdAt.toISOString(),
       responseStatus: assignment.responseStatus,
+      completedAt: assignment.completedAt?.toISOString() ?? null,
       history
     };
   }
@@ -191,10 +204,11 @@ export class ServicePartnerAssignmentsService {
 export type ServiceAssignmentResponse = "accepted" | "declined";
 
 export type ServicePartnerAssignmentHistoryEvent = {
-  type: "assigned" | "accepted" | "declined" | "deliverable_added" | "deliverable_submitted";
+  type: "assigned" | "accepted" | "declined" | "deliverable_added" | "deliverable_submitted" | "deliverable_approved" | "deliverable_changes_requested" | "service_completed";
   createdAt: string;
   fileName?: string;
   uploadStatus?: "pending" | "ready";
+  feedback?: string;
 };
 
 export function parseServiceAssignmentResponse(body: unknown): ServiceAssignmentResponse {

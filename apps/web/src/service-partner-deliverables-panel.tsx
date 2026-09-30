@@ -19,7 +19,7 @@ function formatDate(value: string) {
   return Number.isNaN(date.valueOf()) ? "—" : date.toLocaleString("fa-IR");
 }
 
-export function ServicePartnerDeliverablesPanel({ assignmentId, initialState }: { assignmentId: string; initialState: State }) {
+export function ServicePartnerDeliverablesPanel({ assignmentId, completed, initialState }: { assignmentId: string; completed: boolean; initialState: State }) {
   const [state, setState] = useState<State>(initialState);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
@@ -101,12 +101,13 @@ export function ServicePartnerDeliverablesPanel({ assignmentId, initialState }: 
               : "فهرست فایل‌ها در دسترس نیست."}</p>
       ) : (
         <>
+          {completed && <p className="staff-review-notice" role="status">این خدمت پس از تأیید نگارین تکمیل شده است؛ بارگذاری جدید امکان‌پذیر نیست.</p>}
           <label className="service-partner-deliverable-input">
             انتخاب فایل تحویلی
             <input
               type="file"
               accept="application/pdf,image/jpeg,image/png,image/webp"
-              disabled={busy}
+              disabled={busy || completed}
               onChange={(event) => {
                 const file = event.currentTarget.files?.[0];
                 if (file) void upload(file);
@@ -131,10 +132,14 @@ export function ServicePartnerDeliverablesPanel({ assignmentId, initialState }: 
                     : <span>در انتظار تکمیل آپلود</span>}
                   {item.status === "ready" && (item.submittedAt
                     ? <span>ارسال‌شده برای بررسی نگارین</span>
-                    : <button type="button" disabled={busy} onClick={() => void submitForReview(item.id)}>
+                    : <button type="button" disabled={busy || completed} onClick={() => void submitForReview(item.id)}>
                         ارسال برای بررسی نگارین
                       </button>)}
                   {item.submittedAt && <time dateTime={item.submittedAt}>{formatDate(item.submittedAt)}</time>}
+                  {item.review && <span className="service-partner-review-note">
+                    {item.review.decision === "approved" ? "تحویل تأیید شد." : "نیاز به اصلاح:"}
+                    {item.review.feedback && ` ${item.review.feedback}`}
+                  </span>}
                 </li>
               ))}
             </ul>

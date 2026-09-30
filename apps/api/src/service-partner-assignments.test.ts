@@ -12,6 +12,7 @@ describe("Service Partner assigned request read model", () => {
       assignedPartnerUserId: "partner-user-id",
       assignedAt,
       responseStatus: "accepted",
+      completedAt: null,
       serviceRequest: {
         id: "service-request-id",
         partnerTitle: "Product photography",
@@ -35,7 +36,8 @@ describe("Service Partner assigned request read model", () => {
       summary: "Photograph the assigned product set.",
       assignedAt: assignedAt.toISOString(),
       requestedAt: createdAt.toISOString(),
-      responseStatus: "accepted"
+      responseStatus: "accepted",
+      completedAt: null
     }]);
     expect(findMany).toHaveBeenCalledWith({
       where: {
@@ -52,6 +54,7 @@ describe("Service Partner assigned request read model", () => {
         assignedPartnerUserId: true,
         assignedAt: true,
         responseStatus: true,
+        completedAt: true,
         serviceRequest: {
           select: { id: true, partnerTitle: true, partnerSummary: true, createdAt: true }
         }
@@ -84,12 +87,13 @@ describe("Service Partner assigned request read model", () => {
       assignedPartnerUserId: null,
       assignedAt,
       responseStatus: "awaiting_response",
+      completedAt: null,
       responseEvents: [{ type: "accepted", createdAt: responseAt }],
       deliverables: [{
         fileName: "sample.pdf",
         status: "ready",
         createdAt: deliverableAt,
-        submission: { createdAt: submittedAt }
+        submission: { createdAt: submittedAt, review: null }
       }],
       serviceRequest: {
         id: "service-request-id",
@@ -115,6 +119,7 @@ describe("Service Partner assigned request read model", () => {
       assignedAt: assignedAt.toISOString(),
       requestedAt: createdAt.toISOString(),
       responseStatus: "awaiting_response",
+      completedAt: null,
       history: [
         { type: "assigned", createdAt: assignedAt.toISOString() },
         { type: "accepted", createdAt: responseAt.toISOString() },
@@ -137,6 +142,7 @@ describe("Service Partner assigned request read model", () => {
         assignedPartnerUserId: true,
         assignedAt: true,
         responseStatus: true,
+        completedAt: true,
         responseEvents: { select: { type: true, createdAt: true } },
         deliverables: {
           orderBy: [{ createdAt: "asc" }, { id: "asc" }],
@@ -144,7 +150,7 @@ describe("Service Partner assigned request read model", () => {
             fileName: true,
             status: true,
             createdAt: true,
-            submission: { select: { createdAt: true } }
+            submission: { select: { createdAt: true, review: { select: { decision: true, feedback: true, createdAt: true } } } }
           }
         },
         serviceRequest: {

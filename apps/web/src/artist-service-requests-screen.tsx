@@ -76,7 +76,7 @@ export function ArtistServiceRequestsScreen({ initialState }: { initialState: In
       <h3>درخواست‌های من</h3>
       {state.requests.length === 0 ? <EmptyState title="درخواستی ثبت نشده" description="درخواست‌های شما پس از ثبت در اینجا نمایش داده می‌شوند." /> :
         state.requests.map((request) => <article className="artist-service-request-card" key={request.requestId}>
-          <div className="staff-review-card-heading"><div><h4>{request.title}</h4><span className="product-status">{request.assignedAt ? "به شریک خدماتی تخصیص یافت" : "در انتظار بررسی و تخصیص ادمین"}</span></div>
+          <div className="staff-review-card-heading"><div><h4>{request.title}</h4><span className="product-status">{request.completedAt ? "خدمت تکمیل شد" : request.assignedAt ? "به شریک خدماتی تخصیص یافت" : "در انتظار بررسی و تخصیص ادمین"}</span></div>
             <time dateTime={request.requestedAt}>ثبت: {displayDate(request.requestedAt)}</time></div>
           {request.description && <p className="staff-review-description">{request.description}</p>}
         </article>)}

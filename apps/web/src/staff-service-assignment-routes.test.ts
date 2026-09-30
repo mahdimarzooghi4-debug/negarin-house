@@ -15,6 +15,7 @@ import { GET as getOptions } from "./app/api/admin/service-assignments/options/r
 import { POST as createAssignment } from "./app/api/admin/service-assignments/route";
 import { POST as createServiceRequest } from "./app/api/admin/service-requests/route";
 import { GET as getSubmissions } from "./app/api/admin/service-deliverables/route";
+import { POST as reviewDeliverable } from "./app/api/admin/service-deliverables/[deliverableId]/review/route";
 import { GET as getArtistRequests, POST as createArtistRequest } from "./app/api/artist/service-requests/route";
 
 describe("staff service assignment same-origin routes", () => {
@@ -38,6 +39,26 @@ describe("staff service assignment same-origin routes", () => {
     expect(response.headers.get("cache-control")).toBe("no-store");
     expect(await response.json()).toEqual(items);
     expect(requestArtistApi).toHaveBeenCalledWith("admin/service-deliverables");
+  });
+
+  it("forwards Admin deliverable review decisions only from same-origin requests", async () => {
+    const body = { decision: "changes_requested", feedback: "تصویر را اصلاح کنید." };
+    requestArtistApi.mockResolvedValue({ status: 201, data: { decision: "changes_requested" } });
+    const context = { params: Promise.resolve({ deliverableId: "deliverable-1" }) };
+    const crossOrigin = await reviewDeliverable(new Request("http://localhost/api/admin/service-deliverables/deliverable-1/review", {
+      method: "POST", headers: { Origin: "https://attacker.invalid" }, body: JSON.stringify(body)
+    }), context);
+    expect(crossOrigin.status).toBe(403);
+    expect(requestArtistApi).not.toHaveBeenCalled();
+
+    const response = await reviewDeliverable(new Request("http://localhost/api/admin/service-deliverables/deliverable-1/review", {
+      method: "POST", headers: { Origin: "http://localhost", "Content-Type": "application/json" }, body: JSON.stringify(body)
+    }), context);
+    expect(response.status).toBe(201);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(requestArtistApi).toHaveBeenCalledWith("admin/service-deliverables/deliverable-1/review", {
+      method: "POST", body: JSON.stringify(body)
+    });
   });
 
   it("loads and submits Artist service requests through the scoped same-origin boundary", async () => {

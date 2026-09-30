@@ -18,7 +18,7 @@ export class ArtistServiceRequestsService {
         partnerTitle: true,
         partnerSummary: true,
         createdAt: true,
-        assignments: { orderBy: [{ assignedAt: "asc" }, { id: "asc" }], take: 1, select: { assignedAt: true } }
+        assignments: { orderBy: [{ assignedAt: "asc" }, { id: "asc" }], select: { assignedAt: true, completedAt: true } }
       }
     });
     return requests.map((request) => ({
@@ -26,7 +26,8 @@ export class ArtistServiceRequestsService {
       title: request.partnerTitle,
       description: request.partnerSummary,
       requestedAt: request.createdAt.toISOString(),
-      assignedAt: request.assignments[0]?.assignedAt.toISOString() ?? null
+      assignedAt: request.assignments[0]?.assignedAt.toISOString() ?? null,
+      completedAt: request.assignments.find((assignment) => assignment.completedAt)?.completedAt?.toISOString() ?? null
     }));
   }
 
@@ -46,7 +47,8 @@ export class ArtistServiceRequestsService {
       title: request.partnerTitle,
       description: request.partnerSummary,
       requestedAt: request.createdAt.toISOString(),
-      assignedAt: null
+      assignedAt: null,
+      completedAt: null
     };
   }
 

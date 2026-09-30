@@ -147,6 +147,7 @@ test("staff service submissions remain behind real services permission", async (
   await expect(page.getByRole("link", { name: "فایل‌های ارسال‌شده" })).toHaveAttribute("aria-current", "page");
   await expect(page.getByRole("link", { name: "تخصیص درخواست" })).toHaveAttribute("href", "/admin/service-assignments");
   await expect(page.getByRole("link", { name: "بازکردن فایل" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: /تأیید تحویل|درخواست اصلاح/ })).toHaveCount(0);
 });
 
 test("staff service request authoring requires a real services session", async ({ page }) => {
