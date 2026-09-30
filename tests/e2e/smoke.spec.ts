@@ -73,6 +73,28 @@ test("unconfigured sign-in and customer portals do not present a fake login or c
   await expect(page.getByRole("button", { name: /سفارش|پرداخت/ })).toHaveCount(0);
 });
 
+test("Supporting Organization and Corporate Buyer shells stay truthful until their workflows are implemented", async ({ page }) => {
+  const emptyState = "در این پیش‌نمایش، اطلاعات عملیاتی یا مالی نمونه نمایش داده نمی‌شود.";
+
+  await page.goto("/supporting-organization");
+  await expect(page.getByRole("heading", { name: "سازمان حامی" })).toBeVisible();
+  await expect(page.locator(".portal-layout")).toHaveAttribute("dir", "rtl");
+  await expect(page.getByRole("region", { name: "پوستهٔ پنل آماده است" })).toBeVisible();
+  await expect(page.getByText(emptyState)).toBeVisible();
+  await expect(page.locator(".portal-nav-item")).toHaveCount(6);
+  await expect(page.getByRole("button")).toHaveCount(0);
+  await expect(page.locator(".portal-navigation a")).toHaveCount(0);
+
+  await page.goto("/corporate-buyer");
+  await expect(page.getByRole("heading", { name: "خریدار سازمانی" })).toBeVisible();
+  await expect(page.locator(".portal-layout")).toHaveAttribute("dir", "rtl");
+  await expect(page.getByRole("region", { name: "پوستهٔ پنل آماده است" })).toBeVisible();
+  await expect(page.getByText(emptyState)).toBeVisible();
+  await expect(page.locator(".portal-nav-item")).toHaveCount(8);
+  await expect(page.getByRole("button")).toHaveCount(0);
+  await expect(page.locator(".portal-navigation a")).toHaveCount(0);
+});
+
 test("artist product workspace requires a real session and does not invent products", async ({ page }) => {
   await page.goto("/artist/products");
 
