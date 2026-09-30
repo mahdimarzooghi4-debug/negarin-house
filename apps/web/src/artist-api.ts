@@ -20,6 +20,23 @@ export type PublicationReviewItem = {
   media: Array<{ id: string; contentType: string; readUrl: string }>;
 };
 
+export type PublicationVisibilityItem = {
+  id: string;
+  title: string;
+  description: string | null;
+  publicationStatus: "approved" | "published";
+  updatedAt: string;
+};
+
+export type CustomerCatalogItem = {
+  id: string;
+  title: string;
+  description: string | null;
+  priceToman: string;
+  updatedAt: string;
+  media: Array<{ id: string; contentType: string; readUrl: string }>;
+};
+
 export type ServicePartnerAssignment = {
   assignmentId: string;
   requestId: string;
@@ -164,6 +181,32 @@ export async function loadPublicationReviews() {
     return { kind: "ready", items: result.data as PublicationReviewItem[] } as const;
   }
   if (result.status === 401 || result.status === 403) return { kind: "connection-required" } as const;
+  return { kind: "unavailable" } as const;
+}
+
+export async function loadPublicationVisibility() {
+  const result = await requestArtistApi("staff/publication-reviews/visibility");
+  if (result.status === 200 && Array.isArray(result.data)) {
+    return { kind: "ready", items: result.data as PublicationVisibilityItem[] } as const;
+  }
+  if (result.status === 401 || result.status === 403) return { kind: "connection-required" } as const;
+  return { kind: "unavailable" } as const;
+}
+
+export async function loadCustomerCatalog() {
+  try {
+    const response = await fetch(`${apiOrigin()}/api/v1/customer/catalog`, { cache: "no-store" });
+    if (response.ok) return { kind: "ready", items: await response.json() as CustomerCatalogItem[] } as const;
+  } catch { /* Surface a stable empty state when API is not configured or reachable. */ }
+  return { kind: "unavailable" } as const;
+}
+
+export async function loadCustomerCatalogItem(productId: string) {
+  try {
+    const response = await fetch(`${apiOrigin()}/api/v1/customer/catalog/${encodeURIComponent(productId)}`, { cache: "no-store" });
+    if (response.status === 404) return { kind: "not-found" } as const;
+    if (response.ok) return { kind: "ready", item: await response.json() as CustomerCatalogItem } as const;
+  } catch { /* Surface a stable empty state when API is not configured or reachable. */ }
   return { kind: "unavailable" } as const;
 }
 

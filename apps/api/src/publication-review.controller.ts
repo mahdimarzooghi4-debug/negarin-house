@@ -3,7 +3,7 @@ import {
 } from "@nestjs/common";
 import { parseArtistProductId } from "./artist-products.js";
 import { AuthorizationGuard, type AuthorizedRequest } from "./authorization.guard.js";
-import { parsePublicationReviewDecision, PublicationReviewService } from "./publication-review.js";
+import { parseCatalogVisibility, parsePublicationReviewDecision, PublicationReviewService } from "./publication-review.js";
 
 @Controller()
 @UseGuards(AuthorizationGuard)
@@ -28,6 +28,12 @@ export class PublicationReviewController {
     return this.reviews.queue(request.authorizationContext!);
   }
 
+  @Get("staff/publication-reviews/visibility")
+  @Header("Cache-Control", "no-store")
+  visibilityQueue(@Req() request: AuthorizedRequest) {
+    return this.reviews.visibilityQueue(request.authorizationContext!);
+  }
+
   @Post("staff/publication-reviews/:id/decision")
   @Header("Cache-Control", "no-store")
   decide(@Req() request: AuthorizedRequest, @Param("id") id: string, @Body() body: unknown) {
@@ -37,6 +43,16 @@ export class PublicationReviewController {
       parseArtistProductId(id),
       input.decision,
       input.feedback
+    );
+  }
+
+  @Post("staff/publication-reviews/:id/visibility")
+  @Header("Cache-Control", "no-store")
+  setVisibility(@Req() request: AuthorizedRequest, @Param("id") id: string, @Body() body: unknown) {
+    return this.reviews.setCatalogVisibility(
+      request.authorizationContext!,
+      parseArtistProductId(id),
+      parseCatalogVisibility(body)
     );
   }
 }

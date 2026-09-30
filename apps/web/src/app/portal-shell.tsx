@@ -40,13 +40,13 @@ export function PortalShell({
           <p className="eyebrow">خانه نگارین</p>
           <h1>{title}</h1>
           <p>{description}</p>
-          {isAuthentication ? (
+          {children ?? (isAuthentication ? (
             <p className="connection-notice">
               ورود کاربران پس از اتصال سرویس پیامک و تکمیل تنظیمات امنیتی فعال می‌شود.
             </p>
           ) : (
             <p className="connection-notice">فروشگاه مشتری پس از آماده‌شدن API و تجربهٔ خرید به این پوسته متصل می‌شود.</p>
-          )}
+          ))}
         </section>
       </main>
     );

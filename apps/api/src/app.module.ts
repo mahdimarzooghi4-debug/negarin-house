@@ -22,6 +22,8 @@ import { ServiceDeliverablesController } from "./service-deliverables.controller
 import { ServiceDeliverablesService } from "./service-deliverables.js";
 import { StaffServiceDeliverablesController } from "./staff-service-deliverables.controller.js";
 import { StaffServiceDeliverablesService } from "./staff-service-deliverables.js";
+import { CustomerCatalogController } from "./customer-catalog.controller.js";
+import { CustomerCatalogService } from "./customer-catalog.js";
 
 @Module({
   controllers: [
@@ -35,7 +37,8 @@ import { StaffServiceDeliverablesService } from "./staff-service-deliverables.js
     ServiceDeliverablesController,
     StaffServiceAssignmentsController,
     StaffServiceRequestsController,
-    StaffServiceDeliverablesController
+    StaffServiceDeliverablesController,
+    CustomerCatalogController
   ],
   providers: [
     PrismaService,
@@ -48,6 +51,7 @@ import { StaffServiceDeliverablesService } from "./staff-service-deliverables.js
     StaffServiceAssignmentsService,
     StaffServiceRequestsService,
     StaffServiceDeliverablesService,
+    CustomerCatalogService,
     {
       provide: OBJECT_STORAGE,
       useFactory: () => {

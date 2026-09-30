@@ -92,6 +92,45 @@ export class PublicationReviewService {
     })));
   }
 
+  async visibilityQueue(context: AuthorizationContext) {
+    this.requireStaff(context);
+    const products = await this.database.artistProduct.findMany({
+      where: { publicationStatus: { in: ["approved", "published"] }, archivedAt: null },
+      orderBy: [{ updatedAt: "desc" }, { id: "asc" }],
+      select: { id: true, title: true, description: true, publicationStatus: true, updatedAt: true }
+    });
+    return products.map((product) => ({ ...product, updatedAt: product.updatedAt.toISOString() }));
+  }
+
+  async setCatalogVisibility(context: AuthorizationContext, productId: string, visible: boolean) {
+    this.requireStaff(context);
+    return this.database.$transaction(async (transaction) => {
+      const product = await transaction.artistProduct.findUnique({
+        where: { id: productId },
+        select: { id: true, publicationStatus: true, archivedAt: true }
+      });
+      if (!product) throw new NotFoundException();
+      if (product.archivedAt || (product.publicationStatus !== "approved" && product.publicationStatus !== "published")) {
+        throw new ConflictException("product-not-ready-for-catalog");
+      }
+
+      const target = visible ? "published" : "approved";
+      if (product.publicationStatus === target) {
+        return { productId, publicationStatus: target, visible };
+      }
+
+      const updated = await transaction.artistProduct.updateMany({
+        where: { id: productId, archivedAt: null, publicationStatus: product.publicationStatus },
+        data: { publicationStatus: target }
+      });
+      if (updated.count !== 1) throw new ConflictException("product-state-changed");
+      await transaction.productPublicationEvent.create({
+        data: { productId, actorUserId: context.userId, status: target }
+      });
+      return { productId, publicationStatus: target, visible };
+    });
+  }
+
   async decide(context: AuthorizationContext, productId: string, decision: PublicationReviewDecision, feedback?: string) {
     this.requireStaff(context);
     if (decision === "changes_requested" && !feedback?.trim()) throw new BadRequestException();
@@ -151,4 +190,11 @@ export function parsePublicationReviewDecision(body: unknown): {
     throw new BadRequestException();
   }
   return { decision: value.decision as PublicationReviewDecision, ...(value.feedback === undefined ? {} : { feedback: value.feedback as string }) };
+}
+
+export function parseCatalogVisibility(body: unknown): boolean {
+  if (!body || typeof body !== "object" || Array.isArray(body)) throw new BadRequestException();
+  const value = body as Record<string, unknown>;
+  if (Object.keys(value).length !== 1 || typeof value.visible !== "boolean") throw new BadRequestException();
+  return value.visible;
 }

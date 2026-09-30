@@ -122,4 +122,64 @@ describe("Product publication review HTTP contract", () => {
     expect((await app.inject({ method: "GET", url: `/api/v1/artist/products/${productId}/review-history`, headers: otherArtist })).statusCode)
       .toBe(404);
   });
+
+  it("lets products staff separately publish approved products into the public catalog", async () => {
+    const artist = await signIn();
+    const reviewer = await signIn("staff", true);
+    const unprivilegedStaff = await signIn("staff");
+    const created = await app.inject({
+      method: "POST", url: "/api/v1/artist/products", headers: artist,
+      payload: { title: "کاسهٔ سفالی", description: "ساخته‌شده با دست", priceToman: "1250000" }
+    });
+    const productId = created.json<{ id: string }>().id;
+    await app.inject({ method: "POST", url: `/api/v1/artist/products/${productId}/submit-review`, headers: artist });
+    await app.inject({
+      method: "POST", url: `/api/v1/staff/publication-reviews/${productId}/decision`, headers: reviewer,
+      payload: { decision: "approved" }
+    });
+
+    const beforePublish = await app.inject({ method: "GET", url: "/api/v1/customer/catalog" });
+    expect(beforePublish.statusCode).toBe(200);
+    expect(beforePublish.headers["cache-control"]).toBe("no-store");
+    expect(beforePublish.json()).toEqual([]);
+    expect((await app.inject({ method: "GET", url: `/api/v1/customer/catalog/${productId}` })).statusCode).toBe(404);
+    expect((await app.inject({ method: "GET", url: "/api/v1/staff/publication-reviews/visibility", headers: unprivilegedStaff })).statusCode)
+      .toBe(403);
+
+    const visibilityQueue = await app.inject({ method: "GET", url: "/api/v1/staff/publication-reviews/visibility", headers: reviewer });
+    expect(visibilityQueue.statusCode).toBe(200);
+    expect(visibilityQueue.json()).toEqual([expect.objectContaining({ id: productId, publicationStatus: "approved" })]);
+    expect(visibilityQueue.json()[0]).not.toHaveProperty("priceToman");
+
+    const published = await app.inject({
+      method: "POST", url: `/api/v1/staff/publication-reviews/${productId}/visibility`, headers: reviewer,
+      payload: { visible: true }
+    });
+    expect(published.statusCode).toBe(201);
+    expect(published.json()).toEqual({ productId, publicationStatus: "published", visible: true });
+
+    const catalog = await app.inject({ method: "GET", url: "/api/v1/customer/catalog" });
+    expect(catalog.json()).toEqual([expect.objectContaining({
+      id: productId,
+      title: "کاسهٔ سفالی",
+      priceToman: "1250000",
+      media: []
+    })]);
+    expect(catalog.json()[0]).not.toHaveProperty("artistUserId");
+    expect(catalog.json()[0]).not.toHaveProperty("objectKey");
+    expect((await app.inject({ method: "GET", url: `/api/v1/customer/catalog/${productId}` })).json().id).toBe(productId);
+
+    const hidden = await app.inject({
+      method: "POST", url: `/api/v1/staff/publication-reviews/${productId}/visibility`, headers: reviewer,
+      payload: { visible: false }
+    });
+    expect(hidden.json()).toMatchObject({ publicationStatus: "approved", visible: false });
+    expect((await app.inject({ method: "GET", url: "/api/v1/customer/catalog" })).json()).toEqual([]);
+    expect((await app.inject({ method: "GET", url: `/api/v1/customer/catalog/${productId}` })).statusCode).toBe(404);
+    const history = await app.inject({ method: "GET", url: `/api/v1/artist/products/${productId}/review-history`, headers: artist });
+    expect(history.json()).toEqual(expect.arrayContaining([
+      expect.objectContaining({ status: "published" }),
+      expect.objectContaining({ status: "approved" })
+    ]));
+  });
 });

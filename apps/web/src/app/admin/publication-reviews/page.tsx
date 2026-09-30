@@ -1,11 +1,12 @@
-import { loadPublicationReviews } from "../../../artist-api";
+import { loadPublicationReviews, loadPublicationVisibility } from "../../../artist-api";
 import { PortalShell } from "../../portal-shell";
 import { StaffReviewQueueScreen } from "../../../staff-review-queue-screen";
+import { StaffPublicationVisibilityScreen } from "../../../staff-publication-visibility-screen";
 
 export const dynamic = "force-dynamic";
 
 export default async function PublicationReviewsPage() {
-  const initialState = await loadPublicationReviews();
+  const [initialState, visibilityState] = await Promise.all([loadPublicationReviews(), loadPublicationVisibility()]);
   return (
     <PortalShell
       portal="admin"
@@ -16,6 +17,8 @@ export default async function PublicationReviewsPage() {
       direction="rtl"
     >
       <StaffReviewQueueScreen initialState={initialState} />
+      <div className="staff-review-section-divider" />
+      <StaffPublicationVisibilityScreen initialState={visibilityState} />
     </PortalShell>
   );
 }

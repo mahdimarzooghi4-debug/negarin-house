@@ -376,6 +376,22 @@ a.portal-nav-item { text-decoration: none; }
 .staff-review-feedback textarea { resize: vertical; min-height: 76px; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 9px; font: inherit; line-height: 1.7; }
 .staff-review-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .staff-review-notice { margin: 12px 0; padding: 12px 14px; border: 1px solid #b7e3cc; border-radius: 10px; background: #effaf4; color: #176b43; }
+.staff-review-section-divider { height: 1px; margin: 34px 0; background: var(--negarin-border); }
+.customer-catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
+.customer-catalog-card { overflow: hidden; border: 1px solid var(--negarin-border); border-radius: 15px; background: #fff; }
+.customer-catalog-image { display: grid; place-items: center; height: 210px; background: var(--negarin-sidebar); color: var(--negarin-muted); text-decoration: none; }
+.customer-catalog-image img { width: 100%; height: 100%; object-fit: cover; }
+.customer-catalog-card-body { display: grid; gap: 10px; padding: 16px; }
+.customer-catalog-card-body h2 { margin: 0; font-size: 17px; }
+.customer-catalog-card-body h2 a { color: inherit; text-decoration: none; }
+.customer-catalog-card-body p { margin: 0; color: var(--negarin-muted); line-height: 1.7; }
+.customer-catalog-card-body strong, .customer-product-detail > strong { color: var(--negarin-sidebar-active-content); }
+.catalog-empty, .customer-product-detail { padding: 24px; border: 1px solid var(--negarin-border); border-radius: 15px; background: #fff; line-height: 1.8; }
+.catalog-empty h2, .customer-product-detail h2 { margin-top: 0; }
+.customer-catalog-back { display: inline-block; margin-bottom: 18px; color: var(--negarin-accent); }
+.customer-product-media { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.customer-product-media img { width: min(100%, 360px); height: 260px; border-radius: 12px; object-fit: cover; }
+.catalog-purchase-note { margin: 22px 0 0; padding: 12px; border-radius: 10px; background: var(--negarin-sidebar); color: var(--negarin-muted); }
 
 .service-partner-assignments { width: min(100%, 1200px); margin: 0 auto; }
 .service-partner-assignments-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 20px; }

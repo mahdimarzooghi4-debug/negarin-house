@@ -61,15 +61,15 @@ test("Portuguese is outside the supported Export Partner routes", async ({ page 
   await expect(page.getByRole("heading", { name: "404" })).toBeVisible();
 });
 
-test("unconfigured sign-in and customer portals do not present a fake login or checkout", async ({ page }) => {
+test("unconfigured sign-in and customer catalog do not present a fake login or checkout", async ({ page }) => {
   await page.goto("/auth");
   await expect(page.getByRole("heading", { name: "احراز هویت" })).toBeVisible();
   await expect(page.getByText("ورود کاربران پس از اتصال سرویس پیامک و تکمیل تنظیمات امنیتی فعال می‌شود.")).toBeVisible();
   await expect(page.getByRole("textbox")).toHaveCount(0);
 
   await page.goto("/customer");
-  await expect(page.getByRole("heading", { name: "مشتری" })).toBeVisible();
-  await expect(page.getByText("فروشگاه مشتری پس از آماده‌شدن API و تجربهٔ خرید به این پوسته متصل می‌شود.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "کاتالوگ نگارین" })).toBeVisible();
+  await expect(page.getByText("کاتالوگ در حال حاضر در دسترس نیست. کمی بعد دوباره تلاش کنید.")).toBeVisible();
   await expect(page.getByRole("button", { name: /سفارش|پرداخت/ })).toHaveCount(0);
 });
 
@@ -112,6 +112,8 @@ test("staff publication review queue requires staff permission and never shows p
   await expect(page.getByText("دسترسی بررسی فعال نیست")).toBeVisible();
   await expect(page.getByText("قیمت هنرمند در صف بازبینی نمایش داده نمی‌شود.")).toBeVisible();
   await expect(page.getByRole("button", { name: /تأیید محتوا|درخواست اصلاح/ })).toHaveCount(0);
+  await expect(page.getByText("دسترسی انتشار فعال نیست")).toBeVisible();
+  await expect(page.getByRole("button", { name: /انتشار در کاتالوگ|پنهان‌کردن از کاتالوگ/ })).toHaveCount(0);
 });
 
 test("staff service assignment page uses the nine Admin groups and requires real authorization", async ({ page }) => {
