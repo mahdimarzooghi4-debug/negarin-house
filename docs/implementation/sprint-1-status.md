@@ -4,8 +4,9 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `aab7946d521972ce9b7b3f728256f2cb036c8638` |
-| Code CI | [GitHub Actions run #186](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36734556451): success |
+| Code commit verified by CI | `6321f77c0867b99536ceee3c8dee1393c46522fb` |
+| Code CI | [GitHub Actions run #189](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36738165919): success |
+| Sprint status documentation | Commit `af50623a0fe2305b50cac9bc1cf58fcda5c1d6b9`, verified by [CI run #187](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36735597008): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
@@ -55,6 +56,7 @@
 - Service Partner HTTP tests verify organization/user assignment filtering, same-organization user assignment visibility, no-store responses, unauthenticated denial, other-role denial, and omission of Artist/financial fields.
 - Artists can create ServiceRequests with a title and description at `/artist/services`; they can read only their own requests. A services-authorized Admin assigns a registered Service Partner through the existing assignment flow.
 - Admins with the services permission can approve a submitted Service Partner deliverable, which completes its assignment in the same transaction, or request changes with required feedback. The Partner sees the outcome and can submit a replacement file after changes are requested; Partner mutations are blocked once the service is complete.
+- Supporting Organizations can create, list, and edit basic support-program records, scoped to their active registered organization. Only the program name and optional description are captured; no budget, quota, service credit, referral, or artist-approval behavior is implied.
 - The RTL Service Partner web inbox is available at `/service-partner/assignments`. Its server-side loader uses the existing session-cookie-to-Bearer boundary and displays only the API's title, summary, assignment time, and request time. Missing-session, service-unavailable, and empty states contain no sample requests or Artist data; no request actions or lifecycle statuses are invented.
 - A read-only request detail API and page are available at `GET /api/v1/service-partner/assignments/:assignmentId` and `/service-partner/assignments/:assignmentId`. The database query scopes by active organization and either organization-wide or current-user assignment; other assignments are concealed as 404. The response/page expose only the same partner-facing fields as the inbox.
 - The Service Partner pages distinguish missing/invalid sessions (401) from role or organization authorization denial (403); a concealed assignment is shown as unavailable without revealing whether another user's assignment exists. Unit tests cover these states.
@@ -96,7 +98,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 | Artist | Product CRUD, media, publication submission/status, review feedback, and owned service-request intake/status | Customer-order fulfillment, finance/settlement, Growth, and approved mobile journeys remain open. |
 | Admin / Staff | Publication review and visibility control; services-authorized ServiceRequest authoring/assignment and submitted-deliverable review | Operational features for other domains remain open and must use scoped permissions. |
 | Service Partner | Organization/user-scoped inbox/detail and activity history, accept/decline, scoped private uploads, submit-for-review, review feedback, and completed status | Organization/member provisioning, scheduling, and execution progress remain open; upload `pending/ready` are technical states only. |
-| Supporting Organization | Organization registry/context, HTTP-tested denial of Artist product and domestic-finance access, and an organization-scoped SupportRelationship read-policy primitive | Program/referral/relationship data models and endpoints, support usage, organization users, and scoped reports remain open. |
+| Supporting Organization | Organization registry/context, organization-scoped SupportProgram create/list/edit, HTTP-tested denial of Artist product and domestic-finance access, and an organization-scoped SupportRelationship read-policy primitive | Artist referrals and their review/consent rules, shared support relationships, membership support, service credits/quotas/usage, organization users, and scoped reports remain open. |
 | Corporate Buyer | Organization registry/context, shared shell, HTTP-tested denial of Artist product-management/domestic-finance access, and organization-scoped order-read policy with full role matrix tests | Public catalog, purchase request, proposal, order, allocation, and delivery flow remain open. |
 | Export Partner | Organization registry/context, all-locale Playwright shell coverage, HTTP-tested denial of Artist product-management/domestic-finance access, `international`-permission policy primitive for export-publication review, and organization-scoped order-read policy primitive | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
 | Shared identity | Session, role-grant discovery and selection, active-context, API authorization primitives, bearer-session logout, same-origin browser logout bridge, and Android logout/API/state boundaries | Public OTP delivery/login and cookie issuance remain disabled until a provider and required controls are available; mobile logout has no user-facing login/session journey wired yet. |
@@ -221,6 +223,12 @@ Run #184 completed every configured gate successfully for the documentation upda
 Run #185 completed every configured gate successfully for Artist-owned ServiceRequest intake. HTTP tests verify Artist ownership, role denial, and Admin assignment through the registered Service Partner options.
 
 Run #186 completed every configured gate successfully for service-deliverable review and completion at code head `aab7946d521972ce9b7b3f728256f2cb036c8638`, including frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full tests, monorepo build, Chromium installation, and Playwright E2E. HTTP tests verify change-request feedback, replacement submission, Admin approval completing the assignment, history, and denial of Partner mutations after completion.
+
+Run #187 completed every configured CI gate successfully for the Sprint 1 status and product handoff documentation update.
+
+Run #188 completed every configured gate successfully for organization-scoped Supporting Organization program records at code head `8c78edd6fa4af32cdeffbde5e03bb9c8cf857f4c`, including frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full tests, build, Chromium installation, and Playwright E2E. HTTP tests verify name/description validation, active-organization ownership, isolation between organizations, and denial to Artists and unauthenticated requests.
+
+Run #189 completed every configured gate successfully for scoped SupportProgram editing at code head `6321f77c0867b99536ceee3c8dee1393c46522fb`, including frozen install, Prisma gates, security audit, lint, typecheck, full tests, build, Chromium installation, and Playwright E2E. The HTTP contract conceals another organization's program as not found and rejects malformed program IDs.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 

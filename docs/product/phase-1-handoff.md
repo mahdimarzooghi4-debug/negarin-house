@@ -46,6 +46,7 @@ Growth cannot be purchased.
 
 ### Supporting Organization
 - Limited to its own programs, referrals, support relationships, usage, reports, and organization users.
+- Can create, view, and edit its own program name and optional description. This basic record does not define a budget, quota, service credit, eligibility rule, or referral outcome.
 - Referral does not equal Artist approval.
 - No Artist administration authority.
 - No access to Artist private finance or bank information.
