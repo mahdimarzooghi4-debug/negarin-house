@@ -90,6 +90,54 @@ describe("Service Partner assignments HTTP contract", () => {
     expect(organizationDetail.json()).toMatchObject({ assignmentId: organizationAssignment.id, requestId: request.id });
     expect(organizationDetail.json()).not.toHaveProperty("partnerOrganizationId");
 
+    const acceptedResponse = await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/response`,
+      headers: partner,
+      payload: { response: "accepted" }
+    });
+    expect(acceptedResponse.statusCode).toBe(201);
+    expect(acceptedResponse.headers["cache-control"]).toBe("no-store");
+    expect(acceptedResponse.json()).toEqual({ assignmentId: organizationAssignment.id, responseStatus: "accepted" });
+    expect(await database.serviceAssignmentEvent.count({ where: {
+      assignmentId: organizationAssignment.id,
+      actorUserId: partner.userId,
+      type: "accepted"
+    } })).toBe(1);
+    expect((await app.inject({
+      method: "GET", url: `/api/v1/service-partner/assignments/${organizationAssignment.id}`, headers: partner
+    })).json()).toMatchObject({ responseStatus: "accepted" });
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/response`,
+      headers: partner,
+      payload: { response: "declined" }
+    })).statusCode).toBe(409);
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${userAssignment.id}/response`,
+      headers: partner,
+      payload: { response: "accepted" }
+    })).statusCode).toBe(404);
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/response`,
+      headers: otherArtist,
+      payload: { response: "accepted" }
+    })).statusCode).toBe(403);
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${otherOrganizationAssignment.id}/response`,
+      headers: otherPartner,
+      payload: { response: "accepted" }
+    })).statusCode).toBe(201);
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/response`,
+      headers: partner,
+      payload: { response: "complete", approved: true }
+    })).statusCode).toBe(400);
+
     const deliverableUpload = await app.inject({
       method: "POST",
       url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/deliverables/upload-url`,

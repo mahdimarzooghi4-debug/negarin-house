@@ -27,6 +27,7 @@ export type ServicePartnerAssignment = {
   summary: string | null;
   assignedAt: string;
   requestedAt: string;
+  responseStatus: "awaiting_response" | "accepted" | "declined";
 };
 
 export type ServicePartnerDeliverable = {

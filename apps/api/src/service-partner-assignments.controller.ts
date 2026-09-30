@@ -1,7 +1,8 @@
-import { Controller, Get, Header, NotFoundException, Param, Req, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, Header, NotFoundException, Param, Post, Req, UseGuards } from "@nestjs/common";
 import { parseArtistProductId } from "./artist-products.js";
 import { AuthorizationGuard, type AuthorizedRequest } from "./authorization.guard.js";
 import { ServicePartnerAssignmentsService } from "./service-partner-assignments.js";
+import { parseServiceAssignmentResponse } from "./service-partner-assignments.js";
 
 @Controller("service-partner/assignments")
 @UseGuards(AuthorizationGuard)
@@ -23,5 +24,15 @@ export class ServicePartnerAssignmentsController {
     );
     if (!assignment) throw new NotFoundException();
     return assignment;
+  }
+
+  @Post(":assignmentId/response")
+  @Header("Cache-Control", "no-store")
+  respond(@Req() request: AuthorizedRequest, @Param("assignmentId") assignmentId: string, @Body() body: unknown) {
+    return this.assignments.respond(
+      request.authorizationContext!,
+      parseArtistProductId(assignmentId),
+      parseServiceAssignmentResponse(body)
+    );
   }
 }

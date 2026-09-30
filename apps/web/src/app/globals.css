@@ -397,6 +397,15 @@ a.portal-nav-item { text-decoration: none; }
 .service-partner-assignment-back { display: inline-block; margin-bottom: 20px; color: var(--negarin-sidebar-active-content); font-size: 13px; font-weight: 600; text-underline-offset: 4px; }
 .service-partner-assignment-detail h2 { margin: 0 0 16px; font-size: 21px; }
 .service-partner-assignment-detail .service-partner-assignment-dates { margin-top: 18px; }
+.service-partner-response { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-top: 20px; padding: 16px; border: 1px solid var(--negarin-border); border-radius: 12px; background: var(--negarin-canvas); }
+.service-partner-response h3 { margin: 0; font-size: 15px; }
+.service-partner-response p { margin: 4px 0 0; color: var(--negarin-sidebar-active-content); font-size: 13px; font-weight: 600; }
+.service-partner-response small { flex-basis: 100%; color: var(--negarin-muted); font-size: 12px; }
+.service-partner-response-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.service-partner-response-actions button { min-height: 40px; padding: 8px 14px; border: 1px solid var(--negarin-sidebar-active-content); border-radius: 9px; background: var(--negarin-sidebar-active-content); color: #fff; font: inherit; cursor: pointer; }
+.service-partner-response-actions button.secondary { background: #fff; color: var(--negarin-sidebar-active-content); }
+.service-partner-response-actions button:disabled { opacity: .65; cursor: wait; }
+.service-partner-response .service-partner-response-message { flex-basis: 100%; color: #a33030; }
 .service-partner-deliverables { display: grid; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--negarin-border); }
 .service-partner-deliverables-heading h3 { margin: 0; font-size: 17px; }
 .service-partner-deliverables-heading p, .service-partner-deliverable-hint { margin: 6px 0 0; color: var(--negarin-muted); font-size: 13px; line-height: 1.7; }

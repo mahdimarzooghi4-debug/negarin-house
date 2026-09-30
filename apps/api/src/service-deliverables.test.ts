@@ -20,7 +20,8 @@ function fixture(stored = { contentType: "application/pdf", contentLength: 2048 
       findFirst: vi.fn().mockResolvedValue({
         id: assignmentId,
         partnerOrganizationId: context.organizationId,
-        assignedPartnerUserId: null
+        assignedPartnerUserId: null,
+        responseStatus: "accepted"
       })
     },
     serviceDeliverable: {
@@ -100,6 +101,21 @@ describe("Service Partner deliverables", () => {
       objectKey: expect.stringMatching(new RegExp(`^services/assignments/${assignmentId}/deliverables/`))
     }));
     expect(result).not.toHaveProperty("objectKey");
+  });
+
+  it("requires an accepted assignment before creating a deliverable upload", async () => {
+    const { service, database, storage } = fixture();
+    database.serviceAssignment.findFirst.mockResolvedValue({
+      id: assignmentId,
+      partnerOrganizationId: context.organizationId,
+      assignedPartnerUserId: null,
+      responseStatus: "awaiting_response"
+    });
+    await expect(service.requestUpload(context, assignmentId, {
+      fileName: "report.pdf", contentType: "application/pdf", contentLength: 2048
+    })).rejects.toThrow(ConflictException);
+    expect(database.serviceDeliverable.create).not.toHaveBeenCalled();
+    expect(storage.createUploadUrl).not.toHaveBeenCalled();
   });
 
   it("conceals assignments outside the active organization or individual scope", async () => {

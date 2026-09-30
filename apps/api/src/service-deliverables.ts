@@ -42,7 +42,7 @@ export class ServiceDeliverablesService {
   }
 
   async requestUpload(context: AuthorizationContext, assignmentId: string, input: ServiceDeliverableUploadRequest) {
-    await this.readableAssignment(context, assignmentId);
+    await this.readableAssignment(context, assignmentId, this.database, true);
     const id = randomUUID();
     const objectKey = `services/assignments/${assignmentId}/deliverables/${id}/${randomUUID()}`;
     const file = await this.database.serviceDeliverable.create({
@@ -67,7 +67,7 @@ export class ServiceDeliverablesService {
   }
 
   async refreshUploadUrl(context: AuthorizationContext, assignmentId: string, deliverableId: string) {
-    await this.readableAssignment(context, assignmentId);
+    await this.readableAssignment(context, assignmentId, this.database, true);
     const file = await this.database.serviceDeliverable.findFirst({ where: { id: deliverableId, assignmentId } });
     if (!file) throw new NotFoundException();
     if (file.status !== "pending") throw new ConflictException("deliverable-upload-not-pending");
@@ -80,7 +80,7 @@ export class ServiceDeliverablesService {
   }
 
   async completeUpload(context: AuthorizationContext, assignmentId: string, deliverableId: string) {
-    await this.readableAssignment(context, assignmentId);
+    await this.readableAssignment(context, assignmentId, this.database, true);
     const file = await this.database.serviceDeliverable.findFirst({ where: { id: deliverableId, assignmentId } });
     if (!file) throw new NotFoundException();
     if (file.status === "ready") return { id: file.id, status: file.status };
@@ -96,7 +96,7 @@ export class ServiceDeliverablesService {
     let result: { id: string; status: "ready"; objectKey: string };
     try {
       result = await this.database.$transaction(async (transaction) => {
-        await this.readableAssignment(context, assignmentId, transaction);
+        await this.readableAssignment(context, assignmentId, transaction, true);
         const current = await transaction.serviceDeliverable.findFirst({ where: { id: file.id, assignmentId } });
         if (!current) throw new NotFoundException();
         if (current.status === "ready") return { id: current.id, status: current.status, objectKey: current.objectKey };
@@ -123,7 +123,8 @@ export class ServiceDeliverablesService {
   private async readableAssignment(
     context: AuthorizationContext,
     assignmentId: string,
-    database: Pick<PrismaService, "serviceAssignment"> = this.database
+    database: Pick<PrismaService, "serviceAssignment"> = this.database,
+    requireAccepted = false
   ) {
     if (context.activeRole !== "service-partner") throw new ForbiddenException();
     enforceDecision(canReadServiceRequest(context, {
@@ -138,10 +139,14 @@ export class ServiceDeliverablesService {
       select: {
         id: true,
         partnerOrganizationId: true,
-        assignedPartnerUserId: true
+        assignedPartnerUserId: true,
+        responseStatus: true
       }
     });
     if (!assignment) throw new NotFoundException();
+    if (requireAccepted && assignment.responseStatus !== "accepted") {
+      throw new ConflictException("service-assignment-not-accepted");
+    }
     enforceDecision(canReadServiceRequest(context, {
       assignedPartnerOrganizationId: assignment.partnerOrganizationId,
       assignedPartnerUserId: assignment.assignedPartnerUserId

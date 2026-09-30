@@ -11,6 +11,7 @@ import { POST as createUpload } from "./app/api/artist/products/[productId]/medi
 import { PUT as uploadMedia } from "./app/api/artist/products/[productId]/media/[mediaId]/route";
 import { POST as createDeliverable } from "./app/api/service-partner/assignments/[assignmentId]/deliverables/route";
 import { PUT as uploadDeliverable } from "./app/api/service-partner/assignments/[assignmentId]/deliverables/[deliverableId]/upload/route";
+import { POST as respondToAssignment } from "./app/api/service-partner/assignments/[assignmentId]/response/route";
 
 describe("Artist media same-origin routes", () => {
   const originalFetch = globalThis.fetch;
@@ -156,6 +157,41 @@ describe("Service Partner deliverable same-origin routes", () => {
       method: "PUT", headers: { Origin: "http://localhost", "Content-Type": "application/pdf" },
       body: new Uint8Array(10 * 1024 * 1024 + 1)
     }), { params: Promise.resolve({ assignmentId: "assignment-1", deliverableId: "deliverable-1" }) });
+    expect(oversized.status).toBe(413);
+    expect(requestArtistApi).not.toHaveBeenCalled();
+  });
+});
+
+describe("Service Partner assignment response same-origin route", () => {
+  beforeEach(() => requestArtistApi.mockReset());
+
+  it("forwards the response through the authenticated API boundary", async () => {
+    requestArtistApi.mockResolvedValue({ status: 201, data: { assignmentId: "assignment-1", responseStatus: "accepted" } });
+    const request = new Request("http://localhost/api/service-partner/assignments/assignment-1/response", {
+      method: "POST",
+      headers: { Origin: "http://localhost", "Content-Type": "application/json" },
+      body: JSON.stringify({ response: "accepted" })
+    });
+
+    const response = await respondToAssignment(request, { params: Promise.resolve({ assignmentId: "assignment-1" }) });
+
+    expect(response.status).toBe(201);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(await response.json()).toEqual({ assignmentId: "assignment-1", responseStatus: "accepted" });
+    expect(requestArtistApi).toHaveBeenCalledWith("service-partner/assignments/assignment-1/response", {
+      method: "POST", body: JSON.stringify({ response: "accepted" })
+    });
+  });
+
+  it("rejects cross-origin and oversized writes before reaching the API", async () => {
+    const crossOrigin = await respondToAssignment(new Request("http://localhost/response", {
+      method: "POST", headers: { Origin: "https://attacker.invalid" }, body: JSON.stringify({ response: "accepted" })
+    }), { params: Promise.resolve({ assignmentId: "assignment-1" }) });
+    expect(crossOrigin.status).toBe(403);
+
+    const oversized = await respondToAssignment(new Request("http://localhost/response", {
+      method: "POST", headers: { Origin: "http://localhost" }, body: JSON.stringify({ response: "accepted", padding: "x".repeat(70_000) })
+    }), { params: Promise.resolve({ assignmentId: "assignment-1" }) });
     expect(oversized.status).toBe(413);
     expect(requestArtistApi).not.toHaveBeenCalled();
   });

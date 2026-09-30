@@ -1,6 +1,7 @@
 import { EmptyState } from "@negarin/ui";
 import type { ServicePartnerAssignment, ServicePartnerDeliverable } from "./artist-api";
 import { ServicePartnerDeliverablesPanel } from "./service-partner-deliverables-panel";
+import { ServicePartnerAssignmentResponse } from "./service-partner-assignment-response";
 
 type DetailState =
   | { kind: "ready"; assignment: ServicePartnerAssignment }
@@ -61,7 +62,14 @@ export function ServicePartnerAssignmentDetailScreen({
           <dd><time dateTime={assignment.requestedAt}>{formatDate(assignment.requestedAt)}</time></dd>
         </div>
       </dl>
-      <ServicePartnerDeliverablesPanel assignmentId={assignment.assignmentId} initialState={deliverablesState} />
+      <ServicePartnerAssignmentResponse assignment={assignment} />
+      {assignment.responseStatus === "accepted" ? (
+        <ServicePartnerDeliverablesPanel assignmentId={assignment.assignmentId} initialState={deliverablesState} />
+      ) : (
+        <p className="service-partner-deliverable-hint service-partner-deliverable-locked">
+          بارگذاری فایل پس از پذیرش تخصیص در دسترس است.
+        </p>
+      )}
     </article>
   );
 }

@@ -28,6 +28,7 @@ model IdentityUser {
   productPublicationEvents ProductPublicationEvent[]
   serviceAssignments ServiceAssignment[] @relation("ServiceAssignmentUser")
   authoredServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentAuthor")
+  serviceAssignmentResponses ServiceAssignmentEvent[]
   uploadedServiceDeliverables ServiceDeliverable[]
 
   @@map("identity_users")
@@ -135,13 +136,40 @@ model ServiceAssignment {
   assignedByUserId      String?        @db.Uuid
   assignedBy            IdentityUser?  @relation("ServiceAssignmentAuthor", fields: [assignedByUserId], references: [id], onDelete: Restrict)
   assignedAt            DateTime       @default(now())
+  responseStatus        ServiceAssignmentResponseStatus @default(awaiting_response)
+  respondedAt           DateTime?
   createdAt             DateTime       @default(now())
   deliverables          ServiceDeliverable[]
+  responseEvents        ServiceAssignmentEvent[]
 
   @@index([partnerOrganizationId, assignedPartnerUserId, assignedAt])
   @@index([serviceRequestId, assignedAt])
   @@index([assignedByUserId, createdAt])
   @@map("service_assignments")
+}
+
+enum ServiceAssignmentResponseStatus {
+  awaiting_response
+  accepted
+  declined
+}
+
+enum ServiceAssignmentResponseEventType {
+  accepted
+  declined
+}
+
+model ServiceAssignmentEvent {
+  id           String                              @id @default(uuid()) @db.Uuid
+  assignmentId String                              @db.Uuid
+  assignment   ServiceAssignment                   @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  actorUserId  String                              @db.Uuid
+  actor        IdentityUser                        @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  type         ServiceAssignmentResponseEventType
+  createdAt    DateTime                            @default(now())
+
+  @@index([assignmentId, createdAt])
+  @@map("service_assignment_events")
 }
 
 enum ServiceDeliverableStatus {
