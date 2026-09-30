@@ -114,6 +114,79 @@ describe("Staff Service Partner assignment authoring HTTP contract", () => {
     expect((await app.inject({ method: "GET", url: "/api/v1/admin/service-assignments/options" })).statusCode).toBe(401);
   });
 
+  it("shows only submitted ready deliverables to services staff without exposing storage or actor identifiers", async () => {
+    const organization = await database.organization.create({
+      data: { kind: "service_partner", displayName: "بسته‌بندی نوین" }
+    });
+    const partnerUserId = await createPartnerMember(organization.id);
+    const request = await database.serviceRequest.create({
+      data: { partnerTitle: "آماده‌سازی سفارش", partnerSummary: "بسته‌بندی آثار تخصیص‌یافته." }
+    });
+    const assignment = await database.serviceAssignment.create({ data: {
+      serviceRequestId: request.id,
+      partnerOrganizationId: organization.id,
+      responseStatus: "accepted"
+    } });
+    const readyDeliverable = await database.serviceDeliverable.create({ data: {
+      assignmentId: assignment.id,
+      uploadedByUserId: partnerUserId,
+      objectKey: `services/assignments/${assignment.id}/deliverables/${randomUUID()}/ready`,
+      fileName: "packing-list.pdf",
+      contentType: "application/pdf",
+      contentLength: 1200,
+      status: "ready"
+    } });
+    await database.serviceDeliverable.create({ data: {
+      assignmentId: assignment.id,
+      uploadedByUserId: partnerUserId,
+      objectKey: `services/assignments/${assignment.id}/deliverables/${randomUUID()}/unsent`,
+      fileName: "draft.pdf",
+      contentType: "application/pdf",
+      contentLength: 900,
+      status: "ready"
+    } });
+    await database.serviceDeliverable.create({ data: {
+      assignmentId: assignment.id,
+      uploadedByUserId: partnerUserId,
+      objectKey: `services/assignments/${assignment.id}/deliverables/${randomUUID()}/pending`,
+      fileName: "uploading.pdf",
+      contentType: "application/pdf",
+      contentLength: 700,
+      status: "pending"
+    } });
+    await database.serviceDeliverableSubmission.create({ data: {
+      deliverableId: readyDeliverable.id,
+      actorUserId: partnerUserId
+    } });
+
+    const servicesStaff = await signInStaff(["services"]);
+    const response = await app.inject({
+      method: "GET", url: "/api/v1/admin/service-deliverables", headers: servicesStaff
+    });
+    expect(response.statusCode).toBe(200);
+    expect(response.headers["cache-control"]).toBe("no-store");
+    expect(response.json()).toHaveLength(1);
+    expect(response.json()[0]).toMatchObject({
+      deliverableId: readyDeliverable.id,
+      assignmentId: assignment.id,
+      title: "آماده‌سازی سفارش",
+      summary: "بسته‌بندی آثار تخصیص‌یافته.",
+      partnerOrganizationName: "بسته‌بندی نوین",
+      fileName: "packing-list.pdf",
+      contentType: "application/pdf",
+      contentLength: 1200
+    });
+    expect(response.json()[0].readUrl).toContain("X-Amz-Signature");
+    expect(response.json()[0]).toHaveProperty("submittedAt");
+    for (const field of ["objectKey", "actorUserId", "uploadedByUserId", "artistUserId", "priceToman"]) {
+      expect(response.json()[0]).not.toHaveProperty(field);
+    }
+    expect((await app.inject({
+      method: "GET", url: "/api/v1/admin/service-deliverables", headers: await signInStaff(["products"])
+    })).statusCode).toBe(403);
+    expect((await app.inject({ method: "GET", url: "/api/v1/admin/service-deliverables" })).statusCode).toBe(401);
+  });
+
   it("rejects missing membership, wrong staff domain, bad input, and unauthenticated writes", async () => {
     const organization = await database.organization.create({ data: { kind: "service_partner" } });
     const request = await database.serviceRequest.create({ data: { partnerTitle: "Local request" } });

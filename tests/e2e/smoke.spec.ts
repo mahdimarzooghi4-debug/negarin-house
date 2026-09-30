@@ -78,6 +78,17 @@ test("staff service assignment page uses the nine Admin groups and requires real
     .toHaveAttribute("href", "/admin/service-assignments");
 });
 
+test("staff service submissions remain behind real services permission", async ({ page }) => {
+  await page.goto("/admin/service-deliverables");
+
+  await expect(page.getByRole("heading", { name: "فایل‌های ارسالی خدمات" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "فایل‌های ارسال‌شده برای بررسی" })).toBeVisible();
+  await expect(page.getByText("ورود کارکنان فعال نیست")).toBeVisible();
+  await expect(page.getByRole("link", { name: "فایل‌های ارسال‌شده" })).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("link", { name: "تخصیص درخواست" })).toHaveAttribute("href", "/admin/service-assignments");
+  await expect(page.getByRole("link", { name: "بازکردن فایل" })).toHaveCount(0);
+});
+
 test("service partner assignment inbox requires a real session and does not invent requests", async ({ page }) => {
   await page.goto("/service-partner/assignments");
 

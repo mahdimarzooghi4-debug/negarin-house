@@ -465,3 +465,24 @@ a.portal-nav-item { text-decoration: none; }
   .staff-review-card { padding: 18px; }
   .staff-review-media a { width: calc(50% - 5px); height: 130px; }
 }
+
+.staff-service-navigation { display: flex; flex-wrap: wrap; gap: 8px; width: min(100%, 960px); margin: 0 auto 18px; }
+.staff-service-navigation a { display: inline-flex; align-items: center; min-height: 40px; padding: 8px 14px; border: 1px solid var(--negarin-border); border-radius: 10px; background: #fff; color: var(--negarin-sidebar-muted); font-size: 14px; text-decoration: none; }
+.staff-service-navigation a[aria-current="page"] { border-color: var(--negarin-sidebar-active); background: var(--negarin-sidebar-background); color: var(--negarin-sidebar-active-content); font-weight: 700; }
+.staff-service-submissions { width: min(100%, 960px); margin: 0 auto; }
+.staff-service-submissions-heading { margin-bottom: 18px; }
+.staff-service-submissions-heading h2 { margin: 0; font-size: 21px; }
+.staff-service-submissions-heading p { margin: 7px 0 0; color: var(--negarin-muted); line-height: 1.8; }
+.staff-service-submissions-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.staff-service-submissions-list li { display: grid; gap: 14px; padding: 20px; border: 1px solid var(--negarin-border); border-radius: 14px; background: var(--negarin-surface); }
+.staff-service-submission-title h3 { margin: 0; font-size: 17px; }
+.staff-service-submission-title p { margin: 6px 0 0; color: var(--negarin-muted); line-height: 1.7; }
+.staff-service-submissions-list dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; margin: 0; }
+.staff-service-submissions-list dl div { min-width: 0; }
+.staff-service-submissions-list dt { margin-bottom: 4px; color: var(--negarin-muted); font-size: 12px; }
+.staff-service-submissions-list dd { margin: 0; overflow-wrap: anywhere; color: var(--negarin-text); font-size: 14px; }
+.staff-service-submissions-list a { width: fit-content; color: var(--negarin-sidebar-active-content); font-weight: 700; text-underline-offset: 3px; }
+@media (max-width: 760px) {
+  .staff-service-submissions-list li { padding: 16px; }
+  .staff-service-submissions-list dl { grid-template-columns: minmax(0, 1fr); }
+}

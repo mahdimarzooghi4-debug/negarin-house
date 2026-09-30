@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { loadServicePartnerAssignment, loadServicePartnerAssignments, loadServicePartnerDeliverables, loadStaffServiceAssignmentOptions } from "./artist-api";
+import { loadServicePartnerAssignment, loadServicePartnerAssignments, loadServicePartnerDeliverables, loadStaffServiceAssignmentOptions, loadStaffServiceDeliverableSubmissions } from "./artist-api";
 
 vi.mock("next/headers", () => ({
   cookies: async () => ({ get: () => ({ value: "opaque-session-token" }) })
@@ -38,5 +38,16 @@ describe("Service Partner page authorization states", () => {
 
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(null, { status: 403 })));
     await expect(loadStaffServiceAssignmentOptions()).resolves.toEqual({ kind: "access-denied" });
+  });
+
+  it("loads only the staff service submission projection and preserves auth states", async () => {
+    const items = [{ deliverableId: "deliverable-1", submittedAt: "2026-09-30T09:00:00.000Z" }];
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify(items), { status: 200 })));
+    await expect(loadStaffServiceDeliverableSubmissions()).resolves.toEqual({ kind: "ready", items });
+
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(null, { status: 401 })));
+    await expect(loadStaffServiceDeliverableSubmissions()).resolves.toEqual({ kind: "connection-required" });
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(null, { status: 403 })));
+    await expect(loadStaffServiceDeliverableSubmissions()).resolves.toEqual({ kind: "access-denied" });
   });
 });

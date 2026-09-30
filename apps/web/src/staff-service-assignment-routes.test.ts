@@ -9,6 +9,7 @@ vi.mock("./artist-api", () => ({
 
 import { GET as getOptions } from "./app/api/admin/service-assignments/options/route";
 import { POST as createAssignment } from "./app/api/admin/service-assignments/route";
+import { GET as getSubmissions } from "./app/api/admin/service-deliverables/route";
 
 describe("staff service assignment same-origin routes", () => {
   beforeEach(() => requestArtistApi.mockReset());
@@ -21,6 +22,16 @@ describe("staff service assignment same-origin routes", () => {
     expect(response.headers.get("cache-control")).toBe("no-store");
     expect(await response.json()).toEqual({ requests: [], organizations: [] });
     expect(requestArtistApi).toHaveBeenCalledWith("admin/service-assignments/options");
+  });
+
+  it("loads submitted service deliverables through the no-store staff boundary", async () => {
+    const items = [{ deliverableId: "deliverable-1", fileName: "packing-list.pdf" }];
+    requestArtistApi.mockResolvedValue({ status: 200, data: items });
+    const response = await getSubmissions();
+    expect(response.status).toBe(200);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(await response.json()).toEqual(items);
+    expect(requestArtistApi).toHaveBeenCalledWith("admin/service-deliverables");
   });
 
   it("forwards assignment writes only from same-origin requests", async () => {

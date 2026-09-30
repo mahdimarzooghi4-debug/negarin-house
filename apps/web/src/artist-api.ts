@@ -46,6 +46,20 @@ export type StaffServiceAssignmentOptions = {
   organizations: Array<{ id: string; displayName: string | null }>;
 };
 
+export type StaffServiceDeliverableSubmission = {
+  deliverableId: string;
+  assignmentId: string;
+  title: string;
+  summary: string | null;
+  partnerOrganizationName: string | null;
+  fileName: string;
+  contentType: string;
+  contentLength: number;
+  uploadedAt: string;
+  submittedAt: string;
+  readUrl: string;
+};
+
 const sessionCookieName = "negarin_session";
 const maxJsonBodyBytes = 64 * 1024;
 
@@ -185,6 +199,16 @@ export async function loadStaffServiceAssignmentOptions() {
     if (Array.isArray(data.requests) && Array.isArray(data.organizations)) {
       return { kind: "ready", options: data as StaffServiceAssignmentOptions } as const;
     }
+  }
+  if (result.status === 401) return { kind: "connection-required" } as const;
+  if (result.status === 403) return { kind: "access-denied" } as const;
+  return { kind: "unavailable" } as const;
+}
+
+export async function loadStaffServiceDeliverableSubmissions() {
+  const result = await requestArtistApi("admin/service-deliverables");
+  if (result.status === 200 && Array.isArray(result.data)) {
+    return { kind: "ready", items: result.data as StaffServiceDeliverableSubmission[] } as const;
   }
   if (result.status === 401) return { kind: "connection-required" } as const;
   if (result.status === 403) return { kind: "access-denied" } as const;

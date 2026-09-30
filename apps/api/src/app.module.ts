@@ -18,6 +18,8 @@ import { StaffServiceAssignmentsController } from "./staff-service-assignments.c
 import { StaffServiceAssignmentsService } from "./staff-service-assignments.js";
 import { ServiceDeliverablesController } from "./service-deliverables.controller.js";
 import { ServiceDeliverablesService } from "./service-deliverables.js";
+import { StaffServiceDeliverablesController } from "./staff-service-deliverables.controller.js";
+import { StaffServiceDeliverablesService } from "./staff-service-deliverables.js";
 
 @Module({
   controllers: [
@@ -29,7 +31,8 @@ import { ServiceDeliverablesService } from "./service-deliverables.js";
     ArtistProductMediaController,
     ServicePartnerAssignmentsController,
     ServiceDeliverablesController,
-    StaffServiceAssignmentsController
+    StaffServiceAssignmentsController,
+    StaffServiceDeliverablesController
   ],
   providers: [
     PrismaService,
@@ -40,6 +43,7 @@ import { ServiceDeliverablesService } from "./service-deliverables.js";
     ServicePartnerAssignmentsService,
     ServiceDeliverablesService,
     StaffServiceAssignmentsService,
+    StaffServiceDeliverablesService,
     {
       provide: OBJECT_STORAGE,
       useFactory: () => {
