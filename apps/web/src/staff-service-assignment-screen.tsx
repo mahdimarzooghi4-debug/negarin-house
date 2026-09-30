@@ -90,7 +90,7 @@ export function StaffServiceAssignmentScreen({ initialState }: { initialState: P
       {error && <p className="artist-products-error" role="alert">{error}</p>}
       {notice && <p className="staff-review-notice" role="status">{notice}</p>}
       {requests.length === 0 ? (
-        <EmptyState title="درخواست موجودی ثبت نشده" description="پس از ثبت درخواست از مسیر کسب‌وکار مصوب، گزینهٔ آن در این فهرست نمایش داده می‌شود." />
+        <EmptyState title="درخواست موجودی ثبت نشده" description="ابتدا از بخش «ثبت درخواست» یک درخواست بساز؛ سپس آن را از این فهرست به سازمان شریک خدماتی تخصیص بده." />
       ) : organizations.length === 0 ? (
         <EmptyState title="سازمان شریک خدماتی ثبت نشده" description="برای تخصیص، سازمان شریک خدماتی باید در رجیستری سازمان‌ها موجود باشد." />
       ) : (
