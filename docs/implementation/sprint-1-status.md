@@ -4,8 +4,8 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `1713aa14f3a1123568413b7097f74f226719707b` |
-| Code CI | [GitHub Actions run #160](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36706226493): success |
+| Code commit verified by CI | `b0918a563e2dcde0c4568e8d6ec81f056fa5cb82` |
+| Code CI | [GitHub Actions run #162](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36707801768): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
@@ -17,6 +17,7 @@
 | Export Publication review policy | Commit `5daabe55deb2af2af1c46e1a59ba5224607c28b7`, verified by [CI run #154](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36699888271): success |
 | Export Partner order-read policy | Commit `67650fce262fd446ec927707f5ac60a83b8cf87b`, verified by [CI run #156](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36701379715): success |
 | Supporting Organization and Corporate Buyer shell E2E | Commit `99293570eb018704e1663a23f9011c2c19e98e5c`, verified by [CI run #158](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36703264466): success |
+| Browser session logout bridge | Commit `b0918a563e2dcde0c4568e8d6ec81f056fa5cb82`, verified by [CI run #162](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36707801768): success |
 | Service assignment authoring API | Commit `eb67808de3f9134210579a2315d888be72efe889`, verified by [CI run #108](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36628941018): success |
 | Staff service assignment options and Admin page | Commit `e8d3ad6aa8138a4016a2684cd159dd086ba1c407`, verified by [CI run #111](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36632451376): success |
 | Bounded same-origin JSON writes | Commit `f8143b50d37b4bd93c4ee2fecc77b10c9b4e17b6`, verified by [CI run #113](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36668167128): success |
@@ -38,7 +39,7 @@
 - A new RTL Artist product workspace is available at `/artist/products`: it reads real API data, supports Artist-owned product creation/editing/archive/restore, shows review status, and presents the archive confirmation flow.
 - A staff publication review queue is available at `/admin/publication-reviews`: authorized staff can see product content and signed ready-image previews, approve content, or request changes with required feedback. Artist prices are omitted.
 - The Artist product page can add multiple JPEG, PNG, or WebP images (up to 10 MiB each), show signed previews, and retry pending uploads by selecting the same file. The same-origin web handler keeps signed upload URLs server-side and bounds streamed bodies.
-- Mutating browser requests use same-origin Next.js routes; the server reads the expected `negarin_session` cookie and forwards its Bearer token to the API. No cookie is issued by this page, and unauthenticated visitors see a connection-required empty state with no sample product/price.
+- Browser requests use same-origin Next.js routes; the server reads the expected `negarin_session` cookie and forwards its Bearer token to the API. No cookie is issued by this page, and unauthenticated visitors see a connection-required empty state with no sample product/price. The same-origin `POST /api/identity/logout` bridge calls the API revocation endpoint and clears a valid or stale cookie; it preserves the cookie when the API is unavailable so the request can be retried.
 - Web route tests verify same-origin protection, signed URL secrecy, body-size limits, storage forwarding, and upload completion. Playwright smoke checks cover the unauthenticated Artist workspace, staff review queue, Service Partner inbox and detail page, and partner locale shell. Same-origin browser JSON writes use a shared 64 KiB streaming limit; oversized bodies are rejected before forwarding.
 - The API permits review submission without images, does not define a minimum image count, and rejects submission while any upload is pending.
 - Service Partner assignments have a read-only API at `GET /api/v1/service-partner/assignments`. Its database query scopes results to the active partner organization and either organization-wide or current-user assignments; its response contains only partner-facing title, summary, assignment time, and request time.
@@ -65,7 +66,7 @@
 - Playwright checks all seven approved Export Partner locales for the shared shell, exact `lang` and `dir`, seven navigation items, one logo, and the absence of the Portuguese route; Arabic is RTL and the other six locales are LTR.
 - Playwright covers the Supporting Organization and Corporate Buyer shell routes, checking RTL direction, role navigation counts, truthful shared empty states, and no operational buttons or linked workflows while their business flows remain unimplemented.
 - An Android-only React Native foundation is available at `apps/mobile`, with the shared Negarin logo, a Persian RTL bootstrap screen, and Android system UI theme support.
-- The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. No token issuance, OTP screen, login endpoint, or mobile logout flow is connected. The API now exposes bearer-session logout; it is not wired to browser cookies or mobile SecureStore.
+- The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. No token issuance, OTP screen, login endpoint, or mobile logout flow is connected. The browser has a same-origin logout bridge to the bearer-session API; mobile logout remains unwired.
 - Root CI run #89 verified frozen install, Prisma gates, audit, lint, typecheck, full tests, monorepo build (including Android bundle export), and Playwright E2E on the current code commit.
 
 ## Role implementation coverage
@@ -81,7 +82,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 | Supporting Organization | Organization registry/context, HTTP-tested denial of Artist product and domestic-finance access, and an organization-scoped SupportRelationship read-policy primitive | Program/referral/relationship data models and endpoints, support usage, organization users, and scoped reports remain open. |
 | Corporate Buyer | Organization registry/context, shared shell, HTTP-tested denial of Artist product-management/domestic-finance access, and organization-scoped order-read policy with full role matrix tests | Public catalog, purchase request, proposal, order, allocation, and delivery flow remain open. |
 | Export Partner | Organization registry/context, all-locale Playwright shell coverage, HTTP-tested denial of Artist product-management/domestic-finance access, `international`-permission policy primitive for export-publication review, and organization-scoped order-read policy primitive | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
-| Shared identity | Session, role-grant, active-context, API authorization primitives, and bearer-session logout | Public OTP delivery/login and browser/mobile credential flows remain disabled until a provider and required controls are available. |
+| Shared identity | Session, role-grant, active-context, API authorization primitives, bearer-session logout, and same-origin browser logout bridge | Public OTP delivery/login, cookie issuance, and mobile credential flows remain disabled until a provider and required controls are available. |
 | Android app | Android foundation and secure session storage adapter | Role-specific journeys, release identity, signing, and device validation remain open; iOS is out of scope. |
 
 ## Delivery gate update
@@ -176,7 +177,9 @@ Run #156 completed all configured gates successfully for Export Partner order-re
 
 Run #158 completed all configured gates successfully for Supporting Organization and Corporate Buyer shell Playwright coverage commit `99293570eb018704e1663a23f9011c2c19e98e5c`, including migrations, security audit, lint, typecheck, full tests, build, and E2E. The new browser check verifies both RTL role shells, navigation counts, truthful empty states, and absence of operational actions or sample data.
 
-Run #160 completed every configured CI gate successfully for bearer-session logout API commit `1713aa14f3a1123568413b7097f74f226719707b`, including migration reset/deploy, security audit, lint, typecheck, full tests, monorepo build, and Playwright E2E smoke. The endpoint revokes only the current unexpired bearer session and does not require an active role; public OTP/login, browser-cookie handling, and mobile logout wiring remain disabled.
+Run #160 completed every configured CI gate successfully for bearer-session logout API commit `1713aa14f3a1123568413b7097f74f226719707b`, including migration reset/deploy, security audit, lint, typecheck, full tests, monorepo build, and Playwright E2E smoke. The endpoint revokes only the current unexpired bearer session and does not require an active role; public OTP/login and mobile logout wiring remain disabled.
+
+Run #162 completed every configured CI gate successfully for the same-origin browser logout bridge commit `b0918a563e2dcde0c4568e8d6ec81f056fa5cb82`, including Prisma gates, security audit, lint, typecheck, all tests, build, and Playwright E2E smoke. The bridge rejects cross-origin requests, clears a valid or stale session cookie after API revocation or an already-invalid session, and preserves the cookie when the API is unavailable so logout can be retried. It does not issue cookies or enable login.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
