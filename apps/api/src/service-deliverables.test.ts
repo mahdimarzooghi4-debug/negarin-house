@@ -35,6 +35,10 @@ function fixture(stored = { contentType: "application/pdf", contentLength: 2048 
       findUnique: vi.fn(),
       updateMany: vi.fn().mockResolvedValue({ count: 1 }),
       delete: vi.fn()
+    },
+    serviceDeliverableSubmission: {
+      createMany: vi.fn().mockResolvedValue({ count: 1 }),
+      findUnique: vi.fn().mockResolvedValue({ createdAt: new Date("2026-09-30T10:00:00.000Z") })
     }
   };
   Object.assign(database, {
@@ -183,6 +187,34 @@ describe("Service Partner deliverables", () => {
     })]);
     expect(result[0]).not.toHaveProperty("objectKey");
     expect(storage.createReadUrl).toHaveBeenCalledWith("private/storage/key");
+  });
+
+  it("records one submission for a ready deliverable without exposing its actor", async () => {
+    const { service, database } = fixture();
+    database.serviceDeliverable.findFirst.mockResolvedValue({
+      id: deliverableId, status: "ready", submission: null
+    });
+    await expect(service.submit(context, assignmentId, deliverableId)).resolves.toEqual({
+      deliverableId, submittedAt: "2026-09-30T10:00:00.000Z"
+    });
+    expect(database.serviceDeliverableSubmission.createMany).toHaveBeenCalledWith({
+      data: [{ deliverableId, actorUserId: userId }], skipDuplicates: true
+    });
+    expect(database.serviceAssignment.findFirst).toHaveBeenCalledTimes(2);
+  });
+
+  it("rejects pending, missing, out-of-scope, and already-submitted deliverables", async () => {
+    const { service, database } = fixture();
+    await expect(service.submit(context, assignmentId, deliverableId)).rejects.toThrow(ConflictException);
+    expect(database.serviceDeliverableSubmission.createMany).not.toHaveBeenCalled();
+    database.serviceDeliverable.findFirst.mockResolvedValue(null);
+    await expect(service.submit(context, assignmentId, deliverableId)).rejects.toThrow(NotFoundException);
+    database.serviceDeliverable.findFirst.mockResolvedValue({
+      id: deliverableId, status: "ready", submission: { createdAt: new Date() }
+    });
+    await expect(service.submit(context, assignmentId, deliverableId)).rejects.toThrow(ConflictException);
+    database.serviceAssignment.findFirst.mockResolvedValue(null);
+    await expect(service.submit(context, assignmentId, deliverableId)).rejects.toThrow(NotFoundException);
   });
 
   it("does not complete an upload when stored metadata is absent", async () => {

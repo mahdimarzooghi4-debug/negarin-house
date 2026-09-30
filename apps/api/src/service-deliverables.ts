@@ -28,7 +28,10 @@ export class ServiceDeliverablesService {
     const files = await this.database.serviceDeliverable.findMany({
       where: { assignmentId },
       orderBy: [{ createdAt: "asc" }, { id: "asc" }],
-      select: { id: true, fileName: true, contentType: true, contentLength: true, status: true, objectKey: true, createdAt: true }
+      select: {
+        id: true, fileName: true, contentType: true, contentLength: true, status: true, objectKey: true, createdAt: true,
+        submission: { select: { createdAt: true } }
+      }
     });
     return Promise.all(files.map(async (file) => ({
       id: file.id,
@@ -37,8 +40,35 @@ export class ServiceDeliverablesService {
       contentLength: file.contentLength,
       status: file.status,
       readUrl: file.status === "ready" ? await this.storage.createReadUrl(file.objectKey) : null,
-      createdAt: file.createdAt.toISOString()
+      createdAt: file.createdAt.toISOString(),
+      submittedAt: file.submission?.createdAt.toISOString() ?? null
     })));
+  }
+
+  async submit(context: AuthorizationContext, assignmentId: string, deliverableId: string) {
+    await this.readableAssignment(context, assignmentId, this.database, true);
+    const file = await this.database.serviceDeliverable.findFirst({
+      where: { id: deliverableId, assignmentId },
+      select: { id: true, status: true, submission: { select: { createdAt: true } } }
+    });
+    if (!file) throw new NotFoundException();
+    if (file.status !== "ready") throw new ConflictException("deliverable-upload-not-ready");
+    if (file.submission) throw new ConflictException("deliverable-already-submitted");
+
+    return this.database.$transaction(async (transaction) => {
+      await this.readableAssignment(context, assignmentId, transaction, true);
+      const result = await transaction.serviceDeliverableSubmission.createMany({
+        data: [{ deliverableId: file.id, actorUserId: context.userId }],
+        skipDuplicates: true
+      });
+      if (result.count !== 1) throw new ConflictException("deliverable-already-submitted");
+      const submission = await transaction.serviceDeliverableSubmission.findUnique({
+        where: { deliverableId: file.id },
+        select: { createdAt: true }
+      });
+      if (!submission) throw new ConflictException("deliverable-submission-not-recorded");
+      return { deliverableId: file.id, submittedAt: submission.createdAt.toISOString() };
+    });
   }
 
   async requestUpload(context: AuthorizationContext, assignmentId: string, input: ServiceDeliverableUploadRequest) {

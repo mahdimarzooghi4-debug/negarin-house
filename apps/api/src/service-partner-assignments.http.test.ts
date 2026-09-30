@@ -166,6 +166,53 @@ describe("Service Partner assignments HTTP contract", () => {
     })]);
     expect(listedDeliverables.json()[0]).not.toHaveProperty("objectKey");
     expect(listedDeliverables.json()[0]).not.toHaveProperty("uploadedByUserId");
+    expect(listedDeliverables.json()[0].submittedAt).toBeNull();
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/deliverables/${deliverableId}/submit`,
+      headers: partner
+    })).statusCode).toBe(409);
+
+    const readyDeliverable = await database.serviceDeliverable.create({ data: {
+      assignmentId: organizationAssignment.id,
+      uploadedByUserId: partner.userId,
+      objectKey: `services/assignments/${organizationAssignment.id}/deliverables/${randomUUID()}/ready`,
+      fileName: "final-report.pdf",
+      contentType: "application/pdf",
+      contentLength: 2048,
+      status: "ready"
+    } });
+    const submissionResponse = await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/deliverables/${readyDeliverable.id}/submit`,
+      headers: partner
+    });
+    expect(submissionResponse.statusCode).toBe(201);
+    expect(submissionResponse.headers["cache-control"]).toBe("no-store");
+    expect(submissionResponse.json()).toMatchObject({ deliverableId: readyDeliverable.id });
+    expect(submissionResponse.json()).toHaveProperty("submittedAt");
+    expect(submissionResponse.json()).not.toHaveProperty("actorUserId");
+    expect(await database.serviceDeliverableSubmission.count({ where: {
+      deliverableId: readyDeliverable.id, actorUserId: partner.userId
+    } })).toBe(1);
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/deliverables/${readyDeliverable.id}/submit`,
+      headers: partner
+    })).statusCode).toBe(409);
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/deliverables/${readyDeliverable.id}/submit`,
+      headers: otherPartner
+    })).statusCode).toBe(404);
+    const submissionList = await app.inject({
+      method: "GET",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/deliverables`,
+      headers: partner
+    });
+    expect(submissionList.json()).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: readyDeliverable.id, status: "ready", submittedAt: submissionResponse.json().submittedAt })
+    ]));
 
     expect((await app.inject({
       method: "POST",

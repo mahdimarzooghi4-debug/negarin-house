@@ -30,6 +30,7 @@ model IdentityUser {
   authoredServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentAuthor")
   serviceAssignmentResponses ServiceAssignmentEvent[]
   uploadedServiceDeliverables ServiceDeliverable[]
+  serviceDeliverableSubmissions ServiceDeliverableSubmission[]
 
   @@map("identity_users")
 }
@@ -190,9 +191,22 @@ model ServiceDeliverable {
   status           ServiceDeliverableStatus @default(pending)
   createdAt        DateTime                @default(now())
   updatedAt        DateTime                @updatedAt
+  submission       ServiceDeliverableSubmission?
 
   @@index([assignmentId, status, createdAt])
   @@map("service_deliverables")
+}
+
+model ServiceDeliverableSubmission {
+  id             String           @id @default(uuid()) @db.Uuid
+  deliverableId  String           @unique @db.Uuid
+  deliverable    ServiceDeliverable @relation(fields: [deliverableId], references: [id], onDelete: Cascade)
+  actorUserId    String           @db.Uuid
+  actor          IdentityUser     @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  createdAt      DateTime         @default(now())
+
+  @@index([actorUserId, createdAt])
+  @@map("service_deliverable_submissions")
 }
 
 model OtpChallenge {

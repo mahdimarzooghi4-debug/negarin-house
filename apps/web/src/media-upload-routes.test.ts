@@ -12,6 +12,7 @@ import { PUT as uploadMedia } from "./app/api/artist/products/[productId]/media/
 import { POST as createDeliverable } from "./app/api/service-partner/assignments/[assignmentId]/deliverables/route";
 import { PUT as uploadDeliverable } from "./app/api/service-partner/assignments/[assignmentId]/deliverables/[deliverableId]/upload/route";
 import { POST as respondToAssignment } from "./app/api/service-partner/assignments/[assignmentId]/response/route";
+import { POST as submitDeliverable } from "./app/api/service-partner/assignments/[assignmentId]/deliverables/[deliverableId]/submit/route";
 
 describe("Artist media same-origin routes", () => {
   const originalFetch = globalThis.fetch;
@@ -193,6 +194,34 @@ describe("Service Partner assignment response same-origin route", () => {
       method: "POST", headers: { Origin: "http://localhost" }, body: JSON.stringify({ response: "accepted", padding: "x".repeat(70_000) })
     }), { params: Promise.resolve({ assignmentId: "assignment-1" }) });
     expect(oversized.status).toBe(413);
+    expect(requestArtistApi).not.toHaveBeenCalled();
+  });
+});
+
+describe("Service Partner deliverable submission same-origin route", () => {
+  beforeEach(() => requestArtistApi.mockReset());
+
+  it("forwards the scoped submit command without a browser-supplied body", async () => {
+    requestArtistApi.mockResolvedValue({ status: 201, data: {
+      deliverableId: "deliverable-1", submittedAt: "2026-09-30T10:00:00.000Z"
+    } });
+    const response = await submitDeliverable(new Request("http://localhost/submit", {
+      method: "POST", headers: { Origin: "http://localhost" }
+    }), { params: Promise.resolve({ assignmentId: "assignment-1", deliverableId: "deliverable-1" }) });
+
+    expect(response.status).toBe(201);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(await response.json()).toEqual({ deliverableId: "deliverable-1", submittedAt: "2026-09-30T10:00:00.000Z" });
+    expect(requestArtistApi).toHaveBeenCalledWith(
+      "service-partner/assignments/assignment-1/deliverables/deliverable-1/submit", { method: "POST" }
+    );
+  });
+
+  it("rejects cross-origin submission before reaching the API", async () => {
+    const response = await submitDeliverable(new Request("http://localhost/submit", {
+      method: "POST", headers: { Origin: "https://attacker.invalid" }
+    }), { params: Promise.resolve({ assignmentId: "assignment-1", deliverableId: "deliverable-1" }) });
+    expect(response.status).toBe(403);
     expect(requestArtistApi).not.toHaveBeenCalled();
   });
 });

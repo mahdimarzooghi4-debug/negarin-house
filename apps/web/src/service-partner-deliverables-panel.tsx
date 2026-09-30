@@ -67,6 +67,24 @@ export function ServicePartnerDeliverablesPanel({ assignmentId, initialState }: 
     }
   }
 
+  async function submitForReview(deliverableId: string) {
+    setMessage("");
+    setBusy(true);
+    try {
+      const response = await fetch(
+        `/api/service-partner/assignments/${encodeURIComponent(assignmentId)}/deliverables/${encodeURIComponent(deliverableId)}/submit`,
+        { method: "POST" }
+      );
+      if (!response.ok) throw new Error("submit-failed");
+      await refresh();
+      setMessage("فایل برای بررسی نگارین ارسال شد.");
+    } catch {
+      setMessage("ارسال فایل انجام نشد. وضعیت را دوباره بررسی کن.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
   return (
     <section className="service-partner-deliverables" aria-labelledby="service-partner-deliverables-title">
       <div className="service-partner-deliverables-heading">
@@ -111,6 +129,12 @@ export function ServicePartnerDeliverablesPanel({ assignmentId, initialState }: 
                   {item.status === "ready" && item.readUrl
                     ? <a href={item.readUrl} target="_blank" rel="noreferrer">دریافت فایل</a>
                     : <span>در انتظار تکمیل آپلود</span>}
+                  {item.status === "ready" && (item.submittedAt
+                    ? <span>ارسال‌شده برای بررسی نگارین</span>
+                    : <button type="button" disabled={busy} onClick={() => void submitForReview(item.id)}>
+                        ارسال برای بررسی نگارین
+                      </button>)}
+                  {item.submittedAt && <time dateTime={item.submittedAt}>{formatDate(item.submittedAt)}</time>}
                 </li>
               ))}
             </ul>

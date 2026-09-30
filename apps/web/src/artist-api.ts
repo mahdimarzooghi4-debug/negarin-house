@@ -38,6 +38,7 @@ export type ServicePartnerDeliverable = {
   status: "pending" | "ready";
   readUrl: string | null;
   createdAt: string;
+  submittedAt: string | null;
 };
 
 export type StaffServiceAssignmentOptions = {

@@ -47,4 +47,16 @@ export class ServiceDeliverablesController {
       request.authorizationContext!, parseArtistProductId(assignmentId), parseArtistProductId(deliverableId)
     );
   }
+
+  @Post(":deliverableId/submit")
+  @Header("Cache-Control", "no-store")
+  submit(
+    @Req() request: AuthorizedRequest,
+    @Param("assignmentId") assignmentId: string,
+    @Param("deliverableId") deliverableId: string
+  ) {
+    return this.deliverables.submit(
+      request.authorizationContext!, parseArtistProductId(assignmentId), parseArtistProductId(deliverableId)
+    );
+  }
 }

@@ -97,4 +97,5 @@ test("service partner request details stay behind assignment authorization", asy
   await expect(page.getByRole("link", { name: "بازگشت به درخواست‌های تخصیص‌یافته" })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "پاسخ به تخصیص" })).toHaveCount(0);
   await expect(page.locator('input[type="file"]')).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "ارسال برای بررسی نگارین" })).toHaveCount(0);
 });
