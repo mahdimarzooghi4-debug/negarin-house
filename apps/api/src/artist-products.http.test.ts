@@ -17,7 +17,7 @@ describe("Artist product HTTP contract", () => {
   }, "test-secret-with-at-least-thirty-two-characters");
   const contexts = new ActiveContextResolver(database);
 
-  async function signIn(role: "artist" | "staff" | "customer" | "supporting_organization" = "artist", organizationId?: string) {
+  async function signIn(role: "artist" | "staff" | "customer" | "supporting_organization" | "corporate_buyer" = "artist", organizationId?: string) {
     const phone = `+1555${randomInt(1_000_000, 9_999_999)}`;
     await identity.requestCode(phone);
     const user = await identity.verifyCode(phone, codes.get(phone) ?? "");
@@ -111,6 +111,28 @@ describe("Artist product HTTP contract", () => {
     expect((await app.inject({ method: "POST", url: `/api/v1/artist/products/${productId}/archive`, headers: support })).statusCode).toBe(403);
 
     expect(await database.artistProduct.count({ where: { artistUserId: support.userId } })).toBe(supportProductCount);
+    const unchanged = await app.inject({ method: "GET", url: `/api/v1/artist/products/${productId}`, headers: owner });
+    expect(unchanged.json()).toMatchObject({ priceToman: "2450000", archivedAt: null, publicationStatus: "draft" });
+  });
+
+  it("keeps Artist products and prices outside Corporate Buyer authority", async () => {
+    const owner = await signIn();
+    const organization = await database.organization.create({ data: { kind: "corporate_buyer" } });
+    const buyer = await signIn("corporate_buyer", organization.id);
+    const created = await app.inject({
+      method: "POST", url: "/api/v1/artist/products", headers: owner,
+      payload: { title: "محصول هنرمند", priceToman: "2450000" }
+    });
+    const productId = created.json<{ id: string }>().id;
+
+    expect((await app.inject({ method: "GET", url: "/api/v1/artist/products", headers: buyer })).statusCode).toBe(403);
+    expect((await app.inject({ method: "GET", url: `/api/v1/artist/products/${productId}`, headers: buyer })).statusCode).toBe(403);
+    expect((await app.inject({ method: "POST", url: "/api/v1/artist/products", headers: buyer,
+      payload: { title: "محصول خریدار", priceToman: "1" } })).statusCode).toBe(403);
+    expect((await app.inject({ method: "PATCH", url: `/api/v1/artist/products/${productId}`, headers: buyer,
+      payload: { priceToman: "1" } })).statusCode).toBe(403);
+    expect((await app.inject({ method: "POST", url: `/api/v1/artist/products/${productId}/archive`, headers: buyer })).statusCode).toBe(403);
+
     const unchanged = await app.inject({ method: "GET", url: `/api/v1/artist/products/${productId}`, headers: owner });
     expect(unchanged.json()).toMatchObject({ priceToman: "2450000", archivedAt: null, publicationStatus: "draft" });
   });
