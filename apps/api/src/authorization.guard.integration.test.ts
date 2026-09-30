@@ -50,12 +50,16 @@ describe("HTTP authorization boundary", () => {
   }, "test-secret-with-at-least-thirty-two-characters");
   const resolver = new ActiveContextResolver(database);
 
-  async function session(role: "artist" | "staff", domains: string[] = []) {
+  async function session(role: "artist" | "staff" | "supporting_organization", domains: string[] = []) {
     const phone = `+1555${randomInt(1_000_000, 9_999_999)}`;
     await identity.requestCode(phone);
     const signed = await identity.verifyCode(phone, codes.get(phone) ?? "");
+    const organization = role === "supporting_organization"
+      ? await database.organization.create({ data: { kind: "supporting_organization" } })
+      : undefined;
     const grant = await database.roleGrant.create({ data: {
       userId: signed.userId, role,
+      ...(organization ? { organizationId: organization.id } : {}),
       staffDomains: { create: domains.map((domain) => ({ domain })) }
     } });
     await resolver.select(signed.sessionToken, grant.id);
@@ -100,5 +104,18 @@ describe("HTTP authorization boundary", () => {
     expect((await call()).statusCode).toBe(200);
     await database.staffDomainGrant.delete({ where: { id: permission.id } });
     expect((await call()).statusCode).toBe(403);
+  });
+
+  it("denies Supporting Organization access to Artist domestic finance over HTTP", async () => {
+    const artist = await session("artist");
+    const organization = await session("supporting_organization");
+    const id = randomUUID();
+    owners.set(id, artist.userId);
+
+    const response = await app.inject({ method: "GET", url: `/test-resources/finance/${id}`,
+      headers: { authorization: `Bearer ${organization.sessionToken}` } });
+
+    expect(response.statusCode).toBe(403);
+    expect(response.json()).not.toHaveProperty("id");
   });
 });
