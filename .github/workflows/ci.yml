@@ -48,11 +48,11 @@ jobs:
       OTEL_SDK_DISABLED: "true"
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/setup@v3
+      - uses: actions/setup-node@v4
         with:
-          version: 12.7.0
-          runtime: node@22.20.0
-          install: false
+          node-version: 22.20.0
+      - run: corepack enable
+      - run: corepack prepare pnpm@12.7.0 --activate
       - run: pnpm install --frozen-lockfile
       - run: pnpm db:generate
       - run: pnpm db:validate
