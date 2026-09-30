@@ -17,15 +17,20 @@ describe("Artist product HTTP contract", () => {
   }, "test-secret-with-at-least-thirty-two-characters");
   const contexts = new ActiveContextResolver(database);
 
-  async function signIn(role: "artist" | "staff" | "customer" = "artist") {
+  async function signIn(role: "artist" | "staff" | "customer" | "supporting_organization" = "artist", organizationId?: string) {
     const phone = `+1555${randomInt(1_000_000, 9_999_999)}`;
     await identity.requestCode(phone);
     const user = await identity.verifyCode(phone, codes.get(phone) ?? "");
     const grant = await database.roleGrant.create({
-      data: { userId: user.userId, role, ...(role === "staff" ? { staffDomains: { create: [{ domain: "products" }] } } : {}) }
+      data: {
+        userId: user.userId,
+        role,
+        ...(organizationId ? { organizationId } : {}),
+        ...(role === "staff" ? { staffDomains: { create: [{ domain: "products" }] } } : {})
+      }
     });
     await contexts.select(user.sessionToken, grant.id);
-    return { authorization: `Bearer ${user.sessionToken}` };
+    return { authorization: `Bearer ${user.sessionToken}`, userId: user.userId };
   }
 
   beforeAll(async () => {
@@ -84,6 +89,30 @@ describe("Artist product HTTP contract", () => {
     expect((await app.inject({ method: "POST", url: `/api/v1/artist/products/${productId}/archive`, headers: other })).statusCode).toBe(404);
     expect((await app.inject({ method: "PATCH", url: `/api/v1/artist/products/${productId}`, headers: staff,
       payload: { priceToman: "1" } })).statusCode).toBe(403);
+  });
+
+  it("keeps Artist products and prices outside Supporting Organization authority", async () => {
+    const owner = await signIn();
+    const organization = await database.organization.create({ data: { kind: "supporting_organization" } });
+    const support = await signIn("supporting_organization", organization.id);
+    const created = await app.inject({
+      method: "POST", url: "/api/v1/artist/products", headers: owner,
+      payload: { title: "محصول هنرمند", priceToman: "2450000" }
+    });
+    const productId = created.json<{ id: string }>().id;
+    const supportProductCount = await database.artistProduct.count({ where: { artistUserId: support.userId } });
+
+    expect((await app.inject({ method: "GET", url: "/api/v1/artist/products", headers: support })).statusCode).toBe(403);
+    expect((await app.inject({ method: "GET", url: `/api/v1/artist/products/${productId}`, headers: support })).statusCode).toBe(403);
+    expect((await app.inject({ method: "POST", url: "/api/v1/artist/products", headers: support,
+      payload: { title: "محصول سازمان", priceToman: "1" } })).statusCode).toBe(403);
+    expect((await app.inject({ method: "PATCH", url: `/api/v1/artist/products/${productId}`, headers: support,
+      payload: { priceToman: "1" } })).statusCode).toBe(403);
+    expect((await app.inject({ method: "POST", url: `/api/v1/artist/products/${productId}/archive`, headers: support })).statusCode).toBe(403);
+
+    expect(await database.artistProduct.count({ where: { artistUserId: support.userId } })).toBe(supportProductCount);
+    const unchanged = await app.inject({ method: "GET", url: `/api/v1/artist/products/${productId}`, headers: owner });
+    expect(unchanged.json()).toMatchObject({ priceToman: "2450000", archivedAt: null, publicationStatus: "draft" });
   });
 
   it("rejects numeric price values and unknown write fields", async () => {
