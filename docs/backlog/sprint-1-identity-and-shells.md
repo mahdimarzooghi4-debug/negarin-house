@@ -10,7 +10,7 @@ Create real server-derived identity, session, and authorization foundations, the
 
 ## Delivery slices
 
-1. **E1-S3 policy boundary (this PR):** reusable deny-by-default policies for Artist product ownership, Corporate Buyer order scope, Service Partner assignment, domestic Artist finance, and staff permission domains. Test both allowed and forbidden relationships. Policy inputs are trusted server-side resource projections, not client-provided claims.
+1. **E1-S3 policy boundary (this PR):** reusable deny-by-default policies for Artist product ownership, Corporate Buyer order scope, Service Partner assignment, domestic Artist finance, direct-to-Artist payment denial, and staff permission domains. Test both allowed and forbidden relationships. Policy inputs are trusted server-side resource projections, not client-provided claims. The direct payment guard is only an authorization prohibition; it does not define or implement payment, fee, order, or settlement behavior.
 2. **E1-S1 identity and session:** design persistence and OTP provider adapter; implement expiry, retry/rate limits, revocation, secure browser cookie, and negative tests. No SMS vendor or OTP secret logging.
 3. **E1-S2 active context:** resolve role and organization/Partner memberships from the server for each protected request. A role/context switch must revalidate membership.
 4. **E1-S3 integration:** enforce policies in API service/queries and test HTTP 403/404 disclosure behavior. No frontend route guard substitutes for API authorization.
@@ -22,7 +22,7 @@ Create real server-derived identity, session, and authorization foundations, the
 - Unassigned Service Partner requests are denied.
 - Supporting Organization and Export Partner cannot read Artist domestic finance; staff without finance permission is denied.
 - Policies do not imply that authentication, database-scoped queries, or HTTP enforcement is complete.
-- No direct Corporate/Export Partner → Artist payment command or unresolved financial formula is introduced.
+- Direct-to-Artist payment commands are denied to user-role contexts; this guard does not define the permitted intermediary route, a payment provider, or financial formulas. No direct Corporate/Export Partner → Artist payment command or unresolved financial formula is introduced.
 
 ## Identity core progress
 
