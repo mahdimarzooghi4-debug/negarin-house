@@ -37,6 +37,13 @@ Growth cannot be purchased.
 - No unrestricted Artist browsing.
 - No access to Artist private finance, Growth, membership internals, unrelated orders, or Admin notes.
 
+### Service requests — decided
+- Artist can submit a service request with a title and description and can read only their own request.
+- An Admin with the services permission assigns a registered Service Partner.
+- The Service Partner may accept or decline an assignment and submit a deliverable for Negarin review.
+- An authorized Admin either approves the deliverable, completing the service, or requests changes with feedback. After changes are requested, the Partner may submit a replacement file.
+- No service price, schedule, direct-payment path, or additional execution status is defined by this workflow.
+
 ### Supporting Organization
 - Limited to its own programs, referrals, support relationships, usage, reports, and organization users.
 - Referral does not equal Artist approval.
