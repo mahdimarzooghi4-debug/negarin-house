@@ -3,6 +3,7 @@ import {
   canEditArtistProduct,
   canReadArtistDomesticFinance,
   canReadCorporateOrder,
+  canReviewExportPublication,
   canReadSupportRelationship,
   canAccessStaffDomain,
   canReadServiceRequest,
@@ -71,6 +72,20 @@ describe("server-side relationship policies", () => {
     expect(canReadServiceRequest(partner, { assignedPartnerOrganizationId: null })).toEqual({ allowed: false, reason: "not-found" });
     expect(canReadServiceRequest(partner, { assignedPartnerOrganizationId: "partner-a", assignedPartnerUserId: "user-b" })).toEqual({ allowed: false, reason: "not-found" });
     expect(canReadServiceRequest(partner, { assignedPartnerOrganizationId: "partner-a", assignedPartnerUserId: "user-a" })).toEqual({ allowed: true });
+  });
+
+  it("limits Export Publication review actions to staff with the international permission", () => {
+    expect(canReviewExportPublication(context("staff", { staffPermissionDomains: ["international"] })))
+      .toEqual({ allowed: true });
+    expect(canReviewExportPublication(context("staff", { staffPermissionDomains: ["products"] })))
+      .toEqual({ allowed: false, reason: "forbidden" });
+    expect(canReviewExportPublication(context("staff")))
+      .toEqual({ allowed: false, reason: "forbidden" });
+
+    for (const role of roles.filter((candidate) => candidate !== "staff")) {
+      expect(canReviewExportPublication(context(role, { staffPermissionDomains: ["international"] })))
+        .toEqual({ allowed: false, reason: "forbidden" });
+    }
   });
 
   it("requires organization context and denies the same assignment to every other role", () => {

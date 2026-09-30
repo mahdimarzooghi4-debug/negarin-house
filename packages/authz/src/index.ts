@@ -113,3 +113,8 @@ export function canAccessStaffDomain(
     ? allow
     : denyByDefault();
 }
+
+/** Export publication review commands require the dedicated internal international permission. */
+export function canReviewExportPublication(context: AuthorizationContext): AuthorizationDecision {
+  return canAccessStaffDomain(context, "international");
+}
