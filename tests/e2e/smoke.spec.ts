@@ -88,6 +88,16 @@ test("staff service submissions remain behind real services permission", async (
   await expect(page.getByRole("link", { name: "بازکردن فایل" })).toHaveCount(0);
 });
 
+test("staff service request authoring requires a real services session", async ({ page }) => {
+  await page.goto("/admin/service-requests");
+
+  await expect(page.getByRole("heading", { name: "ثبت درخواست خدمت" }).first()).toBeVisible();
+  await expect(page.getByText("ورود کارکنان فعال نیست")).toBeVisible();
+  await expect(page.getByRole("button", { name: "ثبت درخواست" })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "ثبت درخواست" })).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("link", { name: "تخصیص درخواست" })).toHaveAttribute("href", "/admin/service-assignments");
+});
+
 test("service partner assignment inbox requires a real session and does not invent requests", async ({ page }) => {
   await page.goto("/service-partner/assignments");
 

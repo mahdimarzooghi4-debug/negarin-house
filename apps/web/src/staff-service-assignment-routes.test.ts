@@ -9,6 +9,7 @@ vi.mock("./artist-api", () => ({
 
 import { GET as getOptions } from "./app/api/admin/service-assignments/options/route";
 import { POST as createAssignment } from "./app/api/admin/service-assignments/route";
+import { POST as createServiceRequest } from "./app/api/admin/service-requests/route";
 import { GET as getSubmissions } from "./app/api/admin/service-deliverables/route";
 
 describe("staff service assignment same-origin routes", () => {
@@ -50,6 +51,26 @@ describe("staff service assignment same-origin routes", () => {
     expect(response.headers.get("cache-control")).toBe("no-store");
     expect(await response.json()).toEqual({ assignmentId: "assignment-1" });
     expect(requestArtistApi).toHaveBeenCalledWith("admin/service-assignments", {
+      method: "POST", body: JSON.stringify(body)
+    });
+  });
+
+  it("forwards service request writes only from same-origin requests", async () => {
+    requestArtistApi.mockResolvedValue({ status: 201, data: { requestId: "request-1" } });
+    const body = { title: "بسته‌بندی آثار", summary: "شرح برای شریک خدماتی" };
+    const crossOrigin = await createServiceRequest(new Request("http://localhost/api/admin/service-requests", {
+      method: "POST", headers: { Origin: "https://attacker.invalid" }, body: JSON.stringify(body)
+    }));
+    expect(crossOrigin.status).toBe(403);
+    expect(requestArtistApi).not.toHaveBeenCalled();
+
+    const response = await createServiceRequest(new Request("http://localhost/api/admin/service-requests", {
+      method: "POST", headers: { Origin: "http://localhost", "Content-Type": "application/json" }, body: JSON.stringify(body)
+    }));
+    expect(response.status).toBe(201);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(await response.json()).toEqual({ requestId: "request-1" });
+    expect(requestArtistApi).toHaveBeenCalledWith("admin/service-requests", {
       method: "POST", body: JSON.stringify(body)
     });
   });

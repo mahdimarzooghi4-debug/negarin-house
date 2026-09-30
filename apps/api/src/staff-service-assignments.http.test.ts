@@ -47,6 +47,26 @@ describe("Staff Service Partner assignment authoring HTTP contract", () => {
   });
   afterAll(async () => { await app?.close(); await database.$disconnect(); });
 
+  it("lets services staff create a service request and records its author", async () => {
+    const servicesStaff = await signInStaff(["services"]);
+    const post = (payload: Record<string, unknown>, headers = servicesStaff) => app.inject({
+      method: "POST", url: "/api/v1/admin/service-requests", headers, payload
+    });
+
+    const response = await post({ title: "  بسته‌بندی آثار  ", summary: "  هماهنگی آماده‌سازی  " });
+    expect(response.statusCode).toBe(201);
+    expect(response.headers["cache-control"]).toBe("no-store");
+    expect(response.json()).toMatchObject({ title: "بسته‌بندی آثار", summary: "هماهنگی آماده‌سازی" });
+    const stored = await database.serviceRequest.findUnique({ where: { id: response.json().requestId } });
+    expect(stored?.createdByUserId).toBe(servicesStaff.userId);
+
+    const productsStaff = await signInStaff(["products"]);
+    expect((await post({ title: "درخواست نامجاز" }, productsStaff)).statusCode).toBe(403);
+    expect((await app.inject({ method: "POST", url: "/api/v1/admin/service-requests", payload: { title: "بدون نشست" } })).statusCode).toBe(401);
+    expect((await post({ title: "   " })).statusCode).toBe(400);
+    expect((await post({ title: "درخواست", unknown: true })).statusCode).toBe(400);
+  });
+
   it("lets services staff append assignments and records the author", async () => {
     const organization = await database.organization.create({ data: { kind: "service_partner" } });
     const memberId = await createPartnerMember(organization.id);

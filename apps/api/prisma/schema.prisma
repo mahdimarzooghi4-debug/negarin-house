@@ -28,6 +28,7 @@ model IdentityUser {
   productPublicationEvents ProductPublicationEvent[]
   serviceAssignments ServiceAssignment[] @relation("ServiceAssignmentUser")
   authoredServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentAuthor")
+  createdServiceRequests ServiceRequest[] @relation("ServiceRequestAuthor")
   serviceAssignmentResponses ServiceAssignmentEvent[]
   uploadedServiceDeliverables ServiceDeliverable[]
   serviceDeliverableSubmissions ServiceDeliverableSubmission[]
@@ -116,12 +117,16 @@ model ArtistProductMedia {
 }
 
 model ServiceRequest {
-  id             String              @id @default(uuid()) @db.Uuid
-  partnerTitle   String
-  partnerSummary String?
-  createdAt      DateTime            @default(now())
-  updatedAt      DateTime            @updatedAt
-  assignments    ServiceAssignment[]
+  id              String              @id @default(uuid()) @db.Uuid
+  partnerTitle    String
+  partnerSummary  String?
+  createdByUserId String?             @db.Uuid
+  createdBy       IdentityUser?       @relation("ServiceRequestAuthor", fields: [createdByUserId], references: [id], onDelete: SetNull)
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  assignments     ServiceAssignment[]
+
+  @@index([createdByUserId, createdAt])
 
   @@map("service_requests")
 }

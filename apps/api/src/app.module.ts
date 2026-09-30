@@ -16,6 +16,8 @@ import { ServicePartnerAssignmentsController } from "./service-partner-assignmen
 import { ServicePartnerAssignmentsService } from "./service-partner-assignments.js";
 import { StaffServiceAssignmentsController } from "./staff-service-assignments.controller.js";
 import { StaffServiceAssignmentsService } from "./staff-service-assignments.js";
+import { StaffServiceRequestsController } from "./staff-service-requests.controller.js";
+import { StaffServiceRequestsService } from "./staff-service-requests.js";
 import { ServiceDeliverablesController } from "./service-deliverables.controller.js";
 import { ServiceDeliverablesService } from "./service-deliverables.js";
 import { StaffServiceDeliverablesController } from "./staff-service-deliverables.controller.js";
@@ -32,6 +34,7 @@ import { StaffServiceDeliverablesService } from "./staff-service-deliverables.js
     ServicePartnerAssignmentsController,
     ServiceDeliverablesController,
     StaffServiceAssignmentsController,
+    StaffServiceRequestsController,
     StaffServiceDeliverablesController
   ],
   providers: [
@@ -43,6 +46,7 @@ import { StaffServiceDeliverablesService } from "./staff-service-deliverables.js
     ServicePartnerAssignmentsService,
     ServiceDeliverablesService,
     StaffServiceAssignmentsService,
+    StaffServiceRequestsService,
     StaffServiceDeliverablesService,
     {
       provide: OBJECT_STORAGE,
