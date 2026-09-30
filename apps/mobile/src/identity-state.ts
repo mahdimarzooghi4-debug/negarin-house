@@ -21,6 +21,10 @@ type MobileIdentityClient = {
   readActiveContext(): Promise<AuthorizationContext>;
 };
 
+type MobileIdentityGrantSelectionClient = MobileIdentityClient & {
+  selectGrant(grantId: string): Promise<AuthorizationContext>;
+};
+
 const contextRoles: Record<SelectableIdentityGrant['role'], Role> = {
   customer: 'customer',
   artist: 'artist',
@@ -67,6 +71,35 @@ export async function readMobileIdentityState(client: MobileIdentityClient): Pro
     kind: 'active',
     grants: selectable.grants,
     activeGrantId: activeGrant.id,
+    context,
+  };
+}
+
+/**
+ * Select an explicitly supplied grant using the server and verify that the
+ * returned context belongs to it. The helper never chooses a default role.
+ */
+export async function selectMobileIdentityGrant(
+  client: MobileIdentityGrantSelectionClient,
+  grantId: string,
+): Promise<MobileIdentityState> {
+  if (grantId.trim().length === 0) throw new TypeError('Grant ID must not be empty');
+
+  const selectable = await client.listSelectableGrants();
+  if (selectable.grants.length === 0) return { kind: 'no-grants', grants: [] };
+
+  const grant = selectable.grants.find(({ id }) => id === grantId);
+  if (!grant) throw new TypeError('Selected grant is not available to this session');
+
+  const context = await client.selectGrant(grantId);
+  if (!matchesGrant(context, grant)) {
+    throw new TypeError('Identity API returned a context that does not match the selected grant');
+  }
+
+  return {
+    kind: 'active',
+    grants: selectable.grants,
+    activeGrantId: grant.id,
     context,
   };
 }
