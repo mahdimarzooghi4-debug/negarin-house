@@ -4,8 +4,8 @@
 |---|---|
 | Sprint | In progress |
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
-| Code commit verified by CI | `130587095fe77a867f2ebcf005e7c771e2fb33b6` |
-| Code CI | [GitHub Actions run #150](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36695628469): success |
+| Code commit verified by CI | `27f22dd17a95777c460347cc84b76f31ce68f248` |
+| Code CI | [GitHub Actions run #152](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36698741696): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
@@ -13,6 +13,7 @@
 | Service Partner access-state handling | Commit `8f7b245c93b23eb422bcec7e0a16c4b6957cd5b5`, verified by [CI run #102](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36624962410): success |
 | Organization registry and context validation | Commit `f5353cf4fae019fcd44151425fffd2f9670de3d7`, verified by [CI run #104](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36626783684): success |
 | Export Partner Organization registry | Commit `130587095fe77a867f2ebcf005e7c771e2fb33b6`, verified by [CI run #150](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36695628469): success |
+| Export Partner locale E2E | Commit `27f22dd17a95777c460347cc84b76f31ce68f248`, verified by [CI run #152](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36698741696): success |
 | Service assignment authoring API | Commit `eb67808de3f9134210579a2315d888be72efe889`, verified by [CI run #108](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36628941018): success |
 | Staff service assignment options and Admin page | Commit `e8d3ad6aa8138a4016a2684cd159dd086ba1c407`, verified by [CI run #111](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36632451376): success |
 | Bounded same-origin JSON writes | Commit `f8143b50d37b4bd93c4ee2fecc77b10c9b4e17b6`, verified by [CI run #113](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36668167128): success |
@@ -56,6 +57,7 @@
 - A Service Partner can submit a ready deliverable for Negarin review once. The API records the submission actor and timestamp in an append-only relation, rejects pending or repeated submissions, and returns `submittedAt` without adding a review decision or treating submission as completion. Assignment detail now presents a chronological history of recorded assignment, accept/decline, deliverable-registration, and review-submission timestamps; it omits actor IDs and storage keys. No staff review outcome or completion event is represented.
 - Services-authorized staff can read submitted ready deliverables at `/admin/service-deliverables`. The API returns request title/summary, partner display name, file metadata, and short-lived signed read URLs; it omits storage keys, actor IDs, Artist identifiers, and prices. The page is read-only and does not mark files reviewed or complete. Each submission now includes the same assignment, response, file-registration, and submission timestamps in a chronological history; user IDs and storage keys stay hidden.
 - Staff can create requests from `/admin/service-requests` and read real request and Service Partner organization choices from `GET /api/v1/admin/service-assignments/options`. The RTL assignment page is available at `/admin/service-assignments` under the existing “رشد و خدمات” navigation group; publication review is linked under “بازار”, preserving the approved nine Admin groups. Both forms use same-origin writes, no-store responses, and truthful missing-session/forbidden/unavailable/empty states. They do not display sample requests or organizations.
+- Playwright checks all seven approved Export Partner locales for the shared shell, exact `lang` and `dir`, seven navigation items, one logo, and the absence of the Portuguese route; Arabic is RTL and the other six locales are LTR.
 - An Android-only React Native foundation is available at `apps/mobile`, with the shared Negarin logo, a Persian RTL bootstrap screen, and Android system UI theme support.
 - The mobile app has a SecureStore adapter for an opaque session token. It rejects empty tokens, propagates storage errors, and configures Android backup rules to exclude SecureStore preferences. No token issuance, OTP screen, login endpoint, or logout/revocation flow is connected.
 - Root CI run #89 verified frozen install, Prisma gates, audit, lint, typecheck, full tests, monorepo build (including Android bundle export), and Playwright E2E on the current code commit.
@@ -72,7 +74,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 | Service Partner | Organization/user-scoped inbox/detail and recorded activity history, one-time assignment accept/decline, scoped private uploads after acceptance, and one-time submit-for-review for ready deliverables | Artist-initiated request intake, scheduling, execution progress, staff review outcomes/history, completion, and organization/member provisioning remain open; upload `pending/ready` are technical states only. |
 | Supporting Organization | Organization registry/context, HTTP-tested denial of Artist product and domestic-finance access, and an organization-scoped SupportRelationship read-policy primitive | Program/referral/relationship data models and endpoints, support usage, organization users, and scoped reports remain open. |
 | Corporate Buyer | Organization registry/context, shared shell, HTTP-tested denial of Artist product-management/domestic-finance access, and organization-scoped order-read policy with full role matrix tests | Public catalog, purchase request, proposal, order, allocation, and delivery flow remain open. |
-| Export Partner | Organization registry/context, localized role shell for the seven approved locales, and HTTP-tested denial of Artist product-management and domestic-finance access | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
+| Export Partner | Organization registry/context, localized role shell for the seven approved locales with all-locale Playwright direction/structure coverage, and HTTP-tested denial of Artist product-management and domestic-finance access | Export publication, orders, protected transaction state, fulfillment, quality confirmation, and settlement flow remain open behind accepted product/provider decisions. |
 | Shared identity | Session, role-grant, active-context, and API authorization primitives | Public OTP delivery/login and browser/mobile credential flows remain disabled until a provider and required controls are available. |
 | Android app | Android foundation and secure session storage adapter | Role-specific journeys, release identity, signing, and device validation remain open; iOS is out of scope. |
 
@@ -159,6 +161,8 @@ Run #148 completed all configured gates successfully for Sprint 1 status documen
 Run #149 failed during migration reset because the new PostgreSQL enum value in the Export Partner backfill was inferred as text. The migration now casts it explicitly; no later CI gates ran in #149.
 
 Run #150 completed all configured gates successfully for Export Partner organization registration code head `130587095fe77a867f2ebcf005e7c771e2fb33b6`, including Prisma migration reset/deploy, security audit, lint, typecheck, full tests, build, and Playwright E2E smoke.
+
+Run #152 completed all configured gates successfully for Export Partner localization Playwright coverage code head `27f22dd17a95777c460347cc84b76f31ce68f248`, including frozen install, Prisma gates, audit, lint, typecheck, full tests, build, and E2E smoke across the supported shell routes.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
