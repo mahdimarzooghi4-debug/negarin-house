@@ -90,6 +90,60 @@ describe("Service Partner assignments HTTP contract", () => {
     expect(organizationDetail.json()).toMatchObject({ assignmentId: organizationAssignment.id, requestId: request.id });
     expect(organizationDetail.json()).not.toHaveProperty("partnerOrganizationId");
 
+    const deliverableUpload = await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/deliverables/upload-url`,
+      headers: partner,
+      payload: { fileName: "report.pdf", contentType: "application/pdf", contentLength: 2048 }
+    });
+    expect(deliverableUpload.statusCode).toBe(201);
+    expect(deliverableUpload.headers["cache-control"]).toBe("no-store");
+    expect(deliverableUpload.json().uploadUrl).toContain("X-Amz-Signature");
+    expect(deliverableUpload.json()).not.toHaveProperty("objectKey");
+
+    const deliverableId = deliverableUpload.json<{ id: string }>().id;
+    const listedDeliverables = await app.inject({
+      method: "GET",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/deliverables`,
+      headers: partner
+    });
+    expect(listedDeliverables.statusCode).toBe(200);
+    expect(listedDeliverables.headers["cache-control"]).toBe("no-store");
+    expect(listedDeliverables.json()).toEqual([expect.objectContaining({
+      id: deliverableId,
+      fileName: "report.pdf",
+      contentType: "application/pdf",
+      status: "pending",
+      readUrl: null
+    })]);
+    expect(listedDeliverables.json()[0]).not.toHaveProperty("objectKey");
+    expect(listedDeliverables.json()[0]).not.toHaveProperty("uploadedByUserId");
+
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${userAssignment.id}/deliverables/upload-url`,
+      headers: partner,
+      payload: { fileName: "report.pdf", contentType: "application/pdf", contentLength: 2048 }
+    })).statusCode).toBe(404);
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${userAssignment.id}/deliverables/upload-url`,
+      headers: partnerColleague,
+      payload: { fileName: "report.pdf", contentType: "application/pdf", contentLength: 2048 }
+    })).statusCode).toBe(201);
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/deliverables/upload-url`,
+      headers: otherArtist,
+      payload: { fileName: "report.pdf", contentType: "application/pdf", contentLength: 2048 }
+    })).statusCode).toBe(403);
+    expect((await app.inject({
+      method: "POST",
+      url: `/api/v1/service-partner/assignments/${organizationAssignment.id}/deliverables/upload-url`,
+      headers: partner,
+      payload: { fileName: "unsafe.svg", contentType: "image/svg+xml", contentLength: 2048 }
+    })).statusCode).toBe(400);
+
     expect((await app.inject({
       method: "GET", url: `/api/v1/service-partner/assignments/${userAssignment.id}`, headers: partner
     })).statusCode).toBe(404);

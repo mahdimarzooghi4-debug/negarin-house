@@ -1,4 +1,4 @@
-import { loadServicePartnerAssignment } from "../../../../artist-api";
+import { loadServicePartnerAssignment, loadServicePartnerDeliverables } from "../../../../artist-api";
 import { PortalShell } from "../../../portal-shell";
 import { ServicePartnerAssignmentDetailScreen } from "../../../../service-partner-assignment-detail-screen";
 
@@ -11,6 +11,9 @@ export default async function ServicePartnerAssignmentDetailPage({
 }) {
   const { assignmentId } = await params;
   const initialState = await loadServicePartnerAssignment(assignmentId);
+  const deliverablesState = initialState.kind === "ready"
+    ? await loadServicePartnerDeliverables(initialState.assignment.assignmentId)
+    : initialState;
   return (
     <PortalShell
       portal="service-partner"
@@ -20,7 +23,7 @@ export default async function ServicePartnerAssignmentDetailPage({
       description="جزئیات درخواست تخصیص‌یافته به همکار خدمات"
       direction="rtl"
     >
-      <ServicePartnerAssignmentDetailScreen initialState={initialState} />
+      <ServicePartnerAssignmentDetailScreen initialState={initialState} deliverablesState={deliverablesState} />
     </PortalShell>
   );
 }

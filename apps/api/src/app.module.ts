@@ -16,6 +16,8 @@ import { ServicePartnerAssignmentsController } from "./service-partner-assignmen
 import { ServicePartnerAssignmentsService } from "./service-partner-assignments.js";
 import { StaffServiceAssignmentsController } from "./staff-service-assignments.controller.js";
 import { StaffServiceAssignmentsService } from "./staff-service-assignments.js";
+import { ServiceDeliverablesController } from "./service-deliverables.controller.js";
+import { ServiceDeliverablesService } from "./service-deliverables.js";
 
 @Module({
   controllers: [
@@ -26,6 +28,7 @@ import { StaffServiceAssignmentsService } from "./staff-service-assignments.js";
     PublicationReviewController,
     ArtistProductMediaController,
     ServicePartnerAssignmentsController,
+    ServiceDeliverablesController,
     StaffServiceAssignmentsController
   ],
   providers: [
@@ -35,6 +38,7 @@ import { StaffServiceAssignmentsService } from "./staff-service-assignments.js";
     PublicationReviewService,
     ArtistProductMediaService,
     ServicePartnerAssignmentsService,
+    ServiceDeliverablesService,
     StaffServiceAssignmentsService,
     {
       provide: OBJECT_STORAGE,

@@ -28,6 +28,7 @@ model IdentityUser {
   productPublicationEvents ProductPublicationEvent[]
   serviceAssignments ServiceAssignment[] @relation("ServiceAssignmentUser")
   authoredServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentAuthor")
+  uploadedServiceDeliverables ServiceDeliverable[]
 
   @@map("identity_users")
 }
@@ -135,11 +136,35 @@ model ServiceAssignment {
   assignedBy            IdentityUser?  @relation("ServiceAssignmentAuthor", fields: [assignedByUserId], references: [id], onDelete: Restrict)
   assignedAt            DateTime       @default(now())
   createdAt             DateTime       @default(now())
+  deliverables          ServiceDeliverable[]
 
   @@index([partnerOrganizationId, assignedPartnerUserId, assignedAt])
   @@index([serviceRequestId, assignedAt])
   @@index([assignedByUserId, createdAt])
   @@map("service_assignments")
+}
+
+enum ServiceDeliverableStatus {
+  pending
+  ready
+}
+
+model ServiceDeliverable {
+  id               String                  @id @default(uuid()) @db.Uuid
+  assignmentId     String                  @db.Uuid
+  assignment       ServiceAssignment       @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  uploadedByUserId String                  @db.Uuid
+  uploadedBy       IdentityUser            @relation(fields: [uploadedByUserId], references: [id], onDelete: Restrict)
+  objectKey        String                  @unique
+  fileName         String
+  contentType      String
+  contentLength    Int
+  status           ServiceDeliverableStatus @default(pending)
+  createdAt        DateTime                @default(now())
+  updatedAt        DateTime                @updatedAt
+
+  @@index([assignmentId, status, createdAt])
+  @@map("service_deliverables")
 }
 
 model OtpChallenge {

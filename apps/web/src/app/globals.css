@@ -397,6 +397,17 @@ a.portal-nav-item { text-decoration: none; }
 .service-partner-assignment-back { display: inline-block; margin-bottom: 20px; color: var(--negarin-sidebar-active-content); font-size: 13px; font-weight: 600; text-underline-offset: 4px; }
 .service-partner-assignment-detail h2 { margin: 0 0 16px; font-size: 21px; }
 .service-partner-assignment-detail .service-partner-assignment-dates { margin-top: 18px; }
+.service-partner-deliverables { display: grid; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--negarin-border); }
+.service-partner-deliverables-heading h3 { margin: 0; font-size: 17px; }
+.service-partner-deliverables-heading p, .service-partner-deliverable-hint { margin: 6px 0 0; color: var(--negarin-muted); font-size: 13px; line-height: 1.7; }
+.service-partner-deliverable-input { display: inline-grid; justify-items: start; gap: 8px; width: fit-content; color: var(--negarin-sidebar-active-content); font-size: 14px; font-weight: 600; cursor: pointer; }
+.service-partner-deliverable-input input { max-width: 100%; color: var(--negarin-text); font: inherit; }
+.service-partner-deliverables-list { display: grid; gap: 10px; margin: 4px 0 0; padding: 0; list-style: none; }
+.service-partner-deliverables-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 12px 14px; border: 1px solid var(--negarin-border); border-radius: 12px; background: #fff; font-size: 13px; }
+.service-partner-deliverables-list li > span:first-child { flex: 1 1 220px; overflow-wrap: anywhere; font-weight: 600; }
+.service-partner-deliverables-list time { color: var(--negarin-muted); }
+.service-partner-deliverables-list a { color: var(--negarin-sidebar-active-content); font-weight: 600; text-underline-offset: 3px; }
+.service-partner-deliverables-empty { margin: 0; padding: 14px; border-radius: 12px; background: var(--negarin-canvas); color: var(--negarin-muted); }
 
 .staff-service-assignments { width: min(100%, 960px); margin: 0 auto; }
 .staff-service-assignments-heading { margin-bottom: 20px; }

@@ -1,5 +1,6 @@
 import { EmptyState } from "@negarin/ui";
-import type { ServicePartnerAssignment } from "./artist-api";
+import type { ServicePartnerAssignment, ServicePartnerDeliverable } from "./artist-api";
+import { ServicePartnerDeliverablesPanel } from "./service-partner-deliverables-panel";
 
 type DetailState =
   | { kind: "ready"; assignment: ServicePartnerAssignment }
@@ -8,12 +9,22 @@ type DetailState =
   | { kind: "not-found" }
   | { kind: "unavailable" };
 
+type DeliverablesState =
+  | { kind: "ready"; deliverables: ServicePartnerDeliverable[] }
+  | { kind: "connection-required" | "access-denied" | "not-found" | "unavailable" };
+
 function formatDate(value: string) {
   const date = new Date(value);
   return Number.isNaN(date.valueOf()) ? "—" : date.toLocaleString("fa-IR");
 }
 
-export function ServicePartnerAssignmentDetailScreen({ initialState }: { initialState: DetailState }) {
+export function ServicePartnerAssignmentDetailScreen({
+  initialState,
+  deliverablesState
+}: {
+  initialState: DetailState;
+  deliverablesState: DeliverablesState;
+}) {
   if (initialState.kind !== "ready") {
     return (
       <EmptyState
@@ -50,6 +61,7 @@ export function ServicePartnerAssignmentDetailScreen({ initialState }: { initial
           <dd><time dateTime={assignment.requestedAt}>{formatDate(assignment.requestedAt)}</time></dd>
         </div>
       </dl>
+      <ServicePartnerDeliverablesPanel assignmentId={assignment.assignmentId} initialState={deliverablesState} />
     </article>
   );
 }
