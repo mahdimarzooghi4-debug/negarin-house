@@ -16,6 +16,7 @@
 | Staff service assignment options and Admin page | Commit `e8d3ad6aa8138a4016a2684cd159dd086ba1c407`, verified by [CI run #111](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36632451376): success |
 | Bounded same-origin JSON writes | Commit `f8143b50d37b4bd93c4ee2fecc77b10c9b4e17b6`, verified by [CI run #113](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36668167128): success |
 | Service Partner authorization tests | Commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, verified by [CI run #93](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36618211205): success |
+| Role coverage and deferred Stage gate | Commit `5e2706f9d248feec5d8738ad34d6b055c432fabf`, verified by [CI run #116](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36669853344): success |
 
 ## Delivered and verified
 
@@ -96,6 +97,8 @@ Run #110 failed because the options integration test assumed an otherwise empty 
 Run #111 completed all configured gates successfully for staff assignment options and Admin page commit `e8d3ad6aa8138a4016a2684cd159dd086ba1c407`, including PostgreSQL tests, web route tests, build, and Playwright E2E smoke.
 
 Run #113 completed all configured gates successfully for same-origin JSON body-limit commit `f8143b50d37b4bd93c4ee2fecc77b10c9b4e17b6`, including bounded-reader tests, PostgreSQL API tests, build, and Playwright E2E smoke.
+
+Run #116 completed all configured gates successfully for role coverage and deferred Stage gate documentation commit `5e2706f9d248feec5d8738ad34d6b055c432fabf`, including migrations, security audit, lint, typecheck, tests, build, and Playwright E2E smoke.
 
 Run #93 completed all configured gates successfully for authorization test commit `01be95c62b17534ec06d0e40be6f0c7dbd9118c7`, including the expanded Service Partner assignment-isolation matrix.
 
