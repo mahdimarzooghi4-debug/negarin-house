@@ -136,7 +136,7 @@ describe("Staff Service Partner assignment authoring HTTP contract", () => {
       contentLength: 1200,
       status: "ready"
     } });
-    await database.serviceDeliverable.create({ data: {
+    const draftDeliverable = await database.serviceDeliverable.create({ data: {
       assignmentId: assignment.id,
       uploadedByUserId: partnerUserId,
       objectKey: `services/assignments/${assignment.id}/deliverables/${randomUUID()}/unsent`,
@@ -145,7 +145,7 @@ describe("Staff Service Partner assignment authoring HTTP contract", () => {
       contentLength: 900,
       status: "ready"
     } });
-    await database.serviceDeliverable.create({ data: {
+    const pendingDeliverable = await database.serviceDeliverable.create({ data: {
       assignmentId: assignment.id,
       uploadedByUserId: partnerUserId,
       objectKey: `services/assignments/${assignment.id}/deliverables/${randomUUID()}/pending`,
@@ -165,8 +165,7 @@ describe("Staff Service Partner assignment authoring HTTP contract", () => {
     });
     expect(response.statusCode).toBe(200);
     expect(response.headers["cache-control"]).toBe("no-store");
-    expect(response.json()).toHaveLength(1);
-    expect(response.json()[0]).toMatchObject({
+    expect(response.json()).toEqual(expect.arrayContaining([expect.objectContaining({
       deliverableId: readyDeliverable.id,
       assignmentId: assignment.id,
       title: "آماده‌سازی سفارش",
@@ -175,12 +174,15 @@ describe("Staff Service Partner assignment authoring HTTP contract", () => {
       fileName: "packing-list.pdf",
       contentType: "application/pdf",
       contentLength: 1200
-    });
-    expect(response.json()[0].readUrl).toContain("X-Amz-Signature");
-    expect(response.json()[0]).toHaveProperty("submittedAt");
+    })]));
+    const listedSubmission = response.json().find((item: { deliverableId: string }) => item.deliverableId === readyDeliverable.id);
+    expect(listedSubmission.readUrl).toContain("X-Amz-Signature");
+    expect(listedSubmission).toHaveProperty("submittedAt");
     for (const field of ["objectKey", "actorUserId", "uploadedByUserId", "artistUserId", "priceToman"]) {
-      expect(response.json()[0]).not.toHaveProperty(field);
+      expect(listedSubmission).not.toHaveProperty(field);
     }
+    expect(response.json().some((item: { deliverableId: string }) => item.deliverableId === draftDeliverable.id)).toBe(false);
+    expect(response.json().some((item: { deliverableId: string }) => item.deliverableId === pendingDeliverable.id)).toBe(false);
     expect((await app.inject({
       method: "GET", url: "/api/v1/admin/service-deliverables", headers: await signInStaff(["products"])
     })).statusCode).toBe(403);
