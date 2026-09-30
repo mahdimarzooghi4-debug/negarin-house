@@ -114,6 +114,15 @@ export function canReadArtistDomesticFinance(
   return denyByDefault();
 }
 
+/**
+ * Direct payment commands to an Artist are not available to user-role contexts.
+ * The payment flow is intentionally absent; this guard prevents partner roles
+ * from acquiring a direct-to-Artist path by reusing general permissions.
+ */
+export function canInitiateDirectArtistPayment(_context: AuthorizationContext): AuthorizationDecision {
+  return denyByDefault();
+}
+
 export function canAccessStaffDomain(
   context: AuthorizationContext,
   domain: StaffPermissionDomain

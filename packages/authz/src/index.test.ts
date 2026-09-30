@@ -8,6 +8,7 @@ import {
   canReadSupportRelationship,
   canAccessStaffDomain,
   canReadServiceRequest,
+  canInitiateDirectArtistPayment,
   denyByDefault,
   roles,
   type AuthorizationContext
@@ -123,6 +124,12 @@ describe("server-side relationship policies", () => {
     expect(canReadArtistDomesticFinance(context("export-partner", { exportPartnerId: "partner-a" }), finance)).toEqual({ allowed: false, reason: "forbidden" });
     expect(canReadArtistDomesticFinance(context("staff", { staffPermissionDomains: ["artists"] }), finance)).toEqual({ allowed: false, reason: "forbidden" });
     expect(canReadArtistDomesticFinance(context("staff", { staffPermissionDomains: ["finance"] }), finance)).toEqual({ allowed: true });
+  });
+
+  it("denies direct-to-Artist payment commands for every user role", () => {
+    for (const role of roles) {
+      expect(canInitiateDirectArtistPayment(context(role))).toEqual({ allowed: false, reason: "forbidden" });
+    }
   });
 
   it("denies external roles and staff without a required permission domain", () => {
