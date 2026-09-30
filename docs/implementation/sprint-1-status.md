@@ -6,7 +6,7 @@
 | GitHub PR | [#35 — Artist product publication and media flow](https://github.com/mahdimarzooghi4-debug/negarin-house/pull/35), draft and not merged |
 | Code commit verified by CI | `6321f77c0867b99536ceee3c8dee1393c46522fb` |
 | Code CI | [GitHub Actions run #189](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36738165919): success |
-| Sprint status documentation | Commit `af50623a0fe2305b50cac9bc1cf58fcda5c1d6b9`, verified by [CI run #187](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36735597008): success |
+| Sprint status documentation | Commit `185772f203fcd2e203c93b87e699e2b76ec299f2`, verified by [CI run #190](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36738636593): success |
 | Product decision documentation | Commit `2527fa0985ab0bdabbe90fbb5b740320d0faf7d1`, verified by [CI run #91](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36615921765): success |
 | Service Partner assigned request inbox | Commit `b25f5a890ba2acfedeaf5a7d67a24da2ae873483`, verified by [CI run #96](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36620594070): success |
 | Service Partner web inbox | Commit `89a258628dc758bfccce009fd467b070081f634c`, verified by [CI run #98](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/36622466621): success |
@@ -229,6 +229,8 @@ Run #187 completed every configured CI gate successfully for the Sprint 1 status
 Run #188 completed every configured gate successfully for organization-scoped Supporting Organization program records at code head `8c78edd6fa4af32cdeffbde5e03bb9c8cf857f4c`, including frozen install, Prisma generate/validate/reset/deploy, security audit, lint, typecheck, full tests, build, Chromium installation, and Playwright E2E. HTTP tests verify name/description validation, active-organization ownership, isolation between organizations, and denial to Artists and unauthenticated requests.
 
 Run #189 completed every configured gate successfully for scoped SupportProgram editing at code head `6321f77c0867b99536ceee3c8dee1393c46522fb`, including frozen install, Prisma gates, security audit, lint, typecheck, full tests, build, Chromium installation, and Playwright E2E. The HTTP contract conceals another organization's program as not found and rejects malformed program IDs.
+
+Run #190 completed every configured CI gate successfully for status and product handoff documentation commit `185772f203fcd2e203c93b87e699e2b76ec299f2`.
 
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
