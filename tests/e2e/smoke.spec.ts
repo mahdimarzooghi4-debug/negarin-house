@@ -8,7 +8,8 @@ test("Phase 1 web shell boots", async ({ page }) => {
 
 test("shared empty state is used in domestic and Arabic partner portals", async ({ page }) => {
   await page.goto("/artist");
-  await expect(page.getByRole("region", { name: "پوستهٔ پنل آماده است" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "پیشخوان هنرمند" })).toBeVisible();
+  await expect(page.getByText("برای دیدن اطلاعات این نقش، ورود امن هنوز باید تکمیل شود.")).toBeVisible();
   await expect(page.locator(".portal-layout")).toHaveAttribute("dir", "rtl");
 
   await page.goto("/partner/ar");
@@ -68,8 +69,9 @@ test("unconfigured sign-in and customer catalog do not present a fake login or c
   await expect(page.getByRole("textbox")).toHaveCount(0);
 
   await page.goto("/customer");
-  await expect(page.getByRole("heading", { name: "کاتالوگ نگارین" })).toBeVisible();
-  await expect(page.getByText("کاتالوگ در حال حاضر در دسترس نیست. کمی بعد دوباره تلاش کنید.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: /هنر را کشف کن/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "بازار در دسترس نیست" })).toBeVisible();
+  await expect(page.getByText("کمی بعد دوباره تلاش کنید.")).toBeVisible();
   await expect(page.getByRole("button", { name: /سفارش|پرداخت/ })).toHaveCount(0);
 });
 
