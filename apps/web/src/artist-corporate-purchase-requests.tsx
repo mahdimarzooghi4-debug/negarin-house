@@ -90,8 +90,8 @@ export function ArtistCorporatePurchaseRequests({ initialRequests }: { initialRe
           </div>
         </div>
       </>}
-      {request.status === "quoted" && <section className="artist-request-quote">
-        <strong>پیشنهاد ارسالی: {money(request.proposedUnitPriceToman ?? "0")} برای هر عدد</strong>
+      {(request.status === "quoted" || request.status === "converted") && request.proposedUnitPriceToman && <section className="artist-request-quote">
+        <strong>{request.status === "converted" ? "قیمت پیشنهاد پذیرفته‌شده" : "پیشنهاد ارسالی"}: {money(request.proposedUnitPriceToman)} برای هر عدد</strong>
         {request.proposalNote && <p>{request.proposalNote}</p>}
         <small>موجودی تا زمان پذیرش خریدار رزرو نمی‌شود.</small>
       </section>}

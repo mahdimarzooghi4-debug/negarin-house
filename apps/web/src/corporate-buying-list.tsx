@@ -78,7 +78,7 @@ export function CorporateBuyingList({ endpoint, kind }: { endpoint: string; kind
     {items.map((item) => <article key={item.id} className="corporate-buying-list-card">
       <div><h2>{item.productTitle}</h2><span className="product-status">{statusLabels[item.status] ?? item.status}</span></div>
       <p>تعداد: {new Intl.NumberFormat("fa-IR").format(item.quantity)} عدد</p>
-      {kind === "requests" && item.status === "quoted" && item.proposedUnitPriceToman
+      {kind === "requests" && (item.status === "quoted" || item.status === "converted") && item.proposedUnitPriceToman
         ? <><p>قیمت هنگام ثبت درخواست: {money(item.unitPriceToman)}</p>
           <p>قیمت پیشنهادی فروشنده برای هر عدد: {money(item.proposedUnitPriceToman)}</p>
           <strong>جمع پیشنهاد: {money(item.proposalTotalToman ?? "0")}</strong></>
