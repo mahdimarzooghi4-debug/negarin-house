@@ -1,4 +1,4 @@
-Warning: truncated output (original token count: 12092)
+Warning: truncated output (original token count: 12081)
 Total output lines: 265
 
 # Sprint 1 Implementation Status
@@ -113,7 +113,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 
 | Role / capability | Implemented in code | Remaining role code |
 |---|---|---|
-| Customer | Publ…92 tokens truncated…nt, finance/settlement, Growth, and approved mobile journeys remain open. |
+| Customer | Publ…81 tokens truncated…t intake/status | Customer-order fulfillment, finance/settlement, Growth, and approved mobile journeys remain open. |
 | Admin / Staff | Publication review and visibility control; services-authorized ServiceRequest authoring/assignment and submitted-deliverable review | Operational features for other domains remain open and must use scoped permissions. |
 | Service Partner | Organization/user-scoped inbox/detail and activity history, accept/decline, scoped private uploads, submit-for-review, review feedback, and completed status | Organization/member provisioning, scheduling, and execution progress remain open; upload `pending/ready` are technical states only. |
 | Supporting Organization | Organization registry/context, organization-scoped SupportProgram create/list/edit, HTTP-tested denial of Artist product and domestic-finance access, and an organization-scoped SupportRelationship read-policy primitive | Artist referrals and their review/consent rules, shared support relationships, membership support, service credits/quotas/usage, organization users, and scoped reports remain open. |
@@ -124,7 +124,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 
 ## Delivery gate update
 
-Role implementation and automated CI are the current focus. Stage deployment and Stage QA will start only after the agreed role flows have been implemented and reviewed. No hosted Stage server is currently available, so no Stage or release evidence is claimed. Release approval and production remain later gates.
+Role implementation and automated CI are the current focus. Stage testing and visual review will be coordinated with the project owner after the agreed role flows are ready. No Stage or release evidence is claimed yet. Release approval and production remain later gates.
 
 ## Android validation and release scope
 
