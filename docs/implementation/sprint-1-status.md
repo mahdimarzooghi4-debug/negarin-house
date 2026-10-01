@@ -1,5 +1,14 @@
 # Sprint 1 Implementation Status
 
+## 2026-10-01 — Customer storefront web and Android slice
+
+- The responsive `/customer` web catalog now follows the supplied Customer/Mobile direction with a discovery hero, Persian search, and published-product cards. It uses only products returned by the public catalog API.
+- The Android app now loads `GET /api/v1/customer/catalog`, supports Persian search, pull-to-refresh, and a read-only product detail view. Loading, empty, unavailable, missing-image, and no-result states contain no fabricated products or prices.
+- Online ordering, cart, payment, customer authentication, APK/AAB signing, and device QA remain outside this slice. The Expo build exports an Android JavaScript bundle only.
+- The supplied Artist, Admin, Service Partner, and Supporting Organization dashboards now have data-backed entry pages. Export Partner and Corporate Buyer still need their procurement/order APIs and approved workflow rules before operational data can be shown. The new screens still need Stage QA and visual comparison on a device/browser.
+- Figma's hero artwork URLs returned a host-level “Site Unavailable” page when downloaded, so the storefront uses the approved palette and layout direction but does not yet include the decorative hero vectors. No temporary Figma URLs were left in the code.
+- Verification: `corepack pnpm@12.7.0 turbo run lint test typecheck build --filter=@negarin/mobile --filter=@negarin/web` passed, including 30 mobile tests, 37 web tests, Next.js production build, and Android bundle export.
+
 | Status | Evidence |
 |---|---|
 | Sprint | In progress |

@@ -53,3 +53,11 @@ authorization context, and select one of the user's own grants. It reads the
 opaque token from SecureStore for each request, validates the API payload shape,
 and uses the server-returned context as authoritative. It does not store a
 client-selected role, create grants, issue sessions, or enable login/OTP.
+
+## Customer storefront slice
+
+The Android app now reads the public catalog from `GET /api/v1/customer/catalog`, supports Persian search, refresh, and product details, and renders explicit loading, empty, and unavailable states. It does not create orders or collect payment.
+
+Set `EXPO_PUBLIC_API_URL` to the reachable API origin when starting the app. The default `http://10.0.2.2:4000` is for an Android emulator using the host machine's port 4000; a physical device needs an API URL reachable from that device.
+
+To create a distributable build, configure the production API origin, Android application ID, signing, and distribution channel first. `pnpm --filter @negarin/mobile build` exports the Android JavaScript bundle only; it is not an APK/AAB or device QA.
