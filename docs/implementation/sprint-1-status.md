@@ -259,6 +259,8 @@ Run #190 completed every configured CI gate successfully for status and product 
 
 Run #195 completed every configured gate successfully for Corporate Buyer purchase requests, direct orders, and inventory reservation at code head `eea1759dbee621e0985a028d60cc860777f7ef8f`, including Prisma migration reset/deploy, security audit, lint, typecheck, full tests, monorepo build, and Playwright E2E. HTTP tests cover organization scoping, role denial, request non-reservation, direct-order stock reservation, insufficient inventory, and cancellation/restock.
 
+Run #198 completed every configured CI gate successfully for Artist review of Corporate Buyer requests at code head `10c375b1e859bbf2615b50d7fbfd83d0459af34e`, including Prisma migration reset/deploy, security audit, lint, typecheck, full tests, monorepo build, and Playwright E2E. HTTP tests verify seller ownership scoping, concealed cross-Artist requests, review/decline status transitions, and persisted request history.
+
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
 ## Remaining Sprint 1 work and constraints
