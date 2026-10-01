@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 12092)
+Total output lines: 265
+
 # Sprint 1 Implementation Status
 
 ## 2026-10-01 — Corporate Buyer purchase and order flow
@@ -110,8 +113,7 @@ This is a code-coverage snapshot, not a release or Stage sign-off.
 
 | Role / capability | Implemented in code | Remaining role code |
 |---|---|---|
-| Customer | Public catalog and product detail for active products explicitly published by Admin; Corporate Buyer request and direct-order actions on product details | Android buyer actions, order payment, and fulfilment remain open. |
-| Artist | Product CRUD, media, publication submission/status, review feedback, and owned service-request intake/status | Customer-order fulfillment, finance/settlement, Growth, and approved mobile journeys remain open. |
+| Customer | Publ…92 tokens truncated…nt, finance/settlement, Growth, and approved mobile journeys remain open. |
 | Admin / Staff | Publication review and visibility control; services-authorized ServiceRequest authoring/assignment and submitted-deliverable review | Operational features for other domains remain open and must use scoped permissions. |
 | Service Partner | Organization/user-scoped inbox/detail and activity history, accept/decline, scoped private uploads, submit-for-review, review feedback, and completed status | Organization/member provisioning, scheduling, and execution progress remain open; upload `pending/ready` are technical states only. |
 | Supporting Organization | Organization registry/context, organization-scoped SupportProgram create/list/edit, HTTP-tested denial of Artist product and domestic-finance access, and an organization-scoped SupportRelationship read-policy primitive | Artist referrals and their review/consent rules, shared support relationships, membership support, service credits/quotas/usage, organization users, and scoped reports remain open. |
@@ -248,14 +250,16 @@ Run #189 completed every configured gate successfully for scoped SupportProgram 
 
 Run #190 completed every configured CI gate successfully for status and product handoff documentation commit `185772f203fcd2e203c93b87e699e2b76ec299f2`.
 
+Run #195 completed every configured gate successfully for Corporate Buyer purchase requests, direct orders, and inventory reservation at code head `eea1759dbee621e0985a028d60cc860777f7ef8f`, including Prisma migration reset/deploy, security audit, lint, typecheck, full tests, monorepo build, and Playwright E2E. HTTP tests cover organization scoping, role denial, request non-reservation, direct-order stock reservation, insufficient inventory, and cancellation/restock.
+
 This is automated CI evidence. It is not Stage QA, Release Approval, or Production evidence.
 
 ## Remaining Sprint 1 work and constraints
 
-- No OTP/SMS provider is available; public login and session delivery remain disabled.
-- The product/API slice has no Stage deployment or Stage QA evidence because no hosted Stage server is available.
-- No payment gateway is available; purchase, payment, and settlement flows remain unimplemented.
-- Customer public catalog and detail are implemented as read-only surfaces. Purchase and order tracking still need their own product rules and an available payment provider.
+- OTP/SMS provider details are still pending; public login and session delivery remain disabled until configured.
+- Stage QA and visual review are pending and will be done together. This work has no Stage deployment or Stage QA evidence yet.
+- Corporate Buyer purchase requests and direct orders are implemented for web/API. Direct orders reserve stock, stay in `awaiting_payment`, and can be cancelled; payment, request review/quotation, Artist allocation, fulfilment, and delivery still need implementation/provider details.
+- The public catalog remains browseable without sign-in. Authenticated Corporate Buyers can submit requests and direct orders on product details. The Android app shows availability but awaits its authenticated purchase journey.
 - Artist service-request intake, Admin request/assignment authoring, and Admin review of submitted Service Partner deliverables are implemented. An Admin change request includes feedback; approval completes the assignment, and completed assignments reject Partner mutations. Organization/member provisioning, scheduling, and execution progress remain unimplemented.
 - Mobile scope is Android. iOS is out of scope. Android app release identity and device QA are still open.
 - PR #35 has no submitted GitHub review yet and remains draft.
