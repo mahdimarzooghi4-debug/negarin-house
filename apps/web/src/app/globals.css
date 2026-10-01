@@ -411,6 +411,12 @@ a.portal-nav-item { text-decoration: none; }
 .corporate-request-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .corporate-request-actions button { min-height: 38px; padding: 0 14px; border: 1px solid var(--negarin-border); border-radius: 9px; background: var(--negarin-primary); color: #fff; font: inherit; cursor: pointer; }
 .corporate-request-actions button:disabled { opacity: .6; cursor: wait; }
+.artist-request-start-review { justify-self: start; padding: 7px 12px; border: 1px solid var(--negarin-border); border-radius: 9px; background: #f5faf8; color: var(--negarin-ink); font: inherit; cursor: pointer; }
+.corporate-request-proposal { display: grid; gap: 12px; padding: 14px; border: 1px solid var(--negarin-border); border-radius: 12px; background: #f8fbfa; }
+.corporate-request-proposal label { display: grid; gap: 6px; color: var(--negarin-ink); font-weight: 600; }
+.corporate-request-proposal input, .corporate-request-proposal textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--negarin-border); border-radius: 8px; background: #fff; color: var(--negarin-ink); font: inherit; font-weight: 400; }
+.corporate-request-proposal textarea { min-height: 76px; resize: vertical; }
+.artist-request-quote { display: grid; gap: 6px; padding: 12px; border-radius: 10px; background: #f0f8f5; }
 .artist-product-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
 .customer-store { width: min(100%, 1040px); max-width: 1040px; margin: 0 auto; padding: 0 24px 40px; }

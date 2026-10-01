@@ -1,6 +1,6 @@
 import { BadRequestException, Body, Controller, Get, Header, Param, Patch, Post, Req, UseGuards } from "@nestjs/common";
 import { AuthorizationGuard, type AuthorizedRequest } from "./authorization.guard.js";
-import { CorporateBuyingService, parseCorporateBuyingInput } from "./corporate-buying.js";
+import { CorporateBuyingService, parseCorporateBuyingInput, parseCorporateProposalInput } from "./corporate-buying.js";
 import { parseArtistProductId } from "./artist-products.js";
 
 @Controller("corporate-buyer")
@@ -37,6 +37,18 @@ export class CorporateBuyingController {
   cancelOrder(@Req() request: AuthorizedRequest, @Param("orderId") orderId: string) {
     return this.buying.cancelOrder(request.authorizationContext!, parseArtistProductId(orderId));
   }
+
+  @Post("purchase-requests/:requestId/accept")
+  @Header("Cache-Control", "no-store")
+  acceptProposal(@Req() request: AuthorizedRequest, @Param("requestId") requestId: string) {
+    return this.buying.answerArtistProposal(request.authorizationContext!, parseArtistProductId(requestId), true);
+  }
+
+  @Post("purchase-requests/:requestId/decline")
+  @Header("Cache-Control", "no-store")
+  declineProposal(@Req() request: AuthorizedRequest, @Param("requestId") requestId: string) {
+    return this.buying.answerArtistProposal(request.authorizationContext!, parseArtistProductId(requestId), false);
+  }
 }
 
 @Controller("artist/corporate-purchase-requests")
@@ -60,5 +72,13 @@ export class ArtistCorporatePurchaseRequestsController {
       throw new BadRequestException();
     }
     return this.buying.reviewArtistRequest(request.authorizationContext!, id, value.status);
+  }
+
+  @Post(":requestId/proposal")
+  @Header("Cache-Control", "no-store")
+  propose(@Req() request: AuthorizedRequest, @Param("requestId") requestId: string, @Body() body: unknown) {
+    return this.buying.proposeArtistRequest(
+      request.authorizationContext!, parseArtistProductId(requestId), parseCorporateProposalInput(body)
+    );
   }
 }

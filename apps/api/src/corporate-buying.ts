@@ -3,6 +3,9 @@ import type { AuthorizationContext } from "@negarin/authz";
 import { PrismaService } from "./prisma.service.js";
 
 export type CorporateBuyingInput = { productId: string; quantity: number; note: string | null };
+export type CorporateProposalInput = { unitPriceToman: bigint; note: string | null };
+
+const maxPostgresBigInt = 9_223_372_036_854_775_807n;
 
 @Injectable()
 export class CorporateBuyingService {
@@ -16,6 +19,9 @@ export class CorporateBuyingService {
     return requests.map((request) => ({
       id: request.id, productId: request.productId, productTitle: request.productTitleSnapshot,
       unitPriceToman: request.unitPriceTomanSnapshot.toString(), quantity: request.quantity,
+      proposedUnitPriceToman: request.proposedUnitPriceToman?.toString() ?? null,
+      proposalTotalToman: request.proposedUnitPriceToman === null ? null : (request.proposedUnitPriceToman * BigInt(request.quantity)).toString(),
+      proposalNote: request.proposalNote, proposedAt: request.proposedAt?.toISOString() ?? null,
       totalToman: (request.unitPriceTomanSnapshot * BigInt(request.quantity)).toString(),
       note: request.note, status: request.status, createdAt: request.createdAt.toISOString()
     }));
@@ -28,7 +34,7 @@ export class CorporateBuyingService {
       select: { id: true, title: true, priceToman: true }
     });
     if (!product) throw new NotFoundException();
-    if (product.priceToman * BigInt(input.quantity) > 9_223_372_036_854_775_807n) throw new BadRequestException();
+    if (product.priceToman * BigInt(input.quantity) > maxPostgresBigInt) throw new BadRequestException();
     const request = await this.database.corporatePurchaseRequest.create({
       data: {
         buyerOrganizationId: organizationId, requestedByUserId: context.userId,
@@ -40,6 +46,9 @@ export class CorporateBuyingService {
     return {
       id: request.id, productId: request.productId, productTitle: request.productTitleSnapshot,
       unitPriceToman: request.unitPriceTomanSnapshot.toString(), quantity: request.quantity,
+      proposedUnitPriceToman: request.proposedUnitPriceToman?.toString() ?? null,
+      proposalTotalToman: request.proposedUnitPriceToman === null ? null : (request.proposedUnitPriceToman * BigInt(request.quantity)).toString(),
+      proposalNote: request.proposalNote, proposedAt: request.proposedAt?.toISOString() ?? null,
       totalToman: (request.unitPriceTomanSnapshot * BigInt(request.quantity)).toString(),
       note: request.note, status: request.status, createdAt: request.createdAt.toISOString()
     };
@@ -56,9 +65,16 @@ export class CorporateBuyingService {
       id: request.id, productId: request.productId, productTitle: request.productTitleSnapshot,
       buyerOrganizationName: request.buyerOrganization.displayName ?? "خریدار سازمانی",
       unitPriceToman: request.unitPriceTomanSnapshot.toString(), quantity: request.quantity,
+      proposedUnitPriceToman: request.proposedUnitPriceToman?.toString() ?? null,
+      proposalTotalToman: request.proposedUnitPriceToman === null ? null : (request.proposedUnitPriceToman * BigInt(request.quantity)).toString(),
+      proposalNote: request.proposalNote, proposedAt: request.proposedAt?.toISOString() ?? null,
       totalToman: (request.unitPriceTomanSnapshot * BigInt(request.quantity)).toString(),
       note: request.note, status: request.status, createdAt: request.createdAt.toISOString(),
-      history: request.events.map((event) => ({ status: event.status, createdAt: event.createdAt.toISOString() }))
+      history: request.events.map((event) => ({
+        status: event.status, createdAt: event.createdAt.toISOString(),
+        proposedUnitPriceToman: event.proposalUnitPriceToman?.toString() ?? null,
+        proposalNote: event.proposalNote
+      }))
     }));
   }
 
@@ -84,6 +100,92 @@ export class CorporateBuyingService {
         data: { requestId: request.id, actorUserId: context.userId, status }
       });
       return { id: request.id, status };
+    });
+  }
+
+  async proposeArtistRequest(context: AuthorizationContext, requestId: string, input: CorporateProposalInput) {
+    this.requireArtist(context);
+    return this.database.$transaction(async (transaction) => {
+      const request = await transaction.corporatePurchaseRequest.findFirst({
+        where: { id: requestId, product: { artistUserId: context.userId } },
+        select: { id: true, status: true, productId: true, quantity: true }
+      });
+      if (!request) throw new NotFoundException();
+      if (request.status !== "submitted" && request.status !== "in_review") {
+        throw new ConflictException("purchase-request-state-changed");
+      }
+      if (input.unitPriceToman * BigInt(request.quantity) > maxPostgresBigInt) {
+        throw new BadRequestException();
+      }
+      const product = await transaction.artistProduct.findFirst({
+        where: { id: request.productId, artistUserId: context.userId, publicationStatus: "published", archivedAt: null },
+        select: { id: true }
+      });
+      if (!product) throw new ConflictException("product-not-purchasable");
+      const quoted = await transaction.corporatePurchaseRequest.updateMany({
+        where: { id: request.id, status: request.status, product: { artistUserId: context.userId } },
+        data: {
+          status: "quoted", proposedUnitPriceToman: input.unitPriceToman,
+          proposalNote: input.note, proposedAt: new Date()
+        }
+      });
+      if (quoted.count !== 1) throw new ConflictException("purchase-request-state-changed");
+      await transaction.corporatePurchaseRequestEvent.create({
+        data: {
+          requestId: request.id, actorUserId: context.userId, status: "quoted",
+          proposalUnitPriceToman: input.unitPriceToman, proposalNote: input.note
+        }
+      });
+      return { id: request.id, status: "quoted" as const };
+    });
+  }
+
+  async answerArtistProposal(context: AuthorizationContext, requestId: string, accepted: boolean) {
+    const organizationId = this.requireBuyer(context);
+    return this.database.$transaction(async (transaction) => {
+      const request = await transaction.corporatePurchaseRequest.findFirst({
+        where: { id: requestId, buyerOrganizationId: organizationId, status: "quoted" }
+      });
+      if (!request || request.proposedUnitPriceToman === null) throw new NotFoundException();
+      if (!accepted) {
+        const declined = await transaction.corporatePurchaseRequest.updateMany({
+          where: { id: request.id, buyerOrganizationId: organizationId, status: "quoted" },
+          data: { status: "declined" }
+        });
+        if (declined.count !== 1) throw new ConflictException("purchase-request-state-changed");
+        await transaction.corporatePurchaseRequestEvent.create({
+          data: { requestId: request.id, actorUserId: context.userId, status: "declined" }
+        });
+        return { id: request.id, status: "declined" as const, order: null };
+      }
+      const totalToman = request.proposedUnitPriceToman * BigInt(request.quantity);
+      if (totalToman > maxPostgresBigInt) throw new BadRequestException();
+      const reserved = await transaction.artistProduct.updateMany({
+        where: {
+          id: request.productId, publicationStatus: "published", archivedAt: null,
+          availableQuantity: { gte: request.quantity }
+        },
+        data: { availableQuantity: { decrement: request.quantity } }
+      });
+      if (reserved.count !== 1) throw new ConflictException("insufficient-stock");
+      const order = await transaction.corporateOrder.create({
+        data: {
+          buyerOrganizationId: organizationId, createdByUserId: context.userId,
+          productId: request.productId, purchaseRequestId: request.id,
+          productTitleSnapshot: request.productTitleSnapshot,
+          unitPriceTomanSnapshot: request.proposedUnitPriceToman,
+          quantity: request.quantity, totalToman, status: "awaiting_payment"
+        }
+      });
+      const converted = await transaction.corporatePurchaseRequest.updateMany({
+        where: { id: request.id, buyerOrganizationId: organizationId, status: "quoted" },
+        data: { status: "converted" }
+      });
+      if (converted.count !== 1) throw new ConflictException("purchase-request-state-changed");
+      await transaction.corporatePurchaseRequestEvent.create({
+        data: { requestId: request.id, actorUserId: context.userId, status: "converted" }
+      });
+      return { id: request.id, status: "converted" as const, order: this.orderView(order) };
     });
   }
 
@@ -113,7 +215,7 @@ export class CorporateBuyingService {
       });
       if (reserved.count !== 1) throw new ConflictException("insufficient-stock");
       const totalToman = product.priceToman * BigInt(input.quantity);
-      if (totalToman > 9_223_372_036_854_775_807n) throw new BadRequestException();
+      if (totalToman > maxPostgresBigInt) throw new BadRequestException();
       const order = await transaction.corporateOrder.create({
         data: {
           buyerOrganizationId: organizationId, createdByUserId: context.userId,
@@ -142,6 +244,20 @@ export class CorporateBuyingService {
       await transaction.artistProduct.update({
         where: { id: order.productId }, data: { availableQuantity: { increment: order.quantity } }
       });
+      if (order.purchaseRequestId) {
+        const request = await transaction.corporatePurchaseRequest.findFirst({
+          where: { id: order.purchaseRequestId, status: "converted" }
+        });
+        if (request) {
+          await transaction.corporatePurchaseRequest.update({ where: { id: request.id }, data: { status: "quoted" } });
+          await transaction.corporatePurchaseRequestEvent.create({
+            data: {
+              requestId: request.id, actorUserId: context.userId, status: "quoted",
+              proposalUnitPriceToman: request.proposedUnitPriceToman, proposalNote: request.proposalNote
+            }
+          });
+        }
+      }
       return { ...order, status: "cancelled", updatedAt: new Date() };
     });
     return this.orderView(result);
@@ -182,4 +298,19 @@ export function parseCorporateBuyingInput(body: unknown): CorporateBuyingInput {
     throw new BadRequestException();
   }
   return { productId: value.productId, quantity: value.quantity as number, note: typeof value.note === "string" && value.note.trim() ? value.note.trim() : null };
+}
+
+export function parseCorporateProposalInput(body: unknown): CorporateProposalInput {
+  if (!body || typeof body !== "object" || Array.isArray(body)) throw new BadRequestException();
+  const value = body as Record<string, unknown>;
+  if (Object.keys(value).some((key) => !["unitPriceToman", "note"].includes(key))) throw new BadRequestException();
+  if (typeof value.unitPriceToman !== "string" || value.unitPriceToman.length > 19 || !/^[1-9]\d*$/.test(value.unitPriceToman)) {
+    throw new BadRequestException();
+  }
+  const unitPriceToman = BigInt(value.unitPriceToman);
+  if (unitPriceToman > maxPostgresBigInt) throw new BadRequestException();
+  if (value.note !== undefined && value.note !== null && (typeof value.note !== "string" || value.note.length > 2000)) {
+    throw new BadRequestException();
+  }
+  return { unitPriceToman, note: typeof value.note === "string" && value.note.trim() ? value.note.trim() : null };
 }

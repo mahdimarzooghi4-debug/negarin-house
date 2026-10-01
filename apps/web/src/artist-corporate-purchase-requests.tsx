@@ -16,6 +16,8 @@ export function ArtistCorporatePurchaseRequests({ initialRequests }: { initialRe
   const [requests, setRequests] = useState(initialRequests);
   const [pendingId, setPendingId] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const [prices, setPrices] = useState<Record<string, string>>({});
+  const [proposalNotes, setProposalNotes] = useState<Record<string, string>>({});
 
   async function review(id: string, status: "in_review" | "declined") {
     setPendingId(id); setMessage(null);
@@ -34,6 +36,27 @@ export function ArtistCorporatePurchaseRequests({ initialRequests }: { initialRe
     finally { setPendingId(null); }
   }
 
+  async function propose(request: ArtistCorporatePurchaseRequest) {
+    const unitPriceToman = prices[request.id] ?? request.unitPriceToman;
+    setPendingId(request.id); setMessage(null);
+    try {
+      const response = await fetch(`/api/artist/corporate-purchase-requests/${encodeURIComponent(request.id)}/proposal`, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ unitPriceToman, note: proposalNotes[request.id] ?? "" }), cache: "no-store"
+      });
+      if (!response.ok) throw new Error("proposal-failed");
+      const proposalTotalToman = (BigInt(unitPriceToman) * BigInt(request.quantity)).toString();
+      setRequests((current) => current.map((item) => item.id === request.id ? {
+        ...item, status: "quoted", proposedUnitPriceToman: unitPriceToman,
+        proposalTotalToman, proposalNote: proposalNotes[request.id]?.trim() || null,
+        proposedAt: new Date().toISOString(),
+        history: [...item.history, { status: "quoted", createdAt: new Date().toISOString(), proposedUnitPriceToman: unitPriceToman, proposalNote: proposalNotes[request.id]?.trim() || null }]
+      } : item));
+      setMessage("پیشنهاد برای خریدار ارسال شد.");
+    } catch { setMessage("ارسال پیشنهاد انجام نشد؛ صفحه را تازه کن و دوباره تلاش کن."); }
+    finally { setPendingId(null); }
+  }
+
   if (!requests.length) return <section className="catalog-empty" role="status">
     <h2>درخواست خرید سازمانی ندارید</h2><p>درخواست‌های مربوط به محصولات منتشرشدهٔ شما اینجا نمایش داده می‌شوند.</p>
   </section>;
@@ -47,13 +70,31 @@ export function ArtistCorporatePurchaseRequests({ initialRequests }: { initialRe
       <strong>جمع برآوردی: {money(request.totalToman)}</strong>
       {request.note && <p>توضیح خریدار: {request.note}</p>}
       <small>{new Intl.DateTimeFormat("fa-IR", { dateStyle: "medium", timeStyle: "short" }).format(new Date(request.createdAt))}</small>
-      {request.status === "submitted" && <div className="corporate-request-actions">
-        <button type="button" disabled={pendingId !== null} onClick={() => void review(request.id, "in_review")}>
-          {pendingId === request.id ? "در حال ثبت…" : "شروع بررسی"}
-        </button>
-        <button type="button" className="corporate-order-cancel" disabled={pendingId !== null} onClick={() => void review(request.id, "declined")}>رد درخواست</button>
-      </div>}
-      {request.status === "in_review" && <button type="button" className="corporate-order-cancel" disabled={pendingId !== null} onClick={() => void review(request.id, "declined")}>رد درخواست</button>}
+      {(request.status === "submitted" || request.status === "in_review") && <>
+        {request.status === "submitted" && <button type="button" className="artist-request-start-review" disabled={pendingId !== null}
+          onClick={() => void review(request.id, "in_review")}>{pendingId === request.id ? "در حال ثبت…" : "شروع بررسی"}</button>}
+        <div className="corporate-request-proposal">
+          <label>قیمت پیشنهادی هر عدد، تومان
+            <input inputMode="numeric" dir="ltr" value={prices[request.id] ?? request.unitPriceToman}
+              onChange={(event) => setPrices((current) => ({ ...current, [request.id]: event.target.value.replace(/\D/g, "") }))} />
+          </label>
+          <label>توضیح برای خریدار
+            <textarea value={proposalNotes[request.id] ?? ""} maxLength={2000}
+              onChange={(event) => setProposalNotes((current) => ({ ...current, [request.id]: event.target.value }))} />
+          </label>
+          <div className="corporate-request-actions">
+            <button type="button" disabled={pendingId !== null || !(prices[request.id] ?? request.unitPriceToman)}
+              onClick={() => void propose(request)}>{pendingId === request.id ? "در حال ارسال…" : "ارسال پیشنهاد قیمت"}</button>
+            <button type="button" className="corporate-order-cancel" disabled={pendingId !== null}
+              onClick={() => void review(request.id, "declined")}>رد درخواست</button>
+          </div>
+        </div>
+      </>}
+      {request.status === "quoted" && <section className="artist-request-quote">
+        <strong>پیشنهاد ارسالی: {money(request.proposedUnitPriceToman ?? "0")} برای هر عدد</strong>
+        {request.proposalNote && <p>{request.proposalNote}</p>}
+        <small>موجودی تا زمان پذیرش خریدار رزرو نمی‌شود.</small>
+      </section>}
     </article>)}
     {message && <p className="catalog-empty" role="status">{message}</p>}
   </div>;

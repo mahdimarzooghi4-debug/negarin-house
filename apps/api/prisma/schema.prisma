@@ -138,9 +138,13 @@ model CorporatePurchaseRequest {
   quantity Int
   note String?
   status CorporatePurchaseRequestStatus @default(submitted)
+  proposedUnitPriceToman BigInt?
+  proposalNote String?
+  proposedAt DateTime?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   events CorporatePurchaseRequestEvent[]
+  resultingOrder CorporateOrder?
 
   @@index([buyerOrganizationId, createdAt])
   @@index([productId, createdAt])
@@ -154,6 +158,8 @@ model CorporatePurchaseRequestEvent {
   actorUserId String @db.Uuid
   actor IdentityUser @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
   status CorporatePurchaseRequestStatus
+  proposalUnitPriceToman BigInt?
+  proposalNote String?
   createdAt DateTime @default(now())
 
   @@index([requestId, createdAt])
@@ -172,6 +178,8 @@ model CorporateOrder {
   unitPriceTomanSnapshot BigInt
   quantity Int
   totalToman BigInt
+  purchaseRequestId String? @unique @db.Uuid
+  purchaseRequest CorporatePurchaseRequest? @relation(fields: [purchaseRequestId], references: [id], onDelete: Restrict)
   status CorporateOrderStatus @default(awaiting_payment)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

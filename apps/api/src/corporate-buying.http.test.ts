@@ -68,8 +68,46 @@ describe("Corporate Buyer purchase request and order HTTP contract", () => {
       payload: { status: "in_review" } })).json()).toMatchObject({ id: request.json().id, status: "in_review" });
     expect((await database.corporatePurchaseRequestEvent.findMany({ where: { requestId: request.json().id }, orderBy: { createdAt: "asc" } }))
       .map((event) => event.status)).toEqual(["submitted", "in_review"]);
+    expect((await app.inject({ method: "POST", url: `/api/v1/artist/corporate-purchase-requests/${request.json().id}/proposal`, headers: otherArtist,
+      payload: { unitPriceToman: "100000" } })).statusCode).toBe(404);
+    expect((await app.inject({ method: "POST", url: `/api/v1/artist/corporate-purchase-requests/${request.json().id}/proposal`, headers: artist,
+      payload: { unitPriceToman: "100000", note: "تحویل آماده‌سازی یک هفته‌ای" } })).json())
+      .toMatchObject({ id: request.json().id, status: "quoted" });
+    const buyerRequestsAfterQuote = await app.inject({ method: "GET", url: `${path}/purchase-requests`, headers: buyerAColleague });
+    expect(buyerRequestsAfterQuote.json()).toEqual([expect.objectContaining({
+      id: request.json().id, status: "quoted", proposedUnitPriceToman: "100000", proposalTotalToman: "300000",
+      proposalNote: "تحویل آماده‌سازی یک هفته‌ای"
+    })]);
+    await database.artistProduct.update({ where: { id: product.id }, data: { availableQuantity: 2 } });
+    expect((await app.inject({ method: "POST", url: `${path}/purchase-requests/${request.json().id}/accept`, headers: buyerAColleague })).statusCode).toBe(409);
+    expect((await database.corporatePurchaseRequest.findUniqueOrThrow({ where: { id: request.json().id } })).status).toBe("quoted");
+    expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(2);
+    await database.artistProduct.update({ where: { id: product.id }, data: { availableQuantity: 5 } });
+    const acceptedProposal = await app.inject({ method: "POST", url: `${path}/purchase-requests/${request.json().id}/accept`, headers: buyerAColleague });
+    expect(acceptedProposal.statusCode).toBe(201);
+    expect(acceptedProposal.json()).toMatchObject({
+      id: request.json().id, status: "converted",
+      order: { unitPriceToman: "100000", quantity: 3, totalToman: "300000", status: "awaiting_payment" }
+    });
+    expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(2);
+    expect((await app.inject({ method: "POST", url: `${path}/purchase-requests/${request.json().id}/accept`, headers: buyerB })).statusCode).toBe(404);
+    expect((await app.inject({ method: "POST", url: `${path}/purchase-requests/${request.json().id}/decline`, headers: buyerA })).statusCode).toBe(404);
     expect((await app.inject({ method: "PATCH", url: `/api/v1/artist/corporate-purchase-requests/${request.json().id}/review`, headers: artist,
       payload: { status: "quoted" } })).statusCode).toBe(400);
+
+    const cancelAccepted = await app.inject({ method: "POST", url: `${path}/orders/${acceptedProposal.json().order.id}/cancel`, headers: buyerA });
+    expect(cancelAccepted.statusCode).toBe(201);
+    expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(5);
+    expect((await database.corporatePurchaseRequest.findUniqueOrThrow({ where: { id: request.json().id } })).status).toBe("quoted");
+
+    const declinedRequest = await app.inject({ method: "POST", url: `${path}/purchase-requests`, headers: buyerA,
+      payload: { productId: product.id, quantity: 1 } });
+    expect(declinedRequest.statusCode).toBe(201);
+    expect((await app.inject({ method: "POST", url: `/api/v1/artist/corporate-purchase-requests/${declinedRequest.json().id}/proposal`, headers: artist,
+      payload: { unitPriceToman: "120000" } })).json().status).toBe("quoted");
+    expect((await app.inject({ method: "POST", url: `${path}/purchase-requests/${declinedRequest.json().id}/decline`, headers: buyerA })).json())
+      .toMatchObject({ id: declinedRequest.json().id, status: "declined", order: null });
+    expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(5);
 
     const order = await app.inject({ method: "POST", url: `${path}/orders`, headers: buyerA,
       payload: { productId: product.id, quantity: 2 } });
@@ -80,7 +118,10 @@ describe("Corporate Buyer purchase request and order HTTP contract", () => {
     expect((await app.inject({ method: "GET", url: `${path}/purchase-requests`, headers: buyerAColleague })).json())
       .toEqual([expect.objectContaining({ id: request.json().id, note: "ارسال برای شعبه مرکزی" })]);
     expect((await app.inject({ method: "GET", url: `${path}/orders`, headers: buyerAColleague })).json())
-      .toEqual([expect.objectContaining({ id: order.json().id, status: "awaiting_payment" })]);
+      .toEqual(expect.arrayContaining([
+        expect.objectContaining({ id: order.json().id, status: "awaiting_payment" }),
+        expect.objectContaining({ id: acceptedProposal.json().order.id, status: "cancelled" })
+      ]));
     expect((await app.inject({ method: "GET", url: `${path}/orders`, headers: buyerB })).json()).toEqual([]);
 
     const cancel = await app.inject({ method: "POST", url: `${path}/orders/${order.json().id}/cancel`, headers: buyerA });

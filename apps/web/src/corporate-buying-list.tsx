@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 type PurchaseItem = {
   id: string; productTitle: string; quantity: number; unitPriceToman: string; totalToman: string;
   status: string; createdAt: string; note?: string | null;
+  proposedUnitPriceToman?: string | null; proposalTotalToman?: string | null; proposalNote?: string | null;
 };
 
 const statusLabels: Record<string, string> = {
@@ -47,6 +48,24 @@ export function CorporateBuyingList({ endpoint, kind }: { endpoint: string; kind
     finally { setPendingId(null); }
   }
 
+  async function answerProposal(requestId: string, answer: "accept" | "decline") {
+    setPendingId(requestId); setMessage(null);
+    try {
+      const response = await fetch(`/api/corporate-buyer/purchase-requests/${encodeURIComponent(requestId)}/${answer}`, {
+        method: "POST", cache: "no-store"
+      });
+      if (!response.ok) throw new Error("proposal-answer-failed");
+      const result = await response.json() as { status: string; order?: PurchaseItem | null };
+      setItems((current) => current.map((item) => item.id === requestId ? {
+        ...item, status: result.status,
+        ...(result.order ? { unitPriceToman: result.order.unitPriceToman, totalToman: result.order.totalToman } : {})
+      } : item));
+      setMessage(answer === "accept" ? "پیشنهاد پذیرفته شد و سفارش برای پرداخت ایجاد شد." : "پیشنهاد رد شد.");
+    } catch {
+      setMessage(answer === "accept" ? "پذیرش انجام نشد؛ ممکن است موجودی کافی نباشد. فهرست را تازه کن." : "رد پیشنهاد انجام نشد؛ صفحه را تازه کن و دوباره تلاش کن.");
+    } finally { setPendingId(null); }
+  }
+
   if (state === "loading") return <section className="catalog-empty" role="status">در حال دریافت اطلاعات…</section>;
   if (state === "sign-in") return <section className="catalog-empty" role="status">برای مشاهدهٔ این بخش با دسترسی خریدار سازمانی وارد شو.</section>;
   if (state === "unavailable") return <section className="catalog-empty" role="status">دریافت اطلاعات انجام نشد؛ بعداً دوباره تلاش کن.</section>;
@@ -59,9 +78,23 @@ export function CorporateBuyingList({ endpoint, kind }: { endpoint: string; kind
     {items.map((item) => <article key={item.id} className="corporate-buying-list-card">
       <div><h2>{item.productTitle}</h2><span className="product-status">{statusLabels[item.status] ?? item.status}</span></div>
       <p>تعداد: {new Intl.NumberFormat("fa-IR").format(item.quantity)} عدد</p>
-      <p>قیمت واحد: {money(item.unitPriceToman)}</p>
-      <strong>جمع: {money(item.totalToman)}</strong>
+      {kind === "requests" && item.status === "quoted" && item.proposedUnitPriceToman
+        ? <><p>قیمت هنگام ثبت درخواست: {money(item.unitPriceToman)}</p>
+          <p>قیمت پیشنهادی فروشنده برای هر عدد: {money(item.proposedUnitPriceToman)}</p>
+          <strong>جمع پیشنهاد: {money(item.proposalTotalToman ?? "0")}</strong></>
+        : <><p>قیمت واحد: {money(item.unitPriceToman)}</p><strong>جمع: {money(item.totalToman)}</strong></>}
       {item.note && <p>توضیح: {item.note}</p>}
+      {kind === "requests" && item.status === "quoted" && <>
+        {item.proposalNote && <p>پیام فروشنده: {item.proposalNote}</p>}
+        <div className="corporate-request-actions">
+          <button type="button" disabled={pendingId !== null} onClick={() => void answerProposal(item.id, "accept")}>
+            {pendingId === item.id ? "در حال ثبت…" : "پذیرش پیشنهاد و ساخت سفارش"}
+          </button>
+          <button type="button" className="corporate-order-cancel" disabled={pendingId !== null}
+            onClick={() => void answerProposal(item.id, "decline")}>رد پیشنهاد</button>
+        </div>
+      </>}
+      {kind === "requests" && item.status === "converted" && <p><a href="/corporate-buyer/orders">مشاهدهٔ سفارش و ادامهٔ پرداخت</a></p>}
       <small>{new Intl.DateTimeFormat("fa-IR", { dateStyle: "medium", timeStyle: "short" }).format(new Date(item.createdAt))}</small>
       {kind === "orders" && item.status === "awaiting_payment" && <button type="button" className="corporate-order-cancel"
         disabled={pendingId !== null} onClick={() => void cancelOrder(item.id)}>{pendingId === item.id ? "در حال لغو…" : "لغو سفارش و آزادسازی موجودی"}</button>}

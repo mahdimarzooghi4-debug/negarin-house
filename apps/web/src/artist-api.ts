@@ -42,8 +42,9 @@ export type CustomerCatalogItem = {
 export type ArtistCorporatePurchaseRequest = {
   id: string; productId: string; productTitle: string; buyerOrganizationName: string;
   unitPriceToman: string; quantity: number; totalToman: string; note: string | null;
+  proposedUnitPriceToman: string | null; proposalTotalToman: string | null; proposalNote: string | null; proposedAt: string | null;
   status: "submitted" | "in_review" | "quoted" | "declined" | "converted";
-  createdAt: string; history: Array<{ status: string; createdAt: string }>;
+  createdAt: string; history: Array<{ status: string; createdAt: string; proposedUnitPriceToman?: string | null; proposalNote?: string | null }>;
 };
 
 export type ServicePartnerAssignment = {
