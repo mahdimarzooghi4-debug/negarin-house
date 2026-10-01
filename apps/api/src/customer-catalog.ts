@@ -19,6 +19,7 @@ export class CustomerCatalogService {
         title: true,
         description: true,
         priceToman: true,
+        availableQuantity: true,
         updatedAt: true,
         media: {
           where: { status: "ready" },
@@ -38,6 +39,7 @@ export class CustomerCatalogService {
         title: true,
         description: true,
         priceToman: true,
+        availableQuantity: true,
         updatedAt: true,
         media: {
           where: { status: "ready" },
@@ -55,6 +57,7 @@ export class CustomerCatalogService {
     title: string;
     description: string | null;
     priceToman: bigint;
+    availableQuantity: number;
     updatedAt: Date;
     media: Array<{ id: string; contentType: string; objectKey: string }>;
   }) {
@@ -63,6 +66,7 @@ export class CustomerCatalogService {
       title: product.title,
       description: product.description,
       priceToman: product.priceToman.toString(),
+      availableQuantity: product.availableQuantity,
       updatedAt: product.updatedAt.toISOString(),
       media: await Promise.all(product.media.map(async (item) => ({
         id: item.id,

@@ -47,10 +47,10 @@ const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
   ],
   "corporate-buyer": [
     { label: "پیشخوان", active: true },
-    { label: "محصولات سازمانی" },
-    { label: "درخواست‌های خرید" },
+    { label: "محصولات سازمانی", href: "/customer" },
+    { label: "درخواست‌های خرید", href: "/corporate-buyer/purchase-requests" },
     { label: "پیشنهادها" },
-    { label: "سفارش‌ها" },
+    { label: "سفارش‌ها", href: "/corporate-buyer/orders" },
     { label: "ارسال و تحویل" },
     { label: "گزارش‌ها" },
     { label: "حساب و دسترسی‌ها" }

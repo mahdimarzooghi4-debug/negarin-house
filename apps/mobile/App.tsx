@@ -66,8 +66,9 @@ export default function App() {
             <View style={styles.pricePanel}>
               <Text style={styles.priceLabel}>قیمت اعلام‌شده توسط هنرمند</Text>
               <Text style={styles.price}>{formatToman(selectedItem.priceToman)}</Text>
+              <Text style={styles.priceLabel}>موجودی: {new Intl.NumberFormat('fa-IR').format(selectedItem.availableQuantity)} عدد</Text>
             </View>
-            <Text style={styles.purchaseNote}>ثبت سفارش آنلاین در این نسخه فعال نیست.</Text>
+            <Text style={styles.purchaseNote}>ثبت درخواست خرید و سفارش سازمانی از نسخهٔ وب در دسترس خریداران سازمانی است.</Text>
           </ScrollView>
         ) : (
           <ScrollView ref={catalogScrollRef} contentContainerStyle={styles.content}
@@ -114,6 +115,7 @@ export default function App() {
                   <Text numberOfLines={2} style={styles.productTitle}>{item.title}</Text>
                   {item.description ? <Text numberOfLines={2} style={styles.productDescription}>{item.description}</Text> : null}
                   <Text style={styles.productPrice}>{formatToman(item.priceToman)}</Text>
+                  <Text style={styles.productStock}>موجودی: {new Intl.NumberFormat('fa-IR').format(item.availableQuantity)} عدد</Text>
                 </View>
                 <Text style={styles.chevron} aria-hidden>‹</Text>
               </Pressable>)}
@@ -140,7 +142,7 @@ const styles = StyleSheet.create({
   sectionHeader: { flexDirection: 'row-reverse', alignItems: 'center', justifyContent: 'space-between', marginTop: 2 }, sectionTitle: { color: palette.navy, textAlign: 'right', writingDirection: 'rtl', fontSize: 16, fontWeight: '800' }, sectionCount: { color: palette.muted, fontSize: 11, writingDirection: 'rtl' },
   productList: { gap: 10 }, productCard: { minHeight: 106, flexDirection: 'row-reverse', alignItems: 'center', gap: 12, padding: 10, borderWidth: 1, borderColor: palette.border, borderRadius: 16, backgroundColor: palette.white }, productCardPressed: { opacity: 0.78 }, productImage: { width: 82, height: 82, borderRadius: 12, backgroundColor: palette.paleTeal },
   imageFallback: { alignItems: 'center', justifyContent: 'center', backgroundColor: palette.paleTeal }, imageFallbackText: { color: palette.teal, fontSize: 12, fontWeight: '800' }, productCopy: { flex: 1, alignItems: 'flex-end' },
-  productTitle: { width: '100%', color: palette.navy, textAlign: 'right', writingDirection: 'rtl', fontSize: 13, fontWeight: '800' }, productDescription: { width: '100%', color: palette.muted, textAlign: 'right', writingDirection: 'rtl', fontSize: 10, lineHeight: 16, marginTop: 4 }, productPrice: { color: palette.teal, textAlign: 'right', writingDirection: 'rtl', fontSize: 11, fontWeight: '700', marginTop: 6 }, chevron: { color: palette.muted, fontSize: 22 },
+  productTitle: { width: '100%', color: palette.navy, textAlign: 'right', writingDirection: 'rtl', fontSize: 13, fontWeight: '800' }, productDescription: { width: '100%', color: palette.muted, textAlign: 'right', writingDirection: 'rtl', fontSize: 10, lineHeight: 16, marginTop: 4 }, productPrice: { color: palette.teal, textAlign: 'right', writingDirection: 'rtl', fontSize: 11, fontWeight: '700', marginTop: 6 }, productStock: { color: palette.muted, textAlign: 'right', writingDirection: 'rtl', fontSize: 10, marginTop: 4 }, chevron: { color: palette.muted, fontSize: 22 },
   stateCard: { minHeight: 126, alignItems: 'center', justifyContent: 'center', gap: 10, padding: 20, borderWidth: 1, borderColor: palette.border, borderRadius: 16, backgroundColor: palette.white }, stateTitle: { color: palette.navy, fontSize: 14, fontWeight: '800', textAlign: 'center', writingDirection: 'rtl' }, stateText: { color: palette.muted, fontSize: 12, lineHeight: 20, textAlign: 'center', writingDirection: 'rtl' },
   retryButton: { marginTop: 4, paddingVertical: 9, paddingHorizontal: 18, borderRadius: 9, backgroundColor: palette.navy }, retryButtonText: { color: palette.white, fontSize: 12, fontWeight: '700', writingDirection: 'rtl' }, footerNote: { paddingVertical: 14, color: palette.muted, textAlign: 'center', writingDirection: 'rtl', fontSize: 10 },
   detailContent: { padding: 16, paddingBottom: 32, gap: 14 }, detailImage: { width: '100%', height: 300, borderRadius: 20, backgroundColor: palette.paleTeal }, eyebrow: { color: palette.teal, textAlign: 'right', writingDirection: 'rtl', fontSize: 11, fontWeight: '700', marginTop: 6 }, detailTitle: { color: palette.navy, textAlign: 'right', writingDirection: 'rtl', fontSize: 22, fontWeight: '800' }, detailDescription: { color: palette.muted, textAlign: 'right', writingDirection: 'rtl', fontSize: 14, lineHeight: 25 },

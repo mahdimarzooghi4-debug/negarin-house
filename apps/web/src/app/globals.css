@@ -392,6 +392,23 @@ a.portal-nav-item { text-decoration: none; }
 .customer-product-media { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
 .customer-product-media img { width: min(100%, 360px); height: 260px; border-radius: 12px; object-fit: cover; }
 .catalog-purchase-note { margin: 22px 0 0; padding: 12px; border-radius: 10px; background: var(--negarin-sidebar); color: var(--negarin-muted); }
+.artist-product-stock { display: block; margin-top: 4px; color: var(--negarin-muted); font-size: 12px; }
+.corporate-buying-actions { display: grid; gap: 12px; margin-top: 20px; padding: 18px; border: 1px solid var(--negarin-border); border-radius: 14px; background: #fbfdfd; }
+.corporate-buying-actions h3 { margin: 0; color: var(--negarin-sidebar-active-content); }
+.corporate-buying-actions input, .corporate-buying-actions textarea { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 9px; font: inherit; }
+.corporate-buying-actions-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+.corporate-buying-actions-buttons button { min-height: 42px; padding: 0 16px; border: 0; border-radius: 9px; background: #071e63; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+.corporate-buying-actions-buttons button:first-child { border: 1px solid #b8ddd5; background: #eff9f6; color: var(--negarin-sidebar-active-content); }
+.corporate-buying-actions-buttons button:disabled { opacity: .6; cursor: wait; }
+.corporate-buying-note { margin: 0; color: var(--negarin-muted); font-size: 12px; line-height: 1.8; }
+.corporate-buying-success { margin: 0; padding: 12px; border-radius: 9px; background: #effaf4; color: #176b43; line-height: 1.7; }
+.corporate-buying-list { display: grid; gap: 14px; }
+.corporate-buying-list-card { display: grid; gap: 8px; padding: 18px; border: 1px solid var(--negarin-border); border-radius: 14px; background: #fff; }
+.corporate-buying-list-card h2 { margin: 0 0 8px; font-size: 17px; }
+.corporate-buying-list-card p, .corporate-buying-list-card small { margin: 0; color: var(--negarin-muted); line-height: 1.7; }
+.corporate-order-cancel { justify-self: start; min-height: 38px; padding: 0 14px; border: 1px solid #e3bcbc; border-radius: 9px; background: #fff7f7; color: #923333; font: inherit; cursor: pointer; }
+.corporate-order-cancel:disabled { opacity: .6; cursor: wait; }
+.artist-product-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
 .customer-store { width: min(100%, 1040px); max-width: 1040px; margin: 0 auto; padding: 0 24px 40px; }
 .customer-store-header { display: flex; min-height: 72px; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--negarin-border); background: var(--negarin-surface); }
@@ -421,6 +438,7 @@ a.portal-nav-item { text-decoration: none; }
 .customer-store-product-copy h3 a { text-decoration: none; }
 .customer-store-product-copy p { min-height: 36px; margin: 8px 0; color: var(--negarin-muted); font-size: 12px; line-height: 1.6; }
 .customer-store-product-copy strong { color: #0c8b91; font-size: 13px; }
+.customer-stock-label { display: block; margin-top: 5px; color: var(--negarin-muted); font-size: 11px; }
 .customer-store-empty { padding: 28px 18px; border: 1px solid var(--negarin-border); border-radius: 16px; background: #fff; text-align: center; }
 .customer-store-empty h3 { margin: 0; color: var(--negarin-text); font-size: 15px; }
 .customer-store-empty p, .customer-store-footnote { color: var(--negarin-muted); font-size: 12px; line-height: 1.8; }

@@ -25,6 +25,8 @@ model IdentityUser {
   sessions  AuthSession[]
   roleGrants RoleGrant[]
   artistProducts ArtistProduct[]
+  corporatePurchaseRequests CorporatePurchaseRequest[]
+  corporateOrders CorporateOrder[]
   productPublicationEvents ProductPublicationEvent[]
   serviceAssignments ServiceAssignment[] @relation("ServiceAssignmentUser")
   authoredServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentAuthor")
@@ -55,6 +57,8 @@ model Organization {
   roleGrants         RoleGrant[]
   serviceAssignments ServiceAssignment[]
   supportPrograms    SupportProgram[]
+  corporatePurchaseRequests CorporatePurchaseRequest[]
+  corporateOrders CorporateOrder[]
 
   @@index([kind, createdAt])
   @@map("organizations")
@@ -94,10 +98,72 @@ model ArtistProduct {
   updatedAt         DateTime                 @updatedAt
   publicationEvents ProductPublicationEvent[]
   media             ArtistProductMedia[]
+  availableQuantity Int                      @default(1)
+  corporatePurchaseRequests CorporatePurchaseRequest[]
+  corporateOrders CorporateOrder[]
 
   @@index([artistUserId, archivedAt, updatedAt])
   @@index([publicationStatus, archivedAt])
   @@map("artist_products")
+}
+
+enum CorporatePurchaseRequestStatus {
+  submitted
+  in_review
+  quoted
+  declined
+  converted
+}
+
+enum CorporateOrderStatus {
+  awaiting_payment
+  paid
+  processing
+  shipped
+  delivered
+  cancelled
+}
+
+model CorporatePurchaseRequest {
+  id String @id @default(uuid()) @db.Uuid
+  buyerOrganizationId String @db.Uuid
+  buyerOrganization Organization @relation(fields: [buyerOrganizationId], references: [id], onDelete: Restrict)
+  requestedByUserId String @db.Uuid
+  requestedBy IdentityUser @relation(fields: [requestedByUserId], references: [id], onDelete: Restrict)
+  productId String @db.Uuid
+  product ArtistProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  productTitleSnapshot String
+  unitPriceTomanSnapshot BigInt
+  quantity Int
+  note String?
+  status CorporatePurchaseRequestStatus @default(submitted)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([buyerOrganizationId, createdAt])
+  @@index([productId, createdAt])
+  @@map("corporate_purchase_requests")
+}
+
+model CorporateOrder {
+  id String @id @default(uuid()) @db.Uuid
+  buyerOrganizationId String @db.Uuid
+  buyerOrganization Organization @relation(fields: [buyerOrganizationId], references: [id], onDelete: Restrict)
+  createdByUserId String @db.Uuid
+  createdBy IdentityUser @relation(fields: [createdByUserId], references: [id], onDelete: Restrict)
+  productId String @db.Uuid
+  product ArtistProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  productTitleSnapshot String
+  unitPriceTomanSnapshot BigInt
+  quantity Int
+  totalToman BigInt
+  status CorporateOrderStatus @default(awaiting_payment)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([buyerOrganizationId, createdAt])
+  @@index([productId, createdAt])
+  @@map("corporate_orders")
 }
 
 model ProductPublicationEvent {

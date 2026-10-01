@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { loadCustomerCatalogItem } from "../../../../artist-api";
 import { PortalShell } from "../../../portal-shell";
+import { CorporateBuyingActions } from "../../../../corporate-buying-actions";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +28,8 @@ export default async function CustomerProductPage({ params }: { params: Promise<
       <h2>{item.title}</h2>
       {item.description && <p>{item.description}</p>}
       <strong>{formatPrice(item.priceToman)}</strong>
-      <p className="catalog-purchase-note">نمایش و ثبت سفارش آنلاین در این مرحله فعال نیست.</p>
+      <p className="catalog-purchase-note">موجودی: {new Intl.NumberFormat("fa-IR").format(item.availableQuantity)} عدد</p>
+      <CorporateBuyingActions productId={item.id} availableQuantity={item.availableQuantity} />
     </main>
   </PortalShell>;
 }

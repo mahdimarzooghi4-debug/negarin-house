@@ -20,7 +20,9 @@ The product owner confirmed an independent Android application in addition to th
 - Admin decides whether a content-approved product is shown in the public Customer catalog.
 - Content approval and public visibility are separate actions. Approval sets the product to `approved`; an authorized Admin must explicitly publish it before it becomes `published` and visible.
 - Admin can unpublish a product, returning it to `approved` and removing it from the public catalog. Archived products remain excluded.
-- The Customer catalog and product detail are read-only in this slice. They display the Artist-set product price in Toman; no purchase, order, payment, fee, or settlement behavior is defined here.
+- The public catalog remains browsable without sign-in. Authenticated Corporate Buyers can submit a purchase request or place a direct order for an Admin-published product; direct orders use the displayed Toman price and available stock.
+- Direct orders reserve the requested available quantity and begin in `awaiting_payment`. A Corporate Buyer can cancel before payment to release that stock. Purchase requests do not reserve inventory.
+- Payment provider, delivery, allocation to Artists, fees, and settlement behavior are still undefined. No payment is collected until the provider and commercial rules are configured.
 
 ### Growth
 Canonical levels:
@@ -53,7 +55,9 @@ Growth cannot be purchased.
 
 ### Corporate Buyer
 - External B2B buyer.
-- Purchase Request → Negarin Review → Proposal → Buyer Confirmation → Corporate Order → Artist Allocation(s) → Fulfillment → Delivery → Completion.
+- Can submit a Purchase Request for Negarin review and proposal, or place a direct Corporate Order for a published product with sufficient available stock.
+- Requests are organization-scoped and do not reserve inventory. Direct orders snapshot the product title and price, reserve stock, and await payment-provider integration; cancellation before payment releases reserved stock.
+- After order confirmation, the intended operational path remains Artist Allocation(s) → Fulfillment → Delivery → Completion.
 - No direct Artist payment or off-platform commercial bypass.
 - No access to Artist settlement, bank details, private finance, private Growth scoring, or Admin notes.
 

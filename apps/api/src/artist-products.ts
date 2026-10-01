@@ -10,6 +10,7 @@ export type ArtistProductWrite = {
   title?: string;
   description?: string | null;
   priceToman?: bigint;
+  availableQuantity?: number;
 };
 
 @Injectable()
@@ -36,7 +37,8 @@ export class ArtistProductsService {
         artistUserId: context.userId,
         title: input.title!,
         description: input.description ?? null,
-        priceToman: input.priceToman!
+        priceToman: input.priceToman!,
+        availableQuantity: input.availableQuantity!
       }
     });
     return this.view(product);
@@ -101,6 +103,7 @@ export class ArtistProductsService {
     title: string;
     description: string | null;
     priceToman: bigint;
+    availableQuantity: number;
     publicationStatus: string;
     archivedAt: Date | null;
     createdAt: Date;
@@ -111,6 +114,7 @@ export class ArtistProductsService {
       title: product.title,
       description: product.description,
       priceToman: product.priceToman.toString(),
+      availableQuantity: product.availableQuantity,
       publicationStatus: product.publicationStatus,
       archivedAt: product.archivedAt?.toISOString() ?? null,
       createdAt: product.createdAt.toISOString(),
@@ -124,7 +128,7 @@ const maxPostgresBigInt = 9_223_372_036_854_775_807n;
 export function parseArtistProductWrite(body: unknown, partial = false): ArtistProductWrite {
   if (!body || typeof body !== "object" || Array.isArray(body)) throw new BadRequestException();
   const value = body as Record<string, unknown>;
-  const allowed = new Set(["title", "description", "priceToman"]);
+  const allowed = new Set(["title", "description", "priceToman", "availableQuantity"]);
   if (Object.keys(value).some((key) => !allowed.has(key))) throw new BadRequestException();
 
   const result: ArtistProductWrite = {};
@@ -147,6 +151,12 @@ export function parseArtistProductWrite(body: unknown, partial = false): ArtistP
     if (amount > maxPostgresBigInt) throw new BadRequestException();
     result.priceToman = amount;
   }
+  if (Object.hasOwn(value, "availableQuantity")) {
+    if (!Number.isSafeInteger(value.availableQuantity) || (value.availableQuantity as number) < 0 || (value.availableQuantity as number) > 1_000_000) {
+      throw new BadRequestException();
+    }
+    result.availableQuantity = value.availableQuantity as number;
+  } else if (!partial) result.availableQuantity = 1;
   if (partial && Object.keys(result).length === 0) throw new BadRequestException();
   return result;
 }

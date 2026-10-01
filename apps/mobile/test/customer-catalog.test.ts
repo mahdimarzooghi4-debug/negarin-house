@@ -5,7 +5,7 @@ import {
 } from "../src/customer-catalog";
 
 const item: CustomerCatalogItem = {
-  id: "product-1", title: "ظرف سفالی", description: "ساختهٔ دست هنرمند", priceToman: "1250000",
+  id: "product-1", title: "ظرف سفالی", description: "ساختهٔ دست هنرمند", priceToman: "1250000", availableQuantity: 6,
   updatedAt: "2026-09-30T10:00:00.000Z",
   media: [{ id: "media-1", contentType: "image/webp", readUrl: "https://cdn.example.test/art.webp" }]
 };

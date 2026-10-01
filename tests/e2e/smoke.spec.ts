@@ -75,7 +75,7 @@ test("unconfigured sign-in and customer catalog do not present a fake login or c
   await expect(page.getByRole("button", { name: /سفارش|پرداخت/ })).toHaveCount(0);
 });
 
-test("Supporting Organization programs require a real organization session; Corporate Buyer shell stays truthful", async ({ page }) => {
+test("Supporting Organization programs require a real organization session; Corporate Buyer links to its buying workflows", async ({ page }) => {
   const emptyState = "در این پیش‌نمایش، اطلاعات عملیاتی یا مالی نمونه نمایش داده نمی‌شود.";
 
   await page.goto("/supporting-organization");
@@ -97,7 +97,17 @@ test("Supporting Organization programs require a real organization session; Corp
   await expect(page.getByText(emptyState)).toBeVisible();
   await expect(page.locator(".portal-nav-item")).toHaveCount(8);
   await expect(page.getByRole("button")).toHaveCount(0);
-  await expect(page.locator(".portal-navigation a")).toHaveCount(0);
+  await expect(page.locator(".portal-navigation a")).toHaveCount(3);
+  await expect(page.locator(".portal-navigation a[href='/customer']")).toHaveText("محصولات سازمانی");
+  await expect(page.locator(".portal-navigation a[href='/corporate-buyer/purchase-requests']")).toHaveText("درخواست‌های خرید");
+  await expect(page.locator(".portal-navigation a[href='/corporate-buyer/orders']")).toHaveText("سفارش‌ها");
+
+  await page.goto("/corporate-buyer/purchase-requests");
+  await expect(page.getByRole("heading", { name: "درخواست‌های خرید" }).first()).toBeVisible();
+  await expect(page.locator(".portal-navigation a[href='/corporate-buyer/purchase-requests']")).toHaveAttribute("aria-current", "page");
+  await page.goto("/corporate-buyer/orders");
+  await expect(page.getByRole("heading", { name: "سفارش‌های سازمانی" })).toBeVisible();
+  await expect(page.locator(".portal-navigation a[href='/corporate-buyer/orders']")).toHaveAttribute("aria-current", "page");
 });
 
 test("artist product workspace requires a real session and does not invent products", async ({ page }) => {

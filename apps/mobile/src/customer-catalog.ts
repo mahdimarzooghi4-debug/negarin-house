@@ -3,6 +3,7 @@ export type CustomerCatalogItem = {
   title: string;
   description: string | null;
   priceToman: string;
+  availableQuantity: number;
   updatedAt: string;
   media: Array<{ id: string; contentType: string; readUrl: string }>;
 };
@@ -21,6 +22,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 function parseItem(value: unknown): CustomerCatalogItem | null {
   if (!isRecord(value) || typeof value.id !== "string" || typeof value.title !== "string" ||
       typeof value.priceToman !== "string" || !/^\d+$/.test(value.priceToman) ||
+      !Number.isSafeInteger(value.availableQuantity) || (value.availableQuantity as number) < 0 ||
       !(typeof value.description === "string" || value.description === null) ||
       typeof value.updatedAt !== "string" || !Array.isArray(value.media)) return null;
 
@@ -40,6 +42,7 @@ function parseItem(value: unknown): CustomerCatalogItem | null {
     title: value.title,
     description: value.description,
     priceToman: value.priceToman,
+    availableQuantity: value.availableQuantity as number,
     updatedAt: value.updatedAt,
     media: media as CustomerCatalogItem["media"]
   };

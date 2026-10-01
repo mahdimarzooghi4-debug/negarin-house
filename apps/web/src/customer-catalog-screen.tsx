@@ -67,11 +67,12 @@ export function CustomerCatalogScreen({ items, available }: { items: CustomerCat
               <h3><Link href={`/customer/products/${encodeURIComponent(item.id)}`}>{item.title}</Link></h3>
               {item.description ? <p>{item.description}</p> : null}
               <strong>{formatPrice(item.priceToman)}</strong>
+              <small className="customer-stock-label">موجودی: {new Intl.NumberFormat("fa-IR").format(item.availableQuantity)} عدد</small>
             </div>
           </article>)}
         </div>}
       </section>
-      <p className="customer-store-footnote">ثبت سفارش آنلاین در این نسخه فعال نیست.</p>
+      <p className="customer-store-footnote">خریداران سازمانی می‌توانند از صفحهٔ هر محصول درخواست خرید یا سفارش مستقیم ثبت کنند.</p>
     </main>
   );
 }

@@ -10,7 +10,7 @@ type InitialState =
   | { kind: "connection-required" }
   | { kind: "unavailable" };
 
-type EditorState = { id?: string; title: string; description: string; priceToman: string };
+type EditorState = { id?: string; title: string; description: string; priceToman: string; availableQuantity: string };
 type ProductMedia = {
   id: string;
   contentType: string;
@@ -157,7 +157,7 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
       const response = await mutate(
         editor.id ? `/api/artist/products/${encodeURIComponent(editor.id)}` : "/api/artist/products",
         editor.id ? "PATCH" : "POST",
-        { title: editor.title, description: editor.description || null, priceToman: editor.priceToman }
+        { title: editor.title, description: editor.description || null, priceToman: editor.priceToman, availableQuantity: Number(editor.availableQuantity) }
       );
       if (!response.ok) {
         setError(response.status === 409
@@ -248,7 +248,7 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
           <h2 id="artist-products-title">محصول‌های من</h2>
           <p>قیمت محصول را خودت تعیین می‌کنی؛ بررسی نگارین فقط دربارهٔ محتوا و کیفیت انتشار است.</p>
         </div>
-        <Button onClick={() => { setError(null); setEditor({ title: "", description: "", priceToman: "" }); }}>
+        <Button onClick={() => { setError(null); setEditor({ title: "", description: "", priceToman: "", availableQuantity: "1" }); }}>
           افزودن محصول
         </Button>
       </div>
@@ -273,6 +273,7 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
                 </div>
                 {product.description && <p>{product.description}</p>}
                 <strong className="artist-product-price">{toman(product.priceToman)}</strong>
+                <span className="artist-product-stock">موجودی: {faNumber.format(product.availableQuantity)} عدد</span>
                 {!product.archivedAt && product.publicationStatus !== "under_review" && (
                   <div className="artist-product-media" aria-label="تصویرهای محصول">
                     <div className="artist-product-media-heading">
@@ -324,7 +325,7 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
                 ) : (
                   <>
                     <Button variant="secondary" disabled={pending || product.publicationStatus === "under_review"}
-                      onClick={() => { setError(null); setEditor({ id: product.id, title: product.title, description: product.description ?? "", priceToman: product.priceToman }); }}>
+                      onClick={() => { setError(null); setEditor({ id: product.id, title: product.title, description: product.description ?? "", priceToman: product.priceToman, availableQuantity: String(product.availableQuantity) }); }}>
                       ویرایش
                     </Button>
                     {(product.publicationStatus === "draft" || product.publicationStatus === "changes_requested") && (
@@ -359,6 +360,9 @@ export function ArtistProductsScreen({ initialState }: { initialState: InitialSt
               <TextField label="قیمت به تومان" required inputMode="numeric" pattern="[1-9][0-9]*"
                 value={editor.priceToman} onChange={(event) => setEditor({ ...editor, priceToman: event.target.value })}
                 hint="قیمت را خود هنرمند ثبت می‌کند." />
+              <TextField label="موجودی قابل فروش" required inputMode="numeric" pattern="[0-9]+"
+                value={editor.availableQuantity} onChange={(event) => setEditor({ ...editor, availableQuantity: event.target.value })}
+                hint="با ثبت سفارش مستقیم، موجودی به‌صورت خودکار کم می‌شود." />
               {error && <p className="artist-products-error" role="alert">{error}</p>}
               <div className="product-editor-actions">
                 <Button type="button" variant="secondary" disabled={pending} onClick={() => setEditor(null)}>انصراف</Button>

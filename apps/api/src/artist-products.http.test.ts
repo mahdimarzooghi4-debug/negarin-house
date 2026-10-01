@@ -52,8 +52,9 @@ describe("Artist product HTTP contract", () => {
     });
     expect(create.statusCode).toBe(201);
     expect(create.headers["cache-control"]).toBe("no-store");
-    const product = create.json<{ id: string; priceToman: string; publicationStatus: string; archivedAt: string | null }>();
+    const product = create.json<{ id: string; priceToman: string; availableQuantity: number; publicationStatus: string; archivedAt: string | null }>();
     expect(product.priceToman).toBe("2450000");
+    expect(product.availableQuantity).toBe(1);
     expect(product.publicationStatus).toBe("draft");
     expect(product.archivedAt).toBeNull();
 
@@ -63,6 +64,11 @@ describe("Artist product HTTP contract", () => {
     });
     expect(update.statusCode).toBe(200);
     expect(update.json().priceToman).toBe("2500000");
+    const stockUpdate = await app.inject({ method: "PATCH", url: `/api/v1/artist/products/${product.id}`, headers: owner,
+      payload: { availableQuantity: 12 } });
+    expect(stockUpdate.json().availableQuantity).toBe(12);
+    expect((await app.inject({ method: "PATCH", url: `/api/v1/artist/products/${product.id}`, headers: owner,
+      payload: { availableQuantity: -1 } })).statusCode).toBe(400);
 
     const archive = await app.inject({ method: "POST", url: `/api/v1/artist/products/${product.id}/archive`, headers: owner });
     expect(archive.statusCode).toBe(201);

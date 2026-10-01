@@ -5,6 +5,7 @@ export type ArtistProduct = {
   title: string;
   description: string | null;
   priceToman: string;
+  availableQuantity: number;
   publicationStatus: "draft" | "under_review" | "changes_requested" | "approved" | "published";
   archivedAt: string | null;
   createdAt: string;
@@ -33,6 +34,7 @@ export type CustomerCatalogItem = {
   title: string;
   description: string | null;
   priceToman: string;
+  availableQuantity: number;
   updatedAt: string;
   media: Array<{ id: string; contentType: string; readUrl: string }>;
 };
