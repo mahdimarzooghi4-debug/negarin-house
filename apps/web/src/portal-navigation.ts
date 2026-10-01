@@ -2,16 +2,17 @@ import type { PortalKey } from "./portal-registry";
 import type { PartnerLocale } from "@negarin/i18n";
 import { getPartnerMessages } from "./partner-localization";
 
-export type PortalNavigationItem = { label: string; active?: boolean };
+export type PortalNavigationItem = { label: string; active?: boolean; href?: string };
 
 const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
   artist: [
     { label: "پیشخوان", active: true },
     { label: "فروشگاه من" },
-    { label: "محصولات" },
+    { label: "محصولات", href: "/artist/products" },
     { label: "سفارش‌ها" },
+    { label: "درخواست‌های سازمانی", href: "/artist/corporate-purchase-requests" },
     { label: "رشد من" },
-    { label: "خدمات" },
+    { label: "خدمات", href: "/artist/services" },
     { label: "فرصت‌ها" },
     { label: "مالی" },
     { label: "عضویت" },
@@ -20,9 +21,9 @@ const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
   admin: [
     { label: "داشبورد", active: true },
     { label: "هنرمندان" },
-    { label: "بازار" },
+    { label: "بازار", href: "/admin/publication-reviews" },
     { label: "سفارش و ارسال" },
-    { label: "رشد و خدمات" },
+    { label: "رشد و خدمات", href: "/admin/service-assignments" },
     { label: "فرصت‌ها" },
     { label: "مالی و عضویت" },
     { label: "بین‌الملل" },
@@ -31,7 +32,7 @@ const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
   ],
   "service-partner": [
     { label: "پیشخوان", active: true },
-    { label: "درخواست‌های تخصیص‌یافته" },
+    { label: "درخواست‌های تخصیص‌یافته", href: "/service-partner/assignments" },
     { label: "برنامهٔ اجرا" },
     { label: "تحویل‌ها" },
     { label: "تاریخچه" },
@@ -39,7 +40,7 @@ const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
   ],
   "supporting-organization": [
     { label: "پیشخوان", active: true },
-    { label: "برنامه‌های حمایتی" },
+    { label: "برنامه‌های حمایتی", href: "/supporting-organization/programs" },
     { label: "ارجاع هنرمندان" },
     { label: "تعهدها و مصرف" },
     { label: "گزارش‌ها" },
@@ -47,10 +48,10 @@ const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
   ],
   "corporate-buyer": [
     { label: "پیشخوان", active: true },
-    { label: "محصولات سازمانی" },
-    { label: "درخواست‌های خرید" },
+    { label: "محصولات سازمانی", href: "/customer" },
+    { label: "درخواست‌های خرید", href: "/corporate-buyer/purchase-requests" },
     { label: "پیشنهادها" },
-    { label: "سفارش‌ها" },
+    { label: "سفارش‌ها", href: "/corporate-buyer/orders" },
     { label: "ارسال و تحویل" },
     { label: "گزارش‌ها" },
     { label: "حساب و دسترسی‌ها" }

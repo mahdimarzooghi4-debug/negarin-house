@@ -1,5 +1,5 @@
 import {
-  BadRequestException, Body, Controller, Get, Header, Post, Req,
+  BadRequestException, Body, Controller, Get, Header, HttpCode, Post, Req,
   UnauthorizedException, UseGuards
 } from "@nestjs/common";
 import type { AuthorizationContext } from "@negarin/authz";
@@ -31,12 +31,26 @@ export class IdentityContextController {
       where: { tokenHash: hashSessionToken(bearer(request)) }
     });
     if (!session || session.revokedAt || session.expiresAt <= new Date()) throw new UnauthorizedException();
-    const grants = await this.database.roleGrant.findMany({
-      where: { userId: session.userId, revokedAt: null },
-      select: { id: true, role: true, organizationId: true, exportPartnerId: true },
-      orderBy: { createdAt: "asc" }
+    const grants = await this.resolver.listSelectableGrants(session.userId);
+    const activeGrantId = grants.some(({ id }) => id === session.activeGrantId) ? session.activeGrantId : null;
+    return { activeGrantId, grants };
+  }
+
+  /** Revoke this bearer session without requiring a role grant to be selected. */
+  @Post("logout")
+  @HttpCode(204)
+  @Header("Cache-Control", "no-store")
+  async logout(@Req() request: AuthorizedRequest): Promise<void> {
+    const now = new Date();
+    const revoked = await this.database.authSession.updateMany({
+      where: {
+        tokenHash: hashSessionToken(bearer(request)),
+        revokedAt: null,
+        expiresAt: { gt: now }
+      },
+      data: { revokedAt: now }
     });
-    return { activeGrantId: session.activeGrantId, grants };
+    if (revoked.count !== 1) throw new UnauthorizedException();
   }
 
   @Get("context")

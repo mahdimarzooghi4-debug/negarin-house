@@ -4,7 +4,7 @@ Status: **READY FOR IMPLEMENTATION**
 
 ## Mobile application scope update
 
-The product owner confirmed an independent Negarin mobile application in addition to the responsive website. The initial mobile roles, workflows, Android/iOS release order, and distribution must be specified in Product/UX and Sprint planning. Mobile uses the same backend rules and authorization as web; responsive layouts alone do not settle native screen scope. See ADR-0007.
+The product owner confirmed an independent Android application in addition to the responsive website; iOS is out of scope. The initial mobile roles, workflows, Android distribution, and supported devices must be specified in Product/UX and Sprint planning. Mobile uses the same backend rules and authorization as web; responsive layouts alone do not settle native screen scope. See ADR-0007.
 
 ## Locked product rules
 
@@ -15,6 +15,17 @@ The product owner confirmed an independent Negarin mobile application in additio
 - Archiving is reversible: it removes a product from public display and new purchases while retaining its record and history.
 - Negarin reviews content, images, required information, and publication quality.
 - Domestic Artist-facing finance is shown in Toman.
+
+### Product catalog visibility — decided
+- Admin decides whether a content-approved product is shown in the public Customer catalog.
+- Content approval and public visibility are separate actions. Approval sets the product to `approved`; an authorized Admin must explicitly publish it before it becomes `published` and visible.
+- Admin can unpublish a product, returning it to `approved` and removing it from the public catalog. Archived products remain excluded.
+- The public catalog remains browsable without sign-in. Authenticated Corporate Buyers can submit a purchase request or place a direct order for an Admin-published product; direct orders use the displayed Toman price and available stock.
+- Direct orders reserve the requested available quantity and begin in `awaiting_payment`. A Corporate Buyer can cancel before payment to release that stock. Purchase requests do not reserve inventory.
+- Purchase requests appear only in the owning Artist's portal. The Artist may start reviewing, decline, or send a proposed Toman unit price with a note; proposal/status changes are recorded in request history. The Buyer may accept or decline a proposal. Acceptance creates a Corporate Order at the proposed price and reserves stock atomically; if stock is no longer sufficient, acceptance fails without changing the request. Declining ends the request.
+- Proposals do not reserve inventory. Cancelling an unpaid order created from a proposal restores stock and returns the request to `quoted`. Direct orders remain available alongside request-and-proposal orders.
+- Delivery is expected to be handled by Negarin's logistics partners, such as Post; provider selection, shipment tracking, delivery confirmation, and exception handling remain to be defined.
+- Payment provider, delivery, allocation to Artists, fees, and settlement behavior are still undefined. No payment is collected until the provider and commercial rules are configured.
 
 ### Growth
 Canonical levels:
@@ -31,15 +42,26 @@ Growth cannot be purchased.
 - No unrestricted Artist browsing.
 - No access to Artist private finance, Growth, membership internals, unrelated orders, or Admin notes.
 
+### Service requests — decided
+- Artist can submit a service request with a title and description and can read only their own request.
+- An Admin with the services permission assigns a registered Service Partner.
+- The Service Partner may accept or decline an assignment and submit a deliverable for Negarin review.
+- An authorized Admin either approves the deliverable, completing the service, or requests changes with feedback. After changes are requested, the Partner may submit a replacement file.
+- No service price, schedule, direct-payment path, or additional execution status is defined by this workflow.
+
 ### Supporting Organization
 - Limited to its own programs, referrals, support relationships, usage, reports, and organization users.
+- Can create, view, and edit its own program name and optional description. This basic record does not define a budget, quota, service credit, eligibility rule, or referral outcome.
 - Referral does not equal Artist approval.
 - No Artist administration authority.
 - No access to Artist private finance or bank information.
 
 ### Corporate Buyer
 - External B2B buyer.
-- Purchase Request → Negarin Review → Proposal → Buyer Confirmation → Corporate Order → Artist Allocation(s) → Fulfillment → Delivery → Completion.
+- Can submit a Purchase Request for the product's owning Artist to review, or place a direct Corporate Order for a published product with sufficient available stock.
+- The owning Artist can see their requests and start review or decline them; a request does not reserve stock and this review step does not create a price proposal or order.
+- Requests are organization-scoped and do not reserve inventory. Direct orders snapshot the product title and price, reserve stock, and await payment-provider integration; cancellation before payment releases reserved stock.
+- After order confirmation, the intended operational path remains Artist Allocation(s) → Fulfillment → Delivery → Completion.
 - No direct Artist payment or off-platform commercial bypass.
 - No access to Artist settlement, bank details, private finance, private Growth scoring, or Admin notes.
 

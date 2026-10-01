@@ -25,8 +25,57 @@ model IdentityUser {
   sessions  AuthSession[]
   roleGrants RoleGrant[]
   artistProducts ArtistProduct[]
+  corporatePurchaseRequests CorporatePurchaseRequest[]
+  corporateOrders CorporateOrder[]
+  productPublicationEvents ProductPublicationEvent[]
+  serviceAssignments ServiceAssignment[] @relation("ServiceAssignmentUser")
+  authoredServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentAuthor")
+  createdServiceRequests ServiceRequest[] @relation("ServiceRequestAuthor")
+  requestedArtistServiceRequests ServiceRequest[] @relation("ArtistServiceRequestRequester")
+  completedServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentCompletion")
+  reviewedServiceDeliverables ServiceDeliverableReviewEvent[]
+  corporatePurchaseRequestEvents CorporatePurchaseRequestEvent[]
+  serviceAssignmentResponses ServiceAssignmentEvent[]
+  uploadedServiceDeliverables ServiceDeliverable[]
+  serviceDeliverableSubmissions ServiceDeliverableSubmission[]
 
   @@map("identity_users")
+}
+
+enum OrganizationKind {
+  service_partner
+  supporting_organization
+  corporate_buyer
+  export_partner
+}
+
+model Organization {
+  id                 String             @id @default(uuid()) @db.Uuid
+  kind               OrganizationKind
+  displayName        String?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  roleGrants         RoleGrant[]
+  serviceAssignments ServiceAssignment[]
+  supportPrograms    SupportProgram[]
+  corporatePurchaseRequests CorporatePurchaseRequest[]
+  corporateOrders CorporateOrder[]
+
+  @@index([kind, createdAt])
+  @@map("organizations")
+}
+
+model SupportProgram {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @db.Uuid
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  name           String
+  description    String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([organizationId, createdAt])
+  @@map("support_programs")
 }
 
 enum ProductPublicationStatus {
@@ -48,10 +97,254 @@ model ArtistProduct {
   archivedAt        DateTime?
   createdAt         DateTime                 @default(now())
   updatedAt         DateTime                 @updatedAt
+  publicationEvents ProductPublicationEvent[]
+  media             ArtistProductMedia[]
+  availableQuantity Int                      @default(1)
+  corporatePurchaseRequests CorporatePurchaseRequest[]
+  corporateOrders CorporateOrder[]
 
   @@index([artistUserId, archivedAt, updatedAt])
   @@index([publicationStatus, archivedAt])
   @@map("artist_products")
+}
+
+enum CorporatePurchaseRequestStatus {
+  submitted
+  in_review
+  quoted
+  declined
+  converted
+}
+
+enum CorporateOrderStatus {
+  awaiting_payment
+  paid
+  processing
+  shipped
+  delivered
+  cancelled
+}
+
+model CorporatePurchaseRequest {
+  id String @id @default(uuid()) @db.Uuid
+  buyerOrganizationId String @db.Uuid
+  buyerOrganization Organization @relation(fields: [buyerOrganizationId], references: [id], onDelete: Restrict)
+  requestedByUserId String @db.Uuid
+  requestedBy IdentityUser @relation(fields: [requestedByUserId], references: [id], onDelete: Restrict)
+  productId String @db.Uuid
+  product ArtistProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  productTitleSnapshot String
+  unitPriceTomanSnapshot BigInt
+  quantity Int
+  note String?
+  status CorporatePurchaseRequestStatus @default(submitted)
+  proposedUnitPriceToman BigInt?
+  proposalNote String?
+  proposedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  events CorporatePurchaseRequestEvent[]
+  resultingOrder CorporateOrder?
+
+  @@index([buyerOrganizationId, createdAt])
+  @@index([productId, createdAt])
+  @@map("corporate_purchase_requests")
+}
+
+model CorporatePurchaseRequestEvent {
+  id String @id @default(uuid()) @db.Uuid
+  requestId String @db.Uuid
+  request CorporatePurchaseRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  status CorporatePurchaseRequestStatus
+  proposalUnitPriceToman BigInt?
+  proposalNote String?
+  createdAt DateTime @default(now())
+
+  @@index([requestId, createdAt])
+  @@map("corporate_purchase_request_events")
+}
+
+model CorporateOrder {
+  id String @id @default(uuid()) @db.Uuid
+  buyerOrganizationId String @db.Uuid
+  buyerOrganization Organization @relation(fields: [buyerOrganizationId], references: [id], onDelete: Restrict)
+  createdByUserId String @db.Uuid
+  createdBy IdentityUser @relation(fields: [createdByUserId], references: [id], onDelete: Restrict)
+  productId String @db.Uuid
+  product ArtistProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  productTitleSnapshot String
+  unitPriceTomanSnapshot BigInt
+  quantity Int
+  totalToman BigInt
+  purchaseRequestId String? @unique @db.Uuid
+  purchaseRequest CorporatePurchaseRequest? @relation(fields: [purchaseRequestId], references: [id], onDelete: Restrict)
+  status CorporateOrderStatus @default(awaiting_payment)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([buyerOrganizationId, createdAt])
+  @@index([productId, createdAt])
+  @@map("corporate_orders")
+}
+
+model ProductPublicationEvent {
+  id                String                   @id @default(uuid()) @db.Uuid
+  productId         String                   @db.Uuid
+  product           ArtistProduct             @relation(fields: [productId], references: [id], onDelete: Cascade)
+  actorUserId       String                   @db.Uuid
+  actor             IdentityUser              @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  status            ProductPublicationStatus
+  feedback          String?
+  createdAt         DateTime                 @default(now())
+
+  @@index([productId, createdAt])
+  @@map("product_publication_events")
+}
+
+enum ProductMediaStatus {
+  pending
+  ready
+}
+
+model ArtistProductMedia {
+  id            String            @id @default(uuid()) @db.Uuid
+  productId     String            @db.Uuid
+  product       ArtistProduct     @relation(fields: [productId], references: [id], onDelete: Cascade)
+  objectKey     String            @unique
+  contentType   String
+  contentLength Int
+  status        ProductMediaStatus @default(pending)
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+
+  @@index([productId, status, createdAt])
+  @@map("artist_product_media")
+}
+
+model ServiceRequest {
+  id              String              @id @default(uuid()) @db.Uuid
+  partnerTitle    String
+  partnerSummary  String?
+  createdByUserId String?             @db.Uuid
+  createdBy       IdentityUser?       @relation("ServiceRequestAuthor", fields: [createdByUserId], references: [id], onDelete: SetNull)
+  requestedByArtistUserId String?     @db.Uuid
+  requestedByArtist IdentityUser?     @relation("ArtistServiceRequestRequester", fields: [requestedByArtistUserId], references: [id], onDelete: Restrict)
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  assignments     ServiceAssignment[]
+
+  @@index([createdByUserId, createdAt])
+  @@index([requestedByArtistUserId, createdAt])
+
+  @@map("service_requests")
+}
+
+model ServiceAssignment {
+  id                    String         @id @default(uuid()) @db.Uuid
+  serviceRequestId      String         @db.Uuid
+  serviceRequest        ServiceRequest @relation(fields: [serviceRequestId], references: [id], onDelete: Cascade)
+  partnerOrganizationId String         @db.Uuid
+  partnerOrganization   Organization   @relation(fields: [partnerOrganizationId], references: [id], onDelete: Restrict)
+  assignedPartnerUserId String?        @db.Uuid
+  assignedPartnerUser   IdentityUser?  @relation("ServiceAssignmentUser", fields: [assignedPartnerUserId], references: [id], onDelete: Restrict)
+  assignedByUserId      String?        @db.Uuid
+  assignedBy            IdentityUser?  @relation("ServiceAssignmentAuthor", fields: [assignedByUserId], references: [id], onDelete: Restrict)
+  assignedAt            DateTime       @default(now())
+  responseStatus        ServiceAssignmentResponseStatus @default(awaiting_response)
+  respondedAt           DateTime?
+  createdAt             DateTime       @default(now())
+  deliverables          ServiceDeliverable[]
+  responseEvents        ServiceAssignmentEvent[]
+  completedAt           DateTime?
+  completedByUserId     String?        @db.Uuid
+  completedBy           IdentityUser?  @relation("ServiceAssignmentCompletion", fields: [completedByUserId], references: [id], onDelete: Restrict)
+
+  @@index([partnerOrganizationId, assignedPartnerUserId, assignedAt])
+  @@index([serviceRequestId, assignedAt])
+  @@index([assignedByUserId, createdAt])
+  @@map("service_assignments")
+}
+
+enum ServiceAssignmentResponseStatus {
+  awaiting_response
+  accepted
+  declined
+}
+
+enum ServiceAssignmentResponseEventType {
+  accepted
+  declined
+}
+
+model ServiceAssignmentEvent {
+  id           String                              @id @default(uuid()) @db.Uuid
+  assignmentId String                              @db.Uuid
+  assignment   ServiceAssignment                   @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  actorUserId  String                              @db.Uuid
+  actor        IdentityUser                        @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  type         ServiceAssignmentResponseEventType
+  createdAt    DateTime                            @default(now())
+
+  @@index([assignmentId, createdAt])
+  @@map("service_assignment_events")
+}
+
+enum ServiceDeliverableStatus {
+  pending
+  ready
+}
+
+model ServiceDeliverable {
+  id               String                  @id @default(uuid()) @db.Uuid
+  assignmentId     String                  @db.Uuid
+  assignment       ServiceAssignment       @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  uploadedByUserId String                  @db.Uuid
+  uploadedBy       IdentityUser            @relation(fields: [uploadedByUserId], references: [id], onDelete: Restrict)
+  objectKey        String                  @unique
+  fileName         String
+  contentType      String
+  contentLength    Int
+  status           ServiceDeliverableStatus @default(pending)
+  createdAt        DateTime                @default(now())
+  updatedAt        DateTime                @updatedAt
+  submission       ServiceDeliverableSubmission?
+
+  @@index([assignmentId, status, createdAt])
+  @@map("service_deliverables")
+}
+
+model ServiceDeliverableSubmission {
+  id             String           @id @default(uuid()) @db.Uuid
+  deliverableId  String           @unique @db.Uuid
+  deliverable    ServiceDeliverable @relation(fields: [deliverableId], references: [id], onDelete: Cascade)
+  actorUserId    String           @db.Uuid
+  actor          IdentityUser     @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  createdAt      DateTime         @default(now())
+  review         ServiceDeliverableReviewEvent?
+
+  @@index([actorUserId, createdAt])
+  @@map("service_deliverable_submissions")
+}
+
+enum ServiceDeliverableReviewDecision {
+  approved
+  changes_requested
+}
+
+model ServiceDeliverableReviewEvent {
+  id           String                            @id @default(uuid()) @db.Uuid
+  submissionId String                            @unique @db.Uuid
+  submission   ServiceDeliverableSubmission      @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  actorUserId  String                            @db.Uuid
+  actor        IdentityUser                      @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  decision     ServiceDeliverableReviewDecision
+  feedback     String?
+  createdAt    DateTime                          @default(now())
+
+  @@index([actorUserId, createdAt])
+  @@map("service_deliverable_review_events")
 }
 
 model OtpChallenge {
@@ -100,12 +393,14 @@ model RoleGrant {
   user            IdentityUser @relation(fields: [userId], references: [id], onDelete: Cascade)
   role            IdentityRole
   organizationId  String?      @db.Uuid
+  organization    Organization? @relation(fields: [organizationId], references: [id], onDelete: Restrict)
   exportPartnerId String?      @db.Uuid
   revokedAt       DateTime?
   createdAt       DateTime     @default(now())
   staffDomains    StaffDomainGrant[]
 
   @@index([userId, revokedAt])
+  @@index([organizationId, role, revokedAt])
   @@map("role_grants")
 }
 

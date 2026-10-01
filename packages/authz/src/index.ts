@@ -64,6 +64,28 @@ export function canReadCorporateOrder(
   return context.organizationId === order.buyerOrganizationId ? allow : conceal;
 }
 
+/** Export Partner order access is limited to the registered active organization. */
+export function canReadExportPartnerOrder(
+  context: AuthorizationContext,
+  order: Readonly<{ exportPartnerId: string }>
+): AuthorizationDecision {
+  if (context.activeRole !== "export-partner") return denyByDefault();
+  return context.exportPartnerId === order.exportPartnerId ? allow : conceal;
+}
+
+/**
+ * The resource must already be a persisted SupportRelationship selected by a
+ * server-side query. A matching organization may read that relationship only;
+ * this policy does not grant Artist administration or finance access.
+ */
+export function canReadSupportRelationship(
+  context: AuthorizationContext,
+  relationship: Readonly<{ supportingOrganizationId: string }>
+): AuthorizationDecision {
+  if (context.activeRole !== "supporting-organization") return denyByDefault();
+  return context.organizationId === relationship.supportingOrganizationId ? allow : conceal;
+}
+
 export function canReadServiceRequest(
   context: AuthorizationContext,
   request: Readonly<{
@@ -92,6 +114,15 @@ export function canReadArtistDomesticFinance(
   return denyByDefault();
 }
 
+/**
+ * Direct payment commands to an Artist are not available to user-role contexts.
+ * The payment flow is intentionally absent; this guard prevents partner roles
+ * from acquiring a direct-to-Artist path by reusing general permissions.
+ */
+export function canInitiateDirectArtistPayment(_context: AuthorizationContext): AuthorizationDecision {
+  return denyByDefault();
+}
+
 export function canAccessStaffDomain(
   context: AuthorizationContext,
   domain: StaffPermissionDomain
@@ -99,4 +130,9 @@ export function canAccessStaffDomain(
   return context.activeRole === "staff" && context.staffPermissionDomains?.includes(domain)
     ? allow
     : denyByDefault();
+}
+
+/** Export publication review commands require the dedicated internal international permission. */
+export function canReviewExportPublication(context: AuthorizationContext): AuthorizationDecision {
+  return canAccessStaffDomain(context, "international");
 }

@@ -11,7 +11,8 @@ describe("Artist product request contract", () => {
     })).toEqual({
       title: "بشقاب میناکاری",
       description: null,
-      priceToman: 9_223_372_036_854_775_807n
+      priceToman: 9_223_372_036_854_775_807n,
+      availableQuantity: 1
     });
   });
 

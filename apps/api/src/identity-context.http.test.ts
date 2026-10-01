@@ -1,6 +1,6 @@
 import "dotenv/config";
 import "reflect-metadata";
-import { randomInt, randomUUID } from "node:crypto";
+import { randomInt } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { NestFastifyApplication } from "@nestjs/platform-fastify";
 import { createApplication } from "./app.js";
@@ -32,8 +32,16 @@ describe("identity context HTTP contract", () => {
   it("lists only the user's grants, switches context, and reflects revocation", async () => {
     const user = await signIn();
     const other = await signIn();
+    const organization = await database.organization.create({ data: { kind: "corporate_buyer" } });
     const grant = await database.roleGrant.create({ data: {
-      userId: user.userId, role: "corporate_buyer", organizationId: randomUUID()
+      userId: user.userId, role: "corporate_buyer", organizationId: organization.id
+    } });
+    const artistGrant = await database.roleGrant.create({ data: {
+      userId: user.userId, role: "artist"
+    } });
+    const mismatchedOrganization = await database.organization.create({ data: { kind: "service_partner" } });
+    const invalidGrant = await database.roleGrant.create({ data: {
+      userId: user.userId, role: "corporate_buyer", organizationId: mismatchedOrganization.id
     } });
     const foreign = await database.roleGrant.create({ data: {
       userId: other.userId, role: "artist"
@@ -47,17 +55,50 @@ describe("identity context HTTP contract", () => {
     const list = await get("grants");
     expect(list.statusCode).toBe(200);
     expect(list.headers["cache-control"]).toBe("no-store");
-    expect(list.json().grants).toEqual([{ id: grant.id, role: "corporate_buyer",
-      organizationId: grant.organizationId, exportPartnerId: null }]);
+    expect(list.json().grants).toHaveLength(2);
+    expect(list.json().grants).toEqual(expect.arrayContaining([
+      { id: grant.id, role: "corporate_buyer", organizationId: grant.organizationId, exportPartnerId: null },
+      { id: artistGrant.id, role: "artist", organizationId: null, exportPartnerId: null }
+    ]));
+    expect(list.json().activeGrantId).toBeNull();
     expect((await select(foreign.id)).statusCode).toBe(401);
+    expect((await select(invalidGrant.id)).statusCode).toBe(401);
     expect((await select("not-a-uuid")).statusCode).toBe(400);
     expect((await select(grant.id)).json()).toEqual({ userId: user.userId,
       activeRole: "corporate-buyer", organizationId: grant.organizationId });
     expect((await get("context")).statusCode).toBe(200);
+    expect((await select(artistGrant.id)).json()).toEqual({ userId: user.userId, activeRole: "artist" });
+    expect((await get("context")).json()).toEqual({ userId: user.userId, activeRole: "artist" });
+    expect((await select(grant.id)).json()).toEqual({ userId: user.userId,
+      activeRole: "corporate-buyer", organizationId: grant.organizationId });
     await database.roleGrant.update({ where: { id: grant.id }, data: { revokedAt: new Date() } });
     expect((await get("context")).statusCode).toBe(401);
-    expect((await get("grants")).json().grants).toEqual([]);
+    expect((await get("grants")).json()).toEqual({ activeGrantId: null, grants: [
+      { id: artistGrant.id, role: "artist", organizationId: null, exportPartnerId: null }
+    ] });
+    await database.roleGrant.update({ where: { id: artistGrant.id }, data: { revokedAt: new Date() } });
+    expect((await get("grants")).json()).toEqual({ activeGrantId: null, grants: [] });
     await identity.revokeSession(user.sessionToken);
     expect((await get("grants")).statusCode).toBe(401);
+  });
+
+  it("revokes a bearer session through logout before a role context is selected", async () => {
+    const user = await signIn();
+    const headers = { authorization: `Bearer ${user.sessionToken}` };
+    const logout = () => app.inject({
+      method: "POST",
+      url: "/api/v1/identity/logout",
+      headers
+    });
+
+    const response = await logout();
+    expect(response.statusCode).toBe(204);
+    expect(response.headers["cache-control"]).toBe("no-store");
+    expect((await app.inject({
+      method: "GET",
+      url: "/api/v1/identity/grants",
+      headers
+    })).statusCode).toBe(401);
+    expect((await logout()).statusCode).toBe(401);
   });
 });

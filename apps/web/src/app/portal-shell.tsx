@@ -4,21 +4,31 @@ import { getPartnerMessages } from "../partner-localization";
 import type { PartnerLocale } from "@negarin/i18n";
 import { EmptyState } from "@negarin/ui";
 import Image from "next/image";
+import type { ReactNode } from "react";
 
 export function PortalShell({
   portal,
   title,
   description,
   direction,
-  locale = "en"
+  locale = "en",
+  activeNavigation,
+  connectionActive = false,
+  children
 }: {
   portal: PortalKey;
   title: string;
   description: string;
   direction: "rtl" | "ltr";
   locale?: PartnerLocale;
+  activeNavigation?: string;
+  connectionActive?: boolean;
+  children?: ReactNode;
 }) {
-  const items = getPortalNavigation(portal, locale);
+  const items = getPortalNavigation(portal, locale).map((item) => ({
+    ...item,
+    active: activeNavigation ? item.label === activeNavigation : item.active
+  }));
   const partnerMessages = portal === "partner" ? getPartnerMessages(locale) : undefined;
   const isEnglish = direction === "ltr" && !partnerMessages;
 
@@ -30,13 +40,13 @@ export function PortalShell({
           <p className="eyebrow">خانه نگارین</p>
           <h1>{title}</h1>
           <p>{description}</p>
-          {isAuthentication ? (
+          {children ?? (isAuthentication ? (
             <p className="connection-notice">
               ورود کاربران پس از اتصال سرویس پیامک و تکمیل تنظیمات امنیتی فعال می‌شود.
             </p>
           ) : (
             <p className="connection-notice">فروشگاه مشتری پس از آماده‌شدن API و تجربهٔ خرید به این پوسته متصل می‌شود.</p>
-          )}
+          ))}
         </section>
       </main>
     );
@@ -63,14 +73,19 @@ export function PortalShell({
 
         <nav className="portal-navigation" aria-label={partnerMessages?.sectionsLabel ?? (direction === "rtl" ? "بخش‌های پنل" : "Portal sections")}>
           {items.map((item) => (
-            <span
-              className={`portal-nav-item${item.active ? " is-active" : ""}`}
-              key={item.label}
-              aria-current={item.active ? "page" : undefined}
-            >
-              <span className="nav-marker" aria-hidden="true" />
-              <span>{item.label}</span>
-            </span>
+            item.href ? (
+              <a className={`portal-nav-item${item.active ? " is-active" : ""}`} href={item.href} key={item.label}
+                aria-current={item.active ? "page" : undefined}>
+                <span className="nav-marker" aria-hidden="true" />
+                <span>{item.label}</span>
+              </a>
+            ) : (
+              <span className={`portal-nav-item${item.active ? " is-active" : ""}`} key={item.label}
+                aria-current={item.active ? "page" : undefined}>
+                <span className="nav-marker" aria-hidden="true" />
+                <span>{item.label}</span>
+              </span>
+            )
           ))}
         </nav>
 
@@ -90,21 +105,25 @@ export function PortalShell({
             <h1>{title}</h1>
             <p className="portal-description">{description}</p>
           </div>
-          <span className="connection-badge">
-            {partnerMessages?.connectionInactive ?? (isEnglish ? "Account connection is inactive" : "اتصال به حساب فعال نیست")}
+          <span className={`connection-badge${connectionActive ? " is-active" : ""}`}>
+            {connectionActive
+              ? (isEnglish ? "Account connected" : "اتصال حساب فعال است")
+              : (partnerMessages?.connectionInactive ?? (isEnglish ? "Account connection is inactive" : "اتصال به حساب فعال نیست"))}
           </span>
         </header>
 
-        <EmptyState
-          mark={partnerMessages ? "N" : "ن"}
-          title={partnerMessages?.shellReady ?? (isEnglish ? "Portal shell is ready" : "پوستهٔ پنل آماده است")}
-          description={partnerMessages?.shellDescription ?? (isEnglish
-            ? "This section will show your role-specific content after secure sign-in and live data are connected."
-            : "پس از اتصال ورود امن و داده‌های واقعی، محتوای این بخش برای نقش شما نمایش داده می‌شود.")}
-          note={partnerMessages?.dataNotice ?? (isEnglish
-            ? "This preview contains no sample operational or financial data."
-            : "در این پیش‌نمایش، اطلاعات عملیاتی یا مالی نمونه نمایش داده نمی‌شود.")}
-        />
+        {children ?? (
+          <EmptyState
+            mark={partnerMessages ? "N" : "ن"}
+            title={partnerMessages?.shellReady ?? (isEnglish ? "Portal shell is ready" : "پوستهٔ پنل آماده است")}
+            description={partnerMessages?.shellDescription ?? (isEnglish
+              ? "This section will show your role-specific content after secure sign-in and live data are connected."
+              : "پس از اتصال ورود امن و داده‌های واقعی، محتوای این بخش برای نقش شما نمایش داده می‌شود.")}
+            note={partnerMessages?.dataNotice ?? (isEnglish
+              ? "This preview contains no sample operational or financial data."
+              : "در این پیش‌نمایش، اطلاعات عملیاتی یا مالی نمونه نمایش داده نمی‌شود.")}
+          />
+        )}
       </main>
     </div>
   );

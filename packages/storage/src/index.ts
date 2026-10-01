@@ -1,6 +1,8 @@
 import {
+  CopyObjectCommand,
   DeleteObjectCommand,
   GetObjectCommand,
+  HeadObjectCommand,
   PutObjectCommand,
   S3Client
 } from "@aws-sdk/client-s3";
@@ -18,9 +20,16 @@ export type SignedUpload = Readonly<{
   expiresAt: string;
 }>;
 
+export type StoredObjectMetadata = Readonly<{
+  contentType: string | null;
+  contentLength: number;
+}>;
+
 export interface ObjectStorage {
   createUploadUrl(input: UploadRequest): Promise<SignedUpload>;
   createReadUrl(objectKey: string): Promise<string>;
+  getObjectMetadata(objectKey: string): Promise<StoredObjectMetadata | null>;
+  copyObject(sourceKey: string, destinationKey: string): Promise<void>;
   deleteObject(objectKey: string): Promise<void>;
 }
 
@@ -80,6 +89,37 @@ export class S3ObjectStorage implements ObjectStorage {
       new GetObjectCommand({ Bucket: this.config.bucket, Key: objectKey }),
       { expiresIn: this.expiresIn }
     );
+  }
+
+  async getObjectMetadata(objectKey: string): Promise<StoredObjectMetadata | null> {
+    if (!objectKey) throw new Error("Object key is required");
+    try {
+      const result = await this.client.send(
+        new HeadObjectCommand({ Bucket: this.config.bucket, Key: objectKey })
+      );
+      if (typeof result.ContentLength !== "number") throw new Error("Stored object has no content length");
+      return { contentType: result.ContentType ?? null, contentLength: result.ContentLength };
+    } catch (error) {
+      if (error && typeof error === "object" && (
+        ("name" in error && (error.name === "NotFound" || error.name === "NoSuchKey")) ||
+        ("$metadata" in error && typeof error.$metadata === "object" && error.$metadata &&
+          "httpStatusCode" in error.$metadata && error.$metadata.httpStatusCode === 404)
+      )) return null;
+      throw error;
+    }
+  }
+
+  async copyObject(sourceKey: string, destinationKey: string): Promise<void> {
+    if (!sourceKey || !destinationKey || sourceKey === destinationKey) {
+      throw new Error("Invalid object copy request");
+    }
+    const encodedSource = sourceKey.split("/").map(encodeURIComponent).join("/");
+    await this.client.send(new CopyObjectCommand({
+      Bucket: this.config.bucket,
+      Key: destinationKey,
+      CopySource: `${this.config.bucket}/${encodedSource}`,
+      MetadataDirective: "COPY"
+    }));
   }
 
   async deleteObject(objectKey: string): Promise<void> {

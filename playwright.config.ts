@@ -10,7 +10,7 @@ export default defineConfig({
     trace: "retain-on-failure"
   },
   webServer: {
-    command: "pnpm --filter @negarin/web start",
+    command: "pnpm --filter @negarin/web exec next start --hostname 127.0.0.1",
     url: "http://127.0.0.1:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 120000

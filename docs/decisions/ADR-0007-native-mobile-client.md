@@ -1,6 +1,6 @@
 # ADR-0007 — Negarin Mobile Application
 
-- Status: Accepted for architecture; release scope remains to be planned
+- Status: Accepted for architecture; Android is in scope, iOS is out of scope
 - Date: 2026-09-27
 - Supersedes: ADR-0005 only where it excludes a native mobile application
 
@@ -20,10 +20,10 @@ The product owner confirmed that Negarin includes an independent mobile applicat
 ## Scope to resolve in Product/UX and Sprint planning
 
 - Which roles and workflows appear in the first mobile release, including the Customer and Artist journeys.
-- Android and iOS release order, distribution channels, device support, and notification providers.
+- Android release distribution, supported devices, and notification providers.
 - Offline behavior, deep links, camera/media permissions, app update policy, and exact mobile design acceptance criteria.
 
-These choices must not be inferred from responsive Figma frames alone. The mobile app is a product requirement, but this ADR does not claim that a mobile build exists or that every web portal needs a mobile counterpart.
+Android is the mobile platform in scope. No iOS application or iOS release is planned. Android workflows, distribution, supported devices, and notifications still require Product/UX and Sprint planning. These choices must not be inferred from responsive Figma frames alone. The mobile app is a product requirement, but this ADR does not claim that a mobile build exists or that every web portal needs a mobile counterpart.
 
 ## Consequences
 

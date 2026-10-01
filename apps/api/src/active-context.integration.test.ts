@@ -26,8 +26,9 @@ describe("active context from server grants", () => {
   it("rejects another user's grant and rechecks revocation on every read", async () => {
     const first = await signIn();
     const second = await signIn();
+    const organization = await database.organization.create({ data: { kind: "corporate_buyer" } });
     const grant = await database.roleGrant.create({ data: {
-      userId: first.userId, role: "corporate_buyer", organizationId: randomUUID()
+      userId: first.userId, role: "corporate_buyer", organizationId: organization.id
     } });
 
     expect(await resolver.select(second.sessionToken, grant.id)).toBeNull();
@@ -56,6 +57,32 @@ describe("active context from server grants", () => {
   it("fails closed for an invalid role scope", async () => {
     const { userId, sessionToken } = await signIn();
     const grant = await database.roleGrant.create({ data: { userId, role: "export_partner" } });
+    expect(await resolver.select(sessionToken, grant.id)).toBeNull();
+    expect(await resolver.resolve(sessionToken)).toBeNull();
+  });
+
+  it("resolves Export Partner scope from the registered organization and rejects legacy unregistered scope", async () => {
+    const { userId, sessionToken } = await signIn();
+    const unregistered = await database.roleGrant.create({ data: {
+      userId, role: "export_partner", exportPartnerId: randomUUID()
+    } });
+    expect(await resolver.select(sessionToken, unregistered.id)).toBeNull();
+
+    const organization = await database.organization.create({ data: { kind: "export_partner" } });
+    const grant = await database.roleGrant.create({ data: {
+      userId, role: "export_partner", organizationId: organization.id
+    } });
+    expect(await resolver.select(sessionToken, grant.id)).toEqual({
+      userId, activeRole: "export-partner", exportPartnerId: organization.id
+    });
+  });
+
+  it("fails closed when the organization kind does not match the granted role", async () => {
+    const { userId, sessionToken } = await signIn();
+    const organization = await database.organization.create({ data: { kind: "service_partner" } });
+    const grant = await database.roleGrant.create({ data: {
+      userId, role: "corporate_buyer", organizationId: organization.id
+    } });
     expect(await resolver.select(sessionToken, grant.id)).toBeNull();
     expect(await resolver.resolve(sessionToken)).toBeNull();
   });

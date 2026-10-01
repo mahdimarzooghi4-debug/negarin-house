@@ -6,6 +6,9 @@ This file maps locked Product/UX rules to engineering work so they cannot disapp
 |---|---|---|
 | Artist owns product price | E3 Artist/Product | API contract test: no Admin price mutation endpoint; authorization tests |
 | Negarin reviews publication quality, not price | E3 + E10 | publication-review tests; DTO review |
+| Publication status changes remain in append-only review history | E3 + E10 | HTTP history checks for content/image resets and price-only stability |
+| Publication reviewers can inspect ready product images | E3 + E10 | staff queue contract and signed media read URL test |
+| Artist can recover a pending media upload after its signed URL expires | E3 Artist/Product | media service and authenticated HTTP contract tests |
 | Domestic Artist money uses Toman | E2 + E5 | UI formatter tests; E2E Artist finance |
 | Growth levels exactly جوانه / شکوفه / سرو زرین / سفیر جهانی | E5 | enum/value test + UI test |
 | Growth cannot be purchased | E5 | domain transition tests |

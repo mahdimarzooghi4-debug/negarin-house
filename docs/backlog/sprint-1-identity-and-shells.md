@@ -10,7 +10,7 @@ Create real server-derived identity, session, and authorization foundations, the
 
 ## Delivery slices
 
-1. **E1-S3 policy boundary (this PR):** reusable deny-by-default policies for Artist product ownership, Corporate Buyer order scope, Service Partner assignment, domestic Artist finance, and staff permission domains. Test both allowed and forbidden relationships. Policy inputs are trusted server-side resource projections, not client-provided claims.
+1. **E1-S3 policy boundary (this PR):** reusable deny-by-default policies for Artist product ownership, Corporate Buyer order scope, Service Partner assignment, domestic Artist finance, direct-to-Artist payment denial, and staff permission domains. Test both allowed and forbidden relationships. Policy inputs are trusted server-side resource projections, not client-provided claims. The direct payment guard is only an authorization prohibition; it does not define or implement payment, fee, order, or settlement behavior.
 2. **E1-S1 identity and session:** design persistence and OTP provider adapter; implement expiry, retry/rate limits, revocation, secure browser cookie, and negative tests. No SMS vendor or OTP secret logging.
 3. **E1-S2 active context:** resolve role and organization/Partner memberships from the server for each protected request. A role/context switch must revalidate membership.
 4. **E1-S3 integration:** enforce policies in API service/queries and test HTTP 403/404 disclosure behavior. No frontend route guard substitutes for API authorization.
@@ -22,11 +22,13 @@ Create real server-derived identity, session, and authorization foundations, the
 - Unassigned Service Partner requests are denied.
 - Supporting Organization and Export Partner cannot read Artist domestic finance; staff without finance permission is denied.
 - Policies do not imply that authentication, database-scoped queries, or HTTP enforcement is complete.
-- No direct Corporate/Export Partner → Artist payment command or unresolved financial formula is introduced.
+- Direct-to-Artist payment commands are denied to user-role contexts; this guard does not define the permitted intermediary route, a payment provider, or financial formulas. No direct Corporate/Export Partner → Artist payment command or unresolved financial formula is introduced.
 
 ## Identity core progress
 
 The next E1-S1 slice adds database records for identity users, one-time challenges, and revocable sessions. The API core hashes OTP values with a server secret and challenge ID, hashes random session tokens at rest, enforces challenge expiry and attempt/request limits, consumes an OTP once, and resolves/revokes sessions. The SMS delivery dependency is an interface. The implementation is exercised against PostgreSQL in CI.
+
+The API now includes `POST /api/v1/identity/logout`, which revokes only the current unexpired bearer session and does not require a selected role grant. It responds with no-store 204 after revocation and rejects missing, expired, or already-revoked sessions. A same-origin web route forwards the browser session cookie to this endpoint and clears it after revocation or when the API reports no valid session; it preserves the cookie if the API is unavailable so logout can be retried. The web app still does not issue session cookies, and no public OTP/login endpoint or SMS provider is enabled. Android has a tested logout boundary that revokes the stored bearer session before clearing secure storage; it is not wired to a login screen or user-facing mobile journey.
 
 The identity core slice did not wire OTP transport, secret provisioning, browser cookie, mobile secure storage, HTTP rate limiter, membership resolution, or a public login endpoint. The server must supply a high-entropy secret from its secret store; the code does not ship a default. Before enabling login, add transport failure handling, IP/device throttling, secure cookie and CSRF rules for web, mobile token handling, and end-to-end HTTP tests. Product-facing authentication is not yet complete.
 
@@ -34,7 +36,11 @@ The identity core slice did not wire OTP transport, secret provisioning, browser
 
 The next E1-S2 slice stores server-administered role grants, organization or Export Partner scope, and staff permission domains. A session selects only a grant belonging to its user. Every protected context resolution rereads session validity, grant revocation, and current staff domains from PostgreSQL. Invalid role/scope combinations fail closed; a client-provided role or organization ID cannot become an authorization context by itself.
 
-Grant provisioning has no public API. Organization/Partner registries and their administrative approval workflows are not implemented by this slice. API guards, HTTP context switching, and cross-portal data queries must use this resolver in later slices before product endpoints are exposed.
+The `Organization` registry now stores Service Partner, Supporting Organization, and Corporate Buyer scopes. `RoleGrant` records can reference registered organizations, and the resolver rejects a grant whose role does not match the organization kind. The migration backfills inferable organization scopes and aborts on conflicting organization-kind IDs. No organization/member provisioning API or administrative approval workflow is exposed yet; Export Partner registry work also remains open. Grant provisioning has no public API. API guards, HTTP context switching, and cross-portal data queries must use this resolver before product endpoints are exposed.
+
+## Service Partner assignment authoring progress
+
+Staff with the live `services` permission can append an assignment for an existing service request through `POST /api/v1/admin/service-assignments`. The options API returns existing requests and registered Service Partner organizations only; the RTL page is available under the existing Admin “Growth and Services” group at `/admin/service-assignments`. The API accepts only a registered Service Partner organization; an optional individual assignee must have an active Service Partner grant in that same organization. Each new assignment stores the authoring staff user ID. Legacy assignments retain a null author because their original actor is not recoverable. This endpoint does not create service requests, alter existing assignments, or define lifecycle, schedule, or deliverable rules. Organization/member provisioning and request creation remain open.
 
 ## HTTP authorization boundary
 
@@ -42,7 +48,7 @@ The next E1-S3 slice wires a reusable Nest guard to bearer sessions and the live
 
 ## Context HTTP contract
 
-Authenticated clients can list only their own active role grants, select a grant by ID, and read the resulting server-derived context using a bearer session. The list is available before a grant is selected; the context read requires an active grant. Responses use `no-store`. The API rechecks session expiry/revocation and grant ownership on selection and reads; another user's grant never becomes an active context. This contract supports a future mobile client, but no public OTP endpoint, SMS provider, browser cookie, or mobile secure storage is enabled yet. The HTTP tests create sessions through the internal test transport only.
+Authenticated clients can list only their own active, selectable role grants, select a grant by ID, and read the resulting server-derived context using a bearer session. Grant discovery uses the same role, organization-kind, and staff-permission validation as context selection, so revoked or invalid grants are omitted and `activeGrantId` is returned only when it identifies a selectable grant. The list is available before a grant is selected; the context read requires an active grant. PostgreSQL HTTP tests verify that one session can switch between its own Artist and Corporate Buyer grants and that revoking the active grant removes only that context. Responses use `no-store`. The API rechecks session expiry/revocation and grant ownership on selection and reads; another user's grant never becomes an active context. The Android identity API client calls grant discovery, context read, and context selection using the SecureStore bearer token, and validates server response shapes. Android selection accepts only an explicitly supplied ID in the current selectable-grant list and rejects the result unless the server context matches that grant's role and organization scope. The mobile state resolver distinguishes signed-out, no-grants, selection-required, and active-context states from server responses, and rejects context/grant mismatches without clearing stored credentials. These boundaries do not issue sessions, infer a default role, or add login/UI. Android SecureStore and a tested logout boundary are available, but no public OTP endpoint, SMS provider, browser cookie issuance, or login flow is enabled. The HTTP tests create sessions through the internal test transport only.
 
 ## OTP delivery failure boundary
 

@@ -21,6 +21,7 @@ type Grant = {
   userId: string;
   role: keyof typeof roleMap;
   organizationId: string | null;
+  organization: { kind: "service_partner" | "supporting_organization" | "corporate_buyer" | "export_partner" } | null;
   exportPartnerId: string | null;
   revokedAt: Date | null;
   staffDomains: Array<{ domain: string }>;
@@ -29,15 +30,18 @@ type Grant = {
 function contextFromGrant(grant: Grant): AuthorizationContext | null {
   if (grant.revokedAt) return null;
   const activeRole = roleMap[grant.role];
-  const organizationRole = ["service-partner", "supporting-organization", "corporate-buyer"].includes(activeRole);
+  const organizationKinds = {
+    "service-partner": "service_partner",
+    "supporting-organization": "supporting_organization",
+    "corporate-buyer": "corporate_buyer",
+    "export-partner": "export_partner"
+  } as const;
+  const expectedOrganizationKind = organizationKinds[activeRole as keyof typeof organizationKinds];
 
-  if (organizationRole) {
-    if (!grant.organizationId || grant.exportPartnerId) return null;
+  if (expectedOrganizationKind) {
+    if (!grant.organizationId || grant.exportPartnerId || grant.organization?.kind !== expectedOrganizationKind) return null;
+    if (activeRole === "export-partner") return { userId: grant.userId, activeRole, exportPartnerId: grant.organizationId };
     return { userId: grant.userId, activeRole, organizationId: grant.organizationId };
-  }
-  if (activeRole === "export-partner") {
-    if (!grant.exportPartnerId || grant.organizationId) return null;
-    return { userId: grant.userId, activeRole, exportPartnerId: grant.exportPartnerId };
   }
   if (grant.organizationId || grant.exportPartnerId) return null;
   if (activeRole === "staff") {
@@ -52,6 +56,17 @@ function contextFromGrant(grant: Grant): AuthorizationContext | null {
 export class ActiveContextResolver {
   constructor(private readonly database: PrismaService) {}
 
+  async listSelectableGrants(userId: string) {
+    const grants = await this.database.roleGrant.findMany({
+      where: { userId, revokedAt: null },
+      include: { staffDomains: true, organization: { select: { kind: true } } },
+      orderBy: { createdAt: "asc" }
+    });
+    return grants
+      .filter((grant) => contextFromGrant(grant) !== null)
+      .map(({ id, role, organizationId, exportPartnerId }) => ({ id, role, organizationId, exportPartnerId }));
+  }
+
   async resolve(token: string, now = new Date()): Promise<AuthorizationContext | null> {
     if (!token) return null;
     const session = await this.database.authSession.findUnique({
@@ -61,7 +76,7 @@ export class ActiveContextResolver {
 
     const grant = await this.database.roleGrant.findFirst({
       where: { id: session.activeGrantId, userId: session.userId, revokedAt: null },
-      include: { staffDomains: true }
+      include: { staffDomains: true, organization: { select: { kind: true } } }
     });
     return grant ? contextFromGrant(grant) : null;
   }
@@ -74,7 +89,7 @@ export class ActiveContextResolver {
 
     const grant = await this.database.roleGrant.findFirst({
       where: { id: grantId, userId: session.userId, revokedAt: null },
-      include: { staffDomains: true }
+      include: { staffDomains: true, organization: { select: { kind: true } } }
     });
     const context = grant ? contextFromGrant(grant) : null;
     if (!context) return null;

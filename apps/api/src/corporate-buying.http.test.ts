@@ -1,0 +1,144 @@
+import "dotenv/config";
+import "reflect-metadata";
+import { randomInt } from "node:crypto";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import type { NestFastifyApplication } from "@nestjs/platform-fastify";
+import { createApplication } from "./app.js";
+import { ActiveContextResolver } from "./active-context.js";
+import { IdentityCore } from "./identity-core.js";
+import { PrismaService } from "./prisma.service.js";
+
+describe("Corporate Buyer purchase request and order HTTP contract", () => {
+  let app: NestFastifyApplication;
+  const database = new PrismaService();
+  const codes = new Map<string, string>();
+  const identity = new IdentityCore(database, {
+    async send(phone, code) { codes.set(phone, code); }
+  }, "test-secret-with-at-least-thirty-two-characters");
+  const contexts = new ActiveContextResolver(database);
+
+  async function signIn(role: "artist" | "corporate_buyer" | "customer", organizationId?: string) {
+    const phone = `+1555${randomInt(1_000_000, 9_999_999)}`;
+    await identity.requestCode(phone);
+    const user = await identity.verifyCode(phone, codes.get(phone) ?? "");
+    const grant = await database.roleGrant.create({ data: { userId: user.userId, role, organizationId } });
+    await contexts.select(user.sessionToken, grant.id);
+    return { authorization: `Bearer ${user.sessionToken}`, userId: user.userId };
+  }
+
+  beforeAll(async () => {
+    app = await createApplication();
+    await app.init();
+    await app.getHttpAdapter().getInstance().ready();
+    await database.$connect();
+  });
+  afterAll(async () => { await app?.close(); await database.$disconnect(); });
+
+  it("records corporate requests, scopes the seller review inbox, and reserves stock only for direct orders", async () => {
+    const orgA = await database.organization.create({ data: { kind: "corporate_buyer", displayName: "Buyer A" } });
+    const orgB = await database.organization.create({ data: { kind: "corporate_buyer", displayName: "Buyer B" } });
+    const buyerA = await signIn("corporate_buyer", orgA.id);
+    const buyerAColleague = await signIn("corporate_buyer", orgA.id);
+    const buyerB = await signIn("corporate_buyer", orgB.id);
+    const artist = await signIn("artist");
+    const otherArtist = await signIn("artist");
+    const customer = await signIn("customer");
+    const product = await database.artistProduct.create({ data: {
+      artistUserId: artist.userId, title: "گلدان", description: null, priceToman: 120_000n,
+      publicationStatus: "published", availableQuantity: 5
+    } });
+    const path = "/api/v1/corporate-buyer";
+
+    const request = await app.inject({ method: "POST", url: `${path}/purchase-requests`, headers: buyerA,
+      payload: { productId: product.id, quantity: 3, note: "ارسال برای شعبه مرکزی" } });
+    expect(request.statusCode).toBe(201);
+    expect(request.json()).toMatchObject({ productTitle: "گلدان", unitPriceToman: "120000", quantity: 3, totalToman: "360000", status: "submitted" });
+    expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(5);
+
+    const sellerInbox = await app.inject({ method: "GET", url: "/api/v1/artist/corporate-purchase-requests", headers: artist });
+    expect(sellerInbox.statusCode).toBe(200);
+    expect(sellerInbox.json()).toEqual([expect.objectContaining({
+      id: request.json().id, buyerOrganizationName: "Buyer A", status: "submitted",
+      history: [expect.objectContaining({ status: "submitted" })]
+    })]);
+    expect((await app.inject({ method: "GET", url: "/api/v1/artist/corporate-purchase-requests", headers: otherArtist })).json()).toEqual([]);
+    expect((await app.inject({ method: "PATCH", url: `/api/v1/artist/corporate-purchase-requests/${request.json().id}/review`, headers: otherArtist,
+      payload: { status: "in_review" } })).statusCode).toBe(404);
+    expect((await app.inject({ method: "PATCH", url: `/api/v1/artist/corporate-purchase-requests/${request.json().id}/review`, headers: artist,
+      payload: { status: "in_review" } })).json()).toMatchObject({ id: request.json().id, status: "in_review" });
+    expect((await database.corporatePurchaseRequestEvent.findMany({ where: { requestId: request.json().id }, orderBy: { createdAt: "asc" } }))
+      .map((event) => event.status)).toEqual(["submitted", "in_review"]);
+    expect((await app.inject({ method: "POST", url: `/api/v1/artist/corporate-purchase-requests/${request.json().id}/proposal`, headers: otherArtist,
+      payload: { unitPriceToman: "100000" } })).statusCode).toBe(404);
+    expect((await app.inject({ method: "POST", url: `/api/v1/artist/corporate-purchase-requests/${request.json().id}/proposal`, headers: artist,
+      payload: { unitPriceToman: "100000", note: "تحویل آماده‌سازی یک هفته‌ای" } })).json())
+      .toMatchObject({ id: request.json().id, status: "quoted" });
+    const buyerRequestsAfterQuote = await app.inject({ method: "GET", url: `${path}/purchase-requests`, headers: buyerAColleague });
+    expect(buyerRequestsAfterQuote.json()).toEqual([expect.objectContaining({
+      id: request.json().id, status: "quoted", proposedUnitPriceToman: "100000", proposalTotalToman: "300000",
+      proposalNote: "تحویل آماده‌سازی یک هفته‌ای"
+    })]);
+    await database.artistProduct.update({ where: { id: product.id }, data: { availableQuantity: 2 } });
+    expect((await app.inject({ method: "POST", url: `${path}/purchase-requests/${request.json().id}/accept`, headers: buyerAColleague })).statusCode).toBe(409);
+    expect((await database.corporatePurchaseRequest.findUniqueOrThrow({ where: { id: request.json().id } })).status).toBe("quoted");
+    expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(2);
+    await database.artistProduct.update({ where: { id: product.id }, data: { availableQuantity: 5 } });
+    const acceptedProposal = await app.inject({ method: "POST", url: `${path}/purchase-requests/${request.json().id}/accept`, headers: buyerAColleague });
+    expect(acceptedProposal.statusCode).toBe(201);
+    expect(acceptedProposal.json()).toMatchObject({
+      id: request.json().id, status: "converted",
+      order: { unitPriceToman: "100000", quantity: 3, totalToman: "300000", status: "awaiting_payment" }
+    });
+    expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(2);
+    expect((await app.inject({ method: "POST", url: `${path}/purchase-requests/${request.json().id}/accept`, headers: buyerB })).statusCode).toBe(404);
+    expect((await app.inject({ method: "POST", url: `${path}/purchase-requests/${request.json().id}/decline`, headers: buyerA })).statusCode).toBe(404);
+    expect((await app.inject({ method: "PATCH", url: `/api/v1/artist/corporate-purchase-requests/${request.json().id}/review`, headers: artist,
+      payload: { status: "quoted" } })).statusCode).toBe(400);
+
+    const cancelAccepted = await app.inject({ method: "POST", url: `${path}/orders/${acceptedProposal.json().order.id}/cancel`, headers: buyerA });
+    expect(cancelAccepted.statusCode).toBe(201);
+    expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(5);
+    expect((await database.corporatePurchaseRequest.findUniqueOrThrow({ where: { id: request.json().id } })).status).toBe("quoted");
+
+    const declinedRequest = await app.inject({ method: "POST", url: `${path}/purchase-requests`, headers: buyerA,
+      payload: { productId: product.id, quantity: 1 } });
+    expect(declinedRequest.statusCode).toBe(201);
+    expect((await app.inject({ method: "POST", url: `/api/v1/artist/corporate-purchase-requests/${declinedRequest.json().id}/proposal`, headers: artist,
+      payload: { unitPriceToman: "120000" } })).json().status).toBe("quoted");
+    expect((await app.inject({ method: "POST", url: `${path}/purchase-requests/${declinedRequest.json().id}/decline`, headers: buyerA })).json())
+      .toMatchObject({ id: declinedRequest.json().id, status: "declined", order: null });
+    expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(5);
+
+    const order = await app.inject({ method: "POST", url: `${path}/orders`, headers: buyerA,
+      payload: { productId: product.id, quantity: 2 } });
+    expect(order.statusCode).toBe(201);
+    expect(order.json()).toMatchObject({ productTitle: "گلدان", unitPriceToman: "120000", quantity: 2, totalToman: "240000", status: "awaiting_payment" });
+    expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(3);
+
+    expect((await app.inject({ method: "GET", url: `${path}/purchase-requests`, headers: buyerAColleague })).json())
+      .toEqual(expect.arrayContaining([expect.objectContaining({ id: request.json().id, note: "ارسال برای شعبه مرکزی" })]));
+    expect((await app.inject({ method: "GET", url: `${path}/orders`, headers: buyerAColleague })).json())
+      .toEqual(expect.arrayContaining([
+        expect.objectContaining({ id: order.json().id, status: "awaiting_payment" }),
+        expect.objectContaining({ id: acceptedProposal.json().order.id, status: "cancelled" })
+      ]));
+    expect((await app.inject({ method: "GET", url: `${path}/orders`, headers: buyerB })).json()).toEqual([]);
+
+    const cancel = await app.inject({ method: "POST", url: `${path}/orders/${order.json().id}/cancel`, headers: buyerA });
+    expect(cancel.statusCode).toBe(201);
+    expect(cancel.json().status).toBe("cancelled");
+    expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(5);
+    expect((await app.inject({ method: "POST", url: `${path}/orders/${order.json().id}/cancel`, headers: buyerA })).statusCode).toBe(404);
+
+    expect((await app.inject({ method: "POST", url: `${path}/orders`, headers: buyerA,
+      payload: { productId: product.id, quantity: 6 } })).statusCode).toBe(409);
+    expect((await app.inject({ method: "POST", url: `${path}/orders`, headers: buyerA,
+      payload: { productId: product.id, quantity: 1, buyerOrganizationId: orgB.id } })).statusCode).toBe(400);
+    expect((await app.inject({ method: "POST", url: `${path}/orders`, headers: artist,
+      payload: { productId: product.id, quantity: 1 } })).statusCode).toBe(403);
+    expect((await app.inject({ method: "GET", url: `${path}/purchase-requests`, headers: customer })).statusCode).toBe(403);
+    expect((await app.inject({ method: "POST", url: `${path}/orders`, payload: { productId: product.id, quantity: 1 } })).statusCode).toBe(401);
+    expect((await app.inject({ method: "POST", url: `${path}/purchase-requests`, headers: buyerA,
+      payload: { productId: product.id, quantity: 0 } })).statusCode).toBe(400);
+  });
+});

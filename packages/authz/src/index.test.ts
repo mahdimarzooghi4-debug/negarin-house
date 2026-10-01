@@ -3,8 +3,12 @@ import {
   canEditArtistProduct,
   canReadArtistDomesticFinance,
   canReadCorporateOrder,
+  canReadExportPartnerOrder,
+  canReviewExportPublication,
+  canReadSupportRelationship,
   canAccessStaffDomain,
   canReadServiceRequest,
+  canInitiateDirectArtistPayment,
   denyByDefault,
   roles,
   type AuthorizationContext
@@ -42,10 +46,39 @@ describe("server-side relationship policies", () => {
   });
 
   it("isolates Corporate Buyer orders by organization", () => {
-    const buyer = context("corporate-buyer", { organizationId: "buyer-a" });
-    expect(canReadCorporateOrder(buyer, { buyerOrganizationId: "buyer-a" })).toEqual({ allowed: true });
-    expect(canReadCorporateOrder(buyer, { buyerOrganizationId: "buyer-b" })).toEqual({ allowed: false, reason: "not-found" });
-    expect(canReadCorporateOrder(context("corporate-buyer"), { buyerOrganizationId: "buyer-a" })).toEqual({ allowed: false, reason: "not-found" });
+    const order = { buyerOrganizationId: "buyer-a" };
+    expect(canReadCorporateOrder(context("corporate-buyer", { organizationId: "buyer-a" }), order)).toEqual({ allowed: true });
+    expect(canReadCorporateOrder(context("corporate-buyer", { organizationId: "buyer-b" }), order)).toEqual({ allowed: false, reason: "not-found" });
+    expect(canReadCorporateOrder(context("corporate-buyer"), order)).toEqual({ allowed: false, reason: "not-found" });
+    for (const role of roles.filter((candidate) => candidate !== "corporate-buyer")) {
+      expect(canReadCorporateOrder(context(role, { organizationId: "buyer-a" }), order)).toEqual({
+        allowed: false,
+        reason: "forbidden"
+      });
+    }
+  });
+
+  it("isolates Export Partner orders by registered organization", () => {
+    const order = { exportPartnerId: "export-partner-a" };
+    expect(canReadExportPartnerOrder(context("export-partner", { exportPartnerId: "export-partner-a" }), order)).toEqual({ allowed: true });
+    expect(canReadExportPartnerOrder(context("export-partner", { exportPartnerId: "export-partner-b" }), order)).toEqual({ allowed: false, reason: "not-found" });
+    expect(canReadExportPartnerOrder(context("export-partner"), order)).toEqual({ allowed: false, reason: "not-found" });
+
+    for (const role of roles.filter((candidate) => candidate !== "export-partner")) {
+      expect(canReadExportPartnerOrder(context(role, { exportPartnerId: "export-partner-a" }), order)).toEqual({
+        allowed: false,
+        reason: "forbidden"
+      });
+    }
+  });
+
+  it("allows a Supporting Organization to read only its persisted support relationships", () => {
+    const relationship = { supportingOrganizationId: "support-org-a" };
+    expect(canReadSupportRelationship(context("supporting-organization", { organizationId: "support-org-a" }), relationship)).toEqual({ allowed: true });
+    expect(canReadSupportRelationship(context("supporting-organization", { organizationId: "support-org-b" }), relationship)).toEqual({ allowed: false, reason: "not-found" });
+    expect(canReadSupportRelationship(context("supporting-organization"), relationship)).toEqual({ allowed: false, reason: "not-found" });
+    expect(canReadSupportRelationship(context("artist", { userId: "artist-a", organizationId: "support-org-a" }), relationship)).toEqual({ allowed: false, reason: "forbidden" });
+    expect(canReadSupportRelationship(context("staff", { staffPermissionDomains: ["reports"], organizationId: "support-org-a" }), relationship)).toEqual({ allowed: false, reason: "forbidden" });
   });
 
   it("requires an actual Service Partner assignment", () => {
@@ -57,6 +90,32 @@ describe("server-side relationship policies", () => {
     expect(canReadServiceRequest(partner, { assignedPartnerOrganizationId: "partner-a", assignedPartnerUserId: "user-a" })).toEqual({ allowed: true });
   });
 
+  it("limits Export Publication review actions to staff with the international permission", () => {
+    expect(canReviewExportPublication(context("staff", { staffPermissionDomains: ["international"] })))
+      .toEqual({ allowed: true });
+    expect(canReviewExportPublication(context("staff", { staffPermissionDomains: ["products"] })))
+      .toEqual({ allowed: false, reason: "forbidden" });
+    expect(canReviewExportPublication(context("staff")))
+      .toEqual({ allowed: false, reason: "forbidden" });
+
+    for (const role of roles.filter((candidate) => candidate !== "staff")) {
+      expect(canReviewExportPublication(context(role, { staffPermissionDomains: ["international"] })))
+        .toEqual({ allowed: false, reason: "forbidden" });
+    }
+  });
+
+  it("requires organization context and denies the same assignment to every other role", () => {
+    const assignment = { assignedPartnerOrganizationId: "partner-a", assignedPartnerUserId: "user-a" };
+    expect(canReadServiceRequest(context("service-partner"), assignment)).toEqual({ allowed: false, reason: "not-found" });
+
+    for (const role of roles.filter((candidate) => candidate !== "service-partner")) {
+      expect(canReadServiceRequest(context(role, { organizationId: "partner-a" }), assignment)).toEqual({
+        allowed: false,
+        reason: "forbidden"
+      });
+    }
+  });
+
   it("keeps domestic Artist finance private and checks staff finance permission", () => {
     const finance = { artistUserId: "user-a" };
     expect(canReadArtistDomesticFinance(context("artist"), finance)).toEqual({ allowed: true });
@@ -65,6 +124,12 @@ describe("server-side relationship policies", () => {
     expect(canReadArtistDomesticFinance(context("export-partner", { exportPartnerId: "partner-a" }), finance)).toEqual({ allowed: false, reason: "forbidden" });
     expect(canReadArtistDomesticFinance(context("staff", { staffPermissionDomains: ["artists"] }), finance)).toEqual({ allowed: false, reason: "forbidden" });
     expect(canReadArtistDomesticFinance(context("staff", { staffPermissionDomains: ["finance"] }), finance)).toEqual({ allowed: true });
+  });
+
+  it("denies direct-to-Artist payment commands for every user role", () => {
+    for (const role of roles) {
+      expect(canInitiateDirectArtistPayment(context(role))).toEqual({ allowed: false, reason: "forbidden" });
+    }
   });
 
   it("denies external roles and staff without a required permission domain", () => {

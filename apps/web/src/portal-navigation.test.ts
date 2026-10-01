@@ -4,11 +4,23 @@ import { getPortalNavigation } from "./portal-navigation";
 describe("role portal navigation", () => {
   it("uses the shared shell pattern with role-specific menu labels", () => {
     expect(getPortalNavigation("artist").map(({ label }) => label)).toEqual([
-      "پیشخوان", "فروشگاه من", "محصولات", "سفارش‌ها", "رشد من",
+      "پیشخوان", "فروشگاه من", "محصولات", "سفارش‌ها", "درخواست‌های سازمانی", "رشد من",
       "خدمات", "فرصت‌ها", "مالی", "عضویت", "روایت‌ها"
     ]);
-    expect(getPortalNavigation("admin").map(({ label }) => label)).toContain("بین‌الملل");
+    expect(getPortalNavigation("admin").map(({ label }) => label)).toEqual([
+      "داشبورد", "هنرمندان", "بازار", "سفارش و ارسال", "رشد و خدمات",
+      "فرصت‌ها", "مالی و عضویت", "بین‌الملل", "گزارش‌ها", "تنظیمات"
+    ]);
     expect(getPortalNavigation("artist").some(({ label }) => label === "بین‌الملل")).toBe(false);
+    expect(getPortalNavigation("artist").find(({ label }) => label === "محصولات")?.href).toBe("/artist/products");
+    expect(getPortalNavigation("admin").find(({ label }) => label === "بازار")?.href)
+      .toBe("/admin/publication-reviews");
+    expect(getPortalNavigation("admin").find(({ label }) => label === "رشد و خدمات")?.href)
+      .toBe("/admin/service-assignments");
+    expect(getPortalNavigation("service-partner").find(({ label }) => label === "درخواست‌های تخصیص‌یافته")?.href)
+      .toBe("/service-partner/assignments");
+    expect(getPortalNavigation("supporting-organization").find(({ label }) => label === "برنامه‌های حمایتی")?.href)
+      .toBe("/supporting-organization/programs");
   });
 
   it("keeps authentication and customer routes outside staff sidebars", () => {
