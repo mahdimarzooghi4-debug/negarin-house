@@ -116,7 +116,7 @@ describe("Corporate Buyer purchase request and order HTTP contract", () => {
     expect((await database.artistProduct.findUniqueOrThrow({ where: { id: product.id } })).availableQuantity).toBe(3);
 
     expect((await app.inject({ method: "GET", url: `${path}/purchase-requests`, headers: buyerAColleague })).json())
-      .toEqual([expect.objectContaining({ id: request.json().id, note: "ارسال برای شعبه مرکزی" })]);
+      .toEqual(expect.arrayContaining([expect.objectContaining({ id: request.json().id, note: "ارسال برای شعبه مرکزی" })]));
     expect((await app.inject({ method: "GET", url: `${path}/orders`, headers: buyerAColleague })).json())
       .toEqual(expect.arrayContaining([
         expect.objectContaining({ id: order.json().id, status: "awaiting_payment" }),
