@@ -4,7 +4,7 @@ import { getPortalNavigation } from "./portal-navigation";
 describe("role portal navigation", () => {
   it("uses the shared shell pattern with role-specific menu labels", () => {
     expect(getPortalNavigation("artist").map(({ label }) => label)).toEqual([
-      "پیشخوان", "فروشگاه من", "محصولات", "سفارش‌ها", "رشد من",
+      "پیشخوان", "فروشگاه من", "محصولات", "سفارش‌ها", "درخواست‌های سازمانی", "رشد من",
       "خدمات", "فرصت‌ها", "مالی", "عضویت", "روایت‌ها"
     ]);
     expect(getPortalNavigation("admin").map(({ label }) => label)).toEqual([

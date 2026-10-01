@@ -33,7 +33,8 @@ export class CorporateBuyingService {
       data: {
         buyerOrganizationId: organizationId, requestedByUserId: context.userId,
         productId: product.id, productTitleSnapshot: product.title,
-        unitPriceTomanSnapshot: product.priceToman, quantity: input.quantity, note: input.note
+        unitPriceTomanSnapshot: product.priceToman, quantity: input.quantity, note: input.note,
+        events: { create: { actorUserId: context.userId, status: "submitted" } }
       }
     });
     return {
@@ -42,6 +43,48 @@ export class CorporateBuyingService {
       totalToman: (request.unitPriceTomanSnapshot * BigInt(request.quantity)).toString(),
       note: request.note, status: request.status, createdAt: request.createdAt.toISOString()
     };
+  }
+
+  async listArtistRequests(context: AuthorizationContext) {
+    this.requireArtist(context);
+    const requests = await this.database.corporatePurchaseRequest.findMany({
+      where: { product: { artistUserId: context.userId } },
+      include: { buyerOrganization: { select: { displayName: true } }, events: { orderBy: { createdAt: "asc" } } },
+      orderBy: [{ createdAt: "desc" }, { id: "asc" }]
+    });
+    return requests.map((request) => ({
+      id: request.id, productId: request.productId, productTitle: request.productTitleSnapshot,
+      buyerOrganizationName: request.buyerOrganization.displayName ?? "خریدار سازمانی",
+      unitPriceToman: request.unitPriceTomanSnapshot.toString(), quantity: request.quantity,
+      totalToman: (request.unitPriceTomanSnapshot * BigInt(request.quantity)).toString(),
+      note: request.note, status: request.status, createdAt: request.createdAt.toISOString(),
+      history: request.events.map((event) => ({ status: event.status, createdAt: event.createdAt.toISOString() }))
+    }));
+  }
+
+  async reviewArtistRequest(context: AuthorizationContext, requestId: string, status: "in_review" | "declined") {
+    this.requireArtist(context);
+    return this.database.$transaction(async (transaction) => {
+      const request = await transaction.corporatePurchaseRequest.findFirst({
+        where: { id: requestId, product: { artistUserId: context.userId } },
+        select: { id: true, status: true }
+      });
+      if (!request) throw new NotFoundException();
+      const allowed = status === "in_review" ? ["submitted"] : ["submitted", "in_review"];
+      if (!allowed.includes(request.status)) {
+        if (request.status === status) return { id: request.id, status: request.status };
+        throw new ConflictException("purchase-request-state-changed");
+      }
+      const updated = await transaction.corporatePurchaseRequest.updateMany({
+        where: { id: request.id, status: request.status, product: { artistUserId: context.userId } },
+        data: { status }
+      });
+      if (updated.count !== 1) throw new ConflictException("purchase-request-state-changed");
+      await transaction.corporatePurchaseRequestEvent.create({
+        data: { requestId: request.id, actorUserId: context.userId, status }
+      });
+      return { id: request.id, status };
+    });
   }
 
   async listOrders(context: AuthorizationContext) {
@@ -107,6 +150,10 @@ export class CorporateBuyingService {
   private requireBuyer(context: AuthorizationContext): string {
     if (context.activeRole !== "corporate-buyer" || !context.organizationId) throw new ForbiddenException();
     return context.organizationId;
+  }
+
+  private requireArtist(context: AuthorizationContext): void {
+    if (context.activeRole !== "artist") throw new ForbiddenException();
   }
 
   private orderView(order: {

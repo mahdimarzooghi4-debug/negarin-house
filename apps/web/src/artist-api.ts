@@ -39,6 +39,13 @@ export type CustomerCatalogItem = {
   media: Array<{ id: string; contentType: string; readUrl: string }>;
 };
 
+export type ArtistCorporatePurchaseRequest = {
+  id: string; productId: string; productTitle: string; buyerOrganizationName: string;
+  unitPriceToman: string; quantity: number; totalToman: string; note: string | null;
+  status: "submitted" | "in_review" | "quoted" | "declined" | "converted";
+  createdAt: string; history: Array<{ status: string; createdAt: string }>;
+};
+
 export type ServicePartnerAssignment = {
   assignmentId: string;
   requestId: string;
@@ -194,6 +201,15 @@ export async function loadArtistProducts() {
   const result = await requestArtistApi("artist/products?includeArchived=true");
   if (result.status === 200 && Array.isArray(result.data)) {
     return { kind: "ready", products: result.data as ArtistProduct[] } as const;
+  }
+  if (result.status === 401 || result.status === 403) return { kind: "connection-required" } as const;
+  return { kind: "unavailable" } as const;
+}
+
+export async function loadArtistCorporatePurchaseRequests() {
+  const result = await requestArtistApi("artist/corporate-purchase-requests");
+  if (result.status === 200 && Array.isArray(result.data)) {
+    return { kind: "ready", requests: result.data as ArtistCorporatePurchaseRequest[] } as const;
   }
   if (result.status === 401 || result.status === 403) return { kind: "connection-required" } as const;
   return { kind: "unavailable" } as const;

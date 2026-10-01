@@ -3,6 +3,13 @@ Total output lines: 265
 
 # Sprint 1 Implementation Status
 
+## 2026-10-01 — Artist review of Corporate Buyer requests
+
+- The owning Artist now sees purchase requests for their own published products in a new portal page; requests from other Artists' products are concealed.
+- Artists can mark a submitted request as in review or decline it. Creation and seller status changes are recorded in request history, and the buyer organization sees only the display name needed to identify its request.
+- This does not create a quote, change the Artist's price, reserve inventory, or create an order. Quote acceptance and conversion need agreed product rules.
+- The handoff now records that delivery will use Negarin logistics partners (for example, Post); provider integration, tracking, and delivery confirmation still need implementation.
+
 ## 2026-10-01 — Corporate Buyer purchase and order flow
 
 - Corporate Buyers can submit a purchase request or place a direct order from a published product page. Both actions require a server-validated active Corporate Buyer organization.
@@ -258,7 +265,7 @@ This is automated CI evidence. It is not Stage QA, Release Approval, or Producti
 
 - OTP/SMS provider details are still pending; public login and session delivery remain disabled until configured.
 - Stage QA and visual review are pending and will be done together. This work has no Stage deployment or Stage QA evidence yet.
-- Corporate Buyer purchase requests and direct orders are implemented for web/API. Direct orders reserve stock, stay in `awaiting_payment`, and can be cancelled; payment, request review/quotation, Artist allocation, fulfilment, and delivery still need implementation/provider details.
+- Corporate Buyer purchase requests and direct orders are implemented for web/API. Direct orders reserve stock, stay in `awaiting_payment`, and can be cancelled. Artist request review/decline is implemented; quotations, order conversion from a request, payment, Artist allocation, fulfilment, and delivery integration still need implementation/provider details.
 - The public catalog remains browseable without sign-in. Authenticated Corporate Buyers can submit requests and direct orders on product details. The Android app shows availability but awaits its authenticated purchase journey.
 - Artist service-request intake, Admin request/assignment authoring, and Admin review of submitted Service Partner deliverables are implemented. An Admin change request includes feedback; approval completes the assignment, and completed assignments reject Partner mutations. Organization/member provisioning, scheduling, and execution progress remain unimplemented.
 - Mobile scope is Android. iOS is out of scope. Android app release identity and device QA are still open.

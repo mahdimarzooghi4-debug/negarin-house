@@ -34,6 +34,7 @@ model IdentityUser {
   requestedArtistServiceRequests ServiceRequest[] @relation("ArtistServiceRequestRequester")
   completedServiceAssignments ServiceAssignment[] @relation("ServiceAssignmentCompletion")
   reviewedServiceDeliverables ServiceDeliverableReviewEvent[]
+  corporatePurchaseRequestEvents CorporatePurchaseRequestEvent[]
   serviceAssignmentResponses ServiceAssignmentEvent[]
   uploadedServiceDeliverables ServiceDeliverable[]
   serviceDeliverableSubmissions ServiceDeliverableSubmission[]
@@ -139,10 +140,24 @@ model CorporatePurchaseRequest {
   status CorporatePurchaseRequestStatus @default(submitted)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  events CorporatePurchaseRequestEvent[]
 
   @@index([buyerOrganizationId, createdAt])
   @@index([productId, createdAt])
   @@map("corporate_purchase_requests")
+}
+
+model CorporatePurchaseRequestEvent {
+  id String @id @default(uuid()) @db.Uuid
+  requestId String @db.Uuid
+  request CorporatePurchaseRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  status CorporatePurchaseRequestStatus
+  createdAt DateTime @default(now())
+
+  @@index([requestId, createdAt])
+  @@map("corporate_purchase_request_events")
 }
 
 model CorporateOrder {

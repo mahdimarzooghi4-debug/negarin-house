@@ -10,6 +10,7 @@ const navigation: Partial<Record<PortalKey, PortalNavigationItem[]>> = {
     { label: "فروشگاه من" },
     { label: "محصولات", href: "/artist/products" },
     { label: "سفارش‌ها" },
+    { label: "درخواست‌های سازمانی", href: "/artist/corporate-purchase-requests" },
     { label: "رشد من" },
     { label: "خدمات", href: "/artist/services" },
     { label: "فرصت‌ها" },

@@ -22,6 +22,8 @@ The product owner confirmed an independent Android application in addition to th
 - Admin can unpublish a product, returning it to `approved` and removing it from the public catalog. Archived products remain excluded.
 - The public catalog remains browsable without sign-in. Authenticated Corporate Buyers can submit a purchase request or place a direct order for an Admin-published product; direct orders use the displayed Toman price and available stock.
 - Direct orders reserve the requested available quantity and begin in `awaiting_payment`. A Corporate Buyer can cancel before payment to release that stock. Purchase requests do not reserve inventory.
+- Purchase requests appear only in the owning Artist's portal. The Artist may start reviewing or decline the request; each status change is recorded in request history. Price proposals, buyer acceptance/conversion, and stock reservation for accepted requests remain pending product rules.
+- Delivery is expected to be handled by Negarin's logistics partners, such as Post; provider selection, shipment tracking, delivery confirmation, and exception handling remain to be defined.
 - Payment provider, delivery, allocation to Artists, fees, and settlement behavior are still undefined. No payment is collected until the provider and commercial rules are configured.
 
 ### Growth
@@ -55,7 +57,8 @@ Growth cannot be purchased.
 
 ### Corporate Buyer
 - External B2B buyer.
-- Can submit a Purchase Request for Negarin review and proposal, or place a direct Corporate Order for a published product with sufficient available stock.
+- Can submit a Purchase Request for the product's owning Artist to review, or place a direct Corporate Order for a published product with sufficient available stock.
+- The owning Artist can see their requests and start review or decline them; a request does not reserve stock and this review step does not create a price proposal or order.
 - Requests are organization-scoped and do not reserve inventory. Direct orders snapshot the product title and price, reserve stock, and await payment-provider integration; cancellation before payment releases reserved stock.
 - After order confirmation, the intended operational path remains Artist Allocation(s) → Fulfillment → Delivery → Completion.
 - No direct Artist payment or off-platform commercial bypass.

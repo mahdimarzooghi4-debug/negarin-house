@@ -28,7 +28,7 @@ import { ArtistServiceRequestsController } from "./artist-service-requests.contr
 import { ArtistServiceRequestsService } from "./artist-service-requests.js";
 import { SupportProgramsController } from "./support-programs.controller.js";
 import { SupportProgramsService } from "./support-programs.js";
-import { CorporateBuyingController } from "./corporate-buying.controller.js";
+import { ArtistCorporatePurchaseRequestsController, CorporateBuyingController } from "./corporate-buying.controller.js";
 import { CorporateBuyingService } from "./corporate-buying.js";
 
 @Module({
@@ -47,7 +47,8 @@ import { CorporateBuyingService } from "./corporate-buying.js";
     CustomerCatalogController,
     ArtistServiceRequestsController,
     SupportProgramsController,
-    CorporateBuyingController
+    CorporateBuyingController,
+    ArtistCorporatePurchaseRequestsController
   ],
   providers: [
     PrismaService,

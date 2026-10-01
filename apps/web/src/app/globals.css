@@ -408,6 +408,9 @@ a.portal-nav-item { text-decoration: none; }
 .corporate-buying-list-card p, .corporate-buying-list-card small { margin: 0; color: var(--negarin-muted); line-height: 1.7; }
 .corporate-order-cancel { justify-self: start; min-height: 38px; padding: 0 14px; border: 1px solid #e3bcbc; border-radius: 9px; background: #fff7f7; color: #923333; font: inherit; cursor: pointer; }
 .corporate-order-cancel:disabled { opacity: .6; cursor: wait; }
+.corporate-request-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.corporate-request-actions button { min-height: 38px; padding: 0 14px; border: 1px solid var(--negarin-border); border-radius: 9px; background: var(--negarin-primary); color: #fff; font: inherit; cursor: pointer; }
+.corporate-request-actions button:disabled { opacity: .6; cursor: wait; }
 .artist-product-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
 .customer-store { width: min(100%, 1040px); max-width: 1040px; margin: 0 auto; padding: 0 24px 40px; }
