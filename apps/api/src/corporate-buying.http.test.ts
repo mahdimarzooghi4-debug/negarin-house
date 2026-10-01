@@ -73,7 +73,7 @@ describe("Corporate Buyer purchase request and order HTTP contract", () => {
     expect((await app.inject({ method: "POST", url: `${path}/orders/${order.json().id}/cancel`, headers: buyerA })).statusCode).toBe(404);
 
     expect((await app.inject({ method: "POST", url: `${path}/orders`, headers: buyerA,
-      payload: { productId: product.id, quantity: 4 } })).statusCode).toBe(409);
+      payload: { productId: product.id, quantity: 6 } })).statusCode).toBe(409);
     expect((await app.inject({ method: "POST", url: `${path}/orders`, headers: buyerA,
       payload: { productId: product.id, quantity: 1, buyerOrganizationId: orgB.id } })).statusCode).toBe(400);
     expect((await app.inject({ method: "POST", url: `${path}/orders`, headers: artist,
