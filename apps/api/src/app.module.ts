@@ -7,9 +7,12 @@ import { IdentityContextController } from "./identity-context.controller.js";
 import { ArtistProductsController } from "./artist-products.controller.js";
 import { ArtistProductsService } from "./artist-products.js";
 
+import { ArtistPublicationController, AdminProductReviewsController } from "./product-publication.controller.js";
+import { ProductPublicationService } from "./product-publication.js";
+
 @Module({
-  controllers: [HealthController, FoundationController, IdentityContextController, ArtistProductsController],
-  providers: [PrismaService, AuthorizationGuard, ArtistProductsService],
+  controllers: [ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
+  providers: [ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
   exports: [AuthorizationGuard]
 })
 export class AppModule {}

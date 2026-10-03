@@ -16,7 +16,11 @@ Figma remains the canonical visual/product design source for UI/UX, while this r
 
 **Phase 1 Engineering Backlog: DEFINED**
 
-**Sprint 0 / Foundation: READY TO START**
+**Foundation / identity / Artist product CRUD: IMPLEMENTED BASELINES**
+
+**Native panel previews: 460 / 460 inventoried screens/states implemented (draft PR #36)**
+
+**Backend continuation: initial product publication lifecycle implemented for review; media, live panel integration and release gates remain open**
 
 Canonical design file:
 - Figma: https://www.figma.com/design/Uo0ifnpFmJFhWqaEVmVOZ1/Negarin-House
@@ -67,4 +71,4 @@ Business → Technical → Scrum/Product Backlog → Sprint → Code → Code Re
 
 ## Next step
 
-Start **Epic E0 / Sprint 0 — Platform Foundation** in GitHub Issue #5 and scaffold the actual monorepo/applications/packages.
+Continue **Epic E3 — Artist & Product Lifecycle**. Initial publication commands and review history are described in `docs/implementation/product-publication-backend.md`. Complete media/required publication gates and live Artist/Admin integration before storefront release. Preview coverage is recorded in `docs/implementation/panel-coverage.json`.
