@@ -1,0 +1,7429 @@
+[
+  {
+    "screen": "dashboard",
+    "node": "51:4",
+    "name": "Action / Notifications",
+    "label": "",
+    "destination": null
+  },
+  {
+    "screen": "dashboard",
+    "node": "51:6",
+    "name": "CTA / Add Product",
+    "label": "افزودن محصول",
+    "destination": "product-editor"
+  },
+  {
+    "screen": "dashboard",
+    "node": "52:14",
+    "name": "CTA / مشاهده مسیر رشد",
+    "label": "مشاهده مسیر رشد",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "dashboard",
+    "node": "50:9",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "dashboard",
+    "node": "50:12",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "dashboard",
+    "node": "50:15",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "dashboard",
+    "node": "50:18",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "dashboard",
+    "node": "50:24",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "dashboard",
+    "node": "50:27",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "dashboard",
+    "node": "50:30",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "dashboard",
+    "node": "50:33",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "dashboard",
+    "node": "50:36",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "dashboard",
+    "node": "764:12",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "dashboard",
+    "node": "95:19",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:8",
+    "name": "Action / Notifications",
+    "label": "",
+    "destination": null
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:10",
+    "name": "CTA / Add Product",
+    "label": "افزودن محصول",
+    "destination": "product-editor"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "74:40",
+    "name": "CTA / Activate Store",
+    "label": "فعال‌سازی فروشگاه",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "74:98",
+    "name": "CTA / Activate Joveneh Membership",
+    "label": "فعال‌سازی عضویت جوانه",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:123",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:130",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:137",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:144",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:156",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:161",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:167",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:174",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:180",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "764:16",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "95:26",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "services",
+    "node": "84:4",
+    "name": "Negarin / Button",
+    "label": "خرید اعتبار",
+    "destination": null
+  },
+  {
+    "screen": "services",
+    "node": "86:26",
+    "name": "Partner / CTA",
+    "label": "شروع دوره",
+    "destination": "service-detail-offline-course"
+  },
+  {
+    "screen": "services",
+    "node": "90:20",
+    "name": "Partner / CTA",
+    "label": "شروع دوره",
+    "destination": "service-detail-offline-course"
+  },
+  {
+    "screen": "services",
+    "node": "82:126",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "services",
+    "node": "82:133",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "services",
+    "node": "82:140",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "services",
+    "node": "82:147",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "services",
+    "node": "82:159",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "services",
+    "node": "82:164",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "services",
+    "node": "82:170",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "services",
+    "node": "82:177",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "services",
+    "node": "82:183",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "services",
+    "node": "764:20",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "services",
+    "node": "95:33",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "113:3",
+    "name": "Service Detail / Back",
+    "label": "بازگشت به خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "113:14",
+    "name": "Course Detail / Activate Button",
+    "label": "فعال‌سازی دوره",
+    "destination": "course-learning-offline"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:149",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:156",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:163",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:170",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:176",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:181",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:188",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:195",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:201",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "764:24",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:208",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "124:10",
+    "name": "Service Detail / Back",
+    "label": "بازگشت به جزئیات دوره",
+    "destination": "service-detail-offline-course"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "124:20",
+    "name": "Course Detail / Activate Button",
+    "label": "ادامه از درس ۳",
+    "destination": null
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "126:88",
+    "name": "Course Learning / Next",
+    "label": "درس بعدی",
+    "destination": "course-completion-offline"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:128",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:135",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:142",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:149",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:155",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:160",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:167",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:174",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:180",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "764:28",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:187",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:206",
+    "name": "Course Completion / Back",
+    "label": "بازگشت به دوره",
+    "destination": "course-learning-offline"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:215",
+    "name": "Course Completion / Button / مشاهده مسیر رشد",
+    "label": "مشاهده مسیر رشد",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:261",
+    "name": "Course Completion / Button / بازگشت به خدمات",
+    "label": "بازگشت به خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:263",
+    "name": "Course Completion / Button / مشاهده رشد من",
+    "label": "مشاهده رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:270",
+    "name": "Course Completion / Button / ثبت ارزیابی",
+    "label": "ثبت ارزیابی",
+    "destination": null
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:131",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:138",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:145",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:152",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:158",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:163",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:170",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:177",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:183",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "764:32",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:190",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "growth-center",
+    "node": "131:11",
+    "name": "Growth / Header CTA",
+    "label": "مشاهده خدمات رشد",
+    "destination": "services"
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:92",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:99",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:106",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:113",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:119",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:124",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:131",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:138",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:144",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "growth-center",
+    "node": "764:36",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:151",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:202",
+    "name": "Button / فرصت‌های من",
+    "label": "فرصت‌های من",
+    "destination": "opportunity-application-status"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:212",
+    "name": "Button / مشاهده درخواست‌ها",
+    "label": "مشاهده درخواست‌ها",
+    "destination": "opportunity-application-status"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:266",
+    "name": "Button / مشاهده فرصت",
+    "label": "مشاهده فرصت",
+    "destination": "opportunity-detail"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:285",
+    "name": "Button / اعلام آمادگی",
+    "label": "اعلام آمادگی",
+    "destination": "opportunity-application"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:305",
+    "name": "Button / مشاهده جزئیات",
+    "label": "مشاهده جزئیات",
+    "destination": "opportunity-detail"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:324",
+    "name": "Button / بررسی شرایط",
+    "label": "بررسی شرایط",
+    "destination": "opportunity-detail"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:344",
+    "name": "Button / مشاهده فرصت",
+    "label": "مشاهده فرصت",
+    "destination": "opportunity-detail"
+  },
+  {
+    "screen": "opportunities",
+    "node": "145:37",
+    "name": "Button / بررسی شرایط",
+    "label": "بررسی شرایط",
+    "destination": "opportunity-detail"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:366",
+    "name": "Button / بهبود شرایط احراز",
+    "label": "بهبود شرایط احراز",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:127",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:134",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:141",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:148",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:154",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:159",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:166",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:173",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:179",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "opportunities",
+    "node": "764:40",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:186",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:566",
+    "name": "Back to Opportunities",
+    "label": "بازگشت به فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:594",
+    "name": "Apply Button",
+    "label": "اعلام آمادگی",
+    "destination": "opportunity-application"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:652",
+    "name": "Apply Bottom",
+    "label": "اعلام آمادگی",
+    "destination": "opportunity-application"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:491",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:498",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:505",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:512",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:518",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:523",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:530",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:537",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:543",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "764:44",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:550",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "163:15",
+    "name": "Button / بازگشت به جزئیات",
+    "label": "بازگشت به جزئیات",
+    "destination": "opportunity-detail"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "163:69",
+    "name": "Button / ارسال اعلام آمادگی",
+    "label": "ارسال اعلام آمادگی",
+    "destination": "opportunity-application-status"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "164:16",
+    "name": "Button / تغییر محصول",
+    "label": "تغییر محصول",
+    "destination": null
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "164:54",
+    "name": "Button / ذخیره پیش‌نویس",
+    "label": "ذخیره پیش‌نویس",
+    "destination": null
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "164:56",
+    "name": "Button / ارسال برای بررسی",
+    "label": "ارسال برای بررسی",
+    "destination": "opportunity-application-status"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:108",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:115",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:122",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:129",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:135",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:140",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:147",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:154",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:160",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "764:48",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:167",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:197",
+    "name": "Button / بازگشت به فرصت‌ها",
+    "label": "بازگشت به فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:274",
+    "name": "Button / مشاهده فرصت",
+    "label": "مشاهده فرصت",
+    "destination": "opportunity-detail"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:276",
+    "name": "Button / فرصت‌های من",
+    "label": "فرصت‌های من",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:122",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:129",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:136",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:143",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:149",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:154",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:161",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:168",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:174",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "764:52",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:181",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "finance",
+    "node": "171:263",
+    "name": "Button / درخواست تسویه",
+    "label": "درخواست تسویه",
+    "destination": "finance-settlement-request-modal"
+  },
+  {
+    "screen": "finance",
+    "node": "171:266",
+    "name": "Finance / Summary 2",
+    "label": "در انتظار در انتظار تسویه ۲٬۱۸۰٬۰۰۰ تومان از سفارش‌های در حال پردازش",
+    "destination": "finance-settlement-tracking"
+  },
+  {
+    "screen": "finance",
+    "node": "171:289",
+    "name": "Finance / Transactions",
+    "label": "تراکنش‌های اخیر فروش، تسویه بانکی و اصلاحات مالی سفارش‌ها همه فروش تسویه بازگشت وجه شرح مبلغ وضعیت زمان #NG-1048 · فروش سفارش +۲٬۴۵۰٬۰۰۰ تومان موفق امروز #NG-1042 · فروش سفارش +۱٬۱۸۰٬۰۰۰ تومان در انتظار دیروز تسویه بانکی −۴٬۳۰۰٬۰۰۰ تومان واریز شد ۳ روز پیش #NG-1039 · فروش سفارش +۳٬۷۶۰٬۰۰۰ تومان موفق ۵ روز پیش #NG-1036 · بازگشت وجه −۹۸۰٬۰۰۰ تومان اصلاح شد ۷ روز پیش #NG-1031 · فروش سفارش +۱٬۶۹۰٬۰۰۰ تومان موفق ۹ روز پیش مبالغ پس از تکمیل وضعیت سفارش به موجودی قابل تسویه منتقل می‌شوند.",
+    "destination": "finance-transactions"
+  },
+  {
+    "screen": "finance",
+    "node": "171:351",
+    "name": "Button / ویرایش اطلاعات",
+    "label": "ویرایش اطلاعات",
+    "destination": null
+  },
+  {
+    "screen": "finance",
+    "node": "171:186",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "finance",
+    "node": "171:193",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "finance",
+    "node": "171:200",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "finance",
+    "node": "171:207",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance",
+    "node": "171:213",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "finance",
+    "node": "171:218",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "finance",
+    "node": "171:225",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "finance",
+    "node": "171:232",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance",
+    "node": "171:238",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "finance",
+    "node": "764:56",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "finance",
+    "node": "171:245",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:13",
+    "name": "Button / بازگشت به فرصت‌ها",
+    "label": "بازگشت به فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:89",
+    "name": "Button / مشاهده فرصت",
+    "label": "مشاهده فرصت",
+    "destination": "opportunity-detail"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:91",
+    "name": "Button / فرصت‌های من",
+    "label": "فرصت‌های من",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:122",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:129",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:136",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:143",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:149",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:154",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:161",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:168",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:174",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "764:60",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:181",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:13",
+    "name": "Button / بازگشت به فرصت‌ها",
+    "label": "بازگشت به فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:89",
+    "name": "Button / رد تخصیص",
+    "label": "رد تخصیص",
+    "destination": "opportunity-allocation-reject-modal"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:91",
+    "name": "Button / پذیرش سفارش",
+    "label": "پذیرش سفارش",
+    "destination": "opportunity-allocation-accept-modal"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:122",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:129",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:136",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:143",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:149",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:154",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:161",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:168",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:174",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "764:64",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:181",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "orders",
+    "node": "174:197",
+    "name": "Button / خروجی سفارش‌ها",
+    "label": "خروجی سفارش‌ها",
+    "destination": "orders-export-modal"
+  },
+  {
+    "screen": "orders",
+    "node": "174:223",
+    "name": "Button / مشاهده سفارش",
+    "label": "مشاهده سفارش",
+    "destination": "order-detail-preparing"
+  },
+  {
+    "screen": "orders",
+    "node": "174:260",
+    "name": "Order Row / #NG-1052",
+    "label": "نیاز به پذیرش ۲۴ عدد رویداد شرکتی / فرصت سازمانی امروز #NG-1052",
+    "destination": "opportunity-order-allocation"
+  },
+  {
+    "screen": "orders",
+    "node": "174:268",
+    "name": "Order Row / #NG-1048",
+    "label": "آماده‌سازی ۲,۴۵۰,۰۰۰ تومان سمیه احمدی ۱۲ شهریور #NG-1048",
+    "destination": "order-detail-preparing"
+  },
+  {
+    "screen": "orders",
+    "node": "174:276",
+    "name": "Order Row / #NG-1042",
+    "label": "ارسال‌شده ۱,۱۸۰,۰۰۰ تومان علی رضایی ۱۰ شهریور #NG-1042",
+    "destination": "order-detail-shipping"
+  },
+  {
+    "screen": "orders",
+    "node": "174:284",
+    "name": "Order Row / #NG-1039",
+    "label": "تکمیل‌شده ۳,۷۶۰,۰۰۰ تومان مریم کاظمی ۷ شهریور #NG-1039",
+    "destination": "order-detail-completed"
+  },
+  {
+    "screen": "orders",
+    "node": "174:292",
+    "name": "Order Row / #NG-1036",
+    "label": "بسته‌بندی ۹۸۰,۰۰۰ تومان نرگس محمدی ۵ شهریور #NG-1036",
+    "destination": "order-detail-packaging"
+  },
+  {
+    "screen": "orders",
+    "node": "174:300",
+    "name": "Order Row / #NG-1031",
+    "label": "پذیرفته‌شده ۱,۶۹۰,۰۰۰ تومان فاطمه کریمی ۳ شهریور #NG-1031",
+    "destination": "order-detail-preparing"
+  },
+  {
+    "screen": "orders",
+    "node": "174:308",
+    "name": "Order Row / #NG-1027",
+    "label": "تکمیل‌شده ۲,۱۲۰,۰۰۰ تومان زهرا موسوی ۱ شهریور #NG-1027",
+    "destination": "order-detail-completed"
+  },
+  {
+    "screen": "orders",
+    "node": "174:317",
+    "name": "Button / مشاهده فقط نیازمند اقدام",
+    "label": "مشاهده فقط نیازمند اقدام",
+    "destination": "orders-needs-action"
+  },
+  {
+    "screen": "orders",
+    "node": "174:122",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "orders",
+    "node": "174:129",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "orders",
+    "node": "174:136",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "orders",
+    "node": "174:143",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "orders",
+    "node": "174:149",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "orders",
+    "node": "174:154",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "orders",
+    "node": "174:161",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "orders",
+    "node": "174:168",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "orders",
+    "node": "174:174",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "orders",
+    "node": "764:68",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "orders",
+    "node": "174:181",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:484",
+    "name": "Button / Back",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:560",
+    "name": "Button / ثبت پیشرفت تولید",
+    "label": "ثبت پیشرفت تولید",
+    "destination": "order-progress-update-modal"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:577",
+    "name": "Button / اعلام مشکل",
+    "label": "اعلام مشکل",
+    "destination": "order-issue-report-modal"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:409",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:416",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:423",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:430",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:436",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:441",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:448",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:455",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:461",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "764:72",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:468",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:13",
+    "name": "Button / Back",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:67",
+    "name": "Button / ثبت پیشرفت تولید",
+    "label": "ثبت تکمیل بسته‌بندی",
+    "destination": "packaging-completion-confirmation-modal"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:84",
+    "name": "Button / اعلام مشکل",
+    "label": "اعلام مشکل",
+    "destination": "order-issue-report-modal"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:117",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:124",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:131",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:138",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:144",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:149",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:156",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:163",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:169",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "764:76",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:176",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:13",
+    "name": "Button / Back",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:67",
+    "name": "Button / ثبت پیشرفت تولید",
+    "label": "مشاهده رهگیری",
+    "destination": "shipment-tracking"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:84",
+    "name": "Button / اعلام مشکل",
+    "label": "اعلام مشکل",
+    "destination": "order-issue-report-modal"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:117",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:124",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:131",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:138",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:144",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:149",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:156",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:163",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:169",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "764:80",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:176",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:13",
+    "name": "Button / Back",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:67",
+    "name": "Button / ثبت پیشرفت تولید",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:84",
+    "name": "Button / اعلام مشکل",
+    "label": "اعلام مشکل",
+    "destination": "order-issue-report-modal"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:117",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:124",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:131",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:138",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:144",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:149",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:156",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:163",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:169",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "764:84",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:176",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:13",
+    "name": "Button / Back",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:230",
+    "name": "Frame",
+    "label": "انتخاب این همکار",
+    "destination": "shipping-partner-confirmation-modal"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:244",
+    "name": "Frame",
+    "label": "انتخاب این همکار",
+    "destination": "shipping-partner-confirmation-modal"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:258",
+    "name": "Frame",
+    "label": "انتخاب این همکار",
+    "destination": "shipping-partner-confirmation-modal"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:272",
+    "name": "Frame",
+    "label": "انتخاب این همکار",
+    "destination": "shipping-partner-confirmation-modal"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:117",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:124",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:131",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:138",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:144",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:149",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:156",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:163",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:169",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "764:88",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:176",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:13",
+    "name": "Button / Back",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:67",
+    "name": "Button / ثبت پیشرفت تولید",
+    "label": "مشاهده مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:84",
+    "name": "Button / اعلام مشکل",
+    "label": "مشاهده رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:117",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:124",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:131",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:138",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:144",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:149",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:156",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:163",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:169",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "764:92",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:176",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:13",
+    "name": "Button / Back",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": null
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:67",
+    "name": "Button / ثبت پیشرفت تولید",
+    "label": "ثبت پیشرفت تولید",
+    "destination": null
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:84",
+    "name": "Button / اعلام مشکل",
+    "label": "اعلام مشکل",
+    "destination": null
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:117",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:124",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:131",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:138",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:144",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:149",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:156",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:163",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:169",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "764:96",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:176",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:216",
+    "name": "Button / Cancel",
+    "label": "انصراف",
+    "destination": "order-detail-preparing"
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:218",
+    "name": "Button / Submit Progress",
+    "label": "ثبت پیشرفت",
+    "destination": "order-detail-preparing"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:13",
+    "name": "Button / Back",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": null
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:67",
+    "name": "Button / ثبت پیشرفت تولید",
+    "label": "ثبت پیشرفت تولید",
+    "destination": null
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:84",
+    "name": "Button / اعلام مشکل",
+    "label": "اعلام مشکل",
+    "destination": null
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:117",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:124",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:131",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:138",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:144",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:149",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:156",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:163",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:169",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "764:100",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:176",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:216",
+    "name": "Button / Cancel",
+    "label": "انصراف",
+    "destination": "order-detail-preparing"
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:218",
+    "name": "Button / Submit Issue",
+    "label": "ثبت گزارش مشکل",
+    "destination": "order-detail-preparing"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:230",
+    "name": "Button / Back",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": null
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:369",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:376",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:383",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:390",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:396",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:401",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:408",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:415",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:421",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "764:104",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:428",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "203:30",
+    "name": "Button / Cancel",
+    "label": "انصراف",
+    "destination": "order-shipping-partner-selection"
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "203:32",
+    "name": "Button / Submit",
+    "label": "ثبت درخواست ارسال",
+    "destination": "order-detail-shipping"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:13",
+    "name": "Button / Back",
+    "label": "بازگشت به سفارش",
+    "destination": "order-detail-shipping"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:67",
+    "name": "Button / Back to Order",
+    "label": "بازگشت به جزئیات سفارش",
+    "destination": "order-detail-shipping"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:84",
+    "name": "Button / اعلام مشکل",
+    "label": "اعلام مشکل",
+    "destination": "order-issue-report-modal"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:117",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:124",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:131",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:138",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:144",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:149",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:156",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:163",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:169",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "764:108",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:176",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:387",
+    "name": "Button / بازگشت به فرصت‌ها",
+    "label": "بازگشت به فرصت‌ها",
+    "destination": null
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:463",
+    "name": "Button / رد تخصیص",
+    "label": "رد تخصیص",
+    "destination": null
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:465",
+    "name": "Button / پذیرش سفارش",
+    "label": "پذیرش سفارش",
+    "destination": null
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:496",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:503",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:510",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:517",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:523",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:528",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:535",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:542",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:548",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "764:112",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:555",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:602",
+    "name": "Button / Cancel",
+    "label": "انصراف",
+    "destination": "opportunity-order-allocation"
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:604",
+    "name": "Button / Confirm Reject",
+    "label": "تأیید رد تخصیص",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:13",
+    "name": "Button / Back",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": null
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:67",
+    "name": "Button / ثبت پیشرفت تولید",
+    "label": "ثبت تکمیل بسته‌بندی",
+    "destination": null
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:84",
+    "name": "Button / اعلام مشکل",
+    "label": "اعلام مشکل",
+    "destination": null
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:117",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:124",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:131",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:138",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:144",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:149",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:156",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:163",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:169",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "764:116",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:176",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:215",
+    "name": "Button / Cancel",
+    "label": "انصراف",
+    "destination": "order-detail-packaging"
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:217",
+    "name": "Button / Confirm Packaging",
+    "label": "تأیید و انتخاب همکار ارسال",
+    "destination": "order-shipping-partner-selection"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:13",
+    "name": "Button / بازگشت به فرصت‌ها",
+    "label": "بازگشت به فرصت‌ها",
+    "destination": null
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:89",
+    "name": "Button / رد تخصیص",
+    "label": "رد تخصیص",
+    "destination": null
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:91",
+    "name": "Button / پذیرش سفارش",
+    "label": "پذیرش سفارش",
+    "destination": null
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:122",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:129",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:136",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:143",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:149",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:154",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:161",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:168",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:174",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "764:120",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:181",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:220",
+    "name": "Button / Cancel",
+    "label": "انصراف",
+    "destination": "opportunity-order-allocation"
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:222",
+    "name": "Button / Accept Allocation",
+    "label": "تأیید و پذیرش سفارش",
+    "destination": "orders"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:13",
+    "name": "Button / خروجی سفارش‌ها",
+    "label": "خروجی سفارش‌ها",
+    "destination": null
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:39",
+    "name": "Button / مشاهده سفارش",
+    "label": "مشاهده سفارش",
+    "destination": null
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:133",
+    "name": "Button / مشاهده فقط نیازمند اقدام",
+    "label": "مشاهده فقط نیازمند اقدام",
+    "destination": null
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:142",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:149",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:156",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:163",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:169",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:174",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:181",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:188",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:194",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "764:124",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:201",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:218",
+    "name": "Button / Close",
+    "label": "×",
+    "destination": "orders"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:250",
+    "name": "Button / Cancel",
+    "label": "انصراف",
+    "destination": "orders"
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:252",
+    "name": "Button / Export",
+    "label": "دریافت خروجی سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:13",
+    "name": "Button / خروجی سفارش‌ها",
+    "label": "خروجی سفارش‌ها",
+    "destination": "orders-export-modal"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:39",
+    "name": "Button / مشاهده سفارش",
+    "label": "مشاهده سفارش",
+    "destination": "order-detail-preparing"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:76",
+    "name": "Order Row / #NG-1052",
+    "label": "نیاز به پذیرش ۲۴ عدد رویداد شرکتی / فرصت سازمانی امروز #NG-1052",
+    "destination": "opportunity-order-allocation"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:84",
+    "name": "Order Row / #NG-1048",
+    "label": "آماده‌سازی ۲,۴۵۰,۰۰۰ تومان سمیه احمدی ۱۲ شهریور #NG-1048",
+    "destination": "order-detail-preparing"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:133",
+    "name": "Button / مشاهده فقط نیازمند اقدام",
+    "label": "نمایش همه سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:142",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:149",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:156",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:163",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:169",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:174",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:181",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:188",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:194",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "764:128",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:201",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "store",
+    "node": "220:219",
+    "name": "Button / مشاهده فروشگاه",
+    "label": "مشاهده فروشگاه",
+    "destination": null
+  },
+  {
+    "screen": "store",
+    "node": "220:226",
+    "name": "Button / Public Store",
+    "label": "مشاهده صفحه عمومی",
+    "destination": null
+  },
+  {
+    "screen": "store",
+    "node": "220:243",
+    "name": "Button / Edit Public Profile",
+    "label": "ویرایش صفحه فروشگاه",
+    "destination": "storefront-editor"
+  },
+  {
+    "screen": "store",
+    "node": "220:272",
+    "name": "Button / Manage Credentials",
+    "label": "مدیریت مدارک",
+    "destination": "professional-credentials"
+  },
+  {
+    "screen": "store",
+    "node": "220:281",
+    "name": "Button / Visibility Settings",
+    "label": "مدیریت نمایش",
+    "destination": "store-visibility-management"
+  },
+  {
+    "screen": "store",
+    "node": "220:301",
+    "name": "Button / Edit Sales Settings",
+    "label": "ویرایش تنظیمات فروش",
+    "destination": "sales-settings"
+  },
+  {
+    "screen": "store",
+    "node": "220:142",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "store",
+    "node": "220:149",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "store",
+    "node": "220:156",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "store",
+    "node": "220:163",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "store",
+    "node": "220:169",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "store",
+    "node": "220:174",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "store",
+    "node": "220:181",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "store",
+    "node": "220:188",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "store",
+    "node": "220:194",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "store",
+    "node": "764:132",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "store",
+    "node": "220:201",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:180",
+    "name": "Button / Back to Store",
+    "label": "بازگشت به فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:203",
+    "name": "Button / View Document",
+    "label": "مشاهده مدرک",
+    "destination": "credential-detail"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:205",
+    "name": "Button / Replace Document",
+    "label": "جایگزینی مدرک",
+    "destination": "credential-replacement"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:247",
+    "name": "Button / Add Credential",
+    "label": "افزودن مدرک جدید",
+    "destination": "credential-submission"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:103",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:110",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:117",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:124",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:130",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:135",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:142",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:149",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:155",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "764:136",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:162",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "products",
+    "node": "226:180",
+    "name": "Button / افزودن محصول",
+    "label": "افزودن محصول",
+    "destination": "product-editor"
+  },
+  {
+    "screen": "products",
+    "node": "226:103",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "products",
+    "node": "226:110",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "products",
+    "node": "226:117",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "products",
+    "node": "226:124",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "products",
+    "node": "226:130",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "products",
+    "node": "226:135",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "products",
+    "node": "226:142",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "products",
+    "node": "226:149",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "products",
+    "node": "226:155",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "products",
+    "node": "764:140",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "products",
+    "node": "226:162",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:223",
+    "name": "Button / بازگشت به محصولات",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:302",
+    "name": "Button / ذخیره پیش‌نویس",
+    "label": "ذخیره پیش‌نویس",
+    "destination": "products"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:304",
+    "name": "Button / ارسال برای بررسی",
+    "label": "ارسال برای بررسی",
+    "destination": "product-review-status"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:146",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:153",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:160",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:167",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:173",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:178",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:185",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:192",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:198",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "product-editor",
+    "node": "764:144",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:205",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:179",
+    "name": "Back / Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:237",
+    "name": "View Product",
+    "label": "مشاهده اطلاعات محصول",
+    "destination": "product-editor"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:239",
+    "name": "Back Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:102",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:109",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:116",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:123",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:129",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:134",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:141",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:148",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:154",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "764:148",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:161",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:15",
+    "name": "Back / Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:73",
+    "name": "View Product",
+    "label": "اصلاح محصول",
+    "destination": "product-editor"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:75",
+    "name": "Back Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:85",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:92",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:99",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:106",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:112",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:117",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:124",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:131",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:137",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "764:152",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:144",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:15",
+    "name": "Back / Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:75",
+    "name": "Back Products",
+    "label": "مشاهده اطلاعات محصول",
+    "destination": "product-editor"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:85",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:92",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:99",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:106",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:112",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:117",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:124",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:131",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:137",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "764:156",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:144",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:15",
+    "name": "Back / Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:73",
+    "name": "Publish Product",
+    "label": "انتشار محصول",
+    "destination": "product-public-preview"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:75",
+    "name": "Back Products",
+    "label": "ویرایش محصول",
+    "destination": "product-editor-edit-published"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:85",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:92",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:99",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:106",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:112",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:117",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:124",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:131",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:137",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "764:160",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:144",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:15",
+    "name": "Back / Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:73",
+    "name": "Publish Product",
+    "label": "افزایش موجودی",
+    "destination": "product-inventory-update-modal"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:75",
+    "name": "Back Products",
+    "label": "ویرایش محصول",
+    "destination": "product-editor-edit-published"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:85",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:92",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:99",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:106",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:112",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:117",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:124",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:131",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:137",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "764:164",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:144",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:15",
+    "name": "Back / Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:73",
+    "name": "Publish Product",
+    "label": "بازگردانی محصول",
+    "destination": "product-restore-confirmation-modal"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:75",
+    "name": "Back Products",
+    "label": "ویرایش محصول",
+    "destination": "product-editor-edit-published"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:85",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:92",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:99",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:106",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:112",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:117",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:124",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:131",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:137",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "product-archived",
+    "node": "764:168",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:144",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:85",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:92",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:99",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:106",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:112",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:117",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:124",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:131",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:137",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "764:172",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:144",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:174",
+    "name": "Button / Cancel",
+    "label": "انصراف",
+    "destination": "product-archived"
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:176",
+    "name": "Button / Confirm Restore",
+    "label": "تأیید و بازگردانی محصول",
+    "destination": "future-artist-product-published-separate-publication-flow"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:85",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:92",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:99",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:106",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:112",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:117",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:124",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:131",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:137",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "764:176",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:144",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:175",
+    "name": "Button / Cancel",
+    "label": "انصراف",
+    "destination": "product-out-of-stock"
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:177",
+    "name": "Button / Confirm Inventory",
+    "label": "ثبت موجودی جدید",
+    "destination": "future-artist-product-published-separate-publication-flow"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:15",
+    "name": "Button / بازگشت به محصولات",
+    "label": "بازگشت به محصول منتشرشده",
+    "destination": "future-artist-product-published-separate-publication-flow"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:94",
+    "name": "Button / ذخیره پیش‌نویس",
+    "label": "ذخیره تغییرات",
+    "destination": "future-artist-product-published-separate-publication-flow"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:96",
+    "name": "Button / ارسال برای بررسی",
+    "label": "ذخیره و ارسال برای بررسی",
+    "destination": "product-changes-review-confirmation-modal"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:102",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:109",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:116",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:123",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:129",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:134",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:141",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:148",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:154",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "764:180",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:161",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:191",
+    "name": "Button / بازگشت به محصولات",
+    "label": "بازگشت به محصول منتشرشده",
+    "destination": null
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:270",
+    "name": "Button / ذخیره پیش‌نویس",
+    "label": "ذخیره تغییرات",
+    "destination": null
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:272",
+    "name": "Button / ارسال برای بررسی",
+    "label": "ذخیره و ارسال برای بررسی",
+    "destination": null
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:278",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:285",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:292",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:299",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:305",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:310",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:317",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:324",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:330",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "764:184",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:337",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:368",
+    "name": "Button / Cancel",
+    "label": "انصراف",
+    "destination": "product-editor-edit-published"
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:370",
+    "name": "Button / Submit Review",
+    "label": "ارسال تغییرات برای بررسی",
+    "destination": "future-artist-product-changes-review-status-published-product-flow"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:15",
+    "name": "Back / Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:73",
+    "name": "View Product",
+    "label": "مشاهده نسخه منتشرشده",
+    "destination": "future-artist-product-published-separate-publication-flow"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:75",
+    "name": "Back Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:85",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:92",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:99",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:106",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:112",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:117",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:124",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:131",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:137",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "764:188",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:144",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:15",
+    "name": "Back / Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:73",
+    "name": "View Product",
+    "label": "اصلاح تغییرات",
+    "destination": "product-editor-edit-published"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:75",
+    "name": "Back Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:85",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:92",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:99",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:106",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:112",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:117",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:124",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:131",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:137",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "764:192",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:144",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:15",
+    "name": "Back / Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:73",
+    "name": "View Product",
+    "label": "مشاهده نسخه به‌روزشده",
+    "destination": "future-artist-product-published-separate-publication-flow"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:75",
+    "name": "Back Products",
+    "label": "بازگشت به محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:85",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:92",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:99",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:106",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:112",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:117",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:124",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:131",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:137",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "764:196",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:144",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:161",
+    "name": "Back Button",
+    "label": "بازگشت به محصول",
+    "destination": "future-artist-product-published-separate-publication-flow"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:85",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:92",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:99",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:106",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:112",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:117",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:124",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:131",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:137",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "764:200",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:144",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:180",
+    "name": "Button",
+    "label": "مشاهده رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:211",
+    "name": "Button",
+    "label": "مشاهده خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "membership-center",
+    "node": "370:12",
+    "name": "Button / بررسی ارتقای عضویت",
+    "label": "بررسی ارتقای عضویت",
+    "destination": "membership-midyear-upgrade"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:244",
+    "name": "Button",
+    "label": "مشاهده مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:103",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:110",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:117",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:124",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:130",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:135",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:142",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:149",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:155",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "membership-center",
+    "node": "764:204",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:162",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:165",
+    "name": "Frame",
+    "label": "بازگشت به عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:214",
+    "name": "Frame",
+    "label": "مشاهده مبلغ نهایی و ادامه",
+    "destination": "membership-upgrade-checkout"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:216",
+    "name": "Frame",
+    "label": "بازگشت به مرکز عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:88",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:95",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:102",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:109",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:115",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:120",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:127",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:134",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:140",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "764:208",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:147",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:15",
+    "name": "Frame",
+    "label": "بازگشت به جزئیات ارتقا",
+    "destination": "membership-midyear-upgrade"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:64",
+    "name": "Frame",
+    "label": "پرداخت آنلاین و فعال‌سازی",
+    "destination": "membership-upgrade-payment"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:66",
+    "name": "Frame",
+    "label": "بازگشت به جزئیات ارتقا",
+    "destination": "membership-midyear-upgrade"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:74",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:81",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:88",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:95",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:101",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:106",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:113",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:120",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:126",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "764:212",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:133",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:15",
+    "name": "Frame",
+    "label": "بازگشت به جزئیات ارتقا",
+    "destination": "membership-midyear-upgrade"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:64",
+    "name": "Frame",
+    "label": "مشاهده خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:66",
+    "name": "Frame",
+    "label": "بازگشت به جزئیات ارتقا",
+    "destination": "membership-center-upgraded"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:74",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:81",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:88",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:95",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:101",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:106",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:113",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:120",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:126",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "764:216",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:133",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:15",
+    "name": "Button",
+    "label": "مشاهده رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:46",
+    "name": "Button",
+    "label": "مشاهده خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:79",
+    "name": "Button",
+    "label": "مشاهده مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:88",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:95",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:102",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:109",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:115",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:120",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:127",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:134",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:140",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "764:220",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:147",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:15",
+    "name": "Button / درخواست تسویه",
+    "label": "درخواست تسویه",
+    "destination": null
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:50",
+    "name": "Button / ویرایش اطلاعات",
+    "label": "ویرایش اطلاعات",
+    "destination": null
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:134",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:141",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:148",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:155",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:161",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:166",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:173",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:180",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:186",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "764:224",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:193",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:223",
+    "name": "Button / انصراف",
+    "label": "انصراف",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:225",
+    "name": "Button / ثبت درخواست تسویه",
+    "label": "ثبت درخواست تسویه",
+    "destination": "finance-settlement-request-submitted"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:253",
+    "name": "Button / درخواست تسویه",
+    "label": "درخواست تسویه",
+    "destination": null
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:288",
+    "name": "Button / ویرایش اطلاعات",
+    "label": "ویرایش اطلاعات",
+    "destination": null
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:372",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:379",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:386",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:393",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:399",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:404",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:411",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:418",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:424",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "764:228",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:431",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:481",
+    "name": "Secondary Button",
+    "label": "مشاهده تراکنش‌ها",
+    "destination": "finance-transactions"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:483",
+    "name": "Primary Button",
+    "label": "بازگشت به مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:211",
+    "name": "Frame",
+    "label": "بازگشت به مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:276",
+    "name": "Frame",
+    "label": "بازگشت به مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:278",
+    "name": "Frame",
+    "label": "مشاهده تراکنش‌ها",
+    "destination": "finance-transactions"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:134",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:141",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:148",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:155",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:161",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:166",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:173",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:180",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:186",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "764:232",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:193",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:15",
+    "name": "Frame",
+    "label": "بازگشت به مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:80",
+    "name": "Frame",
+    "label": "بازگشت به مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:82",
+    "name": "Frame",
+    "label": "مشاهده تراکنش‌ها",
+    "destination": "finance-transactions"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:88",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:95",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:102",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:109",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:115",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:120",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:127",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:134",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:140",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "764:236",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:147",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:15",
+    "name": "Button / درخواست تسویه / Disabled",
+    "label": "درخواست تسویه",
+    "destination": null
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:71",
+    "name": "Finance / Transactions",
+    "label": "تراکنش‌های اخیر فروش، تسویه بانکی و اصلاحات مالی سفارش‌ها همه فروش تسویه بازگشت وجه شرح مبلغ وضعیت زمان تسویه بانکی −۸٬۴۲۰٬۰۰۰ تومان واریز شد — #NG-1042 · فروش سفارش +۱٬۱۸۰٬۰۰۰ تومان در انتظار دیروز تسویه بانکی −۴٬۳۰۰٬۰۰۰ تومان واریز شد ۳ روز پیش #NG-1039 · فروش سفارش +۳٬۷۶۰٬۰۰۰ تومان موفق ۵ روز پیش #NG-1036 · بازگشت وجه −۹۸۰٬۰۰۰ تومان اصلاح شد ۷ روز پیش #NG-1031 · فروش سفارش +۱٬۶۹۰٬۰۰۰ تومان موفق ۹ روز پیش مبالغ پس از تکمیل وضعیت سفارش به موجودی قابل تسویه منتقل می‌شوند.",
+    "destination": "finance-transactions"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:50",
+    "name": "Button / ویرایش اطلاعات",
+    "label": "ویرایش اطلاعات",
+    "destination": null
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:134",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:141",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:148",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:155",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:161",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:166",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:173",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:180",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:186",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "764:240",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:193",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:211",
+    "name": "Button / بازگشت به مالی",
+    "label": "بازگشت به مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:264",
+    "name": "Transaction / Row 2",
+    "label": "امروز موفق +۲٬۴۵۰٬۰۰۰ تومان فروش #NG-1048 · فروش سفارش",
+    "destination": "finance-transaction-detail-sale"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:272",
+    "name": "Transaction / Row 3",
+    "label": "دیروز در انتظار +۱٬۱۸۰٬۰۰۰ تومان فروش #NG-1042 · فروش سفارش",
+    "destination": "finance-transaction-detail-sale"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:280",
+    "name": "Transaction / Row 4",
+    "label": "۳ روز پیش واریز شد −۴٬۳۰۰٬۰۰۰ تومان تسویه تسویه بانکی",
+    "destination": "finance-transaction-detail-settlement"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:288",
+    "name": "Transaction / Row 5",
+    "label": "۵ روز پیش موفق +۳٬۷۶۰٬۰۰۰ تومان فروش #NG-1039 · فروش سفارش",
+    "destination": "finance-transaction-detail-sale"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:296",
+    "name": "Transaction / Row 6",
+    "label": "۷ روز پیش اصلاح شد −۹۸۰٬۰۰۰ تومان بازگشت وجه #NG-1036 · بازگشت وجه",
+    "destination": "finance-transaction-detail-refund"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:304",
+    "name": "Transaction / Row 7",
+    "label": "۹ روز پیش موفق +۱٬۶۹۰٬۰۰۰ تومان فروش #NG-1031 · فروش سفارش",
+    "destination": "finance-transaction-detail-sale"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:134",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:141",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:148",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:155",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:161",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:166",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:173",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:180",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:186",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "764:244",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:193",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:200",
+    "name": "Back",
+    "label": "بازگشت به تراکنش‌ها",
+    "destination": "finance-transactions"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:267",
+    "name": "Order CTA",
+    "label": "مشاهده سفارش",
+    "destination": "order-detail-preparing"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:123",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:130",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:137",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:144",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:150",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:155",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:162",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:169",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:175",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "764:248",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:182",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:15",
+    "name": "Back",
+    "label": "بازگشت به تراکنش‌ها",
+    "destination": "finance-transactions"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:82",
+    "name": "Order CTA",
+    "label": "مشاهده درخواست تسویه",
+    "destination": "finance-settlement-tracking"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:91",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:98",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:105",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:112",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:118",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:123",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:130",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:137",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:143",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "764:252",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:150",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:15",
+    "name": "Back",
+    "label": "بازگشت به تراکنش‌ها",
+    "destination": "finance-transactions"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:82",
+    "name": "Order CTA",
+    "label": "مشاهده سفارش",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:91",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:98",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:105",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:112",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:118",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:123",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:130",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:137",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:143",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "764:256",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:150",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "318:5",
+    "name": "Back Button",
+    "label": "بازگشت به مدارک",
+    "destination": "professional-credentials"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "318:51",
+    "name": "Submit Credential",
+    "label": "ارسال برای بررسی",
+    "destination": "credential-under-review"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "318:53",
+    "name": "Cancel Button",
+    "label": "انصراف",
+    "destination": "professional-credentials"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:100",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:107",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:114",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:121",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:127",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:132",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:139",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:146",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:152",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "764:260",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:159",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:146",
+    "name": "Back Button",
+    "label": "بازگشت به مدارک",
+    "destination": "professional-credentials"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:69",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:76",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:83",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:90",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:96",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:101",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:108",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:115",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:121",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "764:264",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:128",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:177",
+    "name": "Back Button",
+    "label": "بازگشت به مدارک حرفه‌ای",
+    "destination": "professional-credentials"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:205",
+    "name": "Open File Button",
+    "label": "مشاهده فایل مدرک",
+    "destination": null
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:226",
+    "name": "Replace Button",
+    "label": "جایگزینی مدرک",
+    "destination": "credential-replacement"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:228",
+    "name": "Back Credentials Button",
+    "label": "بازگشت",
+    "destination": "professional-credentials"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:101",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:108",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:115",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:122",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:128",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:133",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:140",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:147",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:153",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "764:268",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:160",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:16",
+    "name": "Back Button",
+    "label": "بازگشت به مدارک",
+    "destination": "professional-credentials"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:62",
+    "name": "Submit Credential",
+    "label": "ارسال برای بررسی",
+    "destination": "credential-under-review"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:63",
+    "name": "Cancel Button",
+    "label": "انصراف",
+    "destination": "professional-credentials"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:69",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:76",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:83",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:90",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:96",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:101",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:108",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:115",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:121",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "764:272",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:128",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:225",
+    "name": "",
+    "label": "ذخیره تغییرات",
+    "destination": "store"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:227",
+    "name": "",
+    "label": "انصراف",
+    "destination": "store"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:105",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:112",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:119",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:126",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:132",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:137",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:144",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:151",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:157",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "764:276",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:164",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "333:15",
+    "name": "Back",
+    "label": "بازگشت به فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "333:61",
+    "name": "Cancel",
+    "label": "انصراف",
+    "destination": "store"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "333:63",
+    "name": "Save",
+    "label": "ذخیره تنظیمات",
+    "destination": "store"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:105",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:112",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:119",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:126",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:132",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:137",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:144",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:151",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:157",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "764:280",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:164",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:182",
+    "name": "Button / Back",
+    "label": "بازگشت به فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:206",
+    "name": "Button / Capacity",
+    "label": "مدیریت ظرفیت",
+    "destination": null
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:217",
+    "name": "Button / Prep",
+    "label": "تنظیم زمان",
+    "destination": null
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:234",
+    "name": "Button / Cancel",
+    "label": "انصراف",
+    "destination": "store"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:236",
+    "name": "Button / Save",
+    "label": "ذخیره تنظیمات فروش",
+    "destination": "store"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:105",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:112",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:119",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:126",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:132",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:137",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:144",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:151",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:157",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "764:284",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:164",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:17",
+    "name": "Frame",
+    "label": "بازگشت به جمع‌بندی",
+    "destination": "membership-upgrade-checkout"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:66",
+    "name": "Frame",
+    "label": "ورود به درگاه پرداخت",
+    "destination": "membership-upgrade-completed"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:68",
+    "name": "Frame",
+    "label": "بازگشت به جمع‌بندی",
+    "destination": "membership-midyear-upgrade"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:76",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:83",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:90",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:97",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:103",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:108",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:115",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:122",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:128",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "764:288",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:135",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:18",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:25",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:32",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:39",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:45",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:50",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:57",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:64",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:70",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "764:292",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:77",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "stories",
+    "node": "762:225",
+    "name": "Button / روایت جدید",
+    "label": "روایت جدید",
+    "destination": null
+  },
+  {
+    "screen": "stories",
+    "node": "762:148",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "stories",
+    "node": "762:155",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "stories",
+    "node": "762:162",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "stories",
+    "node": "762:169",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "stories",
+    "node": "762:175",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "stories",
+    "node": "762:180",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "stories",
+    "node": "762:187",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "stories",
+    "node": "762:194",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "stories",
+    "node": "762:200",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "stories",
+    "node": "764:296",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "stories",
+    "node": "762:207",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "login-and-register",
+    "node": "831:520",
+    "name": "Negarin / Button",
+    "label": "دریافت کد تأیید",
+    "destination": "otp-verification"
+  },
+  {
+    "screen": "otp-verification",
+    "node": "831:570",
+    "name": "Negarin / Button",
+    "label": "تأیید",
+    "destination": "verification-success"
+  },
+  {
+    "screen": "otp-expired",
+    "node": "831:620",
+    "name": "Negarin / Button",
+    "label": "ارسال مجدد کد",
+    "destination": "otp-resend"
+  },
+  {
+    "screen": "otp-invalid",
+    "node": "831:670",
+    "name": "Negarin / Button",
+    "label": "تلاش مجدد",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "otp-resend",
+    "node": "831:722",
+    "name": "Negarin / Button",
+    "label": "تأیید",
+    "destination": "verification-success"
+  },
+  {
+    "screen": "account-not-found",
+    "node": "831:800",
+    "name": "Negarin / Button",
+    "label": "شروع ثبت‌نام نام",
+    "destination": "multiple-roles"
+  },
+  {
+    "screen": "multiple-roles",
+    "node": "831:861",
+    "name": "Negarin / Button",
+    "label": "ورود به پنل انتخابی",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "account-disabled",
+    "node": "831:900",
+    "name": "Negarin / Button",
+    "label": "تماس با پشتیبانی",
+    "destination": null
+  },
+  {
+    "screen": "error",
+    "node": "831:940",
+    "name": "Negarin / Button",
+    "label": "تلاش مجدد",
+    "destination": "login-and-register"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:87",
+    "name": "Back",
+    "label": "بازگشت به تراکنش‌ها",
+    "destination": "finance-transactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:154",
+    "name": "Order CTA",
+    "label": "مشاهده سفارش",
+    "destination": "order-detail-preparing"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:163",
+    "name": "Nav / پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:170",
+    "name": "Nav / فروشگاه من",
+    "label": "فروشگاه من",
+    "destination": "store"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:177",
+    "name": "Nav / محصولات",
+    "label": "محصولات",
+    "destination": "products"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:184",
+    "name": "Nav / سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:190",
+    "name": "Nav / رشد من",
+    "label": "رشد من",
+    "destination": "growth-center"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:195",
+    "name": "Nav / خدمات",
+    "label": "خدمات",
+    "destination": "services"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:202",
+    "name": "Nav / فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": "opportunities"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:209",
+    "name": "Nav / مالی",
+    "label": "مالی",
+    "destination": "finance"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:215",
+    "name": "Nav / عضویت",
+    "label": "عضویت",
+    "destination": "membership-center"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:220",
+    "name": "Nav / روایت‌ها",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:225",
+    "name": "Sidebar / Logout",
+    "label": "خروج از حساب",
+    "destination": "login-and-register"
+  }
+]

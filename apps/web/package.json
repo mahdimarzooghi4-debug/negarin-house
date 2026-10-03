@@ -11,6 +11,9 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
+    "@fontsource-variable/vazirmatn": "^5.3.0",
+    "@fontsource/material-icons": "^5.3.0",
+    "@fontsource/material-icons-round": "^5.3.0",
     "@negarin/i18n": "workspace:*",
     "@negarin/ui": "workspace:*",
     "next": "16.3.6",
