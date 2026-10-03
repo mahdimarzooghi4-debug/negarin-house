@@ -1,0 +1,114 @@
+{
+  "source": {
+    "file": "Uo0ifnpFmJFhWqaEVmVOZ1",
+    "page": "961:2",
+    "name": "90 \u2014 Corporate Buyer / Portal",
+    "screens": 26,
+    "sections": 9,
+    "nativeFonts": [
+      "Vazirmatn"
+    ],
+    "highFidelityContextsSaved": 26,
+    "screenshotsRetrieved": 26
+  },
+  "implemented": 2,
+  "pending": 24,
+  "completeScreens": [
+    "dashboard",
+    "corporate-products"
+  ],
+  "nativeMarkupSaved": 26,
+  "originalAssetsSaved": 38,
+  "runtimeOriginalAssets": 34,
+  "imageSlots": 51,
+  "sourceImageCallsites": 511,
+  "sourceRenderingImageCallsites": 507,
+  "nonRenderingSourceSlots": 4,
+  "pendingOriginalAssets": 266,
+  "pendingPng": 18,
+  "pendingSvg": 248,
+  "missingImageCallsites": 329,
+  "nativeAutoLayoutBoxes": 1643,
+  "runtimeNativeAutoLayoutBoxes": 160,
+  "scopedUtilityGroupsIncludingPending": 529,
+  "runtimeUtilityGroups": 104,
+  "inferredActionCallsites": 345,
+  "runtimeInferredActionCallsites": 43,
+  "sourcePrototypeLinks": {
+    "frameInstanceComponentText": 0
+  },
+  "assetExport": {
+    "svgSimplifyStroke": false,
+    "pngScale": 1,
+    "strokeBoundsForZeroHeightLines": true,
+    "pendingChunkCheckpoint": {
+      "node": "961:661",
+      "key": "a64808e0",
+      "receivedLength": 391500,
+      "expectedLength": 428136,
+      "nextOffset": 391500,
+      "public": false
+    }
+  },
+  "browser": {
+    "renderedCompleteScreens": 2,
+    "pageErrors": 0,
+    "brokenImages": 0,
+    "assetCallsiteMismatches": 0,
+    "geometryOutliersBeyond2px": 0,
+    "visualComparisons": [
+      "dashboard",
+      "corporate-products"
+    ],
+    "pendingDesignsVisuallyVerified": false,
+    "all26RoutesCheckedIncluding24PendingNotices": true
+  },
+  "checks": {
+    "webBuild": "passed",
+    "eslint": "passed",
+    "webUnitTests": 7,
+    "corporateBuyerPlaywrightTests": 4,
+    "existingPortalPlaywrightTests": 28,
+    "testRuns": "All 32 tests passed in the combined run. After refining Corporate Buyer button semantics (static Active badge and full View Product hit targets), all four Corporate Buyer tests passed again against the final build; final ESLint passed."
+  },
+  "originalAssetSha256": {
+    "0b38f240.svg": "b50e5734f97bd0069d04ad742e9def2c77e60df43c6d8e2baf81f9036e2be1bb",
+    "1206c89c.svg": "5a18e39ebc8416b282335181dccf7dc17bd784417eee9d8823561062a0832dd8",
+    "12af18ad.svg": "536ecfad486ee2b781a58c3d533e4964213fe679c5e9d11c15eb11baf4af6a6c",
+    "14952fd1.png": "3bfe890d80f1fc4875c8aa14fc91c140cb3ee1ad2a636d5dcb28447d29cbd667",
+    "2333ff88.png": "94c6dae83ebc59f01e76f73dbee7d99d1440a975328814e6aa08084a4f03a1a7",
+    "2ca9b055.png": "f1b573dd99cae164d859aa0c3acde793d768cd45c87fe75004afea053004bea2",
+    "349ca86b.svg": "bcef53837fe5fe9008d3caadb2515afb4a132e09b6cb478a20c80e5ce4edbb06",
+    "400e69dc.png": "cdc71f1efe5f4f6aa1cdf902302783d9aca65d6edf915e5e3f4f1389a1427648",
+    "443db617.svg": "e1abaf81786b8ad6a11da8141462821ee6093fbfa9b24948f7051bcb7211ffb6",
+    "4c9ba712.svg": "01d4c6afe852e7178a177eecaa0c965f638f7c95967acc0cadd4ae8f0514dc0c",
+    "4cb7ad5c.svg": "1629797c484e686f4e5ae7953808c90079fec67bf96acedfee01acf8f3f8ea4a",
+    "530a0f8f.png": "64c69a9ad73a0552a884d15f1e464dcff3b93bb495756e2e87b208ed7e789184",
+    "696b847c.png": "b2c51ddfcb67458f811bf38c120b56a5a612f3e8e840c79e759799fb9b1d570f",
+    "69904df7.svg": "0a4d8ad5fb2027ec1439554a6b6a08e262eb4e6c45ad047d11aa3120cba0fc28",
+    "7135a8a5.svg": "db8b60ee82152fbdd6eac891637021d3e1dd8725dbad3cf3a7bd763cb580dbb4",
+    "75294634.svg": "dc9c662e47564582111c3a99dbbb6e89d09e18c9dcf5113c10337707119b4b52",
+    "79a7e40d.svg": "445c47ebd3d6b55d595289b6002e2ee8ec9178a16caa5f9004ff79c7d7c22353",
+    "7ce3ab97.svg": "133ec4284cc148dc7a9014abb23cce5a2d0641b9d09b0dd4de8fa74213033991",
+    "856c3b53.svg": "4dc2c51ca89156efaae41ac31f6a6574f0db93ba9f28e096ece259e95aa6bba3",
+    "92ef6c14.svg": "e49080f11360100af3337dbda86c8df81f20e83cb53540c7c0a612b5ccf7dd93",
+    "93a7d9ba.svg": "0beda2f74abcf280bc6027cc266d91d99a03fb512fa15a22fe4c450b968b485f",
+    "9647612d.png": "87bf74aebed755cb4db09fb43e5b7ed3273fa87b839ce39a53de93d2b257bd14",
+    "a05b23e8.svg": "a0b7085559cd01b682ea72e28cf211609181fdd90f79f9288dbc053f3ca91738",
+    "a063a5f7.svg": "1fad7bc8c5373fcca163192e6efea04328133a154dd9ee7edb5eaed9915b9140",
+    "a6f8c5b4.svg": "93cd3b948daa0970bb36d7c114af3970019293be36e6658fd5ea12737725746d",
+    "add8ee80.svg": "0fdd8ddd44464c57797f39964421b1284547c93f1ec5dc1d39c0ad6a72957229",
+    "b1ec863f.svg": "874cc439c32efc6817e8d9984695373875205342c7412e013b896bb1e57f423c",
+    "b4f60ec6.svg": "a89fc60251dc86e5844634ae989321e1b46772351d93c9881e475567cd173270",
+    "bd008523.svg": "9e3ec33c1190418401c66b60943b6ac2013557ecdf15c581a3fad3b2e91b5247",
+    "bd840b40.svg": "5f11f39a22e8ee12a0e475720db5478bb5ae14e021cfc9dd60e780baa50bcdb5",
+    "c2e7c80e.svg": "8659c62785caa55eaf2a284bc807008c86f2a415736e05ed3605bbd11ac76e5c",
+    "cc7b94f1.svg": "f3b7893ae98e9763a026f2a8a6028712555a1c359e285e4f6d8c7bf23f521416",
+    "cdc199c6.svg": "9b7049f05d06b92f6f1d47ed46c7db5a0486e488db1c31ca7455eae77a2d83db",
+    "d0896b45.svg": "0ce0c9fc995ef00ca9d75b8394d742e0e0b8167ea1469de43281409f67776c0d",
+    "eeb66f60.svg": "aab6da0d77f46b83d8f318c3dc5a2ed245aeb0940c901d447ee23f74f9720fdb",
+    "fae557bc.png": "82c5cfa93fe63532f28b036f1244831818c609194bb5465a1ae2974f5e0c4c54",
+    "fbaf9be5.png": "489ddfc637301b8e04a4e116eb92e18f24900c387a1c6836243557eb4bb9cf33",
+    "fd4c5bed.png": "da893dbe150fdb443a53f573fbeafd7e717f0e65cab07ded3eb9dca89081a030"
+  }
+}
