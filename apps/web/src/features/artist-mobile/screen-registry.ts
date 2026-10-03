@@ -762,7 +762,7 @@ export const mobileScreens = [
     "h": 922,
     "section": "12 — Shipping Settings",
     "slug": "shipping-method-setup",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "858:1021",
@@ -771,7 +771,7 @@ export const mobileScreens = [
     "h": 1110,
     "section": "13 — Account",
     "slug": "account",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "858:1172",
@@ -780,7 +780,7 @@ export const mobileScreens = [
     "h": 939,
     "section": "13 — Account",
     "slug": "account-information",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "858:1243",
@@ -789,7 +789,7 @@ export const mobileScreens = [
     "h": 844,
     "section": "13 — Account",
     "slug": "edit-profile",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "858:1307",
@@ -798,7 +798,7 @@ export const mobileScreens = [
     "h": 1065,
     "section": "13 — Account",
     "slug": "notification-settings",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "858:1400",
@@ -807,7 +807,7 @@ export const mobileScreens = [
     "h": 844,
     "section": "13 — Account",
     "slug": "logout-confirmation",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "944:394",
@@ -816,7 +816,7 @@ export const mobileScreens = [
     "h": 1292,
     "section": "09 — Finance",
     "slug": "finance-transaction-detail-export-sale",
-    "implemented": false
+    "implemented": true
   }
 ] as const;
 export const mobileLoaders = {
@@ -903,6 +903,13 @@ export const mobileLoaders = {
   "story-published": () => import("./screens/story-published"),
   "story-editor-edit-published": () => import("./screens/story-editor-edit-published"),
   "shipping-settings": () => import("./screens/shipping-settings"),
-  "shipping-method-detail": () => import("./screens/shipping-method-detail")
+  "shipping-method-detail": () => import("./screens/shipping-method-detail"),
+  "shipping-method-setup": () => import("./screens/shipping-method-setup"),
+  "account": () => import("./screens/account"),
+  "account-information": () => import("./screens/account-information"),
+  "edit-profile": () => import("./screens/edit-profile"),
+  "notification-settings": () => import("./screens/notification-settings"),
+  "logout-confirmation": () => import("./screens/logout-confirmation"),
+  "finance-transaction-detail-export-sale": () => import("./screens/finance-transaction-detail-export-sale")
 };
 export type MobileScreenSlug = keyof typeof mobileLoaders;

@@ -7,11 +7,11 @@ async function ready(page:Page,screen:string){
   await expect(page.locator(".artist-mobile")).toBeVisible();
 }
 
-test("mobile inventory distinguishes implemented frames and blocked designs",async({page,request})=>{
+test("mobile inventory covers all 91 native frames",async({page,request})=>{
   test.setTimeout(120000);
   await page.goto("/preview/artist-mobile");
   await expect(page.locator(".preview-groups li")).toHaveCount(91);
-  expect(inventory.filter(s=>s.implemented)).toHaveLength(84);
+  expect(inventory.filter(s=>s.implemented)).toHaveLength(91);
   for(const screen of inventory){
     const response=await request.get("/preview/artist-mobile/"+screen.slug);
     expect(response.status(),screen.slug).toBe(200);
@@ -54,4 +54,16 @@ test("story media choices and caption do not cause hydration errors",async({page
   await page.locator('input[type="file"]').setInputFiles({name:"sample.webm",mimeType:"video/webm",buffer:Buffer.from("preview sample")});
   await expect(page.getByRole("status")).toContainText("هنوز بارگذاری سرور انجام نشده");
   expect(errors).toEqual([]);
+});
+
+test("completed mobile account supports profile drafts and independent notification preferences",async({page})=>{
+ await page.goto('/preview/artist-mobile/account');await ready(page,'account');await page.getByRole('link',{name:'اطلاعات حساب',exact:true}).click();await ready(page,'account-information');await page.getByRole('link',{name:'ویرایش اطلاعات',exact:true}).click();await ready(page,'edit-profile');
+ const name=page.getByRole('textbox',{name:'نام هنرمند / نام نمایشی غرفه',exact:true});await name.fill('هنرمند نمونه');await page.getByRole('button',{name:'ذخیره تغییرات',exact:true}).click();await expect(page.getByRole('status')).toContainText('داده‌ای به سرور ارسال نشده');await page.getByRole('link',{name:'بازگشت',exact:true}).click();await ready(page,'account');
+ await page.getByRole('link',{name:'اعلان‌ها',exact:true}).click();await ready(page,'notification-settings');const orders=page.getByRole('button',{name:'سفارش جدید غرفه',exact:true});const sms=page.getByRole('button',{name:'پیامک تراکنش جدید مالی',exact:true});await expect(orders).toHaveAttribute('aria-pressed','true');await expect(sms).toHaveAttribute('aria-pressed','false');await orders.click();await expect(orders).toHaveAttribute('aria-pressed','false');await expect(sms).toHaveAttribute('aria-pressed','false');await sms.click();await expect(sms).toHaveAttribute('aria-pressed','true');
+ await page.getByRole('link',{name:'بازگشت',exact:true}).click();await ready(page,'account');await page.getByRole('link',{name:'اطلاعات حساب',exact:true}).click();await ready(page,'account-information');await page.getByRole('link',{name:'ویرایش اطلاعات',exact:true}).click();await ready(page,'edit-profile');await expect(name).toHaveValue('هنرمند نمونه');
+});
+
+test("mobile logout sheet cancels to account and performs no real authentication mutation",async({page})=>{
+ await page.goto('/preview/artist-mobile/account');await ready(page,'account');await page.getByRole('link',{name:'خروج از حساب',exact:true}).click();await ready(page,'logout-confirmation');const dialog=page.getByRole('dialog');await expect(dialog).toBeVisible();await expect(page.locator('[data-node-id="858:1401"]')).toHaveAttribute('inert','');await page.keyboard.press('Escape');await ready(page,'account');
+ await page.getByRole('link',{name:'خروج از حساب',exact:true}).click();await ready(page,'logout-confirmation');await dialog.getByRole('button',{name:'بله، خروج از حساب',exact:true}).click();await expect(page.getByRole('status')).toContainText('عملیات واقعی پس از اتصال بک‌اند');await expect(page).toHaveURL(/logout-confirmation$/);
 });

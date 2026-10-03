@@ -7,7 +7,7 @@ export default function MobileCatalog(){
   return <main className="preview-catalog mobile-preview-catalog" dir="rtl">
     <h1>پنل هنرمند — موبایل</h1>
     <p>{completed} صفحه از {mobileScreens.length} صفحهٔ فیگما پیاده شده است. داده‌ها نمونه‌اند و عملیات سرور انجام نمی‌شود.</p>
-    <p>۷ صفحهٔ باقی‌مانده به دلیل سقف استفادهٔ اتصال فیگما هنوز دریافت نشده‌اند؛ در فهرست مشخص‌اند.</p>
+    <p>هر ۹۱ صفحهٔ هنرمند موبایل با تصاویر اصلی آمادهٔ بازبینی است.</p>
     <p><Link href="/preview/artist">نسخهٔ دسکتاپ</Link></p>
     <div className="preview-groups">{groups.map(group=><section key={group}>
       <h2>{group.replace(/^\d+ — /,"")}</h2>

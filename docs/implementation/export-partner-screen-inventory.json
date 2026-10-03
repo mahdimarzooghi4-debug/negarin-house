@@ -308,8 +308,8 @@
     "language": "tr-TR",
     "kind": "product-detail",
     "slug": "tr-tr-product-detail",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:3757",
@@ -416,8 +416,8 @@
     "language": "ru",
     "kind": "network-artists",
     "slug": "ru-network-artists",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:4585",
@@ -428,8 +428,8 @@
     "language": "ru",
     "kind": "export-products",
     "slug": "ru-export-products",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:4722",
@@ -440,8 +440,8 @@
     "language": "ru",
     "kind": "product-detail",
     "slug": "ru-product-detail",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:4978",
@@ -572,8 +572,8 @@
     "language": "zh-CN",
     "kind": "product-detail",
     "slug": "zh-cn-product-detail",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:6182",
@@ -620,8 +620,8 @@
     "language": "zh-CN",
     "kind": "account-preferences",
     "slug": "zh-cn-account-preferences",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "928:1109",
@@ -680,8 +680,8 @@
     "language": "fr",
     "kind": "network-artists",
     "slug": "fr-network-artists",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:7021",
@@ -692,8 +692,8 @@
     "language": "fr",
     "kind": "export-products",
     "slug": "fr-export-products",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:7158",
@@ -704,8 +704,8 @@
     "language": "fr",
     "kind": "product-detail",
     "slug": "fr-product-detail",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:7410",
@@ -812,8 +812,8 @@
     "language": "es",
     "kind": "network-artists",
     "slug": "es-network-artists",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:8367",
@@ -836,8 +836,8 @@
     "language": "es",
     "kind": "product-detail",
     "slug": "es-product-detail",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:8787",

@@ -1,0 +1,80 @@
+{
+  "sourceFile": "Uo0ifnpFmJFhWqaEVmVOZ1",
+  "portals": [
+    {
+      "portal": "artist",
+      "route": "/preview/artist",
+      "sourceFrames": 83,
+      "implemented": 83,
+      "pending": 0,
+      "referenceWidthPx": 1440
+    },
+    {
+      "portal": "artist-mobile",
+      "route": "/preview/artist-mobile",
+      "sourceFrames": 91,
+      "implemented": 91,
+      "pending": 0,
+      "referenceWidthPx": 390
+    },
+    {
+      "portal": "customer-mobile",
+      "route": "/preview/customer-mobile",
+      "sourceFrames": 32,
+      "implemented": 32,
+      "pending": 0,
+      "referenceWidthPx": 390
+    },
+    {
+      "portal": "admin",
+      "route": "/preview/admin",
+      "sourceFrames": 105,
+      "implemented": 105,
+      "pending": 0,
+      "referenceWidthPx": 1440
+    },
+    {
+      "portal": "service-partner",
+      "route": "/preview/service-partner",
+      "sourceFrames": 8,
+      "implemented": 8,
+      "pending": 0,
+      "referenceWidthPx": 1440
+    },
+    {
+      "portal": "export-partner",
+      "route": "/preview/export-partner",
+      "sourceFrames": 77,
+      "implemented": 77,
+      "pending": 0,
+      "referenceWidthPx": 1440
+    },
+    {
+      "portal": "supporting-organization",
+      "route": "/preview/supporting-organization",
+      "sourceFrames": 19,
+      "implemented": 19,
+      "pending": 0,
+      "referenceWidthPx": 1440
+    },
+    {
+      "portal": "corporate-buyer",
+      "route": "/preview/corporate-buyer",
+      "sourceFrames": 26,
+      "implemented": 26,
+      "pending": 0,
+      "referenceWidthPx": 1440
+    },
+    {
+      "portal": "customer-web",
+      "route": "/preview/customer-web",
+      "sourceFrames": 19,
+      "implemented": 19,
+      "pending": 0,
+      "referenceWidthPx": 1440
+    }
+  ],
+  "totalSourceFrames": 460,
+  "pendingFrames": 0,
+  "scope": "Native reference previews only; no production integration or backend completion claimed."
+}

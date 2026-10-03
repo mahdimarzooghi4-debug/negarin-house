@@ -20,8 +20,8 @@ test('all complete foreign partner frames load original assets and preserve side
  expect(errors).toEqual([]);
 });
 
-test('catalog accounts for every language and shows pending source assets honestly',async({page})=>{
- await page.goto('/preview/export-partner');await expect(page.locator('.preview-groups section')).toHaveCount(7);await expect(page.locator('.preview-groups li')).toHaveCount(77);await expect(page.locator('.preview-groups li small')).toHaveCount(11);
+test('catalog accounts for every language and enables all 77 native reference screens',async({page})=>{
+ await page.goto('/preview/export-partner');await expect(page.locator('.preview-groups section')).toHaveCount(7);await expect(page.locator('.preview-groups li')).toHaveCount(77);await expect(page.locator('.preview-groups li small')).toHaveCount(0);
  for(const s of inventory.filter(s=>!s.implemented)){await page.goto('/preview/export-partner/'+s.slug);await expect(page.getByText(exportPending[s.language as keyof typeof exportPending],{exact:true})).toBeVisible();await expect(page.locator('.export-partner-design')).toHaveCount(0);}
 });
 

@@ -7,7 +7,7 @@ export default function AdminCatalog(){
  return <main className="preview-catalog admin-preview-catalog" dir="rtl">
   <h1>مدیریت نگارین — دسکتاپ</h1>
   <p>{completed} صفحه از {adminScreens.length} صفحهٔ فیگما پیاده شده است. داده‌ها نمونه‌اند و عملیات سرور انجام نمی‌شود.</p>
-  <p>۲۶ صفحه باقی مانده است: طرح ۲۳ صفحه و دارایی‌های تصویری ۳ صفحه به دلیل سقف دسترسی فیگما کامل دریافت نشده‌اند.</p>
+  <p>هر ۱۰۵ صفحهٔ مدیریت با تصاویر اصلی آمادهٔ بازبینی است.</p>
   <p>در طرح فعلی، برخی گروه‌های سایدبار به صورت افقی چیده شده‌اند و بریده می‌شوند. هندسهٔ منبع حفظ شده است؛ اصلاح طراحی سایدبار در فهرست کارهای باقی‌مانده ثبت شده است.</p>
   <p><Link href="/preview/artist">هنرمند — دسکتاپ</Link> · <Link href="/preview/customer-mobile">مشتری — موبایل</Link></p>
   <div className="preview-groups">{sections.map(section=><section key={section}>

@@ -762,7 +762,7 @@
     "h": 922,
     "section": "12 — Shipping Settings",
     "slug": "shipping-method-setup",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "858:1021",
@@ -771,7 +771,7 @@
     "h": 1110,
     "section": "13 — Account",
     "slug": "account",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "858:1172",
@@ -780,7 +780,7 @@
     "h": 939,
     "section": "13 — Account",
     "slug": "account-information",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "858:1243",
@@ -789,7 +789,7 @@
     "h": 844,
     "section": "13 — Account",
     "slug": "edit-profile",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "858:1307",
@@ -798,7 +798,7 @@
     "h": 1065,
     "section": "13 — Account",
     "slug": "notification-settings",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "858:1400",
@@ -807,7 +807,7 @@
     "h": 844,
     "section": "13 — Account",
     "slug": "logout-confirmation",
-    "implemented": false
+    "implemented": true
   },
   {
     "id": "944:394",
@@ -816,6 +816,6 @@
     "h": 1292,
     "section": "09 — Finance",
     "slug": "finance-transaction-detail-export-sale",
-    "implemented": false
+    "implemented": true
   }
 ]

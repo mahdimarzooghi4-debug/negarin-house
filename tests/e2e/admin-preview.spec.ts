@@ -7,12 +7,12 @@ async function ready(page:Page,screen:string){
  await expect(page.locator(".admin-design")).toBeVisible();
 }
 
-test("admin inventory distinguishes complete screens and missing original source",async({page})=>{
+test("admin inventory covers all 105 native screens",async({page})=>{
  test.setTimeout(180000);const errors:string[]=[];page.on("pageerror",e=>errors.push(e.message));
  await page.goto("/preview/admin");await expect(page.locator(".preview-groups li")).toHaveCount(105);
- expect(inventory.filter(s=>s.implemented)).toHaveLength(79);
- expect(inventory.filter(s=>s.pendingReason==="asset-quota")).toHaveLength(3);
- expect(inventory.filter(s=>s.pendingReason==="context-quota")).toHaveLength(23);
+ expect(inventory.filter(s=>s.implemented)).toHaveLength(105);
+ expect(inventory.filter(s=>s.pendingReason==="asset-quota")).toHaveLength(0);
+ expect(inventory.filter(s=>s.pendingReason==="context-quota")).toHaveLength(0);
  for(const screen of inventory){
   const response=await page.goto("/preview/admin/"+screen.slug+"?canvas=1");expect(response?.status(),screen.slug).toBe(200);
   if(!screen.implemented){await expect(page.locator(`[data-pending-screen="${screen.slug}"]`)).toBeVisible();continue;}
@@ -49,4 +49,18 @@ test("credential confirmation traps keyboard focus and leaves background inert",
  await page.keyboard.press("Escape");await ready(page,"professional-credentials");
  await page.goto("/preview/admin/settlement-review");await ready(page,"settlement-review");
  await page.locator('[data-node-id="894:4251"]').click();await ready(page,"settlement-confirmation");
+});
+
+test("new export, reporting and staff drilldowns open their native detail references",async({page})=>{
+ for(const [from,to]of [['export-partners','export-partner-detail'],['export-markets','export-market-detail'],['export-orders','export-order-detail'],['reports','report-detail'],['staff-and-access','staff-access-detail']]as const){
+  await page.goto('/preview/admin/'+from);await ready(page,from);await page.locator(`.admin-design a[href="/preview/admin/${to}"]`).first().click();await ready(page,to);
+ }
+ await page.goto('/preview/admin/roles-and-permissions');await ready(page,'roles-and-permissions');await page.getByRole('link',{name:'ویرایش دسترسی',exact:true}).first().click();await ready(page,'role-editor');
+ const manage=page.getByRole('button',{name:'هنرمندان — مدیریت',exact:true});const view=page.getByRole('button',{name:'هنرمندان — مشاهده',exact:true});await expect(manage).toHaveAttribute('aria-pressed','false');await expect(view).toHaveAttribute('aria-pressed','true');await manage.click();await expect(manage).toHaveAttribute('aria-pressed','true');await expect(view).toHaveAttribute('aria-pressed','true');
+ await page.getByRole('textbox',{name:'نام نقش',exact:true}).fill('نقش نمونه');await page.getByRole('textbox',{name:'توضیحات دسترسی',exact:true}).fill('فقط پیش‌نمایش محلی');await page.getByRole('button',{name:'ذخیره تغییرات',exact:true}).click();await expect(page.getByRole('status')).toContainText('داده‌ای به سرور ارسال نشده');
+});
+
+test("new notification preferences preserve native defaults and remain independent local choices",async({page})=>{
+ await page.goto('/preview/admin/notification-settings');await ready(page,'notification-settings');const email=page.locator('[data-node-id="903:1031"]');const system=page.locator('[data-node-id="903:1035"]');await expect(email).toHaveAttribute('aria-pressed','true');await expect(system).toHaveAttribute('aria-pressed','true');await email.click();await expect(email).toHaveAttribute('aria-pressed','false');await expect(system).toHaveAttribute('aria-pressed','true');await page.getByRole('button',{name:'ذخیره تنظیمات اعلان‌ها',exact:true}).click();await expect(page.getByRole('status')).toContainText('داده‌ای به سرور ارسال نشده');
+ await page.goto('/preview/admin/role-editor');await ready(page,'role-editor');
 });

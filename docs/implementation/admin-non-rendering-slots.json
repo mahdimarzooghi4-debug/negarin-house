@@ -350,5 +350,18 @@
     "w": 10,
     "h": 10,
     "nonRendering": true
+  },
+  {
+    "screen": "operational-audit",
+    "node": "903:2622",
+    "frame": "903:2610",
+    "type": "svg",
+    "x": 807,
+    "y": 34,
+    "w": 16,
+    "h": 16,
+    "strokeBounds": false,
+    "nonRendering": true,
+    "error": "Error: Failed to export node. This node may not have any visible layers."
   }
 ]

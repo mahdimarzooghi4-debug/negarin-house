@@ -5065,6 +5065,14 @@
   },
   {
     "screen": "membership-center-upgraded",
+    "node": "855:1931",
+    "name": "Frame",
+    "label": "ارتقای میان‌دوره‌ای جوانه ← شکوفه ثبت شد ارتقا",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
     "node": "855:1933",
     "name": "Frame",
     "label": "ارتقا",
@@ -5718,5 +5726,608 @@
     "label": "خانه",
     "destination": "dashboard",
     "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:939",
+    "name": "Frame",
+    "label": "بازگشت",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:946",
+    "name": "Frame",
+    "label": "تنظیمات ارسال ذخیره شد روش‌های ارسال فعال غرفه با موفقیت به‌روزرسانی شدند.",
+    "destination": "shipping-settings",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:961",
+    "name": "Frame",
+    "label": "یادآوری مهم تعرفه‌های فعال به صورت زنده در Checkout متصل هستند. در صورت ثبت سفارش با این روش، امکان تغییر تعرفه یا تغییر یک‌طرفه روش توسط هنرمند وجود ندارد.",
+    "destination": "shipping-settings",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:965",
+    "name": "Negarin / Button",
+    "label": "بازگشت به محصولات",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:968",
+    "name": "Negarin / Button",
+    "label": "مشاهده فروشگاه من",
+    "destination": "store",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:973",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:977",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:981",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:986",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:990",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1052",
+    "name": "Frame",
+    "label": "فروشگاه من",
+    "destination": "store",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1075",
+    "name": "Frame",
+    "label": "خدمات",
+    "destination": "services",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1082",
+    "name": "Frame",
+    "label": "مالی",
+    "destination": "finance",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1090",
+    "name": "Frame",
+    "label": "عضویت",
+    "destination": "membership-center",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1097",
+    "name": "Frame",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1105",
+    "name": "Frame",
+    "label": "تنظیمات ارسال",
+    "destination": "shipping-settings",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1115",
+    "name": "Frame",
+    "label": "اطلاعات حساب",
+    "destination": "account-information",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1122",
+    "name": "Frame",
+    "label": "اعلان‌ها",
+    "destination": "notification-settings",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1145",
+    "name": "Frame",
+    "label": "خروج از حساب",
+    "destination": "logout-confirmation",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1151",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1156",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1160",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1164",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1168",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1184",
+    "name": "Back Chevron",
+    "label": "بازگشت",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1217",
+    "name": "Negarin / Button",
+    "label": "ویرایش اطلاعات",
+    "destination": "edit-profile",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1222",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1227",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1231",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1235",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1239",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1255",
+    "name": "Back Chevron",
+    "label": "بازگشت",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1267",
+    "name": "Frame",
+    "label": "نام هنرمند / نام نمایشی غرفه",
+    "destination": null,
+    "type": "DesignField",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1278",
+    "name": "Negarin / Button",
+    "label": "ذخیره تغییرات",
+    "destination": null,
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1281",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1286",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1291",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1295",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1299",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1303",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1319",
+    "name": "Back Chevron",
+    "label": "بازگشت",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1329",
+    "name": "Toggle Track",
+    "label": "سفارش جدید غرفه",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1334",
+    "name": "Toggle Track",
+    "label": "به‌روزرسانی وضعیت سفارش",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1341",
+    "name": "Toggle Track",
+    "label": "اطلاع‌رسانی فرصت‌های جدید",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1346",
+    "name": "Toggle Track",
+    "label": "نتیجه بررسی درخواست فرصت",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1353",
+    "name": "Toggle Track",
+    "label": "تغییرات وضعیت تسویه حساب",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1358",
+    "name": "Toggle Track",
+    "label": "پیامک تراکنش جدید مالی",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1365",
+    "name": "Toggle Track",
+    "label": "یادآوری اعتبارهای خدماتی",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1370",
+    "name": "Toggle Track",
+    "label": "نتیجه ارزیابی و بررسی محصولات",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1374",
+    "name": "Negarin / Button",
+    "label": "ذخیره تنظیمات",
+    "destination": null,
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1379",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1384",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1388",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1392",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1396",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "logout-confirmation",
+    "node": "858:1421",
+    "name": "Logout Bottom Sheet",
+    "label": "Artist / Logout Confirmation — Mobile",
+    "destination": null,
+    "type": "DesignDialog",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "logout-confirmation",
+    "node": "858:1428",
+    "name": "Negarin / Button",
+    "label": "بله، خروج از حساب",
+    "destination": null,
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "logout-confirmation",
+    "node": "858:1431",
+    "name": "Negarin / Button",
+    "label": "انصراف و ماندن",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:409",
+    "name": "Back Button",
+    "label": "بازگشت",
+    "destination": "finance",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:415",
+    "name": "Frame",
+    "label": "وجه محفوظ XORD-2024-0847 +۲٬۴۵۰٬۰۰۰ تومان پرداخت خارجی توسط نگارین دریافت شده است. وجه تا تأیید تحویل و کیفیت محفوظ می‌ماند و بعد مبلغ داخلی برای تسویه آزاد می‌شود.",
+    "destination": "finance-settlement-request-submitted",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:468",
+    "name": "Frame",
+    "label": "تکمیل‌شده پرداخت شریک دریافت شد مرحله فعلی وجه نزد نگارین محفوظ در انتظار تأیید تحویل و کیفیت در انتظار تسویه داخلی هنرمند",
+    "destination": "finance-settlement-request-submitted",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:488",
+    "name": "Negarin / Button",
+    "label": "مشاهده سفارش",
+    "destination": null,
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:491",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:497",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:502",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:507",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:512",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
   }
 ]

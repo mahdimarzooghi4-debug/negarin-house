@@ -308,8 +308,8 @@ export const exportPartnerScreens = [
     "language": "tr-TR",
     "kind": "product-detail",
     "slug": "tr-tr-product-detail",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:3757",
@@ -416,8 +416,8 @@ export const exportPartnerScreens = [
     "language": "ru",
     "kind": "network-artists",
     "slug": "ru-network-artists",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:4585",
@@ -428,8 +428,8 @@ export const exportPartnerScreens = [
     "language": "ru",
     "kind": "export-products",
     "slug": "ru-export-products",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:4722",
@@ -440,8 +440,8 @@ export const exportPartnerScreens = [
     "language": "ru",
     "kind": "product-detail",
     "slug": "ru-product-detail",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:4978",
@@ -572,8 +572,8 @@ export const exportPartnerScreens = [
     "language": "zh-CN",
     "kind": "product-detail",
     "slug": "zh-cn-product-detail",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:6182",
@@ -620,8 +620,8 @@ export const exportPartnerScreens = [
     "language": "zh-CN",
     "kind": "account-preferences",
     "slug": "zh-cn-account-preferences",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "928:1109",
@@ -680,8 +680,8 @@ export const exportPartnerScreens = [
     "language": "fr",
     "kind": "network-artists",
     "slug": "fr-network-artists",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:7021",
@@ -692,8 +692,8 @@ export const exportPartnerScreens = [
     "language": "fr",
     "kind": "export-products",
     "slug": "fr-export-products",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:7158",
@@ -704,8 +704,8 @@ export const exportPartnerScreens = [
     "language": "fr",
     "kind": "product-detail",
     "slug": "fr-product-detail",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:7410",
@@ -812,8 +812,8 @@ export const exportPartnerScreens = [
     "language": "es",
     "kind": "network-artists",
     "slug": "es-network-artists",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:8367",
@@ -836,8 +836,8 @@ export const exportPartnerScreens = [
     "language": "es",
     "kind": "product-detail",
     "slug": "es-product-detail",
-    "implemented": false,
-    "pendingReason": "original-asset-export-quota"
+    "implemented": true,
+    "pendingReason": null
   },
   {
     "id": "915:8787",
@@ -950,6 +950,7 @@ export const exportPartnerLoaders = {
  "tr-tr-dashboard": () => import("./screens/tr-tr-dashboard"),
  "tr-tr-network-artists": () => import("./screens/tr-tr-network-artists"),
  "tr-tr-export-products": () => import("./screens/tr-tr-export-products"),
+ "tr-tr-product-detail": () => import("./screens/tr-tr-product-detail"),
  "tr-tr-orders-list": () => import("./screens/tr-tr-orders-list"),
  "tr-tr-order-detail": () => import("./screens/tr-tr-order-detail"),
  "tr-tr-order-draft": () => import("./screens/tr-tr-order-draft"),
@@ -958,6 +959,9 @@ export const exportPartnerLoaders = {
  "tr-tr-order-submitted": () => import("./screens/tr-tr-order-submitted"),
  "tr-tr-artist-profile": () => import("./screens/tr-tr-artist-profile"),
  "ru-dashboard": () => import("./screens/ru-dashboard"),
+ "ru-network-artists": () => import("./screens/ru-network-artists"),
+ "ru-export-products": () => import("./screens/ru-export-products"),
+ "ru-product-detail": () => import("./screens/ru-product-detail"),
  "ru-orders-list": () => import("./screens/ru-orders-list"),
  "ru-order-detail": () => import("./screens/ru-order-detail"),
  "ru-order-draft": () => import("./screens/ru-order-draft"),
@@ -968,13 +972,18 @@ export const exportPartnerLoaders = {
  "zh-cn-dashboard": () => import("./screens/zh-cn-dashboard"),
  "zh-cn-network-artists": () => import("./screens/zh-cn-network-artists"),
  "zh-cn-export-products": () => import("./screens/zh-cn-export-products"),
+ "zh-cn-product-detail": () => import("./screens/zh-cn-product-detail"),
  "zh-cn-orders-list": () => import("./screens/zh-cn-orders-list"),
  "zh-cn-order-detail": () => import("./screens/zh-cn-order-detail"),
  "zh-cn-order-draft": () => import("./screens/zh-cn-order-draft"),
+ "zh-cn-account-preferences": () => import("./screens/zh-cn-account-preferences"),
  "zh-cn-order-review": () => import("./screens/zh-cn-order-review"),
  "zh-cn-order-submitted": () => import("./screens/zh-cn-order-submitted"),
  "zh-cn-artist-profile": () => import("./screens/zh-cn-artist-profile"),
  "fr-dashboard": () => import("./screens/fr-dashboard"),
+ "fr-network-artists": () => import("./screens/fr-network-artists"),
+ "fr-export-products": () => import("./screens/fr-export-products"),
+ "fr-product-detail": () => import("./screens/fr-product-detail"),
  "fr-orders-list": () => import("./screens/fr-orders-list"),
  "fr-order-detail": () => import("./screens/fr-order-detail"),
  "fr-order-draft": () => import("./screens/fr-order-draft"),
@@ -983,7 +992,9 @@ export const exportPartnerLoaders = {
  "fr-order-submitted": () => import("./screens/fr-order-submitted"),
  "fr-artist-profile": () => import("./screens/fr-artist-profile"),
  "es-dashboard": () => import("./screens/es-dashboard"),
+ "es-network-artists": () => import("./screens/es-network-artists"),
  "es-export-products": () => import("./screens/es-export-products"),
+ "es-product-detail": () => import("./screens/es-product-detail"),
  "es-orders-list": () => import("./screens/es-orders-list"),
  "es-order-detail": () => import("./screens/es-order-detail"),
  "es-order-draft": () => import("./screens/es-order-draft"),

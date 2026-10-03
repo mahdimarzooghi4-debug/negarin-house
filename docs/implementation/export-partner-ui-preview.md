@@ -1,45 +1,19 @@
 # Export Partner / Market Operations preview
 
-Figma file `Uo0ifnpFmJFhWqaEVmVOZ1`, page `915:77` (“70 - Export Partner / Market Operations”). Native Next/React markup is saved for all 77 source screens. **66 are complete and rendered; 11 remain pending original images because the Figma MCP tool quota interrupted exports.** Seven small loose helper frames are not screens.
+Source: [Export Partner canvas 915:77](https://www.figma.com/design/Uo0ifnpFmJFhWqaEVmVOZ1/Negarin-House?node-id=915-77). All 77 native screens are enabled at `/preview/export-partner`: 11 each for English, Arabic, Turkish, Russian, Chinese, French and Spanish. The retry recovered all 34 missing PNG exports and enabled all 11 pending screens. Seven loose helper frames are excluded from the screen inventory.
 
-Open `/preview/export-partner` after `pnpm --filter @negarin/web dev`. The catalog accounts for all 77 frames and marks the 11 pending routes. Completed routes use `<language>-<screen>`, for example `/preview/export-partner/en-export-products`, `/preview/export-partner/ar-order-draft`. Production previews require `NEGARIN_UI_PREVIEW=1`.
+Routes use `<language>-<screen>`, such as `/preview/export-partner/ru-export-products`. Production previews require `NEGARIN_UI_PREVIEW=1`. `?canvas=1` hides the toolbar. These are fixed 1440px source references with no tablet/adaptive production layout.
 
-| Language | Complete | Pending |
-| --- | ---: | --- |
-| English `en` | 11 / 11 | — |
-| Arabic `ar` | 11 / 11 | — |
-| Turkish `tr-TR` | 10 / 11 | Product Detail |
-| Russian `ru` | 8 / 11 | Network Artists, Export Products, Product Detail |
-| Chinese `zh-CN` | 9 / 11 | Product Detail, Account Preferences |
-| French `fr` | 8 / 11 | Network Artists, Export Products, Product Detail |
-| Spanish `es` | 9 / 11 | Network Artists, Product Detail |
+## Assets, language and navigation
 
-Each language has Dashboard, Network Artists, Export Products, Product Detail, Orders List, Order Detail, Order Draft, Account Preferences, Order Review, Order Submitted, and Artist Profile. Canvas dimensions come from the inventory: desktop references only, with no tablet or adaptive production layout.
+All 377 local originals are complete in 1,203 rendering callsites, with 4,353 native auto-layout boxes, scoped CSS and packaged language fonts. SVG stroke networks, source viewBox margins and non-rendering source vector wrappers retain their original artwork/geometry. One fresh native PNG export changed length/hash at node `915:5995`; the current native export was verified and all callsites point to its complete `6157b1c5.png` file.
 
-## Original source and layout
+The shared semantic sidebar retains every language variant, six source links and a localized Reports acknowledgement because no Reports source screen exists. Native Arabic main/sidebar order is preserved. Product/artist actions, order draft/review/submitted/detail navigation and language selectors stay in the selected language. Newly enabled Russian/French catalog buttons compose the existing ExportAction control with their native labels and styles. Foreign panels retain their source language; internal panels remain Persian.
 
-The implementation uses native markup and scoped CSS, not full-frame screenshots. It preserves 4,353 retrieved native auto-layout boxes and 1,454 utility CSS groups. Original Figma exports are local under `public/export-partner-assets`: 343 verified complete files are saved, including assets for pending checkpoints. The 66 rendered screens use 304 unique originals in 1,002 image slots. Their load status, callsite paths and bounds were checked individually. There are no temporary Figma asset URLs or external font URLs in the runtime.
+A fresh source audit checked 9,475 frame/instance/component/text nodes and found zero reactions. All preview navigation mappings are inferred. Local fields/choices persist across client navigation; sample data, quantities, companies, currencies, order identities and status badges remain static. Filter/pagination/preferences/logout/reporting controls acknowledge preview scope without creating business operations. Source financial caption overlap and Arabic table overflow remain documented reference defects.
 
-Nineteen source vectors have no rendered bounds and cannot export: their source wrapper geometry is retained with a non-rendering span, without replacement artwork. Three visible Spanish timeline lines were exported from their original LINE children because the zero-height wrapper could not export. Those use stroke bounds, with the original child IDs recorded. Full-bounds sector SVGs in the Spanish dashboard retain their original transparent margins; their DOM crop wrappers are expanded to avoid applying the source crop twice. Small original-icon position adjustments accommodate packaged font metrics and are explicitly scoped to inspected node IDs.
+## Verification and integration limits
 
-SVG exports can assign different internal clip-path IDs on successive exports. `key` is the original export grouping identifier; `savedContentHash` records FNV-1a of the received file. Complete PNG chunks were checked against the original FNV key and length before decoding; SVG payloads were validated as complete XML. No SVG paths were redrawn.
+All 77 screens returned HTTP 200 without page errors, broken images or original-path mismatches. All 1,203 original-image bounds match recorded native slots within 2px. The 11 newly enabled screens were checked again against the final production build. Build/scoped ESLint and seven unit tests passed; all four Export Partner Playwright tests passed, covering every asset slot, seven-language sidebar/order flows, local state and equivalent-screen language switching. Geometry checks do not establish full pixel equivalence.
 
-Fonts are packaged locally: Inter, Noto Sans Arabic, Noto Sans SC, Outfit, JetBrains Mono and the existing Vazirmatn. The canvas root stays LTR because Arabic source children already put the main area before the sidebar. Arabic text retains source `dir="auto"`, Arabic fonts and native right-side geometry. Its accessible labels and preview feedback use Arabic. The other partner panels use their respective languages; internal review toolbar/catalog text remains Persian.
-
-## Navigation and local interaction
-
-All 66 completed pages use one semantic sidebar component while preserving source variants. The six source destinations are dashboard, network/artists, export products, orders, order draft and account. The seventh Reports item acknowledges preview scope: there is no Reports screen on this source canvas.
-
-The 744 recorded native action callsites are inferred preview mappings. The source prototype audit could not be completed before the Figma quota; no claim of zero prototype links is made. Catalog actions and table buttons open sample product or artist details, draft/review/submitted/order-detail flows keep the current language, and language controls open the equivalent screen. Pending destinations show a localized explanation rather than an incomplete canvas. Arabic draft “تفاصيل التشغيل” is inferred as the review action; its original label is retained.
-
-Editable fields and choices persist during client-side navigation within this preview. Search Enter opens the same-language sample catalog. Language controls offer all seven languages. Save/report/filter/download/support and other unconnected actions show localized preview messages. Account choices and field edits do not change server data. Quantities, totals, currency values, product selections, shipment estimates, search results and order IDs remain static reference examples; entering a quantity does not recalculate the ledger or create an order. The source “API Connected” badge and added-to-draft labels are static artwork, not connectivity evidence.
-
-Some source financial captions overlap or run past their cards, and Arabic Dashboard table rows extend below their white card. These source geometries are retained and are not declared polished production layouts. Sample companies, industries, product units, currencies and order IDs differ across languages and between related source screens. These are separate reference canvases, not a synchronized live dataset.
-
-## Remaining work and recovery
-
-`screen-inventory.json` records all 77 statuses. `pending-assets.json` records all 34 still-missing unique original PNG exports, native node IDs, bounds and pending callsites. Native markup for the 11 pending screens is saved under `src/features/export-partner/screens-pending`; it is excluded from runtime loaders until every original asset is available. The catalog and route notice remain accessible. Resume by exporting those original nodes, checking their bytes/callsites, moving completed screens into `screens`, enabling their registry loaders and rerunning the geometry/browser checks. Do not replace missing photographs with unrelated local images.
-
-Backend authentication, partner/market authorization, real catalog search/filtering, inventory and export eligibility, currency/price contracts, drafts/orders, notification preferences, document download and server persistence remain outstanding. No live order, shipment, charge, upload, login or logout occurs here.
-
-Validation is recorded in `export-partner-verification.json`. Native asset-bound checks and selected visual comparisons do not establish full pixel equivalence.
+Page inventory is complete. Organization/market isolation, authorization, live catalog/artist access, pricing/commercial terms, export purchasing/orders/shipping, real preferences, uploads, reporting and persistence remain backend/production integration work. See the inventories, control mappings and `export-partner-verification.json`.

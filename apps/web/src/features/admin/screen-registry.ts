@@ -954,13 +954,10 @@ export const adminScreens = [
     "h": 1100,
     "section": "08 — Stories, Content & Moderation",
     "contextReceived": true,
-    "assetsMissing": [
-      "894:6722",
-      "894:6851"
-    ],
-    "implemented": false,
+    "assetsMissing": [],
+    "implemented": true,
     "slug": "story-review",
-    "pendingReason": "asset-quota"
+    "pendingReason": null
   },
   {
     "id": "894:6853",
@@ -969,15 +966,10 @@ export const adminScreens = [
     "h": 1100,
     "section": "08 — Stories, Content & Moderation",
     "contextReceived": true,
-    "assetsMissing": [
-      "894:6859",
-      "894:6927",
-      "894:6988",
-      "894:6994"
-    ],
-    "implemented": false,
+    "assetsMissing": [],
+    "implemented": true,
     "slug": "story-review-request-revision",
-    "pendingReason": "asset-quota"
+    "pendingReason": null
   },
   {
     "id": "894:7005",
@@ -986,15 +978,10 @@ export const adminScreens = [
     "h": 1100,
     "section": "08 — Stories, Content & Moderation",
     "contextReceived": true,
-    "assetsMissing": [
-      "894:7011",
-      "894:7079",
-      "894:7140",
-      "894:7148"
-    ],
-    "implemented": false,
+    "assetsMissing": [],
+    "implemented": true,
     "slug": "story-review-approve-confirmation",
-    "pendingReason": "asset-quota"
+    "pendingReason": null
   },
   {
     "id": "894:7156",
@@ -1002,11 +989,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "08 — Stories, Content & Moderation",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "content-operations",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:242",
@@ -1014,11 +1001,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "export-partners",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:446",
@@ -1026,11 +1013,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "export-partners-loading",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:580",
@@ -1038,11 +1025,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "export-partners-empty",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:680",
@@ -1050,11 +1037,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "export-partners-error",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:796",
@@ -1062,11 +1049,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "export-partner-detail",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:1017",
@@ -1074,11 +1061,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "export-markets",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:1197",
@@ -1086,11 +1073,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "export-market-detail",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:1374",
@@ -1098,11 +1085,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "export-market-catalog",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:1594",
@@ -1110,11 +1097,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "partner-commercial-terms",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:1970",
@@ -1122,11 +1109,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "export-orders",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:2152",
@@ -1134,11 +1121,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "export-order-detail",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "899:2334",
@@ -1146,11 +1133,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "09 - Export Partners & International Operations",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "export-operations-needs-action",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "903:247",
@@ -1158,11 +1145,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "10 — Reports, Settings & Permissions",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "reports",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "903:518",
@@ -1170,11 +1157,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "10 — Reports, Settings & Permissions",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "report-detail",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "903:739",
@@ -1182,11 +1169,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "10 — Reports, Settings & Permissions",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "settings",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "903:914",
@@ -1194,11 +1181,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "10 — Reports, Settings & Permissions",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "notification-settings",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "903:1571",
@@ -1206,11 +1193,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "10 — Reports, Settings & Permissions",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "staff-and-access",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "903:1727",
@@ -1218,11 +1205,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "10 — Reports, Settings & Permissions",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "staff-access-detail",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "903:1861",
@@ -1230,11 +1217,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "10 — Reports, Settings & Permissions",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "roles-and-permissions",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "903:1991",
@@ -1242,11 +1229,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "10 — Reports, Settings & Permissions",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "role-detail",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "903:2161",
@@ -1254,11 +1241,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "10 — Reports, Settings & Permissions",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "role-editor",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   },
   {
     "id": "903:2610",
@@ -1266,11 +1253,11 @@ export const adminScreens = [
     "w": 1440,
     "h": 1100,
     "section": "10 — Reports, Settings & Permissions",
-    "contextReceived": false,
+    "contextReceived": true,
     "assetsMissing": [],
-    "implemented": false,
+    "implemented": true,
     "slug": "operational-audit",
-    "pendingReason": "context-quota"
+    "pendingReason": null
   }
 ] as const;
 export const adminLoaders = {
@@ -1352,6 +1339,32 @@ export const adminLoaders = {
   "stories-empty": () => import("./screens/stories-empty"),
   "stories-error": () => import("./screens/stories-error"),
   "story-detail": () => import("./screens/story-detail"),
-  "story-review-queue": () => import("./screens/story-review-queue")
+  "story-review-queue": () => import("./screens/story-review-queue"),
+  "story-review": () => import("./screens/story-review"),
+  "story-review-request-revision": () => import("./screens/story-review-request-revision"),
+  "story-review-approve-confirmation": () => import("./screens/story-review-approve-confirmation"),
+  "content-operations": () => import("./screens/content-operations"),
+  "export-partners": () => import("./screens/export-partners"),
+  "export-partners-loading": () => import("./screens/export-partners-loading"),
+  "export-partners-empty": () => import("./screens/export-partners-empty"),
+  "export-partners-error": () => import("./screens/export-partners-error"),
+  "export-partner-detail": () => import("./screens/export-partner-detail"),
+  "export-markets": () => import("./screens/export-markets"),
+  "export-market-detail": () => import("./screens/export-market-detail"),
+  "export-market-catalog": () => import("./screens/export-market-catalog"),
+  "partner-commercial-terms": () => import("./screens/partner-commercial-terms"),
+  "export-orders": () => import("./screens/export-orders"),
+  "export-order-detail": () => import("./screens/export-order-detail"),
+  "export-operations-needs-action": () => import("./screens/export-operations-needs-action"),
+  "reports": () => import("./screens/reports"),
+  "report-detail": () => import("./screens/report-detail"),
+  "settings": () => import("./screens/settings"),
+  "notification-settings": () => import("./screens/notification-settings"),
+  "staff-and-access": () => import("./screens/staff-and-access"),
+  "staff-access-detail": () => import("./screens/staff-access-detail"),
+  "roles-and-permissions": () => import("./screens/roles-and-permissions"),
+  "role-detail": () => import("./screens/role-detail"),
+  "role-editor": () => import("./screens/role-editor"),
+  "operational-audit": () => import("./screens/operational-audit")
 };
 export type AdminScreenSlug = keyof typeof adminLoaders;
