@@ -42,14 +42,36 @@ export class ArtistProductsService {
     return this.view(product);
   }
 
-  async update(context: AuthorizationContext, id: string, input: ArtistProductWrite) {
+  async update(context: AuthorizationContext, id: string, input: ArtistProductWrite, requestId: string) {
     const product = await this.ownedProduct(context, id);
     if (product.archivedAt) throw new ConflictException("product-archived");
-    const updated = await this.database.artistProduct.updateMany({
-      where: { id, artistUserId: context.userId, archivedAt: null },
-      data: input
+    const changesContent = input.title !== undefined || input.description !== undefined;
+    if (changesContent && !["draft", "changes_requested", "approved"].includes(product.publicationStatus)) {
+      throw new ConflictException("product-content-locked");
+    }
+    await this.database.$transaction(async (tx) => {
+      const updated = await tx.artistProduct.updateMany({
+        where: { id, artistUserId: context.userId, archivedAt: null, version: product.version },
+        data: {
+          ...input,
+          ...(changesContent ? {
+            version: { increment: 1 },
+            ...(product.publicationStatus === "approved" ? { publicationStatus: "draft" as const } : {})
+          } : {})
+        }
+      });
+      if (updated.count !== 1) throw new ConflictException("product-state-changed");
+      if (changesContent) {
+        await tx.productPublicationEvent.create({ data: {
+          productId: id, actorUserId: context.userId, actorRole: "artist", action: "content-updated",
+          fromStatus: product.publicationStatus,
+          toStatus: product.publicationStatus === "approved" ? "draft" : product.publicationStatus,
+          version: product.version + 1,
+          content: { title: input.title ?? product.title, description: input.description === undefined ? product.description : input.description },
+          requestId
+        } });
+      }
     });
-    if (updated.count !== 1) throw new ConflictException("product-state-changed");
     return this.get(context, id);
   }
 
@@ -58,8 +80,8 @@ export class ArtistProductsService {
     if (Boolean(product.archivedAt) === archived) return this.view(product);
 
     const updated = await this.database.artistProduct.updateMany({
-      where: { id, artistUserId: context.userId, archivedAt: product.archivedAt },
-      data: { archivedAt: archived ? new Date() : null }
+      where: { id, artistUserId: context.userId, archivedAt: product.archivedAt, version: product.version },
+      data: { archivedAt: archived ? new Date() : null, version: { increment: 1 } }
     });
     if (updated.count !== 1) {
       const current = await this.ownedProduct(context, id);
@@ -86,6 +108,7 @@ export class ArtistProductsService {
     description: string | null;
     priceToman: bigint;
     publicationStatus: string;
+    version: number;
     archivedAt: Date | null;
     createdAt: Date;
     updatedAt: Date;
@@ -96,6 +119,7 @@ export class ArtistProductsService {
       description: product.description,
       priceToman: product.priceToman.toString(),
       publicationStatus: product.publicationStatus,
+      version: product.version,
       archivedAt: product.archivedAt?.toISOString() ?? null,
       createdAt: product.createdAt.toISOString(),
       updatedAt: product.updatedAt.toISOString()
