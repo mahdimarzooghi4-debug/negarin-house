@@ -11,8 +11,9 @@ type ActionProps=HTMLAttributes<HTMLElement>&{label:string;destination?:string;b
 export function DesignAction({label,destination,back,children,...props}:ActionProps){
  const router=useRouter();const preview=usePreview();
  const disabled=String((props as Record<string,unknown>)["data-name"]||"").includes("Disabled");
- const phoneSubmit=preview.screen==="login-and-register"&&destination;
- const otpSubmit=preview.screen.startsWith("otp-")&&destination==="verification-success";
+ const phoneSubmit=preview.screen==="login-and-register"&&destination==="otp-verification";
+ const customer=preview.basePath==="/preview/customer-mobile";
+ const otpSubmit=preview.screen.startsWith("otp-")&&(destination==="verification-success"||(customer&&destination==="checkout-shipping-info"));
  const needsValidation=phoneSubmit||otpSubmit;
  function run(){
   if(back){router.push(preview.basePath);return;}
@@ -23,7 +24,7 @@ export function DesignAction({label,destination,back,children,...props}:ActionPr
  if(destination&&!needsValidation&&!disabled)return <Link {...props} href={preview.basePath+"/"+destination} aria-label={label}>{children}</Link>;
  return <Button {...props} variant="unstyled" disabled={disabled} aria-disabled={disabled||undefined} aria-label={label} onClick={()=>{
   if(phoneSubmit){const phone=Object.values(preview.values).find(v=>/^09\d{9}$/.test(normalizeDigits(v)));if(!phone){preview.notify("شماره همراه معتبر با ۱۱ رقم و شروع ۰۹ وارد کنید.");return;}router.push(preview.basePath+"/"+destination);return;}
-  if(otpSubmit){const code=Array.from({length:6},(_,i)=>preview.values[preview.screen+":رقم "+(i+1)+" کد تأیید"]||"").join("");if(!/^\d{6}$/.test(normalizeDigits(code))){preview.notify("کد تأیید شش‌رقمی را کامل وارد کنید. کد نمونه برای پیش‌نمایش: ۱۲۳۴۵۶");return;}router.push(preview.basePath+"/"+(normalizeDigits(code)==="123456"?destination:"otp-invalid"));return;}
+  if(otpSubmit){const code=Array.from({length:6},(_,i)=>preview.values[preview.screen+":رقم "+(i+1)+" کد تأیید"]||"").join("");if(!/^\d{6}$/.test(normalizeDigits(code))){preview.notify("کد تأیید شش‌رقمی را کامل وارد کنید. کد نمونه برای پیش‌نمایش: ۱۲۳۴۵۶");return;}if(customer&&normalizeDigits(code)!=="123456"){preview.notify("کد نمونه نادرست است. برای پیش‌نمایش ۱۲۳۴۵۶ را وارد کنید.");return;}router.push(preview.basePath+"/"+(normalizeDigits(code)==="123456"?destination:"otp-invalid"));return;}
   run();
  }}>{children}</Button>;
 }
@@ -32,10 +33,10 @@ type FieldProps=HTMLAttributes<HTMLDivElement>&{label:string;placeholder:string;
 export function DesignField({label,placeholder,otp,children,...props}:FieldProps){
  const preview=usePreview();const [focused,setFocused]=useState(false);
  const key=preview.screen+":"+label;const value=preview.values[key]||"";
- const multi=/توضیحات|شرح|داستان|پیام|یادداشت/.test(label);const phone=/شماره تلفن/.test(label);
+ const multi=/توضیحات|شرح|داستان|پیام|یادداشت/.test(label);const phone=/شماره تلفن|شماره موبایل|موبایل گیرنده/.test(label);
  const shared={className:"design-field-input",'aria-label':label,placeholder:focused&&!otp?placeholder:"",value,dir:"auto" as const,onFocus:()=>setFocused(true),onBlur:()=>setFocused(false),onChange:(e:ChangeEvent<HTMLInputElement|HTMLTextAreaElement>)=>{
   const next=otp?normalizeDigits(e.target.value).replace(/\D/g,"").slice(-1):e.target.value;preview.setValue(key,next);
-  if(otp&&next){const container=e.target.closest('[data-name="otp-boxes"]');const fields=container?.querySelectorAll<HTMLInputElement>('input');if(fields){const index=Array.from(fields).indexOf(e.target as HTMLInputElement);fields[index+1]?.focus();}}
+  if(otp&&next){const container=e.target.closest('[data-name="otp-boxes"],[data-name="Input / Mobile"]');const fields=container?.querySelectorAll<HTMLInputElement>('input');if(fields){const index=Array.from(fields).indexOf(e.target as HTMLInputElement);fields[index+1]?.focus();}}
  }};
  return <div {...props} className={props.className+" design-field"} data-editing={focused||!!value} data-otp={otp||undefined} data-phone={phone||undefined}>
   <div className="design-field-artwork">{children}</div>
