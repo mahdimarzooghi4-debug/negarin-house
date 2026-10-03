@@ -1,0 +1,534 @@
+[
+  {
+    "screen": "en-order-review",
+    "node": "928:354",
+    "frame": "928:241",
+    "type": "svg",
+    "x": 1141,
+    "y": 408,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7421,
+      "y": 528,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:355",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "en-order-submitted",
+    "node": "928:412",
+    "frame": "928:362",
+    "type": "svg",
+    "x": 834,
+    "y": 292,
+    "w": 32,
+    "h": 32,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7114,
+      "y": 1536,
+      "width": 32,
+      "height": 32
+    },
+    "children": [
+      {
+        "id": "928:413",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "ar-order-review",
+    "node": "928:482",
+    "frame": "928:443",
+    "type": "svg",
+    "x": 274,
+    "y": 408,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 6554,
+      "y": 3116,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:483",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "ar-order-submitted",
+    "node": "928:580",
+    "frame": "928:569",
+    "type": "svg",
+    "x": 574,
+    "y": 302,
+    "w": 32,
+    "h": 32,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 6854,
+      "y": 4134,
+      "width": 32,
+      "height": 32
+    },
+    "children": [
+      {
+        "id": "928:581",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "928:814",
+    "frame": "928:701",
+    "type": "svg",
+    "x": 1134,
+    "y": 409,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7414,
+      "y": 5705,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:815",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "928:818",
+    "frame": "928:701",
+    "type": "svg",
+    "x": 1145,
+    "y": 463,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7425,
+      "y": 5759,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:819",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "tr-tr-order-submitted",
+    "node": "928:872",
+    "frame": "928:822",
+    "type": "svg",
+    "x": 834,
+    "y": 291.5,
+    "w": 32,
+    "h": 32,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7114,
+      "y": 6587.5,
+      "width": 32,
+      "height": 32
+    },
+    "children": [
+      {
+        "id": "928:873",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "928:1016",
+    "frame": "928:903",
+    "type": "svg",
+    "x": 1127.5,
+    "y": 409,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7407.5,
+      "y": 8045,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:1017",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "928:1020",
+    "frame": "928:903",
+    "type": "svg",
+    "x": 1105,
+    "y": 463,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7385,
+      "y": 8099,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:1021",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "ru-order-submitted",
+    "node": "928:1074",
+    "frame": "928:1024",
+    "type": "svg",
+    "x": 834,
+    "y": 281.5,
+    "w": 32,
+    "h": 32,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7114,
+      "y": 9041.5,
+      "width": 32,
+      "height": 32
+    },
+    "children": [
+      {
+        "id": "928:1075",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "928:1219",
+    "frame": "928:1109",
+    "type": "svg",
+    "x": 1159,
+    "y": 409,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7439,
+      "y": 10633,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:1220",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "928:1223",
+    "frame": "928:1109",
+    "type": "svg",
+    "x": 1159,
+    "y": 463,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7439,
+      "y": 10687,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:1224",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "zh-cn-order-submitted",
+    "node": "928:1277",
+    "frame": "928:1227",
+    "type": "svg",
+    "x": 834,
+    "y": 302.5,
+    "w": 32,
+    "h": 32,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7114,
+      "y": 11526.5,
+      "width": 32,
+      "height": 32
+    },
+    "children": [
+      {
+        "id": "928:1278",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "928:1418",
+    "frame": "928:1308",
+    "type": "svg",
+    "x": 1111.5,
+    "y": 409,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7391.5,
+      "y": 12973,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:1419",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "928:1422",
+    "frame": "928:1308",
+    "type": "svg",
+    "x": 1123,
+    "y": 463,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7403,
+      "y": 13027,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:1423",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "fr-order-submitted",
+    "node": "928:1476",
+    "frame": "928:1426",
+    "type": "svg",
+    "x": 834,
+    "y": 283.5,
+    "w": 32,
+    "h": 32,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7114,
+      "y": 13971.5,
+      "width": 32,
+      "height": 32
+    },
+    "children": [
+      {
+        "id": "928:1477",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "es-order-review",
+    "node": "928:1624",
+    "frame": "928:1511",
+    "type": "svg",
+    "x": 1140,
+    "y": 410,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7420,
+      "y": 15562,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:1625",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "es-order-review",
+    "node": "928:1628",
+    "frame": "928:1511",
+    "type": "svg",
+    "x": 1126,
+    "y": 464,
+    "w": 18,
+    "h": 18,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7406,
+      "y": 15616,
+      "width": 18,
+      "height": 18
+    },
+    "children": [
+      {
+        "id": "928:1629",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  },
+  {
+    "screen": "es-order-submitted",
+    "node": "928:1682",
+    "frame": "928:1632",
+    "type": "svg",
+    "x": 834,
+    "y": 283.5,
+    "w": 32,
+    "h": 32,
+    "exportError": "Error: Failed to export node. This node may not have any visible layers.",
+    "visible": true,
+    "renderBounds": {
+      "x": 7114,
+      "y": 16972.5,
+      "width": 32,
+      "height": 32
+    },
+    "children": [
+      {
+        "id": "928:1683",
+        "type": "VECTOR",
+        "visible": true,
+        "opacity": 1,
+        "renderBounds": null
+      }
+    ],
+    "nonrendering": true
+  }
+]

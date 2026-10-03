@@ -1,0 +1,5856 @@
+[
+  {
+    "screen": "en-dashboard",
+    "node": "I1206:554;1206:459",
+    "name": "nav-item-0",
+    "label": "Dashboard",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "I1206:554;1206:463",
+    "name": "nav-item-1",
+    "label": "Network/Artists",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "I1206:554;1206:467",
+    "name": "nav-item-2",
+    "label": "Export Products",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "I1206:554;1206:471",
+    "name": "nav-item-3",
+    "label": "Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "I1206:554;1206:475",
+    "name": "nav-item-4",
+    "label": "Order Drafts",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "I1206:554;1206:479",
+    "name": "nav-item-5",
+    "label": "Reports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "I1206:554;1206:483",
+    "name": "nav-item-6",
+    "label": "Account",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "915:301",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "915:340",
+    "name": "btn-view-all",
+    "label": "View All",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "915:351",
+    "label": "XORD-9912",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "915:359",
+    "label": "XORD-9910",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "915:367",
+    "label": "XORD-9908",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-dashboard",
+    "node": "915:375",
+    "label": "XORD-9904",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "I1206:596;1206:459",
+    "name": "nav-item-0",
+    "label": "Dashboard",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "I1206:596;1206:463",
+    "name": "nav-item-1",
+    "label": "Network/Artists",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "I1206:596;1206:467",
+    "name": "nav-item-2",
+    "label": "Export Products",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "I1206:596;1206:471",
+    "name": "nav-item-3",
+    "label": "Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "I1206:596;1206:475",
+    "name": "nav-item-4",
+    "label": "Order Drafts",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "I1206:596;1206:479",
+    "name": "nav-item-5",
+    "label": "Reports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "I1206:596;1206:483",
+    "name": "nav-item-6",
+    "label": "Account",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "915:447",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "915:458",
+    "name": "btn-add",
+    "label": "Browse Export Artists",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "915:481",
+    "name": "btn-edit",
+    "label": "Edit",
+    "destination": "artist-profile",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "915:493",
+    "name": "btn-edit",
+    "label": "Edit",
+    "destination": "artist-profile",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "915:505",
+    "name": "btn-edit",
+    "label": "Edit",
+    "destination": "artist-profile",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "915:517",
+    "name": "btn-edit",
+    "label": "Edit",
+    "destination": "artist-profile",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "915:529",
+    "name": "btn-edit",
+    "label": "Edit",
+    "destination": "artist-profile",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "915:541",
+    "name": "btn-edit",
+    "label": "Edit",
+    "destination": "artist-profile",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "915:546",
+    "name": "btn-prev",
+    "label": "Previous",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-network-artists",
+    "node": "915:548",
+    "name": "btn-next",
+    "label": "Next",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "I1206:638;1206:459",
+    "name": "nav-item-0",
+    "label": "Dashboard",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "I1206:638;1206:463",
+    "name": "nav-item-1",
+    "label": "Network/Artists",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "I1206:638;1206:467",
+    "name": "nav-item-2",
+    "label": "Export Products",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "I1206:638;1206:471",
+    "name": "nav-item-3",
+    "label": "Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "I1206:638;1206:475",
+    "name": "nav-item-4",
+    "label": "Order Drafts",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "I1206:638;1206:479",
+    "name": "nav-item-5",
+    "label": "Reports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "I1206:638;1206:483",
+    "name": "nav-item-6",
+    "label": "Account",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "915:594",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:136",
+    "name": "btn-prev",
+    "label": "Previous",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:138",
+    "name": "btn-next",
+    "label": "Next",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-product-detail",
+    "node": "I1206:680;1206:459",
+    "name": "nav-item-0",
+    "label": "Dashboard",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-product-detail",
+    "node": "I1206:680;1206:463",
+    "name": "nav-item-1",
+    "label": "Network/Artists",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-product-detail",
+    "node": "I1206:680;1206:467",
+    "name": "nav-item-2",
+    "label": "Export Products",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-product-detail",
+    "node": "I1206:680;1206:471",
+    "name": "nav-item-3",
+    "label": "Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-product-detail",
+    "node": "I1206:680;1206:475",
+    "name": "nav-item-4",
+    "label": "Order Drafts",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-product-detail",
+    "node": "I1206:680;1206:479",
+    "name": "nav-item-5",
+    "label": "Reports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-product-detail",
+    "node": "I1206:680;1206:483",
+    "name": "nav-item-6",
+    "label": "Account",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-product-detail",
+    "node": "915:728",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-product-detail",
+    "node": "915:795",
+    "name": "btn-add-to-draft",
+    "label": "Add to Order",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "I1206:722;1206:459",
+    "name": "nav-item-0",
+    "label": "Dashboard",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "I1206:722;1206:463",
+    "name": "nav-item-1",
+    "label": "Network/Artists",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "I1206:722;1206:467",
+    "name": "nav-item-2",
+    "label": "Export Products",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "I1206:722;1206:471",
+    "name": "nav-item-3",
+    "label": "Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "I1206:722;1206:475",
+    "name": "nav-item-4",
+    "label": "Order Drafts",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "I1206:722;1206:479",
+    "name": "nav-item-5",
+    "label": "Reports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "I1206:722;1206:483",
+    "name": "nav-item-6",
+    "label": "Account",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "915:1050",
+    "name": "btn-export",
+    "label": "Export CSV",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "915:1065",
+    "label": "XORD-1024",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "915:1077",
+    "label": "XORD-1023",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "915:1089",
+    "label": "XORD-1022",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "915:1101",
+    "label": "XORD-1021",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "915:1113",
+    "label": "XORD-1020",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "915:1125",
+    "label": "XORD-1019",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "915:1139",
+    "name": "btn-prev",
+    "label": "Previous",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-orders-list",
+    "node": "915:1145",
+    "name": "btn-next",
+    "label": "Next",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-detail",
+    "node": "I1206:764;1206:459",
+    "name": "nav-item-0",
+    "label": "Dashboard",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-detail",
+    "node": "I1206:764;1206:463",
+    "name": "nav-item-1",
+    "label": "Network/Artists",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-detail",
+    "node": "I1206:764;1206:467",
+    "name": "nav-item-2",
+    "label": "Export Products",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-detail",
+    "node": "I1206:764;1206:471",
+    "name": "nav-item-3",
+    "label": "Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-detail",
+    "node": "I1206:764;1206:475",
+    "name": "nav-item-4",
+    "label": "Order Drafts",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-detail",
+    "node": "I1206:764;1206:479",
+    "name": "nav-item-5",
+    "label": "Reports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-detail",
+    "node": "I1206:764;1206:483",
+    "name": "nav-item-6",
+    "label": "Account",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-detail",
+    "node": "915:1196",
+    "label": "XORD-2024-0847",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-detail",
+    "node": "915:1213",
+    "name": "btn-secondary",
+    "label": "Print Packing Slip",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-detail",
+    "node": "915:1217",
+    "name": "btn-primary",
+    "label": "btn-primary",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-draft",
+    "node": "I1206:806;1206:459",
+    "name": "nav-item-0",
+    "label": "Dashboard",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-draft",
+    "node": "I1206:806;1206:463",
+    "name": "nav-item-1",
+    "label": "Network/Artists",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-draft",
+    "node": "I1206:806;1206:467",
+    "name": "nav-item-2",
+    "label": "Export Products",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-draft",
+    "node": "I1206:806;1206:471",
+    "name": "nav-item-3",
+    "label": "Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-draft",
+    "node": "I1206:806;1206:475",
+    "name": "nav-item-4",
+    "label": "Order Drafts",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-draft",
+    "node": "I1206:806;1206:479",
+    "name": "nav-item-5",
+    "label": "Reports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-draft",
+    "node": "I1206:806;1206:483",
+    "name": "nav-item-6",
+    "label": "Account",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-draft",
+    "node": "915:1422",
+    "name": "btn-submit",
+    "label": "Review Order",
+    "destination": "order-review",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-draft",
+    "node": "915:1426",
+    "name": "btn-save-draft",
+    "label": "Save Draft",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-account-preferences",
+    "node": "I1206:848;1206:459",
+    "name": "nav-item-0",
+    "label": "Dashboard",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-account-preferences",
+    "node": "I1206:848;1206:463",
+    "name": "nav-item-1",
+    "label": "Network/Artists",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-account-preferences",
+    "node": "I1206:848;1206:467",
+    "name": "nav-item-2",
+    "label": "Export Products",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-account-preferences",
+    "node": "I1206:848;1206:471",
+    "name": "nav-item-3",
+    "label": "Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-account-preferences",
+    "node": "I1206:848;1206:475",
+    "name": "nav-item-4",
+    "label": "Order Drafts",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-account-preferences",
+    "node": "I1206:848;1206:479",
+    "name": "nav-item-5",
+    "label": "Reports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-account-preferences",
+    "node": "I1206:848;1206:483",
+    "name": "nav-item-6",
+    "label": "Account",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-account-preferences",
+    "node": "915:1555",
+    "name": "btn-save-settings",
+    "label": "Apply Configuration",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-review",
+    "node": "I1206:890;1206:459",
+    "name": "nav-item-0",
+    "label": "Dashboard",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-review",
+    "node": "I1206:890;1206:463",
+    "name": "nav-item-1",
+    "label": "Network/Artists",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-review",
+    "node": "I1206:890;1206:467",
+    "name": "nav-item-2",
+    "label": "Export Products",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-review",
+    "node": "I1206:890;1206:471",
+    "name": "nav-item-3",
+    "label": "Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-review",
+    "node": "I1206:890;1206:475",
+    "name": "nav-item-4",
+    "label": "Order Drafts",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-review",
+    "node": "I1206:890;1206:479",
+    "name": "nav-item-5",
+    "label": "Reports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-review",
+    "node": "I1206:890;1206:483",
+    "name": "nav-item-6",
+    "label": "Account",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-review",
+    "node": "928:295",
+    "label": "XORD-2024-0847",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-review",
+    "node": "928:353",
+    "name": "btn-submit",
+    "label": "Submit Order",
+    "destination": "order-submitted",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-review",
+    "node": "928:357",
+    "name": "btn-back-draft",
+    "label": "Back to Draft",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-submitted",
+    "node": "I1206:932;1206:459",
+    "name": "nav-item-0",
+    "label": "Dashboard",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-submitted",
+    "node": "I1206:932;1206:463",
+    "name": "nav-item-1",
+    "label": "Network/Artists",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-submitted",
+    "node": "I1206:932;1206:467",
+    "name": "nav-item-2",
+    "label": "Export Products",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-submitted",
+    "node": "I1206:932;1206:471",
+    "name": "nav-item-3",
+    "label": "Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-submitted",
+    "node": "I1206:932;1206:475",
+    "name": "nav-item-4",
+    "label": "Order Drafts",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-submitted",
+    "node": "I1206:932;1206:479",
+    "name": "nav-item-5",
+    "label": "Reports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-submitted",
+    "node": "I1206:932;1206:483",
+    "name": "nav-item-6",
+    "label": "Account",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-submitted",
+    "node": "928:438",
+    "name": "btn-secondary",
+    "label": "Return to Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-order-submitted",
+    "node": "928:440",
+    "name": "btn-primary",
+    "label": "View Order Detail",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-artist-profile",
+    "node": "I1206:974;1206:459",
+    "name": "nav-item-0",
+    "label": "Dashboard",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-artist-profile",
+    "node": "I1206:974;1206:463",
+    "name": "nav-item-1",
+    "label": "Network/Artists",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-artist-profile",
+    "node": "I1206:974;1206:467",
+    "name": "nav-item-2",
+    "label": "Export Products",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-artist-profile",
+    "node": "I1206:974;1206:471",
+    "name": "nav-item-3",
+    "label": "Orders",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-artist-profile",
+    "node": "I1206:974;1206:475",
+    "name": "nav-item-4",
+    "label": "Order Drafts",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-artist-profile",
+    "node": "I1206:974;1206:479",
+    "name": "nav-item-5",
+    "label": "Reports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-artist-profile",
+    "node": "I1206:974;1206:483",
+    "name": "nav-item-6",
+    "label": "Account",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-artist-profile",
+    "node": "946:53",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-artist-profile",
+    "node": "946:183",
+    "name": "btn-view",
+    "label": "View Product",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-artist-profile",
+    "node": "946:187",
+    "name": "btn-view",
+    "label": "View Product",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-artist-profile",
+    "node": "946:191",
+    "name": "btn-view",
+    "label": "View Product",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "915:1751",
+    "label": "تصفح منتجات التصدير",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "915:1753",
+    "name": "Frame",
+    "label": "تصدير تقرير الربع السنوي",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "915:1756",
+    "name": "Frame",
+    "label": "تحديث أسعار العملات الدولية",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "915:1779",
+    "label": "XORD-1024",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "915:1788",
+    "label": "XORD-1023",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "915:1797",
+    "label": "XORD-1022",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "915:1806",
+    "label": "XORD-1021",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "I1206:1016;1206:519",
+    "name": "nav-item-0",
+    "label": "لوحة المعلومات",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "I1206:1016;1206:523",
+    "name": "nav-item-1",
+    "label": "الشبكة / الفنانون",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "I1206:1016;1206:527",
+    "name": "nav-item-2",
+    "label": "المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "I1206:1016;1206:531",
+    "name": "nav-item-3",
+    "label": "الطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "I1206:1016;1206:535",
+    "name": "nav-item-4",
+    "label": "مسودات الطلبات",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "I1206:1016;1206:539",
+    "name": "nav-item-5",
+    "label": "التقارير",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-dashboard",
+    "node": "I1206:1016;1206:543",
+    "name": "nav-item-6",
+    "label": "الحساب",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-network-artists",
+    "node": "I1206:1058;1206:519",
+    "name": "nav-item-0",
+    "label": "لوحة المعلومات",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-network-artists",
+    "node": "I1206:1058;1206:523",
+    "name": "nav-item-1",
+    "label": "الشبكة / الفنانون",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-network-artists",
+    "node": "I1206:1058;1206:527",
+    "name": "nav-item-2",
+    "label": "المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-network-artists",
+    "node": "I1206:1058;1206:531",
+    "name": "nav-item-3",
+    "label": "الطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-network-artists",
+    "node": "I1206:1058;1206:535",
+    "name": "nav-item-4",
+    "label": "مسودات الطلبات",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-network-artists",
+    "node": "I1206:1058;1206:539",
+    "name": "nav-item-5",
+    "label": "التقارير",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-network-artists",
+    "node": "I1206:1058;1206:543",
+    "name": "nav-item-6",
+    "label": "الحساب",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "915:2010",
+    "label": "تصفح المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:495",
+    "name": "btn-prev",
+    "label": "السابق",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:497",
+    "name": "btn-next",
+    "label": "التالي",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "I1206:1100;1206:519",
+    "name": "nav-item-0",
+    "label": "لوحة المعلومات",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "I1206:1100;1206:523",
+    "name": "nav-item-1",
+    "label": "الشبكة / الفنانون",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "I1206:1100;1206:527",
+    "name": "nav-item-2",
+    "label": "المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "I1206:1100;1206:531",
+    "name": "nav-item-3",
+    "label": "الطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "I1206:1100;1206:535",
+    "name": "nav-item-4",
+    "label": "مسودات الطلبات",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "I1206:1100;1206:539",
+    "name": "nav-item-5",
+    "label": "التقارير",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "I1206:1100;1206:543",
+    "name": "nav-item-6",
+    "label": "الحساب",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-product-detail",
+    "node": "915:2187",
+    "label": "إضافة إلى الطلب",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-product-detail",
+    "node": "I1206:1142;1206:519",
+    "name": "nav-item-0",
+    "label": "لوحة المعلومات",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-product-detail",
+    "node": "I1206:1142;1206:523",
+    "name": "nav-item-1",
+    "label": "الشبكة / الفنانون",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-product-detail",
+    "node": "I1206:1142;1206:527",
+    "name": "nav-item-2",
+    "label": "المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-product-detail",
+    "node": "I1206:1142;1206:531",
+    "name": "nav-item-3",
+    "label": "الطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-product-detail",
+    "node": "I1206:1142;1206:535",
+    "name": "nav-item-4",
+    "label": "مسودات الطلبات",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-product-detail",
+    "node": "I1206:1142;1206:539",
+    "name": "nav-item-5",
+    "label": "التقارير",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-product-detail",
+    "node": "I1206:1142;1206:543",
+    "name": "nav-item-6",
+    "label": "الحساب",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "915:2483",
+    "label": "XORD-1024",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "915:2497",
+    "label": "XORD-1023",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "915:2511",
+    "label": "XORD-1022",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "915:2525",
+    "label": "XORD-1021",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "915:2539",
+    "label": "XORD-1020",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "915:2553",
+    "label": "XORD-1019",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "I1206:1184;1206:519",
+    "name": "nav-item-0",
+    "label": "لوحة المعلومات",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "I1206:1184;1206:523",
+    "name": "nav-item-1",
+    "label": "الشبكة / الفنانون",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "I1206:1184;1206:527",
+    "name": "nav-item-2",
+    "label": "المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "I1206:1184;1206:531",
+    "name": "nav-item-3",
+    "label": "الطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "I1206:1184;1206:535",
+    "name": "nav-item-4",
+    "label": "مسودات الطلبات",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "I1206:1184;1206:539",
+    "name": "nav-item-5",
+    "label": "التقارير",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-orders-list",
+    "node": "I1206:1184;1206:543",
+    "name": "nav-item-6",
+    "label": "الحساب",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-detail",
+    "node": "I1206:1226;1206:519",
+    "name": "nav-item-0",
+    "label": "لوحة المعلومات",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-detail",
+    "node": "I1206:1226;1206:523",
+    "name": "nav-item-1",
+    "label": "الشبكة / الفنانون",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-detail",
+    "node": "I1206:1226;1206:527",
+    "name": "nav-item-2",
+    "label": "المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-detail",
+    "node": "I1206:1226;1206:531",
+    "name": "nav-item-3",
+    "label": "الطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-detail",
+    "node": "I1206:1226;1206:535",
+    "name": "nav-item-4",
+    "label": "مسودات الطلبات",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-detail",
+    "node": "I1206:1226;1206:539",
+    "name": "nav-item-5",
+    "label": "التقارير",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-detail",
+    "node": "I1206:1226;1206:543",
+    "name": "nav-item-6",
+    "label": "الحساب",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-draft",
+    "node": "915:2766",
+    "label": "تفاصيل التشغيل",
+    "destination": "order-review",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-draft",
+    "node": "915:2767",
+    "name": "Frame",
+    "label": "حفظ كمسودة مؤقتة",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-draft",
+    "node": "I1206:1268;1206:519",
+    "name": "nav-item-0",
+    "label": "لوحة المعلومات",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-draft",
+    "node": "I1206:1268;1206:523",
+    "name": "nav-item-1",
+    "label": "الشبكة / الفنانون",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-draft",
+    "node": "I1206:1268;1206:527",
+    "name": "nav-item-2",
+    "label": "المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-draft",
+    "node": "I1206:1268;1206:531",
+    "name": "nav-item-3",
+    "label": "الطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-draft",
+    "node": "I1206:1268;1206:535",
+    "name": "nav-item-4",
+    "label": "مسودات الطلبات",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-draft",
+    "node": "I1206:1268;1206:539",
+    "name": "nav-item-5",
+    "label": "التقارير",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-draft",
+    "node": "I1206:1268;1206:543",
+    "name": "nav-item-6",
+    "label": "الحساب",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-account-preferences",
+    "node": "I1206:1310;1206:519",
+    "name": "nav-item-0",
+    "label": "لوحة المعلومات",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-account-preferences",
+    "node": "I1206:1310;1206:523",
+    "name": "nav-item-1",
+    "label": "الشبكة / الفنانون",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-account-preferences",
+    "node": "I1206:1310;1206:527",
+    "name": "nav-item-2",
+    "label": "المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-account-preferences",
+    "node": "I1206:1310;1206:531",
+    "name": "nav-item-3",
+    "label": "الطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-account-preferences",
+    "node": "I1206:1310;1206:535",
+    "name": "nav-item-4",
+    "label": "مسودات الطلبات",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-account-preferences",
+    "node": "I1206:1310;1206:539",
+    "name": "nav-item-5",
+    "label": "التقارير",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-account-preferences",
+    "node": "I1206:1310;1206:543",
+    "name": "nav-item-6",
+    "label": "الحساب",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-review",
+    "node": "928:459",
+    "label": "XORD-2024-0847",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-review",
+    "node": "928:480",
+    "name": "btn-submit",
+    "label": "تقديم الطلب",
+    "destination": "order-submitted",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-review",
+    "node": "928:484",
+    "name": "btn-back-draft",
+    "label": "العودة للمسودة",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-review",
+    "node": "I1206:1352;1206:519",
+    "name": "nav-item-0",
+    "label": "لوحة المعلومات",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-review",
+    "node": "I1206:1352;1206:523",
+    "name": "nav-item-1",
+    "label": "الشبكة / الفنانون",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-review",
+    "node": "I1206:1352;1206:527",
+    "name": "nav-item-2",
+    "label": "المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-review",
+    "node": "I1206:1352;1206:531",
+    "name": "nav-item-3",
+    "label": "الطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-review",
+    "node": "I1206:1352;1206:535",
+    "name": "nav-item-4",
+    "label": "مسودات الطلبات",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-review",
+    "node": "I1206:1352;1206:539",
+    "name": "nav-item-5",
+    "label": "التقارير",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-review",
+    "node": "I1206:1352;1206:543",
+    "name": "nav-item-6",
+    "label": "الحساب",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-submitted",
+    "node": "928:606",
+    "name": "btn-primary",
+    "label": "عرض تفاصيل الطلب",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-submitted",
+    "node": "928:608",
+    "name": "btn-secondary",
+    "label": "العودة للطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-submitted",
+    "node": "I1206:1394;1206:519",
+    "name": "nav-item-0",
+    "label": "لوحة المعلومات",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-submitted",
+    "node": "I1206:1394;1206:523",
+    "name": "nav-item-1",
+    "label": "الشبكة / الفنانون",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-submitted",
+    "node": "I1206:1394;1206:527",
+    "name": "nav-item-2",
+    "label": "المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-submitted",
+    "node": "I1206:1394;1206:531",
+    "name": "nav-item-3",
+    "label": "الطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-submitted",
+    "node": "I1206:1394;1206:535",
+    "name": "nav-item-4",
+    "label": "مسودات الطلبات",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-submitted",
+    "node": "I1206:1394;1206:539",
+    "name": "nav-item-5",
+    "label": "التقارير",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-order-submitted",
+    "node": "I1206:1394;1206:543",
+    "name": "nav-item-6",
+    "label": "الحساب",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-artist-profile",
+    "node": "946:478",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-artist-profile",
+    "node": "946:531",
+    "name": "btn-view",
+    "label": "عرض المنتج",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-artist-profile",
+    "node": "946:543",
+    "name": "btn-view",
+    "label": "عرض المنتج",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-artist-profile",
+    "node": "946:555",
+    "name": "btn-view",
+    "label": "عرض المنتج",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-artist-profile",
+    "node": "I1206:1436;1206:519",
+    "name": "nav-item-0",
+    "label": "لوحة المعلومات",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-artist-profile",
+    "node": "I1206:1436;1206:523",
+    "name": "nav-item-1",
+    "label": "الشبكة / الفنانون",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-artist-profile",
+    "node": "I1206:1436;1206:527",
+    "name": "nav-item-2",
+    "label": "المنتجات التصديرية",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-artist-profile",
+    "node": "I1206:1436;1206:531",
+    "name": "nav-item-3",
+    "label": "الطلبات",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-artist-profile",
+    "node": "I1206:1436;1206:535",
+    "name": "nav-item-4",
+    "label": "مسودات الطلبات",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-artist-profile",
+    "node": "I1206:1436;1206:539",
+    "name": "nav-item-5",
+    "label": "التقارير",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-artist-profile",
+    "node": "I1206:1436;1206:543",
+    "name": "nav-item-6",
+    "label": "الحساب",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "I1206:1478;1206:459",
+    "name": "nav-item-0",
+    "label": "Gösterge Paneli",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "I1206:1478;1206:463",
+    "name": "nav-item-1",
+    "label": "Ağ / Sanatçılar",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "I1206:1478;1206:467",
+    "name": "nav-item-2",
+    "label": "İhracat Ürünleri",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "I1206:1478;1206:471",
+    "name": "nav-item-3",
+    "label": "Siparişler",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "I1206:1478;1206:475",
+    "name": "nav-item-4",
+    "label": "Sipariş Taslakları",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "I1206:1478;1206:479",
+    "name": "nav-item-5",
+    "label": "Raporlar",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "I1206:1478;1206:483",
+    "name": "nav-item-6",
+    "label": "Hesap",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "915:3100",
+    "name": "notification-btn",
+    "label": "notification-btn",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "915:3191",
+    "name": "action-btn-0",
+    "label": "İhracat Ağını Keşfet İhracata hazır sanatçıları keşfedin",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "915:3198",
+    "name": "action-btn-1",
+    "label": "İhracat Ürünlerine Göz At İhracat kataloğuna yeni ürün girin",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "915:3205",
+    "name": "action-btn-2",
+    "label": "Rapor İndir Bu ayın ihracat raporunu alın",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-dashboard",
+    "node": "915:3212",
+    "name": "action-btn-3",
+    "label": "Sipariş Taslağı Oluştur Manuel bir sipariş girişi yapın",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-network-artists",
+    "node": "I1206:1520;1206:459",
+    "name": "nav-item-0",
+    "label": "Gösterge Paneli",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-network-artists",
+    "node": "I1206:1520;1206:463",
+    "name": "nav-item-1",
+    "label": "Ağ / Sanatçılar",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-network-artists",
+    "node": "I1206:1520;1206:467",
+    "name": "nav-item-2",
+    "label": "İhracat Ürünleri",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-network-artists",
+    "node": "I1206:1520;1206:471",
+    "name": "nav-item-3",
+    "label": "Siparişler",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-network-artists",
+    "node": "I1206:1520;1206:475",
+    "name": "nav-item-4",
+    "label": "Sipariş Taslakları",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-network-artists",
+    "node": "I1206:1520;1206:479",
+    "name": "nav-item-5",
+    "label": "Raporlar",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-network-artists",
+    "node": "I1206:1520;1206:483",
+    "name": "nav-item-6",
+    "label": "Hesap",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-network-artists",
+    "node": "915:3271",
+    "name": "notification-btn",
+    "label": "notification-btn",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-network-artists",
+    "node": "915:3280",
+    "name": "primary-btn",
+    "label": "İhracata Hazır Sanatçılar",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-network-artists",
+    "node": "915:3332",
+    "name": "prev-btn",
+    "label": "Önceki",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-network-artists",
+    "node": "915:3340",
+    "name": "next-btn",
+    "label": "Sonraki",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "I1206:1562;1206:459",
+    "name": "nav-item-0",
+    "label": "Gösterge Paneli",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "I1206:1562;1206:463",
+    "name": "nav-item-1",
+    "label": "Ağ / Sanatçılar",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "I1206:1562;1206:467",
+    "name": "nav-item-2",
+    "label": "İhracat Ürünleri",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "I1206:1562;1206:471",
+    "name": "nav-item-3",
+    "label": "Siparişler",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "I1206:1562;1206:475",
+    "name": "nav-item-4",
+    "label": "Sipariş Taslakları",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "I1206:1562;1206:479",
+    "name": "nav-item-5",
+    "label": "Raporlar",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "I1206:1562;1206:483",
+    "name": "nav-item-6",
+    "label": "Hesap",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "915:3394",
+    "name": "notification-btn",
+    "label": "notification-btn",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "I1206:1646;1206:459",
+    "name": "nav-item-0",
+    "label": "Gösterge Paneli",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "I1206:1646;1206:463",
+    "name": "nav-item-1",
+    "label": "Ağ / Sanatçılar",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "I1206:1646;1206:467",
+    "name": "nav-item-2",
+    "label": "İhracat Ürünleri",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "I1206:1646;1206:471",
+    "name": "nav-item-3",
+    "label": "Siparişler",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "I1206:1646;1206:475",
+    "name": "nav-item-4",
+    "label": "Sipariş Taslakları",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "I1206:1646;1206:479",
+    "name": "nav-item-5",
+    "label": "Raporlar",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "I1206:1646;1206:483",
+    "name": "nav-item-6",
+    "label": "Hesap",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "915:3820",
+    "name": "FilterButton",
+    "label": "Filtrele",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "915:3834",
+    "label": "XORD-1024",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "915:3844",
+    "label": "XORD-1023",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "915:3854",
+    "label": "XORD-1022",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "915:3864",
+    "label": "XORD-1021",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-orders-list",
+    "node": "915:3874",
+    "label": "XORD-1020",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-detail",
+    "node": "I1206:1688;1206:459",
+    "name": "nav-item-0",
+    "label": "Gösterge Paneli",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-detail",
+    "node": "I1206:1688;1206:463",
+    "name": "nav-item-1",
+    "label": "Ağ / Sanatçılar",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-detail",
+    "node": "I1206:1688;1206:467",
+    "name": "nav-item-2",
+    "label": "İhracat Ürünleri",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-detail",
+    "node": "I1206:1688;1206:471",
+    "name": "nav-item-3",
+    "label": "Siparişler",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-detail",
+    "node": "I1206:1688;1206:475",
+    "name": "nav-item-4",
+    "label": "Sipariş Taslakları",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-detail",
+    "node": "I1206:1688;1206:479",
+    "name": "nav-item-5",
+    "label": "Raporlar",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-detail",
+    "node": "I1206:1688;1206:483",
+    "name": "nav-item-6",
+    "label": "Hesap",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-draft",
+    "node": "I1206:1730;1206:459",
+    "name": "nav-item-0",
+    "label": "Gösterge Paneli",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-draft",
+    "node": "I1206:1730;1206:463",
+    "name": "nav-item-1",
+    "label": "Ağ / Sanatçılar",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-draft",
+    "node": "I1206:1730;1206:467",
+    "name": "nav-item-2",
+    "label": "İhracat Ürünleri",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-draft",
+    "node": "I1206:1730;1206:471",
+    "name": "nav-item-3",
+    "label": "Siparişler",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-draft",
+    "node": "I1206:1730;1206:475",
+    "name": "nav-item-4",
+    "label": "Sipariş Taslakları",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-draft",
+    "node": "I1206:1730;1206:479",
+    "name": "nav-item-5",
+    "label": "Raporlar",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-draft",
+    "node": "I1206:1730;1206:483",
+    "name": "nav-item-6",
+    "label": "Hesap",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-draft",
+    "node": "915:4095",
+    "name": "SubmitBtn",
+    "label": "Siparişi Gönder",
+    "destination": "order-review",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-draft",
+    "node": "915:4097",
+    "name": "SaveBtn",
+    "label": "Taslak Olarak Kaydet",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-account-preferences",
+    "node": "I1206:1772;1206:459",
+    "name": "nav-item-0",
+    "label": "Gösterge Paneli",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-account-preferences",
+    "node": "I1206:1772;1206:463",
+    "name": "nav-item-1",
+    "label": "Ağ / Sanatçılar",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-account-preferences",
+    "node": "I1206:1772;1206:467",
+    "name": "nav-item-2",
+    "label": "İhracat Ürünleri",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-account-preferences",
+    "node": "I1206:1772;1206:471",
+    "name": "nav-item-3",
+    "label": "Siparişler",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-account-preferences",
+    "node": "I1206:1772;1206:475",
+    "name": "nav-item-4",
+    "label": "Sipariş Taslakları",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-account-preferences",
+    "node": "I1206:1772;1206:479",
+    "name": "nav-item-5",
+    "label": "Raporlar",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-account-preferences",
+    "node": "I1206:1772;1206:483",
+    "name": "nav-item-6",
+    "label": "Hesap",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "I1206:1814;1206:459",
+    "name": "nav-item-0",
+    "label": "Gösterge Paneli",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "I1206:1814;1206:463",
+    "name": "nav-item-1",
+    "label": "Ağ / Sanatçılar",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "I1206:1814;1206:467",
+    "name": "nav-item-2",
+    "label": "İhracat Ürünleri",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "I1206:1814;1206:471",
+    "name": "nav-item-3",
+    "label": "Siparişler",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "I1206:1814;1206:475",
+    "name": "nav-item-4",
+    "label": "Sipariş Taslakları",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "I1206:1814;1206:479",
+    "name": "nav-item-5",
+    "label": "Raporlar",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "I1206:1814;1206:483",
+    "name": "nav-item-6",
+    "label": "Hesap",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "928:755",
+    "label": "XORD-2024-0847",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "928:813",
+    "name": "btn-submit",
+    "label": "Siparişi Gönder",
+    "destination": "order-submitted",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-review",
+    "node": "928:817",
+    "name": "btn-back-draft",
+    "label": "Taslağa Dön",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-submitted",
+    "node": "I1206:1856;1206:459",
+    "name": "nav-item-0",
+    "label": "Gösterge Paneli",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-submitted",
+    "node": "I1206:1856;1206:463",
+    "name": "nav-item-1",
+    "label": "Ağ / Sanatçılar",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-submitted",
+    "node": "I1206:1856;1206:467",
+    "name": "nav-item-2",
+    "label": "İhracat Ürünleri",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-submitted",
+    "node": "I1206:1856;1206:471",
+    "name": "nav-item-3",
+    "label": "Siparişler",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-submitted",
+    "node": "I1206:1856;1206:475",
+    "name": "nav-item-4",
+    "label": "Sipariş Taslakları",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-submitted",
+    "node": "I1206:1856;1206:479",
+    "name": "nav-item-5",
+    "label": "Raporlar",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-submitted",
+    "node": "I1206:1856;1206:483",
+    "name": "nav-item-6",
+    "label": "Hesap",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-submitted",
+    "node": "928:898",
+    "name": "btn-secondary",
+    "label": "Siparişlere Dön",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-order-submitted",
+    "node": "928:900",
+    "name": "btn-primary",
+    "label": "Sipariş Detayını Görüntüle",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-artist-profile",
+    "node": "I1206:1898;1206:459",
+    "name": "nav-item-0",
+    "label": "Gösterge Paneli",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-artist-profile",
+    "node": "I1206:1898;1206:463",
+    "name": "nav-item-1",
+    "label": "Ağ / Sanatçılar",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-artist-profile",
+    "node": "I1206:1898;1206:467",
+    "name": "nav-item-2",
+    "label": "İhracat Ürünleri",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-artist-profile",
+    "node": "I1206:1898;1206:471",
+    "name": "nav-item-3",
+    "label": "Siparişler",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-artist-profile",
+    "node": "I1206:1898;1206:475",
+    "name": "nav-item-4",
+    "label": "Sipariş Taslakları",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-artist-profile",
+    "node": "I1206:1898;1206:479",
+    "name": "nav-item-5",
+    "label": "Raporlar",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-artist-profile",
+    "node": "I1206:1898;1206:483",
+    "name": "nav-item-6",
+    "label": "Hesap",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-artist-profile",
+    "node": "946:608",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-artist-profile",
+    "node": "946:661",
+    "name": "btn-view",
+    "label": "Ürünü Görüntüle",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-artist-profile",
+    "node": "946:673",
+    "name": "btn-view",
+    "label": "Ürünü Görüntüle",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-artist-profile",
+    "node": "946:685",
+    "name": "btn-view",
+    "label": "Ürünü Görüntüle",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-dashboard",
+    "node": "I1206:1940;1206:459",
+    "name": "nav-item-0",
+    "label": "Панель управления",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-dashboard",
+    "node": "I1206:1940;1206:463",
+    "name": "nav-item-1",
+    "label": "Сеть / Художники",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-dashboard",
+    "node": "I1206:1940;1206:467",
+    "name": "nav-item-2",
+    "label": "Экспортные товары",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-dashboard",
+    "node": "I1206:1940;1206:471",
+    "name": "nav-item-3",
+    "label": "Заказы",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-dashboard",
+    "node": "I1206:1940;1206:475",
+    "name": "nav-item-4",
+    "label": "Черновики заказов",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-dashboard",
+    "node": "I1206:1940;1206:479",
+    "name": "nav-item-5",
+    "label": "Отчёты",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-dashboard",
+    "node": "I1206:1940;1206:483",
+    "name": "nav-item-6",
+    "label": "Аккаунт",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-dashboard",
+    "node": "915:4385",
+    "label": "XORD-9821",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-dashboard",
+    "node": "915:4393",
+    "label": "XORD-9820",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-dashboard",
+    "node": "915:4401",
+    "label": "XORD-9819",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-dashboard",
+    "node": "915:4409",
+    "label": "XORD-9818",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "I1206:2108;1206:459",
+    "name": "nav-item-0",
+    "label": "Панель управления",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "I1206:2108;1206:463",
+    "name": "nav-item-1",
+    "label": "Сеть / Художники",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "I1206:2108;1206:467",
+    "name": "nav-item-2",
+    "label": "Экспортные товары",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "I1206:2108;1206:471",
+    "name": "nav-item-3",
+    "label": "Заказы",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "I1206:2108;1206:475",
+    "name": "nav-item-4",
+    "label": "Черновики заказов",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "I1206:2108;1206:479",
+    "name": "nav-item-5",
+    "label": "Отчёты",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "I1206:2108;1206:483",
+    "name": "nav-item-6",
+    "label": "Аккаунт",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5016",
+    "name": "Btn-Export",
+    "label": "Экспорт Excel",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5019",
+    "name": "Btn-Create",
+    "label": "Новый заказ",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5068",
+    "label": "XORD-1024",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5077",
+    "name": "Btn-View",
+    "label": "Btn-View",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5080",
+    "label": "XORD-1023",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5089",
+    "name": "Btn-View",
+    "label": "Btn-View",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5092",
+    "label": "XORD-1022",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5101",
+    "name": "Btn-View",
+    "label": "Btn-View",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5104",
+    "label": "XORD-1021",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5113",
+    "name": "Btn-View",
+    "label": "Btn-View",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5116",
+    "label": "XORD-1020",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-orders-list",
+    "node": "915:5125",
+    "name": "Btn-View",
+    "label": "Btn-View",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-detail",
+    "node": "I1206:2150;1206:459",
+    "name": "nav-item-0",
+    "label": "Панель управления",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-detail",
+    "node": "I1206:2150;1206:463",
+    "name": "nav-item-1",
+    "label": "Сеть / Художники",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-detail",
+    "node": "I1206:2150;1206:467",
+    "name": "nav-item-2",
+    "label": "Экспортные товары",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-detail",
+    "node": "I1206:2150;1206:471",
+    "name": "nav-item-3",
+    "label": "Заказы",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-detail",
+    "node": "I1206:2150;1206:475",
+    "name": "nav-item-4",
+    "label": "Черновики заказов",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-detail",
+    "node": "I1206:2150;1206:479",
+    "name": "nav-item-5",
+    "label": "Отчёты",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-detail",
+    "node": "I1206:2150;1206:483",
+    "name": "nav-item-6",
+    "label": "Аккаунт",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-detail",
+    "node": "915:5165",
+    "label": "XORD-2024-0847",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-detail",
+    "node": "915:5172",
+    "name": "Btn-Print",
+    "label": "Печать накладной",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-draft",
+    "node": "I1206:2192;1206:459",
+    "name": "nav-item-0",
+    "label": "Панель управления",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-draft",
+    "node": "I1206:2192;1206:463",
+    "name": "nav-item-1",
+    "label": "Сеть / Художники",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-draft",
+    "node": "I1206:2192;1206:467",
+    "name": "nav-item-2",
+    "label": "Экспортные товары",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-draft",
+    "node": "I1206:2192;1206:471",
+    "name": "nav-item-3",
+    "label": "Заказы",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-draft",
+    "node": "I1206:2192;1206:475",
+    "name": "nav-item-4",
+    "label": "Черновики заказов",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-draft",
+    "node": "I1206:2192;1206:479",
+    "name": "nav-item-5",
+    "label": "Отчёты",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-draft",
+    "node": "I1206:2192;1206:483",
+    "name": "nav-item-6",
+    "label": "Аккаунт",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-draft",
+    "node": "915:5355",
+    "name": "Btn-Submit",
+    "label": "Отправить на верификацию",
+    "destination": "order-review",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-draft",
+    "node": "915:5357",
+    "name": "Btn-Save",
+    "label": "Сохранить черновик",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-account-preferences",
+    "node": "I1206:2234;1206:459",
+    "name": "nav-item-0",
+    "label": "Панель управления",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-account-preferences",
+    "node": "I1206:2234;1206:463",
+    "name": "nav-item-1",
+    "label": "Сеть / Художники",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-account-preferences",
+    "node": "I1206:2234;1206:467",
+    "name": "nav-item-2",
+    "label": "Экспортные товары",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-account-preferences",
+    "node": "I1206:2234;1206:471",
+    "name": "nav-item-3",
+    "label": "Заказы",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-account-preferences",
+    "node": "I1206:2234;1206:475",
+    "name": "nav-item-4",
+    "label": "Черновики заказов",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-account-preferences",
+    "node": "I1206:2234;1206:479",
+    "name": "nav-item-5",
+    "label": "Отчёты",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-account-preferences",
+    "node": "I1206:2234;1206:483",
+    "name": "nav-item-6",
+    "label": "Аккаунт",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "I1206:2276;1206:459",
+    "name": "nav-item-0",
+    "label": "Панель управления",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "I1206:2276;1206:463",
+    "name": "nav-item-1",
+    "label": "Сеть / Художники",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "I1206:2276;1206:467",
+    "name": "nav-item-2",
+    "label": "Экспортные товары",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "I1206:2276;1206:471",
+    "name": "nav-item-3",
+    "label": "Заказы",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "I1206:2276;1206:475",
+    "name": "nav-item-4",
+    "label": "Черновики заказов",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "I1206:2276;1206:479",
+    "name": "nav-item-5",
+    "label": "Отчёты",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "I1206:2276;1206:483",
+    "name": "nav-item-6",
+    "label": "Аккаунт",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "928:957",
+    "label": "XORD-2024-0847",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "928:1015",
+    "name": "btn-submit",
+    "label": "Отправить заказ",
+    "destination": "order-submitted",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-review",
+    "node": "928:1019",
+    "name": "btn-back-draft",
+    "label": "Вернуться к черновику",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-submitted",
+    "node": "I1206:2318;1206:459",
+    "name": "nav-item-0",
+    "label": "Панель управления",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-submitted",
+    "node": "I1206:2318;1206:463",
+    "name": "nav-item-1",
+    "label": "Сеть / Художники",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-submitted",
+    "node": "I1206:2318;1206:467",
+    "name": "nav-item-2",
+    "label": "Экспортные товары",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-submitted",
+    "node": "I1206:2318;1206:471",
+    "name": "nav-item-3",
+    "label": "Заказы",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-submitted",
+    "node": "I1206:2318;1206:475",
+    "name": "nav-item-4",
+    "label": "Черновики заказов",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-submitted",
+    "node": "I1206:2318;1206:479",
+    "name": "nav-item-5",
+    "label": "Отчёты",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-submitted",
+    "node": "I1206:2318;1206:483",
+    "name": "nav-item-6",
+    "label": "Аккаунт",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-submitted",
+    "node": "928:1100",
+    "name": "btn-secondary",
+    "label": "Вернуться к заказам",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-order-submitted",
+    "node": "928:1102",
+    "name": "btn-primary",
+    "label": "Просмотр деталей заказа",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-artist-profile",
+    "node": "I1206:2360;1206:459",
+    "name": "nav-item-0",
+    "label": "Панель управления",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-artist-profile",
+    "node": "I1206:2360;1206:463",
+    "name": "nav-item-1",
+    "label": "Сеть / Художники",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-artist-profile",
+    "node": "I1206:2360;1206:467",
+    "name": "nav-item-2",
+    "label": "Экспортные товары",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-artist-profile",
+    "node": "I1206:2360;1206:471",
+    "name": "nav-item-3",
+    "label": "Заказы",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-artist-profile",
+    "node": "I1206:2360;1206:475",
+    "name": "nav-item-4",
+    "label": "Черновики заказов",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-artist-profile",
+    "node": "I1206:2360;1206:479",
+    "name": "nav-item-5",
+    "label": "Отчёты",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-artist-profile",
+    "node": "I1206:2360;1206:483",
+    "name": "nav-item-6",
+    "label": "Аккаунт",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-artist-profile",
+    "node": "946:738",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-artist-profile",
+    "node": "946:792",
+    "label": "Просмотр",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-artist-profile",
+    "node": "946:804",
+    "label": "Просмотр",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ru-artist-profile",
+    "node": "946:816",
+    "label": "Просмотр",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "I1206:2402;1206:459",
+    "name": "nav-item-0",
+    "label": "仪表板",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "I1206:2402;1206:463",
+    "name": "nav-item-1",
+    "label": "网络/艺术家",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "I1206:2402;1206:467",
+    "name": "nav-item-2",
+    "label": "出口产品",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "I1206:2402;1206:471",
+    "name": "nav-item-3",
+    "label": "订单",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "I1206:2402;1206:475",
+    "name": "nav-item-4",
+    "label": "订单草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "I1206:2402;1206:479",
+    "name": "nav-item-5",
+    "label": "报告",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "I1206:2402;1206:483",
+    "name": "nav-item-6",
+    "label": "账户",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "915:5674",
+    "label": "XORD-9081",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "915:5681",
+    "label": "XORD-9074",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "915:5688",
+    "label": "XORD-9063",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "915:5695",
+    "label": "XORD-9052",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "915:5706",
+    "label": "录入新订单",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "915:5709",
+    "label": "浏览出口产品",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "915:5710",
+    "name": "Frame",
+    "label": "下载手工艺品出口指南",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-dashboard",
+    "node": "915:5715",
+    "label": "创建新订单草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-network-artists",
+    "node": "I1206:2444;1206:459",
+    "name": "nav-item-0",
+    "label": "仪表板",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-network-artists",
+    "node": "I1206:2444;1206:463",
+    "name": "nav-item-1",
+    "label": "网络/艺术家",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-network-artists",
+    "node": "I1206:2444;1206:467",
+    "name": "nav-item-2",
+    "label": "出口产品",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-network-artists",
+    "node": "I1206:2444;1206:471",
+    "name": "nav-item-3",
+    "label": "订单",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-network-artists",
+    "node": "I1206:2444;1206:475",
+    "name": "nav-item-4",
+    "label": "订单草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-network-artists",
+    "node": "I1206:2444;1206:479",
+    "name": "nav-item-5",
+    "label": "报告",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-network-artists",
+    "node": "I1206:2444;1206:483",
+    "name": "nav-item-6",
+    "label": "账户",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-network-artists",
+    "node": "915:5768",
+    "label": "浏览出口艺术家",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "I1206:2486;1206:459",
+    "name": "nav-item-0",
+    "label": "仪表板",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "I1206:2486;1206:463",
+    "name": "nav-item-1",
+    "label": "网络/艺术家",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "I1206:2486;1206:467",
+    "name": "nav-item-2",
+    "label": "出口产品",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "I1206:2486;1206:471",
+    "name": "nav-item-3",
+    "label": "订单",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "I1206:2486;1206:475",
+    "name": "nav-item-4",
+    "label": "订单草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "I1206:2486;1206:479",
+    "name": "nav-item-5",
+    "label": "报告",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "I1206:2486;1206:483",
+    "name": "nav-item-6",
+    "label": "账户",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "I1206:2570;1206:459",
+    "name": "nav-item-0",
+    "label": "仪表板",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "I1206:2570;1206:463",
+    "name": "nav-item-1",
+    "label": "网络/艺术家",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "I1206:2570;1206:467",
+    "name": "nav-item-2",
+    "label": "出口产品",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "I1206:2570;1206:471",
+    "name": "nav-item-3",
+    "label": "订单",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "I1206:2570;1206:475",
+    "name": "nav-item-4",
+    "label": "订单草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "I1206:2570;1206:479",
+    "name": "nav-item-5",
+    "label": "报告",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "I1206:2570;1206:483",
+    "name": "nav-item-6",
+    "label": "账户",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "915:6239",
+    "label": "新建出口委托",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "915:6251",
+    "label": "XORD-1024",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "915:6260",
+    "label": "查看详情",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "915:6262",
+    "label": "XORD-1025",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "915:6271",
+    "label": "查看详情",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "915:6273",
+    "label": "XORD-1026",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "915:6282",
+    "label": "查看详情",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "915:6284",
+    "label": "XORD-1027",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-orders-list",
+    "node": "915:6293",
+    "label": "查看详情",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-detail",
+    "node": "I1206:2612;1206:459",
+    "name": "nav-item-0",
+    "label": "仪表板",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-detail",
+    "node": "I1206:2612;1206:463",
+    "name": "nav-item-1",
+    "label": "网络/艺术家",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-detail",
+    "node": "I1206:2612;1206:467",
+    "name": "nav-item-2",
+    "label": "出口产品",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-detail",
+    "node": "I1206:2612;1206:471",
+    "name": "nav-item-3",
+    "label": "订单",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-detail",
+    "node": "I1206:2612;1206:475",
+    "name": "nav-item-4",
+    "label": "订单草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-detail",
+    "node": "I1206:2612;1206:479",
+    "name": "nav-item-5",
+    "label": "报告",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-detail",
+    "node": "I1206:2612;1206:483",
+    "name": "nav-item-6",
+    "label": "账户",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-detail",
+    "node": "915:6341",
+    "label": "XORD-2024-0847",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-detail",
+    "node": "915:6346",
+    "name": "Frame",
+    "label": "下载报关单",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-detail",
+    "node": "915:6348",
+    "name": "Frame",
+    "label": "联系关务客服",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-draft",
+    "node": "I1206:2654;1206:459",
+    "name": "nav-item-0",
+    "label": "仪表板",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-draft",
+    "node": "I1206:2654;1206:463",
+    "name": "nav-item-1",
+    "label": "网络/艺术家",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-draft",
+    "node": "I1206:2654;1206:467",
+    "name": "nav-item-2",
+    "label": "出口产品",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-draft",
+    "node": "I1206:2654;1206:471",
+    "name": "nav-item-3",
+    "label": "订单",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-draft",
+    "node": "I1206:2654;1206:475",
+    "name": "nav-item-4",
+    "label": "订单草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-draft",
+    "node": "I1206:2654;1206:479",
+    "name": "nav-item-5",
+    "label": "报告",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-draft",
+    "node": "I1206:2654;1206:483",
+    "name": "nav-item-6",
+    "label": "账户",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-draft",
+    "node": "915:6493",
+    "name": "Frame",
+    "label": "重置表单",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-draft",
+    "node": "915:6495",
+    "name": "Frame",
+    "label": "保存订单草稿",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-draft",
+    "node": "915:6498",
+    "label": "提交系统审核",
+    "destination": "order-review",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "I1206:2738;1206:459",
+    "name": "nav-item-0",
+    "label": "仪表板",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "I1206:2738;1206:463",
+    "name": "nav-item-1",
+    "label": "网络/艺术家",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "I1206:2738;1206:467",
+    "name": "nav-item-2",
+    "label": "出口产品",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "I1206:2738;1206:471",
+    "name": "nav-item-3",
+    "label": "订单",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "I1206:2738;1206:475",
+    "name": "nav-item-4",
+    "label": "订单草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "I1206:2738;1206:479",
+    "name": "nav-item-5",
+    "label": "报告",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "I1206:2738;1206:483",
+    "name": "nav-item-6",
+    "label": "账户",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "928:1161",
+    "label": "XORD-2024-0847",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "928:1218",
+    "name": "btn-submit",
+    "label": "提交订单",
+    "destination": "order-submitted",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-review",
+    "node": "928:1222",
+    "name": "btn-back-draft",
+    "label": "返回草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-submitted",
+    "node": "I1206:2780;1206:459",
+    "name": "nav-item-0",
+    "label": "仪表板",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-submitted",
+    "node": "I1206:2780;1206:463",
+    "name": "nav-item-1",
+    "label": "网络/艺术家",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-submitted",
+    "node": "I1206:2780;1206:467",
+    "name": "nav-item-2",
+    "label": "出口产品",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-submitted",
+    "node": "I1206:2780;1206:471",
+    "name": "nav-item-3",
+    "label": "订单",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-submitted",
+    "node": "I1206:2780;1206:475",
+    "name": "nav-item-4",
+    "label": "订单草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-submitted",
+    "node": "I1206:2780;1206:479",
+    "name": "nav-item-5",
+    "label": "报告",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-submitted",
+    "node": "I1206:2780;1206:483",
+    "name": "nav-item-6",
+    "label": "账户",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-submitted",
+    "node": "928:1303",
+    "name": "btn-secondary",
+    "label": "返回订单列表",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-order-submitted",
+    "node": "928:1305",
+    "name": "btn-primary",
+    "label": "查看订单详情",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-artist-profile",
+    "node": "I1206:2822;1206:459",
+    "name": "nav-item-0",
+    "label": "仪表板",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-artist-profile",
+    "node": "I1206:2822;1206:463",
+    "name": "nav-item-1",
+    "label": "网络/艺术家",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-artist-profile",
+    "node": "I1206:2822;1206:467",
+    "name": "nav-item-2",
+    "label": "出口产品",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-artist-profile",
+    "node": "I1206:2822;1206:471",
+    "name": "nav-item-3",
+    "label": "订单",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-artist-profile",
+    "node": "I1206:2822;1206:475",
+    "name": "nav-item-4",
+    "label": "订单草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-artist-profile",
+    "node": "I1206:2822;1206:479",
+    "name": "nav-item-5",
+    "label": "报告",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-artist-profile",
+    "node": "I1206:2822;1206:483",
+    "name": "nav-item-6",
+    "label": "账户",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-artist-profile",
+    "node": "946:868",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-artist-profile",
+    "node": "946:921",
+    "name": "btn-view",
+    "label": "查看产品",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-artist-profile",
+    "node": "946:933",
+    "name": "btn-view",
+    "label": "查看产品",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-artist-profile",
+    "node": "946:945",
+    "name": "btn-view",
+    "label": "查看产品",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "I1206:2864;1206:459",
+    "name": "nav-item-0",
+    "label": "Tableau de bord",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "I1206:2864;1206:463",
+    "name": "nav-item-1",
+    "label": "Réseau / Artistes",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "I1206:2864;1206:467",
+    "name": "nav-item-2",
+    "label": "nav-item-2",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "I1206:2864;1206:471",
+    "name": "nav-item-3",
+    "label": "Commandes",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "I1206:2864;1206:475",
+    "name": "nav-item-4",
+    "label": "Brouillons de commandes",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "I1206:2864;1206:479",
+    "name": "nav-item-5",
+    "label": "Rapports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "I1206:2864;1206:483",
+    "name": "nav-item-6",
+    "label": "Compte",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "915:6836",
+    "label": "XORD-9872",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "915:6844",
+    "label": "XORD-9851",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "915:6852",
+    "label": "XORD-9840",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "915:6860",
+    "label": "XORD-9833",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "915:6872",
+    "label": "Créer un brouillon de commande",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "915:6875",
+    "label": "Parcourir les produits d’exportation",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-dashboard",
+    "node": "915:6878",
+    "label": "Parcourir le réseau export",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "I1206:3032;1206:459",
+    "name": "nav-item-0",
+    "label": "Tableau de bord",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "I1206:3032;1206:463",
+    "name": "nav-item-1",
+    "label": "Réseau / Artistes",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "I1206:3032;1206:467",
+    "name": "nav-item-2",
+    "label": "nav-item-2",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "I1206:3032;1206:471",
+    "name": "nav-item-3",
+    "label": "Commandes",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "I1206:3032;1206:475",
+    "name": "nav-item-4",
+    "label": "Brouillons de commandes",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "I1206:3032;1206:479",
+    "name": "nav-item-5",
+    "label": "Rapports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "I1206:3032;1206:483",
+    "name": "nav-item-6",
+    "label": "Compte",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "915:7486",
+    "name": "filter-button",
+    "label": "Filtres",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "915:7498",
+    "label": "XORD-1024",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "915:7507",
+    "label": "XORD-1025",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "915:7516",
+    "label": "XORD-1026",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "915:7525",
+    "label": "XORD-1021",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "915:7534",
+    "label": "XORD-1020",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "915:7545",
+    "name": "btn-prev",
+    "label": "Précédent",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-orders-list",
+    "node": "915:7547",
+    "name": "btn-next",
+    "label": "Suivant",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-detail",
+    "node": "I1206:3074;1206:459",
+    "name": "nav-item-0",
+    "label": "Tableau de bord",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-detail",
+    "node": "I1206:3074;1206:463",
+    "name": "nav-item-1",
+    "label": "Réseau / Artistes",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-detail",
+    "node": "I1206:3074;1206:467",
+    "name": "nav-item-2",
+    "label": "nav-item-2",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-detail",
+    "node": "I1206:3074;1206:471",
+    "name": "nav-item-3",
+    "label": "Commandes",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-detail",
+    "node": "I1206:3074;1206:475",
+    "name": "nav-item-4",
+    "label": "Brouillons de commandes",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-detail",
+    "node": "I1206:3074;1206:479",
+    "name": "nav-item-5",
+    "label": "Rapports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-detail",
+    "node": "I1206:3074;1206:483",
+    "name": "nav-item-6",
+    "label": "Compte",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-detail",
+    "node": "915:7594",
+    "name": "back-btn",
+    "label": "Retour aux commandes",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-draft",
+    "node": "I1206:3116;1206:459",
+    "name": "nav-item-0",
+    "label": "Tableau de bord",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-draft",
+    "node": "I1206:3116;1206:463",
+    "name": "nav-item-1",
+    "label": "Réseau / Artistes",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-draft",
+    "node": "I1206:3116;1206:467",
+    "name": "nav-item-2",
+    "label": "nav-item-2",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-draft",
+    "node": "I1206:3116;1206:471",
+    "name": "nav-item-3",
+    "label": "Commandes",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-draft",
+    "node": "I1206:3116;1206:475",
+    "name": "nav-item-4",
+    "label": "Brouillons de commandes",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-draft",
+    "node": "I1206:3116;1206:479",
+    "name": "nav-item-5",
+    "label": "Rapports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-draft",
+    "node": "I1206:3116;1206:483",
+    "name": "nav-item-6",
+    "label": "Compte",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-draft",
+    "node": "915:7737",
+    "label": "Créer un brouillon de commande",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-draft",
+    "node": "915:7797",
+    "name": "btn-submit",
+    "label": "Soumettre la commande",
+    "destination": "order-review",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-draft",
+    "node": "915:7799",
+    "name": "btn-save",
+    "label": "Enregistrer comme brouillon",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-account-preferences",
+    "node": "I1206:3158;1206:459",
+    "name": "nav-item-0",
+    "label": "Tableau de bord",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-account-preferences",
+    "node": "I1206:3158;1206:463",
+    "name": "nav-item-1",
+    "label": "Réseau / Artistes",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-account-preferences",
+    "node": "I1206:3158;1206:467",
+    "name": "nav-item-2",
+    "label": "nav-item-2",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-account-preferences",
+    "node": "I1206:3158;1206:471",
+    "name": "nav-item-3",
+    "label": "Commandes",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-account-preferences",
+    "node": "I1206:3158;1206:475",
+    "name": "nav-item-4",
+    "label": "Brouillons de commandes",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-account-preferences",
+    "node": "I1206:3158;1206:479",
+    "name": "nav-item-5",
+    "label": "Rapports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-account-preferences",
+    "node": "I1206:3158;1206:483",
+    "name": "nav-item-6",
+    "label": "Compte",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-account-preferences",
+    "node": "915:7920",
+    "name": "save-btn-action",
+    "label": "Sauvegarder les modifications",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "I1206:3200;1206:459",
+    "name": "nav-item-0",
+    "label": "Tableau de bord",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "I1206:3200;1206:463",
+    "name": "nav-item-1",
+    "label": "Réseau / Artistes",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "I1206:3200;1206:467",
+    "name": "nav-item-2",
+    "label": "nav-item-2",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "I1206:3200;1206:471",
+    "name": "nav-item-3",
+    "label": "Commandes",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "I1206:3200;1206:475",
+    "name": "nav-item-4",
+    "label": "Brouillons de commandes",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "I1206:3200;1206:479",
+    "name": "nav-item-5",
+    "label": "Rapports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "I1206:3200;1206:483",
+    "name": "nav-item-6",
+    "label": "Compte",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "928:1360",
+    "label": "XORD-2024-0847",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "928:1417",
+    "name": "btn-submit",
+    "label": "Envoyer la commande",
+    "destination": "order-submitted",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-review",
+    "node": "928:1421",
+    "name": "btn-back-draft",
+    "label": "Retour au brouillon",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-submitted",
+    "node": "I1206:3242;1206:459",
+    "name": "nav-item-0",
+    "label": "Tableau de bord",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-submitted",
+    "node": "I1206:3242;1206:463",
+    "name": "nav-item-1",
+    "label": "Réseau / Artistes",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-submitted",
+    "node": "I1206:3242;1206:467",
+    "name": "nav-item-2",
+    "label": "nav-item-2",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-submitted",
+    "node": "I1206:3242;1206:471",
+    "name": "nav-item-3",
+    "label": "Commandes",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-submitted",
+    "node": "I1206:3242;1206:475",
+    "name": "nav-item-4",
+    "label": "Brouillons de commandes",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-submitted",
+    "node": "I1206:3242;1206:479",
+    "name": "nav-item-5",
+    "label": "Rapports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-submitted",
+    "node": "I1206:3242;1206:483",
+    "name": "nav-item-6",
+    "label": "Compte",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-submitted",
+    "node": "928:1502",
+    "name": "btn-secondary",
+    "label": "Retour aux commandes",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-order-submitted",
+    "node": "928:1504",
+    "name": "btn-primary",
+    "label": "Voir le détail de la commande",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-artist-profile",
+    "node": "I1206:3284;1206:459",
+    "name": "nav-item-0",
+    "label": "Tableau de bord",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-artist-profile",
+    "node": "I1206:3284;1206:463",
+    "name": "nav-item-1",
+    "label": "Réseau / Artistes",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-artist-profile",
+    "node": "I1206:3284;1206:467",
+    "name": "nav-item-2",
+    "label": "nav-item-2",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-artist-profile",
+    "node": "I1206:3284;1206:471",
+    "name": "nav-item-3",
+    "label": "Commandes",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-artist-profile",
+    "node": "I1206:3284;1206:475",
+    "name": "nav-item-4",
+    "label": "Brouillons de commandes",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-artist-profile",
+    "node": "I1206:3284;1206:479",
+    "name": "nav-item-5",
+    "label": "Rapports",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-artist-profile",
+    "node": "I1206:3284;1206:483",
+    "name": "nav-item-6",
+    "label": "Compte",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-artist-profile",
+    "node": "946:998",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-artist-profile",
+    "node": "946:1051",
+    "name": "btn-view",
+    "label": "Voir le produit",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-artist-profile",
+    "node": "946:1063",
+    "name": "btn-view",
+    "label": "Voir le produit",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "fr-artist-profile",
+    "node": "946:1075",
+    "name": "btn-view",
+    "label": "Voir le produit",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "I1206:3326;1206:459",
+    "name": "nav-item-0",
+    "label": "Panel de Control",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "I1206:3326;1206:463",
+    "name": "nav-item-1",
+    "label": "Artistas de la Red",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "I1206:3326;1206:467",
+    "name": "nav-item-2",
+    "label": "Productos de exportación",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "I1206:3326;1206:471",
+    "name": "nav-item-3",
+    "label": "Pedidos",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "I1206:3326;1206:475",
+    "name": "nav-item-4",
+    "label": "Borradores de pedidos",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "I1206:3326;1206:479",
+    "name": "nav-item-5",
+    "label": "Informes",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "I1206:3326;1206:483",
+    "name": "nav-item-6",
+    "label": "Cuenta",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "915:8086",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "915:8198",
+    "label": "XORD-4509",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "915:8208",
+    "label": "XORD-4508",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "915:8218",
+    "label": "XORD-4507",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "915:8228",
+    "label": "XORD-4506",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "I1206:3410;1206:459",
+    "name": "nav-item-0",
+    "label": "Panel de Control",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "I1206:3410;1206:463",
+    "name": "nav-item-1",
+    "label": "Artistas de la Red",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "I1206:3410;1206:467",
+    "name": "nav-item-2",
+    "label": "Productos de exportación",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "I1206:3410;1206:471",
+    "name": "nav-item-3",
+    "label": "Pedidos",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "I1206:3410;1206:475",
+    "name": "nav-item-4",
+    "label": "Borradores de pedidos",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "I1206:3410;1206:479",
+    "name": "nav-item-5",
+    "label": "Informes",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "I1206:3410;1206:483",
+    "name": "nav-item-6",
+    "label": "Cuenta",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "915:8403",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:161",
+    "name": "btn-prev",
+    "label": "Anterior",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:163",
+    "name": "btn-next",
+    "label": "Siguiente",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "I1206:3494;1206:459",
+    "name": "nav-item-0",
+    "label": "Panel de Control",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "I1206:3494;1206:463",
+    "name": "nav-item-1",
+    "label": "Artistas de la Red",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "I1206:3494;1206:467",
+    "name": "nav-item-2",
+    "label": "Productos de exportación",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "I1206:3494;1206:471",
+    "name": "nav-item-3",
+    "label": "Pedidos",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "I1206:3494;1206:475",
+    "name": "nav-item-4",
+    "label": "Borradores de pedidos",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "I1206:3494;1206:479",
+    "name": "nav-item-5",
+    "label": "Informes",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "I1206:3494;1206:483",
+    "name": "nav-item-6",
+    "label": "Cuenta",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8827",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8856",
+    "label": "XORD-1024",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8865",
+    "label": "Ver",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8867",
+    "label": "XORD-1023",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8876",
+    "label": "Ver",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8878",
+    "label": "XORD-1022",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8887",
+    "label": "Ver",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8889",
+    "label": "XORD-1021",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8898",
+    "label": "Ver",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8900",
+    "label": "XORD-1020",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8909",
+    "label": "Ver",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8913",
+    "name": "prev-btn",
+    "label": "Anterior",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-orders-list",
+    "node": "915:8915",
+    "name": "next-btn",
+    "label": "Siguiente",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-detail",
+    "node": "I1206:3536;1206:459",
+    "name": "nav-item-0",
+    "label": "Panel de Control",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-detail",
+    "node": "I1206:3536;1206:463",
+    "name": "nav-item-1",
+    "label": "Artistas de la Red",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-detail",
+    "node": "I1206:3536;1206:467",
+    "name": "nav-item-2",
+    "label": "Productos de exportación",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-detail",
+    "node": "I1206:3536;1206:471",
+    "name": "nav-item-3",
+    "label": "Pedidos",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-detail",
+    "node": "I1206:3536;1206:475",
+    "name": "nav-item-4",
+    "label": "Borradores de pedidos",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-detail",
+    "node": "I1206:3536;1206:479",
+    "name": "nav-item-5",
+    "label": "Informes",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-detail",
+    "node": "I1206:3536;1206:483",
+    "name": "nav-item-6",
+    "label": "Cuenta",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-detail",
+    "node": "915:8952",
+    "label": "XORD-2024-0847",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-detail",
+    "node": "915:8958",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-detail",
+    "node": "915:8967",
+    "name": "btn-download",
+    "label": "Descargar Factura Proforma",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-detail",
+    "node": "915:8970",
+    "name": "btn-support",
+    "label": "Contactar Soporte",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-draft",
+    "node": "I1206:3578;1206:459",
+    "name": "nav-item-0",
+    "label": "Panel de Control",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-draft",
+    "node": "I1206:3578;1206:463",
+    "name": "nav-item-1",
+    "label": "Artistas de la Red",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-draft",
+    "node": "I1206:3578;1206:467",
+    "name": "nav-item-2",
+    "label": "Productos de exportación",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-draft",
+    "node": "I1206:3578;1206:471",
+    "name": "nav-item-3",
+    "label": "Pedidos",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-draft",
+    "node": "I1206:3578;1206:475",
+    "name": "nav-item-4",
+    "label": "Borradores de pedidos",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-draft",
+    "node": "I1206:3578;1206:479",
+    "name": "nav-item-5",
+    "label": "Informes",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-draft",
+    "node": "I1206:3578;1206:483",
+    "name": "nav-item-6",
+    "label": "Cuenta",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-draft",
+    "node": "915:9112",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-draft",
+    "node": "915:9169",
+    "name": "btn-save",
+    "label": "Guardar Borrador",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-draft",
+    "node": "915:9172",
+    "name": "btn-send",
+    "label": "Enviar a Revisión Aduanera",
+    "destination": "order-review",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-account-preferences",
+    "node": "I1206:3620;1206:459",
+    "name": "nav-item-0",
+    "label": "Panel de Control",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-account-preferences",
+    "node": "I1206:3620;1206:463",
+    "name": "nav-item-1",
+    "label": "Artistas de la Red",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-account-preferences",
+    "node": "I1206:3620;1206:467",
+    "name": "nav-item-2",
+    "label": "Productos de exportación",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-account-preferences",
+    "node": "I1206:3620;1206:471",
+    "name": "nav-item-3",
+    "label": "Pedidos",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-account-preferences",
+    "node": "I1206:3620;1206:475",
+    "name": "nav-item-4",
+    "label": "Borradores de pedidos",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-account-preferences",
+    "node": "I1206:3620;1206:479",
+    "name": "nav-item-5",
+    "label": "Informes",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-account-preferences",
+    "node": "I1206:3620;1206:483",
+    "name": "nav-item-6",
+    "label": "Cuenta",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-account-preferences",
+    "node": "915:9216",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-account-preferences",
+    "node": "915:9303",
+    "name": "save-btn",
+    "label": "Guardar Preferencias",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-review",
+    "node": "I1206:3662;1206:459",
+    "name": "nav-item-0",
+    "label": "Panel de Control",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-review",
+    "node": "I1206:3662;1206:463",
+    "name": "nav-item-1",
+    "label": "Artistas de la Red",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-review",
+    "node": "I1206:3662;1206:467",
+    "name": "nav-item-2",
+    "label": "Productos de exportación",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-review",
+    "node": "I1206:3662;1206:471",
+    "name": "nav-item-3",
+    "label": "Pedidos",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-review",
+    "node": "I1206:3662;1206:475",
+    "name": "nav-item-4",
+    "label": "Borradores de pedidos",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-review",
+    "node": "I1206:3662;1206:479",
+    "name": "nav-item-5",
+    "label": "Informes",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-review",
+    "node": "I1206:3662;1206:483",
+    "name": "nav-item-6",
+    "label": "Cuenta",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-review",
+    "node": "928:1565",
+    "label": "XORD-2024-0847",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-review",
+    "node": "928:1623",
+    "name": "btn-submit",
+    "label": "Enviar Pedido",
+    "destination": "order-submitted",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-review",
+    "node": "928:1627",
+    "name": "btn-back-draft",
+    "label": "Volver al Borrador",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-submitted",
+    "node": "I1206:3704;1206:459",
+    "name": "nav-item-0",
+    "label": "Panel de Control",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-submitted",
+    "node": "I1206:3704;1206:463",
+    "name": "nav-item-1",
+    "label": "Artistas de la Red",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-submitted",
+    "node": "I1206:3704;1206:467",
+    "name": "nav-item-2",
+    "label": "Productos de exportación",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-submitted",
+    "node": "I1206:3704;1206:471",
+    "name": "nav-item-3",
+    "label": "Pedidos",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-submitted",
+    "node": "I1206:3704;1206:475",
+    "name": "nav-item-4",
+    "label": "Borradores de pedidos",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-submitted",
+    "node": "I1206:3704;1206:479",
+    "name": "nav-item-5",
+    "label": "Informes",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-submitted",
+    "node": "I1206:3704;1206:483",
+    "name": "nav-item-6",
+    "label": "Cuenta",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-submitted",
+    "node": "928:1708",
+    "name": "btn-secondary",
+    "label": "Volver a Pedidos",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-order-submitted",
+    "node": "928:1710",
+    "name": "btn-primary",
+    "label": "Ver Detalles del Pedido",
+    "destination": "order-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-artist-profile",
+    "node": "I1206:3746;1206:459",
+    "name": "nav-item-0",
+    "label": "Panel de Control",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-artist-profile",
+    "node": "I1206:3746;1206:463",
+    "name": "nav-item-1",
+    "label": "Artistas de la Red",
+    "destination": "network-artists",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-artist-profile",
+    "node": "I1206:3746;1206:467",
+    "name": "nav-item-2",
+    "label": "Productos de exportación",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-artist-profile",
+    "node": "I1206:3746;1206:471",
+    "name": "nav-item-3",
+    "label": "Pedidos",
+    "destination": "orders-list",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-artist-profile",
+    "node": "I1206:3746;1206:475",
+    "name": "nav-item-4",
+    "label": "Borradores de pedidos",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-artist-profile",
+    "node": "I1206:3746;1206:479",
+    "name": "nav-item-5",
+    "label": "Informes",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-artist-profile",
+    "node": "I1206:3746;1206:483",
+    "name": "nav-item-6",
+    "label": "Cuenta",
+    "destination": "account-preferences",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-artist-profile",
+    "node": "946:1128",
+    "name": "notification-bell",
+    "label": "notification-bell",
+    "destination": null,
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-artist-profile",
+    "node": "946:1181",
+    "name": "btn-view",
+    "label": "Ver producto",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-artist-profile",
+    "node": "946:1193",
+    "name": "btn-view",
+    "label": "Ver producto",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-artist-profile",
+    "node": "946:1205",
+    "name": "btn-view",
+    "label": "Ver producto",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "46:2",
+    "label": "Explorar productos de exportación",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:462",
+    "name": "NegarinButton",
+    "label": "إضافة إلى المسودة",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:462",
+    "name": "NegarinButton",
+    "label": "عرض التفاصيل",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:468",
+    "name": "NegarinButton",
+    "label": "إضافة إلى المسودة",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:468",
+    "name": "NegarinButton",
+    "label": "عرض التفاصيل",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:474",
+    "name": "NegarinButton",
+    "label": "إضافة إلى المسودة",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:474",
+    "name": "NegarinButton",
+    "label": "عرض التفاصيل",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:480",
+    "name": "NegarinButton",
+    "label": "إضافة إلى المسودة",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:480",
+    "name": "NegarinButton",
+    "label": "عرض التفاصيل",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:486",
+    "name": "NegarinButton",
+    "label": "إضافة إلى المسودة",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "ar-export-products",
+    "node": "1199:486",
+    "name": "NegarinButton",
+    "label": "عرض التفاصيل",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:55",
+    "name": "NegarinButton",
+    "label": "Add to draft",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:55",
+    "name": "NegarinButton",
+    "label": "View details",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:73",
+    "name": "NegarinButton",
+    "label": "Add to draft",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:73",
+    "name": "NegarinButton",
+    "label": "View details",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:91",
+    "name": "NegarinButton",
+    "label": "Add to draft",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:91",
+    "name": "NegarinButton",
+    "label": "View details",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:109",
+    "name": "NegarinButton",
+    "label": "Add to draft",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:109",
+    "name": "NegarinButton",
+    "label": "View details",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:127",
+    "name": "NegarinButton",
+    "label": "Add to draft",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "en-export-products",
+    "node": "1199:127",
+    "name": "NegarinButton",
+    "label": "View details",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-dashboard",
+    "node": "1206:389",
+    "name": "NegarinButton",
+    "label": "Explorar productos de exportación",
+    "destination": "export-products",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:86",
+    "name": "NegarinButton",
+    "label": "Añadir al borrador",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:86",
+    "name": "NegarinButton",
+    "label": "Ver detalles",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:101",
+    "name": "NegarinButton",
+    "label": "Añadir al borrador",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:101",
+    "name": "NegarinButton",
+    "label": "Ver detalles",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:117",
+    "name": "NegarinButton",
+    "label": "Añadir al borrador",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:117",
+    "name": "NegarinButton",
+    "label": "Ver detalles",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:134",
+    "name": "NegarinButton",
+    "label": "Añadir al borrador",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:134",
+    "name": "NegarinButton",
+    "label": "Ver detalles",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:152",
+    "name": "NegarinButton",
+    "label": "Añadir al borrador",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "es-export-products",
+    "node": "1204:152",
+    "name": "NegarinButton",
+    "label": "Ver detalles",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "1200:31",
+    "name": "NegarinButton",
+    "label": "Taslak Ekle",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "1200:31",
+    "name": "NegarinButton",
+    "label": "Detayları Gör",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "1200:45",
+    "name": "NegarinButton",
+    "label": "Taslak Ekle",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "1200:45",
+    "name": "NegarinButton",
+    "label": "Detayları Gör",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "915:3465",
+    "name": "NegarinButton",
+    "label": "Taslak Ekle",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "915:3465",
+    "name": "NegarinButton",
+    "label": "Detayları Gör",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "1200:74",
+    "name": "NegarinButton",
+    "label": "Taslak Ekle",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "1200:74",
+    "name": "NegarinButton",
+    "label": "Detayları Gör",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "1200:92",
+    "name": "NegarinButton",
+    "label": "Taslak Ekle",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "tr-tr-export-products",
+    "node": "1200:92",
+    "name": "NegarinButton",
+    "label": "Detayları Gör",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "1202:53",
+    "name": "NegarinButton",
+    "label": "加入草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "1202:53",
+    "name": "NegarinButton",
+    "label": "查看详情",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "915:5925",
+    "name": "NegarinButton",
+    "label": "加入草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "915:5925",
+    "name": "NegarinButton",
+    "label": "查看详情",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "1202:78",
+    "name": "NegarinButton",
+    "label": "加入草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "1202:78",
+    "name": "NegarinButton",
+    "label": "查看详情",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "1202:97",
+    "name": "NegarinButton",
+    "label": "加入草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "1202:97",
+    "name": "NegarinButton",
+    "label": "查看详情",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "1202:116",
+    "name": "NegarinButton",
+    "label": "加入草稿",
+    "destination": "order-draft",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  },
+  {
+    "screen": "zh-cn-export-products",
+    "node": "1202:116",
+    "name": "NegarinButton",
+    "label": "查看详情",
+    "destination": "product-detail",
+    "source": "inferred preview mapping; source prototype audit blocked by Figma quota"
+  }
+]

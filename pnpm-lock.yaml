@@ -251,6 +251,21 @@ importers:
 
   apps/web:
     dependencies:
+      '@fontsource-variable/inter':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/jetbrains-mono':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/noto-sans-arabic':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/noto-sans-sc':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/outfit':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource-variable/vazirmatn':
         specifier: ^5.3.0
         version: 5.3.0
@@ -373,15 +388,6 @@ importers:
         version: 19.3.0(react@19.3.0)
 
 packages:
-
-  '@fontsource-variable/vazirmatn@5.3.0':
-    resolution: {integrity: sha512-ZA68W8JHbMdNzzwjYHUWKB2PH22QpxNEnk0ukcXM+XiqYMV6ZWJZAKuNXcrMR2JjuIAwsfAU3KknCXPI6wXUvw==}
-
-  '@fontsource/material-icons-round@5.3.0':
-    resolution: {integrity: sha512-4O/RgwJURvB+u9Ud1Nm9U1TEKeqJv9YbHa2RsMYk6IURUhBs9Iq5DwtYAAx4ztqe6KzOO1eLudXRZvAPhnopIg==}
-
-  '@fontsource/material-icons@5.3.0':
-    resolution: {integrity: sha512-nCpzNTsS5KpIqWijK259rPOTaZXNJlRfTiVRDNguKwfSdoZL/O9zIvPs+3K2eeRrNW+fVJWMO+n3JQoi9DN9Tw==}
 
   '@aws-sdk/checksums@3.1001.1':
     resolution: {integrity: sha512-x12Q17KYlJAd3nKf8LV5LV0vt8sh8/6YfQLGPtrGnQf/tW4jqxPGq5GPpuVitpQYM3eUR4XB7CbxZf751NMbLw==}
@@ -706,6 +712,30 @@ packages:
 
   '@fastify/static@10.1.4':
     resolution: {integrity: sha512-YWYmXV0c3t/3DDyV32kRXJTgTY16FOkqtQ4mmBjbkWeukGR5n+Sr+7ppknNpS7hiRPrLU9zcySZZ1nLJVHTZkg==}
+
+  '@fontsource-variable/inter@5.3.0':
+    resolution: {integrity: sha512-OupL48va4JNofb97w6NYeF9S7W/kHNKM0Er8Dem5nqi4jeOLrVJDoE8tZEpnMJmtkvNbB1EIPPwHcdkF6b1oUA==}
+
+  '@fontsource-variable/jetbrains-mono@5.3.0':
+    resolution: {integrity: sha512-F32xpS2NsGYoQi2ADSkKTgpJj7ozajsGgDJ8woTnqjmIB+dxDIqImjl4pXZVEExu8UFZ2ndhmX18EBS/hdz3Lw==}
+
+  '@fontsource-variable/noto-sans-arabic@5.3.0':
+    resolution: {integrity: sha512-Rz8+DBzza3//cmN+DBQajJhx3x+Dx12eUgnQsTOgPWbOT0+In6APmE8z4I/QQnUWfAx+s8l93+60qDT5vJH1sA==}
+
+  '@fontsource-variable/noto-sans-sc@5.3.0':
+    resolution: {integrity: sha512-lNar1dF7Ik/lHNPo/7JWG0TolXY29LtsqYgMvEysooZ5bsO9uH4shJmRrwyJ3PjyTPljhpMJEK0jDuLSU4vJ1w==}
+
+  '@fontsource-variable/outfit@5.3.0':
+    resolution: {integrity: sha512-fPb5XnYK0k7SbR++HEmm4+ZqDszmLKQ+sPRUr8oQ/KNC0vy6r6hazJFe8iYozv4cqlHbvJ/JECkJWrfDodUMVQ==}
+
+  '@fontsource-variable/vazirmatn@5.3.0':
+    resolution: {integrity: sha512-ZA68W8JHbMdNzzwjYHUWKB2PH22QpxNEnk0ukcXM+XiqYMV6ZWJZAKuNXcrMR2JjuIAwsfAU3KknCXPI6wXUvw==}
+
+  '@fontsource/material-icons-round@5.3.0':
+    resolution: {integrity: sha512-4O/RgwJURvB+u9Ud1Nm9U1TEKeqJv9YbHa2RsMYk6IURUhBs9Iq5DwtYAAx4ztqe6KzOO1eLudXRZvAPhnopIg==}
+
+  '@fontsource/material-icons@5.3.0':
+    resolution: {integrity: sha512-nCpzNTsS5KpIqWijK259rPOTaZXNJlRfTiVRDNguKwfSdoZL/O9zIvPs+3K2eeRrNW+fVJWMO+n3JQoi9DN9Tw==}
 
   '@grpc/grpc-js@1.14.5':
     resolution: {integrity: sha512-7VZM+SVdEcUUqSQeNI3zM8Qs/BhQKZndPo2h5VkYkAM8Iz0wJIa8mKV5ekQGqG8UUsnkQ0NMxIxwkIHYvj0qOw==}
@@ -1810,6 +1840,11 @@ packages:
 
   ajv-formats@3.0.1:
     resolution: {integrity: sha512-8iUql50EUR+uUcdRQ3HDqa6EVyo3docL8g5WJ3FNcWmu62IbkGUue/pEyLBW8VGKKucTPgqeks4fIU1DA4yowQ==}
+    peerDependencies:
+      ajv: ^8.0.0
+    peerDependenciesMeta:
+      ajv:
+        optional: true
 
   ajv@6.15.0:
     resolution: {integrity: sha512-fgFx7Hfoq60ytK2c7DhnF8jIvzYgOMxfugjLOSMHjLIPgenqa7S7oaagATUq99mV6IYvN2tRmC0wnTYX6iPbMw==}
@@ -3128,12 +3163,6 @@ packages:
 
 snapshots:
 
-  '@fontsource-variable/vazirmatn@5.3.0': {}
-
-  '@fontsource/material-icons-round@5.3.0': {}
-
-  '@fontsource/material-icons@5.3.0': {}
-
   '@aws-sdk/checksums@3.1001.1':
     dependencies:
       '@aws-sdk/core': 3.978.1
@@ -3450,7 +3479,7 @@ snapshots:
   '@fastify/ajv-compiler@4.0.6':
     dependencies:
       ajv: 8.20.0
-      ajv-formats: 3.0.1
+      ajv-formats: 3.0.1(ajv@8.20.0)
       fast-uri: 4.2.1
 
   '@fastify/cors@11.3.0':
@@ -3505,6 +3534,22 @@ snapshots:
       fastify-plugin: 6.0.0
       fastq: 1.20.3
       glob: 13.0.6
+
+  '@fontsource-variable/inter@5.3.0': {}
+
+  '@fontsource-variable/jetbrains-mono@5.3.0': {}
+
+  '@fontsource-variable/noto-sans-arabic@5.3.0': {}
+
+  '@fontsource-variable/noto-sans-sc@5.3.0': {}
+
+  '@fontsource-variable/outfit@5.3.0': {}
+
+  '@fontsource-variable/vazirmatn@5.3.0': {}
+
+  '@fontsource/material-icons-round@5.3.0': {}
+
+  '@fontsource/material-icons@5.3.0': {}
 
   '@grpc/grpc-js@1.14.5':
     dependencies:
@@ -4554,8 +4599,8 @@ snapshots:
 
   acorn@8.18.0: {}
 
-  ajv-formats@3.0.1:
-    dependencies:
+  ajv-formats@3.0.1(ajv@8.20.0):
+    optionalDependencies:
       ajv: 8.20.0
 
   ajv@6.15.0:
@@ -4901,7 +4946,7 @@ snapshots:
     dependencies:
       '@fastify/merge-json-schemas': 0.2.1
       ajv: 8.20.0
-      ajv-formats: 3.0.1
+      ajv-formats: 3.0.1(ajv@8.20.0)
       fast-uri: 4.2.1
       json-schema-ref-resolver: 3.0.0
       rfdc: 1.4.1
