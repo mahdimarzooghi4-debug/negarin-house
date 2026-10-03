@@ -19,7 +19,7 @@ try {
  while ($true) {
   $client = $listener.AcceptTcpClient()
   try {
-   $client.ReceiveTimeout = 10000
+   $client.ReceiveTimeout = 2000
    $client.SendTimeout = 10000
    $stream = $client.GetStream()
    $reader = New-Object IO.StreamReader($stream, [Text.Encoding]::ASCII, $false, 1024, $true)
@@ -92,6 +92,9 @@ def main():
  for source in ROOT.glob("packages/*/dist"):
   shutil.copytree(source, build/source.relative_to(ROOT), dirs_exist_ok=True)
  web = build/"apps/web"
+ for source in (web/"src").rglob("*.tsx"):
+  text = source.read_text()
+  source.write_text(re.sub(r'<Link(?=\s|>)', '<Link prefetch={false}', text))
  shutil.rmtree(web/"src/app/[portal]")
  (web/"next.config.ts").write_text('import type {NextConfig} from "next";\nconst config:NextConfig={output:"export",trailingSlash:true,reactStrictMode:true,transpilePackages:["@negarin/i18n"],images:{unoptimized:true}};\nexport default config;\n')
  for layout in (web/"src/app/preview").glob("*/layout.tsx"):
