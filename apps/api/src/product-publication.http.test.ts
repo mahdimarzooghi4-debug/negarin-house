@@ -1,12 +1,13 @@
 import "dotenv/config";
 import "reflect-metadata";
-import { randomInt } from "node:crypto";
+import { randomInt, randomUUID } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { NestFastifyApplication } from "@nestjs/platform-fastify";
 import { createApplication } from "./app.js";
 import { IdentityCore } from "./identity-core.js";
 import { ActiveContextResolver } from "./active-context.js";
 import { PrismaService } from "./prisma.service.js";
+import { ProductPublicationService } from "./product-publication.js";
 
 // Uses PostgreSQL and the actual HTTP/session/authorization layers, including concurrency.
 describe("Product publication lifecycle HTTP", () => {
@@ -109,6 +110,18 @@ describe("Product publication lifecycle HTTP", () => {
     const events = await db.productPublicationEvent.findMany({ where: { productId: p.id }, orderBy: { version: "asc" } });
     expect(events).toHaveLength(2); expect(events[1]!.version).toBe(2);
     expect((await db.artistProduct.findUniqueOrThrow({ where: { id: p.id } })).publicationStatus).toBe(events[1]!.toStatus);
+  });
+
+
+  it("rolls the state change back if durable history cannot be recorded", async () => {
+    const p = await create(); await artist(p.id, "submit", { version: 0 });
+    // A missing actor forces the history foreign key to fail after the conditional state write.
+    const service = new ProductPublicationService(db);
+    await expect(service.transition({ userId: randomUUID(), activeRole: "staff", staffPermissionDomains: ["products"] },
+      p.id, "approve", { version: 1 }, "rollback-test")).rejects.toThrow();
+    const current = await db.artistProduct.findUniqueOrThrow({ where: { id: p.id } });
+    expect(current.publicationStatus).toBe("under_review"); expect(current.version).toBe(1);
+    expect(await db.productPublicationEvent.count({ where: { productId: p.id } })).toBe(1);
   });
 
   it("rejects archived/stale commands, empty feedback and unauthenticated requests", async () => {

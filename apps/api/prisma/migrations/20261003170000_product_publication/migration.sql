@@ -30,4 +30,3 @@ ALTER TABLE "product_publication_events" ADD CONSTRAINT "product_publication_eve
 
 -- AddForeignKey
 ALTER TABLE "product_publication_events" ADD CONSTRAINT "product_publication_events_actorUserId_fkey" FOREIGN KEY ("actorUserId") REFERENCES "identity_users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
