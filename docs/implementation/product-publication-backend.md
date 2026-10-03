@@ -41,7 +41,9 @@ Content edits increment the version and record a content-updated entry transacti
 - API dependency builds, API TypeScript/build, scoped ESLint, Prisma generation/validation: passed locally.
 - Publication command validation plus existing product contract units: 16 passed locally.
 - All five SQL migrations applied successfully to an isolated PGlite engine. This checks SQL execution, not native PostgreSQL concurrency or Prisma migrate deploy.
-- Native PostgreSQL HTTP integration tests are added for the real session/role/HTTP path, complete feedback/resubmission/publication, ownership concealment, staff domain restrictions, price separation, reviewed-content locks, stale/archive rejection and competing decisions. Native PostgreSQL evidence is required in CI before merge. A local PGlite socket experiment failed on simultaneous Prisma connections; it is not claimed as passing HTTP evidence and adds no repository dependency.
+- [CI run #216](https://github.com/mahdimarzooghi4-debug/negarin-house/actions/runs/37137091451), code commit `f43a4babb27dbec395fed21825465fed3c8db885`: PostgreSQL 17 migrations/reset/deploy, security audit, full lint/typecheck, all unit/integration suites and application builds passed. API: 36 tests across nine files passed, including six new lifecycle integration cases and three existing Artist-product HTTP cases. The sixth new case forces a history foreign-key failure and verifies the state/version write rolls back.
+- Full Playwright: **43 passed / 1 failed**. The unchanged Export Partner preview geometry test reports `ar-order-review`, node `928:676`, x delta 8px (tolerance 2px), including retry. Runtime preview/CSS code was unchanged in this backend slice; this is an unresolved pre-existing preview geometry discrepancy on CI, not passing release evidence. The backend PR remains draft and CI is not green. Resolve the preview discrepancy before merge/release.
+- A local PGlite socket experiment failed on simultaneous Prisma connections; it is not passing HTTP evidence and adds no repository dependency. Native PostgreSQL CI above is the authoritative backend result.
 
 ## Next work and release limits
 
