@@ -28,9 +28,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "02 — Corporate Products",
     "slug": "product-detail",
-    "implemented": false,
-    "missingImageSlots": 11,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:705",
@@ -39,9 +39,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "02 — Corporate Products",
     "slug": "artist-profile",
-    "implemented": false,
-    "missingImageSlots": 14,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:949",
@@ -50,9 +50,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "03 — Purchase Requests",
     "slug": "purchase-requests",
-    "implemented": false,
-    "missingImageSlots": 16,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:1109",
@@ -61,9 +61,9 @@ export const corporateBuyerScreens = [
     "h": 1038,
     "section": "03 — Purchase Requests",
     "slug": "new-purchase-request",
-    "implemented": false,
-    "missingImageSlots": 13,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:1224",
@@ -72,9 +72,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "03 — Purchase Requests",
     "slug": "purchase-request-detail",
-    "implemented": false,
-    "missingImageSlots": 15,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:1348",
@@ -83,9 +83,9 @@ export const corporateBuyerScreens = [
     "h": 1046,
     "section": "03 — Purchase Requests",
     "slug": "request-needs-info",
-    "implemented": false,
-    "missingImageSlots": 14,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:1496",
@@ -94,9 +94,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "04 — Proposals",
     "slug": "proposals",
-    "implemented": false,
-    "missingImageSlots": 9,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:1625",
@@ -105,9 +105,9 @@ export const corporateBuyerScreens = [
     "h": 1215,
     "section": "04 — Proposals",
     "slug": "proposal-detail",
-    "implemented": false,
-    "missingImageSlots": 12,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:1811",
@@ -116,9 +116,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "04 — Proposals",
     "slug": "proposal-revision",
-    "implemented": false,
-    "missingImageSlots": 10,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:1919",
@@ -127,9 +127,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "05 — Corporate Orders",
     "slug": "order-submitted",
-    "implemented": false,
-    "missingImageSlots": 16,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:2044",
@@ -138,9 +138,9 @@ export const corporateBuyerScreens = [
     "h": 1067,
     "section": "05 — Corporate Orders",
     "slug": "orders",
-    "implemented": false,
-    "missingImageSlots": 10,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:2234",
@@ -149,9 +149,9 @@ export const corporateBuyerScreens = [
     "h": 1133,
     "section": "05 — Corporate Orders",
     "slug": "order-detail",
-    "implemented": false,
-    "missingImageSlots": 14,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:2426",
@@ -160,9 +160,9 @@ export const corporateBuyerScreens = [
     "h": 1067,
     "section": "06 — Fulfillment & Delivery",
     "slug": "deliveries",
-    "implemented": false,
-    "missingImageSlots": 10,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "961:2578",
@@ -171,9 +171,9 @@ export const corporateBuyerScreens = [
     "h": 1067,
     "section": "06 — Fulfillment & Delivery",
     "slug": "delivery-detail",
-    "implemented": false,
-    "missingImageSlots": 14,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "962:246",
@@ -182,9 +182,9 @@ export const corporateBuyerScreens = [
     "h": 1059,
     "section": "06 — Fulfillment & Delivery",
     "slug": "report-issue",
-    "implemented": false,
-    "missingImageSlots": 14,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "962:363",
@@ -193,9 +193,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "06 — Fulfillment & Delivery",
     "slug": "issue-detail",
-    "implemented": false,
-    "missingImageSlots": 16,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "962:496",
@@ -204,9 +204,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "07 — Reports",
     "slug": "reports",
-    "implemented": false,
-    "missingImageSlots": 20,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "962:620",
@@ -215,9 +215,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "07 — Reports",
     "slug": "notifications",
-    "implemented": false,
-    "missingImageSlots": 22,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "962:832",
@@ -226,9 +226,9 @@ export const corporateBuyerScreens = [
     "h": 1407,
     "section": "08 — Organization Account & Access",
     "slug": "account",
-    "implemented": false,
-    "missingImageSlots": 15,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "962:980",
@@ -237,9 +237,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "08 — Organization Account & Access",
     "slug": "users-and-access",
-    "implemented": false,
-    "missingImageSlots": 11,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "962:1101",
@@ -248,9 +248,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "08 — Organization Account & Access",
     "slug": "delivery-addresses",
-    "implemented": false,
-    "missingImageSlots": 14,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "962:1227",
@@ -259,9 +259,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "09 — States & QA",
     "slug": "empty-states",
-    "implemented": false,
-    "missingImageSlots": 14,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "962:1321",
@@ -270,9 +270,9 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "09 — States & QA",
     "slug": "loading-states",
-    "implemented": false,
-    "missingImageSlots": 10,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   },
   {
     "id": "962:1472",
@@ -281,13 +281,37 @@ export const corporateBuyerScreens = [
     "h": 1024,
     "section": "09 — States & QA",
     "slug": "error-states",
-    "implemented": false,
-    "missingImageSlots": 15,
-    "pendingReason": "asset-quota"
+    "implemented": true,
+    "missingImageSlots": 0,
+    "pendingReason": null
   }
 ] as const;
 export const corporateBuyerLoaders = {
  "dashboard": () => import("./screens/dashboard"),
- "corporate-products": () => import("./screens/corporate-products")
+ "corporate-products": () => import("./screens/corporate-products"),
+ "product-detail": () => import("./screens/product-detail"),
+ "artist-profile": () => import("./screens/artist-profile"),
+ "purchase-requests": () => import("./screens/purchase-requests"),
+ "new-purchase-request": () => import("./screens/new-purchase-request"),
+ "purchase-request-detail": () => import("./screens/purchase-request-detail"),
+ "request-needs-info": () => import("./screens/request-needs-info"),
+ "proposals": () => import("./screens/proposals"),
+ "proposal-detail": () => import("./screens/proposal-detail"),
+ "proposal-revision": () => import("./screens/proposal-revision"),
+ "order-submitted": () => import("./screens/order-submitted"),
+ "orders": () => import("./screens/orders"),
+ "order-detail": () => import("./screens/order-detail"),
+ "deliveries": () => import("./screens/deliveries"),
+ "delivery-detail": () => import("./screens/delivery-detail"),
+ "report-issue": () => import("./screens/report-issue"),
+ "issue-detail": () => import("./screens/issue-detail"),
+ "reports": () => import("./screens/reports"),
+ "notifications": () => import("./screens/notifications"),
+ "account": () => import("./screens/account"),
+ "users-and-access": () => import("./screens/users-and-access"),
+ "delivery-addresses": () => import("./screens/delivery-addresses"),
+ "empty-states": () => import("./screens/empty-states"),
+ "loading-states": () => import("./screens/loading-states"),
+ "error-states": () => import("./screens/error-states")
 };
 export type CorporateBuyerScreenSlug = keyof typeof corporateBuyerLoaders;

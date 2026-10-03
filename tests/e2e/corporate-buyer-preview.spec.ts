@@ -16,21 +16,40 @@ test('complete corporate buyer frames load all original assets at native bounds'
  expect(errors).toEqual([]);
 });
 
-test('all 26 routes account for the 24 missing-asset checkpoints without rendering incomplete designs',async({page})=>{
- await page.goto('/preview/corporate-buyer');await expect(page.locator('.preview-groups section')).toHaveCount(9);await expect(page.locator('.preview-groups li')).toHaveCount(26);await expect(page.locator('.preview-groups li small')).toHaveCount(24);
- for(const screen of inventory.filter(s=>!s.implemented)){const response=await page.goto('/preview/corporate-buyer/'+screen.slug+'?canvas=1');expect(response?.status()).toBe(200);await expect(page.getByText('این صفحه در انتظار دریافت تصاویر و آیکن‌های اصلی فیگما است.',{exact:true})).toBeVisible();await expect(page.locator('.corporate-buyer-design')).toHaveCount(0);await expect(page.locator('img')).toHaveCount(0);await expect(page.getByRole('link',{name:'مشاهدهٔ طرح فیگما',exact:true})).toHaveAttribute('href',new RegExp('node-id='+screen.id.replace(':','-')));}
+test('all 26 native screens are enabled in the nine source catalog sections',async({page})=>{
+ expect(inventory).toHaveLength(26);expect(inventory.every(s=>s.implemented)).toBe(true);
+ await page.goto('/preview/corporate-buyer');await expect(page.locator('.preview-groups section')).toHaveCount(9);await expect(page.locator('.preview-groups li')).toHaveCount(26);await expect(page.locator('.preview-groups li small')).toHaveCount(0);
+ for(const screen of inventory)await expect(page.locator(`.preview-groups a[href="/preview/corporate-buyer/${screen.slug}"]`)).toHaveCount(1);
 });
 
 test('the eight source sidebar destinations and quick purchase actions remain within the corporate portal',async({page})=>{
  await page.goto('/preview/corporate-buyer/dashboard');await ready(page,'dashboard');const sidebar=page.getByRole('complementary',{name:'منوی خریدار سازمانی'});await expect(sidebar.getByRole('link')).toHaveCount(8);
  for(const destination of ['dashboard','purchase-requests','corporate-products','proposals','orders','deliveries','reports','account'])await expect(sidebar.locator(`a[href="/preview/corporate-buyer/${destination}"]`)).toHaveCount(1);
  await sidebar.getByRole('link',{name:'محصولات سازمانی',exact:true}).click();await ready(page,'corporate-products');await sidebar.getByRole('link',{name:'پیشخوان',exact:true}).click();await ready(page,'dashboard');
- await page.getByRole('link',{name:'ثبت درخواست خرید',exact:true}).click();await expect(page).toHaveURL(/new-purchase-request$/);await expect(page.getByText('این صفحه در انتظار دریافت تصاویر و آیکن‌های اصلی فیگما است.',{exact:true})).toBeVisible();await page.getByRole('link',{name:'همهٔ صفحه‌های خریدار سازمانی',exact:true}).click();await expect(page.locator('.preview-groups li')).toHaveCount(26);
+ await page.getByRole('link',{name:'ثبت درخواست خرید',exact:true}).click();await expect(page).toHaveURL(/new-purchase-request$/);await ready(page,'new-purchase-request');await page.getByRole('link',{name:'همهٔ صفحه‌های خریدار سازمانی',exact:true}).click();await expect(page.locator('.preview-groups li')).toHaveCount(26);
 });
 
-test('catalog actions reach recorded checkpoints and filter controls acknowledge preview scope',async({page})=>{
+test('catalog actions reach native details and editable request forms and filter controls acknowledge preview scope',async({page})=>{
  await page.goto('/preview/corporate-buyer/corporate-products');await ready(page,'corporate-products');await expect(page.getByRole('link',{name:'مشاهده محصول',exact:true})).toHaveCount(6);await expect(page.getByRole('link',{name:'افزودن به درخواست',exact:true})).toHaveCount(6);
  await page.getByRole('button',{name:'فیلتر',exact:true}).click();await expect(page.getByRole('status')).toContainText('عملیات واقعی پس از اتصال بک‌اند');await expect(page.getByRole('link',{name:'مشاهده محصول',exact:true})).toHaveCount(6);
- await page.getByRole('link',{name:'مشاهده محصول',exact:true}).first().click();await expect(page).toHaveURL(/product-detail$/);await expect(page.getByText('این صفحه در انتظار دریافت تصاویر و آیکن‌های اصلی فیگما است.',{exact:true})).toBeVisible();
- await page.goto('/preview/corporate-buyer/corporate-products');await ready(page,'corporate-products');await page.getByRole('link',{name:'افزودن به درخواست',exact:true}).first().click();await expect(page).toHaveURL(/new-purchase-request$/);await expect(page.locator('.corporate-buyer-design')).toHaveCount(0);
+ await page.getByRole('link',{name:'مشاهده محصول',exact:true}).first().click();await expect(page).toHaveURL(/product-detail$/);await ready(page,'product-detail');
+ await page.goto('/preview/corporate-buyer/corporate-products');await ready(page,'corporate-products');await page.getByRole('link',{name:'افزودن به درخواست',exact:true}).first().click();await expect(page).toHaveURL(/new-purchase-request$/);await ready(page,'new-purchase-request');await expect(page.getByRole('textbox')).toHaveCount(10);
+});
+
+
+test('purchase preview requires a title, description and positive Persian or Latin quantity',async({page})=>{
+ await page.goto('/preview/corporate-buyer/new-purchase-request');await ready(page,'new-purchase-request');
+ await page.getByRole('button',{name:'ثبت درخواست',exact:true}).click();await expect(page.getByRole('status')).toContainText('عنوان، شرح نیاز');await expect(page).toHaveURL(/new-purchase-request$/);
+ await page.getByRole('textbox',{name:'عنوان درخواست',exact:true}).fill('هدایای پایان سال');await page.getByRole('textbox',{name:'شرح نیاز',exact:true}).fill('میناکاری با بسته‌بندی سازمانی');await page.getByRole('textbox',{name:'تعداد تقریبی',exact:true}).fill('۰');await page.getByRole('button',{name:'ثبت درخواست',exact:true}).click();await expect(page).toHaveURL(/new-purchase-request$/);
+ await page.getByRole('textbox',{name:'تعداد تقریبی',exact:true}).fill('۵۰۰');await page.getByRole('button',{name:'ثبت درخواست',exact:true}).click();await ready(page,'purchase-request-detail');
+ await page.goto('/preview/corporate-buyer/proposal-detail');await ready(page,'proposal-detail');await expect(page.locator('a[href="/preview/corporate-buyer/proposal-revision"]')).toHaveCount(1);
+});
+
+test('issue preview validates contact and accepts only native JPG/PNG attachments up to 5 MB',async({page})=>{
+ await page.goto('/preview/corporate-buyer/report-issue');await ready(page,'report-issue');
+ await page.getByRole('button',{name:'ارسال گزارش',exact:true}).click();await expect(page.getByRole('status')).toContainText('شرح مشکل');await expect(page).toHaveURL(/report-issue$/);
+ const upload=page.getByLabel('تصاویر مشکل');await upload.setInputFiles({name:'invalid.pdf',mimeType:'application/pdf',buffer:Buffer.from('%PDF')});await expect(page.getByRole('status')).toContainText('۵ مگابایت');await expect(upload).toHaveValue('');
+ await upload.setInputFiles({name:'large.png',mimeType:'image/png',buffer:Buffer.alloc(5*1024*1024+1)});await expect(upload).toHaveValue('');
+ await upload.setInputFiles({name:'damage.png',mimeType:'image/png',buffer:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jS1cAAAAASUVORK5CYII=','base64')});await expect(page.getByRole('status')).toContainText('damage.png');
+ await page.getByRole('textbox',{name:'شرح مشکل',exact:true}).fill('آسیب بسته در زمان تحویل');await page.getByRole('textbox',{name:'شماره تماس جهت پیگیری',exact:true}).fill('۰۲۱-۸۸۹۹۰۰۱۱');await page.getByRole('button',{name:'ارسال گزارش',exact:true}).click();await ready(page,'issue-detail');
 });

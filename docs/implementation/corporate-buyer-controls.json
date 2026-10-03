@@ -392,7 +392,7 @@
     "name": "Frame",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -401,7 +401,7 @@
     "name": "Frame",
     "label": "افزودن به درخواست خرید",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -410,7 +410,7 @@
     "name": "Frame",
     "label": "مشاهده هنرمند",
     "destination": "artist-profile",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -419,7 +419,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -428,7 +428,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -437,7 +437,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -446,7 +446,7 @@
     "name": "nav-item-offers",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -455,7 +455,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -464,7 +464,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -473,7 +473,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -482,7 +482,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -491,7 +491,7 @@
     "name": "Frame",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -500,7 +500,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -509,7 +509,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -518,7 +518,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -527,7 +527,7 @@
     "name": "nav-item-offers",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -536,7 +536,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -545,7 +545,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -554,7 +554,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -563,7 +563,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -572,7 +572,7 @@
     "name": "Frame",
     "label": "همه وضعیت‌ها وضعیت:",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -581,7 +581,7 @@
     "name": "Frame",
     "label": "همه انواع نوع درخواست:",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -590,16 +590,7 @@
     "name": "Frame",
     "label": "ثبت درخواست جدید",
     "destination": "new-purchase-request",
-    "implemented": false,
-    "source": "inferred preview mapping; zero native container/text prototype links"
-  },
-  {
-    "screen": "purchase-requests",
-    "node": "961:976",
-    "name": "Frame",
-    "label": "عملیات آخرین به‌روزرسانی وضعیت تاریخ موردنیاز تعداد نوع عنوان درخواست شناسه",
-    "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -608,7 +599,7 @@
     "name": "Frame",
     "label": "مشاهده",
     "destination": "purchase-request-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -617,7 +608,7 @@
     "name": "Frame",
     "label": "​",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -626,7 +617,7 @@
     "name": "Frame",
     "label": "​",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -635,7 +626,7 @@
     "name": "Frame",
     "label": "​",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -644,7 +635,7 @@
     "name": "Frame",
     "label": "​",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -653,7 +644,7 @@
     "name": "Frame",
     "label": "۳",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -662,7 +653,7 @@
     "name": "Frame",
     "label": "۲",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -671,7 +662,7 @@
     "name": "Frame",
     "label": "۱",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -680,7 +671,7 @@
     "name": "nav-item-پیشخوان",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -689,7 +680,7 @@
     "name": "nav-item-درخواست‌های خرید",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -698,7 +689,7 @@
     "name": "nav-item-محصولات سازمانی",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -707,7 +698,7 @@
     "name": "nav-item-پیشنهادها",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -716,7 +707,7 @@
     "name": "nav-item-سفارش‌ها",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -725,7 +716,7 @@
     "name": "nav-item-تحویل‌ها",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -734,7 +725,7 @@
     "name": "nav-item-گزارش‌ها",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -743,7 +734,7 @@
     "name": "nav-item-حساب سازمان",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -752,7 +743,7 @@
     "name": "Frame",
     "label": "ثبت درخواست",
     "destination": "purchase-request-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -761,7 +752,7 @@
     "name": "Frame",
     "label": "ذخیره پیش‌نویس",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -770,7 +761,7 @@
     "name": "nav-item-پیشخوان",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -779,7 +770,7 @@
     "name": "nav-item-درخواست‌های خرید",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -788,7 +779,7 @@
     "name": "nav-item-محصولات سازمانی",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -797,7 +788,7 @@
     "name": "nav-item-پیشنهادها",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -806,7 +797,7 @@
     "name": "nav-item-سفارش‌ها",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -815,7 +806,7 @@
     "name": "nav-item-تحویل‌ها",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -824,7 +815,7 @@
     "name": "nav-item-گزارش‌ها",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -833,7 +824,7 @@
     "name": "nav-item-حساب سازمان",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -842,7 +833,7 @@
     "name": "nav-item-پیشخوان",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -851,7 +842,7 @@
     "name": "nav-item-درخواست‌های خرید",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -860,7 +851,7 @@
     "name": "nav-item-محصولات سازمانی",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -869,7 +860,7 @@
     "name": "nav-item-پیشنهادها",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -878,7 +869,7 @@
     "name": "nav-item-سفارش‌ها",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -887,7 +878,7 @@
     "name": "nav-item-تحویل‌ها",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -896,7 +887,7 @@
     "name": "nav-item-گزارش‌ها",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -905,7 +896,7 @@
     "name": "nav-item-حساب سازمان",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -914,7 +905,7 @@
     "name": "Frame",
     "label": "ارسال اطلاعات",
     "destination": "purchase-request-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -923,7 +914,7 @@
     "name": "nav-item-پیشخوان",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -932,7 +923,7 @@
     "name": "nav-item-درخواست‌های خرید",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -941,7 +932,7 @@
     "name": "nav-item-محصولات سازمانی",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -950,7 +941,7 @@
     "name": "nav-item-پیشنهادها",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -959,7 +950,7 @@
     "name": "nav-item-سفارش‌ها",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -968,7 +959,7 @@
     "name": "nav-item-تحویل‌ها",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -977,7 +968,7 @@
     "name": "nav-item-گزارش‌ها",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -986,7 +977,7 @@
     "name": "nav-item-حساب سازمان",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -995,7 +986,7 @@
     "name": "Frame",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1004,7 +995,7 @@
     "name": "Frame",
     "label": "مشاهده",
     "destination": "proposal-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1013,7 +1004,7 @@
     "name": "Frame",
     "label": "مشاهده",
     "destination": "proposal-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1022,7 +1013,7 @@
     "name": "Frame",
     "label": "مشاهده",
     "destination": "proposal-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1031,7 +1022,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1040,7 +1031,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1049,7 +1040,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1058,7 +1049,7 @@
     "name": "nav-item-proposals",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1067,7 +1058,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1076,7 +1067,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1085,7 +1076,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1094,7 +1085,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1103,7 +1094,7 @@
     "name": "Frame",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1112,7 +1103,7 @@
     "name": "Frame",
     "label": "درخواست اصلاح",
     "destination": "proposal-revision",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1121,7 +1112,7 @@
     "name": "Frame",
     "label": "تأیید نهایی پیشنهاد",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1130,7 +1121,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1139,7 +1130,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1148,7 +1139,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1157,7 +1148,7 @@
     "name": "nav-item-proposals",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1166,7 +1157,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1175,7 +1166,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1184,7 +1175,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1193,7 +1184,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1202,7 +1193,7 @@
     "name": "Frame",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1211,7 +1202,7 @@
     "name": "Frame",
     "label": "انصراف",
     "destination": "proposal-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1219,8 +1210,8 @@
     "node": "961:1870",
     "name": "Frame",
     "label": "ارسال درخواست اصلاح",
-    "destination": "proposal-revision",
-    "implemented": false,
+    "destination": null,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1229,7 +1220,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1238,7 +1229,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1247,7 +1238,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1256,7 +1247,7 @@
     "name": "nav-item-proposals",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1265,7 +1256,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1274,7 +1265,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1283,7 +1274,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1292,7 +1283,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1301,7 +1292,7 @@
     "name": "Frame",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1310,7 +1301,7 @@
     "name": "Frame",
     "label": "بازگشت به پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1319,7 +1310,7 @@
     "name": "Frame",
     "label": "مشاهده جزئیات سفارش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1328,7 +1319,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1337,7 +1328,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1346,7 +1337,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1355,7 +1346,7 @@
     "name": "nav-item-proposals",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1364,7 +1355,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1373,7 +1364,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1382,7 +1373,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1391,7 +1382,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1400,7 +1391,7 @@
     "name": "dropdown",
     "label": "همه موارد وضعیت اجرا:",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1409,7 +1400,7 @@
     "name": "dropdown",
     "label": "همه موارد وضعیت سفارش:",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1418,7 +1409,7 @@
     "name": "btn",
     "label": "مشاهده",
     "destination": "order-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1427,7 +1418,7 @@
     "name": "btn",
     "label": "مشاهده",
     "destination": "order-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1436,7 +1427,7 @@
     "name": "btn",
     "label": "مشاهده",
     "destination": "order-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1445,7 +1436,7 @@
     "name": "btn",
     "label": "مشاهده",
     "destination": "order-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1454,7 +1445,7 @@
     "name": "Frame",
     "label": "۲",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1463,7 +1454,7 @@
     "name": "Frame",
     "label": "۳",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1472,7 +1463,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1481,7 +1472,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1490,7 +1481,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1499,7 +1490,7 @@
     "name": "nav-item-offers",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1508,7 +1499,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1517,7 +1508,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1526,7 +1517,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1535,7 +1526,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1544,7 +1535,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1553,7 +1544,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1562,7 +1553,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1571,7 +1562,7 @@
     "name": "nav-item-offers",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1580,7 +1571,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1589,7 +1580,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1598,7 +1589,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1607,7 +1598,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1616,7 +1607,7 @@
     "name": "dropdown",
     "label": "همه موارد وضعیت تحویل:",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1625,7 +1616,7 @@
     "name": "btn",
     "label": "مشاهده",
     "destination": "delivery-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1634,7 +1625,7 @@
     "name": "btn",
     "label": "مشاهده",
     "destination": "delivery-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1643,7 +1634,7 @@
     "name": "btn",
     "label": "مشاهده",
     "destination": "delivery-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1652,7 +1643,7 @@
     "name": "Frame",
     "label": "۲",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1661,7 +1652,7 @@
     "name": "Frame",
     "label": "۳",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1670,7 +1661,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1679,7 +1670,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1688,7 +1679,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1697,7 +1688,7 @@
     "name": "nav-item-offers",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1706,7 +1697,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1715,7 +1706,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1724,7 +1715,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1733,7 +1724,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1742,7 +1733,7 @@
     "name": "btn",
     "label": "تأیید دریافت محموله",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1751,7 +1742,7 @@
     "name": "btn",
     "label": "گزارش مغایرت یا مشکل",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1760,7 +1751,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1769,7 +1760,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1778,7 +1769,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1787,7 +1778,7 @@
     "name": "nav-item-offers",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1796,7 +1787,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1805,7 +1796,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1814,7 +1805,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1823,7 +1814,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1832,7 +1823,7 @@
     "name": "Frame",
     "label": "ORD-B2B-2035",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1841,7 +1832,7 @@
     "name": "Frame",
     "label": "DLV-B2B-5001",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1850,7 +1841,7 @@
     "name": "Frame",
     "label": "انصراف",
     "destination": "delivery-detail",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1859,16 +1850,7 @@
     "name": "Frame",
     "label": "ارسال گزارش",
     "destination": "issue-detail",
-    "implemented": false,
-    "source": "inferred preview mapping; zero native container/text prototype links"
-  },
-  {
-    "screen": "report-issue",
-    "node": "962:308",
-    "name": "Frame",
-    "label": "پس از ارسال، کارشناس نگارین ظرف ۲۴ ساعت بررسی خواهد کرد.",
-    "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1877,7 +1859,7 @@
     "name": "nav-item-0",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1886,7 +1868,7 @@
     "name": "nav-item-1",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1895,7 +1877,7 @@
     "name": "nav-item-2",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1904,7 +1886,7 @@
     "name": "nav-item-3",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1913,7 +1895,7 @@
     "name": "nav-item-4",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1922,7 +1904,7 @@
     "name": "nav-item-5",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1931,7 +1913,7 @@
     "name": "nav-item-6",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1940,7 +1922,7 @@
     "name": "nav-item-7",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1949,7 +1931,7 @@
     "name": "nav-item-8",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1958,7 +1940,7 @@
     "name": "Frame",
     "label": "در حال بررسی",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1967,7 +1949,7 @@
     "name": "Frame",
     "label": "آسیب‌دیدگی محصول",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1976,7 +1958,7 @@
     "name": "nav-item-0",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1985,7 +1967,7 @@
     "name": "nav-item-1",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -1994,7 +1976,7 @@
     "name": "nav-item-2",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2003,7 +1985,7 @@
     "name": "nav-item-3",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2012,7 +1994,7 @@
     "name": "nav-item-4",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2021,7 +2003,7 @@
     "name": "nav-item-5",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2030,7 +2012,7 @@
     "name": "nav-item-6",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2039,7 +2021,7 @@
     "name": "nav-item-7",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2048,16 +2030,7 @@
     "name": "nav-item-8",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
-    "source": "inferred preview mapping; zero native container/text prototype links"
-  },
-  {
-    "screen": "reports",
-    "node": "962:516",
-    "name": "Frame",
-    "label": "گزارش‌ها به صورت دوره‌ای توسط تیم مالی و مهندسی نگارین تهیه و به‌روزرسانی می‌شوند.",
-    "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2066,7 +2039,7 @@
     "name": "Frame",
     "label": "مشاهده گزارش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2075,7 +2048,7 @@
     "name": "Frame",
     "label": "مشاهده گزارش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2084,7 +2057,7 @@
     "name": "Frame",
     "label": "مشاهده گزارش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2093,7 +2066,7 @@
     "name": "Frame",
     "label": "مشاهده گزارش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2102,7 +2075,7 @@
     "name": "nav-item-0",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2111,7 +2084,7 @@
     "name": "nav-item-1",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2120,7 +2093,7 @@
     "name": "nav-item-2",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2129,7 +2102,7 @@
     "name": "nav-item-3",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2138,7 +2111,7 @@
     "name": "nav-item-4",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2147,7 +2120,7 @@
     "name": "nav-item-5",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2156,7 +2129,7 @@
     "name": "nav-item-6",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2165,7 +2138,7 @@
     "name": "nav-item-7",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2174,7 +2147,7 @@
     "name": "nav-item-8",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2183,7 +2156,7 @@
     "name": "Frame",
     "label": "همه ۶",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2192,7 +2165,7 @@
     "name": "Frame",
     "label": "خوانده‌نشده ۲",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2201,7 +2174,7 @@
     "name": "Frame",
     "label": "سفارش‌ها ۲",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2210,7 +2183,7 @@
     "name": "Frame",
     "label": "تحویل‌ها ۱",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2219,7 +2192,7 @@
     "name": "Frame",
     "label": "مشاهده",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2228,7 +2201,7 @@
     "name": "Frame",
     "label": "مشاهده",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2237,7 +2210,7 @@
     "name": "Frame",
     "label": "مشاهده",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2246,7 +2219,7 @@
     "name": "Frame",
     "label": "مشاهده",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2255,7 +2228,7 @@
     "name": "Frame",
     "label": "مشاهده",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2264,7 +2237,7 @@
     "name": "Frame",
     "label": "مشاهده",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2273,7 +2246,7 @@
     "name": "Frame",
     "label": "بعدی",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2282,7 +2255,7 @@
     "name": "Frame",
     "label": "قبلی",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2291,7 +2264,7 @@
     "name": "nav-item-0",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2300,7 +2273,7 @@
     "name": "nav-item-1",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2309,7 +2282,7 @@
     "name": "nav-item-2",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2318,7 +2291,7 @@
     "name": "nav-item-3",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2327,7 +2300,7 @@
     "name": "nav-item-4",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2336,7 +2309,7 @@
     "name": "nav-item-5",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2345,7 +2318,7 @@
     "name": "nav-item-6",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2354,7 +2327,7 @@
     "name": "nav-item-7",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2363,7 +2336,7 @@
     "name": "nav-item-8",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2372,7 +2345,7 @@
     "name": "Frame",
     "label": "تنظیمات اعلان‌ها",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2381,7 +2354,7 @@
     "name": "Frame",
     "label": "آدرس‌های تحویل",
     "destination": "delivery-addresses",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2390,7 +2363,7 @@
     "name": "Frame",
     "label": "کاربران و دسترسی",
     "destination": "users-and-access",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2399,7 +2372,7 @@
     "name": "Frame",
     "label": "اطلاعات سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2408,7 +2381,7 @@
     "name": "Frame",
     "label": "ویرایش اطلاعات",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2417,7 +2390,7 @@
     "name": "Frame",
     "label": "تغییر رمز عبور",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2426,7 +2399,7 @@
     "name": "nav-item-0",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2435,7 +2408,7 @@
     "name": "nav-item-1",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2444,7 +2417,7 @@
     "name": "nav-item-2",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2453,7 +2426,7 @@
     "name": "nav-item-3",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2462,7 +2435,7 @@
     "name": "nav-item-4",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2471,7 +2444,7 @@
     "name": "nav-item-5",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2480,7 +2453,7 @@
     "name": "nav-item-6",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2489,7 +2462,7 @@
     "name": "nav-item-7",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2498,7 +2471,7 @@
     "name": "Frame",
     "label": "تنظیمات اعلان‌ها",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2507,7 +2480,7 @@
     "name": "Frame",
     "label": "آدرس‌های تحویل",
     "destination": "delivery-addresses",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2516,7 +2489,7 @@
     "name": "Frame",
     "label": "کاربران و دسترسی",
     "destination": "users-and-access",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2525,7 +2498,7 @@
     "name": "Frame",
     "label": "اطلاعات سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2534,7 +2507,7 @@
     "name": "Frame",
     "label": "عملیات آخرین ورود وضعیت نقش ایمیل نام کاربر",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2542,7 +2515,7 @@
     "node": "962:1018",
     "label": "ویرایش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2550,7 +2523,7 @@
     "node": "962:1029",
     "label": "ویرایش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2558,7 +2531,7 @@
     "node": "962:1040",
     "label": "ویرایش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2566,7 +2539,7 @@
     "node": "962:1051",
     "label": "ویرایش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2575,7 +2548,7 @@
     "name": "nav-item-0",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2584,7 +2557,7 @@
     "name": "nav-item-1",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2593,7 +2566,7 @@
     "name": "nav-item-2",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2602,7 +2575,7 @@
     "name": "nav-item-3",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2611,7 +2584,7 @@
     "name": "nav-item-4",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2620,7 +2593,7 @@
     "name": "nav-item-5",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2629,7 +2602,7 @@
     "name": "nav-item-6",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2638,7 +2611,7 @@
     "name": "nav-item-7",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2647,7 +2620,7 @@
     "name": "Frame",
     "label": "تنظیمات اعلان‌ها",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2656,7 +2629,7 @@
     "name": "Frame",
     "label": "آدرس‌های تحویل",
     "destination": "delivery-addresses",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2665,7 +2638,7 @@
     "name": "Frame",
     "label": "کاربران و دسترسی",
     "destination": "users-and-access",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2674,7 +2647,7 @@
     "name": "Frame",
     "label": "اطلاعات سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2682,7 +2655,7 @@
     "node": "962:1146",
     "label": "حذف",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2690,7 +2663,7 @@
     "node": "962:1147",
     "label": "ویرایش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2698,7 +2671,7 @@
     "node": "962:1162",
     "label": "حذف",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2706,7 +2679,7 @@
     "node": "962:1163",
     "label": "ویرایش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2714,7 +2687,7 @@
     "node": "962:1179",
     "label": "حذف",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2722,7 +2695,7 @@
     "node": "962:1180",
     "label": "ویرایش",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2731,7 +2704,7 @@
     "name": "nav-item-0",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2740,7 +2713,7 @@
     "name": "nav-item-1",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2749,7 +2722,7 @@
     "name": "nav-item-2",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2758,7 +2731,7 @@
     "name": "nav-item-3",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2767,7 +2740,7 @@
     "name": "nav-item-4",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2776,7 +2749,7 @@
     "name": "nav-item-5",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2785,7 +2758,7 @@
     "name": "nav-item-6",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2794,7 +2767,7 @@
     "name": "nav-item-7",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2803,7 +2776,7 @@
     "name": "bell-container",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2812,7 +2785,7 @@
     "name": "action-button",
     "label": "ثبت اولین درخواست",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2821,7 +2794,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2830,7 +2803,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2839,7 +2812,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2848,7 +2821,7 @@
     "name": "nav-item-offers",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2857,7 +2830,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2866,7 +2839,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2875,7 +2848,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2884,7 +2857,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2893,7 +2866,7 @@
     "name": "bell-container",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2902,7 +2875,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2911,7 +2884,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2920,7 +2893,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2929,7 +2902,7 @@
     "name": "nav-item-offers",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2938,7 +2911,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2947,7 +2920,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2956,7 +2929,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2965,7 +2938,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2974,7 +2947,7 @@
     "name": "bell-container",
     "label": "اعلان‌ها",
     "destination": "notifications",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2983,7 +2956,7 @@
     "name": "action-button",
     "label": "تلاش مجدد",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -2992,7 +2965,7 @@
     "name": "action-button",
     "label": "تلاش مجدد",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -3001,7 +2974,7 @@
     "name": "action-button",
     "label": "بازگشت به پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -3010,7 +2983,7 @@
     "name": "action-button",
     "label": "بازگشت",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -3019,7 +2992,7 @@
     "name": "action-button",
     "label": "ورود مجدد",
     "destination": null,
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -3028,7 +3001,7 @@
     "name": "nav-item-dashboard",
     "label": "پیشخوان",
     "destination": "dashboard",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -3037,7 +3010,7 @@
     "name": "nav-item-requests",
     "label": "درخواست‌های خرید",
     "destination": "purchase-requests",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -3046,7 +3019,7 @@
     "name": "nav-item-products",
     "label": "محصولات سازمانی",
     "destination": "corporate-products",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -3055,7 +3028,7 @@
     "name": "nav-item-offers",
     "label": "پیشنهادها",
     "destination": "proposals",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -3064,7 +3037,7 @@
     "name": "nav-item-orders",
     "label": "سفارش‌ها",
     "destination": "orders",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -3073,7 +3046,7 @@
     "name": "nav-item-deliveries",
     "label": "تحویل‌ها",
     "destination": "deliveries",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -3082,7 +3055,7 @@
     "name": "nav-item-reports",
     "label": "گزارش‌ها",
     "destination": "reports",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   },
   {
@@ -3091,7 +3064,7 @@
     "name": "nav-item-account",
     "label": "حساب سازمان",
     "destination": "account",
-    "implemented": false,
+    "implemented": true,
     "source": "inferred preview mapping; zero native container/text prototype links"
   }
 ]
