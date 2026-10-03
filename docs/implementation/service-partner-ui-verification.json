@@ -1,0 +1,37 @@
+{
+  "canvas": "1001:2",
+  "inventoryFrames": 8,
+  "implementedFrames": 8,
+  "pendingFrames": 0,
+  "nativeLayoutBoxes": 166,
+  "cssUtilityGroups": 122,
+  "originalImageFiles": 1,
+  "originalImageSlots": 8,
+  "renderedActionControls": 66,
+  "nativePrototypeLinks": 0,
+  "mappingSource": "inferred preview routes; no source prototype links",
+  "browserAudit": {
+    "frames": 8,
+    "http200": true,
+    "pageErrors": [],
+    "brokenImages": 0,
+    "geometryTolerancePx": 2,
+    "geometryOutliers": []
+  },
+  "checks": {
+    "webBuild": "passed",
+    "webLint": "passed",
+    "webUnitTests": 7,
+    "playwrightTests": 20,
+    "servicePartnerPlaywrightTests": 4
+  },
+  "limitations": [
+    "Fixed desktop reference canvas; no tablet or adaptive production integration",
+    "Source Brand clips its title/logo and account summary clips long text",
+    "Sample request IDs differ between source detail and execution frames",
+    "Search/filter/account/progress/logout/submission operations remain sample acknowledgements",
+    "Local field/file selection only; no server writes or uploads",
+    "Organization isolation and assigned-request authorization require backend enforcement",
+    "Geometry and selected visual checks do not establish full pixel equivalence"
+  ]
+}

@@ -1,0 +1,464 @@
+[
+  {
+    "screen": "dashboard",
+    "node": "1001:23",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "1001:25",
+    "label": "درخواست‌های خدمات",
+    "destination": "assigned-requests",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "1001:27",
+    "label": "برنامه و اجرا",
+    "destination": "schedule-and-execution",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "1001:29",
+    "label": "تحویل‌ها / خروجی‌ها",
+    "destination": "submit-deliverable",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "1001:31",
+    "label": "سوابق",
+    "destination": "history",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "1001:33",
+    "label": "حساب",
+    "destination": "account",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "assigned-requests",
+    "node": "1001:115",
+    "label": "فیلتر وضعیت",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "assigned-requests",
+    "node": "1001:117",
+    "label": "جستجو",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "assigned-requests",
+    "node": "1001:135",
+    "label": "مشاهده",
+    "destination": "request-detail",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "assigned-requests",
+    "node": "1001:144",
+    "label": "بررسی",
+    "destination": "request-detail",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "assigned-requests",
+    "node": "1001:153",
+    "label": "ادامه اجرا",
+    "destination": "schedule-and-execution",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "assigned-requests",
+    "node": "1001:98",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "assigned-requests",
+    "node": "1001:100",
+    "label": "درخواست‌های خدمات",
+    "destination": "assigned-requests",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "assigned-requests",
+    "node": "1001:102",
+    "label": "برنامه و اجرا",
+    "destination": "schedule-and-execution",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "assigned-requests",
+    "node": "1001:104",
+    "label": "تحویل‌ها / خروجی‌ها",
+    "destination": "submit-deliverable",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "assigned-requests",
+    "node": "1001:106",
+    "label": "سوابق",
+    "destination": "history",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "assigned-requests",
+    "node": "1001:108",
+    "label": "حساب",
+    "destination": "account",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "request-detail",
+    "node": "1001:202",
+    "label": "رد درخواست",
+    "destination": "assigned-requests",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "request-detail",
+    "node": "1001:204",
+    "label": "پذیرش درخواست",
+    "destination": "schedule-and-execution",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "request-detail",
+    "node": "1001:170",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "request-detail",
+    "node": "1001:172",
+    "label": "درخواست‌های خدمات",
+    "destination": "assigned-requests",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "request-detail",
+    "node": "1001:174",
+    "label": "برنامه و اجرا",
+    "destination": "schedule-and-execution",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "request-detail",
+    "node": "1001:176",
+    "label": "تحویل‌ها / خروجی‌ها",
+    "destination": "submit-deliverable",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "request-detail",
+    "node": "1001:178",
+    "label": "سوابق",
+    "destination": "history",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "request-detail",
+    "node": "1001:180",
+    "label": "حساب",
+    "destination": "account",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "schedule-and-execution",
+    "node": "1001:251",
+    "label": "ثبت مشکل اجرایی",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "schedule-and-execution",
+    "node": "1001:253",
+    "label": "ثبت پیشرفت",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "schedule-and-execution",
+    "node": "1001:219",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "schedule-and-execution",
+    "node": "1001:221",
+    "label": "درخواست‌های خدمات",
+    "destination": "assigned-requests",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "schedule-and-execution",
+    "node": "1001:223",
+    "label": "برنامه و اجرا",
+    "destination": "schedule-and-execution",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "schedule-and-execution",
+    "node": "1001:225",
+    "label": "تحویل‌ها / خروجی‌ها",
+    "destination": "submit-deliverable",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "schedule-and-execution",
+    "node": "1001:227",
+    "label": "سوابق",
+    "destination": "history",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "schedule-and-execution",
+    "node": "1001:229",
+    "label": "حساب",
+    "destination": "account",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "submit-deliverable",
+    "node": "1001:296",
+    "label": "ذخیره پیش‌نویس",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "submit-deliverable",
+    "node": "1001:298",
+    "label": "ارسال خروجی به نگارین",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "submit-deliverable",
+    "node": "1001:271",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "submit-deliverable",
+    "node": "1001:273",
+    "label": "درخواست‌های خدمات",
+    "destination": "assigned-requests",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "submit-deliverable",
+    "node": "1001:275",
+    "label": "برنامه و اجرا",
+    "destination": "schedule-and-execution",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "submit-deliverable",
+    "node": "1001:277",
+    "label": "تحویل‌ها / خروجی‌ها",
+    "destination": "submit-deliverable",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "submit-deliverable",
+    "node": "1001:279",
+    "label": "سوابق",
+    "destination": "history",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "submit-deliverable",
+    "node": "1001:281",
+    "label": "حساب",
+    "destination": "account",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "history",
+    "node": "1001:345",
+    "label": "مشاهده",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "history",
+    "node": "1001:354",
+    "label": "مشاهده",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "history",
+    "node": "1001:313",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "history",
+    "node": "1001:315",
+    "label": "درخواست‌های خدمات",
+    "destination": "assigned-requests",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "history",
+    "node": "1001:317",
+    "label": "برنامه و اجرا",
+    "destination": "schedule-and-execution",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "history",
+    "node": "1001:319",
+    "label": "تحویل‌ها / خروجی‌ها",
+    "destination": "submit-deliverable",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "history",
+    "node": "1001:321",
+    "label": "سوابق",
+    "destination": "history",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "history",
+    "node": "1001:323",
+    "label": "حساب",
+    "destination": "account",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "1001:391",
+    "label": "مدیریت",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "1001:395",
+    "label": "مدیریت",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "1001:399",
+    "label": "مدیریت",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "1001:404",
+    "label": "خروج از حساب",
+    "destination": null,
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "1001:371",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "1001:373",
+    "label": "درخواست‌های خدمات",
+    "destination": "assigned-requests",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "1001:375",
+    "label": "برنامه و اجرا",
+    "destination": "schedule-and-execution",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "1001:377",
+    "label": "تحویل‌ها / خروجی‌ها",
+    "destination": "submit-deliverable",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "1001:379",
+    "label": "سوابق",
+    "destination": "history",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "1001:381",
+    "label": "حساب",
+    "destination": "account",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "states-and-qa",
+    "node": "1001:445",
+    "label": "تلاش دوباره",
+    "destination": "assigned-requests",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "states-and-qa",
+    "node": "1001:419",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "states-and-qa",
+    "node": "1001:421",
+    "label": "درخواست‌های خدمات",
+    "destination": "assigned-requests",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "states-and-qa",
+    "node": "1001:423",
+    "label": "برنامه و اجرا",
+    "destination": "schedule-and-execution",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "states-and-qa",
+    "node": "1001:425",
+    "label": "تحویل‌ها / خروجی‌ها",
+    "destination": "submit-deliverable",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "states-and-qa",
+    "node": "1001:427",
+    "label": "سوابق",
+    "destination": "history",
+    "source": "inferred preview mapping; no source prototype links"
+  },
+  {
+    "screen": "states-and-qa",
+    "node": "1001:429",
+    "label": "حساب",
+    "destination": "account",
+    "source": "inferred preview mapping; no source prototype links"
+  }
+]
