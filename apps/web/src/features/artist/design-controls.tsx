@@ -29,11 +29,11 @@ export function DesignAction({label,destination,back,children,...props}:ActionPr
  }}>{children}</Button>;
 }
 
-type FieldProps=HTMLAttributes<HTMLDivElement>&{label:string;placeholder:string;otp?:boolean;children:ReactNode};
-export function DesignField({label,placeholder,otp,children,...props}:FieldProps){
+type FieldProps=HTMLAttributes<HTMLDivElement>&{label:string;placeholder:string;otp?:boolean;multiline?:boolean;children:ReactNode};
+export function DesignField({label,placeholder,otp,multiline=false,children,...props}:FieldProps){
  const preview=usePreview();const [focused,setFocused]=useState(false);
  const key=preview.screen+":"+label;const value=preview.values[key]||"";
- const multi=/توضیحات|شرح|داستان|پیام|یادداشت/.test(label);const phone=/شماره تلفن|شماره موبایل|موبایل گیرنده/.test(label);
+ const multi=multiline||/توضیحات|شرح|داستان|پیام|یادداشت/.test(label);const phone=/شماره تلفن|شماره موبایل|موبایل گیرنده/.test(label);
  const shared={className:"design-field-input",'aria-label':label,placeholder:focused&&!otp?placeholder:"",value,dir:"auto" as const,onFocus:()=>setFocused(true),onBlur:()=>setFocused(false),onChange:(e:ChangeEvent<HTMLInputElement|HTMLTextAreaElement>)=>{
   const next=otp?normalizeDigits(e.target.value).replace(/\D/g,"").slice(-1):e.target.value;preview.setValue(key,next);
   if(otp&&next){const container=e.target.closest('[data-name="otp-boxes"],[data-name="Input / Mobile"]');const fields=container?.querySelectorAll<HTMLInputElement>('input');if(fields){const index=Array.from(fields).indexOf(e.target as HTMLInputElement);fields[index+1]?.focus();}}

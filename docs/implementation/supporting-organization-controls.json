@@ -1,0 +1,2061 @@
+[
+  {
+    "screen": "dashboard",
+    "node": "954:255",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:303",
+    "name": "btn-text-block",
+    "label": "مشاهده برنامه‌های حمایتی بررسی اعتبارات و دوره‌ها",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:306",
+    "name": "btn-icon-wrapper",
+    "label": "btn-icon-wrapper",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:310",
+    "name": "btn-text-block",
+    "label": "معرفی هنرمند جدید ثبت معرفی هنرمند به نگارین",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:313",
+    "name": "btn-icon-wrapper",
+    "label": "btn-icon-wrapper",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:317",
+    "name": "btn-text-block",
+    "label": "مشاهده حمایت‌ها گزارش مصارف و تخصیص‌ها",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:320",
+    "name": "btn-icon-wrapper",
+    "label": "btn-icon-wrapper",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:374",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:378",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:382",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:386",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:390",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:394",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "954:398",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-programs",
+    "node": "954:414",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-programs",
+    "node": "954:427",
+    "name": "program-card-0",
+    "label": "جزئیات برنامه حمایتی 0",
+    "destination": "support-program-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-programs",
+    "node": "954:453",
+    "name": "program-card-1",
+    "label": "جزئیات برنامه حمایتی 1",
+    "destination": "support-program-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-programs",
+    "node": "954:479",
+    "name": "program-card-2",
+    "label": "جزئیات برنامه حمایتی 2",
+    "destination": "support-program-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-programs",
+    "node": "954:513",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-programs",
+    "node": "954:517",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-programs",
+    "node": "954:521",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-programs",
+    "node": "954:525",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-programs",
+    "node": "954:529",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-programs",
+    "node": "954:533",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-programs",
+    "node": "954:537",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:553",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:565",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:621",
+    "name": "table-row-0",
+    "label": "فعال ۳ ۲ ۵ میناکاری مریم رضایی",
+    "destination": "supported-artist",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:630",
+    "name": "table-row-1",
+    "label": "فعال ۱ ۴ ۵ خاتم‌کاری علی محمدی",
+    "destination": "supported-artist",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:639",
+    "name": "table-row-2",
+    "label": "فعال ۴ ۶ ۱۰ سفال زهرا کریمی",
+    "destination": "supported-artist",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:648",
+    "name": "table-row-3",
+    "label": "فعال ۵ ۰ ۵ گلیم‌بافی سارا موسوی",
+    "destination": "supported-artist",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:657",
+    "name": "table-row-4",
+    "label": "فعال ۳ ۲ ۵ ترمه‌بافی حسین نوری",
+    "destination": "supported-artist",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:674",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:678",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:682",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:686",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:690",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:694",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-program-detail",
+    "node": "954:698",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:717",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:727",
+    "name": "primary-cta",
+    "label": "معرفی هنرمند جدید",
+    "destination": "new-artist-referral",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:743",
+    "label": "مشاهده",
+    "destination": "referral-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:754",
+    "label": "مشاهده",
+    "destination": "referral-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:765",
+    "label": "مشاهده",
+    "destination": "referral-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:776",
+    "label": "مشاهده",
+    "destination": "referral-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:787",
+    "label": "مشاهده",
+    "destination": "referral-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:798",
+    "label": "مشاهده",
+    "destination": "referral-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:808",
+    "name": "prev-btn",
+    "label": "قبلی",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:815",
+    "name": "next-btn",
+    "label": "بعدی",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:825",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:828",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:831",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:834",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:837",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:840",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "artist-referrals",
+    "node": "954:843",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "new-artist-referral",
+    "node": "954:857",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "new-artist-referral",
+    "node": "954:869",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "new-artist-referral",
+    "node": "954:901",
+    "name": "cancel-btn",
+    "label": "انصراف",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "new-artist-referral",
+    "node": "954:903",
+    "name": "submit-btn",
+    "label": "ثبت معرفی",
+    "destination": null,
+    "mode": "referral",
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "new-artist-referral",
+    "node": "954:913",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "new-artist-referral",
+    "node": "954:916",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "new-artist-referral",
+    "node": "954:919",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "new-artist-referral",
+    "node": "954:922",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "new-artist-referral",
+    "node": "954:925",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "new-artist-referral",
+    "node": "954:928",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "new-artist-referral",
+    "node": "954:931",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-submitted",
+    "node": "954:945",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-submitted",
+    "node": "954:977",
+    "label": "بازگشت به هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-submitted",
+    "node": "954:979",
+    "label": "مشاهده جزئیات معرفی",
+    "destination": "referral-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-submitted",
+    "node": "954:988",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-submitted",
+    "node": "954:991",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-submitted",
+    "node": "954:994",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-submitted",
+    "node": "954:997",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-submitted",
+    "node": "954:1000",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-submitted",
+    "node": "954:1003",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-submitted",
+    "node": "954:1006",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-detail",
+    "node": "954:1020",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-detail",
+    "node": "954:1032",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-detail",
+    "node": "954:1092",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-detail",
+    "node": "954:1095",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-detail",
+    "node": "954:1098",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-detail",
+    "node": "954:1101",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-detail",
+    "node": "954:1104",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-detail",
+    "node": "954:1107",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "referral-detail",
+    "node": "954:1110",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1247",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1259",
+    "name": "dropdown-field",
+    "label": "همه وضعیت‌ها",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1265",
+    "name": "dropdown-field",
+    "label": "همه برنامه‌ها",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1271",
+    "name": "dropdown-field",
+    "label": "همه انواع",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1289",
+    "label": "مشاهده",
+    "destination": "support-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1302",
+    "label": "مشاهده",
+    "destination": "support-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1315",
+    "label": "مشاهده",
+    "destination": "support-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1328",
+    "label": "مشاهده",
+    "destination": "support-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1341",
+    "label": "مشاهده",
+    "destination": "support-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1356",
+    "name": "pagi-btn-prev",
+    "label": "قبلی",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1362",
+    "name": "pagi-btn-next",
+    "label": "بعدی",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1372",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1376",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1380",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1384",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1388",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1392",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "my-supports",
+    "node": "954:1396",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-detail",
+    "node": "954:1411",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-detail",
+    "node": "954:1421",
+    "name": "breadcrumb-item",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-detail",
+    "node": "954:1498",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-detail",
+    "node": "954:1502",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-detail",
+    "node": "954:1506",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-detail",
+    "node": "954:1510",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-detail",
+    "node": "954:1514",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-detail",
+    "node": "954:1518",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "support-detail",
+    "node": "954:1522",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "supported-artist",
+    "node": "954:1537",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "supported-artist",
+    "node": "954:1547",
+    "name": "breadcrumb-item",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "supported-artist",
+    "node": "954:1588",
+    "name": "table-row-0",
+    "label": "فعال ۳ اعتبار ۲ مصرف‌شده ۵ اعتبار اعتبار خدمات حرفه‌ای",
+    "destination": "support-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "supported-artist",
+    "node": "954:1620",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "supported-artist",
+    "node": "954:1624",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "supported-artist",
+    "node": "954:1628",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "supported-artist",
+    "node": "954:1632",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "supported-artist",
+    "node": "954:1636",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "supported-artist",
+    "node": "954:1640",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "supported-artist",
+    "node": "954:1644",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:246",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:291",
+    "name": "download-button",
+    "label": "دانلود گزارش",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:295",
+    "name": "timeline-item",
+    "label": "۱۴۰۳/۰۷/۱۲ (مریم رضایی) مصرف ۱ اعتبار خدمات خدمات آموزشی",
+    "destination": "activity-detail-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:305",
+    "name": "timeline-item",
+    "label": "۱۴۰۳/۰۷/۱۰ (نرگس احمدی) معرفی هنرمند جدید ارسال شده",
+    "destination": "activity-detail-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:315",
+    "name": "timeline-item",
+    "label": "۱۴۰۳/۰۷/۰۵ (علی محمدی) فعال‌سازی حمایت اعتبار خدمات حرفه‌ای",
+    "destination": "activity-detail-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:325",
+    "name": "timeline-item",
+    "label": "۱۴۰۳/۰۶/۲۸ (سارا موسوی) پذیرش توسط نگارین پذیرفته‌شده",
+    "destination": "activity-detail-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:335",
+    "name": "timeline-item",
+    "label": "۱۴۰۳/۰۶/۲۵ (مریم رضایی) مصرف ۱ اعتبار خدمات خدمات بسته‌بندی",
+    "destination": "activity-detail-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:381",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:385",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:389",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:393",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:397",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:401",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-report",
+    "node": "955:407",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:421",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:432",
+    "name": "download-button",
+    "label": "دانلود گزارش",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:441",
+    "name": "dropdown-input",
+    "label": "همه هنرمندان",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:446",
+    "name": "dropdown-input",
+    "label": "همه فعالیت‌ها",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:451",
+    "name": "dropdown-input",
+    "label": "۱۴۰۳/۰۶/۰۱ تا ۱۴۰۳/۰۷/۱۵",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:531",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:535",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:539",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:543",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:547",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:551",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "activity-detail-report",
+    "node": "955:557",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:571",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:584",
+    "name": "tab-all",
+    "label": "خوانده‌شده",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:586",
+    "name": "tab-unread",
+    "label": "۴ خوانده‌نشده",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:590",
+    "name": "tab-active",
+    "label": "همه",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:593",
+    "name": "notif-card-0",
+    "label": "۲ ساعت پیش پذیرش معرفی هنرمند معرفی سارا موسوی توسط نگارین پذیرفته شد.",
+    "destination": "referral-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:604",
+    "name": "notif-card-1",
+    "label": "۱ روز پیش فعال‌سازی حمایت حمایت اعتبار خدمات برای علی محمدی فعال شد.",
+    "destination": "support-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:615",
+    "name": "notif-card-2",
+    "label": "۲ روز پیش مصرف اعتبار ۱ اعتبار خدمات آموزشی برای مریم رضایی مصرف شد.",
+    "destination": "activity-detail-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:626",
+    "name": "notif-card-3",
+    "label": "۳ روز پیش یادآوری گزارش گزارش فعالیت شهریور ماه آماده دانلود است.",
+    "destination": "activity-detail-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:637",
+    "name": "notif-card-4",
+    "label": "۱ هفته پیش اطلاع‌رسانی اعتبار خدمات حرفه‌ای جدید برای هنرمند تخصیص یافت.",
+    "destination": "activity-detail-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:647",
+    "name": "notif-card-5",
+    "label": "۲ هفته پیش اطلاع‌رسانی معرفی حسین نوری توسط نگارین پذیرفته شد.",
+    "destination": "referral-detail",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:665",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:669",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:673",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:677",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:681",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:685",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "notifications",
+    "node": "955:691",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "955:733",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "955:743",
+    "name": "tab-مشخصات",
+    "label": "مشخصات سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "955:745",
+    "name": "tab-کاربران",
+    "label": "کاربران و دسترسی‌ها",
+    "destination": "users-and-access",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "955:774",
+    "name": "btn-edit",
+    "label": "ویرایش اطلاعات",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "958:41",
+    "name": "btn-change-password",
+    "label": "تغییر رمز عبور",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "958:46",
+    "name": "btn-manage",
+    "label": "مدیریت",
+    "destination": "users-and-access",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "958:53",
+    "name": "btn-view",
+    "label": "مشاهده",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "958:58",
+    "name": "btn-logout",
+    "label": "خروج از حساب کاربری",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "955:825",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "955:829",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "955:833",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "955:837",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "955:841",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "955:845",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "account",
+    "node": "955:849",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:864",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:874",
+    "name": "tab-مشخصات",
+    "label": "مشخصات سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:876",
+    "name": "tab-کاربران",
+    "label": "کاربران و دسترسی‌ها",
+    "destination": "users-and-access",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:883",
+    "name": "btn-invite",
+    "label": "دعوت کاربر جدید",
+    "destination": "invite-user",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:911",
+    "label": "ویرایش",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:921",
+    "label": "ویرایش",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:931",
+    "label": "ویرایش",
+    "destination": null,
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:947",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:951",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:955",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:959",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:963",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:967",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "955:971",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "invite-user",
+    "node": "955:986",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "invite-user",
+    "node": "955:1023",
+    "name": "btn-cancel",
+    "label": "انصراف",
+    "destination": "users-and-access",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "invite-user",
+    "node": "955:1025",
+    "name": "btn-submit",
+    "label": "ارسال دعوت‌نامه",
+    "destination": null,
+    "mode": "invite",
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "invite-user",
+    "node": "955:1035",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "invite-user",
+    "node": "955:1039",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "invite-user",
+    "node": "955:1043",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "invite-user",
+    "node": "955:1047",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "invite-user",
+    "node": "955:1051",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "invite-user",
+    "node": "955:1055",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "invite-user",
+    "node": "955:1059",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "empty-states",
+    "node": "955:1095",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "empty-states",
+    "node": "955:1134",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "empty-states",
+    "node": "955:1137",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "empty-states",
+    "node": "955:1140",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "empty-states",
+    "node": "955:1143",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "empty-states",
+    "node": "955:1146",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "empty-states",
+    "node": "955:1149",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "empty-states",
+    "node": "955:1152",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "loading-state",
+    "node": "955:1167",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "loading-state",
+    "node": "955:1236",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "loading-state",
+    "node": "955:1239",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "loading-state",
+    "node": "955:1242",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "loading-state",
+    "node": "955:1245",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "loading-state",
+    "node": "955:1248",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "loading-state",
+    "node": "955:1251",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "loading-state",
+    "node": "955:1254",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "error-state",
+    "node": "955:1269",
+    "name": "notification-bell",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "error-state",
+    "node": "955:1283",
+    "name": "retry-button",
+    "label": "تلاش مجدد",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "error-state",
+    "node": "955:1285",
+    "label": "بازگشت به پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "error-state",
+    "node": "955:1296",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "error-state",
+    "node": "955:1299",
+    "name": "nav-item-برنامه‌های حمایتی",
+    "label": "برنامه‌های حمایتی",
+    "destination": "support-programs",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "error-state",
+    "node": "955:1302",
+    "name": "nav-item-هنرمندان معرفی‌شده",
+    "label": "هنرمندان معرفی‌شده",
+    "destination": "artist-referrals",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "error-state",
+    "node": "955:1305",
+    "name": "nav-item-حمایت‌های من",
+    "label": "حمایت‌های من",
+    "destination": "my-supports",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "error-state",
+    "node": "955:1308",
+    "name": "nav-item-گزارش فعالیت",
+    "label": "گزارش فعالیت",
+    "destination": "activity-report",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "error-state",
+    "node": "955:1311",
+    "name": "nav-item-اعلان‌ها",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  },
+  {
+    "screen": "error-state",
+    "node": "955:1314",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "mode": null,
+    "source": "inferred preview mapping; no source frame/instance/component reactions"
+  }
+]
