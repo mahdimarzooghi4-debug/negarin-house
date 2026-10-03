@@ -5856,7 +5856,7 @@
 .export-partner-design [data-node-id="915:849"] img{translate:-5px 0px;}
 .export-partner-design [data-node-id="915:2322"] img{translate:4px -0.0px;}
 .export-partner-design [data-node-id="1199:451"] img{translate:3px 0px;}
-.export-partner-design [data-node-id="928:676"] img{translate:-8px 1px;}
+.export-partner-design [data-node-id="928:676"] img{translate:0px 1px;}
 .export-partner-design [data-node-id="915:3690"] img{translate:-3px 0px;}
 .export-partner-design [data-node-id="1206:399"] img{translate:-3px 0px;}
 .export-partner-design [data-node-id="915:5526"] img{translate:-2.01px 1px;}
@@ -5897,3 +5897,10 @@
 .export-partner-design [data-node-id="1206:435"] img{translate:-4px 0px;}
 .export-partner-design [data-node-id="1206:439"] img{translate:-4px 0px;}
 .export-partner-design [data-node-id="915:8714"] img{translate:-5px 0px;}
+
+/* Inter has no Arabic glyphs. Use the packaged Arabic fallback for this native
+   90px source label so its centered icon does not depend on the OS sans font. */
+.export-partner-design [data-node-id="928:485"] {
+  font-family: "Inter Variable", "Noto Sans Arabic Variable", sans-serif;
+  line-height: 17px;
+}
