@@ -95,7 +95,9 @@ def main():
  for source in (web/"src").rglob("*.tsx"):
   text = source.read_text()
   source.write_text(re.sub(r'<Link(?=\s|>)', '<Link prefetch={false}', text))
- shutil.rmtree(web/"src/app/[portal]")
+ for path, params in [("[portal]/page.tsx", [{"portal":"artist"}]), ("[portal]/[locale]/page.tsx", [{"portal":"partner","locale":"en"}])]:
+  route = web/"src/app"/path
+  route.write_text(route.read_text()+"\nexport function generateStaticParams(){return "+json.dumps(params)+";}\n")
  (web/"next.config.ts").write_text('import type {NextConfig} from "next";\nconst config:NextConfig={output:"export",trailingSlash:true,reactStrictMode:true,transpilePackages:["@negarin/i18n"],images:{unoptimized:true}};\nexport default config;\n')
  for layout in (web/"src/app/preview").glob("*/layout.tsx"):
   text = layout.read_text()
