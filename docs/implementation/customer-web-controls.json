@@ -1,0 +1,1712 @@
+[
+  {
+    "screen": "account-overview",
+    "node": "1198:1536",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1539",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1542",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1544",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1545",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1546",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1581",
+    "label": "مشاهده سفارش‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1597",
+    "label": "آدرس‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1592",
+    "label": "مدیریت آدرس‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1603",
+    "label": "دیدن علاقه‌مندی‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1614",
+    "label": "ویرایش اطلاعات",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1626",
+    "label": "مشاهده همه سفارش‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1666",
+    "label": "آدرس‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1670",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1671",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "account-overview",
+    "node": "1198:1672",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2445",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2448",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2451",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2453",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2454",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2455",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2474",
+    "label": "انتخاب‌شده",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2485",
+    "label": "delete_outline حذف",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2488",
+    "label": "edit ویرایش",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2493",
+    "label": "انتخاب آدرس",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2503",
+    "label": "delete_outline حذف",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2506",
+    "label": "edit ویرایش",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2468",
+    "label": "افزودن آدرس جدید",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2562",
+    "label": "انصراف",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2562",
+    "label": "ذخیره آدرس",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2574",
+    "label": "آدرس‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2575",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2578",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2579",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "address-book",
+    "node": "1180:2580",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:64",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:67",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:70",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:73",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:76",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:79",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:107",
+    "label": "کشف آثار",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:107",
+    "label": "ورود به روایت‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:117",
+    "label": "share",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:119",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:151",
+    "label": "جدیدترین‌ها sort",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:162",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:159",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:175",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:172",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:188",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:185",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:202",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:199",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:212",
+    "label": "نمایش نتایج",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:301",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:302",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:303",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:306",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:307",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-store",
+    "node": "1191:308",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:323",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:326",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:329",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:332",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:335",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:338",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:347",
+    "label": "share",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:349",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:373",
+    "label": "کشف آثار",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:373",
+    "label": "مشاهده همه روایت‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:413",
+    "label": "مشاهده روایت",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:417",
+    "label": "مشاهده روایت",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:430",
+    "label": "مشاهده روایت",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:444",
+    "label": "مشاهده محصول مرتبط",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:462",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:463",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:464",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:467",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:468",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "artist-stories",
+    "node": "1191:469",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5592",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5595",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5598",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5601",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5604",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5607",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5621",
+    "label": "delete_outline حذف",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5624",
+    "label": "remove ۱ add",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5635",
+    "label": "delete_outline حذف",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5638",
+    "label": "remove ۱ add",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5650",
+    "label": "ادامه خرید",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5669",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5674",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5675",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5676",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5679",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5680",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "cart",
+    "node": "1176:5681",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2595",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2598",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2601",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2603",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2604",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2605",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2662",
+    "label": "ادامه برای پرداخت",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2680",
+    "label": "آدرس‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2681",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2684",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2685",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "checkout-review",
+    "node": "1180:2686",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites-empty",
+    "node": "1198:1471",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites-empty",
+    "node": "1198:1474",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites-empty",
+    "node": "1198:1477",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites-empty",
+    "node": "1198:1479",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites-empty",
+    "node": "1198:1480",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites-empty",
+    "node": "1198:1481",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites-empty",
+    "node": "1198:1494",
+    "label": "رفتن به کشف آثار",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "favorites-empty",
+    "node": "1198:1515",
+    "label": "آدرس‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites-empty",
+    "node": "1198:1519",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites-empty",
+    "node": "1198:1520",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites-empty",
+    "node": "1198:1521",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1343",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1346",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1349",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1351",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1352",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1353",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1367",
+    "label": "تازه‌ترین ذخیره‌ها sort",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1385",
+    "label": "حذف از علاقه‌مندی‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1385",
+    "label": "مشاهده محصول",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1402",
+    "label": "حذف از علاقه‌مندی‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1402",
+    "label": "مشاهده محصول",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1419",
+    "label": "حذف از علاقه‌مندی‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1419",
+    "label": "مشاهده محصول",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1436",
+    "label": "حذف از علاقه‌مندی‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1436",
+    "label": "مشاهده محصول",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1450",
+    "label": "آدرس‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1454",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1455",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "favorites",
+    "node": "1198:1456",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3288",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3291",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3294",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3296",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3297",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3299",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3327",
+    "label": "کشف آثار",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3327",
+    "label": "ورود به روایت‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3479",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3487",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3494",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3502",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3509",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3517",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3524",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3532",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3538",
+    "label": "شروع عضویت",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3550",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3551",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3552",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3555",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3556",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "home",
+    "node": "1170:3557",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "login",
+    "node": "1176:5693",
+    "label": "بازگشت arrow_forward",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "login",
+    "node": "1176:5727",
+    "label": "ادامه",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2802",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2805",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2808",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2810",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2811",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2812",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2849",
+    "label": "بازگشت به سفارش‌ها",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2883",
+    "label": "آدرس‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2884",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2887",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2888",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "order-detail",
+    "node": "1180:2889",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2701",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2704",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2707",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2709",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2710",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2711",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2725",
+    "label": "گذشته",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2743",
+    "label": "مشاهده جزئیات سفارش",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2781",
+    "label": "آدرس‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2782",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2785",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2786",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "1180:2787",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "otp-verification",
+    "node": "1176:5742",
+    "label": "بازگشت arrow_forward",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "otp-verification",
+    "node": "1176:5770",
+    "label": "تأیید و ادامه",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:670",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:673",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:676",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:678",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:679",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:680",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:708",
+    "label": "بازگشت به سفارش",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:708",
+    "label": "تلاش دوباره برای پرداخت",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:720",
+    "label": "آدرس‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:721",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:724",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:725",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-failed",
+    "node": "1194:726",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-redirect",
+    "node": "1194:528",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-redirect",
+    "node": "1194:531",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-redirect",
+    "node": "1194:534",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-redirect",
+    "node": "1194:536",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-redirect",
+    "node": "1194:537",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-redirect",
+    "node": "1194:538",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-redirect",
+    "node": "1194:578",
+    "label": "آدرس‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-redirect",
+    "node": "1194:579",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-redirect",
+    "node": "1194:582",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-redirect",
+    "node": "1194:583",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-redirect",
+    "node": "1194:584",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:599",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:602",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:605",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:607",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:608",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:609",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:637",
+    "label": "بازگشت به صفحهٔ اصلی",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:637",
+    "label": "پیگیری سفارش",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:649",
+    "label": "آدرس‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:650",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:653",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:654",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "payment-success",
+    "node": "1194:655",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5476",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5479",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5482",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5485",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5488",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5491",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5500",
+    "label": "share",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5502",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5524",
+    "label": "مشاهده پروفایل",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5550",
+    "label": "افزودن به سبد",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5559",
+    "label": "مشاهده روایت مرتبط",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5570",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5571",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5572",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5575",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5576",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "product-detail",
+    "node": "1176:5577",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5259",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5262",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5265",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5268",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5271",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5274",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5323",
+    "label": "پیشنهادی sort",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5334",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5331",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5347",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5344",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5360",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5357",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5374",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5371",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5387",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5384",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5400",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5397",
+    "label": "مشاهده اثر",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5419",
+    "label": "نمایش نتایج",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5454",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5455",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5456",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5459",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5460",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "products",
+    "node": "1176:5461",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "story-viewer",
+    "node": "1191:483",
+    "label": "حساب",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "story-viewer",
+    "node": "1191:486",
+    "label": "سبد",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "story-viewer",
+    "node": "1191:489",
+    "label": "ذخیره‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "story-viewer",
+    "node": "1191:492",
+    "label": "روایت‌ها",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "story-viewer",
+    "node": "1191:495",
+    "label": "کشف آثار",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "story-viewer",
+    "node": "1191:498",
+    "label": "خانه",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "story-viewer",
+    "node": "1191:507",
+    "label": "share",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "story-viewer",
+    "node": "1191:509",
+    "label": "bookmark_border",
+    "source": "inferred preview action; zero native reactions"
+  },
+  {
+    "screen": "story-viewer",
+    "node": "1191:564",
+    "label": "مشاهده محصول",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "story-viewer",
+    "node": "1191:593",
+    "label": "مشاهده روایت",
+    "source": "native button instance with inferred preview action"
+  },
+  {
+    "screen": "story-viewer",
+    "node": "1191:600",
+    "label": "مشاهده روایت",
+    "source": "native button instance with inferred preview action"
+  }
+]

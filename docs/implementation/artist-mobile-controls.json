@@ -1,0 +1,6333 @@
+[
+  {
+    "screen": "dashboard",
+    "node": "815:26",
+    "name": "notification-btn",
+    "label": "",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:38",
+    "name": "action-pill-4",
+    "label": "مدیریت موجودی",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:42",
+    "name": "action-pill-3",
+    "label": "مشاهده سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:46",
+    "name": "action-pill-2",
+    "label": "ساخت روایت",
+    "destination": "story-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:50",
+    "name": "action-pill-1",
+    "label": "افزودن محصول",
+    "destination": "product-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "830:64",
+    "name": "Negarin / Button",
+    "label": "مشاهده مسیر رشد",
+    "destination": "growth-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:116",
+    "name": "",
+    "label": "مشاهده همه",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:159",
+    "name": "Negarin / Button",
+    "label": "شروع آموزش",
+    "destination": "course-learning",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:165",
+    "name": "Negarin / Button",
+    "label": "درخواست محتوا",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:171",
+    "name": "Negarin / Button",
+    "label": "فعال‌سازی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:183",
+    "name": "Negarin / Button",
+    "label": "بررسی فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:187",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:191",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:195",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:199",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard",
+    "node": "815:203",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "815:251",
+    "name": "notification-btn",
+    "label": "",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "830:60",
+    "name": "Negarin / Button",
+    "label": "مشاهده مسیر رشد",
+    "destination": "growth-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "815:299",
+    "name": "Negarin / Button",
+    "label": "فعال‌سازی عضویت جوانه",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "815:342",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "815:347",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "815:352",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "815:357",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "815:362",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:374",
+    "name": "notification-btn",
+    "label": "",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:387",
+    "name": "action-pill-4",
+    "label": "مدیریت موجودی",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:392",
+    "name": "action-pill-3",
+    "label": "مشاهده سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:397",
+    "name": "action-pill-2",
+    "label": "ساخت روایت",
+    "destination": "story-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:402",
+    "name": "action-pill-1",
+    "label": "افزودن محصول",
+    "destination": "product-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "830:56",
+    "name": "Negarin / Button",
+    "label": "مشاهده مسیر رشد",
+    "destination": "growth-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:487",
+    "name": "Negarin / Button",
+    "label": "شروع آموزش",
+    "destination": "course-learning",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:493",
+    "name": "Negarin / Button",
+    "label": "درخواست محتوا",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:505",
+    "name": "Negarin / Button",
+    "label": "بررسی فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:509",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:514",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:519",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:524",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-orders",
+    "node": "815:529",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:537",
+    "name": "notification-btn",
+    "label": "",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:550",
+    "name": "action-pill-4",
+    "label": "مدیریت موجودی",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:555",
+    "name": "action-pill-3",
+    "label": "مشاهده سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:560",
+    "name": "action-pill-2",
+    "label": "ساخت روایت",
+    "destination": "story-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:565",
+    "name": "action-pill-1",
+    "label": "افزودن محصول",
+    "destination": "product-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:584",
+    "name": "Negarin / Button",
+    "label": "مشاهده مسیر رشد",
+    "destination": "growth-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:610",
+    "name": "Negarin / Button",
+    "label": "افزودن محصول",
+    "destination": "product-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:625",
+    "name": "Negarin / Button",
+    "label": "افزودن اولین محصول",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:642",
+    "name": "Negarin / Button",
+    "label": "شروع آموزش",
+    "destination": "course-learning",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:648",
+    "name": "Negarin / Button",
+    "label": "درخواست محتوا",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:660",
+    "name": "Negarin / Button",
+    "label": "بررسی فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:664",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:669",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:674",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:679",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-no-products",
+    "node": "815:684",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-loading",
+    "node": "815:751",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-loading",
+    "node": "815:756",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-loading",
+    "node": "815:761",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-loading",
+    "node": "815:766",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-loading",
+    "node": "815:771",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-error",
+    "node": "815:786",
+    "name": "notification-btn",
+    "label": "",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-error",
+    "node": "815:804",
+    "name": "Negarin / Button",
+    "label": "تلاش دوباره",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-error",
+    "node": "815:810",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-error",
+    "node": "815:815",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-error",
+    "node": "815:820",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-error",
+    "node": "815:825",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "dashboard-error",
+    "node": "815:830",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "products",
+    "node": "840:111",
+    "name": "Negarin / Button",
+    "label": "مدیریت محصول",
+    "destination": "product-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "products",
+    "node": "840:128",
+    "name": "Negarin / Button",
+    "label": "ادامه ویرایش",
+    "destination": "product-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "products",
+    "node": "840:133",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "products",
+    "node": "840:137",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "products",
+    "node": "840:141",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "products",
+    "node": "840:146",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "products",
+    "node": "840:150",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-editor",
+    "node": "840:164",
+    "name": "Back Button",
+    "label": "",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-editor",
+    "node": "840:215",
+    "name": "Negarin / Button",
+    "label": "ارسال برای بررسی",
+    "destination": "product-review-status",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-editor",
+    "node": "840:218",
+    "name": "Negarin / Button",
+    "label": "ذخیره پیش‌نویس",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "840:231",
+    "name": "Back Button",
+    "label": "",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "840:245",
+    "name": "Frame",
+    "label": "ارسال برای بررسی تکمیل‌شده",
+    "destination": "product-review-status",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "840:278",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "840:282",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "840:286",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "840:291",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-status",
+    "node": "840:295",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "840:309",
+    "name": "Back Button",
+    "label": "",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "840:329",
+    "name": "Negarin / Button",
+    "label": "اصلاح محصول",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "840:335",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "840:339",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "840:343",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "840:348",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "840:352",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "840:366",
+    "name": "Back Button",
+    "label": "",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "840:373",
+    "name": "Frame",
+    "label": "تأییدشده",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "840:381",
+    "name": "Negarin / Button",
+    "label": "انتشار نهایی محصول",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "840:384",
+    "name": "Negarin / Button",
+    "label": "ویرایش مجدد",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "840:390",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "840:394",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "840:398",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "840:403",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "840:407",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-published",
+    "node": "840:421",
+    "name": "Back Button",
+    "label": "",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-published",
+    "node": "840:441",
+    "name": "Negarin / Button",
+    "label": "مشاهده در فروشگاه",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-published",
+    "node": "840:444",
+    "name": "Negarin / Button",
+    "label": "ویرایش سریع قیمت/موجودی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-published",
+    "node": "840:450",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-published",
+    "node": "840:454",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-published",
+    "node": "840:458",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-published",
+    "node": "840:463",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-published",
+    "node": "840:467",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "840:635",
+    "name": "Back Button",
+    "label": "",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "840:667",
+    "name": "Negarin / Button",
+    "label": "به‌روزرسانی موجودی",
+    "destination": "product-inventory-update",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "840:670",
+    "name": "Negarin / Button",
+    "label": "ویرایش محصول",
+    "destination": "product-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "840:673",
+    "name": "Negarin / Button",
+    "label": "بایگانی محصول",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "840:683",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-archived",
+    "node": "840:719",
+    "name": "Back Button",
+    "label": "",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-archived",
+    "node": "840:772",
+    "name": "Negarin / Button",
+    "label": "بازگردانی محصول",
+    "destination": "product-restore-confirmation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-archived",
+    "node": "840:775",
+    "name": "Negarin / Button",
+    "label": "ویرایش محصول",
+    "destination": "product-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-archived",
+    "node": "840:785",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-restore-confirmation",
+    "node": "840:822",
+    "name": "Back Button",
+    "label": "",
+    "destination": "product-archived",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-restore-confirmation",
+    "node": "840:845",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-restore-confirmation",
+    "node": "840:872",
+    "name": "Frame",
+    "label": "↺ بازگردانی محصول از بایگانی؟",
+    "destination": "product-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-restore-confirmation",
+    "node": "840:880",
+    "name": "Frame",
+    "label": "شرایط پس از بازگردانی • در صورت صفر بودن موجودی، وضعیت به «ناموجود» تغییر می‌کند. • تمامی آمار فروش و سفارش‌های قبلی کاملاً حفظ خواهند شد.",
+    "destination": "product-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-restore-confirmation",
+    "node": "840:885",
+    "name": "Negarin / Button",
+    "label": "تأیید و بازگردانی محصول",
+    "destination": "product-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-restore-confirmation",
+    "node": "840:888",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "product-archived",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-inventory-update",
+    "node": "840:907",
+    "name": "Back Button",
+    "label": "",
+    "destination": "product-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-inventory-update",
+    "node": "840:918",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-inventory-update",
+    "node": "840:945",
+    "name": "Frame",
+    "label": "+ به‌روزرسانی موجودی محصول",
+    "destination": "product-inventory-update",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-inventory-update",
+    "node": "840:961",
+    "name": "Negarin / Button",
+    "label": "ثبت موجودی جدید",
+    "destination": "product-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-inventory-update",
+    "node": "840:964",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "product-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "840:982",
+    "name": "Back Button",
+    "label": "",
+    "destination": "product-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "840:988",
+    "name": "Frame",
+    "label": "توجه برای ویرایش محصول منتشرشده تغییرات جزئی (موجودی/قیمت) آنی ثبت می‌شوند. اما تغییر تصاویر، عنوان یا دسته‌بندی هنری نیازمند بررسی مجدد توسط کارشناسان نگارین است.",
+    "destination": "product-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "840:1026",
+    "name": "Negarin / Button",
+    "label": "ارسال تغییرات برای بررسی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "840:1029",
+    "name": "Negarin / Button",
+    "label": "ذخیره پیش‌نویس تغییرات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-confirmation",
+    "node": "840:1112",
+    "name": "Frame",
+    "label": "ویرایش محصول",
+    "destination": "product-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-confirmation",
+    "node": "840:1115",
+    "name": "Draft_Notice_Dummy",
+    "label": "پیش‌نویس محصول آماده ذخیره است",
+    "destination": "product-changes-review-status",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-confirmation",
+    "node": "840:1136",
+    "name": "Negarin / Button",
+    "label": "ارسال تغییرات برای بررسی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-confirmation",
+    "node": "840:1139",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "product-editor-edit-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-status",
+    "node": "840:1157",
+    "name": "Back Button",
+    "label": "",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-status",
+    "node": "840:1207",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-status",
+    "node": "840:1212",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-status",
+    "node": "840:1217",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-status",
+    "node": "840:1223",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-status",
+    "node": "840:1228",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-needs-revision",
+    "node": "840:1249",
+    "name": "Back Button",
+    "label": "",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-needs-revision",
+    "node": "840:1270",
+    "name": "Negarin / Button",
+    "label": "اصلاح و ارسال مجدد محصول",
+    "destination": "product-review-status",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-needs-revision",
+    "node": "840:1273",
+    "name": "Negarin / Button",
+    "label": "بازگشت به محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-needs-revision",
+    "node": "840:1279",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-needs-revision",
+    "node": "840:1284",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-needs-revision",
+    "node": "840:1289",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-needs-revision",
+    "node": "840:1295",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-needs-revision",
+    "node": "840:1300",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-approved",
+    "node": "840:1321",
+    "name": "Back Button",
+    "label": "",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-approved",
+    "node": "840:1329",
+    "name": "Frame",
+    "label": "تأییدشده",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-approved",
+    "node": "840:1342",
+    "name": "Negarin / Button",
+    "label": "انتشار نهایی محصول",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-approved",
+    "node": "840:1345",
+    "name": "Negarin / Button",
+    "label": "ویرایش مجدد",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-approved",
+    "node": "840:1351",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-approved",
+    "node": "840:1356",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-approved",
+    "node": "840:1361",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-approved",
+    "node": "840:1367",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-changes-review-approved",
+    "node": "840:1372",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "840:1393",
+    "name": "Back Button",
+    "label": "",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "840:1425",
+    "name": "Negarin / Button",
+    "label": "بازگشت به مدیریت محصول",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "847:108",
+    "name": "Frame",
+    "label": "ارسال‌شده ۲ سفارش در مسیر تحویل",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "847:130",
+    "name": "Frame",
+    "label": "ارسال",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "847:146",
+    "name": "Frame",
+    "label": "ثبت پیشرفت تولید",
+    "destination": "order-progress-update",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "847:178",
+    "name": "Frame",
+    "label": "مشاهده",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "847:184",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "847:187",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "847:190",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "847:193",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders",
+    "node": "847:196",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "847:220",
+    "name": "Frame",
+    "label": "ارسال‌شده ۲ سفارش در مسیر تحویل",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "847:237",
+    "name": "Frame",
+    "label": "ارسال",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "847:256",
+    "name": "Frame",
+    "label": "ثبت پیشرفت تولید",
+    "destination": "order-progress-update",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "847:274",
+    "name": "Negarin / Button",
+    "label": "نمایش همه سفارش‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "847:279",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "847:282",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "847:285",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "847:288",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "847:291",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "847:303",
+    "name": "Back Button",
+    "label": "",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "847:323",
+    "name": "Frame",
+    "label": "ارسال بعد",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "847:383",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "847:386",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "847:389",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "847:392",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "847:395",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-progress-update",
+    "node": "847:415",
+    "name": "",
+    "label": "×",
+    "destination": "order-detail-preparing",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-progress-update",
+    "node": "847:435",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "order-detail-preparing",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-progress-update",
+    "node": "847:438",
+    "name": "Negarin / Button",
+    "label": "ثبت پیشرفت",
+    "destination": "order-detail-preparing",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-issue-report",
+    "node": "847:455",
+    "name": "",
+    "label": "×",
+    "destination": "order-detail-preparing",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-issue-report",
+    "node": "847:469",
+    "name": "Frame",
+    "label": "ارسال/حمل",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-issue-report",
+    "node": "847:479",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "order-detail-preparing",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-issue-report",
+    "node": "847:482",
+    "name": "Negarin / Button",
+    "label": "ثبت گزارش مشکل",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "847:494",
+    "name": "Back Button",
+    "label": "",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "847:542",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "847:545",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "847:548",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "847:551",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "847:554",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "packaging-completion-confirmation",
+    "node": "847:710",
+    "name": "Back Button",
+    "label": "",
+    "destination": "order-detail-packaging",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "packaging-completion-confirmation",
+    "node": "847:714",
+    "name": "Background Mockup Content",
+    "label": "ست پذیرایی دست‌ساز طرح فیروزه تولید کامل شده؛ بسته‌بندی را نهایی کن",
+    "destination": "order-detail-packaging",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "packaging-completion-confirmation",
+    "node": "847:721",
+    "name": "",
+    "label": "×",
+    "destination": "order-detail-packaging",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "packaging-completion-confirmation",
+    "node": "847:743",
+    "name": "Frame",
+    "label": "بعد از این تأیید، وارد مرحله انتخاب همکار ارسال می‌شوید و وضعیت سفارش فقط پس از تأیید دریافت مرسوله توسط همکار به ارسال‌شده تغییر می‌یابد.",
+    "destination": "order-shipping-partner-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "packaging-completion-confirmation",
+    "node": "847:746",
+    "name": "Negarin / Button",
+    "label": "تأیید و انتخاب همکار",
+    "destination": "order-shipping-partner-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "packaging-completion-confirmation",
+    "node": "847:749",
+    "name": "Frame",
+    "label": "انصراف",
+    "destination": "order-detail-packaging",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:764",
+    "name": "Back Button",
+    "label": "",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:779",
+    "name": "Frame",
+    "label": "ارسال فعلی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:808",
+    "name": "Frame",
+    "label": "انتخاب این همکار",
+    "destination": "order-shipping-partner-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:821",
+    "name": "Frame",
+    "label": "انتخاب این همکار",
+    "destination": "order-shipping-partner-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:834",
+    "name": "Frame",
+    "label": "انتخاب این همکار",
+    "destination": "order-shipping-partner-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:847",
+    "name": "Frame",
+    "label": "چه زمانی «ارسال‌شده» می‌شود؟ صرف انتخاب همکار یا اعلام هنرمند کافی نیست. وضعیت سفارش وقتی «ارسال‌شده» می‌شود که همکار حمل، دریافت مرسوله را تأیید کند.",
+    "destination": "order-shipping-partner-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:850",
+    "name": "Frame",
+    "label": "بعد از انتخاب همکار بسته به نوع همکار انتخابی، جمع‌آوری از آدرس یا تحویل به شعبه انجام شده و پس از تأیید فیزیکی، کد رهگیری فعال می‌گردد.",
+    "destination": "order-shipping-partner-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:855",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:859",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:863",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:867",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "847:871",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-partner-confirmation",
+    "node": "847:888",
+    "name": "Back Button",
+    "label": "",
+    "destination": "order-shipping-partner-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-partner-confirmation",
+    "node": "847:892",
+    "name": "Background Mockup Content",
+    "label": "ست پذیرایی دست‌ساز طرح فیروزه",
+    "destination": "order-shipping-partner-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-partner-confirmation",
+    "node": "847:898",
+    "name": "",
+    "label": "×",
+    "destination": "order-shipping-partner-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-partner-confirmation",
+    "node": "847:906",
+    "name": "Frame",
+    "label": "● جمع‌آوری از کارگاه همکار پس از پذیرش، بازه جمع‌آوری را اعلام می‌کند. آدرس: کارگاه ثبت‌شده در پروفایل هنرمند",
+    "destination": "order-detail-shipping",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-partner-confirmation",
+    "node": "847:914",
+    "name": "Frame",
+    "label": "تحویل حضوری به شعبه محل تحویل قابل انتخاب پس از ثبت درخواست نمایش داده می‌شود.",
+    "destination": "order-detail-shipping",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-partner-confirmation",
+    "node": "846:127",
+    "name": "Negarin / Button",
+    "label": "تأیید و انتخاب همکار",
+    "destination": "order-detail-shipping",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-partner-confirmation",
+    "node": "847:928",
+    "name": "Frame",
+    "label": "انصراف",
+    "destination": "order-shipping-partner-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "847:943",
+    "name": "Back Button",
+    "label": "",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "847:962",
+    "name": "Frame",
+    "label": "ارسال مرحله فعلی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "847:971",
+    "name": "Frame",
+    "label": "ارسال فعلی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "847:1017",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "847:1021",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "847:1025",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "847:1029",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "847:1033",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "847:1050",
+    "name": "Back Button",
+    "label": "",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "847:1067",
+    "name": "Frame",
+    "label": "ارسال فعلی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "847:1119",
+    "name": "Frame",
+    "label": "بازگشت به جزئیات سفارش",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "847:1123",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "847:1127",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "847:1131",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "847:1135",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "847:1139",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "847:1222",
+    "name": "Back Button",
+    "label": "←",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "847:1250",
+    "name": "Frame",
+    "label": "ارسال پایان",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "847:1290",
+    "name": "Negarin / Button",
+    "label": "بازگشت به سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "847:1299",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "847:1303",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "847:1307",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "847:1311",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "847:1315",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "847:1331",
+    "name": "Back Button",
+    "label": "←",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "847:1349",
+    "name": "Frame",
+    "label": "ارسال تکمیل",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "847:1401",
+    "name": "Negarin / Button",
+    "label": "مشاهده مالی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "847:1408",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "847:1412",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "847:1416",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "847:1420",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "847:1424",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-export",
+    "node": "847:1443",
+    "name": "",
+    "label": "×",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-export",
+    "node": "847:1483",
+    "name": "Negarin / Button",
+    "label": "دریافت خروجی سفارش‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "orders-export",
+    "node": "847:1486",
+    "name": "Frame",
+    "label": "انصراف",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store",
+    "node": "847:1639",
+    "name": "Back Button",
+    "label": "",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store",
+    "node": "847:1654",
+    "name": "Negarin / Button",
+    "label": "مشاهده صفحه عمومی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store",
+    "node": "847:1668",
+    "name": "Negarin / Button",
+    "label": "ویرایش صفحه فروشگاه",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store",
+    "node": "847:1701",
+    "name": "Negarin / Button",
+    "label": "مدیریت نمایش",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store",
+    "node": "847:1712",
+    "name": "Negarin / Button",
+    "label": "مدیریت مدارک",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store",
+    "node": "847:1725",
+    "name": "Negarin / Button",
+    "label": "ویرایش تنظیمات فروش",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store",
+    "node": "847:1729",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store",
+    "node": "847:1732",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store",
+    "node": "847:1735",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store",
+    "node": "847:1738",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store",
+    "node": "847:1741",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "847:1755",
+    "name": "Back Button",
+    "label": "",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "847:1792",
+    "name": "Frame",
+    "label": "هنرمند تأییدشده نگارین",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "847:1795",
+    "name": "Frame",
+    "label": "این ویرایش فقط مربوط به صفحه عمومی است ویرایش نام، معرفی یا تصاویر فروشگاه وضعیت عضویت، سطح رشد یا نشان تأیید حرفه‌ای را تغییر نمی‌دهد.",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "847:1799",
+    "name": "Negarin / Button",
+    "label": "ذخیره تغییرات",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "847:1803",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "847:1805",
+    "name": "Negarin / Button",
+    "label": "پیش‌نمایش فروشگاه",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "847:1810",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "847:1813",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "847:1816",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "847:1819",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "847:1822",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "847:1836",
+    "name": "Back Button",
+    "label": "",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "847:1874",
+    "name": "Negarin / Button",
+    "label": "ذخیره تنظیمات",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "847:1877",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "847:1881",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "847:1884",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "847:1887",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "847:1890",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "847:1893",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "847:1907",
+    "name": "Back Button",
+    "label": "",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "847:1930",
+    "name": "Negarin / Button",
+    "label": "تنظیم زمان",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "847:1942",
+    "name": "Negarin / Button",
+    "label": "مدیریت ظرفیت",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "847:1944",
+    "name": "Frame",
+    "label": "مستقل از عضویت و سطح رشد تغییر این تنظیمات به‌خودی‌خود سطح رشد، وضعیت عضویت یا تیک تأیید حرفه‌ای شما را تغییر نمی‌دهد.",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "847:1948",
+    "name": "Negarin / Button",
+    "label": "ذخیره تنظیمات فروش",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "847:1951",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "847:1955",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "847:1958",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "847:1961",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "847:1964",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "sales-settings",
+    "node": "847:1967",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "847:1981",
+    "name": "Back Button",
+    "label": "",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "847:2008",
+    "name": "",
+    "label": "۱. مشتری یکی از روش‌های فعالی که ارائه می‌دهی را در Checkout انتخاب می‌کند. ۲. تعرفه ۸۵,۰۰۰ تومان توسط نگارین محاسبه و به مبلغ سفارش اضافه می‌شود. ۳. بعد از ثبت سفارش، روش و تعرفه همان سفارش قفل می‌شود و قابل تغییر نیست.",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "847:2024",
+    "name": "Negarin / Button",
+    "label": "ذخیره روش‌های فعال",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "847:2029",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "847:2032",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "847:2035",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "847:2038",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "847:2041",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "847:2156",
+    "name": "Back Button",
+    "label": "فروشگاه من",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "847:2188",
+    "name": "Negarin / Button",
+    "label": "جایگزینی مدرک",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "847:2191",
+    "name": "Negarin / Button",
+    "label": "مشاهده مدرک",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "847:2236",
+    "name": "Negarin / Button",
+    "label": "افزودن مدرک جدید",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "863:192",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "863:197",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "863:201",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "863:205",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "863:209",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "847:2256",
+    "name": "Back Button",
+    "label": "مدارک",
+    "destination": "professional-credentials",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "847:2262",
+    "name": "Intro Banner",
+    "label": "اختیاری اگر مدرک حرفه‌ای داری، ارسال کن داشتن مدرک برای عضویت، فعال‌شدن فروشگاه یا فروش الزامی نیست. فقط در صورت تأیید، نشان آبی در پروفایل عمومی نمایش داده می‌شود.",
+    "destination": "credential-under-review",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "847:2309",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "professional-credentials",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "847:2312",
+    "name": "Negarin / Button",
+    "label": "ارسال برای بررسی",
+    "destination": "credential-under-review",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "863:215",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "863:220",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "863:224",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "863:228",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-submission",
+    "node": "863:232",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "847:2329",
+    "name": "Back Button",
+    "label": "مدارک حرفه‌ای",
+    "destination": "professional-credentials",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "847:2383",
+    "name": "Negarin / Button",
+    "label": "فروشگاه من",
+    "destination": "store",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "847:2386",
+    "name": "Negarin / Button",
+    "label": "بازگشت به مدارک",
+    "destination": "professional-credentials",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "863:238",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "863:243",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "863:247",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "863:251",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "863:255",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "847:2403",
+    "name": "Back Button",
+    "label": "مدارک حرفه‌ای",
+    "destination": "professional-credentials",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "847:2411",
+    "name": "Frame",
+    "label": "تأییدشده",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "847:2420",
+    "name": "Negarin / Button",
+    "label": "مشاهده فایل مدرک",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "847:2462",
+    "name": "Negarin / Button",
+    "label": "بازگشت",
+    "destination": "professional-credentials",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "847:2465",
+    "name": "Negarin / Button",
+    "label": "جایگزینی مدرک",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "863:261",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "863:266",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "863:270",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "863:274",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-detail",
+    "node": "863:278",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "847:2482",
+    "name": "Back Button",
+    "label": "مدارک",
+    "destination": "professional-credentials",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "847:2520",
+    "name": "Warning Note",
+    "label": "جایگزینی مدرک هم اختیاری است اگر مدرک فعلی برایت کافی است، می‌توانی بدون هیچ تغییری ادامه دهی. جایگزینی فقط برای به‌روزرسانی اعتبار حرفه‌ای و نشان تأیید انجام می‌شود و به عضویت یا سطح رشد وابسته نیست.",
+    "destination": "credential-under-review",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "847:2526",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "professional-credentials",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "847:2529",
+    "name": "Negarin / Button",
+    "label": "ارسال برای بررسی",
+    "destination": "credential-under-review",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "863:284",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "863:289",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "863:293",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "863:297",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "863:301",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "growth-center",
+    "node": "847:2674",
+    "name": "Negarin / Button",
+    "label": "ثبت جدید",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "growth-center",
+    "node": "847:2700",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "growth-center",
+    "node": "847:2704",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "growth-center",
+    "node": "847:2708",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "growth-center",
+    "node": "847:2712",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "growth-center",
+    "node": "847:2716",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:138",
+    "name": "Back",
+    "label": "",
+    "destination": "services",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:141",
+    "name": "Right Header",
+    "label": "خدمات",
+    "destination": "services",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:155",
+    "name": "Negarin / Button",
+    "label": "خرید اعتبار",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:203",
+    "name": "Negarin / Button",
+    "label": "شروع دوره",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:216",
+    "name": "Negarin / Button",
+    "label": "درخواست خدمت",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:229",
+    "name": "Negarin / Button",
+    "label": "درخواست خدمت",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:242",
+    "name": "Negarin / Button",
+    "label": "شروع دوره",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:246",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:250",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:254",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:258",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "services",
+    "node": "853:262",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "service-detail",
+    "node": "853:276",
+    "name": "Back",
+    "label": "",
+    "destination": "services",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "service-detail",
+    "node": "853:316",
+    "name": "Frame",
+    "label": "تأییدشده توسط نگارین",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "service-detail",
+    "node": "853:387",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "service-detail",
+    "node": "853:391",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "service-detail",
+    "node": "853:395",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "service-detail",
+    "node": "853:399",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "service-detail",
+    "node": "853:403",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-learning",
+    "node": "853:417",
+    "name": "Back",
+    "label": "",
+    "destination": "services",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-learning",
+    "node": "853:475",
+    "name": "Negarin / Button",
+    "label": "درس قبلی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-learning",
+    "node": "853:478",
+    "name": "Negarin / Button",
+    "label": "علامت‌گذاری تکمیل",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-learning",
+    "node": "853:516",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-learning",
+    "node": "853:520",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-learning",
+    "node": "853:524",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-learning",
+    "node": "853:528",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-learning",
+    "node": "853:532",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-completion",
+    "node": "853:546",
+    "name": "Back",
+    "label": "",
+    "destination": "services",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-completion",
+    "node": "853:575",
+    "name": "Frame",
+    "label": "ثبت شد",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-completion",
+    "node": "853:598",
+    "name": "Frame",
+    "label": "ثبت در پروفایل رشد",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-completion",
+    "node": "853:606",
+    "name": "Negarin / Button",
+    "label": "بازگشت به خدمات",
+    "destination": "services",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-completion",
+    "node": "853:609",
+    "name": "Negarin / Button",
+    "label": "مشاهده رشد من",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-completion",
+    "node": "853:621",
+    "name": "Frame",
+    "label": "تأییدشده توسط نگارین",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-completion",
+    "node": "853:630",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-completion",
+    "node": "853:634",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-completion",
+    "node": "853:638",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-completion",
+    "node": "853:642",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "course-completion",
+    "node": "853:646",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunities",
+    "node": "853:779",
+    "name": "Back Button",
+    "label": "",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunities",
+    "node": "853:841",
+    "name": "Frame",
+    "label": "مشاهده فرصت",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunities",
+    "node": "853:852",
+    "name": "Frame",
+    "label": "شروع نزدیک",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunities",
+    "node": "853:872",
+    "name": "Frame",
+    "label": "تأیید حرفه‌ای",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunities",
+    "node": "853:881",
+    "name": "Frame",
+    "label": "مشاهده جزئیات",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunities",
+    "node": "853:921",
+    "name": "Frame",
+    "label": "مشاهده فرصت",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunities",
+    "node": "853:949",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunities",
+    "node": "853:953",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunities",
+    "node": "853:957",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunities",
+    "node": "853:961",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunities",
+    "node": "853:965",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "853:981",
+    "name": "Back Button",
+    "label": "",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "853:1007",
+    "name": "CTA Card",
+    "label": "زمان محدود آماده‌ای برای همکاری؟ اعلام آمادگی به‌معنای پذیرش قطعی نیست؛ ابتدا تناسب محصول و ظرفیت بررسی می‌شود. اعلام آمادگی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "853:1081",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "853:1085",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "853:1089",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "853:1093",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "853:1097",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1113",
+    "name": "Back Button",
+    "label": "",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1124",
+    "name": "Opportunity Summary",
+    "label": "سفارش سازمانی تقسیم بین چند هنرمند تأمین هدیه دست‌ساز برای رویداد شرکتی برای ورود به بررسی، محصول پیشنهادی، ظرفیت تولید و زمان آماده‌سازی خودت را ثبت کن.",
+    "destination": "opportunity-application-status",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1137",
+    "name": "Section 1",
+    "label": "۱. محصول پیشنهادی تغییر محصول ست پذیرایی دست‌ساز طرح فیروزه محصول منتشرشده · موجودی فعال در صورت انتخاب، نمونه نهایی و مشخصات دقیق محصول قبل از تخصیص تأیید می‌شود.",
+    "destination": "opportunity-application-status",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1172",
+    "name": "Frame",
+    "label": "اطلاعات ظرفیت و زمان تحویل را صحیح ثبت کرده‌ام. ✓",
+    "destination": "opportunity-application-status",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1176",
+    "name": "Frame",
+    "label": "ظرفیت ثبت‌شده واقعی و قابل تحویل است. ✓",
+    "destination": "opportunity-application-status",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1186",
+    "name": "Frame",
+    "label": "ارسال برای بررسی",
+    "destination": "opportunity-application-status",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1189",
+    "name": "Frame",
+    "label": "ذخیره پیش‌نویس",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1192",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1196",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1200",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1204",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "853:1208",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "853:1224",
+    "name": "Back Button",
+    "label": "",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "853:1239",
+    "name": "Frame",
+    "label": "درخواست ثبت‌شده",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "853:1311",
+    "name": "Frame",
+    "label": "مشاهده فرصت",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "853:1318",
+    "name": "Frame",
+    "label": "درخواست برای بررسی نگارین ثبت شده است. امروز · ساعت ۱۰:۳۰",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "853:1325",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "853:1329",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "853:1333",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "853:1337",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "853:1341",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "853:1375",
+    "name": "Back Button",
+    "label": "بازگشت به فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "853:1391",
+    "name": "Frame",
+    "label": "تأیید اولیه",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "853:1463",
+    "name": "Frame",
+    "label": "مشاهده فرصت",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "853:1474",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "853:1478",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "853:1482",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "853:1486",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "853:1490",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "853:1506",
+    "name": "Back Button",
+    "label": "بازگشت به فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "853:1522",
+    "name": "Frame",
+    "label": "تأیید اولیه",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "853:1597",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "853:1601",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "853:1605",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "853:1609",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "853:1613",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1630",
+    "name": "Back Button",
+    "label": "بازگشت به فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1636",
+    "name": "Status Card",
+    "label": "تخصیص آماده ۲۴ عدد به تو تخصیص یافت برای شروع تولید، سهم سفارش را تأیید کن.",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1646",
+    "name": "Frame",
+    "label": "تأیید اولیه",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1657",
+    "name": "Frame",
+    "label": "وضعیت نیازمند تأیید",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1674",
+    "name": "Frame",
+    "label": "✓ ۱ ثبت",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1707",
+    "name": "Frame",
+    "label": "اقدام لازم سهم سفارش را تأیید کن",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1717",
+    "name": "Commitment Note",
+    "label": "تعهد پس از پذیرش سفارش با پذیرش این تخصیص، ظرفیت و زمان آماده‌سازی اعلام‌شده به‌عنوان تعهد سفارش ثبت می‌شود و سفارش وارد جریان اجرایی خواهد شد.",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1721",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1725",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1729",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1733",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1737",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1744",
+    "name": "",
+    "label": "×",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1765",
+    "name": "Info Banner",
+    "label": "پذیرش این سفارش به‌تنهایی باعث ارتقای سطح نمی‌شود؛ نتیجه اجرای موفق آن در معیارهای کمی رشد ثبت می‌شود.",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1768",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-accept",
+    "node": "853:1771",
+    "name": "Negarin / Button",
+    "label": "تأیید و پذیرش",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1787",
+    "name": "Back Button",
+    "label": "بازگشت به فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1793",
+    "name": "Status Card",
+    "label": "تخصیص آماده ۲۴ عدد به تو تخصیص یافت برای شروع تولید، سهم سفارش را تأیید کن.",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1803",
+    "name": "Frame",
+    "label": "تأیید اولیه",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1814",
+    "name": "Frame",
+    "label": "وضعیت نیازمند تأیید",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1831",
+    "name": "Frame",
+    "label": "✓ ۱ ثبت",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1864",
+    "name": "Frame",
+    "label": "اقدام لازم سهم سفارش را تأیید کن",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1874",
+    "name": "Commitment Note",
+    "label": "تعهد پس از پذیرش سفارش با پذیرش این تخصیص، ظرفیت و زمان آماده‌سازی اعلام‌شده به‌عنوان تعهد سفارش ثبت می‌شود و سفارش وارد جریان اجرایی خواهد شد.",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1878",
+    "name": "Tab-حساب",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1882",
+    "name": "Tab-فرصت‌ها",
+    "label": "فرصت‌ها",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1886",
+    "name": "Tab-محصولات",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1890",
+    "name": "Tab-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1894",
+    "name": "Tab-خانه",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1901",
+    "name": "",
+    "label": "×",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1930",
+    "name": "Alert Banner",
+    "label": "پس از تأیید، این سهم می‌تواند برای تخصیص به هنرمند دیگری آزاد شود.",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1933",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "opportunity-allocation-reject",
+    "node": "853:1936",
+    "name": "Negarin / Button",
+    "label": "تأیید رد تخصیص",
+    "destination": "opportunity-order-allocation",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance",
+    "node": "855:157",
+    "name": "Notification Button",
+    "label": "",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance",
+    "node": "855:164",
+    "name": "Frame",
+    "label": "قابل برداشت موجودی قابل تسویه ۸٬۴۲۰٬۰۰۰ تومان آماده ثبت درخواست تسویه",
+    "destination": "finance-settlement-request-submitted",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance",
+    "node": "855:192",
+    "name": "Negarin / Button",
+    "label": "درخواست تسویه حساب",
+    "destination": "finance-settlement-request",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance",
+    "node": "855:204",
+    "name": "Frame",
+    "label": "تأییدشده",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance",
+    "node": "855:213",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance",
+    "node": "855:220",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance",
+    "node": "855:224",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance",
+    "node": "855:228",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance",
+    "node": "855:232",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request",
+    "node": "855:247",
+    "name": "Frame",
+    "label": "ثبت درخواست تسویه",
+    "destination": "finance-settlement-request-submitted",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request",
+    "node": "855:266",
+    "name": "Negarin / Button",
+    "label": "ثبت درخواست تسویه",
+    "destination": "finance-settlement-request-submitted",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request",
+    "node": "855:269",
+    "name": "Negarin / Button",
+    "label": "انصراف و بازگشت",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request",
+    "node": "855:274",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request",
+    "node": "855:281",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request",
+    "node": "855:285",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request",
+    "node": "855:289",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request",
+    "node": "855:293",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "855:328",
+    "name": "Negarin / Button",
+    "label": "بازگشت به مالی",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "855:331",
+    "name": "Negarin / Button",
+    "label": "مشاهده تراکنش‌ها",
+    "destination": "finance-transactions",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "855:337",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "855:344",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "855:348",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "855:352",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "855:356",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "855:416",
+    "name": "Negarin / Button",
+    "label": "بازگشت به مالی",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "855:419",
+    "name": "Negarin / Button",
+    "label": "مشاهده تراکنش‌ها",
+    "destination": "finance-transactions",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "855:424",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "855:431",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "855:435",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "855:439",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "855:443",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "855:503",
+    "name": "Negarin / Button",
+    "label": "بازگشت به مالی",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "855:506",
+    "name": "Negarin / Button",
+    "label": "مشاهده تراکنش‌ها",
+    "destination": "finance-transactions",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "855:511",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "855:518",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "855:522",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "855:526",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "855:530",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "855:552",
+    "name": "Notification Button",
+    "label": "",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "855:587",
+    "name": "Negarin / Button",
+    "label": "درخواست تسویه حساب",
+    "destination": "finance-settlement-request",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "855:599",
+    "name": "Frame",
+    "label": "تأییدشده",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "855:608",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "855:613",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "855:617",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "855:621",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "855:625",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "855:642",
+    "name": "Back Button",
+    "label": "",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "855:671",
+    "name": "Frame",
+    "label": "بازگشت وجه",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "855:721",
+    "name": "Frame",
+    "label": "بازگشت −۹۸۰,۰۰۰ تومان",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "855:739",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "855:744",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "855:748",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "855:752",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "855:756",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "855:773",
+    "name": "Back Button",
+    "label": "",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "855:856",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "855:861",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "855:865",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "855:869",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "855:873",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "855:890",
+    "name": "Back Button",
+    "label": "",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "855:973",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "855:978",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "855:982",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "855:986",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "855:990",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "855:1007",
+    "name": "Back Button",
+    "label": "",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "855:1049",
+    "name": "Frame",
+    "label": "بازگشت وجه نوع تراکنش",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "855:1090",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "855:1095",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "855:1099",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "855:1103",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "855:1107",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1265",
+    "name": "Frame",
+    "label": "عضویت",
+    "destination": "membership-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1270",
+    "name": "Hero Banner",
+    "label": "عضویت سالانه فعال عضویت جوانه فعال است عضویت فروشگاه فعال است. سطح رشد «جوانه» از عملکرد واقعی فروش و کیفیت تعیین می‌شود و با پرداخت مستقیم قابل خرید نیست. سطح رشد فعلی: جوانه فروشگاه: فعال تمدید: در پایان دوره",
+    "destination": "membership-midyear-upgrade",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1299",
+    "name": "Frame",
+    "label": "هنرمند یا نهاد همکار پرداخت‌کننده",
+    "destination": "membership-midyear-upgrade",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1313",
+    "name": "Negarin / Button",
+    "label": "مشاهده خدمات",
+    "destination": "services",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1318",
+    "name": "Frame",
+    "label": "ارتقای میان‌دوره‌ای ارتقا نتیجه رشد واقعی است؛ نه خرید سطح",
+    "destination": "membership-midyear-upgrade",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1327",
+    "name": "Negarin / Button",
+    "label": "بررسی ارتقای عضویت",
+    "destination": "membership-midyear-upgrade",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1332",
+    "name": "Frame",
+    "label": "سابقه عضویت و ارتقا رویدادهای اصلی دوره فعلی",
+    "destination": "membership-midyear-upgrade",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1338",
+    "name": "Frame",
+    "label": "شروع دوره",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1343",
+    "name": "Frame",
+    "label": "پرداخت و تمدید اطلاعات مالی بدون قیمت نمونه",
+    "destination": "membership-midyear-upgrade",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1347",
+    "name": "Frame",
+    "label": "تسویه‌شده برای دوره فعال وضعیت پرداخت",
+    "destination": "membership-midyear-upgrade",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1357",
+    "name": "Negarin / Button",
+    "label": "مشاهده مالی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1364",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1369",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1373",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1377",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center",
+    "node": "855:1381",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1397",
+    "name": "Back Button",
+    "label": "",
+    "destination": "membership-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1404",
+    "name": "Frame",
+    "label": "سطح رشد ارتقا یافته",
+    "destination": "membership-upgrade-checkout",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1418",
+    "name": "Frame",
+    "label": "محاسبه ارتقای میان‌دوره‌ای بدون قیمت نمونه؛ مبلغ نهایی از زمان باقی‌مانده محاسبه می‌شود",
+    "destination": "membership-upgrade-checkout",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1431",
+    "name": "Frame",
+    "label": "فقط تفاوت نسبتی زمان باقی‌مانده مبلغ قابل پرداخت",
+    "destination": "membership-upgrade-checkout",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1439",
+    "name": "Frame",
+    "label": "چرا هزینه کامل پرداخت نمی‌شود؟",
+    "destination": "membership-upgrade-checkout",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1441",
+    "name": "Frame",
+    "label": "چون تاریخ شروع و تمدید اصلی عضویت تغییر نمی‌کند. ارتقا فقط برای باقی‌مانده همان دوره اعمال می‌شود.",
+    "destination": "membership-upgrade-checkout",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1464",
+    "name": "Frame",
+    "label": "پرداخت هیچ سطح رشدی ایجاد نمی‌کند و معیارها را دور نمی‌زند. •",
+    "destination": "membership-upgrade-checkout",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1471",
+    "name": "Negarin / Button",
+    "label": "مشاهده مبلغ نهایی و ادامه",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1474",
+    "name": "Negarin / Button",
+    "label": "بازگشت به مرکز عضویت",
+    "destination": "membership-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1480",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1485",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1489",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1493",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "855:1497",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1513",
+    "name": "Back Button",
+    "label": "",
+    "destination": "membership-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1518",
+    "name": "Hero Banner",
+    "label": "آماده فعال‌سازی ارتقای عضویت سطح شکوفه آماده نهایی‌سازی است سطح «شکوفه» قبلاً از مسیر رشد و عملکرد واقعی به‌دست آمده است. این مرحله فقط بسته عضویت متناسب را فعال می‌کند. سطح رشد: شکوفه بسته فعلی: جوانه تمدید: بدون تغییر",
+    "destination": "membership-upgrade-payment",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1534",
+    "name": "Frame",
+    "label": "جمع‌بندی مالی ارتقا مبلغ نهایی از تعرفه واقعی و زمان باقی‌مانده محاسبه می‌شود",
+    "destination": "membership-upgrade-payment",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1547",
+    "name": "Frame",
+    "label": "مبلغ واقعی محاسبه‌شده توسط سیستم مبلغ نهایی قابل پرداخت",
+    "destination": "membership-upgrade-payment",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1555",
+    "name": "Frame",
+    "label": "قبل از پرداخت چه چیزی را بررسی می‌کنی؟",
+    "destination": "membership-upgrade-payment",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1557",
+    "name": "Frame",
+    "label": "بسته جدید فقط برای ادامه دوره فعلی فعال می‌شود. تاریخ تمدید همان تاریخ قبلی می‌ماند و پرداخت فقط تفاوت هزینه را پوشش می‌دهد.",
+    "destination": "membership-upgrade-payment",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1562",
+    "name": "Frame",
+    "label": "پس از پرداخت چه تغییر می‌کند؟",
+    "destination": "membership-upgrade-payment",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1580",
+    "name": "Frame",
+    "label": "پرداخت سطح جدیدی ایجاد نمی‌کند و معیارهای رشد را دور نمی‌زند. •",
+    "destination": "membership-upgrade-payment",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1587",
+    "name": "Negarin / Button",
+    "label": "پرداخت آنلاین و فعال‌سازی",
+    "destination": "membership-upgrade-payment",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1590",
+    "name": "Negarin / Button",
+    "label": "بازگشت به جزئیات ارتقا",
+    "destination": "membership-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1596",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1601",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1605",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1609",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "855:1613",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1629",
+    "name": "Back Button",
+    "label": "",
+    "destination": "membership-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1636",
+    "name": "Frame",
+    "label": "آماده پرداخت",
+    "destination": "membership-upgrade-completed",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1650",
+    "name": "Frame",
+    "label": "جزئیات پرداخت مبلغ نهایی بر اساس تعرفه ثبت‌شده و زمان باقی‌مانده",
+    "destination": "membership-upgrade-completed",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1660",
+    "name": "Frame",
+    "label": "درگاه پرداخت آنلاین روش پرداخت",
+    "destination": "membership-upgrade-completed",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1663",
+    "name": "Frame",
+    "label": "مبلغ واقعی محاسبه‌شده توسط سیستم مبلغ نهایی قابل پرداخت",
+    "destination": "membership-upgrade-completed",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1670",
+    "name": "Frame",
+    "label": "روش پرداخت",
+    "destination": "membership-upgrade-completed",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1672",
+    "name": "Frame",
+    "label": "با انتخاب «ورود به درگاه پرداخت» به درگاه آنلاین منتقل می‌شوی. فعال‌سازی پس از تایید موفق پرداخت انجام می‌شود.",
+    "destination": "membership-upgrade-completed",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1677",
+    "name": "Frame",
+    "label": "پس از پرداخت موفق",
+    "destination": "membership-upgrade-completed",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1695",
+    "name": "Frame",
+    "label": "پرداخت برای ارتقای بسته عضویت است؛ نه خرید سطح رشد. •",
+    "destination": "membership-upgrade-completed",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1698",
+    "name": "Frame",
+    "label": "تیک آبی و اعتبار حرفه‌ای مستقل از این پرداخت هستند. •",
+    "destination": "membership-upgrade-completed",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1701",
+    "name": "Frame",
+    "label": "اگر پرداخت تکمیل نشود، بسته فعلی فعال باقی می‌ماند. •",
+    "destination": "membership-upgrade-completed",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1708",
+    "name": "Negarin / Button",
+    "label": "ورود به درگاه پرداخت",
+    "destination": "membership-upgrade-completed",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1711",
+    "name": "Negarin / Button",
+    "label": "بازگشت به جمع‌بندی",
+    "destination": "membership-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1717",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1722",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1726",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1730",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "855:1734",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1749",
+    "name": "Frame",
+    "label": "ارتقای موفقیت‌آمیز",
+    "destination": "membership-center-upgraded",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1756",
+    "name": "Frame",
+    "label": "ارتقا تکمیل‌شده",
+    "destination": "membership-center-upgraded",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1770",
+    "name": "Frame",
+    "label": "نتیجه ارتقا مبلغ نهایی از تفاوت واقعی محاسبه شده است",
+    "destination": "membership-center-upgraded",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1783",
+    "name": "Frame",
+    "label": "مطابق تعرفه واقعی و محاسبه نسبتی وضعیت پرداخت",
+    "destination": "membership-center-upgraded",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1790",
+    "name": "Frame",
+    "label": "نتیجه پرداخت و فعال‌سازی",
+    "destination": "membership-center-upgraded",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1815",
+    "name": "Frame",
+    "label": "پرداخت هیچ سطح رشدی ایجاد نکرده و معیارهای رشد را دور نزده است. •",
+    "destination": "membership-center-upgraded",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1822",
+    "name": "Negarin / Button",
+    "label": "مشاهده خدمات",
+    "destination": "services",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1825",
+    "name": "Negarin / Button",
+    "label": "بازگشت به جزئیات ارتقا",
+    "destination": "membership-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1831",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1836",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1840",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1844",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "855:1848",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "855:1863",
+    "name": "Frame",
+    "label": "عضویت",
+    "destination": "membership-center",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "855:1911",
+    "name": "Negarin / Button",
+    "label": "مشاهده خدمات",
+    "destination": "services",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "855:1931",
+    "name": "Frame",
+    "label": "ارتقای میان‌دوره‌ای جوانه ← شکوفه ثبت شد ارتقا",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "855:1933",
+    "name": "Frame",
+    "label": "ارتقا",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "855:1937",
+    "name": "Frame",
+    "label": "شروع دوره",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "855:1956",
+    "name": "Negarin / Button",
+    "label": "مشاهده مالی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "855:1963",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "855:1968",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "855:1972",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "855:1976",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "855:1980",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "stories",
+    "node": "858:185",
+    "name": "Frame",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "stories",
+    "node": "858:192",
+    "name": "Negarin / Button",
+    "label": "روایت جدید",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "stories",
+    "node": "858:209",
+    "name": "Negarin / Button",
+    "label": "ویرایش",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "stories",
+    "node": "858:219",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "stories",
+    "node": "858:225",
+    "name": "tab-opps",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "stories",
+    "node": "858:230",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "stories",
+    "node": "858:235",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "stories",
+    "node": "858:240",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor",
+    "node": "858:258",
+    "name": "back-btn",
+    "label": "",
+    "destination": "stories",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor",
+    "node": "858:285",
+    "name": "select-trigger",
+    "label": "انتخاب محصول مرتبط",
+    "destination": "story-product-selection",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor",
+    "node": "858:289",
+    "name": "Negarin / Button",
+    "label": "انتشار روایت",
+    "destination": "story-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor",
+    "node": "858:292",
+    "name": "Negarin / Button",
+    "label": "ذخیره پیش‌نویس",
+    "destination": "story-draft",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor",
+    "node": "858:297",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor",
+    "node": "858:303",
+    "name": "tab-opps",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor",
+    "node": "858:308",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor",
+    "node": "858:313",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor",
+    "node": "858:318",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-product-selection",
+    "node": "858:630",
+    "name": "back-btn",
+    "label": "",
+    "destination": "story-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-product-selection",
+    "node": "858:665",
+    "name": "Negarin / Button",
+    "label": "تأیید انتخاب",
+    "destination": "story-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-product-selection",
+    "node": "858:670",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-product-selection",
+    "node": "858:676",
+    "name": "tab-opps",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-product-selection",
+    "node": "858:681",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-product-selection",
+    "node": "858:686",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-product-selection",
+    "node": "858:691",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-preview",
+    "node": "858:336",
+    "name": "back-btn",
+    "label": "",
+    "destination": "story-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-preview",
+    "node": "858:357",
+    "name": "Negarin / Button",
+    "label": "انتشار روایت",
+    "destination": "story-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-preview",
+    "node": "858:360",
+    "name": "Negarin / Button",
+    "label": "بازگشت به ویرایش",
+    "destination": "story-editor",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-preview",
+    "node": "858:365",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-preview",
+    "node": "858:371",
+    "name": "tab-opps",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-preview",
+    "node": "858:376",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-preview",
+    "node": "858:381",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-preview",
+    "node": "858:386",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-draft",
+    "node": "858:404",
+    "name": "back-btn",
+    "label": "",
+    "destination": "stories",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-draft",
+    "node": "858:414",
+    "name": "draft-banner",
+    "label": "این روایت هنوز منتشر نشده است. برای نمایش در شبکه نگارین، دکمه انتشار روایت را لمس کنید.",
+    "destination": "story-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-draft",
+    "node": "858:425",
+    "name": "Negarin / Button",
+    "label": "انتشار روایت",
+    "destination": "story-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-draft",
+    "node": "858:428",
+    "name": "Negarin / Button",
+    "label": "ویرایش پیش‌نویس",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-draft",
+    "node": "858:431",
+    "name": "Negarin / Button",
+    "label": "حذف پیش‌نویس",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-draft",
+    "node": "858:436",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-draft",
+    "node": "858:442",
+    "name": "tab-opps",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-draft",
+    "node": "858:447",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-draft",
+    "node": "858:452",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-draft",
+    "node": "858:457",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-published",
+    "node": "858:475",
+    "name": "back-btn",
+    "label": "",
+    "destination": "stories",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-published",
+    "node": "858:498",
+    "name": "Negarin / Button",
+    "label": "ویرایش روایت",
+    "destination": "story-editor-edit-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-published",
+    "node": "858:501",
+    "name": "Negarin / Button",
+    "label": "پیش‌نمایش عمومی",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-published",
+    "node": "858:506",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-published",
+    "node": "858:512",
+    "name": "tab-opps",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-published",
+    "node": "858:517",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-published",
+    "node": "858:522",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-published",
+    "node": "858:527",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor-edit-published",
+    "node": "858:545",
+    "name": "back-btn",
+    "label": "",
+    "destination": "story-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor-edit-published",
+    "node": "858:567",
+    "name": "Negarin / Button",
+    "label": "تغییر فایل",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor-edit-published",
+    "node": "858:583",
+    "name": "Negarin / Button",
+    "label": "ذخیره تغییرات",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor-edit-published",
+    "node": "858:586",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "story-published",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor-edit-published",
+    "node": "858:591",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor-edit-published",
+    "node": "858:597",
+    "name": "tab-opps",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor-edit-published",
+    "node": "858:602",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor-edit-published",
+    "node": "858:607",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "story-editor-edit-published",
+    "node": "858:612",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-settings",
+    "node": "858:766",
+    "name": "Frame",
+    "label": "بازگشت",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-settings",
+    "node": "858:817",
+    "name": "Negarin / Button",
+    "label": "ذخیره روش‌های فعال",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-settings",
+    "node": "858:822",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-settings",
+    "node": "858:826",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-settings",
+    "node": "858:830",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-settings",
+    "node": "858:835",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-settings",
+    "node": "858:839",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-method-detail",
+    "node": "858:858",
+    "name": "Frame",
+    "label": "بازگشت",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-method-detail",
+    "node": "858:895",
+    "name": "Negarin / Button",
+    "label": "ذخیره تنظیمات روش",
+    "destination": null,
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-method-detail",
+    "node": "858:898",
+    "name": "Negarin / Button",
+    "label": "انصراف و بازگشت",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-method-detail",
+    "node": "858:903",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-method-detail",
+    "node": "858:907",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-method-detail",
+    "node": "858:911",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-method-detail",
+    "node": "858:916",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-method-detail",
+    "node": "858:920",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "source": "preview-mapping; canvas has no prototype reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:939",
+    "name": "Frame",
+    "label": "بازگشت",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:946",
+    "name": "Frame",
+    "label": "تنظیمات ارسال ذخیره شد روش‌های ارسال فعال غرفه با موفقیت به‌روزرسانی شدند.",
+    "destination": "shipping-settings",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:961",
+    "name": "Frame",
+    "label": "یادآوری مهم تعرفه‌های فعال به صورت زنده در Checkout متصل هستند. در صورت ثبت سفارش با این روش، امکان تغییر تعرفه یا تغییر یک‌طرفه روش توسط هنرمند وجود ندارد.",
+    "destination": "shipping-settings",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:965",
+    "name": "Negarin / Button",
+    "label": "بازگشت به محصولات",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:968",
+    "name": "Negarin / Button",
+    "label": "مشاهده فروشگاه من",
+    "destination": "store",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:973",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:977",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:981",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:986",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "shipping-method-setup",
+    "node": "858:990",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1052",
+    "name": "Frame",
+    "label": "فروشگاه من",
+    "destination": "store",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1075",
+    "name": "Frame",
+    "label": "خدمات",
+    "destination": "services",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1082",
+    "name": "Frame",
+    "label": "مالی",
+    "destination": "finance",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1090",
+    "name": "Frame",
+    "label": "عضویت",
+    "destination": "membership-center",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1097",
+    "name": "Frame",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1105",
+    "name": "Frame",
+    "label": "تنظیمات ارسال",
+    "destination": "shipping-settings",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1115",
+    "name": "Frame",
+    "label": "اطلاعات حساب",
+    "destination": "account-information",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1122",
+    "name": "Frame",
+    "label": "اعلان‌ها",
+    "destination": "notification-settings",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1145",
+    "name": "Frame",
+    "label": "خروج از حساب",
+    "destination": "logout-confirmation",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1151",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1156",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1160",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1164",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account",
+    "node": "858:1168",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1184",
+    "name": "Back Chevron",
+    "label": "بازگشت",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1217",
+    "name": "Negarin / Button",
+    "label": "ویرایش اطلاعات",
+    "destination": "edit-profile",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1222",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1227",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1231",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1235",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "account-information",
+    "node": "858:1239",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1255",
+    "name": "Back Chevron",
+    "label": "بازگشت",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1267",
+    "name": "Frame",
+    "label": "نام هنرمند / نام نمایشی غرفه",
+    "destination": null,
+    "type": "DesignField",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1278",
+    "name": "Negarin / Button",
+    "label": "ذخیره تغییرات",
+    "destination": null,
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1281",
+    "name": "Negarin / Button",
+    "label": "انصراف",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1286",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1291",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1295",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1299",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "858:1303",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1319",
+    "name": "Back Chevron",
+    "label": "بازگشت",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1329",
+    "name": "Toggle Track",
+    "label": "سفارش جدید غرفه",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1334",
+    "name": "Toggle Track",
+    "label": "به‌روزرسانی وضعیت سفارش",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1341",
+    "name": "Toggle Track",
+    "label": "اطلاع‌رسانی فرصت‌های جدید",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1346",
+    "name": "Toggle Track",
+    "label": "نتیجه بررسی درخواست فرصت",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1353",
+    "name": "Toggle Track",
+    "label": "تغییرات وضعیت تسویه حساب",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1358",
+    "name": "Toggle Track",
+    "label": "پیامک تراکنش جدید مالی",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1365",
+    "name": "Toggle Track",
+    "label": "یادآوری اعتبارهای خدماتی",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1370",
+    "name": "Toggle Track",
+    "label": "نتیجه ارزیابی و بررسی محصولات",
+    "destination": null,
+    "type": "DesignChoice",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1374",
+    "name": "Negarin / Button",
+    "label": "ذخیره تنظیمات",
+    "destination": null,
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1379",
+    "name": "tab-account",
+    "label": "حساب",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1384",
+    "name": "tab-opportunities",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1388",
+    "name": "tab-products",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1392",
+    "name": "tab-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "notification-settings",
+    "node": "858:1396",
+    "name": "tab-home",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "logout-confirmation",
+    "node": "858:1421",
+    "name": "Logout Bottom Sheet",
+    "label": "Artist / Logout Confirmation — Mobile",
+    "destination": null,
+    "type": "DesignDialog",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "logout-confirmation",
+    "node": "858:1428",
+    "name": "Negarin / Button",
+    "label": "بله، خروج از حساب",
+    "destination": null,
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "logout-confirmation",
+    "node": "858:1431",
+    "name": "Negarin / Button",
+    "label": "انصراف و ماندن",
+    "destination": "account",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:409",
+    "name": "Back Button",
+    "label": "بازگشت",
+    "destination": "finance",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:415",
+    "name": "Frame",
+    "label": "وجه محفوظ XORD-2024-0847 +۲٬۴۵۰٬۰۰۰ تومان پرداخت خارجی توسط نگارین دریافت شده است. وجه تا تأیید تحویل و کیفیت محفوظ می‌ماند و بعد مبلغ داخلی برای تسویه آزاد می‌شود.",
+    "destination": "finance-settlement-request-submitted",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:468",
+    "name": "Frame",
+    "label": "تکمیل‌شده پرداخت شریک دریافت شد مرحله فعلی وجه نزد نگارین محفوظ در انتظار تأیید تحویل و کیفیت در انتظار تسویه داخلی هنرمند",
+    "destination": "finance-settlement-request-submitted",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:488",
+    "name": "Negarin / Button",
+    "label": "مشاهده سفارش",
+    "destination": null,
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:491",
+    "name": "Frame",
+    "label": "حساب",
+    "destination": "finance",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:497",
+    "name": "Frame",
+    "label": "فرصت‌ها",
+    "destination": "opportunities",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:502",
+    "name": "Frame",
+    "label": "محصولات",
+    "destination": "products",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:507",
+    "name": "Frame",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:512",
+    "name": "Frame",
+    "label": "خانه",
+    "destination": "dashboard",
+    "type": "DesignAction",
+    "source": "inferred preview mapping; zero native source reactions"
+  }
+]

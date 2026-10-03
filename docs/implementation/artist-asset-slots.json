@@ -1,0 +1,7611 @@
+[
+  {
+    "screen": "dashboard",
+    "node": "51:4",
+    "path": "/artist-assets/1f1099981b0d9e0a.svg",
+    "width": 44,
+    "height": 44
+  },
+  {
+    "screen": "dashboard",
+    "node": "57:4",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "dashboard",
+    "node": "58:4",
+    "path": "/artist-assets/161af5f49910d080.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard",
+    "node": "58:9",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard",
+    "node": "58:14",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard",
+    "node": "58:19",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard",
+    "node": "58:27",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard",
+    "node": "58:30",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard",
+    "node": "58:39",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard",
+    "node": "58:43",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard",
+    "node": "98:10",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard",
+    "node": "64:5",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "dashboard",
+    "node": "62:6",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:8",
+    "path": "/artist-assets/1f1099981b0d9e0a.svg",
+    "width": 44,
+    "height": 44
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:121",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:125",
+    "path": "/artist-assets/161af5f49910d080.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:132",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:139",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:146",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:158",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:163",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:176",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:182",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "98:15",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:189",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "dashboard-membership-inactive",
+    "node": "72:194",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "services",
+    "node": "82:124",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "services",
+    "node": "82:128",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "services",
+    "node": "82:135",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "services",
+    "node": "82:142",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "services",
+    "node": "82:149",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "services",
+    "node": "82:161",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "services",
+    "node": "82:166",
+    "path": "/artist-assets/17e95691cde81999.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "services",
+    "node": "82:179",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "services",
+    "node": "82:185",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "services",
+    "node": "98:20",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "services",
+    "node": "82:192",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "services",
+    "node": "82:197",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "115:32",
+    "path": "/artist-assets/c252ecb1b1aafc47.svg",
+    "width": 7,
+    "height": 7
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "115:35",
+    "path": "/artist-assets/c252ecb1b1aafc47.svg",
+    "width": 7,
+    "height": 7
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "115:38",
+    "path": "/artist-assets/c252ecb1b1aafc47.svg",
+    "width": 7,
+    "height": 7
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "115:41",
+    "path": "/artist-assets/c252ecb1b1aafc47.svg",
+    "width": 7,
+    "height": 7
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:147",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:151",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:158",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:165",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:172",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:178",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:183",
+    "path": "/artist-assets/17e95691cde81999.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:197",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:203",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:210",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:217",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "service-detail-offline-course",
+    "node": "111:222",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "126:74",
+    "path": "/artist-assets/4fbe4d3c7067fd8a.svg",
+    "width": 78,
+    "height": 78
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:126",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:130",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:137",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:144",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:151",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:157",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:162",
+    "path": "/artist-assets/17e95691cde81999.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:176",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:182",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:189",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:196",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "course-learning-offline",
+    "node": "123:201",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:242",
+    "path": "/artist-assets/c252ecb1b1aafc47.svg",
+    "width": 7,
+    "height": 7
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:245",
+    "path": "/artist-assets/c252ecb1b1aafc47.svg",
+    "width": 7,
+    "height": 7
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:248",
+    "path": "/artist-assets/c252ecb1b1aafc47.svg",
+    "width": 7,
+    "height": 7
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:251",
+    "path": "/artist-assets/c252ecb1b1aafc47.svg",
+    "width": 7,
+    "height": 7
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:129",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:133",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:140",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:147",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:154",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:160",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:165",
+    "path": "/artist-assets/17e95691cde81999.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:179",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:185",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:192",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:199",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "course-completion-offline",
+    "node": "127:204",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:90",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:94",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:101",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:108",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:115",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:121",
+    "path": "/artist-assets/833bd2b875bf0a10.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:126",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:140",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:146",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:153",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:160",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "growth-center",
+    "node": "130:165",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:125",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:129",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:136",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:143",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:150",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:371",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:161",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:175",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:181",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:188",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:195",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "opportunities",
+    "node": "146:200",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:634",
+    "path": "/artist-assets/78b6f6024b5f7fc8.svg",
+    "width": 280,
+    "height": 0
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:637",
+    "path": "/artist-assets/78b6f6024b5f7fc8.svg",
+    "width": 280,
+    "height": 0
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:640",
+    "path": "/artist-assets/78b6f6024b5f7fc8.svg",
+    "width": 280,
+    "height": 0
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:489",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:493",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:500",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:507",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:514",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:520",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:525",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:539",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:545",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:552",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:559",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "opportunity-detail",
+    "node": "154:564",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:106",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:110",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:117",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:124",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:131",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:137",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:142",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:156",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:162",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:169",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:176",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "opportunity-application",
+    "node": "162:181",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:120",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:124",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:131",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:138",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:145",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:151",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:156",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:170",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:176",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:183",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:190",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "opportunity-application-status",
+    "node": "166:195",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "finance",
+    "node": "171:184",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "finance",
+    "node": "171:188",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance",
+    "node": "171:195",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance",
+    "node": "171:202",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance",
+    "node": "171:209",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance",
+    "node": "171:215",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance",
+    "node": "171:220",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance",
+    "node": "171:234",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance",
+    "node": "171:240",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance",
+    "node": "171:247",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance",
+    "node": "171:254",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "finance",
+    "node": "171:259",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:120",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:124",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:131",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:138",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:145",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:151",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:156",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:170",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:176",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:183",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:190",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "opportunity-capacity-matching",
+    "node": "172:195",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:120",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:124",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:131",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:138",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:145",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:151",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:156",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:170",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:176",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:183",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:190",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "opportunity-order-allocation",
+    "node": "173:195",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "orders",
+    "node": "174:120",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "orders",
+    "node": "174:124",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders",
+    "node": "174:131",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders",
+    "node": "174:138",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders",
+    "node": "174:145",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders",
+    "node": "174:151",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders",
+    "node": "174:156",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders",
+    "node": "174:170",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders",
+    "node": "174:176",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders",
+    "node": "174:183",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders",
+    "node": "174:190",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "orders",
+    "node": "174:195",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:407",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:411",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:418",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:425",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:432",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:438",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:443",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:457",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:463",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:470",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:477",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "order-detail-preparing",
+    "node": "176:482",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:115",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:119",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:126",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:133",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:140",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:146",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:151",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:165",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:171",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:178",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:185",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "order-detail-packaging",
+    "node": "181:190",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:115",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:119",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:126",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:133",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:140",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:146",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:151",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:165",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:171",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:178",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:185",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "order-detail-shipping",
+    "node": "182:190",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:115",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:119",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:126",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:133",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:140",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:146",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:151",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:165",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:171",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:178",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:185",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "order-detail-delivered",
+    "node": "183:190",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:223",
+    "path": "/artist-assets/cd3202be1ff608b8.svg",
+    "width": 312,
+    "height": 0
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:237",
+    "path": "/artist-assets/cd3202be1ff608b8.svg",
+    "width": 312,
+    "height": 0
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:251",
+    "path": "/artist-assets/cd3202be1ff608b8.svg",
+    "width": 312,
+    "height": 0
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:265",
+    "path": "/artist-assets/cd3202be1ff608b8.svg",
+    "width": 312,
+    "height": 0
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:115",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:119",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:126",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:133",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:140",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:146",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:151",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:165",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:171",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:178",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:185",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "order-shipping-partner-selection",
+    "node": "185:190",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:115",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:119",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:126",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:133",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:140",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:146",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:151",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:165",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:171",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:178",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:185",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "order-detail-completed",
+    "node": "189:190",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:115",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:119",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:126",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:133",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:140",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:146",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:151",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:165",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:171",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:178",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:185",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "order-progress-update-modal",
+    "node": "192:190",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:115",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:119",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:126",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:133",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:140",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:146",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:151",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:165",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:171",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:178",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:185",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "order-issue-report-modal",
+    "node": "195:190",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:311",
+    "path": "/artist-assets/cd3202be1ff608b8.svg",
+    "width": 312,
+    "height": 0
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:325",
+    "path": "/artist-assets/cd3202be1ff608b8.svg",
+    "width": 312,
+    "height": 0
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:339",
+    "path": "/artist-assets/cd3202be1ff608b8.svg",
+    "width": 312,
+    "height": 0
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:353",
+    "path": "/artist-assets/cd3202be1ff608b8.svg",
+    "width": 312,
+    "height": 0
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:367",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:371",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:378",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:385",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:392",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:398",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:403",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:417",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:423",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:430",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:437",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "shipping-partner-confirmation-modal",
+    "node": "201:442",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:115",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:119",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:126",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:133",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:140",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:146",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:151",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:165",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:171",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:178",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:185",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "shipment-tracking",
+    "node": "207:190",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:494",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:498",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:505",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:512",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:519",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:525",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:530",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:544",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:550",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:557",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:564",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:569",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:582",
+    "path": "/artist-assets/146865e8173c5a1e.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:583",
+    "path": "/artist-assets/1e6f237d4ddec5ef.svg",
+    "width": 10,
+    "height": 10
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:586",
+    "path": "/artist-assets/1319a027e08c0997.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:589",
+    "path": "/artist-assets/1319a027e08c0997.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:592",
+    "path": "/artist-assets/1319a027e08c0997.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-reject-modal",
+    "node": "209:595",
+    "path": "/artist-assets/1319a027e08c0997.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:115",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:119",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:126",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:133",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:140",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:146",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:151",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:165",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:171",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:178",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:185",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "packaging-completion-confirmation-modal",
+    "node": "211:190",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:120",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:124",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:131",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:138",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:145",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:151",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:156",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:170",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:176",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:183",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:190",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "opportunity-allocation-accept-modal",
+    "node": "212:195",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:140",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:144",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:151",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:158",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:165",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:171",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:176",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:190",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:196",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:203",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:210",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "orders-export-modal",
+    "node": "214:215",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:140",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:144",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:151",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:158",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:165",
+    "path": "/artist-assets/4aa17eb34db34dfb.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:171",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:176",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:190",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:196",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:203",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:210",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "orders-needs-action",
+    "node": "216:215",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "store",
+    "node": "220:248",
+    "path": "/artist-assets/2a95a17b8ac13bb.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "screen": "store",
+    "node": "220:251",
+    "path": "/artist-assets/2a95a17b8ac13bb.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "screen": "store",
+    "node": "220:254",
+    "path": "/artist-assets/2a95a17b8ac13bb.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "screen": "store",
+    "node": "220:257",
+    "path": "/artist-assets/2a95a17b8ac13bb.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "screen": "store",
+    "node": "220:260",
+    "path": "/artist-assets/2a95a17b8ac13bb.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "screen": "store",
+    "node": "220:267",
+    "path": "/artist-assets/4444f393b3e1abb9.svg",
+    "width": 34,
+    "height": 34
+  },
+  {
+    "screen": "store",
+    "node": "220:140",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "store",
+    "node": "220:144",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store",
+    "node": "220:151",
+    "path": "/artist-assets/88b8bd3873da86c0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store",
+    "node": "220:158",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store",
+    "node": "220:165",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store",
+    "node": "220:171",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store",
+    "node": "220:176",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store",
+    "node": "220:190",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store",
+    "node": "220:196",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store",
+    "node": "220:203",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store",
+    "node": "220:210",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "store",
+    "node": "220:215",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:187",
+    "path": "/artist-assets/45abb64660fe34b2.svg",
+    "width": 84,
+    "height": 84
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:197",
+    "path": "/artist-assets/234b366dcb848ef7.svg",
+    "width": 28,
+    "height": 28
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:211",
+    "path": "/artist-assets/f2efc2c4d4ddea14.svg",
+    "width": 28,
+    "height": 28
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:216",
+    "path": "/artist-assets/679f450d1f130335.svg",
+    "width": 28,
+    "height": 28
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:223",
+    "path": "/artist-assets/bf72e0d21c7121da.svg",
+    "width": 34,
+    "height": 34
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:227",
+    "path": "/artist-assets/bf72e0d21c7121da.svg",
+    "width": 34,
+    "height": 34
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:231",
+    "path": "/artist-assets/bf72e0d21c7121da.svg",
+    "width": 34,
+    "height": 34
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:235",
+    "path": "/artist-assets/ad93e50b10bd9465.svg",
+    "width": 34,
+    "height": 34
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:101",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:105",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:112",
+    "path": "/artist-assets/88b8bd3873da86c0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:119",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:126",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:132",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:137",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:151",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:157",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:164",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:171",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "professional-credentials",
+    "node": "223:176",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "products",
+    "node": "226:236",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "products",
+    "node": "226:249",
+    "path": "/artist-assets/569c47c0943b47ee.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "products",
+    "node": "226:262",
+    "path": "/artist-assets/cb79b668cc4f051c.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "products",
+    "node": "226:275",
+    "path": "/artist-assets/b90ff3e6e2cf1dbc.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "products",
+    "node": "226:288",
+    "path": "/artist-assets/8cfe1f2182b6c0d3.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "products",
+    "node": "226:301",
+    "path": "/artist-assets/3e7ab1814b15dbe.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "products",
+    "node": "226:101",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "products",
+    "node": "226:105",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "products",
+    "node": "226:112",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "products",
+    "node": "226:119",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "products",
+    "node": "226:126",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "products",
+    "node": "226:132",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "products",
+    "node": "226:137",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "products",
+    "node": "226:151",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "products",
+    "node": "226:157",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "products",
+    "node": "226:164",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "products",
+    "node": "280:13",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "products",
+    "node": "280:18",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:144",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:148",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:155",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:162",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:169",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:175",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:180",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:194",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:200",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor",
+    "node": "241:207",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor",
+    "node": "280:23",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "product-editor",
+    "node": "280:28",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-status",
+    "node": "235:120",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:205",
+    "path": "/artist-assets/56a4de62282fe3c.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:210",
+    "path": "/artist-assets/ef925c3c1df1cb12.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:215",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:220",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:100",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:104",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:111",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:118",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:125",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:131",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:136",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:150",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:156",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-status",
+    "node": "242:163",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-status",
+    "node": "280:33",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "product-review-status",
+    "node": "280:38",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:28",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:41",
+    "path": "/artist-assets/56a4de62282fe3c.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:46",
+    "path": "/artist-assets/ef925c3c1df1cb12.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:51",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:56",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:83",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:87",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:94",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:101",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:108",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:114",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:119",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:133",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:139",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "246:146",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "280:43",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "product-review-needs-revision",
+    "node": "280:48",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:28",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:41",
+    "path": "/artist-assets/56a4de62282fe3c.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:46",
+    "path": "/artist-assets/ef925c3c1df1cb12.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:51",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:56",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:83",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:87",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:94",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:101",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:108",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:114",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:119",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:133",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:139",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "248:146",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "280:53",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "product-review-approved",
+    "node": "280:58",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:28",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:41",
+    "path": "/artist-assets/56a4de62282fe3c.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:46",
+    "path": "/artist-assets/ef925c3c1df1cb12.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:51",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:56",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:83",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:87",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:94",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:101",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:108",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:114",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:119",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:133",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:139",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "250:146",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "280:63",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "future-artist-product-published-separate-publication-flow",
+    "node": "280:68",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:28",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:41",
+    "path": "/artist-assets/56a4de62282fe3c.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:46",
+    "path": "/artist-assets/ef925c3c1df1cb12.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:51",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:56",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:83",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:87",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:94",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:101",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:108",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:114",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:119",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:133",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:139",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "255:146",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "280:73",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "product-out-of-stock",
+    "node": "280:78",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:28",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:41",
+    "path": "/artist-assets/56a4de62282fe3c.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:46",
+    "path": "/artist-assets/ef925c3c1df1cb12.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:51",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:56",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:83",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:87",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:94",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:101",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:108",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:114",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:119",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:133",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:139",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-archived",
+    "node": "257:146",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-archived",
+    "node": "280:83",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "product-archived",
+    "node": "280:88",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:28",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:41",
+    "path": "/artist-assets/56a4de62282fe3c.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:46",
+    "path": "/artist-assets/ef925c3c1df1cb12.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:51",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:56",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:83",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:87",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:94",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:101",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:108",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:114",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:119",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:133",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:139",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:146",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:152",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "product-restore-confirmation-modal",
+    "node": "258:157",
+    "path": "/artist-assets/d8a95075940ee393.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:28",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:41",
+    "path": "/artist-assets/56a4de62282fe3c.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:46",
+    "path": "/artist-assets/ef925c3c1df1cb12.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:51",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:56",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:83",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:87",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:94",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:101",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:108",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:114",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:119",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:133",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:139",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:146",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:152",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "product-inventory-update-modal",
+    "node": "267:157",
+    "path": "/artist-assets/d8a95075940ee393.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:77",
+    "path": "/artist-assets/21977f995a484739.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:81",
+    "path": "/artist-assets/21977f995a484739.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:85",
+    "path": "/artist-assets/21977f995a484739.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:89",
+    "path": "/artist-assets/21977f995a484739.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:100",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:104",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:111",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:118",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:125",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:131",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:136",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:150",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:156",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "269:163",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "280:93",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "product-editor-edit-published",
+    "node": "280:98",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:253",
+    "path": "/artist-assets/21977f995a484739.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:257",
+    "path": "/artist-assets/21977f995a484739.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:261",
+    "path": "/artist-assets/21977f995a484739.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:265",
+    "path": "/artist-assets/21977f995a484739.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:276",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:280",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:287",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:294",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:301",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:307",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:312",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:326",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:332",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:339",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:345",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "product-changes-review-confirmation-modal",
+    "node": "271:350",
+    "path": "/artist-assets/d8a95075940ee393.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:28",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:41",
+    "path": "/artist-assets/56a4de62282fe3c.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:46",
+    "path": "/artist-assets/ef925c3c1df1cb12.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:51",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:56",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:83",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:87",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:94",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:101",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:108",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:114",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:119",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:133",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:139",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "273:146",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "280:103",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "future-artist-product-changes-review-status-published-product-flow",
+    "node": "280:108",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:28",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:41",
+    "path": "/artist-assets/56a4de62282fe3c.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:46",
+    "path": "/artist-assets/ef925c3c1df1cb12.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:51",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:56",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:83",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:87",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:94",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:101",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:108",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:114",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:119",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:133",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:139",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "275:146",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "280:113",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "future-artist-product-changes-review-needs-revision",
+    "node": "280:118",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:28",
+    "path": "/artist-assets/44623abac6e57878.png",
+    "width": 60,
+    "height": 60
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:41",
+    "path": "/artist-assets/56a4de62282fe3c.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:46",
+    "path": "/artist-assets/ef925c3c1df1cb12.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:51",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:56",
+    "path": "/artist-assets/8c74fd2d3a3b6079.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:83",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:87",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:94",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:101",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:108",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:114",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:119",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:133",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:139",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "276:146",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "280:123",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "future-artist-product-changes-review-approved",
+    "node": "280:128",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:173",
+    "path": "/artist-assets/505be7f6c81a4a78.png",
+    "width": 460,
+    "height": 460
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:181",
+    "path": "/artist-assets/b60b054154fa4393.png",
+    "width": 50,
+    "height": 50
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:83",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:87",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:94",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:101",
+    "path": "/artist-assets/c73046fa4531fa26.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:108",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:114",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:119",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:133",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:139",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "279:146",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "280:133",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "product-public-preview",
+    "node": "280:138",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "membership-center",
+    "node": "1163:32",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:105",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:112",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:119",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:126",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:132",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:137",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:151",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:157",
+    "path": "/artist-assets/50c12a1e56342238.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center",
+    "node": "281:164",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center",
+    "node": "280:143",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "membership-center",
+    "node": "280:148",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:86",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:90",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:97",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:104",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:111",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:117",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:122",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:136",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:142",
+    "path": "/artist-assets/50c12a1e56342238.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:149",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:156",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "membership-midyear-upgrade",
+    "node": "285:161",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:72",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:76",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:83",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:90",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:97",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:103",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:108",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:122",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:128",
+    "path": "/artist-assets/50c12a1e56342238.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:135",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:142",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "membership-upgrade-checkout",
+    "node": "287:147",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:72",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:76",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:83",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:90",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:97",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:103",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:108",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:122",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:128",
+    "path": "/artist-assets/50c12a1e56342238.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:135",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:142",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "membership-upgrade-completed",
+    "node": "288:147",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:86",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:90",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:97",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:104",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:111",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:117",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:122",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:136",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:142",
+    "path": "/artist-assets/50c12a1e56342238.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:149",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:156",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "membership-center-upgraded",
+    "node": "289:161",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:132",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:136",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:143",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:150",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:157",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:163",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:168",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:182",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:188",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:195",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:202",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "finance-settlement-request-modal",
+    "node": "291:207",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:370",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:374",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:381",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:388",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:395",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:401",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:406",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:420",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:426",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:433",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:440",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "finance-settlement-request-submitted",
+    "node": "294:445",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:235",
+    "path": "/artist-assets/32af6045e71e78ab.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:239",
+    "path": "/artist-assets/fcb5a378ea743668.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:243",
+    "path": "/artist-assets/c89ac02ddc6186c1.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:246",
+    "path": "/artist-assets/c89ac02ddc6186c1.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:132",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:136",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:143",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:150",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:157",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:163",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:168",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:182",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:188",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:195",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:202",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "finance-settlement-tracking",
+    "node": "295:207",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:39",
+    "path": "/artist-assets/32af6045e71e78ab.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:43",
+    "path": "/artist-assets/fcb5a378ea743668.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:47",
+    "path": "/artist-assets/c89ac02ddc6186c1.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:50",
+    "path": "/artist-assets/c89ac02ddc6186c1.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:86",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:90",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:97",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:104",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:111",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:117",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:122",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:136",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:142",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:149",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:156",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "finance-settlement-completed",
+    "node": "299:161",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:132",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:136",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:143",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:150",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:157",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:163",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:168",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:182",
+    "path": "/artist-assets/368bf39d9e94e6e9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:188",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:195",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:202",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "finance-after-settlement",
+    "node": "300:207",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:257",
+    "path": "/artist-assets/3d41a4b4bc5ce4.svg",
+    "width": 1040,
+    "height": 0
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:265",
+    "path": "/artist-assets/3d41a4b4bc5ce4.svg",
+    "width": 1040,
+    "height": 0
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:273",
+    "path": "/artist-assets/3d41a4b4bc5ce4.svg",
+    "width": 1040,
+    "height": 0
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:281",
+    "path": "/artist-assets/3d41a4b4bc5ce4.svg",
+    "width": 1040,
+    "height": 0
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:289",
+    "path": "/artist-assets/3d41a4b4bc5ce4.svg",
+    "width": 1040,
+    "height": 0
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:297",
+    "path": "/artist-assets/3d41a4b4bc5ce4.svg",
+    "width": 1040,
+    "height": 0
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:132",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:136",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:143",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:150",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:157",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:163",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:168",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:182",
+    "path": "/artist-assets/368bf39d9e94e6e9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:188",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:195",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:202",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "finance-transactions",
+    "node": "301:207",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:213",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:216",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:219",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:222",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:225",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:121",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:125",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:132",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:139",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:146",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:152",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:157",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:171",
+    "path": "/artist-assets/368bf39d9e94e6e9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:177",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:184",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:191",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "finance-transaction-detail-sale",
+    "node": "302:196",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:28",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:31",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:34",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:37",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:40",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:89",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:93",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:100",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:107",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:114",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:120",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:125",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:139",
+    "path": "/artist-assets/368bf39d9e94e6e9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:145",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:152",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:159",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "finance-transaction-detail-settlement",
+    "node": "307:164",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:28",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:31",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:34",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:37",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:40",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:89",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:93",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:100",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:107",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:114",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:120",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:125",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:139",
+    "path": "/artist-assets/368bf39d9e94e6e9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:145",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:152",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:159",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "finance-transaction-detail-refund",
+    "node": "312:164",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "credential-submission",
+    "node": "318:27",
+    "path": "/artist-assets/10ae2195ab4c6c5.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "credential-submission",
+    "node": "318:29",
+    "path": "/artist-assets/3f56b7a6deb56cea.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:98",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:102",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:109",
+    "path": "/artist-assets/88b8bd3873da86c0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:116",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:123",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:129",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:134",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:148",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:154",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:161",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:168",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "credential-submission",
+    "node": "316:173",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:166",
+    "path": "/artist-assets/32af6045e71e78ab.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:171",
+    "path": "/artist-assets/7ab12756b5f9409.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:176",
+    "path": "/artist-assets/40896e51dc2a8f57.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:67",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:71",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:78",
+    "path": "/artist-assets/88b8bd3873da86c0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:85",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:92",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:98",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:103",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:117",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:123",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:130",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:137",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "credential-under-review",
+    "node": "323:142",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:189",
+    "path": "/artist-assets/8ccde555899880bb.svg",
+    "width": 472,
+    "height": 0
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:192",
+    "path": "/artist-assets/8ccde555899880bb.svg",
+    "width": 472,
+    "height": 0
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:195",
+    "path": "/artist-assets/8ccde555899880bb.svg",
+    "width": 472,
+    "height": 0
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:198",
+    "path": "/artist-assets/8ccde555899880bb.svg",
+    "width": 472,
+    "height": 0
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:213",
+    "path": "/artist-assets/32af6045e71e78ab.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:215",
+    "path": "/artist-assets/83f0bf62e2faf2fe.svg",
+    "width": 150,
+    "height": 0
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:216",
+    "path": "/artist-assets/32af6045e71e78ab.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:218",
+    "path": "/artist-assets/83f0bf62e2faf2fe.svg",
+    "width": 150,
+    "height": 0
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:219",
+    "path": "/artist-assets/32af6045e71e78ab.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:221",
+    "path": "/artist-assets/bd7402eaed4c194.svg",
+    "width": 150,
+    "height": 0
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:222",
+    "path": "/artist-assets/eb4f7f4ebc1ace4c.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:99",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:103",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:110",
+    "path": "/artist-assets/88b8bd3873da86c0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:117",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:124",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:130",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:135",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:149",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:155",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:162",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:169",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "credential-detail",
+    "node": "325:174",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:42",
+    "path": "/artist-assets/10ae2195ab4c6c5.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:44",
+    "path": "/artist-assets/3f56b7a6deb56cea.svg",
+    "width": 18,
+    "height": 18
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:67",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:71",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:78",
+    "path": "/artist-assets/88b8bd3873da86c0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:85",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:92",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:98",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:103",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:117",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:123",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:130",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:137",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "credential-replacement",
+    "node": "326:142",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:209",
+    "path": "/artist-assets/c8ce6b84e2224034.svg",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:103",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:107",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:114",
+    "path": "/artist-assets/88b8bd3873da86c0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:121",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:128",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:134",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:139",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:153",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:159",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:166",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:173",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "storefront-editor",
+    "node": "327:178",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "333:30",
+    "path": "/artist-assets/d2ac58f262a0599e.svg",
+    "width": 48,
+    "height": 28
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:103",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:107",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:114",
+    "path": "/artist-assets/88b8bd3873da86c0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:121",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:128",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:134",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:139",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:153",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:159",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:166",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:173",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "store-visibility-management",
+    "node": "329:178",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:192",
+    "path": "/artist-assets/157c875baa67fdf.svg",
+    "width": 52,
+    "height": 30
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:103",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:107",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:114",
+    "path": "/artist-assets/88b8bd3873da86c0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:121",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:128",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:134",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:139",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:153",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:159",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:166",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:173",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "sales-settings",
+    "node": "334:178",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:74",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:78",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:85",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:92",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:99",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:105",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:110",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:124",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:130",
+    "path": "/artist-assets/50c12a1e56342238.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:137",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:144",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "membership-upgrade-payment",
+    "node": "377:149",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "586:14",
+    "path": "/artist-assets/392748666e6d589c.svg",
+    "width": 22,
+    "height": 22
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:16",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:20",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:27",
+    "path": "/artist-assets/88b8bd3873da86c0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:34",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:41",
+    "path": "/artist-assets/3329f87a40b3ec74.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:47",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:52",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:66",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:72",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:79",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:86",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "store-shipping-methods",
+    "node": "583:91",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "stories",
+    "node": "762:146",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "stories",
+    "node": "762:150",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "stories",
+    "node": "762:157",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "stories",
+    "node": "762:164",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "stories",
+    "node": "762:171",
+    "path": "/artist-assets/4545330c44616fe0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "stories",
+    "node": "762:177",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "stories",
+    "node": "762:182",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "stories",
+    "node": "762:196",
+    "path": "/artist-assets/9bd35a6bdf2f1793.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "stories",
+    "node": "762:202",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "stories",
+    "node": "762:209",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "stories",
+    "node": "762:215",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "stories",
+    "node": "762:220",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "login-and-register",
+    "node": "1163:51",
+    "path": "/artist-assets/d1620814bc0bdfda.png",
+    "width": 156,
+    "height": 156
+  },
+  {
+    "screen": "login-and-register",
+    "node": "831:518",
+    "path": "/artist-assets/539d3acb730dcca9.svg",
+    "width": 16,
+    "height": 0
+  },
+  {
+    "screen": "login-and-register",
+    "node": "1171:29",
+    "path": "/artist-assets/5a2c9b9eab881522.svg",
+    "width": 548,
+    "height": 916
+  },
+  {
+    "screen": "login-and-register",
+    "node": "1163:54",
+    "path": "/artist-assets/d1620814bc0bdfda.png",
+    "width": 156,
+    "height": 156
+  },
+  {
+    "screen": "otp-verification",
+    "node": "831:548",
+    "path": "/artist-assets/15d1cedfffd5a38d.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "otp-verification",
+    "node": "1171:30",
+    "path": "/artist-assets/5a2c9b9eab881522.svg",
+    "width": 548,
+    "height": 916
+  },
+  {
+    "screen": "otp-verification",
+    "node": "836:59",
+    "path": "/artist-assets/71ee9bd1446ae19.png",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "screen": "otp-expired",
+    "node": "831:597",
+    "path": "/artist-assets/15d1cedfffd5a38d.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "otp-expired",
+    "node": "1171:31",
+    "path": "/artist-assets/5a2c9b9eab881522.svg",
+    "width": 548,
+    "height": 916
+  },
+  {
+    "screen": "otp-expired",
+    "node": "836:60",
+    "path": "/artist-assets/71ee9bd1446ae19.png",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "screen": "otp-invalid",
+    "node": "831:648",
+    "path": "/artist-assets/15d1cedfffd5a38d.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "otp-invalid",
+    "node": "1171:32",
+    "path": "/artist-assets/5a2c9b9eab881522.svg",
+    "width": 548,
+    "height": 916
+  },
+  {
+    "screen": "otp-invalid",
+    "node": "836:61",
+    "path": "/artist-assets/71ee9bd1446ae19.png",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "screen": "otp-resend",
+    "node": "831:697",
+    "path": "/artist-assets/15d1cedfffd5a38d.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "otp-resend",
+    "node": "831:717",
+    "path": "/artist-assets/14171f879e5383d3.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "otp-resend",
+    "node": "1171:33",
+    "path": "/artist-assets/5a2c9b9eab881522.svg",
+    "width": 548,
+    "height": 916
+  },
+  {
+    "screen": "otp-resend",
+    "node": "836:62",
+    "path": "/artist-assets/71ee9bd1446ae19.png",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "screen": "verification-success",
+    "node": "831:960",
+    "path": "/artist-assets/b5691af2977ff77e.svg",
+    "width": 29.330400466918945,
+    "height": 20.165199279785156
+  },
+  {
+    "screen": "verification-success",
+    "node": "831:963",
+    "path": "/artist-assets/80fe87dc96a958a6.svg",
+    "width": 16.667999267578125,
+    "height": 16.667999267578125
+  },
+  {
+    "screen": "verification-success",
+    "node": "1171:34",
+    "path": "/artist-assets/5a2c9b9eab881522.svg",
+    "width": 548,
+    "height": 916
+  },
+  {
+    "screen": "verification-success",
+    "node": "836:63",
+    "path": "/artist-assets/71ee9bd1446ae19.png",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "screen": "account-not-found",
+    "node": "831:966",
+    "path": "/artist-assets/608c5dafaaf8c535.svg",
+    "width": 11.668000221252441,
+    "height": 11.668000221252441
+  },
+  {
+    "screen": "account-not-found",
+    "node": "831:969",
+    "path": "/artist-assets/c6aadabc6a0d332e.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "account-not-found",
+    "node": "1171:35",
+    "path": "/artist-assets/5a2c9b9eab881522.svg",
+    "width": 548,
+    "height": 916
+  },
+  {
+    "screen": "account-not-found",
+    "node": "836:64",
+    "path": "/artist-assets/71ee9bd1446ae19.png",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "screen": "multiple-roles",
+    "node": "831:972",
+    "path": "/artist-assets/3c41e031164457a3.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "screen": "multiple-roles",
+    "node": "831:975",
+    "path": "/artist-assets/6cd33fbcb5182d66.svg",
+    "width": 10,
+    "height": 10
+  },
+  {
+    "screen": "multiple-roles",
+    "node": "831:978",
+    "path": "/artist-assets/7971a4d06310bbd0.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "screen": "multiple-roles",
+    "node": "831:981",
+    "path": "/artist-assets/4df10486ce14113a.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "screen": "multiple-roles",
+    "node": "831:984",
+    "path": "/artist-assets/fc2019e17145dc17.svg",
+    "width": 24,
+    "height": 24
+  },
+  {
+    "screen": "multiple-roles",
+    "node": "836:123",
+    "path": "/artist-assets/9d1b9365cfdce7b3.svg",
+    "width": 20.00160026550293,
+    "height": 20.00160026550293
+  },
+  {
+    "screen": "multiple-roles",
+    "node": "836:126",
+    "path": "/artist-assets/fbba52cebc9f09ea.svg",
+    "width": 20.00160026550293,
+    "height": 20.00160026550293
+  },
+  {
+    "screen": "multiple-roles",
+    "node": "1171:36",
+    "path": "/artist-assets/b5a31b1dc5ac23d7.svg",
+    "width": 548,
+    "height": 1192
+  },
+  {
+    "screen": "multiple-roles",
+    "node": "836:65",
+    "path": "/artist-assets/71ee9bd1446ae19.png",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "screen": "account-disabled",
+    "node": "831:987",
+    "path": "/artist-assets/608c5dafaaf8c535.svg",
+    "width": 11.668000221252441,
+    "height": 11.668000221252441
+  },
+  {
+    "screen": "account-disabled",
+    "node": "831:990",
+    "path": "/artist-assets/198d93d9d4a90dcd.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "account-disabled",
+    "node": "1171:37",
+    "path": "/artist-assets/5a2c9b9eab881522.svg",
+    "width": 548,
+    "height": 916
+  },
+  {
+    "screen": "account-disabled",
+    "node": "836:66",
+    "path": "/artist-assets/71ee9bd1446ae19.png",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "screen": "error",
+    "node": "831:993",
+    "path": "/artist-assets/608c5dafaaf8c535.svg",
+    "width": 11.668000221252441,
+    "height": 11.668000221252441
+  },
+  {
+    "screen": "error",
+    "node": "831:996",
+    "path": "/artist-assets/adb83913892287e7.svg",
+    "width": 40,
+    "height": 40
+  },
+  {
+    "screen": "error",
+    "node": "1171:38",
+    "path": "/artist-assets/5a2c9b9eab881522.svg",
+    "width": 548,
+    "height": 916
+  },
+  {
+    "screen": "error",
+    "node": "836:67",
+    "path": "/artist-assets/71ee9bd1446ae19.png",
+    "width": 32,
+    "height": 32
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:100",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:103",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:106",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:109",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:112",
+    "path": "/artist-assets/c7122eafb6caf607.svg",
+    "width": 652,
+    "height": 0
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:161",
+    "path": "/artist-assets/30c9056768136cc3.png",
+    "width": 148,
+    "height": 148
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:165",
+    "path": "/artist-assets/f7c63b8bf600380.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:172",
+    "path": "/artist-assets/e2a31fa41be47a0.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:179",
+    "path": "/artist-assets/fa7c51382dc369c6.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:186",
+    "path": "/artist-assets/14cc2c23bda6ae2b.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:192",
+    "path": "/artist-assets/6a30af67152df70.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:197",
+    "path": "/artist-assets/fdf7b405fd82f3d9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:211",
+    "path": "/artist-assets/368bf39d9e94e6e9.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:217",
+    "path": "/artist-assets/ca78c22cb1023258.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:227",
+    "path": "/artist-assets/b3830e6e1ce0ddf2.svg",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:234",
+    "path": "/artist-assets/168b52e3dc063a89.svg",
+    "width": 16,
+    "height": 16
+  },
+  {
+    "screen": "finance-transaction-detail-export-sale",
+    "node": "944:239",
+    "path": "/artist-assets/28c2604bcba6d449.png",
+    "width": 40,
+    "height": 40
+  }
+]

@@ -1,0 +1,1713 @@
+[
+  {
+    "screen": "landing",
+    "node": "401:11",
+    "name": "Header Action / Saved",
+    "label": "bookmark_border",
+    "destination": "saved",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "401:13",
+    "name": "Header Action / Cart",
+    "label": "shopping_cart",
+    "destination": "cart",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "401:20",
+    "name": "Negarin / Button",
+    "label": "کشف آثار",
+    "destination": "products",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "401:22",
+    "name": "Negarin / Button",
+    "label": "ورود به روایت‌ها",
+    "destination": "stories",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "423:115",
+    "name": "Category / فلز",
+    "label": "فلز",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "landing",
+    "node": "423:118",
+    "name": "Category / گلیم",
+    "label": "گلیم",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "landing",
+    "node": "423:121",
+    "name": "Category / چرم",
+    "label": "چرم",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "landing",
+    "node": "402:54",
+    "name": "Negarin / Button",
+    "label": "شروع عضویت",
+    "destination": "login-and-register",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "landing",
+    "node": "402:75",
+    "name": "Frame",
+    "label": "حساب person",
+    "destination": "account",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "402:72",
+    "name": "Frame",
+    "label": "سبد shopping_cart",
+    "destination": "cart",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "402:69",
+    "name": "Frame",
+    "label": "روایت‌ها dynamic_feed",
+    "destination": "stories",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "402:66",
+    "name": "Frame",
+    "label": "کشف search",
+    "destination": "search-and-discover",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "439:5",
+    "name": "Artist Card / زهرا محمدی",
+    "label": "زهرا محمدی میناکاری دنبال کردن",
+    "destination": "artist-public-profile",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "402:49",
+    "name": "Frame",
+    "label": "مشاهده اثر",
+    "destination": "product-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "430:38",
+    "name": "Frame",
+    "label": "مشاهده اثر",
+    "destination": "product-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "430:46",
+    "name": "Frame",
+    "label": "مشاهده اثر",
+    "destination": "product-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "691:33",
+    "name": "Card 3",
+    "label": "زهرا محمدی فروشگاه زهرا محمدی ••• ۱۴۰ ۵ «بشقاب میناکاری طرح شاه‌عباسی»؛ بخشی از روایت ساخت این اثر و دستان هنرمندی که پشت آن است.",
+    "destination": "story-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "691:5",
+    "name": "Card 2",
+    "label": "زهرا محمدی فروشگاه زهرا محمدی ••• ۱۴۰ ۵ «بشقاب میناکاری طرح شاه‌عباسی»؛ بخشی از روایت ساخت این اثر و دستان هنرمندی که پشت آن است.",
+    "destination": "story-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "landing",
+    "node": "675:28",
+    "name": "Card 1",
+    "label": "زهرا محمدی فروشگاه زهرا محمدی ••• ۱۴۰ ۵ «بشقاب میناکاری طرح شاه‌عباسی»؛ بخشی از روایت ساخت این اثر و دستان هنرمندی که پشت آن است.",
+    "destination": "story-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "stories",
+    "node": "511:177",
+    "name": "Frame",
+    "label": "زهرا محمدی فروشگاه زهرا محمدی ۱۴۰ ۵ «بشقاب میناکاری طرح شاه‌عباسی»؛ بخشی از روایت ساخت این اثر و دستان هنرمندی که پشت آن است.",
+    "destination": "story-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "stories",
+    "node": "511:205",
+    "name": "Frame",
+    "label": "زهرا محمدی فروشگاه زهرا محمدی ۱۴۰ ۵ «بشقاب میناکاری طرح شاه‌عباسی»؛ بخشی از روایت ساخت این اثر و دستان هنرمندی که پشت آن است.",
+    "destination": "story-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "stories",
+    "node": "511:233",
+    "name": "Story Card / Video",
+    "label": "زهرا محمدی فروشگاه زهرا محمدی play_arrow ۰:۴۲ ۱۴۰ ۵ «بشقاب میناکاری طرح شاه‌عباسی»؛ بخشی از روایت ساخت این اثر و دستان هنرمندی که پشت آن است.",
+    "destination": "story-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "stories",
+    "node": "756:7",
+    "name": "Video / Play Background",
+    "label": "",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "stories",
+    "node": "560:43",
+    "name": "Story Card",
+    "label": "زهرا محمدی فروشگاه زهرا محمدی ۱۴۰ ۵ «بشقاب میناکاری طرح شاه‌عباسی»؛ بخشی از روایت ساخت این اثر و دستان هنرمندی که پشت آن است.",
+    "destination": "story-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "stories",
+    "node": "560:71",
+    "name": "Story Card",
+    "label": "زهرا محمدی فروشگاه زهرا محمدی ۱۴۰ ۵ «بشقاب میناکاری طرح شاه‌عباسی»؛ بخشی از روایت ساخت این اثر و دستان هنرمندی که پشت آن است.",
+    "destination": "story-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "product-detail",
+    "node": "566:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "products",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "product-detail",
+    "node": "566:22",
+    "name": "Artist / Zahra Mohammadi",
+    "label": "زهرا محمدی فروشگاه زهرا محمدی دنبال‌کردن",
+    "destination": "artist-public-profile",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "product-detail",
+    "node": "566:37",
+    "name": "",
+    "label": "مشاهده روایت مرتبط",
+    "destination": "story-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "product-detail",
+    "node": "566:38",
+    "name": "Frame",
+    "label": "storefront مشاهده فروشگاه زهرا محمدی آثار بیشتر از این هنرمند",
+    "destination": "artist-public-profile",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "product-detail",
+    "node": "772:12",
+    "name": "Product / Corporate Bulk CTA",
+    "label": "groups خرید عمده یا سازمانی برای تعداد بیشتر، درخواست تأمین ثبت کن.",
+    "destination": "corporate-buyer-handoff",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "product-detail",
+    "node": "566:47",
+    "name": "Frame",
+    "label": "افزودن به سبد",
+    "destination": "cart",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "product-detail",
+    "node": "566:48",
+    "name": "",
+    "label": "افزودن به سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "artist-public-profile",
+    "node": "567:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "artists",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "artist-public-profile",
+    "node": "567:25",
+    "name": "Stories Button",
+    "label": "مشاهده روایت‌ها",
+    "destination": "stories",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "artist-public-profile",
+    "node": "567:29",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "artist-public-profile",
+    "node": "567:31",
+    "name": "",
+    "label": "آثار",
+    "destination": "products",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "artist-public-profile",
+    "node": "567:40",
+    "name": "View Product",
+    "label": "مشاهده اثر",
+    "destination": "product-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "artist-public-profile",
+    "node": "567:41",
+    "name": "",
+    "label": "مشاهده اثر",
+    "destination": "product-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "artist-public-profile",
+    "node": "567:43",
+    "name": "Story Preview",
+    "label": "روایت ساخت این اثر و جزئیات پشت آن را ببین.",
+    "destination": "story-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "cart",
+    "node": "590:284",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "product-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "cart",
+    "name": "",
+    "label": "delete_outline",
+    "destination": null,
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "cart",
+    "node": "572:36",
+    "name": "Checkout CTA",
+    "label": "ادامه به اطلاعات ارسال",
+    "destination": "login-and-register",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "checkout-shipping-info",
+    "node": "590:282",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "checkout-shipping-info",
+    "node": "511:279",
+    "name": "Checkout CTA",
+    "label": "ادامه به بررسی سفارش",
+    "destination": "checkout-review-and-payment",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "checkout-review-and-payment",
+    "node": "574:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "checkout-shipping-info",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "checkout-review-and-payment",
+    "node": "574:18",
+    "name": "Edit Shipping Info",
+    "label": "ویرایش اطلاعات",
+    "destination": "checkout-shipping-info",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "checkout-review-and-payment",
+    "node": "574:44",
+    "name": "Retry Payment",
+    "label": "تلاش دوباره برای پرداخت",
+    "destination": "order-confirmation",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "order-confirmation",
+    "node": "591:28",
+    "name": "CTA / Track Order",
+    "label": "پیگیری سفارش",
+    "destination": "order-detail",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "order-confirmation",
+    "node": "591:29",
+    "name": "",
+    "label": "پیگیری سفارش",
+    "destination": "order-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "order-confirmation",
+    "node": "591:30",
+    "name": "CTA / Back Home",
+    "label": "بازگشت به خانه",
+    "destination": "landing",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "order-confirmation",
+    "node": "591:31",
+    "name": "",
+    "label": "بازگشت به خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "my-orders",
+    "node": "596:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "my-orders",
+    "node": "784:14",
+    "name": "CTA / Corporate Execution Status",
+    "label": "پیگیری روند اجرا",
+    "destination": null,
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "my-orders",
+    "node": "784:16",
+    "name": "CTA / Corporate Support",
+    "label": "پشتیبانی",
+    "destination": "help-and-support",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "my-orders",
+    "node": "596:47",
+    "name": "View Details CTA",
+    "label": "مشاهده جزئیات سفارش",
+    "destination": null,
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "order-detail",
+    "node": "600:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "my-orders",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "order-detail",
+    "node": "600:9",
+    "name": "Order Detail / Hero",
+    "label": "سفارش #NG-1054 در حال آماده‌سازی پرداخت‌شده • روش ارسال ثبت شده",
+    "destination": "order-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "order-detail",
+    "node": "600:14",
+    "name": "Order Detail / Status",
+    "label": "وضعیت سفارش ثبت سفارش آماده‌سازی ارسال تحویل هنرمند در حال آماده‌سازی سفارش است.",
+    "destination": "order-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "order-detail",
+    "node": "600:26",
+    "name": "Order Detail / Product",
+    "label": "بشقاب میناکاری طرح شاه‌عباسی اثر زهرا محمدی تعداد: ۱ ۲,۴۵۰,۰۰۰ تومان",
+    "destination": "order-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "order-detail",
+    "node": "600:33",
+    "name": "Order Detail / Shipping",
+    "label": "local_shipping پست پیشتاز هزینه ارسال: ۸۵,۰۰۰ تومان روش و تعرفه این سفارش پس از ثبت قفل شده است. رهگیری پس از تحویل مرسوله به شبکه ارسال فعال می‌شود.",
+    "destination": "order-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "order-detail",
+    "node": "600:39",
+    "name": "Order Detail / Payment",
+    "label": "خلاصه پرداخت کالاها: ۲,۴۵۰,۰۰۰ تومان پرداخت‌شده: ۲,۵۳۵,۰۰۰ تومان",
+    "destination": "order-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "order-detail",
+    "node": "600:43",
+    "name": "Order Detail / Recipient",
+    "label": "person_outline ارسال به گیرنده و آدرس ثبت‌شده در مرحله اطلاعات ارسال",
+    "destination": "order-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account",
+    "node": "603:17",
+    "name": "",
+    "label": "سفارش‌های من",
+    "destination": "my-orders",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account",
+    "node": "603:23",
+    "name": "Tile / Followed",
+    "label": "groups دنبال‌شده‌ها هنرمندهایی که دنبال می‌کنی",
+    "destination": "followed-artists",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account",
+    "node": "603:27",
+    "name": "Tile / Addresses",
+    "label": "location_on آدرس‌ها مدیریت آدرس‌های تحویل",
+    "destination": "addresses",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account",
+    "node": "603:34",
+    "name": "",
+    "label": "اطلاعات حساب",
+    "destination": "account-information",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account",
+    "node": "603:39",
+    "name": "",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account",
+    "node": "603:44",
+    "name": "",
+    "label": "راهنما و پشتیبانی",
+    "destination": "help-and-support",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account",
+    "node": "603:47",
+    "name": "Account / Corporate Purchase",
+    "label": "business_center خرید سازمانی و عمده ثبت درخواست برای شرکت یا سازمان",
+    "destination": "corporate-buyer-handoff",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "saved",
+    "node": "613:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "saved",
+    "node": "613:15",
+    "name": "",
+    "label": "آثار",
+    "destination": "products",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "saved",
+    "node": "613:16",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "saved",
+    "node": "613:26",
+    "name": "",
+    "label": "مشاهده محصول",
+    "destination": "product-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "saved",
+    "node": "613:36",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "saved",
+    "node": "613:40",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "saved",
+    "node": "613:42",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "saved",
+    "node": "613:44",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "followed-artists",
+    "node": "617:8",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "followed-artists",
+    "node": "617:41",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "followed-artists",
+    "node": "617:45",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "followed-artists",
+    "node": "617:47",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "followed-artists",
+    "node": "617:49",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "addresses",
+    "node": "620:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "addresses",
+    "node": "620:19",
+    "name": "Add Address CTA",
+    "label": "add_location_alt افزودن آدرس جدید",
+    "destination": "address-form",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "addresses",
+    "node": "620:32",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "addresses",
+    "node": "620:36",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "addresses",
+    "node": "620:38",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "addresses",
+    "node": "620:40",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "addresses",
+    "node": "800:16",
+    "name": "Edit Saved Address",
+    "label": "edit ویرایش",
+    "destination": "address-form",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "account-information",
+    "node": "624:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account-information",
+    "node": "624:38",
+    "name": "Save Changes CTA",
+    "label": "ذخیره تغییرات",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account-information",
+    "node": "624:42",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account-information",
+    "node": "624:46",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account-information",
+    "node": "624:48",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "account-information",
+    "node": "624:50",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "notifications",
+    "node": "631:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "notifications",
+    "node": "631:23",
+    "name": "",
+    "label": "هنرمندان دنبال‌شده",
+    "destination": "followed-artists",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "notifications",
+    "node": "631:44",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "notifications",
+    "node": "631:48",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "notifications",
+    "node": "631:50",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "notifications",
+    "node": "631:52",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "help-and-support",
+    "node": "632:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "help-and-support",
+    "node": "632:39",
+    "name": "Message Support Button",
+    "label": "ارسال پیام به پشتیبانی",
+    "destination": null,
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "help-and-support",
+    "node": "632:46",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "help-and-support",
+    "node": "632:50",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "help-and-support",
+    "node": "632:52",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "help-and-support",
+    "node": "632:54",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "634:8",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "634:32",
+    "name": "",
+    "label": "اطلاعات حساب",
+    "destination": "account-information",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "634:38",
+    "name": "Save Profile",
+    "label": "ذخیره تغییرات",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "634:42",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "634:44",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "634:46",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "edit-profile",
+    "node": "634:50",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "address-form",
+    "node": "638:8",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "addresses",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "address-form",
+    "node": "638:45",
+    "name": "Save Address",
+    "label": "ذخیره آدرس",
+    "destination": "addresses",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "address-form",
+    "node": "638:46",
+    "name": "",
+    "label": "ذخیره آدرس",
+    "destination": "addresses",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "address-form",
+    "node": "638:49",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "address-form",
+    "node": "638:51",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "address-form",
+    "node": "638:53",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "address-form",
+    "node": "638:57",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-and-discover",
+    "node": "642:14",
+    "name": "",
+    "label": "آثار",
+    "destination": "products",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-and-discover",
+    "node": "642:16",
+    "name": "",
+    "label": "هنرمندان",
+    "destination": "artists",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-and-discover",
+    "node": "642:18",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-and-discover",
+    "node": "642:20",
+    "name": "Category / میناکاری",
+    "label": "میناکاری",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-and-discover",
+    "node": "642:23",
+    "name": "Category / سفال",
+    "label": "سفال",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-and-discover",
+    "node": "642:26",
+    "name": "Category / گلیم",
+    "label": "گلیم",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-and-discover",
+    "node": "642:29",
+    "name": "Category / چرم",
+    "label": "چرم",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-and-discover",
+    "node": "642:53",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-and-discover",
+    "node": "642:55",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-and-discover",
+    "node": "642:57",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-and-discover",
+    "node": "642:61",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-results",
+    "node": "645:14",
+    "name": "",
+    "label": "آثار",
+    "destination": "products",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-results",
+    "node": "645:16",
+    "name": "",
+    "label": "هنرمندان",
+    "destination": "artists",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-results",
+    "node": "645:18",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-results",
+    "node": "645:32",
+    "name": "",
+    "label": "هنرمندان",
+    "destination": "artists",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-results",
+    "node": "645:43",
+    "name": "",
+    "label": "آثار",
+    "destination": "products",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-results",
+    "node": "645:53",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-results",
+    "node": "645:55",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-results",
+    "node": "645:57",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "search-results",
+    "node": "645:61",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "category-minakari",
+    "node": "647:8",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "category-minakari",
+    "node": "647:9",
+    "name": "Category / Intro",
+    "label": "palette هنر میناکاری آثار و هنرمندان این دسته را یک‌جا کشف کن.",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "category-minakari",
+    "node": "647:15",
+    "name": "",
+    "label": "فیلتر",
+    "destination": "filters-and-sort",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "category-minakari",
+    "node": "647:18",
+    "name": "",
+    "label": "مرتب‌سازی",
+    "destination": "filters-and-sort",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "category-minakari",
+    "node": "647:40",
+    "name": "Category / Discovery Note",
+    "label": "notifications پیشنهادهای مرتبط‌تر هرچه بیشتر در نگارین بگردی و تعامل کنی، پیشنهادها دقیق‌تر می‌شوند.",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "category-minakari",
+    "node": "647:46",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "category-minakari",
+    "node": "647:48",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "category-minakari",
+    "node": "647:50",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "category-minakari",
+    "node": "647:54",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filters-and-sort",
+    "node": "657:8",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "products",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filters-and-sort",
+    "node": "657:46",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filters-and-sort",
+    "node": "657:48",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filters-and-sort",
+    "node": "657:50",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filters-and-sort",
+    "node": "657:54",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filters-and-sort",
+    "node": "657:55",
+    "name": "",
+    "label": "مرتب‌سازی",
+    "destination": "filters-and-sort",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filters-and-sort",
+    "node": "657:89",
+    "name": "Apply Filters",
+    "label": "نمایش نتایج",
+    "destination": "filtered-results",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filtered-results",
+    "node": "660:8",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "products",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filtered-results",
+    "node": "660:9",
+    "name": "Category / Intro",
+    "label": "palette فیلترهای فعال میناکاری · فقط آثار موجود · هنرمندان تأییدشده",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filtered-results",
+    "node": "660:15",
+    "name": "",
+    "label": "فیلتر",
+    "destination": "filters-and-sort",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filtered-results",
+    "node": "660:18",
+    "name": "",
+    "label": "مرتب‌سازی",
+    "destination": "filters-and-sort",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filtered-results",
+    "node": "660:40",
+    "name": "Category / Discovery Note",
+    "label": "notifications پیشنهادهای مرتبط‌تر هرچه بیشتر در نگارین بگردی و تعامل کنی، پیشنهادها دقیق‌تر می‌شوند.",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filtered-results",
+    "node": "660:46",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filtered-results",
+    "node": "660:48",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filtered-results",
+    "node": "660:50",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "filtered-results",
+    "node": "660:54",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:14",
+    "name": "Category / میناکاری",
+    "label": "میناکاری",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:18",
+    "name": "Category / سفال",
+    "label": "سفال",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:22",
+    "name": "Category / گلیم",
+    "label": "گلیم",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "675:57",
+    "name": "Category / چرم",
+    "label": "چرم",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:30",
+    "name": "Category / چوب",
+    "label": "چوب",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:34",
+    "name": "Category / پارچه",
+    "label": "پارچه",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:38",
+    "name": "Category / زیور",
+    "label": "زیور",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:42",
+    "name": "Category / فلز",
+    "label": "فلز",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:46",
+    "name": "Category / بافت",
+    "label": "بافت",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:56",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:58",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:60",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "all-categories",
+    "node": "678:64",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "artists",
+    "node": "682:122",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "artists",
+    "node": "682:124",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "artists",
+    "node": "682:126",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "artists",
+    "node": "682:130",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:8",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:9",
+    "name": "Category / Intro",
+    "label": "auto_awesome_mosaic کشف آثار نگارین آثار هنرمندان را بر اساس دسته، سلیقه و موجودی کشف کن.",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:15",
+    "name": "",
+    "label": "فیلتر",
+    "destination": "filters-and-sort",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:18",
+    "name": "",
+    "label": "مرتب‌سازی",
+    "destination": "filters-and-sort",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:42",
+    "name": "Category / Discovery Note",
+    "label": "person_search کشف بر اساس دسته برای دیدن آثار بیشتر، یک دسته هنری را انتخاب کن.",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:48",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:50",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:52",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:56",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:57",
+    "name": "Category Chip / میناکاری",
+    "label": "میناکاری",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:59",
+    "name": "Category Chip / سفال",
+    "label": "سفال",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:61",
+    "name": "Category Chip / گلیم",
+    "label": "گلیم",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "products",
+    "node": "703:63",
+    "name": "Category Chip / چرم",
+    "label": "چرم",
+    "destination": "category-minakari",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "story-detail",
+    "node": "715:7",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "story-detail",
+    "node": "756:11",
+    "name": "Video / Play Background",
+    "label": "",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "story-detail",
+    "node": "715:41",
+    "name": "",
+    "label": "مشاهده اثر",
+    "destination": "product-detail",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "login-and-register",
+    "node": "717:264",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "login-and-register",
+    "node": "722:19",
+    "name": "CTA / Continue",
+    "label": "ادامه",
+    "destination": "otp-verification",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "login-and-register",
+    "node": "772:7",
+    "name": "Auth / Legal Registration",
+    "label": "business برای شرکت یا سازمان خرید می‌کنی؟ ادامه با نقش خریدار سازمانی",
+    "destination": "corporate-buyer-access",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "otp-verification",
+    "node": "723:9",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "login-and-register",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "otp-verification",
+    "node": "723:20",
+    "name": "CTA / Continue",
+    "label": "تأیید و ادامه",
+    "destination": "checkout-shipping-info",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "otp-verification",
+    "node": "724:4",
+    "name": "",
+    "label": "ویرایش شماره موبایل",
+    "destination": "login-and-register",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "corporate-buyer-access",
+    "node": "771:10",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "corporate-buyer-access",
+    "node": "771:47",
+    "name": "Continue to Shared Auth",
+    "label": "ادامه به ورود / ثبت‌نام",
+    "destination": "login-and-register",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "corporate-buyer-handoff",
+    "node": "771:65",
+    "name": "",
+    "label": "arrow_forward",
+    "destination": "corporate-buyer-access",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "corporate-buyer-handoff",
+    "node": "771:102",
+    "name": "Continue to Corporate Buyer Access",
+    "label": "ادامه با نقش خریدار سازمانی",
+    "destination": "corporate-buyer-access",
+    "source": "Figma ON_CLICK prototype"
+  },
+  {
+    "screen": "corporate-buyer-handoff",
+    "node": "771:106",
+    "name": "",
+    "label": "حساب",
+    "destination": "account",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "corporate-buyer-handoff",
+    "node": "771:108",
+    "name": "",
+    "label": "سبد",
+    "destination": "cart",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "corporate-buyer-handoff",
+    "node": "771:110",
+    "name": "",
+    "label": "روایت‌ها",
+    "destination": "stories",
+    "source": "preview mapping inferred from visible controls"
+  },
+  {
+    "screen": "corporate-buyer-handoff",
+    "node": "771:114",
+    "name": "",
+    "label": "خانه",
+    "destination": "landing",
+    "source": "preview mapping inferred from visible controls"
+  }
+]

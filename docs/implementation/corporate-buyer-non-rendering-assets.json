@@ -1,0 +1,30 @@
+[
+  {
+    "screen": "orders",
+    "node": "961:2223",
+    "frame": "961:2044",
+    "type": "svg",
+    "error": "Error: Failed to export node. This node may not have any visible layers."
+  },
+  {
+    "screen": "order-detail",
+    "node": "961:2415",
+    "frame": "961:2234",
+    "type": "svg",
+    "error": "Error: Failed to export node. This node may not have any visible layers."
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2567",
+    "frame": "961:2426",
+    "type": "svg",
+    "error": "Error: Failed to export node. This node may not have any visible layers."
+  },
+  {
+    "screen": "delivery-detail",
+    "node": "961:2687",
+    "frame": "961:2578",
+    "type": "svg",
+    "error": "Error: Failed to export node. This node may not have any visible layers."
+  }
+]

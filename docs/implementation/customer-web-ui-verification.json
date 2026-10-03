@@ -1,0 +1,41 @@
+{
+  "source": {
+    "file": "Uo0ifnpFmJFhWqaEVmVOZ1",
+    "canvas": "1174:14",
+    "name": "Customer / Web",
+    "frames": 19,
+    "fonts": [
+      "Vazirmatn",
+      "Material Icons Round"
+    ],
+    "nativePrototypeReactions": 0
+  },
+  "runtime": {
+    "screens": 19,
+    "originalFiles": 94,
+    "png": 71,
+    "svg": 23,
+    "imageSlots": 146,
+    "nativeContainerBoxes": 1040,
+    "scopedCssGroups": 665,
+    "missingOriginalAssets": 0,
+    "pageErrors": 0,
+    "brokenImages": 0,
+    "visibleAssetBoundsOutliersBeyond2px": 0
+  },
+  "checks": {
+    "webBuild": "passed",
+    "eslint": "passed",
+    "webUnitTests": 7,
+    "customerWebPlaywrightTests": 4
+  },
+  "limits": [
+    "Fixed 1440px reference canvases; no tablet design.",
+    "All navigation mappings are inferred; source prototype reaction audit found none.",
+    "Sample phone 09xxxxxxxxx and OTP 123456 only; no authentication request.",
+    "Cart quantities, totals, payment outcomes, account summaries and filters are static Figma reference data.",
+    "Editable address fields are local drafts; no address, order, payment or server mutation.",
+    "Asset geometry and selected visual comparisons do not establish full pixel equivalence.",
+    "Production preview requires NEGARIN_UI_PREVIEW=1."
+  ]
+}
