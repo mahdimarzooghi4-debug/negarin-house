@@ -1,0 +1,68 @@
+{
+  "scope": "Artist mobile web preview; Figma canvas 863:305",
+  "figmaFileKey": "Uo0ifnpFmJFhWqaEVmVOZ1",
+  "inventoryCount": 91,
+  "implementedCount": 84,
+  "screenWidthPx": 390,
+  "pendingFrames": [
+    {
+      "id": "858:927",
+      "slug": "shipping-method-setup"
+    },
+    {
+      "id": "858:1021",
+      "slug": "account"
+    },
+    {
+      "id": "858:1172",
+      "slug": "account-information"
+    },
+    {
+      "id": "858:1243",
+      "slug": "edit-profile"
+    },
+    {
+      "id": "858:1307",
+      "slug": "notification-settings"
+    },
+    {
+      "id": "858:1400",
+      "slug": "logout-confirmation"
+    },
+    {
+      "id": "944:394",
+      "slug": "finance-transaction-detail-export-sale"
+    }
+  ],
+  "pendingReason": "Figma get_design_context Full seat Professional plan tool-call limit",
+  "localOriginalAssetFiles": 334,
+  "fontFallback": {
+    "package": "@fontsource/noto-sans-jp",
+    "version": "5.3.0",
+    "glyph": "U+FF0B",
+    "license": "SIL OFL 1.1"
+  },
+  "renderAudit": {
+    "routesWithHTTP200": 84,
+    "pageErrors": [],
+    "loadedImageSlots": 849,
+    "imageGeometryTolerancePx": 2,
+    "imageGeometryOutliers": []
+  },
+  "checks": {
+    "webBuild": "passed",
+    "eslint": "passed",
+    "webUnitTestsPassed": 7,
+    "mobileE2ETestsPassed": 4,
+    "desktopE2ERegressionTestsPassed": 4
+  },
+  "limitations": [
+    "Reference 390px web preview, not a native app or adaptive production portal",
+    "No tablet design",
+    "Sample data and in-memory state only; no backend mutations",
+    "No mobile prototype reactions were stored in source canvas; routes are preview mappings",
+    "Seven frames await complete design-context responses",
+    "Customer and foreign partner panels excluded",
+    "Geometry audit is not a complete pixel comparison"
+  ]
+}

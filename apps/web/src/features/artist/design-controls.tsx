@@ -15,15 +15,15 @@ export function DesignAction({label,destination,back,children,...props}:ActionPr
  const otpSubmit=preview.screen.startsWith("otp-")&&destination==="verification-success";
  const needsValidation=phoneSubmit||otpSubmit;
  function run(){
-  if(back){router.push("/preview/artist");return;}
+  if(back){router.push(preview.basePath);return;}
   if(/ذخیره/.test(label))preview.notify("تغییرات در همین پیش‌نمایش نگه داشته شد؛ داده‌ای به سرور ارسال نشده است.");
   else preview.notify("این کنترل در پیش‌نمایش رابط کاربری است؛ عملیات واقعی پس از اتصال بک‌اند فعال می‌شود.");
  }
- if(preview.screen==="multiple-roles"&&destination==="dashboard"){return <Button {...props} variant="unstyled" aria-label={label} onClick={()=>{const role=preview.values["multiple-roles:choice:roles-list"];if(role&&!role.includes("هنرمند")){preview.notify("پیش‌نمایش این بخش فعلاً برای نقش هنرمند آماده شده است.");return;}router.push("/preview/artist/dashboard");}}>{children}</Button>;}
- if(destination&&!needsValidation&&!disabled)return <Link {...props} href={"/preview/artist/"+destination} aria-label={label}>{children}</Link>;
+ if(preview.screen==="multiple-roles"&&destination==="dashboard"){return <Button {...props} variant="unstyled" aria-label={label} onClick={()=>{const role=preview.values["multiple-roles:choice:roles-list"];if(role&&!role.includes("هنرمند")){preview.notify("پیش‌نمایش این بخش فعلاً برای نقش هنرمند آماده شده است.");return;}router.push(preview.basePath+"/dashboard");}}>{children}</Button>;}
+ if(destination&&!needsValidation&&!disabled)return <Link {...props} href={preview.basePath+"/"+destination} aria-label={label}>{children}</Link>;
  return <Button {...props} variant="unstyled" disabled={disabled} aria-disabled={disabled||undefined} aria-label={label} onClick={()=>{
-  if(phoneSubmit){const phone=Object.values(preview.values).find(v=>/^09\d{9}$/.test(normalizeDigits(v)));if(!phone){preview.notify("شماره همراه معتبر با ۱۱ رقم و شروع ۰۹ وارد کنید.");return;}router.push("/preview/artist/"+destination);return;}
-  if(otpSubmit){const code=Array.from({length:6},(_,i)=>preview.values[preview.screen+":رقم "+(i+1)+" کد تأیید"]||"").join("");if(!/^\d{6}$/.test(normalizeDigits(code))){preview.notify("کد تأیید شش‌رقمی را کامل وارد کنید. کد نمونه برای پیش‌نمایش: ۱۲۳۴۵۶");return;}router.push("/preview/artist/"+(normalizeDigits(code)==="123456"?destination:"otp-invalid"));return;}
+  if(phoneSubmit){const phone=Object.values(preview.values).find(v=>/^09\d{9}$/.test(normalizeDigits(v)));if(!phone){preview.notify("شماره همراه معتبر با ۱۱ رقم و شروع ۰۹ وارد کنید.");return;}router.push(preview.basePath+"/"+destination);return;}
+  if(otpSubmit){const code=Array.from({length:6},(_,i)=>preview.values[preview.screen+":رقم "+(i+1)+" کد تأیید"]||"").join("");if(!/^\d{6}$/.test(normalizeDigits(code))){preview.notify("کد تأیید شش‌رقمی را کامل وارد کنید. کد نمونه برای پیش‌نمایش: ۱۲۳۴۵۶");return;}router.push(preview.basePath+"/"+(normalizeDigits(code)==="123456"?destination:"otp-invalid"));return;}
   run();
  }}>{children}</Button>;
 }
@@ -43,11 +43,11 @@ export function DesignField({label,placeholder,otp,children,...props}:FieldProps
  </div>;
 }
 
-export function DesignUpload({label,children,...props}:HTMLAttributes<HTMLDivElement>&{label:string;children:ReactNode}){
- const preview=usePreview();const [filename,setFilename]=useState("");const imagesOnly=label.startsWith("Image");const types=imagesOnly?["image/jpeg","image/png","image/webp"]:["image/jpeg","image/png","image/webp","application/pdf"];
- return <div {...props}><div>{children}</div><input className="design-file-input" type="file" accept={types.join(",")} aria-label={label} onChange={e=>{
+export function DesignUpload({label,media=false,preserveLayout=false,children,...props}:HTMLAttributes<HTMLDivElement>&{label:string;media?:boolean;preserveLayout?:boolean;children:ReactNode}){
+ const preview=usePreview();const [filename,setFilename]=useState("");const imagesOnly=label.startsWith("Image");const types=media?["image/jpeg","image/png","image/webp","video/mp4","video/webm"]:imagesOnly?["image/jpeg","image/png","image/webp"]:["image/jpeg","image/png","image/webp","application/pdf"];
+ return <div {...props}><div style={preserveLayout?{display:"contents"}:undefined}>{children}</div><input className="design-file-input" type="file" accept={types.join(",")} aria-label={label} onChange={e=>{
   const file=e.target.files?.[0];if(!file)return;
-  if(file.size>20*1024*1024||!types.includes(file.type)){preview.notify("فایل JPG، PNG، WebP یا PDF با حجم حداکثر ۲۰ مگابایت انتخاب کنید.");e.target.value="";return;}
+  if(file.size>20*1024*1024||!types.includes(file.type)){preview.notify((media?"عکس یا ویدیو MP4/WebM":imagesOnly?"عکس JPG، PNG یا WebP":"عکس یا فایل PDF")+" با حجم حداکثر ۲۰ مگابایت انتخاب کنید.");e.target.value="";return;}
   setFilename(file.name);preview.notify("فایل «"+file.name+"» برای پیش‌نمایش انتخاب شد؛ هنوز بارگذاری سرور انجام نشده است.");
  }}/>{filename&&<span className="design-upload-name">{filename}</span>}</div>;
 }
@@ -56,10 +56,10 @@ export function DesignChoice({label,group,initial=false,multiple=false,children,
  return <Button {...props} variant="unstyled" className={props.className+" design-choice"} aria-label={label} aria-pressed={selected} data-changed={stored!==undefined} data-selected={selected} onClick={()=>preview.setValue(key,multiple?(selected?"false":"true"):label)}>{children}</Button>;
 }
 
-export function DesignDialog({label,children,...props}:HTMLAttributes<HTMLDivElement>&{label:string;children:ReactNode}){
+export function DesignDialog({label,closeDestination,children,...props}:HTMLAttributes<HTMLDivElement>&{label:string;closeDestination?:string;children:ReactNode}){
  const ref=useRef<HTMLDivElement>(null);const router=useRouter();const preview=usePreview();
  useEffect(()=>{if(new URLSearchParams(window.location.search).get('canvas')!=="1")ref.current?.querySelector<HTMLElement>('a,button,input,textarea')?.focus();},[]);
- function close(){const link=ref.current?.querySelector<HTMLAnchorElement>('a[data-name*="Close"],a[data-name*="Cancel"]');router.push(link?.getAttribute('href')||"/preview/artist");}
+ function close(){const link=ref.current?.querySelector<HTMLAnchorElement>('a[data-name*="Close"],a[data-name*="Cancel"]');router.push(closeDestination?preview.basePath+"/"+closeDestination:link?.getAttribute('href')||preview.basePath);}
  return <div {...props} ref={ref} role="dialog" aria-modal="true" aria-label={label} tabIndex={-1} onKeyDown={e=>{
   if(e.key==="Escape"){e.preventDefault();close();}
   if(e.key==="Tab"){const nodes=Array.from(ref.current?.querySelectorAll<HTMLElement>('a,button:not(:disabled),input,textarea,[tabindex="0"]')||[]);const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}

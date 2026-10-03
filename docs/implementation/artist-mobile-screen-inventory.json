@@ -1,0 +1,821 @@
+[
+  {
+    "id": "815:24",
+    "name": "Artist / Dashboard — Mobile",
+    "w": 390,
+    "h": 2003,
+    "section": "01 — Dashboard",
+    "slug": "dashboard",
+    "implemented": true
+  },
+  {
+    "id": "815:249",
+    "name": "Artist / Dashboard — Membership Inactive — Mobile",
+    "w": 390,
+    "h": 1275,
+    "section": "01 — Dashboard",
+    "slug": "dashboard-membership-inactive",
+    "implemented": true
+  },
+  {
+    "id": "815:372",
+    "name": "Artist / Dashboard — No Orders — Mobile",
+    "w": 390,
+    "h": 1583,
+    "section": "01 — Dashboard",
+    "slug": "dashboard-no-orders",
+    "implemented": true
+  },
+  {
+    "id": "815:535",
+    "name": "Artist / Dashboard — No Products — Mobile",
+    "w": 390,
+    "h": 1469,
+    "section": "01 — Dashboard",
+    "slug": "dashboard-no-products",
+    "implemented": true
+  },
+  {
+    "id": "815:699",
+    "name": "Artist / Dashboard — Loading — Mobile",
+    "w": 390,
+    "h": 1391,
+    "section": "01 — Dashboard",
+    "slug": "dashboard-loading",
+    "implemented": true
+  },
+  {
+    "id": "815:778",
+    "name": "Artist / Dashboard — Error — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "01 — Dashboard",
+    "slug": "dashboard-error",
+    "implemented": true
+  },
+  {
+    "id": "840:59",
+    "name": "Artist / Products — Mobile",
+    "w": 390,
+    "h": 896,
+    "section": "02 — Products",
+    "slug": "products",
+    "implemented": true
+  },
+  {
+    "id": "840:155",
+    "name": "Artist / Product Editor — Mobile",
+    "w": 390,
+    "h": 1044,
+    "section": "02 — Products",
+    "slug": "product-editor",
+    "implemented": true
+  },
+  {
+    "id": "840:222",
+    "name": "Artist / Product Review Status — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "02 — Products",
+    "slug": "product-review-status",
+    "implemented": true
+  },
+  {
+    "id": "840:300",
+    "name": "Artist / Product Review — Needs Revision — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "02 — Products",
+    "slug": "product-review-needs-revision",
+    "implemented": true
+  },
+  {
+    "id": "840:357",
+    "name": "Artist / Product Review — Approved — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "02 — Products",
+    "slug": "product-review-approved",
+    "implemented": true
+  },
+  {
+    "id": "840:412",
+    "name": "Artist / Product — Published — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "02 — Products",
+    "slug": "product-published",
+    "implemented": true
+  },
+  {
+    "id": "840:622",
+    "name": "Artist / Product — Out of Stock — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "02 — Products",
+    "slug": "product-out-of-stock",
+    "implemented": true
+  },
+  {
+    "id": "840:706",
+    "name": "Artist / Product — Archived — Mobile",
+    "w": 390,
+    "h": 895,
+    "section": "02 — Products",
+    "slug": "product-archived",
+    "implemented": true
+  },
+  {
+    "id": "840:808",
+    "name": "Artist / Product Restore — Confirmation — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "02 — Products",
+    "slug": "product-restore-confirmation",
+    "implemented": true
+  },
+  {
+    "id": "840:893",
+    "name": "Artist / Product Inventory Update — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "02 — Products",
+    "slug": "product-inventory-update",
+    "implemented": true
+  },
+  {
+    "id": "840:969",
+    "name": "Artist / Product Editor — Edit Published — Mobile",
+    "w": 390,
+    "h": 975,
+    "section": "02 — Products",
+    "slug": "product-editor-edit-published",
+    "implemented": true
+  },
+  {
+    "id": "840:1100",
+    "name": "Artist / Product Changes Review — Confirmation — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "02 — Products",
+    "slug": "product-changes-review-confirmation",
+    "implemented": true
+  },
+  {
+    "id": "840:1144",
+    "name": "Artist / Product Changes Review Status — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "02 — Products",
+    "slug": "product-changes-review-status",
+    "implemented": true
+  },
+  {
+    "id": "840:1236",
+    "name": "Artist / Product Changes Review — Needs Revision — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "02 — Products",
+    "slug": "product-changes-review-needs-revision",
+    "implemented": true
+  },
+  {
+    "id": "840:1308",
+    "name": "Artist / Product Changes Review — Approved — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "02 — Products",
+    "slug": "product-changes-review-approved",
+    "implemented": true
+  },
+  {
+    "id": "840:1380",
+    "name": "Artist / Product Public Preview — Mobile",
+    "w": 390,
+    "h": 890,
+    "section": "02 — Products",
+    "slug": "product-public-preview",
+    "implemented": true
+  },
+  {
+    "id": "847:87",
+    "name": "Artist / Orders — Mobile",
+    "w": 390,
+    "h": 1030,
+    "section": "03 — Orders",
+    "slug": "orders",
+    "implemented": true
+  },
+  {
+    "id": "847:199",
+    "name": "Artist / Orders — Needs Action — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "03 — Orders",
+    "slug": "orders-needs-action",
+    "implemented": true
+  },
+  {
+    "id": "847:294",
+    "name": "Artist / Order Detail — Preparing — Mobile",
+    "w": 390,
+    "h": 1349,
+    "section": "03 — Orders",
+    "slug": "order-detail-preparing",
+    "implemented": true
+  },
+  {
+    "id": "847:398",
+    "name": "Artist / Order Progress Update — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "03 — Orders",
+    "slug": "order-progress-update",
+    "implemented": true
+  },
+  {
+    "id": "847:441",
+    "name": "Artist / Order Issue Report — Mobile",
+    "w": 390,
+    "h": 900,
+    "section": "03 — Orders",
+    "slug": "order-issue-report",
+    "implemented": true
+  },
+  {
+    "id": "847:485",
+    "name": "Artist / Order Detail — Packaging — Mobile",
+    "w": 390,
+    "h": 1050,
+    "section": "03 — Orders",
+    "slug": "order-detail-packaging",
+    "implemented": true
+  },
+  {
+    "id": "847:698",
+    "name": "Artist / Packaging Completion Confirmation — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "03 — Orders",
+    "slug": "packaging-completion-confirmation",
+    "implemented": true
+  },
+  {
+    "id": "847:752",
+    "name": "Artist / Order Shipping Partner Selection — Mobile",
+    "w": 390,
+    "h": 1369,
+    "section": "03 — Orders",
+    "slug": "order-shipping-partner-selection",
+    "implemented": true
+  },
+  {
+    "id": "847:876",
+    "name": "Artist / Shipping Partner Confirmation — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "03 — Orders",
+    "slug": "shipping-partner-confirmation",
+    "implemented": true
+  },
+  {
+    "id": "847:931",
+    "name": "Artist / Order Detail — Shipping — Mobile",
+    "w": 390,
+    "h": 1096,
+    "section": "03 — Orders",
+    "slug": "order-detail-shipping",
+    "implemented": true
+  },
+  {
+    "id": "847:1038",
+    "name": "Artist / Shipment Tracking — Mobile",
+    "w": 390,
+    "h": 1000,
+    "section": "03 — Orders",
+    "slug": "shipment-tracking",
+    "implemented": true
+  },
+  {
+    "id": "847:1210",
+    "name": "Artist / Order Detail — Delivered — Mobile",
+    "w": 390,
+    "h": 1238,
+    "section": "03 — Orders",
+    "slug": "order-detail-delivered",
+    "implemented": true
+  },
+  {
+    "id": "847:1319",
+    "name": "Artist / Order Detail — Completed — Mobile",
+    "w": 390,
+    "h": 1377,
+    "section": "03 — Orders",
+    "slug": "order-detail-completed",
+    "implemented": true
+  },
+  {
+    "id": "847:1428",
+    "name": "Artist / Orders Export — Mobile",
+    "w": 390,
+    "h": 1369,
+    "section": "03 — Orders",
+    "slug": "orders-export",
+    "implemented": true
+  },
+  {
+    "id": "847:1628",
+    "name": "Artist / Store — Mobile",
+    "w": 390,
+    "h": 1400,
+    "section": "04 — Store",
+    "slug": "store",
+    "implemented": true
+  },
+  {
+    "id": "847:1744",
+    "name": "Artist / Storefront Editor — Mobile",
+    "w": 390,
+    "h": 1300,
+    "section": "04 — Store",
+    "slug": "storefront-editor",
+    "implemented": true
+  },
+  {
+    "id": "847:1825",
+    "name": "Artist / Store Visibility Management — Mobile",
+    "w": 390,
+    "h": 1100,
+    "section": "04 — Store",
+    "slug": "store-visibility-management",
+    "implemented": true
+  },
+  {
+    "id": "847:1896",
+    "name": "Artist / Sales Settings — Mobile",
+    "w": 390,
+    "h": 1200,
+    "section": "04 — Store",
+    "slug": "sales-settings",
+    "implemented": true
+  },
+  {
+    "id": "847:1970",
+    "name": "Artist / Store Shipping Methods — Mobile",
+    "w": 390,
+    "h": 1200,
+    "section": "04 — Store",
+    "slug": "store-shipping-methods",
+    "implemented": true
+  },
+  {
+    "id": "847:2144",
+    "name": "Artist / Professional Credentials — Mobile",
+    "w": 390,
+    "h": 1413,
+    "section": "05 — Credentials",
+    "slug": "professional-credentials",
+    "implemented": true
+  },
+  {
+    "id": "847:2244",
+    "name": "Artist / Credential Submission — Mobile",
+    "w": 390,
+    "h": 1330,
+    "section": "05 — Credentials",
+    "slug": "credential-submission",
+    "implemented": true
+  },
+  {
+    "id": "847:2317",
+    "name": "Artist / Credential Under Review — Mobile",
+    "w": 390,
+    "h": 1073,
+    "section": "05 — Credentials",
+    "slug": "credential-under-review",
+    "implemented": true
+  },
+  {
+    "id": "847:2391",
+    "name": "Artist / Credential Detail — Mobile",
+    "w": 390,
+    "h": 1089,
+    "section": "05 — Credentials",
+    "slug": "credential-detail",
+    "implemented": true
+  },
+  {
+    "id": "847:2470",
+    "name": "Artist / Credential Replacement — Mobile",
+    "w": 390,
+    "h": 1140,
+    "section": "05 — Credentials",
+    "slug": "credential-replacement",
+    "implemented": true
+  },
+  {
+    "id": "847:2554",
+    "name": "Artist / Growth Center — Mobile",
+    "w": 390,
+    "h": 1925,
+    "section": "06 — Growth",
+    "slug": "growth-center",
+    "implemented": true
+  },
+  {
+    "id": "853:128",
+    "name": "Artist / Services — Mobile",
+    "w": 390,
+    "h": 1515,
+    "section": "07 — Services",
+    "slug": "services",
+    "implemented": true
+  },
+  {
+    "id": "853:266",
+    "name": "Artist / Service Detail — Mobile",
+    "w": 390,
+    "h": 1971,
+    "section": "07 — Services",
+    "slug": "service-detail",
+    "implemented": true
+  },
+  {
+    "id": "853:407",
+    "name": "Artist / Course Learning — Mobile",
+    "w": 390,
+    "h": 1412,
+    "section": "07 — Services",
+    "slug": "course-learning",
+    "implemented": true
+  },
+  {
+    "id": "853:536",
+    "name": "Artist / Course Completion — Mobile",
+    "w": 390,
+    "h": 1690,
+    "section": "07 — Services",
+    "slug": "course-completion",
+    "implemented": true
+  },
+  {
+    "id": "853:767",
+    "name": "Artist / Opportunities — Mobile",
+    "w": 390,
+    "h": 2214,
+    "section": "08 — Opportunities",
+    "slug": "opportunities",
+    "implemented": true
+  },
+  {
+    "id": "853:969",
+    "name": "Artist / Opportunity Detail — Mobile",
+    "w": 390,
+    "h": 1869,
+    "section": "08 — Opportunities",
+    "slug": "opportunity-detail",
+    "implemented": true
+  },
+  {
+    "id": "853:1101",
+    "name": "Artist / Opportunity Application — Mobile",
+    "w": 390,
+    "h": 1486,
+    "section": "08 — Opportunities",
+    "slug": "opportunity-application",
+    "implemented": true
+  },
+  {
+    "id": "853:1212",
+    "name": "Artist / Opportunity Application Status — Mobile",
+    "w": 390,
+    "h": 1723,
+    "section": "08 — Opportunities",
+    "slug": "opportunity-application-status",
+    "implemented": true
+  },
+  {
+    "id": "853:1363",
+    "name": "Artist / Opportunity Capacity Matching — Mobile",
+    "w": 390,
+    "h": 1722,
+    "section": "08 — Opportunities",
+    "slug": "opportunity-capacity-matching",
+    "implemented": true
+  },
+  {
+    "id": "853:1494",
+    "name": "Artist / Opportunity Order Allocation — Mobile",
+    "w": 390,
+    "h": 1477,
+    "section": "08 — Opportunities",
+    "slug": "opportunity-order-allocation",
+    "implemented": true
+  },
+  {
+    "id": "853:1617",
+    "name": "Artist / Opportunity Allocation Accept — Mobile",
+    "w": 390,
+    "h": 896,
+    "section": "08 — Opportunities",
+    "slug": "opportunity-allocation-accept",
+    "implemented": true
+  },
+  {
+    "id": "853:1774",
+    "name": "Artist / Opportunity Allocation Reject — Mobile",
+    "w": 390,
+    "h": 896,
+    "section": "08 — Opportunities",
+    "slug": "opportunity-allocation-reject",
+    "implemented": true
+  },
+  {
+    "id": "855:145",
+    "name": "Artist / Finance — Mobile",
+    "w": 390,
+    "h": 1139,
+    "section": "09 — Finance",
+    "slug": "finance",
+    "implemented": true
+  },
+  {
+    "id": "855:236",
+    "name": "Artist / Finance Settlement Request — Mobile",
+    "w": 390,
+    "h": 795,
+    "section": "09 — Finance",
+    "slug": "finance-settlement-request",
+    "implemented": true
+  },
+  {
+    "id": "855:297",
+    "name": "Artist / Finance Settlement Request — Submitted — Mobile",
+    "w": 390,
+    "h": 805,
+    "section": "09 — Finance",
+    "slug": "finance-settlement-request-submitted",
+    "implemented": true
+  },
+  {
+    "id": "855:360",
+    "name": "Artist / Finance Settlement Tracking — Mobile",
+    "w": 390,
+    "h": 842,
+    "section": "09 — Finance",
+    "slug": "finance-settlement-tracking",
+    "implemented": true
+  },
+  {
+    "id": "855:447",
+    "name": "Artist / Finance Settlement — Completed — Mobile",
+    "w": 390,
+    "h": 842,
+    "section": "09 — Finance",
+    "slug": "finance-settlement-completed",
+    "implemented": true
+  },
+  {
+    "id": "855:540",
+    "name": "Artist / Finance — After Settlement — Mobile",
+    "w": 390,
+    "h": 1153,
+    "section": "09 — Finance",
+    "slug": "finance-after-settlement",
+    "implemented": true
+  },
+  {
+    "id": "855:630",
+    "name": "Artist / Finance Transactions — Mobile",
+    "w": 390,
+    "h": 1127,
+    "section": "09 — Finance",
+    "slug": "finance-transactions",
+    "implemented": true
+  },
+  {
+    "id": "855:761",
+    "name": "Artist / Finance Transaction Detail — Sale — Mobile",
+    "w": 390,
+    "h": 1292,
+    "section": "09 — Finance",
+    "slug": "finance-transaction-detail-sale",
+    "implemented": true
+  },
+  {
+    "id": "855:878",
+    "name": "Artist / Finance Transaction Detail — Settlement — Mobile",
+    "w": 390,
+    "h": 1292,
+    "section": "09 — Finance",
+    "slug": "finance-transaction-detail-settlement",
+    "implemented": true
+  },
+  {
+    "id": "855:995",
+    "name": "Artist / Finance Transaction Detail — Refund — Mobile",
+    "w": 390,
+    "h": 1272,
+    "section": "09 — Finance",
+    "slug": "finance-transaction-detail-refund",
+    "implemented": true
+  },
+  {
+    "id": "855:1254",
+    "name": "Artist / Membership Center — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "10 — Membership",
+    "slug": "membership-center",
+    "implemented": true
+  },
+  {
+    "id": "855:1385",
+    "name": "Artist / Membership Midyear Upgrade — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "10 — Membership",
+    "slug": "membership-midyear-upgrade",
+    "implemented": true
+  },
+  {
+    "id": "855:1501",
+    "name": "Artist / Membership Upgrade Checkout — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "10 — Membership",
+    "slug": "membership-upgrade-checkout",
+    "implemented": true
+  },
+  {
+    "id": "855:1617",
+    "name": "Artist / Membership Upgrade Payment — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "10 — Membership",
+    "slug": "membership-upgrade-payment",
+    "implemented": true
+  },
+  {
+    "id": "855:1738",
+    "name": "Artist / Membership Upgrade — Completed — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "10 — Membership",
+    "slug": "membership-upgrade-completed",
+    "implemented": true
+  },
+  {
+    "id": "855:1852",
+    "name": "Artist / Membership Center — Upgraded — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "10 — Membership",
+    "slug": "membership-center-upgraded",
+    "implemented": true
+  },
+  {
+    "id": "858:173",
+    "name": "Artist / Stories — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "11 — Stories",
+    "slug": "stories",
+    "implemented": true
+  },
+  {
+    "id": "858:245",
+    "name": "Artist / Story Editor — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "11 — Stories",
+    "slug": "story-editor",
+    "implemented": true
+  },
+  {
+    "id": "858:617",
+    "name": "Artist / Story Product Selection — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "11 — Stories",
+    "slug": "story-product-selection",
+    "implemented": true
+  },
+  {
+    "id": "858:323",
+    "name": "Artist / Story Preview — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "11 — Stories",
+    "slug": "story-preview",
+    "implemented": true
+  },
+  {
+    "id": "858:391",
+    "name": "Artist / Story Draft — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "11 — Stories",
+    "slug": "story-draft",
+    "implemented": true
+  },
+  {
+    "id": "858:462",
+    "name": "Artist / Story — Published — Mobile",
+    "w": 390,
+    "h": 853,
+    "section": "11 — Stories",
+    "slug": "story-published",
+    "implemented": true
+  },
+  {
+    "id": "858:532",
+    "name": "Artist / Story Editor — Edit Published — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "11 — Stories",
+    "slug": "story-editor-edit-published",
+    "implemented": true
+  },
+  {
+    "id": "858:754",
+    "name": "Artist / Shipping Settings — Mobile",
+    "w": 390,
+    "h": 1253,
+    "section": "12 — Shipping Settings",
+    "slug": "shipping-settings",
+    "implemented": true
+  },
+  {
+    "id": "858:846",
+    "name": "Artist / Shipping Method Detail — Mobile",
+    "w": 390,
+    "h": 1014,
+    "section": "12 — Shipping Settings",
+    "slug": "shipping-method-detail",
+    "implemented": true
+  },
+  {
+    "id": "858:927",
+    "name": "Artist / Shipping Method Setup — Mobile",
+    "w": 390,
+    "h": 922,
+    "section": "12 — Shipping Settings",
+    "slug": "shipping-method-setup",
+    "implemented": false
+  },
+  {
+    "id": "858:1021",
+    "name": "Artist / Account — Mobile",
+    "w": 390,
+    "h": 1110,
+    "section": "13 — Account",
+    "slug": "account",
+    "implemented": false
+  },
+  {
+    "id": "858:1172",
+    "name": "Artist / Account Information — Mobile",
+    "w": 390,
+    "h": 939,
+    "section": "13 — Account",
+    "slug": "account-information",
+    "implemented": false
+  },
+  {
+    "id": "858:1243",
+    "name": "Artist / Edit Profile — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "13 — Account",
+    "slug": "edit-profile",
+    "implemented": false
+  },
+  {
+    "id": "858:1307",
+    "name": "Artist / Notification Settings — Mobile",
+    "w": 390,
+    "h": 1065,
+    "section": "13 — Account",
+    "slug": "notification-settings",
+    "implemented": false
+  },
+  {
+    "id": "858:1400",
+    "name": "Artist / Logout Confirmation — Mobile",
+    "w": 390,
+    "h": 844,
+    "section": "13 — Account",
+    "slug": "logout-confirmation",
+    "implemented": false
+  },
+  {
+    "id": "944:394",
+    "name": "Artist / Finance Transaction Detail — Export Sale — Mobile",
+    "w": 390,
+    "h": 1292,
+    "section": "09 — Finance",
+    "slug": "finance-transaction-detail-export-sale",
+    "implemented": false
+  }
+]
