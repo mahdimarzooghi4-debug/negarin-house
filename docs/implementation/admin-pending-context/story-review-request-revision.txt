@@ -1,0 +1,365 @@
+// Figma 894:6853 — Admin / Story Review — Request Revision
+import { DesignAction, DesignField } from "../../artist/design-controls";
+import { AdminSidebar } from "../admin-sidebar";
+
+export default function AdminStoryReviewRequestRevision() {
+  return (
+    <div className="bg-[#f9fafb] content-stretch flex items-start relative size-full" data-node-id="894:6853" data-name="Admin / Story Review — Request Revision">
+      <div className="absolute content-stretch flex inset-0 items-start overflow-clip" data-node-id="894:6854" data-name="Base Page Content">
+        <div className="bg-[#f9fafb] content-stretch flex h-[1100px] items-start overflow-clip relative shrink-0 w-[1440px]" data-node-id="894:6855" data-name="Admin / Story Review — Desktop">
+          <div className="content-stretch flex flex-[1_0_0] flex-col h-full items-start min-w-px overflow-clip relative" data-node-id="894:6856" data-name="Main Workspace">
+            <div className="bg-white border-[var(--negarin-border-default,#e5e7eb)] border-b border-solid content-stretch flex items-center justify-between px-[32px] py-[16px] relative shrink-0 w-full" data-node-id="894:6857" data-name="Header">
+              <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="894:6858" data-name="Left Actions">
+                <div className="relative rounded-[16px] shrink-0 size-[32px]" data-node-id="894:6859" data-name="Staff Profile Circle">
+                  <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[16px] size-full" src="/admin-assets/158e398d.png" />
+                </div>
+                <DesignAction className="relative shrink-0 size-[36px]" data-node-id="894:6860" data-name="Notification Bell Button" label="Notification Bell Button">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/8d07a5d1.svg" />
+                </DesignAction>
+              </div>
+              <div className="content-stretch flex gap-[24px] items-center justify-end relative shrink-0" data-node-id="894:6863" data-name="Right Header">
+                <DesignField className="bg-[#f9fafb] border border-[var(--negarin-border-default,#e5e7eb)] border-solid content-stretch flex gap-[8px] h-[40px] items-center pl-[16px] pr-[12px] relative rounded-[10px] shrink-0 w-[360px]" data-node-id="894:6864" data-name="Global Search" label="جستجو" placeholder="جستجو در استوری‌ها، هنرمندان، محصولات و ...">
+                  <p className="[word-break:break-word] flex-[1_0_0] font-['Vazirmatn:Regular'] font-normal leading-[normal] min-w-px relative text-[13px] text-[color:var(--negarin-text-muted,#6b7280)] text-right" dir="auto" data-node-id="894:6865">
+                    جستجو در استوری‌ها، هنرمندان، محصولات و ...
+                  </p>
+                  <DesignField className="relative shrink-0 size-[16px]" data-node-id="894:7417" data-name="search" label="جستجو در استوری‌ها، هنرمندان، محصولات و ..." placeholder="">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/da89983a.svg" />
+                  </DesignField>
+                </DesignField>
+                <p className="[word-break:break-word] font-['Vazirmatn:Bold'] font-bold leading-[normal] relative shrink-0 text-[20px] text-[color:var(--negarin-text-primary,#111827)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6867">
+                  بررسی و مدیریت استوری
+                </p>
+              </div>
+            </div>
+            <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-start min-h-px overflow-clip p-[32px] relative w-full" data-node-id="894:6868" data-name="Scrollable Content">
+              <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="894:6869" data-name="Breadcrumbs">
+                <div className="bg-white border border-[var(--negarin-border-default,#e5e7eb)] border-solid content-stretch flex items-start px-[16px] py-[8px] relative rounded-[8px] shrink-0" data-node-id="894:6870" data-name="Back button">
+                  <DesignAction className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-text-secondary,#374151)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6871" label="بازگشت" destination="story-review">
+                    بازگشت
+                  </DesignAction>
+                </div>
+                <div className="[word-break:break-word] content-stretch flex gap-[8px] items-center leading-[normal] relative shrink-0 text-[14px] whitespace-nowrap" data-node-id="894:6872" data-name="Crumbs Stack">
+                  <p className="font-['Vazirmatn:Bold'] font-bold relative shrink-0 text-[color:var(--negarin-text-brand,#041b65)]" data-node-id="894:6873">
+                    STY-1031
+                  </p>
+                  <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[color:var(--negarin-text-muted,#6b7280)]" data-node-id="894:6874">{`>`}</p>
+                  <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[color:var(--negarin-text-muted,#6b7280)] text-right" dir="auto" data-node-id="894:6875">
+                    صف بررسی
+                  </p>
+                </div>
+              </div>
+              <div className="border-[var(--negarin-border-default,#e5e7eb)] border-b border-solid content-stretch flex items-center justify-between pb-[12px] relative shrink-0 w-full" data-node-id="894:6876" data-name="Title Header block">
+                <div className="relative shrink-0 size-[100px]" data-node-id="894:6877" data-name="Left Actions" />
+                <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="894:6878" data-name="Right Header block">
+                  <div className="bg-[var(--negarin-status-warning-background,#fff3d9)] content-stretch flex items-start px-[12px] py-[4px] relative rounded-[100px] shrink-0" data-node-id="894:6879" data-name="Badge">
+                    <p className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[11px] text-[color:var(--negarin-status-warning-text,#9a4f08)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6880">
+                      در انتظار بررسی
+                    </p>
+                  </div>
+                  <p className="[word-break:break-word] font-['Vazirmatn:Bold'] font-bold leading-[normal] relative shrink-0 text-[22px] text-[color:var(--negarin-text-primary,#111827)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6881">
+                    بررسی استوری STY-1031
+                  </p>
+                </div>
+              </div>
+              <div className="content-stretch flex flex-[1_0_0] gap-[24px] items-start min-h-px overflow-clip relative w-full" data-node-id="894:6882" data-name="Two Column Grid">
+                <div className="content-stretch flex flex-[1_0_0] flex-col gap-[20px] items-start min-w-px relative" data-node-id="894:6883" data-name="Right Metas Column">
+                  <div className="[word-break:break-word] bg-white border border-[var(--negarin-border-default,#e5e7eb)] border-solid content-stretch flex flex-col gap-[16px] items-start leading-[normal] p-[20px] relative rounded-[16px] shrink-0 w-full" data-node-id="894:6884" data-name="Story Info Card">
+                    <p className="font-['Vazirmatn:Bold'] font-bold relative shrink-0 text-[15px] text-[color:var(--negarin-text-primary,#111827)] text-right w-full" dir="auto" data-node-id="894:6885">
+                      اطلاعات استوری
+                    </p>
+                    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 text-[13px] w-full whitespace-nowrap" data-node-id="894:6886" data-name="Rows">
+                      <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="894:6887" data-name="Meta Row">
+                        <p className="font-['Vazirmatn:Bold'] font-bold relative shrink-0 text-[color:var(--negarin-text-primary,#111827)]" data-node-id="894:6888">
+                          STY-1031
+                        </p>
+                        <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[color:var(--negarin-text-muted,#6b7280)] text-right" dir="auto" data-node-id="894:6889">
+                          شناسه استوری
+                        </p>
+                      </div>
+                      <div className="content-stretch flex items-center justify-between relative shrink-0 text-right w-full" data-node-id="894:6890" data-name="Meta Row">
+                        <p className="font-['Vazirmatn:Medium'] font-medium relative shrink-0 text-[color:var(--negarin-text-primary,#111827)]" dir="auto" data-node-id="894:6891">
+                          تصویر (JPG)
+                        </p>
+                        <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[color:var(--negarin-text-muted,#6b7280)]" dir="auto" data-node-id="894:6892">
+                          نوع فایل
+                        </p>
+                      </div>
+                      <div className="content-stretch flex items-center justify-between relative shrink-0 text-right w-full" data-node-id="894:6893" data-name="Meta Row">
+                        <p className="font-['Vazirmatn:Medium'] font-medium relative shrink-0 text-[color:var(--negarin-text-primary,#111827)]" dir="auto" data-node-id="894:6894">
+                          ۲۵ دی ۱۴۰۲
+                        </p>
+                        <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[color:var(--negarin-text-muted,#6b7280)]" dir="auto" data-node-id="894:6895">
+                          تاریخ ثبت
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="[word-break:break-word] bg-white border border-[var(--negarin-border-default,#e5e7eb)] border-solid content-stretch flex flex-col gap-[16px] items-start leading-[normal] p-[20px] relative rounded-[16px] shrink-0 w-full" data-node-id="894:6896" data-name="Artist Card">
+                    <p className="font-['Vazirmatn:Bold'] font-bold relative shrink-0 text-[15px] text-[color:var(--negarin-text-primary,#111827)] text-right w-full" dir="auto" data-node-id="894:6897">
+                      اطلاعات هنرمند
+                    </p>
+                    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 text-[13px] w-full whitespace-nowrap" data-node-id="894:6898" data-name="Rows">
+                      <div className="content-stretch flex items-center justify-between relative shrink-0 text-right w-full" data-node-id="894:6899" data-name="Meta Row">
+                        <p className="[text-underline-position:from-font] decoration-from-font decoration-solid font-['Vazirmatn:SemiBold'] font-semibold relative shrink-0 text-[color:var(--negarin-text-accent,#07858f)] underline" dir="auto" data-node-id="894:6900">
+                          مریم علوی
+                        </p>
+                        <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[color:var(--negarin-text-muted,#6b7280)]" dir="auto" data-node-id="894:6901">
+                          نام هنرمند
+                        </p>
+                      </div>
+                      <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="894:6902" data-name="Meta Row">
+                        <p className="font-['Vazirmatn:Medium'] font-medium relative shrink-0 text-[color:var(--negarin-text-primary,#111827)]" data-node-id="894:6903">
+                          ART-4821
+                        </p>
+                        <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[color:var(--negarin-text-muted,#6b7280)] text-right" dir="auto" data-node-id="894:6904">
+                          شناسه کاربری
+                        </p>
+                      </div>
+                      <div className="content-stretch flex items-center justify-between relative shrink-0 text-right w-full" data-node-id="894:6905" data-name="Meta Row">
+                        <p className="font-['Vazirmatn:Medium'] font-medium relative shrink-0 text-[color:var(--negarin-text-primary,#111827)]" dir="auto" data-node-id="894:6906">
+                          عضویت ویژه
+                        </p>
+                        <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[color:var(--negarin-text-muted,#6b7280)]" dir="auto" data-node-id="894:6907">
+                          نوع عضویت
+                        </p>
+                      </div>
+                      <div className="content-stretch flex items-center justify-between relative shrink-0 text-right w-full" data-node-id="894:6908" data-name="Meta Row">
+                        <p className="font-['Vazirmatn:Medium'] font-medium relative shrink-0 text-[color:var(--negarin-text-primary,#111827)]" dir="auto" data-node-id="894:6909">
+                          سطح رشد ۳ (حرفه‌ای)
+                        </p>
+                        <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[color:var(--negarin-text-muted,#6b7280)]" dir="auto" data-node-id="894:6910">
+                          سطح رشد
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="[word-break:break-word] bg-white border border-[var(--negarin-border-default,#e5e7eb)] border-solid content-stretch flex flex-col gap-[16px] items-start leading-[normal] p-[20px] relative rounded-[16px] shrink-0 w-full" data-node-id="894:6911" data-name="Product Card">
+                    <p className="font-['Vazirmatn:Bold'] font-bold relative shrink-0 text-[15px] text-[color:var(--negarin-text-primary,#111827)] text-right w-full" dir="auto" data-node-id="894:6912">
+                      محصول مرتبط لینک‌شده
+                    </p>
+                    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 text-[13px] w-full whitespace-nowrap" data-node-id="894:6913" data-name="Rows">
+                      <div className="content-stretch flex items-center justify-between relative shrink-0 text-right w-full" data-node-id="894:6914" data-name="Meta Row">
+                        <p className="[text-underline-position:from-font] decoration-from-font decoration-solid font-['Vazirmatn:SemiBold'] font-semibold relative shrink-0 text-[color:var(--negarin-text-accent,#07858f)] underline" dir="auto" data-node-id="894:6915">
+                          گلیم رومیزی سنتی دست‌بافت
+                        </p>
+                        <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[color:var(--negarin-text-muted,#6b7280)]" dir="auto" data-node-id="894:6916">
+                          عنوان محصول
+                        </p>
+                      </div>
+                      <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="894:6917" data-name="Meta Row">
+                        <p className="font-['Vazirmatn:Medium'] font-medium relative shrink-0 text-[color:var(--negarin-text-primary,#111827)]" data-node-id="894:6918">
+                          PRD-2201
+                        </p>
+                        <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[color:var(--negarin-text-muted,#6b7280)] text-right" dir="auto" data-node-id="894:6919">
+                          شناسه محصول
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex gap-[12px] items-start pt-[8px] relative shrink-0 w-full" data-node-id="894:6920" data-name="Action Area">
+                    <DesignAction className="bg-[var(--negarin-status-success-text,#184c15)] content-stretch flex flex-[1_0_0] items-center justify-center min-w-px px-[24px] py-[12px] relative rounded-[10px]" data-node-id="894:6921" data-name="Approve Button" label="تأیید و انتشار استوری">
+                      <p className="[word-break:break-word] font-['Vazirmatn:Bold'] font-bold leading-[normal] relative shrink-0 text-[14px] text-right text-white whitespace-nowrap" dir="auto" data-node-id="894:6922">
+                        تأیید و انتشار استوری
+                      </p>
+                    </DesignAction>
+                    <DesignAction className="bg-[#fee2e2] content-stretch flex flex-[1_0_0] items-center justify-center min-w-px px-[24px] py-[12px] relative rounded-[10px]" data-node-id="894:6923" data-name="Reject Button" label="درخواست بازنگری">
+                      <p className="[word-break:break-word] font-['Vazirmatn:Bold'] font-bold leading-[normal] relative shrink-0 text-[#991b1b] text-[14px] text-right whitespace-nowrap" dir="auto" data-node-id="894:6924">
+                        درخواست بازنگری
+                      </p>
+                    </DesignAction>
+                  </div>
+                </div>
+                <div className="content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-[450px]" data-node-id="894:6925" data-name="Left Media Preview Column">
+                  <div className="bg-white border border-[var(--negarin-border-default,#e5e7eb)] border-solid content-stretch flex flex-col gap-[16px] items-start p-[16px] relative rounded-[16px] shrink-0 w-full" data-node-id="894:6926" data-name="Media Card">
+                    <div className="h-[420px] relative rounded-[12px] shrink-0 w-full" data-node-id="894:6927" data-name="Large Image Showcase">
+                      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[12px] size-full" src="/admin-assets/ac822084.png" />
+                    </div>
+                    <div className="[word-break:break-word] content-stretch flex font-['Vazirmatn:Regular'] font-normal items-center justify-between leading-[normal] relative shrink-0 text-[11px] text-[color:var(--negarin-text-muted,#6b7280)] text-right w-full whitespace-nowrap" data-node-id="894:6928" data-name="Media Metadata Info">
+                      <p className="relative shrink-0" dir="auto" data-node-id="894:6929">
+                        رزولوشن تصویر: ۱۰۸۰ × ۱۹۲۰
+                      </p>
+                      <p className="relative shrink-0" dir="auto" data-node-id="894:6930">
+                        فرمت: JPG (۱.۲ مگابایت)
+                      </p>
+                    </div>
+                  </div>
+                  <div className="[word-break:break-word] bg-white border border-[var(--negarin-border-default,#e5e7eb)] border-solid content-stretch flex flex-col gap-[12px] items-start p-[20px] relative rounded-[16px] shrink-0 text-right w-full" data-node-id="894:6931" data-name="Caption Card">
+                    <p className="font-['Vazirmatn:Bold'] font-bold leading-[normal] relative shrink-0 text-[15px] text-[color:var(--negarin-text-primary,#111827)] w-full" dir="auto" data-node-id="894:6932">
+                      کپشن و توضیحات استوری
+                    </p>
+                    <p className="font-['Vazirmatn:Regular'] font-normal leading-[22px] relative shrink-0 text-[13px] text-[color:var(--negarin-text-secondary,#374151)] w-full" dir="auto" data-node-id="894:6933">
+                      تار و پود این گلیم رومیزی سنتی با عشق و هنر اصیل دستان زنان عشایر بافته شده است. طرح‌های هندسی شکسته بازگوکننده قصه‌های کهن سرزمین پهناور ایران است.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <AdminSidebar className="bg-[#f6fbf9] border border-[#562323] border-solid h-full overflow-clip relative shrink-0 w-[250px]" data-node-id="894:6934" data-name="Sidebar">
+            <div className="absolute content-stretch flex flex-col gap-[4px] h-[40px] items-center justify-center left-[15px] overflow-clip top-[23px]" data-node-id="894:6935" data-name="Brand">
+              <p className="[word-break:break-word] font-['Vazirmatn:Bold'] font-bold leading-[normal] relative shrink-0 text-[#475669] text-[18px] text-right whitespace-nowrap" dir="auto" data-node-id="894:6936">
+                خانه نگارین
+              </p>
+              <div className="bg-white content-stretch flex items-center justify-center relative rounded-[8px] shrink-0 size-[40px]" data-node-id="894:6937" data-name="Logo Container">
+                <div className="relative shrink-0 size-[40px]" data-node-id="997:267" data-name="Brand / Negarin Logo">
+                  <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src="/admin-assets/9f534c0e.png" />
+                </div>
+              </div>
+            </div>
+            <div className="absolute bg-[#f6fbf9] content-stretch flex flex-col gap-[6px] h-[930px] items-start left-[15px] overflow-clip top-[79px] w-[218px]" data-node-id="894:6939" data-name="Navigation">
+              <DesignAction className="content-stretch flex items-center justify-between overflow-clip px-[12px] py-[10px] relative rounded-[12px] shrink-0 w-full" data-node-id="894:6940" data-name="Nav / Dashboard" label="داشبورد" destination="dashboard">
+                <div className="relative shrink-0 size-[16px]" data-node-id="894:7420" data-name="layout-dashboard">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/f1445aa6.svg" />
+                </div>
+                <p className="[word-break:break-word] font-['Vazirmatn:Medium'] font-medium leading-[20px] relative shrink-0 text-[14px] text-[color:var(--navigation\/sidebar-muted,#475669)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6942">
+                  داشبورد
+                </p>
+              </DesignAction>
+              <div className="content-stretch flex h-[356px] items-center justify-between overflow-clip px-[12px] py-[10px] relative rounded-[12px] shrink-0 w-full" data-node-id="894:6943" data-name="Nav Groups">
+                <div className="content-stretch flex flex-col h-full items-start relative shrink-0 w-[218px]" data-node-id="894:6944" data-name="Group-0">
+                  <DesignAction className="content-stretch flex items-center justify-between pl-[8px] pr-[12px] py-[8px] relative rounded-[8px] shrink-0 w-full" data-node-id="894:6945" data-name="Group Header" label="هنرمندان" destination="artists">
+                    <div className="relative shrink-0 size-[10px]" data-node-id="894:7423" data-name="chevron-down">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/2662b648.svg" />
+                    </div>
+                    <p className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-icon-secondary,#6b7280)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6947">
+                      هنرمندان
+                    </p>
+                  </DesignAction>
+                </div>
+                <div className="h-full overflow-clip relative shrink-0 w-[218px]" data-node-id="894:6948" data-name="Group-1">
+                  <DesignAction className="absolute content-stretch flex items-center justify-between left-0 pl-[8px] pr-[12px] py-[8px] rounded-[8px] top-0 w-[218px]" data-node-id="894:6949" data-name="Group Header" label="بازار" destination="products">
+                    <div className="relative shrink-0 size-[10px]" data-node-id="894:7426" data-name="chevron-down">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/2662b648.svg" />
+                    </div>
+                    <p className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-icon-secondary,#6b7280)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6951">
+                      بازار
+                    </p>
+                  </DesignAction>
+                </div>
+                <div className="content-stretch flex flex-col h-full items-start relative shrink-0 w-[218px]" data-node-id="894:6952" data-name="Group-2">
+                  <DesignAction className="content-stretch flex items-center justify-between pl-[8px] pr-[12px] py-[8px] relative rounded-[8px] shrink-0 w-full" data-node-id="894:6953" data-name="Group Header" label="سفارش و ارسال" destination="orders">
+                    <div className="relative shrink-0 size-[10px]" data-node-id="894:7429" data-name="chevron-down">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/2662b648.svg" />
+                    </div>
+                    <p className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-icon-secondary,#6b7280)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6955">
+                      سفارش و ارسال
+                    </p>
+                  </DesignAction>
+                </div>
+                <div className="content-stretch flex flex-col h-full items-start relative shrink-0 w-[218px]" data-node-id="894:6960" data-name="Group-4">
+                  <DesignAction className="content-stretch flex items-center justify-between pl-[8px] pr-[12px] py-[8px] relative rounded-[8px] shrink-0 w-full" data-node-id="894:6961" data-name="Group Header" label="رشد و خدمات" destination="growth-overview">
+                    <div className="relative shrink-0 size-[10px]" data-node-id="894:7435" data-name="chevron-down">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/2662b648.svg" />
+                    </div>
+                    <p className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-icon-secondary,#6b7280)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6963">
+                      رشد و خدمات
+                    </p>
+                  </DesignAction>
+                </div>
+                <div className="content-stretch flex flex-col h-full items-start relative shrink-0 w-[218px]" data-node-id="894:6964" data-name="Group-5">
+                  <DesignAction className="content-stretch flex items-center justify-between pl-[8px] pr-[12px] py-[8px] relative rounded-[8px] shrink-0 w-full" data-node-id="894:6965" data-name="Group Header" label="فرصت‌ها" destination="opportunities">
+                    <div className="relative shrink-0 size-[10px]" data-node-id="894:7438" data-name="chevron-down">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/2662b648.svg" />
+                    </div>
+                    <p className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-icon-secondary,#6b7280)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6967">
+                      فرصت‌ها
+                    </p>
+                  </DesignAction>
+                </div>
+                <div className="content-stretch flex flex-col h-full items-start relative shrink-0 w-[218px]" data-node-id="894:6968" data-name="Group-6">
+                  <DesignAction className="content-stretch flex items-center justify-between pl-[8px] pr-[12px] py-[8px] relative rounded-[8px] shrink-0 w-full" data-node-id="894:6969" data-name="Group Header" label="مالی و عضویت" destination="finance-overview">
+                    <div className="relative shrink-0 size-[10px]" data-node-id="894:7441" data-name="chevron-down">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/2662b648.svg" />
+                    </div>
+                    <p className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-icon-secondary,#6b7280)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6971">
+                      مالی و عضویت
+                    </p>
+                  </DesignAction>
+                </div>
+                <div className="content-stretch flex flex-col h-full items-start relative shrink-0 w-[218px]" data-node-id="894:6972" data-name="Group-7">
+                  <div className="content-stretch flex items-center justify-between pl-[8px] pr-[12px] py-[8px] relative rounded-[8px] shrink-0 w-full" data-node-id="894:6973" data-name="Group Header">
+                    <div className="relative shrink-0 size-[10px]" data-node-id="894:7444" data-name="chevron-down">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/2662b648.svg" />
+                    </div>
+                    <p className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-icon-secondary,#6b7280)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6975">
+                      بین‌الملل
+                    </p>
+                  </div>
+                </div>
+                <div className="content-stretch flex flex-col h-full items-start relative shrink-0 w-[218px]" data-node-id="894:6976" data-name="Group-8">
+                  <DesignAction className="content-stretch flex items-center justify-between pl-[8px] pr-[12px] py-[8px] relative rounded-[8px] shrink-0 w-full" data-node-id="894:6977" data-name="Group Header" label="گزارش‌ها" destination="reports">
+                    <div className="relative shrink-0 size-[10px]" data-node-id="894:7447" data-name="chevron-down">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/2662b648.svg" />
+                    </div>
+                    <p className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-icon-secondary,#6b7280)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6979">
+                      گزارش‌ها
+                    </p>
+                  </DesignAction>
+                </div>
+                <div className="content-stretch flex flex-col h-full items-start relative shrink-0 w-[218px]" data-node-id="894:6980" data-name="Group-9">
+                  <DesignAction className="content-stretch flex items-center justify-between pl-[8px] pr-[12px] py-[8px] relative rounded-[8px] shrink-0 w-full" data-node-id="894:6981" data-name="Group Header" label="تنظیمات" destination="settings">
+                    <div className="relative shrink-0 size-[10px]" data-node-id="894:7450" data-name="chevron-down">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src="/admin-assets/2662b648.svg" />
+                    </div>
+                    <p className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-icon-secondary,#6b7280)] text-right whitespace-nowrap" dir="auto" data-node-id="894:6983">
+                      تنظیمات
+                    </p>
+                  </DesignAction>
+                </div>
+              </div>
+            </div>
+            <div className="absolute h-[54px] left-[15px] top-[1025px] w-[218px]" data-node-id="894:6984" data-name="Staff Profile">
+              <div className="[word-break:break-word] absolute content-stretch flex flex-col gap-[2px] items-end leading-[normal] left-[8px] text-right top-[8px] w-[158px] whitespace-nowrap" data-node-id="894:6985" data-name="Profile Details">
+                <p className="font-['Vazirmatn:SemiBold'] font-semibold relative shrink-0 text-[#475669] text-[13px]" dir="auto" data-node-id="894:6986">
+                  کارشناس محتوا
+                </p>
+                <p className="font-['Vazirmatn:Regular'] font-normal relative shrink-0 text-[10px] text-[color:var(--negarin-icon-secondary,#6b7280)]" dir="auto" data-node-id="894:6987">
+                  مدیر بررسی استوری‌ها
+                </p>
+              </div>
+              <div className="absolute left-[174px] rounded-[18px] size-[36px] top-[9px]" data-node-id="894:6988" data-name="Staff Avatar">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[18px] size-full" src="/admin-assets/df63fd7b.png" />
+              </div>
+            </div>
+          </AdminSidebar>
+        </div>
+      </div>
+      <div className="absolute bg-[rgba(0,0,0,0.5)] h-[1100px] left-0 top-0 w-[1440px]" data-node-id="894:6989" data-name="Modal Backdrop" />
+      <div className="-translate-x-1/2 -translate-y-1/2 absolute bg-white content-stretch drop-shadow-[0px_2px_4px_rgba(4,27,101,0.08)] flex flex-col gap-[20px] items-start left-1/2 p-[24px] rounded-[16px] top-1/2 w-[500px]" data-node-id="894:6990" data-name="Modal Dialog">
+        <p className="[word-break:break-word] font-['Vazirmatn:Bold'] font-bold leading-[normal] relative shrink-0 text-[16px] text-[color:var(--negarin-text-primary,#111827)] text-right w-full" dir="auto" data-node-id="894:6991">
+          درخواست بازنگری استوری STY-1031
+        </p>
+        <div className="bg-[var(--negarin-background-subtle,#faf8f2)] content-stretch flex gap-[12px] items-center p-[12px] relative rounded-[8px] shrink-0 w-full" data-node-id="894:6992" data-name="Context Box">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Vazirmatn:Regular'] font-normal leading-[normal] min-w-px relative text-[13px] text-[color:var(--negarin-text-secondary,#374151)] text-right" dir="auto" data-node-id="894:6993">
+            هنرمند: مریم علوی (ART-4821)
+          </p>
+          <div className="relative rounded-[4px] shrink-0 size-[40px]" data-node-id="894:6994" data-name="Mini Thumb">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[4px] size-full" src="/admin-assets/daef6097.png" />
+          </div>
+        </div>
+        <DesignField className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full" data-node-id="894:6995" data-name="Input Field Group" label="هنرمند: مریم علوی (ART-4821)" placeholder="توضیحات بازنگری (اجباری) دلیل درخواست بازنگری را شرح دهید (مثلاً: تصویر تار است، کپشن نیاز به اصلاح دارد و...)">
+          <p className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-text-secondary,#374151)] text-right w-full" dir="auto" data-node-id="894:6996">
+            توضیحات بازنگری (اجباری)
+          </p>
+          <div className="bg-[#f9fafb] border border-[var(--negarin-border-default,#e5e7eb)] border-solid content-stretch flex h-[120px] items-start p-[12px] relative rounded-[8px] shrink-0 w-full" data-node-id="894:6997" data-name="Textarea Wrapper">
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Vazirmatn:Regular'] font-normal leading-[normal] min-w-px relative text-[13px] text-[color:var(--negarin-text-muted,#6b7280)] text-right" dir="auto" data-node-id="894:6998">
+              دلیل درخواست بازنگری را شرح دهید (مثلاً: تصویر تار است، کپشن نیاز به اصلاح دارد و...)
+            </p>
+          </div>
+        </DesignField>
+        <div className="content-stretch flex gap-[12px] items-start relative shrink-0 w-full" data-node-id="894:6999" data-name="Button Actions Row">
+          <div className="bg-[var(--negarin-status-warning-text,#9a4f08)] content-stretch flex items-start px-[16px] py-[10px] relative rounded-[8px] shrink-0" data-node-id="894:7000" data-name="Confirm Btn">
+            <DesignAction className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-right text-white whitespace-nowrap" dir="auto" data-node-id="894:7001" label="ارسال درخواست بازنگری" destination="story-review-queue">
+              ارسال درخواست بازنگری
+            </DesignAction>
+          </div>
+          <div className="bg-white border border-[var(--negarin-border-default,#e5e7eb)] border-solid content-stretch flex items-start px-[16px] py-[10px] relative rounded-[8px] shrink-0" data-node-id="894:7002" data-name="Cancel Btn">
+            <DesignAction className="[word-break:break-word] font-['Vazirmatn:SemiBold'] font-semibold leading-[normal] relative shrink-0 text-[13px] text-[color:var(--negarin-text-secondary,#374151)] text-right whitespace-nowrap" dir="auto" data-node-id="894:7003" label="انصراف" destination="story-review">
+              انصراف
+            </DesignAction>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

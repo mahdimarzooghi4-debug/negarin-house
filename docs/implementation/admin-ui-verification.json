@@ -1,0 +1,209 @@
+{
+  "canvas": "863:319",
+  "implementedFrames": 79,
+  "inventoryFrames": 105,
+  "pendingFrames": 26,
+  "pendingContextFrames": 23,
+  "pendingAssetFrames": 3,
+  "pending": [
+    {
+      "id": "894:6718",
+      "slug": "story-review",
+      "pendingReason": "asset-quota",
+      "assetsMissing": [
+        "894:6722",
+        "894:6851"
+      ]
+    },
+    {
+      "id": "894:6853",
+      "slug": "story-review-request-revision",
+      "pendingReason": "asset-quota",
+      "assetsMissing": [
+        "894:6859",
+        "894:6927",
+        "894:6988",
+        "894:6994"
+      ]
+    },
+    {
+      "id": "894:7005",
+      "slug": "story-review-approve-confirmation",
+      "pendingReason": "asset-quota",
+      "assetsMissing": [
+        "894:7011",
+        "894:7079",
+        "894:7140",
+        "894:7148"
+      ]
+    },
+    {
+      "id": "894:7156",
+      "slug": "content-operations",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:242",
+      "slug": "export-partners",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:446",
+      "slug": "export-partners-loading",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:580",
+      "slug": "export-partners-empty",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:680",
+      "slug": "export-partners-error",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:796",
+      "slug": "export-partner-detail",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:1017",
+      "slug": "export-markets",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:1197",
+      "slug": "export-market-detail",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:1374",
+      "slug": "export-market-catalog",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:1594",
+      "slug": "partner-commercial-terms",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:1970",
+      "slug": "export-orders",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:2152",
+      "slug": "export-order-detail",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "899:2334",
+      "slug": "export-operations-needs-action",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "903:247",
+      "slug": "reports",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "903:518",
+      "slug": "report-detail",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "903:739",
+      "slug": "settings",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "903:914",
+      "slug": "notification-settings",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "903:1571",
+      "slug": "staff-and-access",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "903:1727",
+      "slug": "staff-access-detail",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "903:1861",
+      "slug": "roles-and-permissions",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "903:1991",
+      "slug": "role-detail",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "903:2161",
+      "slug": "role-editor",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    },
+    {
+      "id": "903:2610",
+      "slug": "operational-audit",
+      "pendingReason": "context-quota",
+      "assetsMissing": []
+    }
+  ],
+  "runtimeImageSlots": 1445,
+  "runtimeOriginalFiles": 380,
+  "savedOriginalFiles": 381,
+  "nonRenderingSourceSlots": 32,
+  "nativeLayoutBoxesRetrieved": 767,
+  "renderedActionControls": 1122,
+  "prototypeLinks": 0,
+  "previewMappings": "inferred",
+  "browserAudit": {
+    "frames": 79,
+    "http200": true,
+    "pageErrors": [],
+    "brokenImages": 0,
+    "geometryTolerancePx": 2,
+    "geometryOutliers": []
+  },
+  "checks": {
+    "webBuild": "passed",
+    "webLint": "passed",
+    "webUnitTests": 7,
+    "playwrightTests": 16
+  },
+  "limitations": [
+    "26 quota-blocked source states remain pending",
+    "Fixed 1440px reference canvas; no tablet/adaptive production layout",
+    "Original source sidebar horizontal groups and brand clipping require design correction",
+    "767 native boxes retrieved; full native-box coverage unavailable",
+    "Geometry and selected visual inspection do not establish complete pixel equivalence",
+    "Sample UI only; backend and real permissions/operations not integrated"
+  ]
+}
