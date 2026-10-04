@@ -6,7 +6,10 @@ import { canEditArtistProduct } from "@negarin/authz";
 import { PrismaService } from "./prisma.service.js";
 import { enforceDecision } from "./authorization.guard.js";
 
-export type ArtistProductWrite = {
+import { parseProductSpecifications, productContentSnapshot, specificationFields, type ProductSpecifications } from "./product-specifications.js";
+
+export type ArtistProductWrite = Partial<ProductSpecifications> & {
+  version?: number;
   title?: string;
   description?: string | null;
   priceToman?: bigint;
@@ -33,6 +36,7 @@ export class ArtistProductsService {
     this.requireArtist(context);
     const product = await this.database.artistProduct.create({
       data: {
+        ...input,
         artistUserId: context.userId,
         title: input.title!,
         description: input.description ?? null,
@@ -45,7 +49,11 @@ export class ArtistProductsService {
   async update(context: AuthorizationContext, id: string, input: ArtistProductWrite, requestId: string) {
     const product = await this.ownedProduct(context, id);
     if (product.archivedAt) throw new ConflictException("product-archived");
-    const changesContent = input.title !== undefined || input.description !== undefined;
+    const { version: expectedVersion, ...changes } = input;
+    if (expectedVersion !== undefined && expectedVersion !== product.version) throw new ConflictException("product-state-changed");
+    const changesContent = input.title !== undefined || input.description !== undefined ||
+      specificationFields.some((key) => Object.hasOwn(input, key));
+    if (changesContent && product.version >= 2_147_483_647) throw new ConflictException("product-version-exhausted");
     if (changesContent && !["draft", "changes_requested", "approved"].includes(product.publicationStatus)) {
       throw new ConflictException("product-content-locked");
     }
@@ -53,7 +61,7 @@ export class ArtistProductsService {
       const updated = await tx.artistProduct.updateMany({
         where: { id, artistUserId: context.userId, archivedAt: null, version: product.version },
         data: {
-          ...input,
+          ...changes,
           ...(changesContent ? {
             version: { increment: 1 },
             ...(product.publicationStatus === "approved" ? { publicationStatus: "draft" as const } : {})
@@ -67,7 +75,7 @@ export class ArtistProductsService {
           fromStatus: product.publicationStatus,
           toStatus: product.publicationStatus === "approved" ? "draft" : product.publicationStatus,
           version: product.version + 1,
-          content: { title: input.title ?? product.title, description: input.description === undefined ? product.description : input.description },
+          content: productContentSnapshot({ ...product, ...changes }),
           requestId
         } });
       }
@@ -102,7 +110,7 @@ export class ArtistProductsService {
     return product;
   }
 
-  private view(product: {
+  private view(product: ProductSpecifications & {
     id: string;
     title: string;
     description: string | null;
@@ -117,8 +125,7 @@ export class ArtistProductsService {
   }) {
     return {
       id: product.id,
-      title: product.title,
-      description: product.description,
+      ...productContentSnapshot(product),
       priceToman: product.priceToman.toString(),
       publicationStatus: product.publicationStatus,
       version: product.version,
@@ -137,10 +144,16 @@ const maxPostgresBigInt = 9_223_372_036_854_775_807n;
 export function parseArtistProductWrite(body: unknown, partial = false): ArtistProductWrite {
   if (!body || typeof body !== "object" || Array.isArray(body)) throw new BadRequestException();
   const value = body as Record<string, unknown>;
-  const allowed = new Set(["title", "description", "priceToman"]);
+  const allowed = new Set(["title", "description", "priceToman", ...specificationFields, ...(partial ? ["version"] : [])]);
   if (Object.keys(value).some((key) => !allowed.has(key))) throw new BadRequestException();
 
-  const result: ArtistProductWrite = {};
+  const result: ArtistProductWrite = parseProductSpecifications(value);
+  if (partial && (Object.hasOwn(value, "version") || specificationFields.some((key) => Object.hasOwn(value, key)))) {
+    if (!Number.isInteger(value.version) || (value.version as number) < 0 || (value.version as number) >= 2_147_483_647) {
+      throw new BadRequestException("invalid-product-version");
+    }
+    result.version = value.version as number;
+  }
   if (!partial || Object.hasOwn(value, "title")) {
     if (typeof value.title !== "string" || value.title.trim().length === 0 || value.title.length > 200) {
       throw new BadRequestException();
@@ -160,7 +173,7 @@ export function parseArtistProductWrite(body: unknown, partial = false): ArtistP
     if (amount > maxPostgresBigInt) throw new BadRequestException();
     result.priceToman = amount;
   }
-  if (partial && Object.keys(result).length === 0) throw new BadRequestException();
+  if (partial && Object.keys(result).filter((key) => key !== "version").length === 0) throw new BadRequestException();
   return result;
 }
 

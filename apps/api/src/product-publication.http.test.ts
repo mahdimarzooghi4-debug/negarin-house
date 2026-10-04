@@ -72,6 +72,70 @@ describe("Product publication lifecycle HTTP", () => {
     expect(events).toHaveLength(6); expect(events.every((e) => e.requestId && e.actorUserId)).toBe(true);
   });
 
+  it("persists specifications, reviews exact snapshots and invalidates edited approval", async () => {
+    const created = await app.inject({ method: "POST", url: "/api/v1/artist/products", headers: owner,
+      payload: { title: "گلدان", priceToman: "120000", materials: "  مس  ", dimensions: "۲۵ سانتی‌متر",
+        weight: "۸۵۰ گرم", color: "فیروزه‌ای", technique: "چرخ‌کاری دستی", category: "سفال", careInstructions: "شست‌وشو با دست" } });
+    expect(created.statusCode).toBe(201);
+    const p = created.json();
+    expect(p.materials).toBe("مس");
+    expect((await app.inject({ method: "GET", url: `/api/v1/artist/products/${p.id}`, headers: owner })).json().weight).toBe("۸۵۰ گرم");
+    await artist(p.id, "submit", { version: 0 });
+    const review = await app.inject({ method: "GET", url: `/api/v1/admin/product-reviews/${p.id}`, headers: reviewer });
+    expect(review.json()).toMatchObject({ materials: "مس", technique: "چرخ‌کاری دستی", careInstructions: "شست‌وشو با دست" });
+    expect(review.json()).not.toHaveProperty("priceToman");
+    const patch = (payload: object, headers = owner) => app.inject({ method: "PATCH", url: `/api/v1/artist/products/${p.id}`, headers, payload });
+    expect((await patch({ materials: "چوب", version: 1 })).statusCode).toBe(409);
+    await admin(p.id, "approve", { version: 1 });
+    expect((await patch({ materials: "چوب", version: 1 })).statusCode).toBe(409);
+    const edit = await patch({ materials: "چوب", dimensions: null, version: 2 });
+    expect(edit.statusCode).toBe(200);
+    expect(edit.json()).toMatchObject({ publicationStatus: "draft", version: 3, materials: "چوب", dimensions: null, color: "فیروزه‌ای", priceToman: "120000" });
+    expect((await artist(p.id, "publish", { version: 2 })).statusCode).toBe(409);
+    const history = (await app.inject({ method: "GET", url: `/api/v1/artist/products/${p.id}/publication-history`, headers: owner })).json();
+    expect(history[0].content).toMatchObject({ materials: "مس", dimensions: "۲۵ سانتی‌متر" });
+    expect(history[1].content.materials).toBe("مس");
+    expect(history[2].content).toMatchObject({ materials: "چوب", dimensions: null, weight: "۸۵۰ گرم" });
+    await artist(p.id, "submit", { version: 3 }); await admin(p.id, "approve", { version: 4 }); await artist(p.id, "publish", { version: 5 });
+    expect((await patch({ color: "سفید", version: 6 })).statusCode).toBe(409);
+  });
+
+  it("isolates specification writes, rejects stale concurrent edits and preserves unknown defaults", async () => {
+    const p = await create();
+    const get = await app.inject({ method: "GET", url: `/api/v1/artist/products/${p.id}`, headers: owner });
+    expect(get.json()).toMatchObject({ materials: null, dimensions: null, category: null, weight: null, color: null, technique: null, careInstructions: null });
+    const patch = (payload: object, headers = owner) => app.inject({ method: "PATCH", url: `/api/v1/artist/products/${p.id}`, headers, payload });
+    expect((await patch({ materials: "مس" })).statusCode).toBe(400);
+    expect((await patch({ materials: "مس", version: 0 }, other)).statusCode).toBe(404);
+    expect((await patch({ materials: "مس", version: 0 }, reviewer)).statusCode).toBe(403);
+    expect((await patch({ materials: "مس", version: 0 }, customer)).statusCode).toBe(403);
+    const writes = await Promise.all([patch({ materials: "مس", version: 0 }), patch({ materials: "چوب", version: 0 })]);
+    expect(writes.map((r) => r.statusCode).sort()).toEqual([200, 409]);
+    const events = await db.productPublicationEvent.findMany({ where: { productId: p.id } });
+    expect(events).toHaveLength(1);
+    const current = await db.artistProduct.findUniqueOrThrow({ where: { id: p.id } });
+    expect(events[0]!.content).toMatchObject({ materials: current.materials });
+    expect(current.version).toBe(1); expect(current.inventoryVersion).toBe(0); expect(current.stockQuantity).toBe(0);
+    await app.inject({ method: "POST", url: `/api/v1/artist/products/${p.id}/archive`, headers: owner });
+    expect((await patch({ materials: "مس", version: 2 })).statusCode).toBe(409);
+  });
+
+  it("rolls specification edits back when the content audit insert fails", async () => {
+    const p = await create();
+    const name = "specifications_test_" + randomUUID().replaceAll("-", "");
+    await db.$executeRawUnsafe(`CREATE FUNCTION "${name}"() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW."productId" = '${p.id}'::uuid THEN RAISE EXCEPTION 'specification audit test failure'; END IF; RETURN NEW; END $$`);
+    try {
+      await db.$executeRawUnsafe(`CREATE TRIGGER "${name}" BEFORE INSERT ON "product_publication_events" FOR EACH ROW EXECUTE FUNCTION "${name}"()`);
+      try {
+        const result = await app.inject({ method: "PATCH", url: `/api/v1/artist/products/${p.id}`, headers: owner,
+          payload: { materials: "مس", version: 0, priceToman: "200000" } });
+        expect(result.statusCode).toBe(500);
+        expect(await db.artistProduct.findUniqueOrThrow({ where: { id: p.id } })).toMatchObject({ materials: null, version: 0, priceToman: 100000n });
+        expect(await db.productPublicationEvent.count({ where: { productId: p.id } })).toBe(0);
+      } finally { await db.$executeRawUnsafe(`DROP TRIGGER IF EXISTS "${name}" ON "product_publication_events"`); }
+    } finally { await db.$executeRawUnsafe(`DROP FUNCTION IF EXISTS "${name}"()`); }
+  });
+
   it("conceals foreign ownership and blocks unrelated roles, domains and privilege escalation", async () => {
     const p = await create();
     expect((await artist(p.id, "submit", { version: 0 }, other)).statusCode).toBe(404);
