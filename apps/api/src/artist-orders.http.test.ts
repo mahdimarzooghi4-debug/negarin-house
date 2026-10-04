@@ -422,4 +422,62 @@ describe("Artist preparation HTTP and PostgreSQL", () => {
     expect((await refund(s.finance, s.shipmentId, approveBody)).statusCode).toBe(201);
   });
 
+  function artistPosition(u: User, orderId: string) {
+    return app.inject({ method: "GET", url: "/api/v1/artist/finance/orders/" + orderId, headers: u.headers });
+  }
+  it("shows only immutable own finance amounts, and blocks paid fixtures without real receipt evidence", async () => {
+    const s = await setup();
+    const p = await artistPosition(s.a, s.id);
+    expect(p.statusCode).toBe(200); expect(p.headers["cache-control"]).toBe("no-store");
+    expect(p.json()).toMatchObject({ currency: "toman", merchandiseSubtotalToman: "9007199254740993", approvedRefundToman: "0", commissionToman: "0",
+      shippingAllocationToman: null, reviewableForSettlementToman: "0", recordedSettledToman: "0", settlementStatus: "blocked" });
+    expect(p.json().holds).toContain("payment_evidence_missing_or_inconsistent");
+    expect(p.json().items).toHaveLength(1);
+    for (const key of ["artistUserId", "userId", "shippingAddress", "payments", "receiptId", "reason", "requestId"]) expect(p.json()).not.toHaveProperty(key);
+    const stranger = await signIn();
+    expect((await artistPosition(stranger, s.id)).statusCode).toBe(404);
+    await db.artistProduct.update({ where: { id: s.products[0]!.id }, data: { priceToman: 1n, title: "ویرایش", archivedAt: new Date(), artistUserId: s.b.userId } });
+    expect((await artistPosition(s.a, s.id)).json()).toEqual(p.json());
+  });
+  it("marks delivered verified merchandise awaiting finance review, never settled", async () => {
+    const s = await dispatched(), finance = await signIn("staff", "finance");
+    await db.orderPayableQuote.create({ data: { orderId: s.id, createdByUserId: finance.userId, shippingFeeToman: "0", payableToman: "18014398509481986", sourceReference: "CI-only-proof", expiresAt: new Date(Date.now() + 60000) } });
+    await db.paymentAttempt.create({ data: { orderId: s.id, idempotencyKey: randomUUID(), requestHash: "ci-only", provider: "ci-only", providerReference: randomUUID(), amountToman: "18014398509481986", status: "succeeded",
+      receipt: { create: { provider: "ci-only", transactionReference: randomUUID(), amount: "18014398509481986", unit: "toman" } } } });
+    expect((await artistPosition(s.a, s.id)).json().holds).toEqual(["customer_receipt_missing"]);
+    await outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 0 });
+    const p = (await artistPosition(s.a, s.id)).json();
+    expect(p).toMatchObject({ reviewableForSettlementToman: "9007199254740993", remainingMerchandiseToman: "9007199254740993", settlementStatus: "awaiting_finance_review", holds: [], recordedSettledToman: "0" });
+    expect((await artistPosition(s.b, s.id)).json().reviewableForSettlementToman).toBe("0");
+    const staff = await app.inject({ method: "GET", url: "/api/v1/admin/domestic-finance/orders/" + s.id + "/artists/" + s.a.userId, headers: finance.headers });
+    expect(staff.statusCode).toBe(200); expect(staff.json()).toEqual({ ...p, artistUserId: s.a.userId });
+    await outcome(s.customer, s.id, s.shipmentId, "issues", { ...issueBody, version: 1 });
+    expect((await artistPosition(s.a, s.id)).json()).toMatchObject({ settlementStatus: "blocked", reviewableForSettlementToman: "0", holds: ["shipment_issue_open"] });
+  });
+  it("separates pending review, approved refund and recorded cash execution", async () => {
+    const s = await refundCase();
+    expect((await artistPosition(s.a, s.id)).json().holds).toContain("refund_review_pending");
+    await refund(s.finance, s.shipmentId, approveBody);
+    const p = (await artistPosition(s.a, s.id)).json();
+    expect(p).toMatchObject({ merchandiseSubtotalToman: "9007199254740993", approvedRefundToman: "9007199254740993", remainingMerchandiseToman: "0",
+      reviewableForSettlementToman: "0", recordedRefundExecutedToman: "0", recordedSettledToman: "0" });
+    expect(p.holds).toContain("approved_refund_not_executed"); expect(p.holds).not.toContain("refund_review_pending");
+  });
+  it("keeps domestic finance domain-scoped and pagination totals limited to the returned page", async () => {
+    const s = await setup(), finance = await signIn("staff", "finance");
+    for (const u of [s.customer, await signIn("staff", "orders")]) {
+      expect((await artistPosition(u, s.id)).statusCode).toBe(403);
+      expect((await app.inject({ method: "GET", url: "/api/v1/admin/domestic-finance/orders", headers: u.headers })).statusCode).toBe(403);
+    }
+    const page = await app.inject({ method: "GET", url: "/api/v1/artist/finance/orders?pageSize=1", headers: s.a.headers });
+    expect(page.json()).toMatchObject({ hasMore: false, pageTotals: { merchandiseSubtotalToman: "9007199254740993", approvedRefundToman: "0", reviewableForSettlementToman: "0" } });
+    const staff = await app.inject({ method: "GET", url: "/api/v1/admin/domestic-finance/orders?artistUserId=" + s.a.userId, headers: finance.headers });
+    expect(staff.json().items).toHaveLength(1); expect(staff.json().items[0].artistUserId).toBe(s.a.userId);
+    for (const q of ["pageSize=51", "artistUserId=bad", "userId=other"]) expect((await app.inject({ method: "GET", url: "/api/v1/admin/domestic-finance/orders?" + q, headers: finance.headers })).statusCode).toBe(400);
+    expect((await app.inject({ method: "GET", url: "/api/v1/artist/finance/orders?artistUserId=" + s.b.userId, headers: s.a.headers })).statusCode).toBe(400);
+    const unpaid = await setup(false);
+    expect((await artistPosition(unpaid.a, unpaid.id)).statusCode).toBe(404);
+    expect((await app.inject({ method: "GET", url: "/api/v1/artist/finance/orders", headers: unpaid.a.headers })).json().items).toEqual([]);
+  });
+
 });
