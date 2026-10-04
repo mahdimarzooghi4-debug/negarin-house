@@ -35,6 +35,8 @@ model IdentityUser {
   fulfillments ArtistOrderPreparation[]
   preparationEvents OrderPreparationEvent[]
   shipmentReports ArtistShipmentReport[]
+  shipmentReceipts CustomerShipmentReceipt[]
+  shipmentIssues CustomerShipmentIssue[]
 
   @@map("identity_users")
 }
@@ -434,6 +436,9 @@ model ArtistShipmentReport {
   orderId String @db.Uuid
   artistUserId String @db.Uuid
   preparation ArtistOrderPreparation @relation(fields: [orderId, artistUserId], references: [orderId, artistUserId], onDelete: Restrict, map: "artist_shipment_reports_preparation_fkey")
+  customerVersion Int @default(0)
+  receipt CustomerShipmentReceipt?
+  issue CustomerShipmentIssue?
   preparationVersion Int
   carrierName String
   trackingCode String
@@ -443,4 +448,33 @@ model ArtistShipmentReport {
   requestId String
   @@unique([orderId, artistUserId])
   @@map("artist_shipment_reports")
+}
+
+enum ShipmentIssueKind {
+  not_received
+  damaged
+  wrong_items
+  missing_items
+}
+model CustomerShipmentReceipt {
+  shipmentId String @id @db.Uuid
+  shipment ArtistShipmentReport @relation(fields: [shipmentId], references: [id], onDelete: Restrict)
+  commandVersion Int
+  customerUserId String @db.Uuid
+  customer IdentityUser @relation(fields: [customerUserId], references: [id], onDelete: Restrict)
+  receivedAt DateTime @default(now())
+  requestId String
+  @@map("customer_shipment_receipts")
+}
+model CustomerShipmentIssue {
+  shipmentId String @id @db.Uuid
+  shipment ArtistShipmentReport @relation(fields: [shipmentId], references: [id], onDelete: Restrict)
+  commandVersion Int
+  customerUserId String @db.Uuid
+  customer IdentityUser @relation(fields: [customerUserId], references: [id], onDelete: Restrict)
+  kind ShipmentIssueKind
+  description String
+  reportedAt DateTime @default(now())
+  requestId String
+  @@map("customer_shipment_issues")
 }
