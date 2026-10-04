@@ -1,3 +1,4 @@
+import { executionInclude, executionView, initializeServiceExecution } from "./service-execution.js";
 import { BadRequestException, ConflictException, ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 import { canAccessStaffDomain, canReadServiceRequest, type AuthorizationContext } from "@negarin/authz";
 import { enforceDecision } from "./authorization.guard.js";
@@ -28,20 +29,20 @@ export function parseServiceResponse(body: unknown) {
   if (b.decision !== "accepted" && b.decision !== "declined") throw new BadRequestException();
   return { ...parseCartCommand({ version: b.version }), decision: b.decision as "accepted" | "declined", summary: text(b.summary, 2000) };
 }
-const include = { assignments: { orderBy: { assignedVersion: "desc" } }, events: { orderBy: { version: "asc" } } } satisfies Prisma.ServiceRequestInclude;
+const include = { assignments: { orderBy: { assignedVersion: "desc" }, include: { execution: { include: executionInclude } } }, events: { orderBy: { version: "asc" } } } satisfies Prisma.ServiceRequestInclude;
 type Request = Prisma.ServiceRequestGetPayload<{ include: typeof include }>;
 function requestView(r: Request, staff = false) {
   const current = r.status === "awaiting_assignment" ? undefined : r.assignments[0];
   return { id: r.id, title: r.title, description: r.description, status: r.status, version: r.version, createdAt: r.createdAt.toISOString(),
-    assignment: current ? { id: current.id, status: current.status, responseSummary: current.responseSummary } : null,
+    assignment: current ? { id: current.id, status: current.status, responseSummary: current.responseSummary, execution: executionView(current.execution, staff) } : null,
     history: r.events.map(e => ({ version: e.version, action: e.action, createdAt: e.createdAt.toISOString(), ...(staff ? { actorUserId: e.actorUserId, assignmentId: e.assignmentId } : {}) })),
-    ...(staff ? { artistUserId: r.artistUserId, internalNote: r.internalNote, assignments: r.assignments.map(a => ({ id: a.id, partnerOrganizationId: a.partnerOrganizationId, partnerUserId: a.partnerUserId, status: a.status, assignedVersion: a.assignedVersion, responseSummary: a.responseSummary })) } : {}) };
+    ...(staff ? { artistUserId: r.artistUserId, internalNote: r.internalNote, assignments: r.assignments.map(a => ({ id: a.id, partnerOrganizationId: a.partnerOrganizationId, partnerUserId: a.partnerUserId, status: a.status, assignedVersion: a.assignedVersion, responseSummary: a.responseSummary, execution: executionView(a.execution, true) })) } : {}) };
 }
-const assignmentInclude = { request: { select: { id: true, title: true, description: true } } } satisfies Prisma.ServiceAssignmentInclude;
+const assignmentInclude = { execution: { include: executionInclude }, request: { select: { id: true, title: true, description: true } } } satisfies Prisma.ServiceAssignmentInclude;
 type Assignment = Prisma.ServiceAssignmentGetPayload<{ include: typeof assignmentInclude }>;
 function assignmentView(a: Assignment) {
   return { id: a.id, requestId: a.requestId, title: a.request.title, description: a.request.description,
-    commandVersion: a.assignedVersion, status: a.status, responseSummary: a.responseSummary, assignedAt: a.assignedAt.toISOString(), respondedAt: a.respondedAt?.toISOString() ?? null };
+    commandVersion: a.assignedVersion, status: a.status, responseSummary: a.responseSummary, assignedAt: a.assignedAt.toISOString(), respondedAt: a.respondedAt?.toISOString() ?? null, execution: executionView(a.execution) };
 }
 function partner(context: AuthorizationContext) {
   if (context.activeRole !== "service-partner" || !context.organizationId) throw new ForbiddenException();
@@ -106,13 +107,13 @@ export class ServiceAssignmentsService {
   }
   async assignments(context: AuthorizationContext, page: number, pageSize: number) {
     partner(context);
-    const rows = await this.db.serviceAssignment.findMany({ where: { partnerOrganizationId: context.organizationId, partnerUserId: context.userId }, include: assignmentInclude,
-      orderBy: [{ assignedAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1 });
+    const rows = await this.db.$transaction(tx => tx.serviceAssignment.findMany({ where: { partnerOrganizationId: context.organizationId, partnerUserId: context.userId }, include: assignmentInclude,
+      orderBy: [{ assignedAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1 }), { isolationLevel: "RepeatableRead" });
     return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(assignmentView) };
   }
   async assignment(context: AuthorizationContext, id: string) {
     partner(context);
-    const a = await this.db.serviceAssignment.findUnique({ where: { id }, include: assignmentInclude });
+    const a = await this.db.$transaction(tx => tx.serviceAssignment.findUnique({ where: { id }, include: assignmentInclude }), { isolationLevel: "RepeatableRead" });
     if (!a) throw new NotFoundException();
     own(context, a);
     return assignmentView(a);
@@ -133,6 +134,7 @@ export class ServiceAssignmentsService {
       await tx.serviceAssignment.update({ where: { id }, data: { status: command.decision, responseSummary: command.summary, respondedAt: new Date() } });
       await tx.serviceRequest.update({ where: { id: r.id }, data: { status: command.decision === "accepted" ? "accepted" : "awaiting_assignment", version: { increment: 1 } } });
       await tx.serviceRequestEvent.create({ data: { requestId: r.id, assignmentId: id, version: r.version + 1, action: command.decision, actorUserId: context.userId, command, requestTraceId: trace } });
+      if (command.decision === "accepted") await initializeServiceExecution(tx, id, context.userId, command.summary, trace);
       return assignmentView(await tx.serviceAssignment.findUniqueOrThrow({ where: { id }, include: assignmentInclude }));
     });
   }
