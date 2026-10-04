@@ -67,6 +67,8 @@ model ArtistProduct {
 
   @@index([artistUserId, archivedAt, updatedAt])
   @@index([publicationStatus, archivedAt])
+  @@index([publicationStatus, archivedAt, createdAt, id])
+  @@index([publicationStatus, archivedAt, priceToman, id])
   @@map("artist_products")
 }
 
