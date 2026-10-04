@@ -11,6 +11,7 @@ export async function createApplication(): Promise<NestFastifyApplication> {
   const config = loadConfig();
 
   const adapter = new FastifyAdapter({
+    bodyLimit: 8 * 1024 * 1024,
     genReqId: (request: IncomingMessage) => {
       const incoming = request.headers["x-request-id"];
       return typeof incoming === "string" && incoming.length > 0 ? incoming : randomUUID();

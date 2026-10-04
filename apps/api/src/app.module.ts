@@ -1,3 +1,5 @@
+import { ArtistProductImagesController, AdminProductImagesController } from "./product-images.controller.js";
+import { ProductImagesService, ProductImageStorage } from "./product-images.js";
 import { Module } from "@nestjs/common";
 import { ProductInventoryService } from "./product-inventory.js";
 import { ProductInventoryController } from "./product-inventory.controller.js";
@@ -13,8 +15,8 @@ import { ArtistPublicationController, AdminProductReviewsController } from "./pr
 import { ProductPublicationService } from "./product-publication.js";
 
 @Module({
-  controllers: [ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
-  providers: [ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
+  controllers: [ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
+  providers: [ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
   exports: [AuthorizationGuard]
 })
 export class AppModule {}

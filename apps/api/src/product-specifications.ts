@@ -21,11 +21,11 @@ export function parseProductSpecifications(input: Record<string, unknown>): Part
   return result;
 }
 
-export function productContentSnapshot(product: ProductSpecifications & { title: string; description: string | null }) {
+export function productContentSnapshot(product: ProductSpecifications & { title: string; description: string | null; imageIds: string[] }) {
   return {
     title: product.title, description: product.description,
     category: product.category, dimensions: product.dimensions, materials: product.materials,
     weight: product.weight, color: product.color, technique: product.technique,
-    careInstructions: product.careInstructions
+    careInstructions: product.careInstructions, imageIds: product.imageIds
   };
 }
