@@ -1,3 +1,6 @@
+import { OrderReservationExpiry } from "./order-reservation-expiry.js";
+import { CustomerOrdersController } from "./customer-orders.controller.js";
+import { CustomerOrdersService } from "./customer-orders.js";
 import { CustomerAddressesController } from "./customer-addresses.controller.js";
 import { CustomerAddressesService } from "./customer-addresses.js";
 import { CustomerCartController } from "./customer-cart.controller.js";
@@ -21,8 +24,8 @@ import { ArtistPublicationController, AdminProductReviewsController } from "./pr
 import { ProductPublicationService } from "./product-publication.js";
 
 @Module({
-  controllers: [CustomerAddressesController, CustomerCartController, PublicProductCatalogController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
-  providers: [CustomerAddressesService, CustomerCartService, PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
+  controllers: [CustomerOrdersController, CustomerAddressesController, CustomerCartController, PublicProductCatalogController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
+  providers: [OrderReservationExpiry, CustomerOrdersService, CustomerAddressesService, CustomerCartService, PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
   exports: [AuthorizationGuard]
 })
 export class AppModule {}
