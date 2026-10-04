@@ -12,10 +12,10 @@ describe("Artist preparation HTTP and PostgreSQL", () => {
   const db = new PrismaService(), codes = new Map<string, string>();
   const identity = new IdentityCore(db, { async send(phone, code) { codes.set(phone, code); } }, "test-secret-with-at-least-thirty-two-characters");
   const contexts = new ActiveContextResolver(db);
-  async function signIn(role: "artist" | "customer" | "staff" = "artist") {
+  async function signIn(role: "artist" | "customer" | "staff" = "artist", domain?: string) {
     const phone = `+1555${randomInt(1_000_000, 9_999_999)}`;
     await identity.requestCode(phone); const u = await identity.verifyCode(phone, codes.get(phone)!);
-    const g = await db.roleGrant.create({ data: { userId: u.userId, role } }); await contexts.select(u.sessionToken, g.id);
+    const g = await db.roleGrant.create({ data: { userId: u.userId, role, ...(domain ? { staffDomains: { create: [{ domain }] } } : {}) } }); await contexts.select(u.sessionToken, g.id);
     return { userId: u.userId, headers: { authorization: `Bearer ${u.sessionToken}` } };
   }
   type User = Awaited<ReturnType<typeof signIn>>;
@@ -261,6 +261,80 @@ describe("Artist preparation HTTP and PostgreSQL", () => {
       } finally { await db.$executeRawUnsafe('DROP FUNCTION IF EXISTS "' + name + '"()'); }
       expect((await outcome(s.customer, s.id, s.shipmentId, action, body)).statusCode).toBe(201);
     }
+  });
+
+  async function supportCase() {
+    const s = await dispatched();
+    expect((await outcome(s.customer, s.id, s.shipmentId, "issues", { ...issueBody, kind: "not_received" })).statusCode).toBe(201);
+    return { ...s, staff: await signIn("staff", "orders") };
+  }
+  function supportChange(u: User, id: string, body: object) {
+    return app.inject({ method: "POST", url: "/api/v1/admin/shipment-issues/" + id + "/status", headers: u.headers, payload: body });
+  }
+  const reviewBody = { version: 0, status: "in_review", summary: "در حال پیگیری" };
+  const closeBody = { version: 1, status: "closed", resolution: "customer_follow_up_complete", summary: "پیگیری تکمیل شد، مشتری می‌تواند دریافت را تأیید کند" };
+  it("supports review, closure and reopening with immutable accountable history and public summaries", async () => {
+    const s = await supportCase();
+    const r = await Promise.all([supportChange(s.staff, s.shipmentId, reviewBody), supportChange(s.staff, s.shipmentId, reviewBody)]);
+    expect(r.map(v => v.statusCode)).toEqual([201, 201]); expect(r[0]!.json()).toEqual(r[1]!.json());
+    expect((await supportChange(s.staff, s.shipmentId, closeBody)).json()).toMatchObject({ status: "closed", version: 2, resolution: closeBody.resolution, history: [{ actorUserId: s.staff.userId }, { actorUserId: s.staff.userId }] });
+    const customer = await app.inject({ method: "GET", url: "/api/v1/customer/orders/" + s.id + "/shipments/" + s.shipmentId, headers: s.customer.headers });
+    expect(customer.json().issue).toMatchObject({ status: "closed", version: 2, resolutionSummary: closeBody.summary });
+    expect(customer.json().issue).not.toHaveProperty("history"); expect(customer.json().issue).not.toHaveProperty("actorUserId");
+    expect((await get(s.a, s.id)).json().shipment.issue).toEqual(customer.json().issue);
+    expect((await get(s.b, s.id)).json().shipment).toBeNull();
+    expect((await supportChange(s.staff, s.shipmentId, { ...reviewBody, version: 2, summary: "بازگشایی" })).json()).toMatchObject({ status: "in_review", version: 3, resolution: null, resolutionSummary: null });
+    expect(await db.shipmentIssueEvent.count({ where: { shipmentId: s.shipmentId } })).toBe(3);
+    expect((await outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 1 })).statusCode).toBe(409);
+  });
+  it("allows customer receipt only after follow-up closure, without creating a receipt or refund on staff action", async () => {
+    const s = await supportCase();
+    await supportChange(s.staff, s.shipmentId, reviewBody); await supportChange(s.staff, s.shipmentId, closeBody);
+    expect(await db.customerShipmentReceipt.count({ where: { shipmentId: s.shipmentId } })).toBe(0);
+    expect((await outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 1 })).statusCode).toBe(201);
+    expect(await db.customerOrder.findUniqueOrThrow({ where: { id: s.id } })).toMatchObject({ paymentStatus: "paid", status: "placed", version: 1 });
+    const t = await supportCase();
+    await supportChange(t.staff, t.shipmentId, reviewBody);
+    expect((await supportChange(t.staff, t.shipmentId, { ...closeBody, resolution: "referred_for_refund_review" })).statusCode).toBe(201);
+    expect((await outcome(t.customer, t.id, t.shipmentId, "receipt", { version: 1 })).statusCode).toBe(409);
+    expect(await db.artistProduct.findUniqueOrThrow({ where: { id: t.products[0]!.id } })).toMatchObject({ stockQuantity: 9, inventoryVersion: 1 });
+  });
+  it("limits support to the orders domain and bounds queue filters and pagination", async () => {
+    const s = await supportCase(), path = "/api/v1/admin/shipment-issues";
+    for (const u of [s.a, s.customer, await signIn("staff"), await signIn("staff", "finance")]) {
+      expect((await app.inject({ method: "GET", url: path, headers: u.headers })).statusCode).toBe(403);
+      expect((await supportChange(u, s.shipmentId, reviewBody)).statusCode).toBe(403);
+    }
+    const page = await app.inject({ method: "GET", url: path + "?status=open&pageSize=50", headers: s.staff.headers });
+    expect(page.statusCode).toBe(200); expect(page.headers["cache-control"]).toBe("no-store");
+    expect(page.json().items.some((i: { shipmentId: string }) => i.shipmentId === s.shipmentId)).toBe(true);
+    expect(page.json().items.every((i: { status: string }) => i.status === "open")).toBe(true);
+    for (const q of ["status=refunded", "pageSize=51", "userId=other"]) expect((await app.inject({ method: "GET", url: path + "?" + q, headers: s.staff.headers })).statusCode).toBe(400);
+    expect((await supportChange(s.staff, randomUUID(), reviewBody)).statusCode).toBe(404);
+  });
+  it("rejects skipped/stale transitions and serializes competing staff decisions", async () => {
+    const s = await supportCase();
+    expect((await supportChange(s.staff, s.shipmentId, { ...closeBody, version: 0 })).statusCode).toBe(409);
+    const other = await signIn("staff", "orders");
+    const r = await Promise.all([supportChange(s.staff, s.shipmentId, reviewBody), supportChange(other, s.shipmentId, reviewBody)]);
+    expect(r.map(v => v.statusCode).sort()).toEqual([201, 409]);
+    expect((await supportChange(s.staff, s.shipmentId, { ...reviewBody, version: 1 })).statusCode).toBe(409);
+    expect((await supportChange(s.staff, s.shipmentId, closeBody)).statusCode).toBe(201);
+    expect((await supportChange(s.staff, s.shipmentId, reviewBody)).statusCode).toBe(409);
+  });
+  it("rolls back support state and receipt eligibility when audit persistence fails", async () => {
+    const s = await supportCase(), name = "support_" + randomUUID().replaceAll("-", "");
+    await supportChange(s.staff, s.shipmentId, reviewBody);
+    await db.$executeRawUnsafe('CREATE FUNCTION "' + name + '"() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW."shipmentId" = ' + "'" + s.shipmentId + "'" + "::uuid THEN RAISE EXCEPTION 'support audit failure'; END IF; RETURN NEW; END $$");
+    try {
+      await db.$executeRawUnsafe('CREATE TRIGGER "' + name + '" BEFORE INSERT ON "shipment_issue_events" FOR EACH ROW EXECUTE FUNCTION "' + name + '"()');
+      try {
+        expect((await supportChange(s.staff, s.shipmentId, closeBody)).statusCode).toBe(500);
+        expect(await db.customerShipmentIssue.findUniqueOrThrow({ where: { shipmentId: s.shipmentId } })).toMatchObject({ status: "in_review", version: 1, resolution: null });
+        expect((await outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 1 })).statusCode).toBe(409);
+      } finally { await db.$executeRawUnsafe('DROP TRIGGER IF EXISTS "' + name + '" ON "shipment_issue_events"'); }
+    } finally { await db.$executeRawUnsafe('DROP FUNCTION IF EXISTS "' + name + '"()'); }
+    expect((await supportChange(s.staff, s.shipmentId, closeBody)).statusCode).toBe(201);
   });
 
 });
