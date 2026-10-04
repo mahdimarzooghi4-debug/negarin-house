@@ -3,6 +3,7 @@ import { BadRequestException, ConflictException, ForbiddenException, Injectable,
 import type { AuthorizationContext } from "@negarin/authz";
 import type { Prisma } from "./generated/prisma/client.js";
 import { parseArtistProductId } from "./artist-products.js";
+import { shipmentView } from "./artist-shipment.js";
 import { PrismaService } from "./prisma.service.js";
 
 export const reservationMilliseconds = 30 * 60 * 1000;
@@ -25,12 +26,12 @@ export function parseOrderPage(query: Record<string, unknown>) {
   };
   return { page: number(query.page, 1, 1000), pageSize: number(query.pageSize, 20, 50) };
 }
-const orderInclude = { preparations: { orderBy: { artistUserId: "asc" } }, items: { orderBy: { productId: "asc" } } } satisfies Prisma.CustomerOrderInclude;
+const orderInclude = { preparations: { include: { shipment: true }, orderBy: { artistUserId: "asc" } }, items: { orderBy: { productId: "asc" } } } satisfies Prisma.CustomerOrderInclude;
 type Order = Prisma.CustomerOrderGetPayload<{ include: typeof orderInclude }>;
 export function orderView(order: Order) {
   return { id: order.id, version: order.version, status: order.status, paymentStatus: order.paymentStatus, paidAt: order.paidAt?.toISOString() ?? null, shippingAddress: order.shippingAddress,
     subtotalToman: order.subtotalToman, reservedUntil: order.reservedUntil.toISOString(), releasedAt: order.releasedAt?.toISOString() ?? null,
-    createdAt: order.createdAt.toISOString(), preparation: order.status === "placed" ? order.preparations.map(p => ({ items: order.items.filter(i => i.artistUserId === p.artistUserId).map(i => i.productId), status: p.status, version: p.version })) : [], items: order.items.map(i => ({ productId: i.productId, title: i.title,
+    createdAt: order.createdAt.toISOString(), preparation: order.status === "placed" ? order.preparations.map(p => ({ items: order.items.filter(i => i.artistUserId === p.artistUserId).map(i => i.productId), status: p.status, version: p.version, shipment: shipmentView(p.shipment) })) : [], items: order.items.map(i => ({ productId: i.productId, title: i.title,
       quantity: i.quantity, unitPriceToman: i.unitPriceToman.toString(), lineSubtotalToman: (i.unitPriceToman * BigInt(i.quantity)).toString(), imageIds: i.imageIds })) };
 }
 

@@ -96,4 +96,83 @@ describe("Artist preparation HTTP and PostgreSQL", () => {
     } finally { await db.$executeRawUnsafe(`DROP FUNCTION IF EXISTS "${name}"()`); }
     expect((await advance(s.a, s.id, 0, "accepted")).statusCode).toBe(201);
   });
+  function dispatch(u: User, id: string, payload: object = { version: 4, carrierName: "پست", trackingCode: "001234AB-5" }) {
+    return app.inject({ method: "POST", url: `/api/v1/artist/orders/${id}/shipment`, headers: u.headers, payload });
+  }
+  async function ready(u: User, id: string) {
+    for (const [version, status] of ["accepted", "preparing", "packaging", "ready_for_dispatch"].entries()) {
+      expect((await advance(u, id, version, status)).statusCode).toBe(201);
+    }
+  }
+  it("reports dispatch independently, exposing tracking to the customer without changing payment, stock or delivery", async () => {
+    const s = await setup(); await ready(s.a, s.id);
+    const before = await db.artistProduct.findUniqueOrThrow({ where: { id: s.products[0]!.id } });
+    expect((await get(s.a, s.id)).json().shipment).toBeNull();
+    const response = await dispatch(s.a, s.id);
+    expect(response.statusCode).toBe(201); expect(response.headers["cache-control"]).toBe("no-store");
+    expect(response.json()).toMatchObject({ status: "ready_for_dispatch", version: 5, shipment: {
+      status: "reported_dispatched", source: "artist_report", carrierVerified: false, carrierName: "پست", trackingCode: "001234AB-5"
+    } });
+    for (const key of ["id", "artistUserId", "reportedByUserId", "requestId", "preparationVersion", "deliveredAt", "settledAt"]) expect(response.json().shipment).not.toHaveProperty(key);
+    expect(response.json().history).toHaveLength(4);
+    expect((await get(s.b, s.id)).json()).toMatchObject({ version: 0, shipment: null });
+    const customer = await app.inject({ method: "GET", url: `/api/v1/customer/orders/${s.id}`, headers: s.customer.headers });
+    const group = customer.json().preparation.find((p: { items: string[] }) => p.items.includes(s.products[0]!.id));
+    expect(group.shipment).toEqual(response.json().shipment);
+    expect(customer.json().preparation.filter((p: { shipment: unknown }) => p.shipment !== null)).toHaveLength(1);
+    expect(await db.customerOrder.findUniqueOrThrow({ where: { id: s.id } })).toMatchObject({ status: "placed", paymentStatus: "paid", version: 1 });
+    expect(await db.artistProduct.findUniqueOrThrow({ where: { id: s.products[0]!.id } })).toMatchObject({ stockQuantity: before.stockQuantity, inventoryVersion: before.inventoryVersion });
+    const audit = await db.artistShipmentReport.findUniqueOrThrow({ where: { orderId_artistUserId: { orderId: s.id, artistUserId: s.a.userId } } });
+    expect(audit.reportedByUserId).toBe(s.a.userId); expect(audit.requestId).toBeTruthy(); expect(audit.preparationVersion).toBe(5);
+  });
+  it("recovers concurrent identical dispatches with one immutable report", async () => {
+    const s = await setup(); await ready(s.a, s.id);
+    const result = await Promise.all([dispatch(s.a, s.id), dispatch(s.a, s.id), dispatch(s.a, s.id, { version: 4, carrierName: " پست ", trackingCode: "۰۰١٢٣٤AB-٥" })]);
+    expect(result.map(r => r.statusCode)).toEqual([201, 201, 201]);
+    expect(result[0]!.json()).toEqual(result[1]!.json()); expect(result[1]!.json()).toEqual(result[2]!.json());
+    expect(await db.artistShipmentReport.count({ where: { orderId: s.id } })).toBe(1);
+    expect((await get(s.a, s.id)).json().version).toBe(5);
+  });
+  it("rejects premature, stale and changed report attempts", async () => {
+    const s = await setup();
+    expect((await dispatch(s.a, s.id, { version: 0, carrierName: "پست", trackingCode: "123" })).statusCode).toBe(409);
+    await ready(s.a, s.id);
+    expect((await dispatch(s.a, s.id, { version: 3, carrierName: "پست", trackingCode: "123" })).statusCode).toBe(409);
+    expect((await dispatch(s.a, s.id)).statusCode).toBe(201);
+    expect((await dispatch(s.a, s.id, { version: 4, carrierName: "پست", trackingCode: "456" })).statusCode).toBe(409);
+    expect((await dispatch(s.a, s.id, { version: 5, carrierName: "پست", trackingCode: "001234AB-5" })).statusCode).toBe(409);
+    expect((await advance(s.a, s.id, 3, "ready_for_dispatch")).statusCode).toBe(409);
+  });
+  it("serializes conflicting dispatches without replacing the winning tracking code", async () => {
+    const s = await setup(); await ready(s.a, s.id);
+    const r = await Promise.all(["111", "222"].map(trackingCode => dispatch(s.a, s.id, { version: 4, carrierName: "پست", trackingCode })));
+    expect(r.map(v => v.statusCode).sort()).toEqual([201, 409]);
+    expect((await get(s.a, s.id)).json().shipment.trackingCode).toBe(r.find(v => v.statusCode === 201)!.json().shipment.trackingCode);
+    expect(await db.artistShipmentReport.count({ where: { orderId: s.id } })).toBe(1);
+  });
+  it("enforces paid ownership and active role on dispatch, and refuses client verification/time overrides", async () => {
+    const unpaid = await setup(false), paid = await setup(), stranger = await signIn();
+    expect((await dispatch(unpaid.a, unpaid.id)).statusCode).toBe(404);
+    expect((await dispatch(stranger, paid.id)).statusCode).toBe(404);
+    expect((await dispatch(paid.customer, paid.id)).statusCode).toBe(403);
+    expect((await dispatch(await signIn("staff"), paid.id)).statusCode).toBe(403);
+    expect((await dispatch(paid.a, paid.id, { version: 4, carrierName: "پست", trackingCode: "123", carrierVerified: true })).statusCode).toBe(400);
+    expect((await dispatch(paid.a, paid.id, { version: 4, carrierName: "پست", trackingCode: "123", reportedAt: "2020-01-01" })).statusCode).toBe(400);
+    expect((await app.inject({ method: "POST", url: `/api/v1/artist/orders/${paid.id}/shipment`, payload: { version: 4, carrierName: "پست", trackingCode: "123" } })).statusCode).toBe(401);
+  });
+  it("rolls back the preparation revision on report persistence failure and recovers on retry", async () => {
+    const s = await setup(); await ready(s.a, s.id);
+    const name = "ship_" + randomUUID().replaceAll("-", "");
+    await db.$executeRawUnsafe(`CREATE FUNCTION "${name}"() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW."orderId" = '${s.id}'::uuid THEN RAISE EXCEPTION 'shipment failure'; END IF; RETURN NEW; END $$`);
+    try {
+      await db.$executeRawUnsafe(`CREATE TRIGGER "${name}" BEFORE INSERT ON "artist_shipment_reports" FOR EACH ROW EXECUTE FUNCTION "${name}"()`);
+      try {
+        expect((await dispatch(s.a, s.id)).statusCode).toBe(500);
+        expect((await get(s.a, s.id)).json()).toMatchObject({ version: 4, shipment: null });
+        expect(await db.artistShipmentReport.count({ where: { orderId: s.id } })).toBe(0);
+      } finally { await db.$executeRawUnsafe(`DROP TRIGGER IF EXISTS "${name}" ON "artist_shipment_reports"`); }
+    } finally { await db.$executeRawUnsafe(`DROP FUNCTION IF EXISTS "${name}"()`); }
+    expect((await dispatch(s.a, s.id)).statusCode).toBe(201);
+  });
+
 });
