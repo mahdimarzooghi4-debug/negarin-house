@@ -34,7 +34,7 @@ type Request = Prisma.ServiceRequestGetPayload<{ include: typeof include }>;
 function requestView(r: Request, staff = false) {
   const current = r.status === "awaiting_assignment" ? undefined : r.assignments[0];
   return { id: r.id, title: r.title, description: r.description, status: r.status, version: r.version, createdAt: r.createdAt.toISOString(),
-    assignment: current ? { id: current.id, status: current.status, responseSummary: current.responseSummary, execution: executionView(current.execution, staff) } : null,
+    assignment: current ? { id: current.id, status: current.status, responseSummary: current.responseSummary, execution: executionView(current.execution, staff, !staff) } : null,
     history: r.events.map(e => ({ version: e.version, action: e.action, createdAt: e.createdAt.toISOString(), ...(staff ? { actorUserId: e.actorUserId, assignmentId: e.assignmentId } : {}) })),
     ...(staff ? { artistUserId: r.artistUserId, internalNote: r.internalNote, assignments: r.assignments.map(a => ({ id: a.id, partnerOrganizationId: a.partnerOrganizationId, partnerUserId: a.partnerUserId, status: a.status, assignedVersion: a.assignedVersion, responseSummary: a.responseSummary, execution: executionView(a.execution, true) })) } : {}) };
 }

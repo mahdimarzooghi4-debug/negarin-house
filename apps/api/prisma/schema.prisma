@@ -46,6 +46,7 @@ model IdentityUser {
   serviceAssignments ServiceAssignment[]
   serviceEvents ServiceRequestEvent[]
   serviceExecutionEvents ServiceExecutionEvent[]
+  serviceDeliverableFiles ServiceDeliverableFile[]
 
   @@map("identity_users")
 }
@@ -123,8 +124,10 @@ model ServiceExecution {
   progressSummary String?
   submissionSummary String?
   reviewSummary String?
+  submittedFileIds String[] @default([]) @db.Uuid
   updatedAt DateTime @default(now()) @updatedAt
   events ServiceExecutionEvent[]
+  files ServiceDeliverableFile[]
   @@map("service_executions")
 }
 
@@ -140,9 +143,30 @@ model ServiceExecutionEvent {
   actor IdentityUser @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
   command Json
   requestTraceId String
+  fileIds String[] @default([]) @db.Uuid
   createdAt DateTime @default(now())
   @@unique([assignmentId, version])
   @@map("service_execution_events")
+}
+
+model ServiceDeliverableFile {
+  id String @id @default(uuid()) @db.Uuid
+  assignmentId String @db.Uuid
+  execution ServiceExecution @relation(fields: [assignmentId], references: [assignmentId], onDelete: Restrict)
+  uploadedByUserId String @db.Uuid
+  uploader IdentityUser @relation(fields: [uploadedByUserId], references: [id], onDelete: Restrict)
+  idempotencyKey String @db.Uuid
+  commandHash String
+  uploadedExecutionVersion Int
+  label String
+  objectKey String @unique
+  contentType String
+  byteLength Int
+  sha256 String
+  createdAt DateTime @default(now())
+  @@unique([assignmentId, idempotencyKey])
+  @@unique([assignmentId, uploadedExecutionVersion])
+  @@map("service_deliverable_files")
 }
 
 model ServiceRequestEvent {
