@@ -28,6 +28,7 @@ model IdentityUser {
   publicationEvents ProductPublicationEvent[]
   inventoryEvents ProductInventoryEvent[]
   customerCart CustomerCart?
+  addressBook CustomerAddressBook?
 
   @@map("identity_users")
 }
@@ -216,4 +217,34 @@ model CartItem {
   @@id([cartId, productId])
   @@index([productId])
   @@map("cart_items")
+}
+
+model CustomerAddressBook {
+  id        String       @id @default(uuid()) @db.Uuid
+  userId    String       @unique @db.Uuid
+  user      IdentityUser @relation(fields: [userId], references: [id], onDelete: Restrict)
+  version   Int          @default(0)
+  addresses CustomerAddress[]
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  @@map("customer_address_books")
+}
+
+model CustomerAddress {
+  id            String @id @default(uuid()) @db.Uuid
+  bookId        String @db.Uuid
+  book          CustomerAddressBook @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  recipientName String
+  recipientPhone String
+  province      String
+  city          String
+  postalCode    String
+  fullAddress   String
+  isDefault     Boolean @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([bookId, createdAt, id])
+  @@map("customer_addresses")
 }
