@@ -480,4 +480,41 @@ describe("Artist preparation HTTP and PostgreSQL", () => {
     expect((await app.inject({ method: "GET", url: "/api/v1/artist/finance/orders", headers: unpaid.a.headers })).json().items).toEqual([]);
   });
 
+  it("journals refund decisions once and scopes Artist facts without internal sources", async () => {
+    const s = await refundCase();
+    await refund(s.finance, s.shipmentId, approveBody); await refund(s.finance, s.shipmentId, approveBody);
+    const path = "/api/v1/artist/finance/events?orderId=" + s.id;
+    const own = await app.inject({ method: "GET", url: path, headers: s.a.headers });
+    expect(own.statusCode).toBe(200); expect(own.headers["cache-control"]).toBe("no-store");
+    expect(own.json().items).toHaveLength(1); expect(own.json().items[0]).toMatchObject({ kind: "refund_approved", amountToman: "9007199254740993", orderId: s.id, currency: "toman" });
+    for (const key of ["actorUserId", "requestId", "paymentReceiptId", "refundReviewId", "eventKey", "artistUserId", "reason"]) expect(own.json().items[0]).not.toHaveProperty(key);
+    expect((await app.inject({ method: "GET", url: path, headers: s.b.headers })).json().items).toEqual([]);
+    const staff = await app.inject({ method: "GET", url: "/api/v1/admin/financial-events?orderId=" + s.id, headers: s.finance.headers });
+    expect(staff.json().items[0]).toMatchObject({ actorUserId: s.finance.userId, artistUserId: s.a.userId });
+    expect(staff.json().items[0].refundReviewId).toBeTruthy();
+    expect((await app.inject({ method: "GET", url: "/api/v1/admin/financial-events", headers: s.staff.headers })).statusCode).toBe(403);
+    expect((await app.inject({ method: "GET", url: path, headers: s.customer.headers })).statusCode).toBe(403);
+    expect((await app.inject({ method: "GET", url: path + "&userId=other", headers: s.a.headers })).statusCode).toBe(400);
+    expect(await db.financialEvent.count({ where: { orderId: s.id } })).toBe(1);
+  });
+  it("financial events are immutable and a failed journal insert rolls back refund approval", async () => {
+    const s = await refundCase(), name = "refund_journal_" + randomUUID().replaceAll("-", "");
+    await db.$executeRawUnsafe('CREATE FUNCTION "' + name + '"() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW."orderId" = ' + "'" + s.id + "'" + "::uuid THEN RAISE EXCEPTION 'journal failure'; END IF; RETURN NEW; END $$");
+    try {
+      await db.$executeRawUnsafe('CREATE TRIGGER "' + name + '" BEFORE INSERT ON "financial_events" FOR EACH ROW EXECUTE FUNCTION "' + name + '"()');
+      try {
+        expect((await refund(s.finance, s.shipmentId, approveBody)).statusCode).toBe(500);
+        expect(await db.shipmentRefundReview.count({ where: { shipmentId: s.shipmentId } })).toBe(0);
+        expect(await db.financialEvent.count({ where: { orderId: s.id } })).toBe(0);
+      } finally { await db.$executeRawUnsafe('DROP TRIGGER IF EXISTS "' + name + '" ON "financial_events"'); }
+    } finally { await db.$executeRawUnsafe('DROP FUNCTION IF EXISTS "' + name + '"()'); }
+    expect((await refund(s.finance, s.shipmentId, approveBody)).statusCode).toBe(201);
+    const event = await db.financialEvent.findFirstOrThrow({ where: { orderId: s.id } });
+    await expect(db.financialEvent.update({ where: { id: event.id }, data: { amountToman: "1" } })).rejects.toThrow();
+    await expect(db.financialEvent.delete({ where: { id: event.id } })).rejects.toThrow();
+    await expect(db.financialEvent.create({ data: { eventKey: "fake-duplicate-" + event.id, kind: event.kind, orderId: event.orderId,
+      artistUserId: event.artistUserId, refundReviewId: event.refundReviewId, amountToman: event.amountToman, actorUserId: event.actorUserId, requestId: "duplicate-test", occurredAt: event.occurredAt } })).rejects.toThrow();
+    expect((await db.financialEvent.findUniqueOrThrow({ where: { id: event.id } })).amountToman).toBe(event.amountToman);
+  });
+
 });

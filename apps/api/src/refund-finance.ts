@@ -1,3 +1,4 @@
+import { recordRefundFinancialEvent } from "./financial-events.js";
 import { BadRequestException, ConflictException, Injectable, NotFoundException } from "@nestjs/common";
 import { canAccessStaffDomain, type AuthorizationContext } from "@negarin/authz";
 import { enforceDecision } from "./authorization.guard.js";
@@ -66,8 +67,9 @@ export class RefundFinanceService {
         if (approvals.reduce((s, r) => s + BigInt(r.amountToman!), amount) > BigInt(payment.receipt.amount)) throw new ConflictException("refund-exceeds-paid-amount");
         receiptId = payment.receipt.id;
       }
-      await tx.shipmentRefundReview.create({ data: { shipmentId, issueVersion: i.version, orderId: order.id, receiptId, decision: input.decision,
+      const recordedReview = await tx.shipmentRefundReview.create({ data: { shipmentId, issueVersion: i.version, orderId: order.id, receiptId, decision: input.decision,
         amountToman: input.amountToman ?? null, reason: input.reason, actorUserId: context.userId, requestId } });
+      await recordRefundFinancialEvent(tx, recordedReview, i.shipment.artistUserId);
       return view(await tx.customerShipmentIssue.findUniqueOrThrow({ where: { shipmentId }, include }));
     });
   }
