@@ -112,6 +112,7 @@ export class ArtistProductsService {
 
   private view(product: ProductSpecifications & {
     id: string;
+    imageIds: string[];
     title: string;
     description: string | null;
     priceToman: bigint;

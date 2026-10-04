@@ -32,7 +32,9 @@
     "pg": "8.23.0",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.2",
-    "@fastify/static": "10.1.4"
+    "@fastify/static": "10.1.4",
+    "@negarin/storage": "workspace:*",
+    "sharp": "0.35.4"
   },
   "devDependencies": {
     "prisma": "7.10.0",
