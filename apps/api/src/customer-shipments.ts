@@ -54,7 +54,7 @@ export class CustomerShipmentsService {
       }
       if (s.customerVersion !== command.version) throw new ConflictException("shipment-state-changed");
       if (s.customerVersion === 2147483647) throw new ConflictException("shipment-version-exhausted");
-      if (!issue && s.issue) throw new ConflictException("shipment-has-open-issue");
+      if (!issue && s.issue && (s.issue.status !== "closed" || s.issue.resolution !== "customer_follow_up_complete")) throw new ConflictException("shipment-has-open-issue");
       if (issue?.kind === "not_received" && s.receipt) throw new ConflictException("shipment-already-received");
       await tx.artistShipmentReport.update({ where: { id: shipmentId }, data: { customerVersion: { increment: 1 } } });
       // Immutable outcome rows are the private audit; timestamps and author come from the server/session.

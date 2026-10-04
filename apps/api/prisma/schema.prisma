@@ -37,6 +37,7 @@ model IdentityUser {
   shipmentReports ArtistShipmentReport[]
   shipmentReceipts CustomerShipmentReceipt[]
   shipmentIssues CustomerShipmentIssue[]
+  shipmentIssueEvents ShipmentIssueEvent[]
 
   @@map("identity_users")
 }
@@ -467,6 +468,11 @@ model CustomerShipmentReceipt {
   @@map("customer_shipment_receipts")
 }
 model CustomerShipmentIssue {
+  status ShipmentIssueStatus @default(open)
+  version Int @default(0)
+  resolution ShipmentIssueResolution?
+  resolutionSummary String?
+  events ShipmentIssueEvent[]
   shipmentId String @id @db.Uuid
   shipment ArtistShipmentReport @relation(fields: [shipmentId], references: [id], onDelete: Restrict)
   commandVersion Int
@@ -476,5 +482,32 @@ model CustomerShipmentIssue {
   description String
   reportedAt DateTime @default(now())
   requestId String
+  @@index([status, reportedAt, shipmentId])
   @@map("customer_shipment_issues")
+}
+
+enum ShipmentIssueStatus {
+  open
+  in_review
+  closed
+}
+enum ShipmentIssueResolution {
+  customer_follow_up_complete
+  referred_for_refund_review
+}
+model ShipmentIssueEvent {
+  id String @id @default(uuid()) @db.Uuid
+  shipmentId String @db.Uuid
+  issue CustomerShipmentIssue @relation(fields: [shipmentId], references: [shipmentId], onDelete: Restrict)
+  version Int
+  fromStatus ShipmentIssueStatus
+  toStatus ShipmentIssueStatus
+  resolution ShipmentIssueResolution?
+  summary String
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  requestId String
+  createdAt DateTime @default(now())
+  @@unique([shipmentId, version])
+  @@map("shipment_issue_events")
 }
