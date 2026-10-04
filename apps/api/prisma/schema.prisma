@@ -26,6 +26,7 @@ model IdentityUser {
   roleGrants RoleGrant[]
   artistProducts ArtistProduct[]
   publicationEvents ProductPublicationEvent[]
+  inventoryEvents ProductInventoryEvent[]
 
   @@map("identity_users")
 }
@@ -48,6 +49,9 @@ model ArtistProduct {
   publicationStatus ProductPublicationStatus @default(draft)
   version           Int                      @default(0)
   publicationEvents ProductPublicationEvent[]
+  stockQuantity     Int                      @default(0)
+  inventoryVersion  Int                      @default(0)
+  inventoryEvents   ProductInventoryEvent[]
   archivedAt        DateTime?
   createdAt         DateTime                 @default(now())
   updatedAt         DateTime                 @updatedAt
@@ -55,6 +59,24 @@ model ArtistProduct {
   @@index([artistUserId, archivedAt, updatedAt])
   @@index([publicationStatus, archivedAt])
   @@map("artist_products")
+}
+
+// Append-only through inventory commands; no update/delete API.
+model ProductInventoryEvent {
+  id               String        @id @default(uuid()) @db.Uuid
+  productId        String        @db.Uuid
+  product          ArtistProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  actorUserId      String        @db.Uuid
+  actor            IdentityUser  @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  previousQuantity Int
+  stockQuantity    Int
+  inventoryVersion Int
+  reason           String?
+  requestId        String
+  createdAt        DateTime      @default(now())
+
+  @@unique([productId, inventoryVersion])
+  @@map("product_inventory_events")
 }
 
 model OtpChallenge {

@@ -109,6 +109,8 @@ export class ArtistProductsService {
     priceToman: bigint;
     publicationStatus: string;
     version: number;
+    stockQuantity: number;
+    inventoryVersion: number;
     archivedAt: Date | null;
     createdAt: Date;
     updatedAt: Date;
@@ -120,6 +122,9 @@ export class ArtistProductsService {
       priceToman: product.priceToman.toString(),
       publicationStatus: product.publicationStatus,
       version: product.version,
+      stockQuantity: product.stockQuantity,
+      inventoryVersion: product.inventoryVersion,
+      availability: product.stockQuantity > 0 ? "in_stock" : "out_of_stock",
       archivedAt: product.archivedAt?.toISOString() ?? null,
       createdAt: product.createdAt.toISOString(),
       updatedAt: product.updatedAt.toISOString()
