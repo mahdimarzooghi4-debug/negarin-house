@@ -39,6 +39,8 @@ model IdentityUser {
   shipmentIssues CustomerShipmentIssue[]
   shipmentIssueEvents ShipmentIssueEvent[]
   refundReviews ShipmentRefundReview[]
+  financialSubjects FinancialEvent[] @relation("FinancialSubject")
+  financialActors FinancialEvent[] @relation("FinancialActor")
 
   @@map("identity_users")
 }
@@ -300,6 +302,7 @@ model CustomerOrder {
   paidAt            DateTime?
   payableQuote      OrderPayableQuote?
   payments          PaymentAttempt[]
+  financialEvents   FinancialEvent[]
   refundReviews     ShipmentRefundReview[]
   preparations      ArtistOrderPreparation[]
   items             CustomerOrderItem[]
@@ -366,6 +369,7 @@ model PaymentAttempt {
 }
 
 model PaymentReceipt {
+  financialEvents FinancialEvent[]
   refundReviews ShipmentRefundReview[]
   id String @id @default(uuid()) @db.Uuid
   attemptId String @unique @db.Uuid
@@ -521,6 +525,7 @@ enum RefundReviewDecision {
   rejected
 }
 model ShipmentRefundReview {
+  financialEvents FinancialEvent[]
   id String @id @default(uuid()) @db.Uuid
   shipmentId String @db.Uuid
   issue CustomerShipmentIssue @relation(fields: [shipmentId], references: [shipmentId], onDelete: Restrict)
@@ -539,4 +544,33 @@ model ShipmentRefundReview {
   @@unique([shipmentId, issueVersion])
   @@index([orderId, decision])
   @@map("shipment_refund_reviews")
+}
+
+enum FinancialEventKind {
+  payment_received
+  sale_verified
+  refund_approved
+  refund_rejected
+}
+model FinancialEvent {
+  id String @id @default(uuid()) @db.Uuid
+  eventKey String @unique
+  kind FinancialEventKind
+  orderId String @db.Uuid
+  order CustomerOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  artistUserId String? @db.Uuid
+  artist IdentityUser? @relation("FinancialSubject", fields: [artistUserId], references: [id], onDelete: Restrict)
+  paymentReceiptId String? @db.Uuid
+  paymentReceipt PaymentReceipt? @relation(fields: [paymentReceiptId], references: [id], onDelete: Restrict)
+  refundReviewId String? @db.Uuid
+  refundReview ShipmentRefundReview? @relation(fields: [refundReviewId], references: [id], onDelete: Restrict)
+  amountToman String?
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation("FinancialActor", fields: [actorUserId], references: [id], onDelete: Restrict)
+  requestId String
+  occurredAt DateTime
+  recordedAt DateTime @default(now())
+  @@index([artistUserId, occurredAt, id])
+  @@index([orderId, occurredAt, id])
+  @@map("financial_events")
 }

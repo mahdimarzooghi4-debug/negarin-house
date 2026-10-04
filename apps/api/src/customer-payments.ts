@@ -1,3 +1,4 @@
+import { recordPaymentFinancialEvents } from "./financial-events.js";
 import { createHash, randomUUID } from "node:crypto";
 import { BadRequestException, ConflictException, ForbiddenException, Injectable, NotFoundException, ServiceUnavailableException } from "@nestjs/common";
 import { canAccessStaffDomain, type AuthorizationContext } from "@negarin/authz";
@@ -165,6 +166,8 @@ export class CustomerPaymentsService {
       }
       await this.transition(tx, current, "succeeded", "server-verified-payment", c.userId, requestId);
       await tx.customerOrder.update({ where: { id: orderId }, data: { status: "placed", paymentStatus: "paid", paidAt: new Date(), version: { increment: 1 } } });
+      const recordedReceipt = await tx.paymentReceipt.findUniqueOrThrow({ where: { attemptId: a.id } });
+      await recordPaymentFinancialEvents(tx, orderId, recordedReceipt, c.userId, requestId);
     });
     return this.attemptView(c, a.id);
   }
