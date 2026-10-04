@@ -30,6 +30,8 @@ model IdentityUser {
   customerCart CustomerCart?
   addressBook CustomerAddressBook?
   customerOrders CustomerOrder[]
+  paymentEvents PaymentEvent[]
+  payableQuotes OrderPayableQuote[]
 
   @@map("identity_users")
 }
@@ -257,6 +259,21 @@ enum CustomerOrderStatus {
   reserved
   cancelled
   expired
+  placed
+}
+
+enum OrderPaymentStatus {
+  unpaid
+  paid
+  reconciliation_required
+}
+
+enum PaymentAttemptStatus {
+  initializing
+  pending
+  failed
+  succeeded
+  reconciliation_required
 }
 
 model CustomerOrder {
@@ -272,6 +289,10 @@ model CustomerOrder {
   reservedUntil     DateTime
   releasedAt        DateTime?
   createdAt         DateTime @default(now())
+  paymentStatus     OrderPaymentStatus @default(unpaid)
+  paidAt            DateTime?
+  payableQuote      OrderPayableQuote?
+  payments          PaymentAttempt[]
   items             CustomerOrderItem[]
   inventoryEvents   ProductInventoryEvent[]
 
@@ -294,4 +315,69 @@ model CustomerOrderItem {
   @@id([orderId, productId])
   @@index([productId])
   @@map("customer_order_items")
+}
+
+model OrderPayableQuote {
+  orderId String @id @db.Uuid
+  order CustomerOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  createdByUserId String @db.Uuid
+  creator IdentityUser @relation(fields: [createdByUserId], references: [id], onDelete: Restrict)
+  shippingFeeToman String
+  payableToman String
+  sourceReference String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  payments PaymentAttempt[]
+  @@map("order_payable_quotes")
+}
+
+model PaymentAttempt {
+  id String @id @default(uuid()) @db.Uuid
+  orderId String @db.Uuid
+  order CustomerOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  quote OrderPayableQuote @relation(fields: [orderId], references: [orderId], onDelete: Restrict, map: "payment_attempts_quote_fkey")
+  idempotencyKey String @db.Uuid
+  requestHash String
+  provider String
+  providerReference String?
+  redirectUrl String?
+  amountToman String
+  status PaymentAttemptStatus @default(initializing)
+  version Int @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  receipt PaymentReceipt?
+  events PaymentEvent[]
+  @@unique([orderId, idempotencyKey])
+  @@unique([provider, providerReference])
+  @@index([orderId, createdAt, id])
+  @@map("payment_attempts")
+}
+
+model PaymentReceipt {
+  id String @id @default(uuid()) @db.Uuid
+  attemptId String @unique @db.Uuid
+  attempt PaymentAttempt @relation(fields: [attemptId], references: [id], onDelete: Restrict)
+  provider String
+  transactionReference String
+  amount String
+  unit String
+  receivedAt DateTime @default(now())
+  @@unique([provider, transactionReference])
+  @@map("payment_receipts")
+}
+
+model PaymentEvent {
+  id String @id @default(uuid()) @db.Uuid
+  attemptId String @db.Uuid
+  attempt PaymentAttempt @relation(fields: [attemptId], references: [id], onDelete: Restrict)
+  version Int
+  status PaymentAttemptStatus
+  reason String
+  actorUserId String? @db.Uuid
+  actor IdentityUser? @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  requestId String
+  createdAt DateTime @default(now())
+  @@unique([attemptId, version])
+  @@map("payment_events")
 }

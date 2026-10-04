@@ -28,7 +28,7 @@ export function parseOrderPage(query: Record<string, unknown>) {
 const orderInclude = { items: { orderBy: { productId: "asc" } } } satisfies Prisma.CustomerOrderInclude;
 type Order = Prisma.CustomerOrderGetPayload<{ include: typeof orderInclude }>;
 export function orderView(order: Order) {
-  return { id: order.id, version: order.version, status: order.status, shippingAddress: order.shippingAddress,
+  return { id: order.id, version: order.version, status: order.status, paymentStatus: order.paymentStatus, paidAt: order.paidAt?.toISOString() ?? null, shippingAddress: order.shippingAddress,
     subtotalToman: order.subtotalToman, reservedUntil: order.reservedUntil.toISOString(), releasedAt: order.releasedAt?.toISOString() ?? null,
     createdAt: order.createdAt.toISOString(), items: order.items.map(i => ({ productId: i.productId, title: i.title,
       quantity: i.quantity, unitPriceToman: i.unitPriceToman.toString(), lineSubtotalToman: (i.unitPriceToman * BigInt(i.quantity)).toString(), imageIds: i.imageIds })) };
@@ -96,6 +96,10 @@ export class CustomerOrdersService {
         : await tx.$queryRaw<Array<{ id: string }>>`SELECT "id" FROM "customer_orders" WHERE "id" = ${id}::uuid FOR UPDATE`;
       if (!rows.length) { if (automatic) return null; throw new NotFoundException(); }
       const order = await tx.customerOrder.findUniqueOrThrow({ where: { id }, include: orderInclude });
+      if (order.status === "placed") {
+        if (!automatic) throw new ConflictException("paid-order-requires-refund-workflow");
+        return null;
+      }
       if (order.status !== "reserved") return orderView(order);
       const expired = order.reservedUntil <= now;
       if (automatic && !expired) return null;
