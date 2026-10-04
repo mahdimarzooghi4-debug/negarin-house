@@ -134,7 +134,8 @@ describe("Customer payments HTTP and PostgreSQL", () => {
     expect(await database.paymentReceipt.count({ where: { attemptId: attempt.id } })).toBe(1);
     expect(await database.paymentEvent.count({ where: { attemptId: attempt.id, reason: "server-verified-payment" } })).toBe(1);
     expect((await cancel(a.user, a.order.id, 2)).statusCode).toBe(409);
-    await app.get(CustomerOrdersService).expirePending(100, new Date(Date.now() + 3600000));
+    await database.customerOrder.update({ where: { id: a.order.id }, data: { reservedUntil: new Date(Date.now() - 1000) } });
+    await app.get(CustomerOrdersService).expirePending();
     expect(await database.artistProduct.findUniqueOrThrow({ where: { id: a.p.id } })).toMatchObject({ stockQuantity: 99, inventoryVersion: 1 });
     const calls = verifyCalls; expect((await verify(a.user, a.order.id, attempt.id)).json().status).toBe("succeeded"); expect(verifyCalls).toBe(calls);
   });
