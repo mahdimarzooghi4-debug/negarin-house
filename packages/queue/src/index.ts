@@ -1,6 +1,17 @@
 import { Queue, Worker, type Job, type Processor } from "bullmq";
 
 export const FOUNDATION_QUEUE = "foundation";
+export const DOMAIN_EVENTS_QUEUE = "domain-events";
+
+export type DomainEventJobData = Readonly<{
+  eventId: string;
+  eventKey: string;
+  type: string;
+  aggregateType: string;
+  aggregateId: string;
+  payload: unknown;
+  occurredAt: string;
+}>;
 
 export type FoundationJobData = Readonly<{
   requestedAt: string;
@@ -20,6 +31,12 @@ export function redisConnectionFromUrl(redisUrl: string) {
 
 export function createFoundationQueue(redisUrl: string): Queue<FoundationJobData> {
   return new Queue<FoundationJobData>(FOUNDATION_QUEUE, {
+    connection: redisConnectionFromUrl(redisUrl)
+  });
+}
+
+export function createDomainEventsQueue(redisUrl: string): Queue<DomainEventJobData> {
+  return new Queue<DomainEventJobData>(DOMAIN_EVENTS_QUEUE, {
     connection: redisConnectionFromUrl(redisUrl)
   });
 }
