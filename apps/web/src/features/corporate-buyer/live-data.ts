@@ -44,6 +44,8 @@ export function isUuid(value: unknown): value is string {
 }
 
 export const MAX_PURCHASE_REQUEST_LINES=100;
+export const MAX_PURCHASE_REQUEST_QUANTITY=2_147_483_647;
+const MAX_PURCHASE_REQUEST_VERSION=2_147_483_647;
 export type PurchaseRequestProductSelectionError="invalid"|"too_many";
 
 export function normalizePurchaseRequestProductIds(values:string[]): {ids:string[];error:PurchaseRequestProductSelectionError|null} {
@@ -62,6 +64,14 @@ function nullableText(value: unknown): value is string | null { return value ===
 function stringArray(value: unknown): value is string[] { return Array.isArray(value) && value.every(text); }
 function positiveInteger(value: unknown): value is number { return Number.isInteger(value) && (value as number) > 0; }
 function nonNegativeInteger(value: unknown): value is number { return Number.isInteger(value) && (value as number) >= 0; }
+
+export function isPurchaseRequestQuantity(value: unknown): value is number {
+  return positiveInteger(value) && value <= MAX_PURCHASE_REQUEST_QUANTITY;
+}
+
+function isPurchaseRequestVersion(value: unknown): value is number {
+  return nonNegativeInteger(value) && value < MAX_PURCHASE_REQUEST_VERSION;
+}
 
 export function parseCorporateProduct(value: unknown): CorporateProduct | null {
   const v=record(value); if(!v) return null;
@@ -82,17 +92,17 @@ export function parseProductPage(value: unknown): Paged<CorporateProduct> | null
 }
 
 export function parseCorporatePurchaseRequest(value: unknown): CorporatePurchaseRequest | null {
-  const v=record(value); if(!v||"buyerOrganizationId" in v||"createdByUserId" in v||!text(v.id)||(v.status!=="draft"&&v.status!=="submitted")||
-    !nonNegativeInteger(v.version)||!text(v.createdAt)||!(v.submittedAt===null||text(v.submittedAt))||
+  const v=record(value); if(!v||"buyerOrganizationId" in v||"createdByUserId" in v||!isUuid(v.id)||(v.status!=="draft"&&v.status!=="submitted")||
+    !isPurchaseRequestVersion(v.version)||!text(v.createdAt)||!(v.submittedAt===null||text(v.submittedAt))||
     !Array.isArray(v.items)||!Array.isArray(v.history)) return null;
   const items: CorporatePurchaseRequestItem[]=[];
   for(const raw of v.items){
-    const item=record(raw); if(!item||"artistUserId" in item||!text(item.productId)||!text(item.title)||!positiveInteger(item.quantity)) return null;
+    const item=record(raw); if(!item||"artistUserId" in item||!isUuid(item.productId)||!text(item.title)||!isPurchaseRequestQuantity(item.quantity)) return null;
     items.push({productId:item.productId,title:item.title,quantity:item.quantity});
   }
   const history: CorporatePurchaseRequest["history"]=[];
   for(const raw of v.history){
-    const event=record(raw); if(!event||!nonNegativeInteger(event.version)||(event.action!=="created"&&event.action!=="submitted")||!text(event.createdAt)) return null;
+    const event=record(raw); if(!event||!isPurchaseRequestVersion(event.version)||(event.action!=="created"&&event.action!=="submitted")||!text(event.createdAt)) return null;
     history.push({version:event.version,action:event.action,createdAt:event.createdAt});
   }
   return {id:v.id,status:v.status,version:v.version,createdAt:v.createdAt,submittedAt:v.submittedAt,items,history};

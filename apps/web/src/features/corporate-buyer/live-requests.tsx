@@ -5,7 +5,7 @@ import {useEffect,useRef,useState} from "react";
 import {CorporateLiveShell} from "./live-shell";
 import {CorporateSessionGate} from "./live-session";
 import {
-  formatPersianDate,isUuid,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parsePurchaseRequestPage,
+  MAX_PURCHASE_REQUEST_QUANTITY,formatPersianDate,isPurchaseRequestQuantity,isUuid,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parsePurchaseRequestPage,
   requestTotalQuantity,shortId,type CorporateProduct,type CorporatePurchaseRequest
 } from "./live-data";
 import styles from "./live.module.css";
@@ -72,7 +72,10 @@ export function CorporateNewPurchaseRequestLive({productIds}:{productIds:string[
   async function create(mode:"draft"|"submit"){
     if(!products.length||working)return;
     const items=products.map(product=>({productId:product.id,quantity:quantities[product.id]??0}));
-    if(items.some(item=>!Number.isInteger(item.quantity)||item.quantity<1)){setError("تعداد هر محصول باید عدد صحیح مثبت باشد.");return;}
+    if(items.some(item=>!isPurchaseRequestQuantity(item.quantity))){
+      setError(`تعداد هر محصول باید عدد صحیح بین ۱ و ${new Intl.NumberFormat("fa-IR").format(MAX_PURCHASE_REQUEST_QUANTITY)} باشد.`);
+      return;
+    }
     setWorking(true);setError("");
     if(!idempotencyKey.current)idempotencyKey.current=globalThis.crypto.randomUUID();
     try{
@@ -95,7 +98,7 @@ export function CorporateNewPurchaseRequestLive({productIds}:{productIds:string[
     {!loading&&!products.length&&!error&&<div className={styles.empty}>محصولی انتخاب نشده است. <Link href="/corporate-buyer/corporate-products">انتخاب از محصولات سازمانی</Link></div>}
     {!!products.length&&<div className={styles.form}>{products.map(product=><div className={styles.requestItem} key={product.id}>
       <div><strong>{product.title}</strong><small> · {product.category}</small></div>
-      <label>تعداد <input aria-label={"تعداد "+product.title} type="number" min={1} step={1} value={quantities[product.id]??1} onChange={event=>setQuantities(previous=>({...previous,[product.id]:Number(event.target.value)}))}/></label>
+      <label>تعداد <input aria-label={"تعداد "+product.title} type="number" min={1} max={MAX_PURCHASE_REQUEST_QUANTITY} step={1} value={quantities[product.id]??1} onChange={event=>setQuantities(previous=>({...previous,[product.id]:Number(event.target.value)}))}/></label>
       <button className={styles.danger} type="button" disabled={working} onClick={()=>setProducts(items=>items.filter(item=>item.id!==product.id))}>حذف</button>
     </div>)}
       <div className={styles.cardActions}><button className={styles.secondary} type="button" disabled={working||!products.length} onClick={()=>void create("draft")}>ذخیره پیش‌نویس</button><button className={styles.button} type="button" disabled={working||!products.length} onClick={()=>void create("submit")}>{working?"در حال ثبت…":"ثبت و ارسال درخواست"}</button></div>

@@ -1,5 +1,5 @@
 import {describe,expect,it} from "vitest";
-import {MAX_PURCHASE_REQUEST_LINES,formatToman,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parseProductPage,requestTotalQuantity} from "./live-data";
+import {MAX_PURCHASE_REQUEST_LINES,MAX_PURCHASE_REQUEST_QUANTITY,formatToman,isPurchaseRequestQuantity,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parseProductPage,requestTotalQuantity} from "./live-data";
 
 describe("Corporate live data contracts",()=>{
   it("parses only the public Corporate product response",()=>{
@@ -28,6 +28,11 @@ describe("Corporate live data contracts",()=>{
     });
     expect(requestTotalQuantity(request!)).toBe(3);
     expect(request).not.toHaveProperty("priceToman");
+    expect(isPurchaseRequestQuantity(MAX_PURCHASE_REQUEST_QUANTITY)).toBe(true);
+    expect(isPurchaseRequestQuantity(MAX_PURCHASE_REQUEST_QUANTITY+1)).toBe(false);
+    expect(parseCorporatePurchaseRequest({...request,version:MAX_PURCHASE_REQUEST_QUANTITY})).toBeNull();
+    expect(parseCorporatePurchaseRequest({...request,items:[{...request!.items[0],quantity:MAX_PURCHASE_REQUEST_QUANTITY+1}]})).toBeNull();
+    expect(parseCorporatePurchaseRequest({...request,id:"not-a-uuid"})).toBeNull();
   });
 
   it("fails closed instead of silently dropping invalid or over-limit product selections",()=>{
