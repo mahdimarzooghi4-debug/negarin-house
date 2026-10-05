@@ -6,6 +6,7 @@ import { parseCartCommand } from "./customer-cart.js";
 import { executionInclude, executionView } from "./service-execution.js";
 import type { Prisma, SupportCreditAction } from "./generated/prisma/client.js";
 import { PrismaService } from "./prisma.service.js";
+import { writeOutboxEvent } from "./outbox.js";
 
 function object(body: unknown, keys: string[]) {
   if (!body || typeof body !== "object" || Array.isArray(body) || Object.keys(body).some(k => !keys.includes(k))) throw new BadRequestException();
@@ -321,6 +322,23 @@ export class SupportCreditsService {
         allocationId: id, version: a.version + 1, action, amountToman: a.amountToman, serviceRequestId,
         actorUserId: context.userId, command, requestTraceId: trace
       } });
+      if (action === "consumed") {
+        await writeOutboxEvent(tx, {
+          eventKey: `support-used:${id}:${a.version + 1}`,
+          type: "support_used",
+          aggregateType: "SupportAllocation",
+          aggregateId: id,
+          payload: {
+            allocationId: id,
+            serviceRequestId,
+            programId: a.programId,
+            relationshipId: a.relationshipId,
+            artistUserId: a.relationship.artistUserId,
+            amountToman: a.amountToman.toString()
+          },
+          occurredAt: new Date()
+        });
+      }
       return allocationView(await tx.supportAllocation.findUniqueOrThrow({ where: { id }, include: allocationInclude }));
     });
   }
