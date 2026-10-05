@@ -8,11 +8,7 @@ import {
   CorporatePurchaseRequestDetailLive,
   CorporatePurchaseRequestsLive
 } from "../../../features/corporate-buyer/live-requests";
-import { parsePurchaseRequestProductQuery } from "../../../features/corporate-buyer/live-data";
-
-function first(value: string | string[] | undefined): string {
-  return Array.isArray(value) ? value[0] ?? "" : value ?? "";
-}
+import { parsePurchaseRequestProductQuery, parseRequiredUuidQuery } from "../../../features/corporate-buyer/live-data";
 
 export default async function LocalizedPortalPage({
   params,
@@ -26,12 +22,12 @@ export default async function LocalizedPortalPage({
 
   if (portal === "corporate-buyer") {
     if (locale === "corporate-products") return <CorporateProductsLive />;
-    if (locale === "product-detail") return <CorporateProductDetailLive id={first(query.id)} />;
+    if (locale === "product-detail") return <CorporateProductDetailLive id={parseRequiredUuidQuery(query.id) ?? ""} />;
     if (locale === "purchase-requests") return <CorporatePurchaseRequestsLive />;
     if (locale === "new-purchase-request") {
       return <CorporateNewPurchaseRequestLive selection={parsePurchaseRequestProductQuery(query.products)} />;
     }
-    if (locale === "purchase-request-detail") return <CorporatePurchaseRequestDetailLive id={first(query.id)} />;
+    if (locale === "purchase-request-detail") return <CorporatePurchaseRequestDetailLive id={parseRequiredUuidQuery(query.id) ?? ""} />;
     notFound();
   }
 

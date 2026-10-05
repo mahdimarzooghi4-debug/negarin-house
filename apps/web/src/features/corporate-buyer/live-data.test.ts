@@ -1,5 +1,5 @@
 import {describe,expect,it} from "vitest";
-import {CORPORATE_LIST_PAGE_SIZE,MAX_CORPORATE_LIST_PAGE,MAX_CORPORATE_LIST_PAGE_SIZE,MAX_PURCHASE_REQUEST_LINES,MAX_PURCHASE_REQUEST_QUANTITY,formatToman,isPurchaseRequestQuantity,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parseProductPage,parsePurchaseRequestPage,parsePurchaseRequestProductQuery,requestTotalQuantity} from "./live-data";
+import {CORPORATE_LIST_PAGE_SIZE,MAX_CORPORATE_LIST_PAGE,MAX_CORPORATE_LIST_PAGE_SIZE,MAX_PURCHASE_REQUEST_LINES,MAX_PURCHASE_REQUEST_QUANTITY,formatToman,isPurchaseRequestQuantity,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parseProductPage,parsePurchaseRequestPage,parsePurchaseRequestProductQuery,parseRequiredUuidQuery,requestTotalQuantity} from "./live-data";
 
 describe("Corporate live data contracts",()=>{
   it("parses only the public Corporate product response",()=>{
@@ -96,5 +96,14 @@ describe("Corporate live data contracts",()=>{
     expect(parsePurchaseRequestProductQuery(`${id(1)},${id(2)}`)).toEqual({ids:[id(1),id(2)],error:null});
     expect(parsePurchaseRequestProductQuery(`${id(1)},,${id(2)}`)).toEqual({ids:[],error:"invalid"});
     expect(parsePurchaseRequestProductQuery([id(1),id(2)])).toEqual({ids:[],error:"invalid"});
+  });
+
+  it("fails closed on missing, malformed or repeated detail ids",()=>{
+    const id="00000000-0000-4000-8000-000000000001";
+    expect(parseRequiredUuidQuery(id)).toBe(id);
+    expect(parseRequiredUuidQuery(undefined)).toBeNull();
+    expect(parseRequiredUuidQuery("not-a-uuid")).toBeNull();
+    expect(parseRequiredUuidQuery([id])).toBeNull();
+    expect(parseRequiredUuidQuery([id,"00000000-0000-4000-8000-000000000002"])).toBeNull();
   });
 });

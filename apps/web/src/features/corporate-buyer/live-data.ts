@@ -65,6 +65,10 @@ export function parsePurchaseRequestProductQuery(value:string|string[]|undefined
   return normalizePurchaseRequestProductIds(value.split(","));
 }
 
+export function parseRequiredUuidQuery(value:string|string[]|undefined): string | null {
+  return typeof value==="string"&&isUuid(value) ? value : null;
+}
+
 function record(value: unknown): Record<string, unknown> | null {
   return value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : null;
 }
