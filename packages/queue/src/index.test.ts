@@ -1,9 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { FOUNDATION_QUEUE, redisConnectionFromUrl } from "./index.js";
+import { DOMAIN_EVENTS_QUEUE, FOUNDATION_QUEUE, redisConnectionFromUrl } from "./index.js";
 
 describe("queue foundation", () => {
-  it("uses one stable foundation queue name", () => {
+  it("uses stable infrastructure queue names", () => {
     expect(FOUNDATION_QUEUE).toBe("foundation");
+    expect(DOMAIN_EVENTS_QUEUE).toBe("domain-events");
   });
 
   it("parses Redis connection details", () => {
