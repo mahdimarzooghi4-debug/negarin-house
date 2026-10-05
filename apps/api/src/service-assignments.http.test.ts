@@ -264,8 +264,8 @@ describe("Service assignment HTTP and PostgreSQL", () => {
     expect((await app.inject({ method: "POST", url: "/api/v1/admin/service-catalog", headers: staff.headers, payload: { ...command, title: "changed" } })).statusCode).toBe(409);
     expect(await db.serviceCatalogEvent.count({ where: { itemId: id } })).toBe(1);
     const name = "catalog_fail_" + randomUUID().replaceAll("-", "");
-    await db.$executeRawUnsafe('CREATE FUNCTION ' + name + '() RETURNS trigger LANGUAGE plpgsql AS $ BEGIN IF NEW."itemId" = \''
-      + id + '\'::uuid THEN RAISE EXCEPTION \'catalog audit failure\'; END IF; RETURN NEW; END $');
+    await db.$executeRawUnsafe('CREATE FUNCTION ' + name + '() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW."itemId" = \''
+      + id + '\'::uuid THEN RAISE EXCEPTION \'catalog audit failure\'; END IF; RETURN NEW; END $$');
     await db.$executeRawUnsafe('CREATE TRIGGER ' + name + ' BEFORE INSERT ON "service_catalog_events" FOR EACH ROW EXECUTE FUNCTION ' + name + '()');
     try { expect((await app.inject({ method: "POST", url: `/api/v1/admin/service-catalog/${id}/availability`, headers: staff.headers, payload: { version: 0, available: true } })).statusCode).toBe(500); }
     finally { await db.$executeRawUnsafe('DROP TRIGGER ' + name + ' ON "service_catalog_events"'); await db.$executeRawUnsafe('DROP FUNCTION ' + name + '()'); }
