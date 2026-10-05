@@ -24,5 +24,15 @@ describe("Growth contract", () => {
       purchasable: true,
       levels: growthLevels.map((name, index) => ({ order: index + 1, name }))
     })).toThrow();
+
+    expect(() => growthRegistrySchema.parse({
+      purchasable: false,
+      levels: [
+        { order: 1, name: "شکوفه" },
+        { order: 2, name: "جوانه" },
+        { order: 3, name: "سرو زرین" },
+        { order: 4, name: "سفیر جهانی" }
+      ]
+    })).toThrow();
   });
 });
