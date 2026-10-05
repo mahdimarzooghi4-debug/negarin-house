@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import {
   NEGARIN_SESSION_COOKIE,
+  isSameOriginMutation,
   isSessionToken,
   negarinFetch,
   sessionCookieOptions
@@ -9,6 +10,14 @@ import {
 export function sessionTokenFromRequest(request: NextRequest): string | null {
   const value = request.cookies.get(NEGARIN_SESSION_COOKIE)?.value;
   return isSessionToken(value) ? value : null;
+}
+
+export function rejectCrossOriginMutation(request: NextRequest): NextResponse | null {
+  if (isSameOriginMutation(request.headers.get("origin"), request.nextUrl.origin)) return null;
+  return NextResponse.json({ error: { code: "forbidden", message: "Forbidden" } }, {
+    status: 403,
+    headers: { "Cache-Control": "no-store" }
+  });
 }
 
 export function unauthorized(clearCookie = false): NextResponse {
