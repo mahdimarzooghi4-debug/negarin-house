@@ -1,8 +1,6 @@
 import {randomBytes,randomInt,randomUUID} from "node:crypto";
 import {expect,test} from "@playwright/test";
 
-const BASE_URL="http://127.0.0.1:3000";
-
 async function seedCorporateGoldenPath(){
   const [{PrismaService},{hashSessionToken}]=await Promise.all([
     import("../../apps/api/dist/prisma.service.js"),
@@ -90,11 +88,16 @@ test("Corporate authenticated BFF refuses reads without the HttpOnly session coo
 test("Corporate Buyer completes the authenticated live PurchaseRequest golden path",async({page,context})=>{
   const fixture=await seedCorporateGoldenPath();
   try{
-    const attached=await context.request.post("/api/auth/dev-session",{
-      headers:{origin:BASE_URL},
-      data:{sessionToken:fixture.sessionToken}
-    });
-    expect(attached.status()).toBe(200);
+    await page.goto("/");
+    const attachStatus=await page.evaluate(async(sessionToken)=>{
+      const response=await fetch("/api/auth/dev-session",{
+        method:"POST",
+        headers:{"content-type":"application/json"},
+        body:JSON.stringify({sessionToken})
+      });
+      return response.status;
+    },fixture.sessionToken);
+    expect(attachStatus).toBe(200);
     const sessionCookie=(await context.cookies()).find(cookie=>cookie.name==="negarin_session");
     expect(sessionCookie).toMatchObject({httpOnly:true,sameSite:"Lax"});
 
