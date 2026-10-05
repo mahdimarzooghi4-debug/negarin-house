@@ -38,10 +38,7 @@ function eventWhere(context: AuthorizationContext, audience: SupportReportingAud
   if (audience === "artist") return { allocation: { relationship: { artistUserId: context.userId } } };
   return { allocation: { program: { source: "supporting_organization", organizationId: context.organizationId } } };
 }
-function add(map: Map<string, bigint>, key: string, amount: bigint) {
-  map.set(key, (map.get(key) ?? 0n) + amount);
-}
-function byAction(events: Array<{ action: SupportCreditAction; amountToman: bigint }>) {
+function lifecycleFromGroups(rows: Array<{ action: SupportCreditAction; _count: { _all: number }; _sum: { amountToman: bigint | null } }>) {
   const seed: Record<SupportCreditAction, { count: number; amountToman: bigint }> = {
     allocated: { count: 0, amountToman: 0n },
     reserved: { count: 0, amountToman: 0n },
@@ -49,10 +46,7 @@ function byAction(events: Array<{ action: SupportCreditAction; amountToman: bigi
     consumed: { count: 0, amountToman: 0n },
     reversed: { count: 0, amountToman: 0n }
   };
-  for (const e of events) {
-    seed[e.action].count++;
-    seed[e.action].amountToman += e.amountToman;
-  }
+  for (const row of rows) seed[row.action] = { count: row._count._all, amountToman: row._sum.amountToman ?? 0n };
   return Object.fromEntries(Object.entries(seed).map(([action, v]) => [action, { count: v.count, amountToman: v.amountToman.toString() }]));
 }
 function reason(command: Prisma.JsonValue) {
@@ -68,82 +62,75 @@ export class SupportReportingService {
   async summary(context: AuthorizationContext, audience: SupportReportingAudience) {
     authorize(context, audience);
     return this.db.$transaction(async tx => {
-      const [programs, relationships, allocations, events] = await Promise.all([
+      const [programs, relationshipGroups, eligibleGroups, allocationGroups, lifecycleGroups] = await Promise.all([
         tx.supportProgram.findMany({
           where: programWhere(context, audience),
           orderBy: [{ createdAt: "asc" }, { id: "asc" }],
           select: { id: true, source: true, organizationId: true, title: true, description: true, rules: true, createdAt: true }
         }),
-        tx.supportRelationship.findMany({
-          where: relationshipWhere(context, audience),
-          select: { id: true, programId: true, artistUserId: true, negarinApprovedAt: true }
+        tx.supportRelationship.groupBy({
+          by: ["programId"], where: relationshipWhere(context, audience), _count: { _all: true }
         }),
-        tx.supportAllocation.findMany({
-          where: allocationWhere(context, audience),
-          select: { id: true, programId: true, relationshipId: true, amountToman: true, status: true }
+        tx.supportRelationship.groupBy({
+          by: ["programId"], where: { AND: [relationshipWhere(context, audience), { negarinApprovedAt: { not: null } }] }, _count: { _all: true }
         }),
-        tx.supportCreditEvent.findMany({
-          where: eventWhere(context, audience),
-          select: { action: true, amountToman: true, allocation: { select: { programId: true } } }
+        tx.supportAllocation.groupBy({
+          by: ["programId", "status"], where: allocationWhere(context, audience), _count: { _all: true }, _sum: { amountToman: true }
+        }),
+        tx.supportCreditEvent.groupBy({
+          by: ["action"], where: eventWhere(context, audience), _count: { _all: true }, _sum: { amountToman: true }
         })
       ]);
 
-      const relationshipCount = new Map<string, number>(), eligibleCount = new Map<string, number>(), allocationCount = new Map<string, number>();
-      const total = new Map<string, bigint>(), available = new Map<string, bigint>(), reserved = new Map<string, bigint>(), consumed = new Map<string, bigint>();
-      const programEvents = new Map<string, Array<{ action: SupportCreditAction; amountToman: bigint }>>();
-      for (const r of relationships) {
-        relationshipCount.set(r.programId, (relationshipCount.get(r.programId) ?? 0) + 1);
-        if (r.negarinApprovedAt) eligibleCount.set(r.programId, (eligibleCount.get(r.programId) ?? 0) + 1);
+      const relationshipCount = new Map(relationshipGroups.map(row => [row.programId, row._count._all]));
+      const eligibleCount = new Map(eligibleGroups.map(row => [row.programId, row._count._all]));
+      const allocationsByProgram = new Map<string, typeof allocationGroups>();
+      for (const row of allocationGroups) {
+        const rows = allocationsByProgram.get(row.programId) ?? [];
+        rows.push(row);
+        allocationsByProgram.set(row.programId, rows);
       }
-      for (const a of allocations) {
-        allocationCount.set(a.programId, (allocationCount.get(a.programId) ?? 0) + 1);
-        add(total, a.programId, a.amountToman);
-        if (a.status === "available") add(available, a.programId, a.amountToman);
-        if (a.status === "reserved") add(reserved, a.programId, a.amountToman);
-        if (a.status === "consumed") add(consumed, a.programId, a.amountToman);
-      }
-      for (const e of events) {
-        const list = programEvents.get(e.allocation.programId) ?? [];
-        list.push({ action: e.action, amountToman: e.amountToman });
-        programEvents.set(e.allocation.programId, list);
-      }
+      const amountFor = (rows: typeof allocationGroups, status?: "available" | "reserved" | "consumed") =>
+        rows.filter(row => !status || row.status === status).reduce((sum, row) => sum + (row._sum.amountToman ?? 0n), 0n);
+      const countFor = (rows: typeof allocationGroups) => rows.reduce((sum, row) => sum + row._count._all, 0);
 
-      const item = (p: (typeof programs)[number]) => ({
-        program: {
-          id: p.id, source: p.source, organizationId: p.organizationId, title: p.title,
-          description: p.description, rules: p.rules, createdAt: p.createdAt.toISOString()
-        },
-        relationships: {
-          total: relationshipCount.get(p.id) ?? 0,
-          eligible: eligibleCount.get(p.id) ?? 0,
-          pendingNegarinApproval: (relationshipCount.get(p.id) ?? 0) - (eligibleCount.get(p.id) ?? 0)
-        },
-        allocations: {
-          total: allocationCount.get(p.id) ?? 0,
-          allocatedToman: (total.get(p.id) ?? 0n).toString(),
-          currentAvailableToman: (available.get(p.id) ?? 0n).toString(),
-          currentReservedToman: (reserved.get(p.id) ?? 0n).toString(),
-          currentConsumedToman: (consumed.get(p.id) ?? 0n).toString()
-        },
-        lifecycle: byAction(programEvents.get(p.id) ?? [])
+      const items = programs.map(p => {
+        const rows = allocationsByProgram.get(p.id) ?? [];
+        const relationships = relationshipCount.get(p.id) ?? 0;
+        const eligible = eligibleCount.get(p.id) ?? 0;
+        return {
+          program: {
+            id: p.id, source: p.source, organizationId: p.organizationId, title: p.title,
+            description: p.description, rules: p.rules, createdAt: p.createdAt.toISOString()
+          },
+          relationships: { total: relationships, eligible, pendingNegarinApproval: relationships - eligible },
+          allocations: {
+            total: countFor(rows),
+            allocatedToman: amountFor(rows).toString(),
+            currentAvailableToman: amountFor(rows, "available").toString(),
+            currentReservedToman: amountFor(rows, "reserved").toString(),
+            currentConsumedToman: amountFor(rows, "consumed").toString()
+          }
+        };
       });
-      const items = programs.map(item);
       const sum = (field: "allocatedToman" | "currentAvailableToman" | "currentReservedToman" | "currentConsumedToman") =>
         items.reduce((v, p) => v + BigInt(p.allocations[field]), 0n).toString();
+      const relationships = relationshipGroups.reduce((sum, row) => sum + row._count._all, 0);
+      const eligibleRelationships = eligibleGroups.reduce((sum, row) => sum + row._count._all, 0);
 
       return {
         totals: {
           programs: programs.length,
-          relationships: relationships.length,
-          eligibleRelationships: relationships.filter(r => !!r.negarinApprovedAt).length,
-          pendingNegarinApprovalRelationships: relationships.filter(r => !r.negarinApprovedAt).length,
-          allocations: allocations.length,
+          relationships,
+          eligibleRelationships,
+          pendingNegarinApprovalRelationships: relationships - eligibleRelationships,
+          allocations: allocationGroups.reduce((sum, row) => sum + row._count._all, 0),
           allocatedToman: sum("allocatedToman"),
           currentAvailableToman: sum("currentAvailableToman"),
           currentReservedToman: sum("currentReservedToman"),
           currentConsumedToman: sum("currentConsumedToman")
         },
-        lifecycle: byAction(events),
+        lifecycle: lifecycleFromGroups(lifecycleGroups),
         programs: items
       };
     }, { isolationLevel: "RepeatableRead" });
@@ -160,7 +147,7 @@ export class SupportReportingService {
         id: true, version: true, action: true, amountToman: true, actorUserId: true, command: true, createdAt: true,
         allocation: {
           select: {
-            id: true, status: true, version: true,
+            id: true,
             program: { select: { id: true, source: true, organizationId: true, title: true } },
             relationship: { select: { id: true, artistUserId: true } }
           }
@@ -173,7 +160,7 @@ export class SupportReportingService {
       items: rows.slice(0, pageSize).map(e => ({
         id: e.id, version: e.version, action: e.action, amountToman: e.amountToman.toString(),
         actorUserId: e.actorUserId, reason: reason(e.command), createdAt: e.createdAt.toISOString(),
-        allocation: { id: e.allocation.id, status: e.allocation.status, version: e.allocation.version },
+        allocation: { id: e.allocation.id },
         program: e.allocation.program,
         relationship: e.allocation.relationship,
         serviceRequest: e.serviceRequest ? {
