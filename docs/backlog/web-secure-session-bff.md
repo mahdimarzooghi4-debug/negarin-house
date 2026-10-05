@@ -14,15 +14,15 @@ Directly storing API bearer tokens in client JavaScript or localStorage is not a
 4. Server-side API origin comes from `NEGARIN_API_URL`; only an http(s) origin with no credentials/path/query/fragment is accepted.
 5. Proxy helpers accept only explicit `/api/v1/*` paths and reject path traversal / alternate origins.
 6. Upstream redirects are not followed.
-7. Upstream 401 clears the browser session cookie.
-8. Context discovery/select remains enforced by the existing API:
+7. All cookie-authenticated mutation routes require an exact same-origin `Origin` header; missing or cross-origin mutations are rejected.\n8. Upstream 401 clears the browser session cookie.
+9. Context discovery/select remains enforced by the existing API:
    - `GET /identity/grants`
    - `GET /identity/context`
    - `POST /identity/context/select`
-9. Logout revokes the API session server-side and clears the browser cookie.
-10. Corporate product/PurchaseRequest BFF routes are explicit and hardcoded; there is no generic arbitrary-path proxy.
-11. A local development session-attach route exists only when `NEGARIN_DEV_SESSION_ATTACH=1` and is impossible when `NODE_ENV=production`. It validates the candidate token against `identity/grants` before setting the cookie.
-12. This slice does not claim that OTP login is production-ready. Public OTP HTTP routes remain disabled until a real transport/provider and HTTP controls are accepted.
+10. Logout revokes the API session server-side and clears the browser cookie.
+11. Corporate product/PurchaseRequest BFF routes are explicit and hardcoded; there is no generic arbitrary-path proxy.
+12. A local development session-attach route exists only when `NEGARIN_DEV_SESSION_ATTACH=1` and is impossible when `NODE_ENV=production`. It validates the candidate token against `identity/grants` before setting the cookie.
+13. This slice does not claim that OTP login is production-ready. Public OTP HTTP routes remain disabled until a real transport/provider and HTTP controls are accepted.
 
 ## Explicitly out of scope
 
