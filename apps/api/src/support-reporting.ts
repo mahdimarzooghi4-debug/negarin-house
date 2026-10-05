@@ -42,7 +42,7 @@ function add(map: Map<string, bigint>, key: string, amount: bigint) {
   map.set(key, (map.get(key) ?? 0n) + amount);
 }
 function byAction(events: Array<{ action: SupportCreditAction; amountToman: bigint }>) {
-  const seed = {
+  const seed: Record<SupportCreditAction, { count: number; amountToman: bigint }> = {
     allocated: { count: 0, amountToman: 0n },
     reserved: { count: 0, amountToman: 0n },
     released: { count: 0, amountToman: 0n },
