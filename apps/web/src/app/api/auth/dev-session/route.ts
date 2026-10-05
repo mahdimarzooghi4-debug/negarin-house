@@ -6,8 +6,11 @@ import {
   negarinFetch,
   sessionCookieOptions
 } from "../../../../server/negarin-api";
+import { rejectCrossOriginMutation } from "../../../../server/api-proxy";
 
 export async function POST(request: NextRequest) {
+  const crossOrigin = rejectCrossOriginMutation(request);
+  if (crossOrigin) return crossOrigin;
   if (!devSessionAttachEnabled()) return new NextResponse(null, { status: 404 });
   let body: unknown;
   try { body = await request.json(); } catch { return NextResponse.json({ error: "invalid-body" }, { status: 400 }); }
