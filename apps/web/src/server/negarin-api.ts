@@ -1,9 +1,10 @@
 const DEFAULT_API_ORIGIN = "http://localhost:4000";
+type Environment = Readonly<Record<string, string | undefined>>;
 export const NEGARIN_SESSION_COOKIE = "negarin_session";
 const SESSION_TOKEN = /^[A-Za-z0-9_-]{43}$/;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-export function apiOrigin(environment: NodeJS.ProcessEnv = process.env): string {
+export function apiOrigin(environment: Environment = process.env): string {
   const raw = environment.NEGARIN_API_URL || DEFAULT_API_ORIGIN;
   const url = new URL(raw);
   if (!["http:", "https:"].includes(url.protocol) ||
@@ -32,7 +33,7 @@ export function isSameOriginMutation(originHeader: string | null, requestOrigin:
 }
 
 
-export function apiUrl(path: string, environment: NodeJS.ProcessEnv = process.env): string {
+export function apiUrl(path: string, environment: Environment = process.env): string {
   if (!path.startsWith("/api/v1/") || path.includes("\\") || /\s/.test(path)) {
     throw new Error("Only explicit Negarin API v1 paths may be proxied");
   }
@@ -64,11 +65,11 @@ export async function negarinFetch(
   });
 }
 
-export function devSessionAttachEnabled(environment: NodeJS.ProcessEnv = process.env): boolean {
+export function devSessionAttachEnabled(environment: Environment = process.env): boolean {
   return environment.NODE_ENV !== "production" && environment.NEGARIN_DEV_SESSION_ATTACH === "1";
 }
 
-export function sessionCookieOptions(environment: NodeJS.ProcessEnv = process.env) {
+export function sessionCookieOptions(environment: Environment = process.env) {
   return {
     httpOnly: true,
     secure: environment.NODE_ENV === "production",
