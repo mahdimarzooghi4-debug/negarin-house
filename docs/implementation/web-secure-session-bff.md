@@ -63,12 +63,12 @@ All authorization, active-role, tenant scope, idempotency and business validatio
 
 ## Security behavior
 
-- no generic proxy endpoint;
+- no generic proxy endpoint;\n- every cookie-authenticated POST/DELETE requires exact same-origin `Origin` validation;
 - UUID validation on dynamic Corporate resource IDs;
 - JSON request body size bounds;
 - no-store on browser and upstream requests;
 - no redirect following upstream;
-- 401 invalidates browser cookie;
+- 401 invalidates browser cookie;\n- logout clears the cookie only after successful backend revocation (or when no valid browser session exists);
 - backend request ID is forwarded when supplied.
 
 ## Remaining login blocker
