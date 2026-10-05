@@ -72,10 +72,10 @@ describe("Growth registry HTTP", () => {
   it("exposes no Growth purchase, promotion or level-mutation command", async () => {
     const artist = await signIn("artist"), growth = await signIn("staff", "growth");
     const attempts = [
-      { method: "POST", url: "/api/v1/artist/growth/levels", headers: artist.headers, payload: { level: "سفیر جهانی" } },
-      { method: "POST", url: "/api/v1/artist/growth/purchase", headers: artist.headers, payload: { level: "سفیر جهانی" } },
-      { method: "POST", url: "/api/v1/admin/growth/promote", headers: growth.headers, payload: { artistUserId: randomUUID(), level: "شکوفه" } },
-      { method: "PATCH", url: "/api/v1/admin/growth/levels/1", headers: growth.headers, payload: { name: "سطح جدید" } }
+      { method: "POST" as const, url: "/api/v1/artist/growth/levels", headers: artist.headers, payload: { level: "سفیر جهانی" } },
+      { method: "POST" as const, url: "/api/v1/artist/growth/purchase", headers: artist.headers, payload: { level: "سفیر جهانی" } },
+      { method: "POST" as const, url: "/api/v1/admin/growth/promote", headers: growth.headers, payload: { artistUserId: randomUUID(), level: "شکوفه" } },
+      { method: "PATCH" as const, url: "/api/v1/admin/growth/levels/1", headers: growth.headers, payload: { name: "سطح جدید" } }
     ];
     for (const attempt of attempts) {
       const response = await app.inject(attempt);
