@@ -1,7 +1,7 @@
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { canAccessStaffDomain, type AuthorizationContext } from "@negarin/authz";
 import { enforceDecision } from "./authorization.guard.js";
-import type { Prisma, SupportCreditAction, SupportCreditStatus } from "./generated/prisma/client.js";
+import type { Prisma, SupportCreditAction } from "./generated/prisma/client.js";
 import { PrismaService } from "./prisma.service.js";
 
 export type SupportReportingAudience = "organization" | "artist" | "staff";
