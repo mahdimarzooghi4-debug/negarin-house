@@ -11,7 +11,7 @@ describe("Corporate live data contracts",()=>{
     });
     expect(product?.priceToman).toBe("9007199254740993");
     expect(formatToman(product!.priceToman)).toContain("۹");
-    expect(parseCorporateProduct({...product,artistUserId:"private"})).not.toBeNull();
+    expect(parseCorporateProduct({...product,artistUserId:"private"})).toBeNull();
     expect(parseCorporateProduct({...product,priceToman:9007199254740993})).toBeNull();
   });
 
