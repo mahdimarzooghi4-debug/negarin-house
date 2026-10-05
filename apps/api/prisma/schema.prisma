@@ -18,6 +18,30 @@ model SystemMetadata {
   @@map("_system_metadata")
 }
 
+enum OutboxEventType {
+  support_used
+}
+
+model OutboxEvent {
+  id            String          @id @default(uuid()) @db.Uuid
+  eventKey      String          @unique
+  type          OutboxEventType
+  aggregateType String
+  aggregateId   String
+  payload       Json
+  occurredAt    DateTime
+  createdAt     DateTime        @default(now())
+  dispatchedAt  DateTime?
+  attemptCount  Int             @default(0)
+  nextAttemptAt DateTime        @default(now())
+  leaseOwner    String?
+  leaseUntil    DateTime?
+  lastError     String?
+
+  @@index([dispatchedAt, nextAttemptAt, leaseUntil, occurredAt, id])
+  @@map("outbox_events")
+}
+
 model IdentityUser {
   id        String        @id @default(uuid()) @db.Uuid
   phone     String        @unique
