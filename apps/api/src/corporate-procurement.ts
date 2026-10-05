@@ -2,7 +2,6 @@ import { BadRequestException, ConflictException, ForbiddenException, Injectable,
 import { canAccessStaffDomain, type AuthorizationContext } from "@negarin/authz";
 import { enforceDecision } from "./authorization.guard.js";
 import { parseArtistProductId } from "./artist-products.js";
-import { parseOrderPage } from "./customer-orders.js";
 import type { Prisma } from "./generated/prisma/client.js";
 import { PrismaService } from "./prisma.service.js";
 
@@ -39,9 +38,16 @@ function corporate(context: AuthorizationContext) {
 }
 export function requireCorporateBuyer(context: AuthorizationContext) { corporate(context); }
 
+function stableJson(value: unknown): string {
+  if (Array.isArray(value)) return "[" + value.map(stableJson).join(",") + "]";
+  if (value && typeof value === "object") {
+    const object = value as Record<string, unknown>;
+    return "{" + Object.keys(object).sort().map(key => JSON.stringify(key) + ":" + stableJson(object[key])).join(",") + "}";
+  }
+  return JSON.stringify(value);
+}
 function sameCommand(a: unknown, b: unknown) {
-  if (!a || !b || typeof a !== "object" || typeof b !== "object" || Array.isArray(a) || Array.isArray(b)) return false;
-  return JSON.stringify(a) === JSON.stringify(b);
+  return stableJson(a) === stableJson(b);
 }
 function view(request: Request, staff = false) {
   return {
