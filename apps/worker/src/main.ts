@@ -1,17 +1,28 @@
 import "dotenv/config";
+import { randomUUID } from "node:crypto";
 import { loadConfig } from "@negarin/config";
 import { startNodeTelemetry } from "@negarin/observability";
-import { createFoundationWorker, FOUNDATION_QUEUE } from "@negarin/queue";
+import {
+  createDomainEventsQueue,
+  createFoundationWorker,
+  DOMAIN_EVENTS_QUEUE,
+  FOUNDATION_QUEUE
+} from "@negarin/queue";
+import { createOutboxPool, dispatchOutboxOnce } from "./outbox-dispatcher.js";
 
 const config = loadConfig();
 const telemetry = await startNodeTelemetry("negarin-worker");
-const worker = createFoundationWorker(config.REDIS_URL);
+const foundationWorker = createFoundationWorker(config.REDIS_URL);
+const domainEventsQueue = createDomainEventsQueue(config.REDIS_URL);
+const outboxPool = createOutboxPool(config.DATABASE_URL);
+const dispatcherId = `worker:${randomUUID()}`;
+let stopping = false;
 
-worker.on("completed", (job) => {
+foundationWorker.on("completed", (job) => {
   console.info(JSON.stringify({ event: "job.completed", queue: FOUNDATION_QUEUE, jobId: job.id }));
 });
 
-worker.on("failed", (job, error) => {
+foundationWorker.on("failed", (job, error) => {
   console.error(
     JSON.stringify({
       event: "job.failed",
@@ -22,12 +33,50 @@ worker.on("failed", (job, error) => {
   );
 });
 
-worker.on("error", (error) => {
-  console.error(JSON.stringify({ event: "worker.error", error: error.message }));
+foundationWorker.on("error", (error) => {
+  console.error(JSON.stringify({ event: "worker.error", queue: FOUNDATION_QUEUE, error: error.message }));
 });
 
+const sleep = (milliseconds: number) => new Promise(resolve => setTimeout(resolve, milliseconds));
+
+async function pumpOutbox(): Promise<void> {
+  while (!stopping) {
+    try {
+      const claimed = await dispatchOutboxOnce(outboxPool, async event => {
+        await domainEventsQueue.add(event.type, {
+          eventId: event.id,
+          eventKey: event.eventKey,
+          type: event.type,
+          aggregateType: event.aggregateType,
+          aggregateId: event.aggregateId,
+          payload: event.payload,
+          occurredAt: event.occurredAt.toISOString()
+        }, {
+          jobId: event.id,
+          removeOnComplete: false,
+          removeOnFail: false
+        });
+      }, dispatcherId);
+      if (claimed === 0) await sleep(1_000);
+    } catch (error) {
+      console.error(JSON.stringify({
+        event: "outbox.dispatch.failed",
+        queue: DOMAIN_EVENTS_QUEUE,
+        error: error instanceof Error ? error.message : String(error)
+      }));
+      await sleep(1_000);
+    }
+  }
+}
+
+const outboxPump = pumpOutbox();
+
 async function shutdown(): Promise<void> {
-  await worker.close();
+  stopping = true;
+  await foundationWorker.close();
+  await outboxPump;
+  await domainEventsQueue.close();
+  await outboxPool.end();
   await telemetry.shutdown();
   process.exit(0);
 }
