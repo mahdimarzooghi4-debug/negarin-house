@@ -82,10 +82,10 @@ export class CorporateProcurementService {
     return this.db.$transaction(async tx => {
       await tx.$queryRawUnsafe(
         'SELECT 1 AS locked FROM pg_advisory_xact_lock(hashtextextended($1, 0))',
-        "corporate-purchase-request:" + context.userId + ":" + command.idempotencyKey
+        "corporate-purchase-request:" + context.organizationId + ":" + context.userId + ":" + command.idempotencyKey
       );
       const prior = await tx.corporatePurchaseRequest.findUnique({
-        where: { createdByUserId_idempotencyKey: { createdByUserId: context.userId, idempotencyKey: command.idempotencyKey } }, include
+        where: { buyerOrganizationId_createdByUserId_idempotencyKey: { buyerOrganizationId: context.organizationId!, createdByUserId: context.userId, idempotencyKey: command.idempotencyKey } }, include
       });
       if (prior) {
         if (!sameCommand(prior.events[0]?.command, command)) throw new ConflictException("idempotency-key-reused");

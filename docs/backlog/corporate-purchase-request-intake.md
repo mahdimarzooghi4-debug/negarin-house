@@ -11,7 +11,7 @@ Acceptance:
 5. PurchaseRequest contains no buyer-supplied price, negotiated price, discount, fee, payment, settlement or Artist allocation field.
 6. PurchaseRequestItem snapshots product identity, Artist ownership and title for traceability, but does not snapshot a commercial price.
 7. Draft creation does not reserve/decrement inventory, create an order, create a payment/financial event, contact/pay an Artist, or create ArtistAllocation.
-8. Exact create retries are idempotent; changed reuse of the same key conflicts.
+8. Exact create retries are idempotent inside the active buyer organization + creator scope; the same user may reuse the same key independently in another explicitly selected Corporate organization context. Changed reuse inside the same organization scope conflicts.
 9. Submission is an explicit optimistic-version transition Draft → Submitted.
 10. Submit revalidates that every requested product is still published and unarchived. Stock quantity is not reserved or treated as procurement availability.
 11. A successfully submitted request remains replayable even if a product is later unpublished/archived.
