@@ -6,8 +6,8 @@ Source: E8 PurchaseRequest backend (#60/#61), secure browser session BFF (#68), 
 
 1. `/corporate-buyer` is an operational route, not a sample-data preview. It routes to the live Corporate product workspace.
 2. Figma preview remains separately available under `/preview/corporate-buyer/*` and continues to be explicitly labeled sample data.
-3. Live Corporate screens require a valid HttpOnly-backed browser session and an active `corporate-buyer` context.
-4. When a valid session has Corporate grants but no active context, the user must explicitly choose an organization context. The UI does not silently select an organization.
+3. Live Corporate screens require a valid HttpOnly-backed browser session and an active `corporate-buyer` context before operational data is rendered.
+4. When a valid session has an organization-scoped Corporate Buyer grant but the active context is missing or belongs to another role, the user must explicitly choose the Corporate organization context. The UI never silently replaces the active grant.
 5. Live catalog reads only the authenticated Corporate BFF:
    - product list;
    - product detail;
@@ -30,6 +30,8 @@ Source: E8 PurchaseRequest backend (#60/#61), secure browser session BFF (#68), 
 13. The UI never claims inventory reservation, Corporate Proposal, CorporateOrder, payment or settlement effects.
 14. 401/404/409 states are surfaced without falling back to sample operational data.
 15. Product selection state may exist in route/query UI state, but bearer credentials never enter URL, localStorage or sessionStorage.
+16. Client read models fail closed on malformed identifiers, non-canonical timestamps, inconsistent PurchaseRequest state/history, invalid selection/query boundaries, duplicate entities, and pagination envelopes that do not match the requested page.
+17. Browser coverage exercises an authenticated multi-role session through explicit Corporate context selection, live catalog search/detail/image metadata, Draft creation, Draft detail/history, optimistic submit, Submitted detail/list, and verifies the bearer token is absent from URL and browser storage.
 
 ## Out of scope
 
