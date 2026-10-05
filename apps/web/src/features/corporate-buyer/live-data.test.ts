@@ -15,6 +15,7 @@ describe("Corporate live data contracts",()=>{
     expect(parseCorporateProduct({...product,priceToman:9007199254740993})).toBeNull();
     expect(parseCorporateProduct({...product,id:"not-a-uuid"})).toBeNull();
     expect(parseCorporateProduct({...product,createdAt:"2026-10-05"})).toBeNull();
+    expect(parseCorporateProduct({...product,description:null,category:null})).toMatchObject({description:null,category:null});
 
     const imageId="00000000-0000-4000-8000-000000000099";
     expect(parseCorporateProduct({...product,imageIds:[imageId],coverImageId:imageId})).not.toBeNull();

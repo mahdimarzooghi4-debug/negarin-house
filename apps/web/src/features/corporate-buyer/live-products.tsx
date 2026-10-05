@@ -70,7 +70,7 @@ export function CorporateProductsLive(){
       {!loading&&!error&&data&&<div className={styles.grid}>{data.items.map(product=><article className={styles.card} key={product.id}>
         <ProductImage product={product}/>
         <div className={styles.cardBody}>
-          <div className={styles.cardMeta}><span>{product.category}</span><span>{product.availability==="in_stock"?"موجود":"ناموجود"}</span></div>
+          <div className={styles.cardMeta}><span>{product.category??"—"}</span><span>{product.availability==="in_stock"?"موجود":"ناموجود"}</span></div>
           <h2>{product.title}</h2>
           <p className={styles.price}>{formatToman(product.priceToman)}</p>
           <label className={styles.selection}><input type="checkbox" checked={!!selected[product.id]} onChange={event=>{
@@ -116,8 +116,8 @@ export function CorporateProductDetailLive({id}:{id:string}){
       </div>
       <div>
         <h2>{product.title}</h2>
-        <p>{product.description}</p>
-        <div className={styles.kv}><small>دسته‌بندی</small>{product.category}</div>
+        <p>{product.description??"—"}</p>
+        <div className={styles.kv}><small>دسته‌بندی</small>{product.category??"—"}</div>
         <div className={styles.kv}><small>قیمت فعلی هنرمند</small>{formatToman(product.priceToman)}</div>
         <div className={styles.kv}><small>وضعیت موجودی</small>{product.availability==="in_stock"?"موجود":"ناموجود"}</div>
         <div className={styles.kv}><small>مواد اولیه</small>{product.materials??"—"}</div>

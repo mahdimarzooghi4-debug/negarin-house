@@ -97,7 +97,7 @@ export function CorporateNewPurchaseRequestLive({selection}:{selection:PurchaseR
     {error&&<div className={styles.error}>{error}{draftId&&<> <Link href={"/corporate-buyer/purchase-request-detail?id="+draftId}>مشاهده پیش‌نویس ذخیره‌شده</Link></>}</div>}
     {!loading&&!products.length&&!error&&<div className={styles.empty}>محصولی انتخاب نشده است. <Link href="/corporate-buyer/corporate-products">انتخاب از محصولات سازمانی</Link></div>}
     {!!products.length&&<div className={styles.form}>{products.map(product=><div className={styles.requestItem} key={product.id}>
-      <div><strong>{product.title}</strong><small> · {product.category}</small></div>
+      <div><strong>{product.title}</strong><small> · {product.category??"—"}</small></div>
       <label>تعداد <input aria-label={"تعداد "+product.title} type="number" min={1} max={MAX_PURCHASE_REQUEST_QUANTITY} step={1} value={quantities[product.id]??1} onChange={event=>setQuantities(previous=>({...previous,[product.id]:Number(event.target.value)}))}/></label>
       <button className={styles.danger} type="button" disabled={working} onClick={()=>setProducts(items=>items.filter(item=>item.id!==product.id))}>حذف</button>
     </div>)}

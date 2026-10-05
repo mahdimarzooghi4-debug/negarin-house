@@ -1,8 +1,8 @@
 export type CorporateProduct = {
   id: string;
   title: string;
-  description: string;
-  category: string;
+  description: string | null;
+  category: string | null;
   dimensions: string | null;
   materials: string | null;
   weight: string | null;
@@ -94,7 +94,7 @@ function isPurchaseRequestVersion(value: unknown): value is number {
 export function parseCorporateProduct(value: unknown): CorporateProduct | null {
   const v=record(value); if(!v) return null;
   if("artistUserId" in v||"publicationStatus" in v||"inventoryVersion" in v||"archivedAt" in v) return null;
-  if(!isUuid(v.id)||!text(v.title)||!text(v.description)||!text(v.category)||
+  if(!isUuid(v.id)||!text(v.title)||!nullableText(v.description)||!nullableText(v.category)||
      !nullableText(v.dimensions)||!nullableText(v.materials)||!nullableText(v.weight)||
      !nullableText(v.color)||!nullableText(v.technique)||!nullableText(v.careInstructions)||
      !text(v.priceToman)||!/^(0|[1-9]\d*)$/.test(v.priceToman)||!uuidArray(v.imageIds)||
