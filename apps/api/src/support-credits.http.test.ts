@@ -118,6 +118,56 @@ describe("Support credit HTTP and PostgreSQL", () => {
     expect(new Set(reversed.json().history.map((e: { amountToman: string }) => e.amountToman))).toEqual(new Set(["500000"]));
   });
 
+  it("writes SupportUsed in the same transaction as consumption and rolls both back when outbox insertion fails", async () => {
+    const s = await externalSupport(), usage = await serviceRequest(s.artist), credit = await allocation(s, "610000");
+    const id = credit.json().id as string;
+    expect((await app.inject({ method: "POST", url: `/api/v1/admin/support-allocations/${id}/reserve`, headers: usage.staff.headers,
+      payload: { version: 0, serviceRequestId: usage.request.id, reason: "رزرو برای آزمون outbox" } })).statusCode).toBe(201);
+
+    const functionName = "support_outbox_fail_" + randomUUID().replaceAll("-", "");
+    await db.$executeRawUnsafe('CREATE FUNCTION ' + functionName + '() RETURNS trigger LANGUAGE plpgsql AS $ BEGIN IF NEW."eventKey" = \'support-used:' + id + ':2\' THEN RAISE EXCEPTION \'outbox failure\'; END IF; RETURN NEW; END $');
+    await db.$executeRawUnsafe('CREATE TRIGGER ' + functionName + ' BEFORE INSERT ON "outbox_events" FOR EACH ROW EXECUTE FUNCTION ' + functionName + '()');
+    try {
+      expect((await app.inject({ method: "POST", url: `/api/v1/admin/support-allocations/${id}/consume`, headers: usage.staff.headers,
+        payload: { version: 1, reason: "مصرف کامل" } })).statusCode).toBe(500);
+    } finally {
+      await db.$executeRawUnsafe('DROP TRIGGER ' + functionName + ' ON "outbox_events"');
+      await db.$executeRawUnsafe('DROP FUNCTION ' + functionName + '()');
+    }
+
+    expect(await db.supportAllocation.findUniqueOrThrow({ where: { id } })).toMatchObject({
+      status: "reserved", version: 1, currentServiceRequestId: usage.request.id
+    });
+    expect(await db.supportCreditEvent.count({ where: { allocationId: id, action: "consumed" } })).toBe(0);
+    expect(await db.outboxEvent.count({ where: { eventKey: `support-used:${id}:2` } })).toBe(0);
+
+    const consumed = await app.inject({ method: "POST", url: `/api/v1/admin/support-allocations/${id}/consume`, headers: usage.staff.headers,
+      payload: { version: 1, reason: "مصرف کامل" } });
+    expect(consumed.statusCode).toBe(201);
+    expect(consumed.json()).toMatchObject({ status: "consumed", version: 2, amountToman: "610000" });
+
+    const event = await db.outboxEvent.findUniqueOrThrow({ where: { eventKey: `support-used:${id}:2` } });
+    expect(event).toMatchObject({
+      type: "support_used", aggregateType: "SupportAllocation", aggregateId: id,
+      dispatchedAt: null, attemptCount: 0
+    });
+    expect(event.payload).toEqual({
+      allocationId: id,
+      serviceRequestId: usage.request.id,
+      programId: s.program.id,
+      relationshipId: s.relationship.id,
+      artistUserId: s.artist.userId,
+      amountToman: "610000"
+    });
+
+    expect((await app.inject({ method: "POST", url: `/api/v1/admin/support-allocations/${id}/consume`, headers: usage.staff.headers,
+      payload: { version: 1, reason: "مصرف کامل" } })).statusCode).toBe(201);
+    expect(await db.outboxEvent.count({ where: { eventKey: `support-used:${id}:2` } })).toBe(1);
+
+    await expect(db.outboxEvent.update({ where: { id: event.id }, data: { aggregateId: randomUUID() } })).rejects.toThrow();
+    await expect(db.outboxEvent.delete({ where: { id: event.id } })).rejects.toThrow();
+  });
+
   it("conceals support across Artists/organizations and gives the sponsor linked support usage details without exposing a transfer surface", async () => {
     const s = await externalSupport(), usage = await serviceRequest(s.artist), credit = await allocation(s), otherArtist = await signIn(), outsider = await signIn("supporting_organization", undefined, randomUUID()), partner = await signIn("service_partner", undefined, randomUUID());
     await app.inject({ method: "POST", url: `/api/v1/admin/support-allocations/${credit.json().id}/reserve`, headers: usage.staff.headers,
