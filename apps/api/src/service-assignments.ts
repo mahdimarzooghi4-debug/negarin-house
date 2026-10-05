@@ -78,8 +78,11 @@ export class ServiceAssignmentsService {
         if (!sameCommand(prior.events[0]?.command, command)) throw new ConflictException("idempotency-key-reused");
         return requestView(prior);
       }
-      const service = await tx.serviceCatalogItem.findFirst({ where: { id: command.serviceId, isActive: true }, select: { id: true, title: true } });
-      if (!service) throw new NotFoundException();
+      const services = await tx.$queryRawUnsafe<Array<{ id: string; title: string; isActive: boolean }>>(
+        'SELECT "id", "title", "isActive" FROM "service_catalog_items" WHERE "id" = $1::uuid FOR SHARE', command.serviceId
+      );
+      const service = services[0];
+      if (!service?.isActive) throw new NotFoundException();
       const request = await tx.serviceRequest.create({ data: {
         serviceCatalogItemId: service.id, artistUserId: context.userId, createdByUserId: context.userId,
         idempotencyKey: command.idempotencyKey, title: service.title, description: command.description
