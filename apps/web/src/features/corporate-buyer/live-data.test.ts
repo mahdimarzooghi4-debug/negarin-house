@@ -33,6 +33,22 @@ describe("Corporate live data contracts",()=>{
     expect(parseCorporatePurchaseRequest({...request,version:MAX_PURCHASE_REQUEST_QUANTITY})).toBeNull();
     expect(parseCorporatePurchaseRequest({...request,items:[{...request!.items[0],quantity:MAX_PURCHASE_REQUEST_QUANTITY+1}]})).toBeNull();
     expect(parseCorporatePurchaseRequest({...request,id:"not-a-uuid"})).toBeNull();
+    expect(parseCorporatePurchaseRequest({...request,items:[]})).toBeNull();
+    expect(parseCorporatePurchaseRequest({...request,items:[request!.items[0],request!.items[0]]})).toBeNull();
+    expect(parseCorporatePurchaseRequest({...request,submittedAt:"2026-10-05T01:00:00.000Z"})).toBeNull();
+    expect(parseCorporatePurchaseRequest({...request,history:[]})).toBeNull();
+
+    const submitted=parseCorporatePurchaseRequest({
+      ...request,status:"submitted",version:1,submittedAt:"2026-10-05T01:00:00.000Z",
+      history:[
+        {version:0,action:"created",createdAt:"2026-10-05T00:00:00.000Z"},
+        {version:1,action:"submitted",createdAt:"2026-10-05T01:00:00.000Z"}
+      ]
+    });
+    expect(submitted?.status).toBe("submitted");
+    expect(parseCorporatePurchaseRequest({...submitted,history:[submitted!.history[1],submitted!.history[0]]})).toBeNull();
+    expect(parseCorporatePurchaseRequest({...submitted,version:0})).toBeNull();
+    expect(parseCorporatePurchaseRequest({...submitted,submittedAt:null})).toBeNull();
   });
 
   it("fails closed instead of silently dropping invalid or over-limit product selections",()=>{
