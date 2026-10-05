@@ -230,16 +230,21 @@ export class SupportCreditsService {
     const parsed = parseSupportAllocationCreate(input);
     const command = { relationshipId, ...parsed };
     return this.db.$transaction(async tx => {
-      await tx.$queryRawUnsafe('SELECT 1 AS locked FROM pg_advisory_xact_lock(hashtextextended($1, 0))', "support-allocation:" + context.userId + ":" + parsed.idempotencyKey);
-      const prior = await tx.supportAllocation.findUnique({ where: { createdByUserId_idempotencyKey: { createdByUserId: context.userId, idempotencyKey: parsed.idempotencyKey } }, include: allocationInclude });
-      if (prior) {
-        if (prior.relationshipId !== relationshipId || prior.amountToman.toString() !== parsed.amountToman) throw new ConflictException("idempotency-key-reused");
-        return allocationView(prior);
-      }
       const relationship = await tx.supportRelationship.findFirst({ where: {
         id: relationshipId, negarinApprovedAt: { not: null }, program: { source: owner.source, organizationId: owner.organizationId }
       }, include: { program: true } });
       if (!relationship) throw new NotFoundException();
+
+      await tx.$queryRawUnsafe('SELECT 1 AS locked FROM pg_advisory_xact_lock(hashtextextended($1, 0))', "support-allocation:" + relationshipId + ":" + context.userId + ":" + parsed.idempotencyKey);
+      const prior = await tx.supportAllocation.findUnique({ where: {
+        relationshipId_createdByUserId_idempotencyKey: {
+          relationshipId, createdByUserId: context.userId, idempotencyKey: parsed.idempotencyKey
+        }
+      }, include: allocationInclude });
+      if (prior) {
+        if (prior.amountToman.toString() !== parsed.amountToman) throw new ConflictException("idempotency-key-reused");
+        return allocationView(prior);
+      }
       const allocation = await tx.supportAllocation.create({ data: {
         programId: relationship.programId, relationshipId, createdByUserId: context.userId, idempotencyKey: parsed.idempotencyKey,
         amountToman: BigInt(parsed.amountToman), rulesSnapshot: relationship.program.rules
