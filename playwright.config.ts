@@ -13,11 +13,23 @@ export default defineConfig({
       args: ["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--no-zygote"]
     } : undefined
   },
-  webServer: {
-    command: "pnpm --filter @negarin/web start --hostname 127.0.0.1",
-    env: { NEGARIN_UI_PREVIEW: "1" },
-    url: "http://127.0.0.1:3000",
-    reuseExistingServer: !process.env.CI,
-    timeout: 120000
-  }
+  webServer: [
+    {
+      command: "pnpm --filter @negarin/api start",
+      url: "http://127.0.0.1:4000/api/v1/ready",
+      reuseExistingServer: !process.env.CI,
+      timeout: 120000
+    },
+    {
+      command: "pnpm --filter @negarin/web start --hostname 127.0.0.1",
+      env: {
+        NEGARIN_UI_PREVIEW: "1",
+        NEGARIN_DEV_SESSION_ATTACH: "1",
+        NEGARIN_API_URL: "http://127.0.0.1:4000"
+      },
+      url: "http://127.0.0.1:3000",
+      reuseExistingServer: !process.env.CI,
+      timeout: 120000
+    }
+  ]
 });
