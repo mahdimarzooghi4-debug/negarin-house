@@ -151,9 +151,14 @@ export class CorporateProcurementService {
   }
 
   async list(context: AuthorizationContext, page: number, pageSize: number, staff = false) {
-    const where: Prisma.CorporatePurchaseRequestWhereInput = staff
-      ? (enforceDecision(canAccessStaffDomain(context, "orders")), {})
-      : (corporate(context), { buyerOrganizationId: context.organizationId });
+    let where: Prisma.CorporatePurchaseRequestWhereInput;
+    if (staff) {
+      enforceDecision(canAccessStaffDomain(context, "orders"));
+      where = {};
+    } else {
+      corporate(context);
+      where = { buyerOrganizationId: context.organizationId };
+    }
     const rows = await this.db.corporatePurchaseRequest.findMany({
       where, include, orderBy: [{ createdAt: "desc" }, { id: "asc" }],
       skip: (page - 1) * pageSize, take: pageSize + 1
@@ -162,9 +167,14 @@ export class CorporateProcurementService {
   }
 
   async get(context: AuthorizationContext, id: string, staff = false) {
-    const where: Prisma.CorporatePurchaseRequestWhereInput = staff
-      ? (enforceDecision(canAccessStaffDomain(context, "orders")), { id })
-      : (corporate(context), { id, buyerOrganizationId: context.organizationId });
+    let where: Prisma.CorporatePurchaseRequestWhereInput;
+    if (staff) {
+      enforceDecision(canAccessStaffDomain(context, "orders"));
+      where = { id };
+    } else {
+      corporate(context);
+      where = { id, buyerOrganizationId: context.organizationId };
+    }
     const request = await this.db.corporatePurchaseRequest.findFirst({ where, include });
     if (!request) throw new NotFoundException();
     return view(request, staff);
