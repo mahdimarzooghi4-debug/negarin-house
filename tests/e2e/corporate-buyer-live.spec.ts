@@ -47,21 +47,8 @@ async function seedCorporateGoldenPath(){
   }});
 
   async function cleanup(){
-    const requests=await database.corporatePurchaseRequest.findMany({
-      where:{createdByUserId:buyer.id},
-      select:{id:true}
-    });
-    const requestIds=requests.map(request=>request.id);
-    if(requestIds.length){
-      await database.corporatePurchaseRequestEvent.deleteMany({where:{requestId:{in:requestIds}}});
-      await database.corporatePurchaseRequestItem.deleteMany({where:{requestId:{in:requestIds}}});
-      await database.corporatePurchaseRequest.deleteMany({where:{id:{in:requestIds}}});
-    }
-    await database.productImage.deleteMany({where:{productId:product.id}});
-    await database.artistProduct.deleteMany({where:{id:product.id}});
-    await database.authSession.deleteMany({where:{userId:buyer.id}});
-    await database.roleGrant.deleteMany({where:{userId:buyer.id}});
-    await database.identityUser.deleteMany({where:{id:{in:[buyer.id,artist.id]}}});
+    // Corporate PurchaseRequest history/items are immutable by production DB triggers.
+    // E2E runs against the reset test database, so disconnect instead of weakening or bypassing those invariants.
     await database.$disconnect();
   }
 
@@ -129,7 +116,8 @@ test("Corporate Buyer completes the authenticated live PurchaseRequest golden pa
       expiresInSeconds:300
     });
 
-    await page.getByRole("link",{name:"مشاهده جزئیات"}).click();
+    const productCard=page.getByRole("article").filter({hasText:fixture.title});
+    await productCard.getByRole("link",{name:"مشاهده جزئیات"}).click();
     await expect(page).toHaveURL(new RegExp(`/corporate-buyer/product-detail\\?id=${fixture.productId}$`));
     await expect(page.getByRole("heading",{name:"جزئیات محصول"})).toBeVisible();
     await expect(page.getByText(fixture.title,{exact:true})).toBeVisible();
