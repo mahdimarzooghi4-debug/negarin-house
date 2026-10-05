@@ -87,3 +87,24 @@ BEGIN RAISE EXCEPTION 'Corporate purchase request items are immutable'; END $$;
 CREATE TRIGGER corporate_purchase_request_items_immutable
 BEFORE UPDATE OR DELETE ON "corporate_purchase_request_items"
 FOR EACH ROW EXECUTE FUNCTION corporate_purchase_request_items_immutable();
+
+
+CREATE FUNCTION corporate_purchase_request_immutable_fields() RETURNS trigger LANGUAGE plpgsql AS $$
+BEGIN
+  IF NEW."buyerOrganizationId" IS DISTINCT FROM OLD."buyerOrganizationId"
+     OR NEW."createdByUserId" IS DISTINCT FROM OLD."createdByUserId"
+     OR NEW."idempotencyKey" IS DISTINCT FROM OLD."idempotencyKey"
+     OR NEW."createdAt" IS DISTINCT FROM OLD."createdAt" THEN
+    RAISE EXCEPTION 'Corporate purchase request identity fields cannot change';
+  END IF;
+  RETURN NEW;
+END $$;
+CREATE TRIGGER corporate_purchase_request_immutable_fields
+BEFORE UPDATE ON "corporate_purchase_requests"
+FOR EACH ROW EXECUTE FUNCTION corporate_purchase_request_immutable_fields();
+
+CREATE FUNCTION corporate_purchase_request_no_delete() RETURNS trigger LANGUAGE plpgsql AS $$
+BEGIN RAISE EXCEPTION 'Corporate purchase requests cannot be deleted'; END $$;
+CREATE TRIGGER corporate_purchase_request_no_delete
+BEFORE DELETE ON "corporate_purchase_requests"
+FOR EACH ROW EXECUTE FUNCTION corporate_purchase_request_no_delete();
