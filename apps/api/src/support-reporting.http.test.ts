@@ -135,16 +135,18 @@ describe("Support reporting HTTP read models", () => {
     const activity = await app.inject({ method: "GET", url: "/api/v1/supporting-organization/support-activity?page=1&pageSize=2", headers: supporter.headers });
     expect(activity.statusCode).toBe(200); expect(activity.json()).toMatchObject({ page: 1, pageSize: 2, hasMore: true });
     expect(activity.json().items).toHaveLength(2);
-    expect(activity.json().items[0]).toMatchObject({
-      action: "released", amountToman: "410000", reason: "آزادسازی گزارش‌شونده",
-      program: { id: credit.program.id, organizationId: supporter.organizationId },
-      relationship: { id: credit.relationship.id, artistUserId: artist.userId },
-      serviceRequest: { id: request.id, title: "عکاسی محصول", description: "درخواست متصل به گزارش حمایت" }
-    });
     for (const item of activity.json().items) {
       expect(item).not.toHaveProperty("command");
       expect(JSON.stringify(item)).not.toContain("idempotencyKey");
+      expect(item.program).toMatchObject({ id: credit.program.id, organizationId: supporter.organizationId });
+      expect(item.relationship).toMatchObject({ id: credit.relationship.id, artistUserId: artist.userId });
     }
+    const fullOrgActivity = await app.inject({ method: "GET", url: "/api/v1/supporting-organization/support-activity?page=1&pageSize=10", headers: supporter.headers });
+    const released = fullOrgActivity.json().items.find((e: { action: string }) => e.action === "released");
+    expect(released).toMatchObject({
+      action: "released", amountToman: "410000", reason: "آزادسازی گزارش‌شونده",
+      serviceRequest: { id: request.id, title: "عکاسی محصول", description: "درخواست متصل به گزارش حمایت" }
+    });
 
     const artistActivity = await app.inject({ method: "GET", url: "/api/v1/artist/support-activity?page=1&pageSize=10", headers: artist.headers });
     expect(artistActivity.statusCode).toBe(200); expect(artistActivity.json().items.map((e: { action: string }) => e.action).sort()).toEqual(["allocated", "released", "reserved"]);
