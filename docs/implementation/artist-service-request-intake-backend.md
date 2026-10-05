@@ -1,6 +1,6 @@
 # Artist-created service requests — backend slice
 
-This slice closes the missing intake step in the existing E6 request → Negarin assignment → Partner execution flow without inventing service pricing, support-credit logic or partner selection.
+Draft #56 introduced Artist self-service request creation. The stacked service-catalog slice now binds new Artist requests to an available catalog item so the request represents a defined service without inventing pricing or support-credit rules.
 
 ## API
 
@@ -8,30 +8,30 @@ Artist:
 - POST `/api/v1/artist/service-requests`
 - Existing GET list/detail remain unchanged.
 
-POST body is exactly:
+Current POST body is exactly:
 
 ```json
 {
   "idempotencyKey": "uuid",
-  "title": "bounded text",
-  "description": "bounded text"
+  "serviceId": "uuid",
+  "description": "request-specific scope"
 }
 ```
 
-The API rejects identity and business-rule overrides such as `artistUserId`, `internalNote`, partner IDs, price, support credit, Growth or other unknown fields. The authenticated active Artist context becomes both `artistUserId` and `createdByUserId`.
+The API rejects `title`, `artistUserId`, `internalNote`, partner IDs, price, support credit, Growth and all other unknown fields. The authenticated active Artist context becomes both `artistUserId` and `createdByUserId`. The service must be currently available; its title is resolved server-side and snapshotted into the request.
 
 ## State and authorization
 
-The new request uses the existing ServiceRequest aggregate and begins in `awaiting_assignment`. Only Negarin services-domain staff can assign a Service Partner; this endpoint does not let an Artist browse or choose partners. It creates no ServiceAssignment, ServiceExecution, financial event, Growth event, membership mutation or support-credit usage.
+The request uses the existing ServiceRequest aggregate and begins in `awaiting_assignment`. Only Negarin services-domain staff can assign a Service Partner. Artist cannot browse or choose partners. Creation makes no ServiceAssignment, ServiceExecution, financial event, Growth event, membership mutation or support-credit usage.
 
-The public Artist response remains the existing privacy-filtered request view: no internal note, staff actor identity, assignment history collection or Artist identity field is returned. Staff can read the same request through the current admin endpoints.
+The public Artist response remains privacy-filtered. The service ID is shared across Artist, staff and assigned Partner operational views, while internal notes, staff actor identity and unrelated assignment details remain hidden.
 
 ## Retry and concurrency
 
-The existing creator + idempotencyKey unique key and PostgreSQL advisory transaction lock are reused. An exact normalized retry returns the same request. Reusing the key with a changed command returns conflict. Concurrent identical Artist creation writes one request/event.
+Creator + idempotencyKey uniqueness and the PostgreSQL advisory transaction lock remain authoritative. The audit event stores the canonical Artist command (`serviceId` + description), not mutable catalog display data. Exact retries therefore return the same request even after the service is later deactivated; changed payload under the same key conflicts.
 
-## Verification boundary
+## Migration compatibility
 
-Unit contracts cover strict field acceptance and pre-storage role denial. PostgreSQL HTTP tests cover self-derived ownership, hidden staff fields, cross-Artist concealment, forbidden business overrides, customer denial, concurrent idempotency and absence of financial side effects.
+Historical and staff-created ServiceRequest rows may have a null catalog service ID. No synthetic catalog mapping is invented for old data. New Artist-created requests require an active catalog item.
 
-No schema migration is required because this uses the existing ServiceRequest model. Service catalog and support-credit authorization remain separate product/backend slices and must not be inferred from this endpoint.
+See `docs/implementation/service-catalog-booking-backend.md` for catalog availability, audit and migration details.

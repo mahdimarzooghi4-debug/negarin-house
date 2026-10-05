@@ -43,6 +43,13 @@ describe("Service assignment HTTP and PostgreSQL", () => {
     expect(result.statusCode).toBe(201);
     return { staff, artist, org, partner, command, id: result.json().id as string };
   }
+  async function catalog(staff: User, title = "عکاسی محصول") {
+    const created = await app.inject({ method: "POST", url: "/api/v1/admin/service-catalog", headers: staff.headers,
+      payload: { idempotencyKey: randomUUID(), title, description: "شرح خدمت قابل درخواست" } });
+    expect(created.statusCode).toBe(201); expect(created.json()).toMatchObject({ title, available: false, version: 0 });
+    const active = await app.inject({ method: "POST", url: `/api/v1/admin/service-catalog/${created.json().id}/availability`, headers: staff.headers, payload: { version: 0, available: true } });
+    expect(active.statusCode).toBe(201); return active.json();
+  }
   function assign(s: Awaited<ReturnType<typeof setup>>, version = 0, u = s.partner, org: string = s.org) {
     return app.inject({ method: "POST", url: `/api/v1/admin/service-requests/${s.id}/assignment`, headers: s.staff.headers, payload: { version, partnerOrganizationId: org, partnerUserId: u.userId } });
   }
@@ -231,30 +238,75 @@ describe("Service assignment HTTP and PostgreSQL", () => {
       await expect(db.serviceExecutionEvent.deleteMany({ where: { assignmentId: id } })).rejects.toThrow();
     } finally { await db.$executeRawUnsafe('DROP FUNCTION ' + name + '()'); }
   });
-  it("lets an Artist create only their own operational service request without private or financial overrides", async () => {
-    const artist = await signIn(), other = await signIn(), customer = await signIn("customer"), staff = await signIn("staff", "services");
-    const payload = { idempotencyKey: randomUUID(), title: "عکاسی محصول", description: "پنج تصویر محصول با زمینه سفید" };
+  it("keeps the service catalog staff-controlled, explicitly available and free of invented commercial fields", async () => {
+    const staff = await signIn("staff", "services"), artist = await signIn(), finance = await signIn("staff", "finance"), customer = await signIn("customer");
+    const command = { idempotencyKey: randomUUID(), title: "بسته‌بندی", description: "آماده‌سازی بسته‌بندی هنرمند" };
+    const created = await app.inject({ method: "POST", url: "/api/v1/admin/service-catalog", headers: staff.headers, payload: command });
+    expect(created.statusCode).toBe(201); expect(created.json()).toMatchObject({ title: command.title, available: false, version: 0 });
+    for (const key of ["priceToman", "currency", "serviceCredit", "growthLevel", "commissionPercent"]) expect(created.json()).not.toHaveProperty(key);
+    expect((await app.inject({ method: "GET", url: "/api/v1/artist/service-catalog", headers: artist.headers })).json().items).toEqual([]);
+    expect((await app.inject({ method: "GET", url: `/api/v1/artist/service-catalog/${created.json().id}`, headers: artist.headers })).statusCode).toBe(404);
+    expect((await app.inject({ method: "GET", url: "/api/v1/admin/service-catalog", headers: finance.headers })).statusCode).toBe(403);
+    expect((await app.inject({ method: "GET", url: "/api/v1/artist/service-catalog", headers: customer.headers })).statusCode).toBe(403);
+    expect((await app.inject({ method: "POST", url: "/api/v1/admin/service-catalog", headers: staff.headers, payload: { ...command, idempotencyKey: randomUUID(), priceToman: "1000" } })).statusCode).toBe(400);
+    const active = await app.inject({ method: "POST", url: `/api/v1/admin/service-catalog/${created.json().id}/availability`, headers: staff.headers, payload: { version: 0, available: true } });
+    expect(active.statusCode).toBe(201); expect(active.json()).toMatchObject({ available: true, version: 1 });
+    const visible = (await app.inject({ method: "GET", url: "/api/v1/artist/service-catalog", headers: artist.headers })).json().items[0];
+    expect(visible).toEqual({ id: created.json().id, title: command.title, description: command.description });
+    const inactive = await app.inject({ method: "POST", url: `/api/v1/admin/service-catalog/${created.json().id}/availability`, headers: staff.headers, payload: { version: 1, available: false } });
+    expect(inactive.statusCode).toBe(201); expect((await app.inject({ method: "GET", url: `/api/v1/artist/service-catalog/${created.json().id}`, headers: artist.headers })).statusCode).toBe(404);
+  });
+  it("serializes catalog creation and availability audit with rollback and immutable history", async () => {
+    const staff = await signIn("staff", "services"), command = { idempotencyKey: randomUUID(), title: "عکاسی", description: "خدمت عکاسی محصول" };
+    const copies = await Promise.all([1, 2].map(() => app.inject({ method: "POST", url: "/api/v1/admin/service-catalog", headers: staff.headers, payload: command })));
+    const id = copies[0]!.json().id as string;
+    expect(copies.map(r => r.statusCode)).toEqual([201, 201]); expect(copies.map(r => r.json().id)).toEqual([id, id]);
+    expect((await app.inject({ method: "POST", url: "/api/v1/admin/service-catalog", headers: staff.headers, payload: { ...command, title: "changed" } })).statusCode).toBe(409);
+    expect(await db.serviceCatalogEvent.count({ where: { itemId: id } })).toBe(1);
+    const name = "catalog_fail_" + randomUUID().replaceAll("-", "");
+    await db.$executeRawUnsafe('CREATE FUNCTION ' + name + '() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW."itemId" = \''
+      + id + '\'::uuid THEN RAISE EXCEPTION \'catalog audit failure\'; END IF; RETURN NEW; END $$');
+    await db.$executeRawUnsafe('CREATE TRIGGER ' + name + ' BEFORE INSERT ON "service_catalog_events" FOR EACH ROW EXECUTE FUNCTION ' + name + '()');
+    try { expect((await app.inject({ method: "POST", url: `/api/v1/admin/service-catalog/${id}/availability`, headers: staff.headers, payload: { version: 0, available: true } })).statusCode).toBe(500); }
+    finally { await db.$executeRawUnsafe('DROP TRIGGER ' + name + ' ON "service_catalog_events"'); await db.$executeRawUnsafe('DROP FUNCTION ' + name + '()'); }
+    expect(await db.serviceCatalogItem.findUniqueOrThrow({ where: { id } })).toMatchObject({ isActive: false, version: 0 });
+    expect((await app.inject({ method: "POST", url: `/api/v1/admin/service-catalog/${id}/availability`, headers: staff.headers, payload: { version: 0, available: true } })).statusCode).toBe(201);
+    await expect(db.serviceCatalogEvent.updateMany({ where: { itemId: id }, data: { action: "created" } })).rejects.toThrow();
+    await expect(db.serviceCatalogEvent.deleteMany({ where: { itemId: id } })).rejects.toThrow();
+  });
+  it("lets an Artist request only an active catalog service without private, commercial or identity overrides", async () => {
+    const artist = await signIn(), other = await signIn(), customer = await signIn("customer"), staff = await signIn("staff", "services"), service = await catalog(staff);
+    const payload = { idempotencyKey: randomUUID(), serviceId: service.id, description: "پنج تصویر محصول با زمینه سفید" };
     const created = await app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: artist.headers, payload });
     expect(created.statusCode).toBe(201);
-    expect(created.json()).toMatchObject({ title: payload.title, description: payload.description, status: "awaiting_assignment", version: 0, assignment: null });
-    for (const key of ["artistUserId", "internalNote", "assignments"]) expect(created.json()).not.toHaveProperty(key);
+    expect(created.json()).toMatchObject({ serviceId: service.id, title: service.title, description: payload.description, status: "awaiting_assignment", version: 0, assignment: null });
+    for (const key of ["artistUserId", "internalNote", "assignments", "priceToman", "serviceCredit"]) expect(created.json()).not.toHaveProperty(key);
     const raw = await db.serviceRequest.findUniqueOrThrow({ where: { id: created.json().id } });
-    expect(raw).toMatchObject({ artistUserId: artist.userId, createdByUserId: artist.userId, internalNote: null });
+    expect(raw).toMatchObject({ serviceCatalogItemId: service.id, artistUserId: artist.userId, createdByUserId: artist.userId, title: service.title, internalNote: null });
     expect(await db.financialEvent.count({ where: { actorUserId: artist.userId } })).toBe(0);
     expect((await app.inject({ method: "GET", url: `/api/v1/artist/service-requests/${created.json().id}`, headers: other.headers })).statusCode).toBe(404);
     const staffView = await app.inject({ method: "GET", url: `/api/v1/admin/service-requests/${created.json().id}`, headers: staff.headers });
-    expect(staffView.statusCode).toBe(200); expect(staffView.json()).toMatchObject({ artistUserId: artist.userId, internalNote: null });
-    for (const extra of [{ artistUserId: other.userId }, { internalNote: "private" }, { priceToman: "1000" }, { serviceCredit: 1 }, { growthLevel: "سرو زرین" }, { partnerUserId: other.userId }]) {
+    expect(staffView.statusCode).toBe(200); expect(staffView.json()).toMatchObject({ serviceId: service.id, artistUserId: artist.userId, internalNote: null });
+    for (const extra of [{ title: "override" }, { artistUserId: other.userId }, { internalNote: "private" }, { priceToman: "1000" }, { serviceCredit: 1 }, { growthLevel: "سرو زرین" }, { partnerUserId: other.userId }]) {
       expect((await app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: artist.headers, payload: { ...payload, idempotencyKey: randomUUID(), ...extra } })).statusCode).toBe(400);
     }
+    const unavailable = await app.inject({ method: "POST", url: "/api/v1/admin/service-catalog", headers: staff.headers, payload: { idempotencyKey: randomUUID(), title: "غیرفعال", description: "هنوز قابل درخواست نیست" } });
+    expect((await app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: artist.headers, payload: { ...payload, idempotencyKey: randomUUID(), serviceId: unavailable.json().id } })).statusCode).toBe(404);
     expect((await app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: customer.headers, payload: { ...payload, idempotencyKey: randomUUID() } })).statusCode).toBe(403);
+    const org = randomUUID(), partner = await signIn("service_partner", undefined, org);
+    const assigned = await app.inject({ method: "POST", url: `/api/v1/admin/service-requests/${created.json().id}/assignment`, headers: staff.headers, payload: { version: 0, partnerOrganizationId: org, partnerUserId: partner.userId } });
+    expect(assigned.statusCode).toBe(201);
+    const partnerView = await get(partner, assigned.json().assignment.id); expect(partnerView.statusCode).toBe(200); expect(partnerView.json().serviceId).toBe(service.id);
   });
-  it("replays concurrent Artist request creation and conflicts changed payload under the same key", async () => {
-    const artist = await signIn(), payload = { idempotencyKey: randomUUID(), title: "بسته‌بندی", description: "درخواست آماده‌سازی بسته‌بندی" };
+  it("replays an existing Artist request after catalog deactivation but rejects changed reuse", async () => {
+    const staff = await signIn("staff", "services"), artist = await signIn(), service = await catalog(staff, "بسته‌بندی");
+    const payload = { idempotencyKey: randomUUID(), serviceId: service.id, description: "درخواست آماده‌سازی بسته‌بندی" };
     const results = await Promise.all([1, 2].map(() => app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: artist.headers, payload })));
     const id = results[0]!.json().id;
     expect(results.map(r => r.statusCode)).toEqual([201, 201]); expect(results.map(r => r.json().id)).toEqual([id, id]);
-    expect((await app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: artist.headers, payload: { ...payload, title: "changed" } })).statusCode).toBe(409);
+    expect((await app.inject({ method: "POST", url: `/api/v1/admin/service-catalog/${service.id}/availability`, headers: staff.headers, payload: { version: 1, available: false } })).statusCode).toBe(201);
+    expect((await app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: artist.headers, payload })).json().id).toBe(id);
+    expect((await app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: artist.headers, payload: { ...payload, description: "changed" } })).statusCode).toBe(409);
     expect(await db.serviceRequestEvent.count({ where: { requestId: id } })).toBe(1);
   });
   it("replays concurrent creation and rejects changed payload under the same key", async () => {
