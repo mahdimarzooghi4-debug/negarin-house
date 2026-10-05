@@ -33,8 +33,10 @@ export const growthLevelSchema = z.enum(growthLevels);
 
 export const growthRegistrySchema = z.object({
   purchasable: z.literal(false),
-  levels: z.array(z.object({
-    order: z.number().int().positive(),
-    name: growthLevelSchema
-  })).length(growthLevels.length)
+  levels: z.tuple([
+    z.object({ order: z.literal(1), name: z.literal("جوانه") }),
+    z.object({ order: z.literal(2), name: z.literal("شکوفه") }),
+    z.object({ order: z.literal(3), name: z.literal("سرو زرین") }),
+    z.object({ order: z.literal(4), name: z.literal("سفیر جهانی") })
+  ])
 });
