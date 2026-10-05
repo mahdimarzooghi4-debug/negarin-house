@@ -13,6 +13,14 @@ describe("Corporate live data contracts",()=>{
     expect(formatToman(product!.priceToman)).toContain("۹");
     expect(parseCorporateProduct({...product,artistUserId:"private"})).toBeNull();
     expect(parseCorporateProduct({...product,priceToman:9007199254740993})).toBeNull();
+    expect(parseCorporateProduct({...product,id:"not-a-uuid"})).toBeNull();
+    expect(parseCorporateProduct({...product,createdAt:"2026-10-05"})).toBeNull();
+
+    const imageId="00000000-0000-4000-8000-000000000099";
+    expect(parseCorporateProduct({...product,imageIds:[imageId],coverImageId:imageId})).not.toBeNull();
+    expect(parseCorporateProduct({...product,imageIds:[imageId,imageId],coverImageId:imageId})).toBeNull();
+    expect(parseCorporateProduct({...product,imageIds:[imageId],coverImageId:null})).toBeNull();
+    expect(parseCorporateProduct({...product,imageIds:["not-a-uuid"],coverImageId:"not-a-uuid"})).toBeNull();
   });
 
   it("rejects malformed catalog pages",()=>{
@@ -33,6 +41,8 @@ describe("Corporate live data contracts",()=>{
     expect(parseCorporatePurchaseRequest({...request,version:MAX_PURCHASE_REQUEST_QUANTITY})).toBeNull();
     expect(parseCorporatePurchaseRequest({...request,items:[{...request!.items[0],quantity:MAX_PURCHASE_REQUEST_QUANTITY+1}]})).toBeNull();
     expect(parseCorporatePurchaseRequest({...request,id:"not-a-uuid"})).toBeNull();
+    expect(parseCorporatePurchaseRequest({...request,createdAt:"2026-10-05"})).toBeNull();
+    expect(parseCorporatePurchaseRequest({...request,history:[{...request!.history[0],createdAt:"invalid-date"}]})).toBeNull();
     expect(parseCorporatePurchaseRequest({...request,items:[]})).toBeNull();
     expect(parseCorporatePurchaseRequest({...request,items:[request!.items[0],request!.items[0]]})).toBeNull();
     expect(parseCorporatePurchaseRequest({...request,submittedAt:"2026-10-05T01:00:00.000Z"})).toBeNull();
@@ -49,6 +59,7 @@ describe("Corporate live data contracts",()=>{
     expect(parseCorporatePurchaseRequest({...submitted,history:[submitted!.history[1],submitted!.history[0]]})).toBeNull();
     expect(parseCorporatePurchaseRequest({...submitted,version:0})).toBeNull();
     expect(parseCorporatePurchaseRequest({...submitted,submittedAt:null})).toBeNull();
+    expect(parseCorporatePurchaseRequest({...submitted,submittedAt:"2026-10-05T01:00:00Z"})).toBeNull();
   });
 
   it("fails closed instead of silently dropping invalid or over-limit product selections",()=>{

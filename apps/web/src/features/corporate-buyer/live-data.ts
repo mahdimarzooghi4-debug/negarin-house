@@ -67,7 +67,16 @@ function record(value: unknown): Record<string, unknown> | null {
 }
 function text(value: unknown): value is string { return typeof value === "string"; }
 function nullableText(value: unknown): value is string | null { return value === null || text(value); }
-function stringArray(value: unknown): value is string[] { return Array.isArray(value) && value.every(text); }
+
+function canonicalIsoTimestamp(value: unknown): value is string {
+  if(typeof value!=="string") return false;
+  const date=new Date(value);
+  return !Number.isNaN(date.getTime())&&date.toISOString()===value;
+}
+
+function uuidArray(value: unknown): value is string[] {
+  return Array.isArray(value)&&value.every(isUuid)&&new Set(value.map(item=>item.toLowerCase())).size===value.length;
+}
 function positiveInteger(value: unknown): value is number { return Number.isInteger(value) && (value as number) > 0; }
 function nonNegativeInteger(value: unknown): value is number { return Number.isInteger(value) && (value as number) >= 0; }
 
@@ -82,12 +91,13 @@ function isPurchaseRequestVersion(value: unknown): value is number {
 export function parseCorporateProduct(value: unknown): CorporateProduct | null {
   const v=record(value); if(!v) return null;
   if("artistUserId" in v||"publicationStatus" in v||"inventoryVersion" in v||"archivedAt" in v) return null;
-  if(!text(v.id)||!text(v.title)||!text(v.description)||!text(v.category)||
+  if(!isUuid(v.id)||!text(v.title)||!text(v.description)||!text(v.category)||
      !nullableText(v.dimensions)||!nullableText(v.materials)||!nullableText(v.weight)||
      !nullableText(v.color)||!nullableText(v.technique)||!nullableText(v.careInstructions)||
-     !text(v.priceToman)||!/^(0|[1-9]\d*)$/.test(v.priceToman)||!stringArray(v.imageIds)||
+     !text(v.priceToman)||!/^(0|[1-9]\d*)$/.test(v.priceToman)||!uuidArray(v.imageIds)||
      (v.availability!=="in_stock"&&v.availability!=="out_of_stock")||
-     !(v.coverImageId===null||text(v.coverImageId))||!text(v.createdAt)) return null;
+     !(v.coverImageId===null||isUuid(v.coverImageId))||v.coverImageId!==(v.imageIds[0]??null)||
+     !canonicalIsoTimestamp(v.createdAt)) return null;
   return v as CorporateProduct;
 }
 
@@ -99,7 +109,8 @@ export function parseProductPage(value: unknown): Paged<CorporateProduct> | null
 
 export function parseCorporatePurchaseRequest(value: unknown): CorporatePurchaseRequest | null {
   const v=record(value); if(!v||"buyerOrganizationId" in v||"createdByUserId" in v||!isUuid(v.id)||(v.status!=="draft"&&v.status!=="submitted")||
-    !isPurchaseRequestVersion(v.version)||!text(v.createdAt)||!(v.submittedAt===null||text(v.submittedAt))||
+    !isPurchaseRequestVersion(v.version)||!canonicalIsoTimestamp(v.createdAt)||
+    !(v.submittedAt===null||canonicalIsoTimestamp(v.submittedAt))||
     !Array.isArray(v.items)||v.items.length<1||v.items.length>MAX_PURCHASE_REQUEST_LINES||!Array.isArray(v.history)) return null;
   const items: CorporatePurchaseRequestItem[]=[];
   for(const raw of v.items){
@@ -110,7 +121,7 @@ export function parseCorporatePurchaseRequest(value: unknown): CorporatePurchase
 
   const history: CorporatePurchaseRequest["history"]=[];
   for(const raw of v.history){
-    const event=record(raw); if(!event||!isPurchaseRequestVersion(event.version)||(event.action!=="created"&&event.action!=="submitted")||!text(event.createdAt)) return null;
+    const event=record(raw); if(!event||!isPurchaseRequestVersion(event.version)||(event.action!=="created"&&event.action!=="submitted")||!canonicalIsoTimestamp(event.createdAt)) return null;
     history.push({version:event.version,action:event.action,createdAt:event.createdAt});
   }
 
