@@ -17,8 +17,8 @@ describe("Negarin web server API boundary", () => {
   afterEach(() => vi.unstubAllGlobals());
 
   it("accepts only an http(s) API origin with no credentials or path", () => {
-    expect(apiOrigin({ NEGARIN_API_URL: "https://api.example.test" } as NodeJS.ProcessEnv)).toBe("https://api.example.test");
-    expect(apiOrigin({} as NodeJS.ProcessEnv)).toBe("http://localhost:4000");
+    expect(apiOrigin({ NEGARIN_API_URL: "https://api.example.test" })).toBe("https://api.example.test");
+    expect(apiOrigin({})).toBe("http://localhost:4000");
 
     for (const invalid of [
       "ftp://api.example.test",
@@ -27,15 +27,15 @@ describe("Negarin web server API boundary", () => {
       "https://api.example.test?x=1",
       "https://api.example.test#fragment"
     ]) {
-      expect(() => apiOrigin({ NEGARIN_API_URL: invalid } as NodeJS.ProcessEnv)).toThrow();
+      expect(() => apiOrigin({ NEGARIN_API_URL: invalid })).toThrow();
     }
   });
 
   it("proxies only explicit API v1 paths and rejects normalized traversal", () => {
-    expect(apiUrl("/api/v1/identity/grants", { NEGARIN_API_URL: "https://api.example.test" } as NodeJS.ProcessEnv))
+    expect(apiUrl("/api/v1/identity/grants", { NEGARIN_API_URL: "https://api.example.test" }))
       .toBe("https://api.example.test/api/v1/identity/grants");
     for (const invalid of ["/health", "/api/v1/../admin", "/api/v1/x\\y", " /api/v1/x"]) {
-      expect(() => apiUrl(invalid, { NEGARIN_API_URL: "https://api.example.test" } as NodeJS.ProcessEnv)).toThrow();
+      expect(() => apiUrl(invalid, { NEGARIN_API_URL: "https://api.example.test" })).toThrow();
     }
   });
 
@@ -56,17 +56,17 @@ describe("Negarin web server API boundary", () => {
   });
 
   it("keeps development session attachment explicitly opt-in and impossible in production", () => {
-    expect(devSessionAttachEnabled({ NODE_ENV: "development", NEGARIN_DEV_SESSION_ATTACH: "1" } as NodeJS.ProcessEnv)).toBe(true);
-    expect(devSessionAttachEnabled({ NODE_ENV: "development" } as NodeJS.ProcessEnv)).toBe(false);
-    expect(devSessionAttachEnabled({ NODE_ENV: "production", NEGARIN_DEV_SESSION_ATTACH: "1" } as NodeJS.ProcessEnv)).toBe(false);
+    expect(devSessionAttachEnabled({ NODE_ENV: "development", NEGARIN_DEV_SESSION_ATTACH: "1" })).toBe(true);
+    expect(devSessionAttachEnabled({ NODE_ENV: "development" })).toBe(false);
+    expect(devSessionAttachEnabled({ NODE_ENV: "production", NEGARIN_DEV_SESSION_ATTACH: "1" })).toBe(false);
   });
 
   it("uses an HttpOnly same-site cookie and Secure in production", () => {
     expect(NEGARIN_SESSION_COOKIE).toBe("negarin_session");
-    expect(sessionCookieOptions({ NODE_ENV: "production" } as NodeJS.ProcessEnv)).toMatchObject({
+    expect(sessionCookieOptions({ NODE_ENV: "production" })).toMatchObject({
       httpOnly: true, secure: true, sameSite: "lax", path: "/"
     });
-    expect(sessionCookieOptions({ NODE_ENV: "development" } as NodeJS.ProcessEnv).secure).toBe(false);
+    expect(sessionCookieOptions({ NODE_ENV: "development" }).secure).toBe(false);
   });
 
   it("adds the bearer token only on the server request and disables caching/redirect following", async () => {
