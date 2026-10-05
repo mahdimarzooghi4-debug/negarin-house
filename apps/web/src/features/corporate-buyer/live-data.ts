@@ -54,6 +54,7 @@ function nonNegativeInteger(value: unknown): value is number { return Number.isI
 
 export function parseCorporateProduct(value: unknown): CorporateProduct | null {
   const v=record(value); if(!v) return null;
+  if("artistUserId" in v||"publicationStatus" in v||"inventoryVersion" in v||"archivedAt" in v) return null;
   if(!text(v.id)||!text(v.title)||!text(v.description)||!text(v.category)||
      !nullableText(v.dimensions)||!nullableText(v.materials)||!nullableText(v.weight)||
      !nullableText(v.color)||!nullableText(v.technique)||!nullableText(v.careInstructions)||
@@ -70,12 +71,12 @@ export function parseProductPage(value: unknown): Paged<CorporateProduct> | null
 }
 
 export function parseCorporatePurchaseRequest(value: unknown): CorporatePurchaseRequest | null {
-  const v=record(value); if(!v||!text(v.id)||(v.status!=="draft"&&v.status!=="submitted")||
+  const v=record(value); if(!v||"buyerOrganizationId" in v||"createdByUserId" in v||!text(v.id)||(v.status!=="draft"&&v.status!=="submitted")||
     !nonNegativeInteger(v.version)||!text(v.createdAt)||!(v.submittedAt===null||text(v.submittedAt))||
     !Array.isArray(v.items)||!Array.isArray(v.history)) return null;
   const items: CorporatePurchaseRequestItem[]=[];
   for(const raw of v.items){
-    const item=record(raw); if(!item||!text(item.productId)||!text(item.title)||!positiveInteger(item.quantity)) return null;
+    const item=record(raw); if(!item||"artistUserId" in item||!text(item.productId)||!text(item.title)||!positiveInteger(item.quantity)) return null;
     items.push({productId:item.productId,title:item.title,quantity:item.quantity});
   }
   const history: CorporatePurchaseRequest["history"]=[];
