@@ -23,7 +23,7 @@ describe("Corporate purchase request HTTP and PostgreSQL", () => {
   }
   type User = Awaited<ReturnType<typeof signIn>>;
 
-  async function product(artist: User, extra: Record<string, unknown> = {}) {
+  async function product(artist: User, extra: Partial<{ publicationStatus: "draft" | "under_review" | "changes_requested" | "approved" | "published"; archivedAt: Date | null; stockQuantity: number; priceToman: bigint; category: string }> = {}) {
     return db.artistProduct.create({ data: {
       artistUserId: artist.userId, title: "محصول سازمانی " + randomUUID().slice(0, 8), description: "محصول منتشرشده",
       category: "corporate-" + randomUUID(), publicationStatus: "published", priceToman: 9007199254740993n, stockQuantity: 0, ...extra
@@ -148,5 +148,7 @@ describe("Corporate purchase request HTTP and PostgreSQL", () => {
     await expect(db.corporatePurchaseRequestEvent.deleteMany({ where: { requestId: id } })).rejects.toThrow();
     await expect(db.corporatePurchaseRequestItem.updateMany({ where: { requestId: id }, data: { quantity: 2 } })).rejects.toThrow();
     await expect(db.corporatePurchaseRequestItem.deleteMany({ where: { requestId: id } })).rejects.toThrow();
+    await expect(db.corporatePurchaseRequest.update({ where: { id }, data: { buyerOrganizationId: randomUUID() } })).rejects.toThrow();
+    await expect(db.corporatePurchaseRequest.delete({ where: { id } })).rejects.toThrow();
   });
 });
