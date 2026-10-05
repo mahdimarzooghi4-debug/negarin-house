@@ -36,7 +36,8 @@ export async function claimOutboxBatch(
   pool: Pool,
   leaseOwner: string,
   limit = 50,
-  leaseMilliseconds = 60_000
+  leaseMilliseconds = 60_000,
+  eventKeyPrefix?: string
 ): Promise<ClaimedOutboxEvent[]> {
   if (!leaseOwner || leaseOwner.length > 200 || !Number.isInteger(limit) || limit < 1 || limit > 200 ||
       !Number.isInteger(leaseMilliseconds) || leaseMilliseconds < 1_000 || leaseMilliseconds > 300_000) {
@@ -51,6 +52,7 @@ export async function claimOutboxBatch(
         WHERE "dispatchedAt" IS NULL
           AND "nextAttemptAt" <= NOW()
           AND ("leaseUntil" IS NULL OR "leaseUntil" <= NOW())
+          AND ($4::text IS NULL OR "eventKey" LIKE $4 || '%')
         ORDER BY "occurredAt" ASC, "id" ASC
         FOR UPDATE SKIP LOCKED
         LIMIT $1
@@ -94,9 +96,10 @@ export async function dispatchOutboxOnce(
   pool: Pool,
   publish: OutboxPublisher,
   leaseOwner = randomUUID(),
-  batchSize = 50
+  batchSize = 50,
+  eventKeyPrefix?: string
 ): Promise<number> {
-  const events = await claimOutboxBatch(pool, leaseOwner, batchSize);
+  const events = await claimOutboxBatch(pool, leaseOwner, batchSize, 60_000, eventKeyPrefix);
   for (const event of events) {
     try {
       await publish(event);
