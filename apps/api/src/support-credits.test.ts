@@ -18,7 +18,7 @@ describe("Support credit contracts", () => {
 
   it("requires exact positive Toman strings and never accepts an amount on lifecycle transitions", () => {
     expect(parseSupportAllocationCreate({ idempotencyKey: id, amountToman: "500000" })).toEqual({ idempotencyKey: id, amountToman: "500000" });
-    for (const amountToman of [0, "0", "-1", "1.5", "01", 500000]) expect(() => parseSupportAllocationCreate({ idempotencyKey: id, amountToman })).toThrow();
+    for (const amountToman of [0, "0", "-1", "1.5", "01", 500000, "9223372036854775808", "10000000000000000000"]) expect(() => parseSupportAllocationCreate({ idempotencyKey: id, amountToman })).toThrow();
     expect(parseSupportReserve({ version: 0, serviceRequestId: id, reason: "رزرو طبق قواعد برنامه" })).toEqual({ version: 0, serviceRequestId: id, reason: "رزرو طبق قواعد برنامه" });
     expect(parseSupportTransition({ version: 1, reason: "مصرف کامل" })).toEqual({ version: 1, reason: "مصرف کامل" });
     expect(() => parseSupportReserve({ version: 0, serviceRequestId: id, reason: "x", amountToman: "1" })).toThrow();
