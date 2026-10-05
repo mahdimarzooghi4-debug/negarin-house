@@ -33,9 +33,18 @@ Growth cannot be purchased.
 
 ### Supporting Organization
 - Limited to its own programs, referrals, support relationships, usage, reports, and organization users.
-- Referral does not equal Artist approval.
-- No Artist administration authority.
-- No access to Artist private finance or bank information.
+- Referral does not equal Artist approval and does not automatically create a SupportRelationship.
+- Support credit is monetary in Toman but is not cash, a wallet, withdrawable, transferable, or convertible to cash for the Artist.
+- Support may originate from a Supporting Organization program or a Negarin CSR program.
+- Any Artist may be supported after explicit connection to a program; external-program eligibility requires sponsor approval plus explicit Negarin approval.
+- Every program has its own rules; an allocation snapshots those rules and is used only as a whole.
+- Reservation is mandatory before consumption; multiple independent allocations may support one ServiceRequest.
+- Support credit does not expire.
+- Support lifecycle is append-only: allocated, reserved, consumed, released, reversed. Reversal is Negarin-only.
+- Service Partner has no support-credit visibility or mutation responsibility.
+- Artist sees all own support details. Supporting Organization sees all support and linked service-usage details for its own programs.
+- No Artist administration authority and no access to Artist private finance, bank information, private Growth internals, or Admin notes.
+- Support ledger remains separate from payment, refund, settlement, and banking mechanisms.
 
 ### Corporate Buyer
 - External B2B buyer.
