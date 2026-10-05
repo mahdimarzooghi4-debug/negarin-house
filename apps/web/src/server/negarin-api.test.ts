@@ -4,6 +4,7 @@ import {
   apiOrigin,
   apiUrl,
   devSessionAttachEnabled,
+  isSameOriginMutation,
   isSessionToken,
   isUuid,
   negarinFetch,
@@ -36,6 +37,14 @@ describe("Negarin web server API boundary", () => {
     for (const invalid of ["/health", "/api/v1/../admin", "/api/v1/x\\y", " /api/v1/x"]) {
       expect(() => apiUrl(invalid, { NEGARIN_API_URL: "https://api.example.test" } as NodeJS.ProcessEnv)).toThrow();
     }
+  });
+
+  it("requires browser mutations to come from the exact request origin", () => {
+    expect(isSameOriginMutation("https://app.example.test", "https://app.example.test")).toBe(true);
+    expect(isSameOriginMutation("https://app.example.test/", "https://app.example.test")).toBe(true);
+    expect(isSameOriginMutation("https://evil.example.test", "https://app.example.test")).toBe(false);
+    expect(isSameOriginMutation(null, "https://app.example.test")).toBe(false);
+    expect(isSameOriginMutation("not a url", "https://app.example.test")).toBe(false);
   });
 
   it("accepts only the exact base64url session token shape and UUID resource ids", () => {
