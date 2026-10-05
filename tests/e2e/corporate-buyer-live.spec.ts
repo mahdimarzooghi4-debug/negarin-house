@@ -143,11 +143,21 @@ test("Corporate Buyer completes the authenticated live PurchaseRequest golden pa
     const draftUrl=new URL(page.url());
     const requestId=draftUrl.searchParams.get("id");
     expect(requestId).toMatch(/^[0-9a-f-]{36}$/i);
-    await expect(page.getByText("پیش‌نویس",{exact:true})).toBeVisible();
+
+    const draftDetail=await context.request.get(`/api/corporate/purchase-requests/${requestId}`);
+    expect(draftDetail.status()).toBe(200);
+    expect(await draftDetail.json()).toMatchObject({
+      id:requestId,
+      status:"draft",
+      version:0,
+      items:[{productId:fixture.productId,quantity:2}],
+      history:[{version:0,action:"created"}]
+    });
+    await expect(page.getByRole("button",{name:"ارسال برای بررسی نگارین"})).toBeVisible();
     await expect(page.getByText("ایجاد پیش‌نویس",{exact:true})).toBeVisible();
 
     await page.getByRole("button",{name:"ارسال برای بررسی نگارین"}).click();
-    await expect(page.getByText("ارسال‌شده",{exact:true})).toBeVisible();
+    await expect(page.getByRole("button",{name:"ارسال برای بررسی نگارین"})).toHaveCount(0);
     await expect(page.getByText("ارسال درخواست",{exact:true})).toBeVisible();
 
     const detail=await context.request.get(`/api/corporate/purchase-requests/${requestId}`);
