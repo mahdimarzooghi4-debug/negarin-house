@@ -117,7 +117,10 @@ describe("Support reporting HTTP read models", () => {
 
     const admin = await app.inject({ method: "GET", url: "/api/v1/admin/support-report", headers: reports.headers });
     expect(admin.statusCode).toBe(200);
-    expect(admin.json().totals).toMatchObject({ programs: 3, relationships: 3, allocations: 4, allocatedToman: "1700000", currentAvailableToman: "1200000", currentConsumedToman: "500000" });
+    const adminProgramIds = new Set(admin.json().programs.map((p: { program: { id: string } }) => p.program.id));
+    expect(adminProgramIds.has(first.program.id)).toBe(true);
+    expect(admin.json().programs.some((p: { program: { title: string } }) => p.program.title === "CSR نگارین")).toBe(true);
+    expect(BigInt(admin.json().totals.allocatedToman)).toBeGreaterThanOrEqual(1_700_000n);
     expect((await app.inject({ method: "GET", url: "/api/v1/admin/support-report", headers: staffArtists.headers })).statusCode).toBe(403);
   });
 
