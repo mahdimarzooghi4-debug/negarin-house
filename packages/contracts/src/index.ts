@@ -17,3 +17,26 @@ export const cursorPageSchema = <T extends z.ZodType>(item: T) =>
   });
 
 export const businessIdSchema = z.string().regex(/^[A-Z][A-Z0-9]*-[A-Z0-9-]+$/);
+
+
+/** Locked Phase 1 Growth taxonomy. Order is part of the product contract. */
+export const growthLevels = [
+  "جوانه",
+  "شکوفه",
+  "سرو زرین",
+  "سفیر جهانی"
+] as const;
+
+export type GrowthLevel = (typeof growthLevels)[number];
+
+export const growthLevelSchema = z.enum(growthLevels);
+
+export const growthRegistrySchema = z.object({
+  purchasable: z.literal(false),
+  levels: z.tuple([
+    z.object({ order: z.literal(1), name: z.literal("جوانه") }),
+    z.object({ order: z.literal(2), name: z.literal("شکوفه") }),
+    z.object({ order: z.literal(3), name: z.literal("سرو زرین") }),
+    z.object({ order: z.literal(4), name: z.literal("سفیر جهانی") })
+  ])
+});
