@@ -16,7 +16,8 @@ function text(value: unknown, max: number) {
   return value.trim();
 }
 function money(value: unknown) {
-  if (typeof value !== "string" || !/^[1-9][0-9]{0,26}$/.test(value)) throw new BadRequestException();
+  if (typeof value !== "string" || !/^[1-9][0-9]{0,18}$/.test(value)) throw new BadRequestException();
+  if (BigInt(value) > 9_223_372_036_854_775_807n) throw new BadRequestException();
   return value;
 }
 export function parseSupportProgramCreate(body: unknown) {
