@@ -60,7 +60,6 @@ export function CorporateNewPurchaseRequestLive({productIds}:{productIds:string[
       .finally(()=>{if(!controller.signal.aborted)setLoading(false);});
     return ()=>controller.abort();
   // productIds are canonicalized by the server page before reaching this component.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[unique.join(",")]);
 
   async function create(mode:"draft"|"submit"){
