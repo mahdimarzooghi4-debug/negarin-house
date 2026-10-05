@@ -1,11 +1,21 @@
 import { describe, expect, it } from "vitest";
-import { parseServiceAssign, parseServiceCreate, parseServiceResponse, ServiceAssignmentsService } from "./service-assignments.js";
+import { parseArtistServiceCreate, parseServiceAssign, parseServiceCreate, parseServiceResponse, ServiceAssignmentsService } from "./service-assignments.js";
 import type { PrismaService } from "./prisma.service.js";
 const id = "00000000-0000-4000-8000-000000000001";
 describe("Service assignment contracts", () => {
   it("normalizes work scope without accepting financial or growth commands", () => {
     expect(parseServiceCreate({ idempotencyKey: id, artistUserId: id, title: " عکس ", description: " محصول " }).title).toBe("عکس");
     for (const extra of [{ priceToman: "1000" }, { growthLevel: "سرو زرین" }, { artistPhone: "0912" }]) expect(() => parseServiceCreate({ idempotencyKey: id, artistUserId: id, title: "عکس", description: "محصول", ...extra })).toThrow();
+  });
+  it("accepts only self-service Artist request fields", () => {
+    expect(parseArtistServiceCreate({ idempotencyKey: id, title: " عکاسی ", description: " پنج تصویر " })).toEqual({ idempotencyKey: id, title: "عکاسی", description: "پنج تصویر" });
+    for (const extra of [{ artistUserId: id }, { internalNote: "private" }, { priceToman: "1000" }, { serviceCredit: 1 }, { growthLevel: "سرو زرین" }, { partnerUserId: id }]) {
+      expect(() => parseArtistServiceCreate({ idempotencyKey: id, title: "عکس", description: "محصول", ...extra })).toThrow();
+    }
+  });
+  it("rejects non-Artist self-service creation before storage access", async () => {
+    const s = new ServiceAssignmentsService({} as PrismaService);
+    await expect(s.createArtist({ userId: id, activeRole: "customer" }, { idempotencyKey: id, title: "x", description: "y" }, "trace")).rejects.toThrow();
   });
   it("rejects missing, oversized and control-character work scope", () => {
     for (const title of [null, "", "x".repeat(201), "x\n", "x\u202e"]) expect(() => parseServiceCreate({ idempotencyKey: id, artistUserId: id, title, description: "scope" })).toThrow();
