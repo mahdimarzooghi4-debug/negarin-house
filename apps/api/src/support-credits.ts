@@ -241,10 +241,10 @@ export class SupportCreditsService {
       if (!relationship) throw new NotFoundException();
       const allocation = await tx.supportAllocation.create({ data: {
         programId: relationship.programId, relationshipId, createdByUserId: context.userId, idempotencyKey: parsed.idempotencyKey,
-        amountToman: parsed.amountToman, rulesSnapshot: relationship.program.rules
+        amountToman: BigInt(parsed.amountToman), rulesSnapshot: relationship.program.rules
       } });
       await tx.supportCreditEvent.create({ data: {
-        allocationId: allocation.id, version: 0, action: "allocated", amountToman: parsed.amountToman,
+        allocationId: allocation.id, version: 0, action: "allocated", amountToman: BigInt(parsed.amountToman),
         actorUserId: context.userId, command, requestTraceId: trace
       } });
       return allocationView(await tx.supportAllocation.findUniqueOrThrow({ where: { id: allocation.id }, include: allocationInclude }));
