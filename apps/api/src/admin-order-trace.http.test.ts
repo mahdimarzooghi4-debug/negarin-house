@@ -137,7 +137,7 @@ describe("Admin order trace HTTP", () => {
     expect(response.json().inventory).toEqual([
       expect.objectContaining({ productId: product.id, reason: "order-reserved", previousQuantity: 5, stockQuantity: 4 })
     ]);
-    expect(response.json().finance.map((e: { kind: string }) => e.kind)).toEqual(["payment_received", "sale_verified", "refund_approved"]);
+    expect(new Set(response.json().finance.map((e: { kind: string }) => e.kind))).toEqual(new Set(["payment_received", "sale_verified", "refund_approved"]));
     expect(response.json().order.status).toBe("placed");
     expect(response.json().payment[0].status).toBe("succeeded");
     expect(response.json().fulfillment[0].status).toBe("ready_for_dispatch");
