@@ -47,13 +47,19 @@ export const MAX_PURCHASE_REQUEST_LINES=100;
 export const MAX_PURCHASE_REQUEST_QUANTITY=2_147_483_647;
 const MAX_PURCHASE_REQUEST_VERSION=2_147_483_647;
 export type PurchaseRequestProductSelectionError="invalid"|"too_many";
+export type PurchaseRequestProductSelection={ids:string[];error:PurchaseRequestProductSelectionError|null};
 
-export function normalizePurchaseRequestProductIds(values:string[]): {ids:string[];error:PurchaseRequestProductSelectionError|null} {
-  const nonEmpty=values.filter(value=>value.length>0);
-  if(nonEmpty.some(value=>!isUuid(value))) return {ids:[],error:"invalid"};
-  const ids=[...new Set(nonEmpty)];
+export function normalizePurchaseRequestProductIds(values:string[]): PurchaseRequestProductSelection {
+  if(values.some(value=>value.length===0||!isUuid(value))) return {ids:[],error:"invalid"};
+  const ids=[...new Set(values)];
   if(ids.length>MAX_PURCHASE_REQUEST_LINES) return {ids:[],error:"too_many"};
   return {ids,error:null};
+}
+
+export function parsePurchaseRequestProductQuery(value:string|string[]|undefined): PurchaseRequestProductSelection {
+  if(value===undefined) return {ids:[],error:null};
+  if(Array.isArray(value)) return {ids:[],error:"invalid"};
+  return normalizePurchaseRequestProductIds(value.split(","));
 }
 
 function record(value: unknown): Record<string, unknown> | null {

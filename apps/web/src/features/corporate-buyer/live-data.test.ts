@@ -1,5 +1,5 @@
 import {describe,expect,it} from "vitest";
-import {MAX_PURCHASE_REQUEST_LINES,MAX_PURCHASE_REQUEST_QUANTITY,formatToman,isPurchaseRequestQuantity,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parseProductPage,requestTotalQuantity} from "./live-data";
+import {MAX_PURCHASE_REQUEST_LINES,MAX_PURCHASE_REQUEST_QUANTITY,formatToman,isPurchaseRequestQuantity,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parseProductPage,parsePurchaseRequestProductQuery,requestTotalQuantity} from "./live-data";
 
 describe("Corporate live data contracts",()=>{
   it("parses only the public Corporate product response",()=>{
@@ -39,8 +39,13 @@ describe("Corporate live data contracts",()=>{
     const id=(value:number)=>`00000000-0000-4000-8000-${String(value).padStart(12,"0")}`;
     expect(normalizePurchaseRequestProductIds([id(1),id(1),id(2)])).toEqual({ids:[id(1),id(2)],error:null});
     expect(normalizePurchaseRequestProductIds([id(1),"not-a-product-id"])).toEqual({ids:[],error:"invalid"});
+    expect(normalizePurchaseRequestProductIds([id(1),""])).toEqual({ids:[],error:"invalid"});
     expect(normalizePurchaseRequestProductIds(
       Array.from({length:MAX_PURCHASE_REQUEST_LINES+1},(_,index)=>id(index+1))
     )).toEqual({ids:[],error:"too_many"});
+    expect(parsePurchaseRequestProductQuery(undefined)).toEqual({ids:[],error:null});
+    expect(parsePurchaseRequestProductQuery(`${id(1)},${id(2)}`)).toEqual({ids:[id(1),id(2)],error:null});
+    expect(parsePurchaseRequestProductQuery(`${id(1)},,${id(2)}`)).toEqual({ids:[],error:"invalid"});
+    expect(parsePurchaseRequestProductQuery([id(1),id(2)])).toEqual({ids:[],error:"invalid"});
   });
 });

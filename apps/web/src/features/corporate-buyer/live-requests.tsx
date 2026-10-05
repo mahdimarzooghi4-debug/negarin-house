@@ -5,8 +5,8 @@ import {useEffect,useRef,useState} from "react";
 import {CorporateLiveShell} from "./live-shell";
 import {CorporateSessionGate} from "./live-session";
 import {
-  MAX_PURCHASE_REQUEST_QUANTITY,formatPersianDate,isPurchaseRequestQuantity,isUuid,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parsePurchaseRequestPage,
-  requestTotalQuantity,shortId,type CorporateProduct,type CorporatePurchaseRequest
+  MAX_PURCHASE_REQUEST_QUANTITY,formatPersianDate,isPurchaseRequestQuantity,isUuid,parseCorporateProduct,parseCorporatePurchaseRequest,parsePurchaseRequestPage,
+  requestTotalQuantity,shortId,type CorporateProduct,type CorporatePurchaseRequest,type PurchaseRequestProductSelection
 } from "./live-data";
 import styles from "./live.module.css";
 
@@ -42,9 +42,9 @@ export function CorporatePurchaseRequestsLive(){
   </section></CorporateLiveShell></CorporateSessionGate>;
 }
 
-export function CorporateNewPurchaseRequestLive({productIds}:{productIds:string[]}){
+export function CorporateNewPurchaseRequestLive({selection}:{selection:PurchaseRequestProductSelection}){
   const router=useRouter(),idempotencyKey=useRef<string|null>(null);
-  const selection=normalizePurchaseRequestProductIds(productIds),unique=selection.ids;
+  const unique=selection.ids;
   const selectionError=selection.error==="invalid"
     ?"شناسه یکی از محصولات انتخاب‌شده معتبر نیست. هیچ قلمی از ورودی حذف نشد."
     :selection.error==="too_many"

@@ -8,6 +8,7 @@ import {
   CorporatePurchaseRequestDetailLive,
   CorporatePurchaseRequestsLive
 } from "../../../features/corporate-buyer/live-requests";
+import { parsePurchaseRequestProductQuery } from "../../../features/corporate-buyer/live-data";
 
 function first(value: string | string[] | undefined): string {
   return Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -28,8 +29,7 @@ export default async function LocalizedPortalPage({
     if (locale === "product-detail") return <CorporateProductDetailLive id={first(query.id)} />;
     if (locale === "purchase-requests") return <CorporatePurchaseRequestsLive />;
     if (locale === "new-purchase-request") {
-      const products = first(query.products).split(",").filter(Boolean);
-      return <CorporateNewPurchaseRequestLive productIds={products} />;
+      return <CorporateNewPurchaseRequestLive selection={parsePurchaseRequestProductQuery(query.products)} />;
     }
     if (locale === "purchase-request-detail") return <CorporatePurchaseRequestDetailLive id={first(query.id)} />;
     notFound();
