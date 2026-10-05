@@ -14,7 +14,8 @@ Directly storing API bearer tokens in client JavaScript or localStorage is not a
 4. Server-side API origin comes from `NEGARIN_API_URL`; only an http(s) origin with no credentials/path/query/fragment is accepted.
 5. Proxy helpers accept only explicit `/api/v1/*` paths and reject path traversal / alternate origins.
 6. Upstream redirects are not followed.
-7. All cookie-authenticated mutation routes require an exact same-origin `Origin` header; missing or cross-origin mutations are rejected.\n8. Upstream 401 clears the browser session cookie.
+7. All cookie-authenticated mutation routes require an exact same-origin `Origin` header; missing or cross-origin mutations are rejected.
+8. Upstream 401 clears the browser session cookie.
 9. Context discovery/select remains enforced by the existing API:
    - `GET /identity/grants`
    - `GET /identity/context`
