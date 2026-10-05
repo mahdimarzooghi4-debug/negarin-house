@@ -22,6 +22,16 @@ export function isUuid(value: unknown): value is string {
   return typeof value === "string" && UUID.test(value);
 }
 
+export function isSameOriginMutation(originHeader: string | null, requestOrigin: string): boolean {
+  if (!originHeader) return false;
+  try {
+    return new URL(originHeader).origin === new URL(requestOrigin).origin;
+  } catch {
+    return false;
+  }
+}
+
+
 export function apiUrl(path: string, environment: NodeJS.ProcessEnv = process.env): string {
   if (!path.startsWith("/api/v1/") || path.includes("\\") || /\s/.test(path)) {
     throw new Error("Only explicit Negarin API v1 paths may be proxied");
