@@ -97,6 +97,17 @@ test("Corporate Buyer completes the authenticated live PurchaseRequest golden pa
     await page.getByRole("button",{name:`سازمان ${fixture.organizationId.slice(0,8)}…`}).click();
 
     await expect(page.getByRole("heading",{name:"محصولات سازمانی"})).toBeVisible();
+
+    const catalog=await context.request.get(
+      "/api/corporate/products?"+new URLSearchParams({q:fixture.title,page:"1",pageSize:"20",sort:"newest"}).toString()
+    );
+    expect(catalog.status()).toBe(200);
+    expect((await catalog.json()).items).toEqual(expect.arrayContaining([
+      expect.objectContaining({id:fixture.productId,title:fixture.title})
+    ]));
+
+    const search=page.getByLabel("جستجوی محصولات");
+    await search.fill(fixture.title);
     await expect(page.getByText(fixture.title,{exact:true})).toBeVisible();
 
     const after=await context.request.get("/api/auth/context");
