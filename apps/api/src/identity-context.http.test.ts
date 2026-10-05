@@ -55,6 +55,12 @@ describe("identity context HTTP contract", () => {
       activeRole: "corporate-buyer", organizationId: grant.organizationId });
     expect((await get("context")).statusCode).toBe(200);
 
+    await database.roleGrant.update({ where: { id: grant.id }, data: { revokedAt: new Date() } });
+    expect((await get("context")).statusCode).toBe(401);
+    expect((await get("grants")).json().grants).toEqual([]);
+    await database.roleGrant.update({ where: { id: grant.id }, data: { revokedAt: null } });
+    expect((await select(grant.id)).statusCode).toBe(201);
+
     const revoke = await app.inject({ method: "POST", url: "/api/v1/identity/session/revoke", headers: auth });
     expect(revoke.statusCode).toBe(204);
     expect((await get("grants")).statusCode).toBe(401);
@@ -63,9 +69,5 @@ describe("identity context HTTP contract", () => {
     const secondAuth = { authorization: `Bearer ${secondSession.sessionToken}` };
     expect((await app.inject({ method: "POST", url: "/api/v1/identity/session/revoke" })).statusCode).toBe(401);
     expect((await app.inject({ method: "POST", url: "/api/v1/identity/session/revoke", headers: secondAuth })).statusCode).toBe(204);
-
-    await database.roleGrant.update({ where: { id: grant.id }, data: { revokedAt: new Date() } });
-    expect((await get("context")).statusCode).toBe(401);
-    expect((await get("grants")).json().grants).toEqual([]);
   });
 });
