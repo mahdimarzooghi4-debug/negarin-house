@@ -5,6 +5,7 @@ import { claimOutboxBatch, createOutboxPool, dispatchOutboxOnce, markOutboxFaile
 
 describe("transactional outbox dispatcher", () => {
   const pool = createOutboxPool(process.env.DATABASE_URL!);
+  const prefix = "worker-test-" + randomUUID() + "-";
 
   beforeAll(async () => {
     if (!process.env.DATABASE_URL) throw new Error("DATABASE_URL is required");
@@ -23,11 +24,11 @@ describe("transactional outbox dispatcher", () => {
   }
 
   it("leases with SKIP LOCKED and prevents two workers from claiming the same event", async () => {
-    const id = await insert("worker-lease-" + randomUUID());
+    const id = await insert(prefix + "lease-" + randomUUID());
     const ownerA = "worker-a-" + randomUUID(), ownerB = "worker-b-" + randomUUID();
     const [a, b] = await Promise.all([
-      claimOutboxBatch(pool, ownerA, 1, 60_000),
-      claimOutboxBatch(pool, ownerB, 1, 60_000)
+      claimOutboxBatch(pool, ownerA, 1, 60_000, prefix),
+      claimOutboxBatch(pool, ownerB, 1, 60_000, prefix)
     ]);
     const claimed = [...a, ...b].filter(event => event.id === id);
     expect(claimed).toHaveLength(1);
@@ -36,9 +37,9 @@ describe("transactional outbox dispatcher", () => {
   });
 
   it("marks successful publication exactly once and does not reclaim dispatched events", async () => {
-    const eventKey = "worker-success-" + randomUUID();
+    const eventKey = prefix + "success-" + randomUUID();
     const id = await insert(eventKey), published: string[] = [];
-    expect(await dispatchOutboxOnce(pool, async event => { if (event.id === id) published.push(event.eventKey); }, "worker-success", 50)).toBeGreaterThan(0);
+    expect(await dispatchOutboxOnce(pool, async event => { if (event.id === id) published.push(event.eventKey); }, "worker-success", 50, prefix)).toBeGreaterThan(0);
     expect(published).toContain(eventKey);
 
     const row = (await pool.query<{
@@ -50,15 +51,15 @@ describe("transactional outbox dispatcher", () => {
     expect(row.leaseUntil).toBeNull();
     expect(row.lastError).toBeNull();
 
-    const reclaimed = await claimOutboxBatch(pool, "worker-reclaim", 200, 60_000);
+    const reclaimed = await claimOutboxBatch(pool, "worker-reclaim", 200, 60_000, prefix);
     expect(reclaimed.some(event => event.id === id)).toBe(false);
   });
 
   it("records publisher failure, releases the lease, and delays retry", async () => {
-    const eventKey = "worker-failure-" + randomUUID(), id = await insert(eventKey);
+    const eventKey = prefix + "failure-" + randomUUID(), id = await insert(eventKey);
     await dispatchOutboxOnce(pool, async event => {
       if (event.id === id) throw new Error("provider unavailable");
-    }, "worker-failure", 50);
+    }, "worker-failure", 50, prefix);
 
     const row = (await pool.query<{
       dispatchedAt: Date | null; attemptCount: number; leaseOwner: string | null; leaseUntil: Date | null; lastError: string | null; nextAttemptAt: Date;
@@ -70,7 +71,7 @@ describe("transactional outbox dispatcher", () => {
     expect(row.lastError).toBe("provider unavailable");
     expect(row.nextAttemptAt.getTime()).toBeGreaterThan(Date.now());
 
-    const immediate = await claimOutboxBatch(pool, "worker-too-soon", 200, 60_000);
+    const immediate = await claimOutboxBatch(pool, "worker-too-soon", 200, 60_000, prefix);
     expect(immediate.some(event => event.id === id)).toBe(false);
   });
 });
