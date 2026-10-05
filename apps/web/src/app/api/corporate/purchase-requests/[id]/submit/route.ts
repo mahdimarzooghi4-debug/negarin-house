@@ -1,8 +1,10 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { authenticatedProxy, jsonBody } from "../../../../../../server/api-proxy";
+import { authenticatedProxy, jsonBody, rejectCrossOriginMutation } from "../../../../../../server/api-proxy";
 import { isUuid } from "../../../../../../server/negarin-api";
 
 export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const crossOrigin = rejectCrossOriginMutation(request);
+  if (crossOrigin) return crossOrigin;
   const { id } = await params;
   if (!isUuid(id)) return NextResponse.json({ error: "invalid-id" }, { status: 400, headers: { "Cache-Control": "no-store" } });
   const body = await jsonBody(request, 4 * 1024);
