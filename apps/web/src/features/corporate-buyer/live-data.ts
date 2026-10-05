@@ -43,6 +43,9 @@ export function isUuid(value: unknown): value is string {
   return typeof value==="string" && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
 }
 
+export const MAX_CORPORATE_LIST_PAGE=1000;
+export const MAX_CORPORATE_LIST_PAGE_SIZE=50;
+export const CORPORATE_LIST_PAGE_SIZE=20;
 export const MAX_PURCHASE_REQUEST_LINES=100;
 export const MAX_PURCHASE_REQUEST_QUANTITY=2_147_483_647;
 const MAX_PURCHASE_REQUEST_VERSION=2_147_483_647;
@@ -101,10 +104,23 @@ export function parseCorporateProduct(value: unknown): CorporateProduct | null {
   return v as CorporateProduct;
 }
 
-export function parseProductPage(value: unknown): Paged<CorporateProduct> | null {
-  const v=record(value); if(!v||!positiveInteger(v.page)||!positiveInteger(v.pageSize)||typeof v.hasMore!=="boolean"||!Array.isArray(v.items)) return null;
+type PageExpectation={page:number;pageSize:number};
+
+function validPageEnvelope(v:Record<string,unknown>,expected?:PageExpectation): v is Record<string,unknown>&{page:number;pageSize:number;hasMore:boolean;items:unknown[]} {
+  if(!positiveInteger(v.page)||v.page>MAX_CORPORATE_LIST_PAGE||
+     !positiveInteger(v.pageSize)||v.pageSize>MAX_CORPORATE_LIST_PAGE_SIZE||
+     typeof v.hasMore!=="boolean"||!Array.isArray(v.items)||v.items.length>v.pageSize) return false;
+  if(v.hasMore&&v.items.length!==v.pageSize) return false;
+  if(expected&&(v.page!==expected.page||v.pageSize!==expected.pageSize)) return false;
+  return true;
+}
+
+export function parseProductPage(value: unknown, expected?:PageExpectation): Paged<CorporateProduct> | null {
+  const v=record(value); if(!v||!validPageEnvelope(v,expected)) return null;
   const items=v.items.map(parseCorporateProduct); if(items.some(item=>item===null)) return null;
-  return {page:v.page,pageSize:v.pageSize,hasMore:v.hasMore,items:items as CorporateProduct[]};
+  const parsed=items as CorporateProduct[];
+  if(new Set(parsed.map(item=>item.id.toLowerCase())).size!==parsed.length) return null;
+  return {page:v.page,pageSize:v.pageSize,hasMore:v.hasMore,items:parsed};
 }
 
 export function parseCorporatePurchaseRequest(value: unknown): CorporatePurchaseRequest | null {
@@ -135,10 +151,12 @@ export function parseCorporatePurchaseRequest(value: unknown): CorporatePurchase
   return {id:v.id,status:v.status,version:v.version,createdAt:v.createdAt,submittedAt:v.submittedAt,items,history};
 }
 
-export function parsePurchaseRequestPage(value: unknown): Paged<CorporatePurchaseRequest> | null {
-  const v=record(value); if(!v||!positiveInteger(v.page)||!positiveInteger(v.pageSize)||typeof v.hasMore!=="boolean"||!Array.isArray(v.items)) return null;
+export function parsePurchaseRequestPage(value: unknown, expected?:PageExpectation): Paged<CorporatePurchaseRequest> | null {
+  const v=record(value); if(!v||!validPageEnvelope(v,expected)) return null;
   const items=v.items.map(parseCorporatePurchaseRequest); if(items.some(item=>item===null)) return null;
-  return {page:v.page,pageSize:v.pageSize,hasMore:v.hasMore,items:items as CorporatePurchaseRequest[]};
+  const parsed=items as CorporatePurchaseRequest[];
+  if(new Set(parsed.map(item=>item.id.toLowerCase())).size!==parsed.length) return null;
+  return {page:v.page,pageSize:v.pageSize,hasMore:v.hasMore,items:parsed};
 }
 
 export function formatToman(value: string): string {

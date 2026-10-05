@@ -4,7 +4,7 @@ import {useRouter} from "next/navigation";
 import {useEffect,useMemo,useState} from "react";
 import {CorporateLiveShell} from "./live-shell";
 import {CorporateSessionGate} from "./live-session";
-import {MAX_PURCHASE_REQUEST_LINES,formatToman,isUuid,parseCorporateProduct,parseProductPage,type CorporateProduct} from "./live-data";
+import {CORPORATE_LIST_PAGE_SIZE,MAX_CORPORATE_LIST_PAGE,MAX_PURCHASE_REQUEST_LINES,formatToman,isUuid,parseCorporateProduct,parseProductPage,type CorporateProduct} from "./live-data";
 import styles from "./live.module.css";
 
 function ProductImage({product}:{product:CorporateProduct}){
@@ -36,14 +36,14 @@ export function CorporateProductsLive(){
 
   useEffect(()=>{
     const controller=new AbortController();setLoading(true);setError("");
-    const params=new URLSearchParams({page:String(page),pageSize:"20",sort:"newest"});
+    const params=new URLSearchParams({page:String(page),pageSize:String(CORPORATE_LIST_PAGE_SIZE),sort:"newest"});
     if(query.trim())params.set("q",query.trim());
     if(stock!=="all")params.set("inStock",stock);
     void fetch("/api/corporate/products?"+params.toString(),{cache:"no-store",signal:controller.signal})
       .then(async response=>{
         if(response.status===401)throw new Error("نشست شما منقضی شده است.");
         if(!response.ok)throw new Error("فهرست محصولات دریافت نشد.");
-        const parsed=parseProductPage(await response.json());
+        const parsed=parseProductPage(await response.json(),{page,pageSize:CORPORATE_LIST_PAGE_SIZE});
         if(!parsed)throw new Error("پاسخ محصولات با قرارداد نگارین سازگار نیست.");
         setData(parsed);
       }).catch(error=>{if(!controller.signal.aborted)setError(error instanceof Error?error.message:"خطای نامشخص");})
@@ -87,7 +87,7 @@ export function CorporateProductsLive(){
       {data&&<div className={styles.pagination}>
         <button className={styles.secondary} type="button" disabled={page<=1} onClick={()=>setPage(value=>Math.max(1,value-1))}>قبلی</button>
         <span>صفحه {new Intl.NumberFormat("fa-IR").format(page)}</span>
-        <button className={styles.secondary} type="button" disabled={!data.hasMore} onClick={()=>setPage(value=>value+1)}>بعدی</button>
+        <button className={styles.secondary} type="button" disabled={!data.hasMore||page>=MAX_CORPORATE_LIST_PAGE} onClick={()=>setPage(value=>Math.min(MAX_CORPORATE_LIST_PAGE,value+1))}>بعدی</button>
       </div>}
     </section>
   </CorporateLiveShell></CorporateSessionGate>;
