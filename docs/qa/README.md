@@ -17,3 +17,7 @@ Minimum release evidence should cover:
 Release flow:
 
 Stage → QA/Testing → Release Approval → Production → Monitoring → Improvement
+
+
+Feature QA packages:
+- [Corporate Live UI — PR #69](./corporate-live-ui-pr69.md)
