@@ -130,6 +130,54 @@ describe("Support credit HTTP and PostgreSQL", () => {
     for (const key of ["transferToArtistUserId", "cashable", "walletBalance", "payout", "expiresAt"]) expect(orgView.json()).not.toHaveProperty(key);
   });
 
+  it("authorizes support relationship scope before resolving retries across organization contexts", async () => {
+    const firstOrg = randomUUID(), secondOrg = randomUUID();
+    const supporter = await signIn("supporting_organization", undefined, firstOrg);
+    const token = supporter.headers.authorization.replace("Bearer ", "");
+    const secondGrant = await db.roleGrant.create({ data: { userId: supporter.userId, role: "supporting_organization", organizationId: secondOrg } });
+    const artist = await signIn(), staffArtists = await signIn("staff", "artists");
+
+    const createRelationship = async (organizationId: string, grantId: string, title: string) => {
+      expect((await contexts.select(token, grantId))?.organizationId).toBe(organizationId);
+      const program = await app.inject({ method: "POST", url: "/api/v1/supporting-organization/support-programs", headers: supporter.headers,
+        payload: { idempotencyKey: randomUUID(), title, description: "برنامه چند سازمانی", rules: "استفاده کامل" } });
+      expect(program.statusCode).toBe(201);
+      const relationship = await app.inject({ method: "POST", url: `/api/v1/supporting-organization/support-programs/${program.json().id}/relationships`,
+        headers: supporter.headers, payload: { artistUserId: artist.userId } });
+      expect(relationship.statusCode).toBe(201);
+      const approved = await app.inject({ method: "POST", url: `/api/v1/admin/support-relationships/${relationship.json().id}/approve`,
+        headers: staffArtists.headers, payload: { version: 0 } });
+      expect(approved.statusCode).toBe(201);
+      return approved.json();
+    };
+
+    const firstRelationship = await createRelationship(firstOrg, supporter.grantId, "برنامه سازمان اول");
+    const key = randomUUID();
+    const first = await app.inject({ method: "POST", url: `/api/v1/supporting-organization/support-relationships/${firstRelationship.id}/allocations`,
+      headers: supporter.headers, payload: { idempotencyKey: key, amountToman: "333000" } });
+    expect(first.statusCode).toBe(201);
+    expect(first.json().program.organizationId).toBe(firstOrg);
+
+    expect((await contexts.select(token, secondGrant.id))?.organizationId).toBe(secondOrg);
+    const leakedRetry = await app.inject({ method: "POST", url: `/api/v1/supporting-organization/support-relationships/${firstRelationship.id}/allocations`,
+      headers: supporter.headers, payload: { idempotencyKey: key, amountToman: "333000" } });
+    expect(leakedRetry.statusCode).toBe(404);
+
+    const secondRelationship = await createRelationship(secondOrg, secondGrant.id, "برنامه سازمان دوم");
+    const second = await app.inject({ method: "POST", url: `/api/v1/supporting-organization/support-relationships/${secondRelationship.id}/allocations`,
+      headers: supporter.headers, payload: { idempotencyKey: key, amountToman: "333000" } });
+    expect(second.statusCode).toBe(201);
+    expect(second.json().id).not.toBe(first.json().id);
+    expect(second.json().program.organizationId).toBe(secondOrg);
+    expect(await db.supportAllocation.count({ where: { createdByUserId: supporter.userId, idempotencyKey: key } })).toBe(2);
+
+    expect((await contexts.select(token, supporter.grantId))?.organizationId).toBe(firstOrg);
+    const replay = await app.inject({ method: "POST", url: `/api/v1/supporting-organization/support-relationships/${firstRelationship.id}/allocations`,
+      headers: supporter.headers, payload: { idempotencyKey: key, amountToman: "333000" } });
+    expect(replay.statusCode).toBe(201);
+    expect(replay.json().id).toBe(first.json().id);
+  });
+
   it("serializes allocation idempotency and rolls lifecycle state back when the append-only support ledger fails", async () => {
     const s = await externalSupport(), usage = await serviceRequest(s.artist), key = randomUUID();
     const copies = await Promise.all([1, 2].map(() => allocation(s, "900000", key)));
