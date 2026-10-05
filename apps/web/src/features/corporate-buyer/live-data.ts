@@ -43,6 +43,17 @@ export function isUuid(value: unknown): value is string {
   return typeof value==="string" && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
 }
 
+export const MAX_PURCHASE_REQUEST_LINES=100;
+export type PurchaseRequestProductSelectionError="invalid"|"too_many";
+
+export function normalizePurchaseRequestProductIds(values:string[]): {ids:string[];error:PurchaseRequestProductSelectionError|null} {
+  const nonEmpty=values.filter(value=>value.length>0);
+  if(nonEmpty.some(value=>!isUuid(value))) return {ids:[],error:"invalid"};
+  const ids=[...new Set(nonEmpty)];
+  if(ids.length>MAX_PURCHASE_REQUEST_LINES) return {ids:[],error:"too_many"};
+  return {ids,error:null};
+}
+
 function record(value: unknown): Record<string, unknown> | null {
   return value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : null;
 }

@@ -1,5 +1,5 @@
 import {describe,expect,it} from "vitest";
-import {formatToman,parseCorporateProduct,parseCorporatePurchaseRequest,parseProductPage,requestTotalQuantity} from "./live-data";
+import {MAX_PURCHASE_REQUEST_LINES,formatToman,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parseProductPage,requestTotalQuantity} from "./live-data";
 
 describe("Corporate live data contracts",()=>{
   it("parses only the public Corporate product response",()=>{
@@ -28,5 +28,14 @@ describe("Corporate live data contracts",()=>{
     });
     expect(requestTotalQuantity(request!)).toBe(3);
     expect(request).not.toHaveProperty("priceToman");
+  });
+
+  it("fails closed instead of silently dropping invalid or over-limit product selections",()=>{
+    const id=(value:number)=>`00000000-0000-4000-8000-${String(value).padStart(12,"0")}`;
+    expect(normalizePurchaseRequestProductIds([id(1),id(1),id(2)])).toEqual({ids:[id(1),id(2)],error:null});
+    expect(normalizePurchaseRequestProductIds([id(1),"not-a-product-id"])).toEqual({ids:[],error:"invalid"});
+    expect(normalizePurchaseRequestProductIds(
+      Array.from({length:MAX_PURCHASE_REQUEST_LINES+1},(_,index)=>id(index+1))
+    )).toEqual({ids:[],error:"too_many"});
   });
 });

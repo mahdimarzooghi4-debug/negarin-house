@@ -4,7 +4,7 @@ import {useRouter} from "next/navigation";
 import {useEffect,useMemo,useState} from "react";
 import {CorporateLiveShell} from "./live-shell";
 import {CorporateSessionGate} from "./live-session";
-import {formatToman,isUuid,parseCorporateProduct,parseProductPage,type CorporateProduct} from "./live-data";
+import {MAX_PURCHASE_REQUEST_LINES,formatToman,isUuid,parseCorporateProduct,parseProductPage,type CorporateProduct} from "./live-data";
 import styles from "./live.module.css";
 
 function ProductImage({product}:{product:CorporateProduct}){
@@ -31,6 +31,7 @@ export function CorporateProductsLive(){
   const [data,setData]=useState<ReturnType<typeof parseProductPage>>(null);
   const [loading,setLoading]=useState(true);
   const [error,setError]=useState("");
+  const [selectionError,setSelectionError]=useState("");
   const [selected,setSelected]=useState<Record<string,boolean>>({});
 
   useEffect(()=>{
@@ -59,11 +60,12 @@ export function CorporateProductsLive(){
           <option value="all">همهٔ موجودی‌ها</option><option value="true">موجود</option><option value="false">ناموجود</option>
         </select>
         <button className={styles.button} type="button" disabled={!ids.length} onClick={()=>router.push("/corporate-buyer/new-purchase-request?products="+encodeURIComponent(ids.join(",")))}>
-          ساخت درخواست از انتخاب‌ها ({ids.length})
+          ساخت درخواست از انتخاب‌ها ({ids.length}/{MAX_PURCHASE_REQUEST_LINES})
         </button>
       </div>
       {loading&&<div className={styles.empty}>در حال دریافت محصولات واقعی…</div>}
       {error&&<ErrorBox message={error}/>}
+      {selectionError&&<ErrorBox message={selectionError}/>}
       {!loading&&!error&&data&&data.items.length===0&&<div className={styles.empty}>محصول منتشرشده‌ای با این فیلتر پیدا نشد.</div>}
       {!loading&&!error&&data&&<div className={styles.grid}>{data.items.map(product=><article className={styles.card} key={product.id}>
         <ProductImage product={product}/>
@@ -71,7 +73,11 @@ export function CorporateProductsLive(){
           <div className={styles.cardMeta}><span>{product.category}</span><span>{product.availability==="in_stock"?"موجود":"ناموجود"}</span></div>
           <h2>{product.title}</h2>
           <p className={styles.price}>{formatToman(product.priceToman)}</p>
-          <label className={styles.selection}><input type="checkbox" checked={!!selected[product.id]} onChange={event=>setSelected(previous=>({...previous,[product.id]:event.target.checked}))}/> انتخاب برای درخواست</label>
+          <label className={styles.selection}><input type="checkbox" checked={!!selected[product.id]} onChange={event=>{
+            const checked=event.target.checked;
+            if(checked&&!selected[product.id]&&ids.length>=MAX_PURCHASE_REQUEST_LINES){setSelectionError(`حداکثر ${MAX_PURCHASE_REQUEST_LINES} محصول در هر PurchaseRequest قابل انتخاب است.`);return;}
+            setSelectionError("");setSelected(previous=>({...previous,[product.id]:checked}));
+          }}/> انتخاب برای درخواست</label>
           <div className={styles.cardActions}>
             <Link className={styles.secondary} href={"/corporate-buyer/product-detail?id="+product.id}>مشاهده جزئیات</Link>
             <Link className={styles.button} href={"/corporate-buyer/new-purchase-request?products="+product.id}>افزودن به درخواست</Link>

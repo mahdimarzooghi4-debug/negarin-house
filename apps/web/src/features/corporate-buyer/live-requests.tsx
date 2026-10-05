@@ -5,7 +5,7 @@ import {useEffect,useRef,useState} from "react";
 import {CorporateLiveShell} from "./live-shell";
 import {CorporateSessionGate} from "./live-session";
 import {
-  formatPersianDate,isUuid,parseCorporateProduct,parseCorporatePurchaseRequest,parsePurchaseRequestPage,
+  formatPersianDate,isUuid,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parsePurchaseRequestPage,
   requestTotalQuantity,shortId,type CorporateProduct,type CorporatePurchaseRequest
 } from "./live-data";
 import styles from "./live.module.css";
@@ -44,11 +44,19 @@ export function CorporatePurchaseRequestsLive(){
 
 export function CorporateNewPurchaseRequestLive({productIds}:{productIds:string[]}){
   const router=useRouter(),idempotencyKey=useRef<string|null>(null);
-  const unique=[...new Set(productIds.filter(isUuid))].slice(0,100);
+  const selection=normalizePurchaseRequestProductIds(productIds),unique=selection.ids;
+  const selectionError=selection.error==="invalid"
+    ?"شناسه یکی از محصولات انتخاب‌شده معتبر نیست. هیچ قلمی از ورودی حذف نشد."
+    :selection.error==="too_many"
+      ?"تعداد محصولات انتخاب‌شده از سقف ۱۰۰ قلم PurchaseRequest بیشتر است. هیچ قلمی از ورودی حذف نشد."
+      :"";
   const [products,setProducts]=useState<CorporateProduct[]>([]),[quantities,setQuantities]=useState<Record<string,number>>({});
   const [loading,setLoading]=useState(true),[working,setWorking]=useState(false),[error,setError]=useState(""),[draftId,setDraftId]=useState<string|null>(null);
 
   useEffect(()=>{
+    setProducts([]);setQuantities({});
+    if(selectionError){setError(selectionError);setLoading(false);return;}
+    setError("");
     if(!unique.length){setLoading(false);return;}
     const controller=new AbortController();setLoading(true);
     void Promise.all(unique.map(async id=>{
@@ -59,8 +67,7 @@ export function CorporateNewPurchaseRequestLive({productIds}:{productIds:string[
       .catch(error=>{if(!controller.signal.aborted)setError(error instanceof Error?error.message:"خطا");})
       .finally(()=>{if(!controller.signal.aborted)setLoading(false);});
     return ()=>controller.abort();
-  // productIds are canonicalized by the server page before reaching this component.
-  },[unique.join(",")]);
+  },[selectionError,unique.join(",")]);
 
   async function create(mode:"draft"|"submit"){
     if(!products.length||working)return;
