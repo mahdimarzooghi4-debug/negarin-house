@@ -27,19 +27,7 @@ Negarin Staff:
 
 Requires the existing `growth` permission domain.
 
-Both return:
-
-```json
-{
-  "purchasable": false,
-  "levels": [
-    { "order": 1, "name": "جوانه" },
-    { "order": 2, "name": "شکوفه" },
-    { "order": 3, "name": "سرو زرین" },
-    { "order": 4, "name": "سفیر جهانی" }
-  ]
-}
-```
+Both return the exact four-level registry with `purchasable: false`.
 
 ## Safety boundary
 
@@ -48,6 +36,10 @@ There is deliberately no Growth mutation service or route in this slice.
 No threshold, score, purchase mechanism, sales amount, service/training side effect, or automatic transition is encoded. The accepted rule that real sales are a primary Growth criterion is preserved as Product policy, but engineering does not guess a formula from it.
 
 A later GrowthRecord/history slice must wait for explicit accepted promotion/demotion criteria and transition ownership.
+
+## Stack reconciliation
+
+This implementation is rebuilt on top of the latest support-allocation tenant-hardening branch so the Growth registry and E7 security fixes share one linear backend stack.
 
 ## Release boundary
 
