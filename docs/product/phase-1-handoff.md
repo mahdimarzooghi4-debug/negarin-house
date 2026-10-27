@@ -98,3 +98,8 @@ These must remain configurable/abstract and must not be hardcoded until decided:
 ## Engineering implication
 
 Implementation must preserve role isolation, shared object identity, status separation, and authorization boundaries defined in the Phase 1 design.
+
+## Product scope decision — 2026-10-04
+
+The product owner explicitly excluded AI from Negarin. Continue with the approved commerce,
+role workflows and operational backend; do not add AI features to this product scope.
