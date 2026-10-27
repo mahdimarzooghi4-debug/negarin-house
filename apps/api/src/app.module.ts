@@ -1,3 +1,5 @@
+import { CustomerCartController } from "./customer-cart.controller.js";
+import { CustomerCartService } from "./customer-cart.js";
 import { PublicProductCatalogController } from "./public-product-catalog.controller.js";
 import { PublicProductCatalogService } from "./public-product-catalog.js";
 import { ArtistProductImagesController, AdminProductImagesController } from "./product-images.controller.js";
@@ -17,8 +19,8 @@ import { ArtistPublicationController, AdminProductReviewsController } from "./pr
 import { ProductPublicationService } from "./product-publication.js";
 
 @Module({
-  controllers: [PublicProductCatalogController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
-  providers: [PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
+  controllers: [CustomerCartController, PublicProductCatalogController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
+  providers: [CustomerCartService, PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
   exports: [AuthorizationGuard]
 })
 export class AppModule {}
