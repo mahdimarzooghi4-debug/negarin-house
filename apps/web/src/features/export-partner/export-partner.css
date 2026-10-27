@@ -5897,3 +5897,10 @@
 .export-partner-design [data-node-id="1206:435"] img{translate:-4px 0px;}
 .export-partner-design [data-node-id="1206:439"] img{translate:-4px 0px;}
 .export-partner-design [data-node-id="915:8714"] img{translate:-5px 0px;}
+
+/* Inter has no Arabic glyphs. Use the packaged Arabic fallback for this native
+   90px source label so its centered icon does not depend on the OS sans font. */
+.export-partner-design [data-node-id="928:485"] {
+  font-family: "Inter Variable", "Noto Sans Arabic Variable", sans-serif;
+  line-height: 17px;
+}

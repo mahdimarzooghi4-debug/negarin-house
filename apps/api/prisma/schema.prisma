@@ -25,6 +25,7 @@ model IdentityUser {
   sessions  AuthSession[]
   roleGrants RoleGrant[]
   artistProducts ArtistProduct[]
+  publicationEvents ProductPublicationEvent[]
 
   @@map("identity_users")
 }
@@ -45,6 +46,8 @@ model ArtistProduct {
   description       String?
   priceToman        BigInt
   publicationStatus ProductPublicationStatus @default(draft)
+  version           Int                      @default(0)
+  publicationEvents ProductPublicationEvent[]
   archivedAt        DateTime?
   createdAt         DateTime                 @default(now())
   updatedAt         DateTime                 @updatedAt
@@ -117,4 +120,26 @@ model StaffDomainGrant {
 
   @@unique([roleGrantId, domain])
   @@map("staff_domain_grants")
+}
+
+// Append-only through application commands; no update/delete API is exposed.
+model ProductPublicationEvent {
+  id          String                   @id @default(uuid()) @db.Uuid
+  productId   String                   @db.Uuid
+  product     ArtistProduct            @relation(fields: [productId], references: [id], onDelete: Restrict)
+  actorUserId String                   @db.Uuid
+  actor       IdentityUser             @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  actorRole   IdentityRole
+  action      String
+  fromStatus  ProductPublicationStatus
+  toStatus    ProductPublicationStatus
+  version     Int
+  reason      String?
+  content     Json
+  requestId   String
+  createdAt   DateTime                 @default(now())
+
+  @@unique([productId, version])
+  @@index([productId, createdAt])
+  @@map("product_publication_events")
 }

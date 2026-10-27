@@ -32,11 +32,12 @@ export class ArtistProductsController {
 
   @Patch(":id")
   @Header("Cache-Control", "no-store")
-  update(@Req() request: AuthorizedRequest, @Param("id") id: string, @Body() body: unknown) {
+  update(@Req() request: AuthorizedRequest & { id: string }, @Param("id") id: string, @Body() body: unknown) {
     return this.products.update(
       request.authorizationContext!,
       parseArtistProductId(id),
-      parseArtistProductWrite(body, true)
+      parseArtistProductWrite(body, true),
+      request.id
     );
   }
 
