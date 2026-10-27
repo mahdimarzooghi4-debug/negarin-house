@@ -45,6 +45,13 @@ model ArtistProduct {
   artist            IdentityUser             @relation(fields: [artistUserId], references: [id], onDelete: Restrict)
   title             String
   description       String?
+  category          String?
+  dimensions        String?
+  materials         String?
+  weight            String?
+  color             String?
+  technique         String?
+  careInstructions  String?
   priceToman        BigInt
   publicationStatus ProductPublicationStatus @default(draft)
   version           Int                      @default(0)

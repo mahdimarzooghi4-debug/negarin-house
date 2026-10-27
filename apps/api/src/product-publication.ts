@@ -4,8 +4,12 @@ import { enforceDecision } from "./authorization.guard.js";
 import { PrismaService } from "./prisma.service.js";
 import type { ProductPublicationStatus } from "./generated/prisma/client.js";
 
+import { productContentSnapshot } from "./product-specifications.js";
+
 const reviewSelect = {
   id: true, title: true, description: true, publicationStatus: true,
+  category: true, dimensions: true, materials: true, weight: true, color: true,
+  technique: true, careInstructions: true,
   version: true, updatedAt: true
 } as const;
 
@@ -83,7 +87,7 @@ export class ProductPublicationService {
       await tx.productPublicationEvent.create({ data: {
         productId: id, actorUserId: context.userId, actorRole: staff ? "staff" : "artist",
         action, fromStatus: product.publicationStatus, toStatus: targets[action], version: input.version + 1,
-        reason: input.reason ?? null, content: { title: product.title, description: product.description }, requestId
+        reason: input.reason ?? null, content: productContentSnapshot(product), requestId
       } });
       // The review surface deliberately has no price mutation or price approval field.
       return tx.artistProduct.findUniqueOrThrow({ where: { id }, select: reviewSelect });
