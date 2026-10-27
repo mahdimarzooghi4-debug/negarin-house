@@ -1,4 +1,6 @@
 import { Module } from "@nestjs/common";
+import { ProductInventoryService } from "./product-inventory.js";
+import { ProductInventoryController } from "./product-inventory.controller.js";
 import { FoundationController } from "./foundation.controller.js";
 import { HealthController } from "./health.controller.js";
 import { PrismaService } from "./prisma.service.js";
@@ -11,8 +13,8 @@ import { ArtistPublicationController, AdminProductReviewsController } from "./pr
 import { ProductPublicationService } from "./product-publication.js";
 
 @Module({
-  controllers: [ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
-  providers: [ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
+  controllers: [ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
+  providers: [ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
   exports: [AuthorizationGuard]
 })
 export class AppModule {}
