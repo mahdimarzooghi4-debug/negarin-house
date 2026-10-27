@@ -21,8 +21,8 @@ export function parseServiceCreate(body: unknown) {
     title: text(b.title, 200), description: text(b.description, 2000), ...(b.internalNote === undefined ? {} : { internalNote: text(b.internalNote, 2000) }) };
 }
 export function parseArtistServiceCreate(body: unknown) {
-  const b = object(body, ["idempotencyKey", "title", "description"]);
-  return { idempotencyKey: parseArtistProductId(b.idempotencyKey as string), title: text(b.title, 200), description: text(b.description, 2000) };
+  const b = object(body, ["idempotencyKey", "serviceId", "description"]);
+  return { idempotencyKey: parseArtistProductId(b.idempotencyKey as string), serviceId: parseArtistProductId(b.serviceId as string), description: text(b.description, 2000) };
 }
 type ServiceCreateCommand = ReturnType<typeof parseServiceCreate>;
 export function parseServiceAssign(body: unknown) {
@@ -38,15 +38,15 @@ const include = { assignments: { orderBy: { assignedVersion: "desc" }, include: 
 type Request = Prisma.ServiceRequestGetPayload<{ include: typeof include }>;
 function requestView(r: Request, staff = false) {
   const current = r.status === "awaiting_assignment" ? undefined : r.assignments[0];
-  return { id: r.id, title: r.title, description: r.description, status: r.status, version: r.version, createdAt: r.createdAt.toISOString(),
+  return { id: r.id, serviceId: r.serviceCatalogItemId, title: r.title, description: r.description, status: r.status, version: r.version, createdAt: r.createdAt.toISOString(),
     assignment: current ? { id: current.id, status: current.status, responseSummary: current.responseSummary, execution: executionView(current.execution, staff, !staff) } : null,
     history: r.events.map(e => ({ version: e.version, action: e.action, createdAt: e.createdAt.toISOString(), ...(staff ? { actorUserId: e.actorUserId, assignmentId: e.assignmentId } : {}) })),
     ...(staff ? { artistUserId: r.artistUserId, internalNote: r.internalNote, assignments: r.assignments.map(a => ({ id: a.id, partnerOrganizationId: a.partnerOrganizationId, partnerUserId: a.partnerUserId, status: a.status, assignedVersion: a.assignedVersion, responseSummary: a.responseSummary, execution: executionView(a.execution, true) })) } : {}) };
 }
-const assignmentInclude = { execution: { include: executionInclude }, request: { select: { id: true, title: true, description: true } } } satisfies Prisma.ServiceAssignmentInclude;
+const assignmentInclude = { execution: { include: executionInclude }, request: { select: { id: true, serviceCatalogItemId: true, title: true, description: true } } } satisfies Prisma.ServiceAssignmentInclude;
 type Assignment = Prisma.ServiceAssignmentGetPayload<{ include: typeof assignmentInclude }>;
 function assignmentView(a: Assignment) {
-  return { id: a.id, requestId: a.requestId, title: a.request.title, description: a.request.description,
+  return { id: a.id, requestId: a.requestId, serviceId: a.request.serviceCatalogItemId, title: a.request.title, description: a.request.description,
     commandVersion: a.assignedVersion, status: a.status, responseSummary: a.responseSummary, assignedAt: a.assignedAt.toISOString(), respondedAt: a.respondedAt?.toISOString() ?? null, execution: executionView(a.execution) };
 }
 function partner(context: AuthorizationContext) {
@@ -70,8 +70,26 @@ export class ServiceAssignmentsService {
   }
   async createArtist(context: AuthorizationContext, input: ReturnType<typeof parseArtistServiceCreate>, trace: string) {
     if (context.activeRole !== "artist") throw new ForbiddenException();
-    const artist = parseArtistServiceCreate(input);
-    return this.createRequest(context, { ...artist, artistUserId: context.userId }, trace, false);
+    const command = parseArtistServiceCreate(input);
+    return this.db.$transaction(async tx => {
+      await tx.$queryRawUnsafe('SELECT 1 AS locked FROM pg_advisory_xact_lock(hashtextextended($1, 0))', "service-create:" + context.userId + ":" + command.idempotencyKey);
+      const prior = await tx.serviceRequest.findUnique({ where: { createdByUserId_idempotencyKey: { createdByUserId: context.userId, idempotencyKey: command.idempotencyKey } }, include });
+      if (prior) {
+        if (!sameCommand(prior.events[0]?.command, command)) throw new ConflictException("idempotency-key-reused");
+        return requestView(prior);
+      }
+      const services = await tx.$queryRawUnsafe<Array<{ id: string; title: string; isActive: boolean }>>(
+        'SELECT "id", "title", "isActive" FROM "service_catalog_items" WHERE "id" = $1::uuid FOR SHARE', command.serviceId
+      );
+      const service = services[0];
+      if (!service?.isActive) throw new NotFoundException();
+      const request = await tx.serviceRequest.create({ data: {
+        serviceCatalogItemId: service.id, artistUserId: context.userId, createdByUserId: context.userId,
+        idempotencyKey: command.idempotencyKey, title: service.title, description: command.description
+      } });
+      await tx.serviceRequestEvent.create({ data: { requestId: request.id, version: 0, action: "created", actorUserId: context.userId, command, requestTraceId: trace } });
+      return requestView(await tx.serviceRequest.findUniqueOrThrow({ where: { id: request.id }, include }));
+    });
   }
   private async createRequest(context: AuthorizationContext, command: ServiceCreateCommand, trace: string, staff: boolean) {
     return this.db.$transaction(async tx => {
