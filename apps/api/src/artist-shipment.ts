@@ -17,6 +17,6 @@ export function parseShipment(body: unknown): ShipmentCommand {
 export function shipmentView(s: Prisma.ArtistShipmentReportGetPayload<{ include: { receipt: true; issue: true } }> | null) {
   if (!s) return null;
   return { id: s.id, customerVersion: s.customerVersion, receipt: s.receipt ? { source: "customer_confirmation", receivedAt: s.receipt.receivedAt.toISOString() } : null,
-    issue: s.issue ? { status: "open", kind: s.issue.kind, description: s.issue.description, reportedAt: s.issue.reportedAt.toISOString() } : null, status: "reported_dispatched" as const, source: "artist_report" as const, carrierVerified: false,
+    issue: s.issue ? { status: s.issue.status, version: s.issue.version, resolution: s.issue.resolution, resolutionSummary: s.issue.resolutionSummary, kind: s.issue.kind, description: s.issue.description, reportedAt: s.issue.reportedAt.toISOString() } : null, status: "reported_dispatched" as const, source: "artist_report" as const, carrierVerified: false,
     carrierName: s.carrierName, trackingCode: s.trackingCode, reportedAt: s.reportedAt.toISOString() };
 }
