@@ -1,3 +1,5 @@
+import { ArtistOrdersController } from "./artist-orders.controller.js";
+import { ArtistOrdersService } from "./artist-orders.js";
 import { CustomerPaymentsController } from "./customer-payments.controller.js";
 import { CustomerPaymentsService, PaymentGateway } from "./customer-payments.js";
 import { OrderReservationExpiry } from "./order-reservation-expiry.js";
@@ -26,8 +28,8 @@ import { ArtistPublicationController, AdminProductReviewsController } from "./pr
 import { ProductPublicationService } from "./product-publication.js";
 
 @Module({
-  controllers: [CustomerPaymentsController, CustomerOrdersController, CustomerAddressesController, CustomerCartController, PublicProductCatalogController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
-  providers: [CustomerPaymentsService, PaymentGateway, OrderReservationExpiry, CustomerOrdersService, CustomerAddressesService, CustomerCartService, PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
+  controllers: [ArtistOrdersController, CustomerPaymentsController, CustomerOrdersController, CustomerAddressesController, CustomerCartController, PublicProductCatalogController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
+  providers: [ArtistOrdersService, CustomerPaymentsService, PaymentGateway, OrderReservationExpiry, CustomerOrdersService, CustomerAddressesService, CustomerCartService, PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
   exports: [AuthorizationGuard]
 })
 export class AppModule {}

@@ -32,6 +32,8 @@ model IdentityUser {
   customerOrders CustomerOrder[]
   paymentEvents PaymentEvent[]
   payableQuotes OrderPayableQuote[]
+  fulfillments ArtistOrderPreparation[]
+  preparationEvents OrderPreparationEvent[]
 
   @@map("identity_users")
 }
@@ -293,6 +295,7 @@ model CustomerOrder {
   paidAt            DateTime?
   payableQuote      OrderPayableQuote?
   payments          PaymentAttempt[]
+  preparations      ArtistOrderPreparation[]
   items             CustomerOrderItem[]
   inventoryEvents   ProductInventoryEvent[]
 
@@ -303,6 +306,8 @@ model CustomerOrder {
 }
 
 model CustomerOrderItem {
+  artistUserId      String @db.Uuid
+  preparation       ArtistOrderPreparation @relation(fields: [orderId, artistUserId], references: [orderId, artistUserId], onDelete: Restrict)
   orderId           String @db.Uuid
   order             CustomerOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
   productId         String @db.Uuid
@@ -380,4 +385,43 @@ model PaymentEvent {
   createdAt DateTime @default(now())
   @@unique([attemptId, version])
   @@map("payment_events")
+}
+
+enum OrderPreparationStatus {
+  awaiting_acceptance
+  accepted
+  preparing
+  packaging
+  ready_for_dispatch
+}
+
+model ArtistOrderPreparation {
+  orderId String @db.Uuid
+  artistUserId String @db.Uuid
+  order CustomerOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  artist IdentityUser @relation(fields: [artistUserId], references: [id], onDelete: Restrict)
+  status OrderPreparationStatus @default(awaiting_acceptance)
+  version Int @default(0)
+  updatedAt DateTime @updatedAt
+  items CustomerOrderItem[]
+  events OrderPreparationEvent[]
+  @@id([orderId, artistUserId])
+  @@index([artistUserId, orderId])
+  @@map("artist_order_preparations")
+}
+
+model OrderPreparationEvent {
+  id String @id @default(uuid()) @db.Uuid
+  orderId String @db.Uuid
+  artistUserId String @db.Uuid
+  preparation ArtistOrderPreparation @relation(fields: [orderId, artistUserId], references: [orderId, artistUserId], onDelete: Restrict)
+  version Int
+  fromStatus OrderPreparationStatus
+  toStatus OrderPreparationStatus
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  requestId String
+  createdAt DateTime @default(now())
+  @@unique([orderId, artistUserId, version])
+  @@map("order_preparation_events")
 }

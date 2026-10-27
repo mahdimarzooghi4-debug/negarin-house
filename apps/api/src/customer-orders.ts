@@ -25,12 +25,12 @@ export function parseOrderPage(query: Record<string, unknown>) {
   };
   return { page: number(query.page, 1, 1000), pageSize: number(query.pageSize, 20, 50) };
 }
-const orderInclude = { items: { orderBy: { productId: "asc" } } } satisfies Prisma.CustomerOrderInclude;
+const orderInclude = { preparations: { orderBy: { artistUserId: "asc" } }, items: { orderBy: { productId: "asc" } } } satisfies Prisma.CustomerOrderInclude;
 type Order = Prisma.CustomerOrderGetPayload<{ include: typeof orderInclude }>;
 export function orderView(order: Order) {
   return { id: order.id, version: order.version, status: order.status, paymentStatus: order.paymentStatus, paidAt: order.paidAt?.toISOString() ?? null, shippingAddress: order.shippingAddress,
     subtotalToman: order.subtotalToman, reservedUntil: order.reservedUntil.toISOString(), releasedAt: order.releasedAt?.toISOString() ?? null,
-    createdAt: order.createdAt.toISOString(), items: order.items.map(i => ({ productId: i.productId, title: i.title,
+    createdAt: order.createdAt.toISOString(), preparation: order.status === "placed" ? order.preparations.map(p => ({ items: order.items.filter(i => i.artistUserId === p.artistUserId).map(i => i.productId), status: p.status, version: p.version })) : [], items: order.items.map(i => ({ productId: i.productId, title: i.title,
       quantity: i.quantity, unitPriceToman: i.unitPriceToman.toString(), lineSubtotalToman: (i.unitPriceToman * BigInt(i.quantity)).toString(), imageIds: i.imageIds })) };
 }
 
@@ -77,7 +77,8 @@ export class CustomerOrdersService {
         province: address.province, city: address.city, postalCode: address.postalCode, fullAddress: address.fullAddress };
       await tx.customerOrder.create({ data: { id, userId: context.userId, idempotencyKey: command.idempotencyKey, requestHash: hash,
         shippingAddress, subtotalToman: subtotal.toString(), reservedUntil: new Date(Date.now() + reservationMilliseconds),
-        items: { create: products.map(({ product: p, quantity }) => ({ productId: p.id, title: p.title, unitPriceToman: p.priceToman, quantity, imageIds: p.imageIds })) } } });
+        preparations: { create: [...new Set(products.map(({ product }) => product.artistUserId))].map(artistUserId => ({ artistUserId })) },
+        items: { create: products.map(({ product: p, quantity }) => ({ artistUserId: p.artistUserId, productId: p.id, title: p.title, unitPriceToman: p.priceToman, quantity, imageIds: p.imageIds })) } } });
       for (const { product: p, quantity } of products) {
         await tx.artistProduct.update({ where: { id: p.id }, data: { stockQuantity: { decrement: quantity }, inventoryVersion: { increment: 1 } } });
         await tx.productInventoryEvent.create({ data: { productId: p.id, orderId: id, actorUserId: context.userId,
