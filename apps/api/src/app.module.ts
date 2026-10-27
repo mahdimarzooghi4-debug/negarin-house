@@ -1,3 +1,5 @@
+import { ServiceExecutionService } from "./service-execution.js";
+import { PartnerServiceExecutionController, AdminServiceExecutionController } from "./service-execution.controller.js";
 import { AdminServiceRequestsController, ArtistServiceRequestsController, PartnerAssignmentsController } from "./service-assignments.controller.js";
 import { ServiceAssignmentsService } from "./service-assignments.js";
 import { ArtistFinancialEventsController, AdminFinancialEventsController } from "./financial-events.controller.js";
@@ -40,8 +42,8 @@ import { ArtistPublicationController, AdminProductReviewsController } from "./pr
 import { ProductPublicationService } from "./product-publication.js";
 
 @Module({
-  controllers: [AdminServiceRequestsController, ArtistServiceRequestsController, PartnerAssignmentsController, ArtistFinancialEventsController, AdminFinancialEventsController, ArtistFinanceController, AdminDomesticFinanceController, RefundFinanceController, ShipmentIssueSupportController, CustomerShipmentsController, ArtistOrdersController, CustomerPaymentsController, CustomerOrdersController, CustomerAddressesController, CustomerCartController, PublicProductCatalogController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
-  providers: [ServiceAssignmentsService, FinancialEventsService, ArtistFinanceService, RefundFinanceService, ShipmentIssueSupportService, CustomerShipmentsService, ArtistOrdersService, CustomerPaymentsService, PaymentGateway, OrderReservationExpiry, CustomerOrdersService, CustomerAddressesService, CustomerCartService, PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
+  controllers: [PartnerServiceExecutionController, AdminServiceExecutionController, AdminServiceRequestsController, ArtistServiceRequestsController, PartnerAssignmentsController, ArtistFinancialEventsController, AdminFinancialEventsController, ArtistFinanceController, AdminDomesticFinanceController, RefundFinanceController, ShipmentIssueSupportController, CustomerShipmentsController, ArtistOrdersController, CustomerPaymentsController, CustomerOrdersController, CustomerAddressesController, CustomerCartController, PublicProductCatalogController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
+  providers: [ServiceExecutionService, ServiceAssignmentsService, FinancialEventsService, ArtistFinanceService, RefundFinanceService, ShipmentIssueSupportService, CustomerShipmentsService, ArtistOrdersService, CustomerPaymentsService, PaymentGateway, OrderReservationExpiry, CustomerOrdersService, CustomerAddressesService, CustomerCartService, PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
   exports: [AuthorizationGuard]
 })
 export class AppModule {}

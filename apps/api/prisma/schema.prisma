@@ -45,6 +45,7 @@ model IdentityUser {
   createdServiceRequests ServiceRequest[] @relation("ServiceCreator")
   serviceAssignments ServiceAssignment[]
   serviceEvents ServiceRequestEvent[]
+  serviceExecutionEvents ServiceExecutionEvent[]
 
   @@map("identity_users")
 }
@@ -96,9 +97,52 @@ model ServiceAssignment {
   respondedAt DateTime?
   events ServiceRequestEvent[]
   @@unique([requestId, assignedVersion])
+  execution ServiceExecution?
   @@unique([id, requestId])
   @@index([partnerOrganizationId, partnerUserId, assignedAt, id])
   @@map("service_assignments")
+}
+
+enum ServiceExecutionStatus {
+  accepted
+  scheduled
+  in_progress
+  submitted
+  changes_requested
+  completed
+}
+
+model ServiceExecution {
+  assignmentId String @id @db.Uuid
+  assignment ServiceAssignment @relation(fields: [assignmentId], references: [id], onDelete: Restrict)
+  status ServiceExecutionStatus @default(accepted)
+  version Int @default(0)
+  scheduledStart DateTime?
+  scheduledEnd DateTime?
+  scheduleSummary String?
+  progressSummary String?
+  submissionSummary String?
+  reviewSummary String?
+  updatedAt DateTime @default(now()) @updatedAt
+  events ServiceExecutionEvent[]
+  @@map("service_executions")
+}
+
+model ServiceExecutionEvent {
+  id String @id @default(uuid()) @db.Uuid
+  assignmentId String @db.Uuid
+  execution ServiceExecution @relation(fields: [assignmentId], references: [assignmentId], onDelete: Restrict)
+  version Int
+  fromStatus ServiceExecutionStatus?
+  toStatus ServiceExecutionStatus
+  summary String
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  command Json
+  requestTraceId String
+  createdAt DateTime @default(now())
+  @@unique([assignmentId, version])
+  @@map("service_execution_events")
 }
 
 model ServiceRequestEvent {

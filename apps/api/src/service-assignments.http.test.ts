@@ -34,6 +34,113 @@ describe("Service assignment HTTP and PostgreSQL", () => {
   }
   function get(u: User, id: string) { return app.inject({ method: "GET", url: `/api/v1/service-partner/assignments/${id}`, headers: u.headers }); }
   function response(u: User, id: string, version: number, decision = "accepted", summary = "پذیرفته شد") { return app.inject({ method: "POST", url: `/api/v1/service-partner/assignments/${id}/response`, headers: u.headers, payload: { version, decision, summary } }); }
+  async function accepted() {
+    const s = await setup(), assignmentId = (await assign(s)).json().assignment.id as string;
+    expect((await response(s.partner, assignmentId, 1)).statusCode).toBe(201);
+    return { ...s, assignmentId };
+  }
+  function times() { return { scheduledStart: new Date(Date.now() + 3600000).toISOString(), scheduledEnd: new Date(Date.now() + 7200000).toISOString() }; }
+  function schedule(u: User, id: string, version: number, dates = times()) { return app.inject({ method: "POST", url: `/api/v1/service-partner/assignments/${id}/schedule`, headers: u.headers, payload: { version, ...dates, summary: "برنامه پیشنهادی" } }); }
+  function progress(u: User, id: string, version: number, action = "start", summary = "شروع کار") { return app.inject({ method: "POST", url: `/api/v1/service-partner/assignments/${id}/execution`, headers: u.headers, payload: { version, action, summary } }); }
+  function review(u: User, id: string, version: number, decision = "completed", summary = "خروجی تأیید شد") { return app.inject({ method: "POST", url: `/api/v1/admin/service-assignments/${id}/execution-review`, headers: u.headers, payload: { version, decision, summary } }); }
+  it("runs schedule, text delivery, requested corrections and explicit staff completion independently of finance", async () => {
+    const s = await accepted();
+    expect((await get(s.partner, s.assignmentId)).json().execution).toMatchObject({ status: "accepted", version: 0 });
+    expect((await schedule(s.partner, s.assignmentId, 0)).statusCode).toBe(201);
+    expect((await progress(s.partner, s.assignmentId, 1)).statusCode).toBe(201);
+    expect((await progress(s.partner, s.assignmentId, 2, "submit", "گزارش اولیه تحویل شد")).statusCode).toBe(201);
+    expect((await review(s.staff, s.assignmentId, 3, "changes_requested", "گزارش را اصلاح کنید")).statusCode).toBe(201);
+    expect((await progress(s.partner, s.assignmentId, 4)).statusCode).toBe(201);
+    expect((await progress(s.partner, s.assignmentId, 5, "submit", "گزارش اصلاح شده تحویل شد")).statusCode).toBe(201);
+    const done = await review(s.staff, s.assignmentId, 6); expect(done.statusCode).toBe(201);
+    expect(done.json()).toMatchObject({ status: "completed", version: 7, submissionKind: "text_report", scheduleSource: "partner_proposal" });
+    expect(done.json().history).toHaveLength(8); expect(done.json().history[3].summary).toBe("گزارش اولیه تحویل شد");
+    expect((await db.serviceRequest.findUniqueOrThrow({ where: { id: s.id } }))).toMatchObject({ status: "accepted", version: 2 });
+    expect((await db.serviceAssignment.findUniqueOrThrow({ where: { id: s.assignmentId } })).status).toBe("accepted");
+    expect(await db.financialEvent.count({ where: { actorUserId: s.partner.userId } })).toBe(0);
+  });
+  it("serializes execution retries and rejects stale reschedules and changed actor commands", async () => {
+    const s = await accepted(), dates = times();
+    const rs = await Promise.all([schedule(s.partner, s.assignmentId, 0, dates), schedule(s.partner, s.assignmentId, 0, dates)]);
+    expect(rs.map(r => r.statusCode)).toEqual([201, 201]); expect(rs[0]!.json()).toEqual(rs[1]!.json());
+    const starts = await Promise.all([progress(s.partner, s.assignmentId, 1), progress(s.partner, s.assignmentId, 1)]);
+    expect(starts.map(r => r.statusCode)).toEqual([201, 201]); expect(starts[0]!.json()).toEqual(starts[1]!.json());
+    expect((await schedule(s.partner, s.assignmentId, 0, dates)).statusCode).toBe(409);
+    expect((await progress(s.partner, s.assignmentId, 1, "start", "changed")).statusCode).toBe(409);
+    expect((await progress(s.partner, s.assignmentId, 2, "submit", "نتیجه")).statusCode).toBe(201);
+    const complete = await Promise.all([review(s.staff, s.assignmentId, 3), review(s.staff, s.assignmentId, 3)]);
+    expect(complete.map(r => r.statusCode)).toEqual([201, 201]); expect(complete[0]!.json()).toEqual(complete[1]!.json());
+    expect(await db.serviceExecutionEvent.count({ where: { assignmentId: s.assignmentId } })).toBe(5);
+  });
+  it("permits rescheduling before work starts and forbids skips, past schedules and terminal edits", async () => {
+    const s = await accepted();
+    expect((await progress(s.partner, s.assignmentId, 0)).statusCode).toBe(409);
+    expect((await progress(s.partner, s.assignmentId, 0, "submit")).statusCode).toBe(409);
+    expect((await review(s.staff, s.assignmentId, 0)).statusCode).toBe(409);
+    expect((await schedule(s.partner, s.assignmentId, 0, { scheduledStart: "2020-01-01T00:00:00.000Z", scheduledEnd: "2020-01-01T01:00:00.000Z" })).statusCode).toBe(409);
+    expect((await schedule(s.partner, s.assignmentId, 0)).statusCode).toBe(201);
+    expect((await schedule(s.partner, s.assignmentId, 1)).statusCode).toBe(201);
+    expect((await progress(s.partner, s.assignmentId, 2)).statusCode).toBe(201);
+    expect((await schedule(s.partner, s.assignmentId, 3)).statusCode).toBe(409);
+    expect((await progress(s.partner, s.assignmentId, 3, "submit")).statusCode).toBe(201);
+    expect((await review(s.staff, s.assignmentId, 4)).statusCode).toBe(201);
+    expect((await progress(s.partner, s.assignmentId, 5)).statusCode).toBe(409);
+    expect((await review(s.staff, s.assignmentId, 5, "changes_requested")).statusCode).toBe(409);
+  });
+  it("records progress updates as versioned Partner reports without inventing percentage or completion", async () => {
+    const s = await accepted();
+    expect((await progress(s.partner, s.assignmentId, 0, "update")).statusCode).toBe(409);
+    await schedule(s.partner, s.assignmentId, 0); await progress(s.partner, s.assignmentId, 1);
+    const r = await progress(s.partner, s.assignmentId, 2, "update", "دو تصویر آماده شد");
+    expect(r.statusCode).toBe(201); expect(r.json()).toMatchObject({ status: "in_progress", version: 3, progressSource: "partner_report", progressSummary: "دو تصویر آماده شد", completionSource: null });
+    expect(r.json().history[3]).toMatchObject({ fromStatus: "in_progress", toStatus: "in_progress" });
+    expect((await progress(s.partner, s.assignmentId, 2, "update", "دو تصویر آماده شد")).statusCode).toBe(201);
+    expect((await progress(s.partner, s.assignmentId, 2, "update", "changed")).statusCode).toBe(409);
+  });
+  it("conceals execution from unassigned users and separates services staff from partners and finance staff", async () => {
+    const s = await accepted(), colleague = await signIn("service_partner", undefined, s.org), other = await signIn("service_partner", undefined, randomUUID()), finance = await signIn("staff", "finance");
+    for (const u of [colleague, other]) {
+      expect((await schedule(u, s.assignmentId, 0)).statusCode).toBe(404);
+      expect((await progress(u, s.assignmentId, 0)).statusCode).toBe(404);
+    }
+    for (const u of [s.artist, s.partner, finance]) expect((await review(u, s.assignmentId, 0)).statusCode).toBe(403);
+    expect((await schedule(s.staff, s.assignmentId, 0)).statusCode).toBe(403);
+    const raw = await setup(), id = (await assign(raw)).json().assignment.id;
+    expect((await schedule(raw.partner, id, 0)).statusCode).toBe(409);
+    expect((await response(raw.partner, id, 1, "declined")).statusCode).toBe(201);
+    expect((await progress(raw.partner, id, 0)).statusCode).toBe(409);
+  });
+  it("shares public execution and correction history with the Artist without staff metadata", async () => {
+    const s = await accepted(); await schedule(s.partner, s.assignmentId, 0); await progress(s.partner, s.assignmentId, 1); await progress(s.partner, s.assignmentId, 2, "submit", "متن نتیجه");
+    await review(s.staff, s.assignmentId, 3, "changes_requested", "توضیح اصلاح");
+    const p = (await get(s.partner, s.assignmentId)).json(); expect(p.execution.reviewSummary).toBe("توضیح اصلاح");
+    for (const e of p.execution.history) for (const key of ["actorUserId", "requestTraceId", "command"]) expect(e).not.toHaveProperty(key);
+    const a = (await app.inject({ method: "GET", url: `/api/v1/artist/service-requests/${s.id}`, headers: s.artist.headers })).json();
+    expect(a.assignment.execution.status).toBe("changes_requested"); expect(a.assignment.execution.history[3].summary).toBe("متن نتیجه");
+    expect(a).not.toHaveProperty("internalNote"); expect(a.assignment.execution.history[0]).not.toHaveProperty("actorUserId");
+    const staff = (await app.inject({ method: "GET", url: `/api/v1/admin/service-requests/${s.id}`, headers: s.staff.headers })).json();
+    expect(staff.assignment.execution.history[4].actorUserId).toBe(s.staff.userId);
+  });
+  it("rolls acceptance, execution and review back when execution history insertion fails", async () => {
+    const s = await setup(), id = (await assign(s)).json().assignment.id as string, name = "execution_fail_" + randomUUID().replaceAll("-", "");
+    await db.$executeRawUnsafe('CREATE FUNCTION ' + name + '() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW."assignmentId" = \'' + id + '\'::uuid THEN RAISE EXCEPTION \'history failure\'; END IF; RETURN NEW; END $$');
+    async function trigger() { await db.$executeRawUnsafe('CREATE TRIGGER ' + name + ' BEFORE INSERT ON "service_execution_events" FOR EACH ROW EXECUTE FUNCTION ' + name + '()'); }
+    async function untrigger() { await db.$executeRawUnsafe('DROP TRIGGER ' + name + ' ON "service_execution_events"'); }
+    try {
+      await trigger(); try { expect((await response(s.partner, id, 1)).statusCode).toBe(500); } finally { await untrigger(); }
+      expect((await get(s.partner, id)).json()).toMatchObject({ status: "assigned", execution: null });
+      expect((await db.serviceRequest.findUniqueOrThrow({ where: { id: s.id } })).version).toBe(1);
+      expect((await response(s.partner, id, 1)).statusCode).toBe(201);
+      await trigger(); try { expect((await schedule(s.partner, id, 0)).statusCode).toBe(500); } finally { await untrigger(); }
+      expect((await get(s.partner, id)).json().execution).toMatchObject({ status: "accepted", version: 0 });
+      await schedule(s.partner, id, 0); await progress(s.partner, id, 1); await progress(s.partner, id, 2, "submit");
+      await trigger(); try { expect((await review(s.staff, id, 3)).statusCode).toBe(500); } finally { await untrigger(); }
+      expect((await get(s.partner, id)).json().execution).toMatchObject({ status: "submitted", version: 3, reviewSummary: null });
+      expect((await review(s.staff, id, 3)).statusCode).toBe(201);
+      await expect(db.serviceExecutionEvent.updateMany({ where: { assignmentId: id }, data: { summary: "changed" } })).rejects.toThrow();
+      await expect(db.serviceExecutionEvent.deleteMany({ where: { assignmentId: id } })).rejects.toThrow();
+    } finally { await db.$executeRawUnsafe('DROP FUNCTION ' + name + '()'); }
+  });
   it("replays concurrent creation and rejects changed payload under the same key", async () => {
     const s = await setup(), command = { ...s.command, idempotencyKey: randomUUID() };
     const results = await Promise.all([1, 2].map(() => app.inject({ method: "POST", url: "/api/v1/admin/service-requests", headers: s.staff.headers, payload: command })));
