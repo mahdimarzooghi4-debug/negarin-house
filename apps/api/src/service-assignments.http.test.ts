@@ -7,11 +7,22 @@ import { createApplication } from "./app.js";
 import { ActiveContextResolver } from "./active-context.js";
 import { IdentityCore } from "./identity-core.js";
 import { PrismaService } from "./prisma.service.js";
+import { ServiceDeliverableStorage } from "./service-deliverables.js";
+import type { ObjectStorage } from "@negarin/storage";
+import sharp from "sharp";
 describe("Service assignment HTTP and PostgreSQL", () => {
   let app: NestFastifyApplication;
   const db = new PrismaService(), codes = new Map<string, string>();
   const identity = new IdentityCore(db, { async send(phone, code) { codes.set(phone, code); } }, "test-secret-with-at-least-thirty-two-characters");
   const contexts = new ActiveContextResolver(db);
+  const fileObjects = new Map<string, { bytes: Uint8Array; type: string }>();
+  let fileStorageFails = false, imageBase64: string;
+  const fileStore: ObjectStorage = {
+    async putImmutableObject(key, bytes, type) { if (fileStorageFails) throw new Error("storage-down"); if (fileObjects.has(key)) throw new Error("immutable-key"); fileObjects.set(key, { bytes, type }); },
+    async createReadUrl(key) { if (fileStorageFails || !fileObjects.has(key)) throw new Error("storage-down"); return "https://private-storage.test/" + key + "?signed=test"; },
+    async deleteObject(key) { fileObjects.delete(key); },
+    async createUploadUrl() { throw new Error("direct-client-upload-disabled"); }
+  };
   async function signIn(role: "artist" | "customer" | "staff" | "service_partner" = "artist", domain?: string, organizationId?: string) {
     const phone = `+1555${randomInt(1_000_000, 9_999_999)}`;
     await identity.requestCode(phone); const u = await identity.verifyCode(phone, codes.get(phone)!);
@@ -20,7 +31,10 @@ describe("Service assignment HTTP and PostgreSQL", () => {
     return { userId: u.userId, grantId: grant.id, headers: { authorization: `Bearer ${u.sessionToken}` } };
   }
   type User = Awaited<ReturnType<typeof signIn>>;
-  beforeAll(async () => { app = await createApplication(); await app.init(); await app.getHttpAdapter().getInstance().ready(); await db.$connect(); });
+  beforeAll(async () => { app = await createApplication(); await app.init(); await app.getHttpAdapter().getInstance().ready(); await db.$connect();
+    Object.defineProperty(app.get(ServiceDeliverableStorage), "store", { value: fileStore });
+    imageBase64 = (await sharp({ create: { width: 10, height: 8, channels: 3, background: "red" } }).png().toBuffer()).toString("base64");
+  });
   afterAll(async () => { await app?.close(); await db.$disconnect(); });
   async function setup() {
     const staff = await signIn("staff", "services"), artist = await signIn(), org = randomUUID(), partner = await signIn("service_partner", undefined, org);
@@ -43,6 +57,82 @@ describe("Service assignment HTTP and PostgreSQL", () => {
   function schedule(u: User, id: string, version: number, dates = times()) { return app.inject({ method: "POST", url: `/api/v1/service-partner/assignments/${id}/schedule`, headers: u.headers, payload: { version, ...dates, summary: "برنامه پیشنهادی" } }); }
   function progress(u: User, id: string, version: number, action = "start", summary = "شروع کار") { return app.inject({ method: "POST", url: `/api/v1/service-partner/assignments/${id}/execution`, headers: u.headers, payload: { version, action, summary } }); }
   function review(u: User, id: string, version: number, decision = "completed", summary = "خروجی تأیید شد") { return app.inject({ method: "POST", url: `/api/v1/admin/service-assignments/${id}/execution-review`, headers: u.headers, payload: { version, decision, summary } }); }
+  async function working() { const s = await accepted(); await schedule(s.partner, s.assignmentId, 0); await progress(s.partner, s.assignmentId, 1); return s; }
+  function fileCommand(version: number, kind = "text", base64 = Buffer.from("گزارش\r\nمتنی").toString("base64")) { return { version, idempotencyKey: randomUUID(), kind, label: "خروجی خدمت", base64 }; }
+  function uploadFile(u: User, id: string, payload: object) { return app.inject({ method: "POST", url: `/api/v1/service-partner/assignments/${id}/files`, headers: u.headers, payload }); }
+  function readFile(u: User, id: string, fileId: string, audience = "service-partner/assignments") { return app.inject({ method: "GET", url: `/api/v1/${audience}/${id}/files/${fileId}`, headers: u.headers }); }
+  function submitFiles(u: User, id: string, version: number, fileIds: string[]) { return app.inject({ method: "POST", url: `/api/v1/service-partner/assignments/${id}/execution`, headers: u.headers, payload: { version, action: "submit", summary: "نتیجه همراه فایل", fileIds } }); }
+  it("stores normalized private files and grants Artist access only after explicit submission", async () => {
+    const s = await working();
+    const uploaded = await uploadFile(s.partner, s.assignmentId, fileCommand(2)); expect(uploaded.statusCode).toBe(201);
+    const f = uploaded.json().file; expect(f).toMatchObject({ contentType: "text/plain; charset=utf-8", uploadedExecutionVersion: 3 });
+    for (const key of ["objectKey", "uploadedByUserId", "commandHash", "url"]) expect(f).not.toHaveProperty(key);
+    const stored = [...fileObjects.entries()].find(([key]) => key.includes(f.id))![1]; expect(Buffer.from(stored.bytes).toString()).toBe("گزارش\nمتنی");
+    expect((await readFile(s.artist, s.assignmentId, f.id, "artist/service-assignments")).statusCode).toBe(404);
+    const draft = (await app.inject({ method: "GET", url: `/api/v1/artist/service-requests/${s.id}`, headers: s.artist.headers })).json();
+    expect(draft.assignment.execution.files).toEqual([]); expect(draft.assignment.execution.history).toHaveLength(3);
+    expect((await readFile(s.staff, s.assignmentId, f.id, "admin/service-assignments")).statusCode).toBe(200);
+    const submitted = await submitFiles(s.partner, s.assignmentId, 3, [f.id]); expect(submitted.statusCode).toBe(201);
+    expect(submitted.json()).toMatchObject({ submissionKind: "report_with_files", submittedFileIds: [f.id] });
+    const read = await readFile(s.artist, s.assignmentId, f.id, "artist/service-assignments"); expect(read.statusCode).toBe(200); expect(read.headers["cache-control"]).toBe("no-store"); expect(read.json().expiresInSeconds).toBe(300);
+    expect((await review(s.staff, s.assignmentId, 4)).json().history[5].fileIds).toEqual([f.id]);
+  });
+  it("fully decodes/re-encodes images and rejects fake content without changing execution", async () => {
+    const s = await working();
+    expect((await uploadFile(s.partner, s.assignmentId, fileCommand(2, "image", Buffer.from("%PDF-1.7").toString("base64")))).statusCode).toBe(400);
+    const image = await uploadFile(s.partner, s.assignmentId, fileCommand(2, "image", imageBase64)); expect(image.statusCode).toBe(201);
+    const f = image.json().file, object = [...fileObjects.entries()].find(([key]) => key.includes(f.id))![1];
+    expect(object.type).toBe("image/webp"); expect((await sharp(object.bytes).metadata()).format).toBe("webp");
+    expect(await db.serviceDeliverableFile.count({ where: { assignmentId: s.assignmentId } })).toBe(1);
+  });
+  it("replays concurrent upload keys and conflicts competing uploads without private orphan leaks", async () => {
+    const s = await working(), command = fileCommand(2), before = fileObjects.size;
+    const replies = await Promise.all([uploadFile(s.partner, s.assignmentId, command), uploadFile(s.partner, s.assignmentId, command)]);
+    expect(replies.map(r => r.statusCode)).toEqual([201, 201]); expect(replies[0]!.json()).toEqual(replies[1]!.json()); expect(fileObjects.size).toBe(before + 1);
+    expect((await uploadFile(s.partner, s.assignmentId, { ...command, label: "changed" })).statusCode).toBe(409);
+    const competing = await Promise.all([uploadFile(s.partner, s.assignmentId, fileCommand(3)), uploadFile(s.partner, s.assignmentId, fileCommand(3))]);
+    expect(competing.map(r => r.statusCode).sort()).toEqual([201, 409]); expect(fileObjects.size).toBe(before + 2);
+    const f = replies[0]!.json().file; await submitFiles(s.partner, s.assignmentId, 4, [f.id]); await review(s.staff, s.assignmentId, 5);
+    expect((await uploadFile(s.partner, s.assignmentId, command)).json()).toEqual(replies[0]!.json());
+    expect((await uploadFile(s.partner, s.assignmentId, fileCommand(6))).statusCode).toBe(409);
+  });
+  it("conceals files across users, organizations, Artists and assignments and rejects unrelated submission IDs", async () => {
+    const s = await working(), colleague = await signIn("service_partner", undefined, s.org), outsider = await signIn("service_partner", undefined, randomUUID()), otherArtist = await signIn(), finance = await signIn("staff", "finance"), other = await working();
+    const id = (await uploadFile(s.partner, s.assignmentId, fileCommand(2))).json().file.id;
+    for (const u of [colleague, outsider]) { expect((await uploadFile(u, s.assignmentId, fileCommand(3))).statusCode).toBe(404); expect((await readFile(u, s.assignmentId, id)).statusCode).toBe(404); }
+    expect((await submitFiles(other.partner, other.assignmentId, 2, [id])).statusCode).toBe(404);
+    expect((await readFile(other.partner, other.assignmentId, id)).statusCode).toBe(404);
+    await submitFiles(s.partner, s.assignmentId, 3, [id]);
+    expect((await readFile(otherArtist, s.assignmentId, id, "artist/service-assignments")).statusCode).toBe(404);
+    expect((await readFile(finance, s.assignmentId, id, "admin/service-assignments")).statusCode).toBe(403);
+    expect((await uploadFile(s.artist, s.assignmentId, fileCommand(4))).statusCode).toBe(403);
+  });
+  it("preserves original submission/review file snapshots across corrected replacement results", async () => {
+    const s = await working(); const original = (await uploadFile(s.partner, s.assignmentId, fileCommand(2))).json().file.id;
+    await submitFiles(s.partner, s.assignmentId, 3, [original]); await review(s.staff, s.assignmentId, 4, "changes_requested"); await progress(s.partner, s.assignmentId, 5);
+    const replacement = (await uploadFile(s.partner, s.assignmentId, fileCommand(6, "text", Buffer.from("اصلاح شده").toString("base64")))).json().file.id;
+    expect((await readFile(s.artist, s.assignmentId, replacement, "artist/service-assignments")).statusCode).toBe(404);
+    await submitFiles(s.partner, s.assignmentId, 7, [replacement]); const done = await review(s.staff, s.assignmentId, 8);
+    expect(done.json().submittedFileIds).toEqual([replacement]); expect(done.json().history[4].fileIds).toEqual([original]); expect(done.json().history[5].fileIds).toEqual([original]); expect(done.json().history[9].fileIds).toEqual([replacement]);
+    for (const id of [original, replacement]) expect((await readFile(s.artist, s.assignmentId, id, "artist/service-assignments")).statusCode).toBe(200);
+    await expect(db.serviceDeliverableFile.updateMany({ where: { assignmentId: s.assignmentId }, data: { label: "changed" } })).rejects.toThrow();
+    await expect(db.serviceDeliverableFile.deleteMany({ where: { assignmentId: s.assignmentId } })).rejects.toThrow();
+  });
+  it("fails storage safely without creating file metadata or history", async () => {
+    const s = await working(); fileStorageFails = true;
+    try { expect((await uploadFile(s.partner, s.assignmentId, fileCommand(2))).statusCode).toBe(503); } finally { fileStorageFails = false; }
+    expect(await db.serviceDeliverableFile.count({ where: { assignmentId: s.assignmentId } })).toBe(0);
+    expect((await get(s.partner, s.assignmentId)).json().execution.version).toBe(2);
+  });
+  it("rolls file metadata/version back and removes uncommitted objects when audit insertion fails", async () => {
+    const s = await working(), name = "file_fail_" + randomUUID().replaceAll("-", ""), before = fileObjects.size;
+    await db.$executeRawUnsafe('CREATE FUNCTION ' + name + '() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW."assignmentId" = \'' + s.assignmentId + '\'::uuid THEN RAISE EXCEPTION \'history failure\'; END IF; RETURN NEW; END $$');
+    await db.$executeRawUnsafe('CREATE TRIGGER ' + name + ' BEFORE INSERT ON "service_execution_events" FOR EACH ROW EXECUTE FUNCTION ' + name + '()');
+    try { expect((await uploadFile(s.partner, s.assignmentId, fileCommand(2))).statusCode).toBe(500); } finally { await db.$executeRawUnsafe('DROP TRIGGER ' + name + ' ON "service_execution_events"'); await db.$executeRawUnsafe('DROP FUNCTION ' + name + '()'); }
+    expect(fileObjects.size).toBe(before); expect(await db.serviceDeliverableFile.count({ where: { assignmentId: s.assignmentId } })).toBe(0);
+    expect((await get(s.partner, s.assignmentId)).json().execution.version).toBe(2);
+    expect((await uploadFile(s.partner, s.assignmentId, fileCommand(2))).statusCode).toBe(201);
+  });
   it("runs schedule, text delivery, requested corrections and explicit staff completion independently of finance", async () => {
     const s = await accepted();
     expect((await get(s.partner, s.assignmentId)).json().execution).toMatchObject({ status: "accepted", version: 0 });
