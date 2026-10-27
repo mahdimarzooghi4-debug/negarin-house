@@ -2,6 +2,7 @@ import { Body, Controller, Get, Header, Param, Post, Query, Req, UseGuards } fro
 import { AuthorizationGuard, type AuthorizedRequest } from "./authorization.guard.js";
 import { parseArtistProductId } from "./artist-products.js";
 import { parseOrderPage } from "./customer-orders.js";
+import { parseShipment } from "./artist-shipment.js";
 import { ArtistOrdersService, parsePreparation } from "./artist-orders.js";
 @Controller("artist/orders")
 @UseGuards(AuthorizationGuard)
@@ -17,6 +18,11 @@ export class ArtistOrdersController {
   @Header("Cache-Control", "no-store")
   get(@Req() req: AuthorizedRequest, @Param("id") id: string) {
     return this.orders.get(req.authorizationContext!, parseArtistProductId(id));
+  }
+  @Post(":id/shipment")
+  @Header("Cache-Control", "no-store")
+  dispatch(@Req() req: AuthorizedRequest & { id: string }, @Param("id") id: string, @Body() body: unknown) {
+    return this.orders.dispatch(req.authorizationContext!, parseArtistProductId(id), parseShipment(body), req.id);
   }
   @Post(":id/preparation")
   @Header("Cache-Control", "no-store")

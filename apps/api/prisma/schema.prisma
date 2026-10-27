@@ -34,6 +34,7 @@ model IdentityUser {
   payableQuotes OrderPayableQuote[]
   fulfillments ArtistOrderPreparation[]
   preparationEvents OrderPreparationEvent[]
+  shipmentReports ArtistShipmentReport[]
 
   @@map("identity_users")
 }
@@ -405,6 +406,7 @@ model ArtistOrderPreparation {
   updatedAt DateTime @updatedAt
   items CustomerOrderItem[]
   events OrderPreparationEvent[]
+  shipment ArtistShipmentReport?
   @@id([orderId, artistUserId])
   @@index([artistUserId, orderId])
   @@map("artist_order_preparations")
@@ -424,4 +426,21 @@ model OrderPreparationEvent {
   createdAt DateTime @default(now())
   @@unique([orderId, artistUserId, version])
   @@map("order_preparation_events")
+}
+
+// Immutable Artist declaration. Carrier verification and delivery are separate future workflows.
+model ArtistShipmentReport {
+  id String @id @default(uuid()) @db.Uuid
+  orderId String @db.Uuid
+  artistUserId String @db.Uuid
+  preparation ArtistOrderPreparation @relation(fields: [orderId, artistUserId], references: [orderId, artistUserId], onDelete: Restrict, map: "artist_shipment_reports_preparation_fkey")
+  preparationVersion Int
+  carrierName String
+  trackingCode String
+  reportedAt DateTime @default(now())
+  reportedByUserId String @db.Uuid
+  reporter IdentityUser @relation(fields: [reportedByUserId], references: [id], onDelete: Restrict)
+  requestId String
+  @@unique([orderId, artistUserId])
+  @@map("artist_shipment_reports")
 }
