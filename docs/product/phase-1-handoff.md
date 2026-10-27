@@ -49,6 +49,11 @@ Growth cannot be purchased.
 ### Corporate Buyer
 - External B2B buyer.
 - Purchase Request → Negarin Review → Proposal → Buyer Confirmation → Corporate Order → Artist Allocation(s) → Fulfillment → Delivery → Completion.
+- Corporate product catalog is read-only and may show the current Artist-owned price; Corporate Buyer has no Artist-price mutation command.
+- PurchaseRequest is demand intent only: product identity + quantity. It contains no Buyer-authored price, discount, fee, payment, settlement, or Artist allocation.
+- PurchaseRequest starts Draft and is explicitly submitted. Draft/submission do not reserve retail inventory or create CorporateOrder.
+- Product title and Artist ownership are snapshotted for request traceability; proposal/commercial pricing belongs to the future CorporateProposal aggregate.
+- Buyer organization comes only from the authenticated corporate context and all request reads are organization-scoped.
 - No direct Artist payment or off-platform commercial bypass.
 - No access to Artist settlement, bank details, private finance, private Growth scoring, or Admin notes.
 
