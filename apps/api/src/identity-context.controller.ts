@@ -1,5 +1,5 @@
 import {
-  BadRequestException, Body, Controller, Get, Header, Post, Req,
+  BadRequestException, Body, Controller, Get, Header, HttpCode, Post, Req,
   UnauthorizedException, UseGuards
 } from "@nestjs/common";
 import type { AuthorizationContext } from "@negarin/authz";
@@ -37,6 +37,17 @@ export class IdentityContextController {
       orderBy: { createdAt: "asc" }
     });
     return { activeGrantId: session.activeGrantId, grants };
+  }
+
+  @Post("session/revoke")
+  @HttpCode(204)
+  @Header("Cache-Control", "no-store")
+  async revoke(@Req() request: AuthorizedRequest): Promise<void> {
+    const token = bearer(request);
+    await this.database.authSession.updateMany({
+      where: { tokenHash: hashSessionToken(token), revokedAt: null },
+      data: { revokedAt: new Date() }
+    });
   }
 
   @Get("context")
