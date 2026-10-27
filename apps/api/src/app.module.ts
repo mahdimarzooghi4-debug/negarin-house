@@ -1,3 +1,5 @@
+import { ArtistFinanceController, AdminDomesticFinanceController } from "./artist-finance.controller.js";
+import { ArtistFinanceService } from "./artist-finance.js";
 import { RefundFinanceController } from "./refund-finance.controller.js";
 import { RefundFinanceService } from "./refund-finance.js";
 import { ShipmentIssueSupportController } from "./shipment-issue-support.controller.js";
@@ -34,8 +36,8 @@ import { ArtistPublicationController, AdminProductReviewsController } from "./pr
 import { ProductPublicationService } from "./product-publication.js";
 
 @Module({
-  controllers: [RefundFinanceController, ShipmentIssueSupportController, CustomerShipmentsController, ArtistOrdersController, CustomerPaymentsController, CustomerOrdersController, CustomerAddressesController, CustomerCartController, PublicProductCatalogController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
-  providers: [RefundFinanceService, ShipmentIssueSupportService, CustomerShipmentsService, ArtistOrdersService, CustomerPaymentsService, PaymentGateway, OrderReservationExpiry, CustomerOrdersService, CustomerAddressesService, CustomerCartService, PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
+  controllers: [ArtistFinanceController, AdminDomesticFinanceController, RefundFinanceController, ShipmentIssueSupportController, CustomerShipmentsController, ArtistOrdersController, CustomerPaymentsController, CustomerOrdersController, CustomerAddressesController, CustomerCartController, PublicProductCatalogController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
+  providers: [ArtistFinanceService, RefundFinanceService, ShipmentIssueSupportService, CustomerShipmentsService, ArtistOrdersService, CustomerPaymentsService, PaymentGateway, OrderReservationExpiry, CustomerOrdersService, CustomerAddressesService, CustomerCartService, PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
   exports: [AuthorizationGuard]
 })
 export class AppModule {}
