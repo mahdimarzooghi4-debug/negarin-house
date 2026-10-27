@@ -20,6 +20,11 @@ export function parseServiceCreate(body: unknown) {
   return { idempotencyKey: parseArtistProductId(b.idempotencyKey as string), artistUserId: parseArtistProductId(b.artistUserId as string),
     title: text(b.title, 200), description: text(b.description, 2000), ...(b.internalNote === undefined ? {} : { internalNote: text(b.internalNote, 2000) }) };
 }
+export function parseArtistServiceCreate(body: unknown) {
+  const b = object(body, ["idempotencyKey", "title", "description"]);
+  return { idempotencyKey: parseArtistProductId(b.idempotencyKey as string), title: text(b.title, 200), description: text(b.description, 2000) };
+}
+type ServiceCreateCommand = ReturnType<typeof parseServiceCreate>;
 export function parseServiceAssign(body: unknown) {
   const b = object(body, ["version", "partnerOrganizationId", "partnerUserId"]);
   return { ...parseCartCommand({ version: b.version }), partnerOrganizationId: parseArtistProductId(b.partnerOrganizationId as string), partnerUserId: parseArtistProductId(b.partnerUserId as string) };
@@ -61,18 +66,25 @@ export class ServiceAssignmentsService {
   constructor(private readonly db: PrismaService) {}
   async create(context: AuthorizationContext, input: ReturnType<typeof parseServiceCreate>, trace: string) {
     enforceDecision(canAccessStaffDomain(context, "services"));
-    const command = parseServiceCreate(input);
+    return this.createRequest(context, parseServiceCreate(input), trace, true);
+  }
+  async createArtist(context: AuthorizationContext, input: ReturnType<typeof parseArtistServiceCreate>, trace: string) {
+    if (context.activeRole !== "artist") throw new ForbiddenException();
+    const artist = parseArtistServiceCreate(input);
+    return this.createRequest(context, { ...artist, artistUserId: context.userId }, trace, false);
+  }
+  private async createRequest(context: AuthorizationContext, command: ServiceCreateCommand, trace: string, staff: boolean) {
     return this.db.$transaction(async tx => {
       await tx.$queryRawUnsafe('SELECT 1 AS locked FROM pg_advisory_xact_lock(hashtextextended($1, 0))', "service-create:" + context.userId + ":" + command.idempotencyKey);
       const prior = await tx.serviceRequest.findUnique({ where: { createdByUserId_idempotencyKey: { createdByUserId: context.userId, idempotencyKey: command.idempotencyKey } }, include });
       if (prior) {
         if (!sameCommand(prior.events[0]?.command, command)) throw new ConflictException("idempotency-key-reused");
-        return requestView(prior, true);
+        return requestView(prior, staff);
       }
-      if (!await tx.roleGrant.findFirst({ where: { userId: command.artistUserId, role: "artist", revokedAt: null } })) throw new NotFoundException();
+      if (staff && !await tx.roleGrant.findFirst({ where: { userId: command.artistUserId, role: "artist", revokedAt: null } })) throw new NotFoundException();
       const r = await tx.serviceRequest.create({ data: { ...command, createdByUserId: context.userId } });
       await tx.serviceRequestEvent.create({ data: { requestId: r.id, version: 0, action: "created", actorUserId: context.userId, command, requestTraceId: trace } });
-      return requestView(await tx.serviceRequest.findUniqueOrThrow({ where: { id: r.id }, include }), true);
+      return requestView(await tx.serviceRequest.findUniqueOrThrow({ where: { id: r.id }, include }), staff);
     });
   }
   async requests(context: AuthorizationContext, page: number, pageSize: number, staff = false) {

@@ -231,6 +231,32 @@ describe("Service assignment HTTP and PostgreSQL", () => {
       await expect(db.serviceExecutionEvent.deleteMany({ where: { assignmentId: id } })).rejects.toThrow();
     } finally { await db.$executeRawUnsafe('DROP FUNCTION ' + name + '()'); }
   });
+  it("lets an Artist create only their own operational service request without private or financial overrides", async () => {
+    const artist = await signIn(), other = await signIn(), customer = await signIn("customer"), staff = await signIn("staff", "services");
+    const payload = { idempotencyKey: randomUUID(), title: "عکاسی محصول", description: "پنج تصویر محصول با زمینه سفید" };
+    const created = await app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: artist.headers, payload });
+    expect(created.statusCode).toBe(201);
+    expect(created.json()).toMatchObject({ title: payload.title, description: payload.description, status: "awaiting_assignment", version: 0, assignment: null });
+    for (const key of ["artistUserId", "internalNote", "assignments"]) expect(created.json()).not.toHaveProperty(key);
+    const raw = await db.serviceRequest.findUniqueOrThrow({ where: { id: created.json().id } });
+    expect(raw).toMatchObject({ artistUserId: artist.userId, createdByUserId: artist.userId, internalNote: null });
+    expect(await db.financialEvent.count({ where: { actorUserId: artist.userId } })).toBe(0);
+    expect((await app.inject({ method: "GET", url: `/api/v1/artist/service-requests/${created.json().id}`, headers: other.headers })).statusCode).toBe(404);
+    const staffView = await app.inject({ method: "GET", url: `/api/v1/admin/service-requests/${created.json().id}`, headers: staff.headers });
+    expect(staffView.statusCode).toBe(200); expect(staffView.json()).toMatchObject({ artistUserId: artist.userId, internalNote: null });
+    for (const extra of [{ artistUserId: other.userId }, { internalNote: "private" }, { priceToman: "1000" }, { serviceCredit: 1 }, { growthLevel: "سرو زرین" }, { partnerUserId: other.userId }]) {
+      expect((await app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: artist.headers, payload: { ...payload, idempotencyKey: randomUUID(), ...extra } })).statusCode).toBe(400);
+    }
+    expect((await app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: customer.headers, payload: { ...payload, idempotencyKey: randomUUID() } })).statusCode).toBe(403);
+  });
+  it("replays concurrent Artist request creation and conflicts changed payload under the same key", async () => {
+    const artist = await signIn(), payload = { idempotencyKey: randomUUID(), title: "بسته‌بندی", description: "درخواست آماده‌سازی بسته‌بندی" };
+    const results = await Promise.all([1, 2].map(() => app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: artist.headers, payload })));
+    const id = results[0]!.json().id;
+    expect(results.map(r => r.statusCode)).toEqual([201, 201]); expect(results.map(r => r.json().id)).toEqual([id, id]);
+    expect((await app.inject({ method: "POST", url: "/api/v1/artist/service-requests", headers: artist.headers, payload: { ...payload, title: "changed" } })).statusCode).toBe(409);
+    expect(await db.serviceRequestEvent.count({ where: { requestId: id } })).toBe(1);
+  });
   it("replays concurrent creation and rejects changed payload under the same key", async () => {
     const s = await setup(), command = { ...s.command, idempotencyKey: randomUUID() };
     const results = await Promise.all([1, 2].map(() => app.inject({ method: "POST", url: "/api/v1/admin/service-requests", headers: s.staff.headers, payload: command })));
