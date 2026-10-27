@@ -101,6 +101,36 @@ describe("Corporate purchase request HTTP and PostgreSQL", () => {
     expect(await db.corporatePurchaseRequestEvent.count({ where: { requestId: copies[0]!.json().id } })).toBe(1);
   });
 
+  it("scopes the same creator/idempotency key independently across explicit corporate organization contexts", async () => {
+    const artist = await signIn(), firstOrg = randomUUID(), secondOrg = randomUUID();
+    const corp = await signIn("corporate_buyer", undefined, firstOrg), p = await product(artist);
+    const token = corp.headers.authorization.replace("Bearer ", "");
+    const secondGrant = await db.roleGrant.create({ data: { userId: corp.userId, role: "corporate_buyer", organizationId: secondOrg } });
+    const key = randomUUID(), payload = { idempotencyKey: key, items: [{ productId: p.id, quantity: 3 }] };
+
+    const first = await app.inject({ method: "POST", url: "/api/v1/corporate/purchase-requests", headers: corp.headers, payload });
+    expect(first.statusCode).toBe(201);
+    expect((await db.corporatePurchaseRequest.findUniqueOrThrow({ where: { id: first.json().id } })).buyerOrganizationId).toBe(firstOrg);
+
+    expect((await contexts.select(token, secondGrant.id))?.organizationId).toBe(secondOrg);
+    const second = await app.inject({ method: "POST", url: "/api/v1/corporate/purchase-requests", headers: corp.headers, payload });
+    expect(second.statusCode).toBe(201);
+    expect(second.json().id).not.toBe(first.json().id);
+    expect((await db.corporatePurchaseRequest.findUniqueOrThrow({ where: { id: second.json().id } })).buyerOrganizationId).toBe(secondOrg);
+
+    expect(await db.corporatePurchaseRequest.count({
+      where: { createdByUserId: corp.userId, idempotencyKey: key }
+    })).toBe(2);
+
+    const firstGrant = await db.roleGrant.findFirstOrThrow({
+      where: { userId: corp.userId, role: "corporate_buyer", organizationId: firstOrg, revokedAt: null }
+    });
+    expect((await contexts.select(token, firstGrant.id))?.organizationId).toBe(firstOrg);
+    const replay = await app.inject({ method: "POST", url: "/api/v1/corporate/purchase-requests", headers: corp.headers, payload });
+    expect(replay.statusCode).toBe(201);
+    expect(replay.json().id).toBe(first.json().id);
+  });
+
   it("submits a draft with optimistic versioning, revalidates product visibility, and never reserves stock", async () => {
     const artist = await signIn(), corp = await signIn("corporate_buyer", undefined, randomUUID()), p = await product(artist, { stockQuantity: 4 });
     const created = await app.inject({ method: "POST", url: "/api/v1/corporate/purchase-requests", headers: corp.headers,

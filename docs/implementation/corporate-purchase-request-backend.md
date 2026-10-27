@@ -66,8 +66,8 @@ Items deliberately contain no price. A PurchaseRequest is demand intent, not the
 ## Concurrency and idempotency
 
 Creation:
-- creator + idempotency key uniqueness;
-- advisory transaction lock;
+- buyer organization + creator + idempotency key uniqueness;
+- advisory transaction lock scoped by buyer organization + creator + idempotency key;
 - canonical item ordering;
 - product rows locked FOR SHARE while visibility/title/ownership snapshots are read;
 - exact retry returns the same request;
@@ -100,3 +100,10 @@ Orders-domain Staff view includes organization and Artist ownership required for
 ## Next boundary
 
 The next Corporate slice may begin Negarin Review / CorporateProposal only after proposal fields and commercial-price ownership are explicit. This Draft does not invent them.
+
+
+## Multi-organization identity safety
+
+A single identity may hold multiple explicit Corporate Buyer organization contexts. Idempotency is therefore scoped by `buyerOrganizationId + createdByUserId + idempotencyKey`, not by user alone.
+
+This prevents an exact command issued after switching organizations from replaying or disclosing a PurchaseRequest created under another organization. The advisory lock uses the same organization-aware scope, and PostgreSQL enforces the triple unique key.
