@@ -49,6 +49,14 @@ model IdentityUser {
   serviceDeliverableFiles ServiceDeliverableFile[]
   createdServiceCatalogItems ServiceCatalogItem[] @relation("ServiceCatalogCreator")
   serviceCatalogEvents ServiceCatalogEvent[] @relation("ServiceCatalogActor")
+  createdSupportPrograms SupportProgram[] @relation("SupportProgramCreator")
+  supportProgramEvents SupportProgramEvent[] @relation("SupportProgramEventActor")
+  supportRelationshipsAsArtist SupportRelationship[] @relation("SupportRelationshipArtist")
+  sponsorApprovedSupportRelationships SupportRelationship[] @relation("SupportSponsorApprover")
+  negarinApprovedSupportRelationships SupportRelationship[] @relation("SupportNegarinApprover")
+  supportRelationshipEvents SupportRelationshipEvent[] @relation("SupportRelationshipEventActor")
+  createdSupportAllocations SupportAllocation[] @relation("SupportAllocationCreator")
+  supportCreditEvents SupportCreditEvent[] @relation("SupportCreditEventActor")
 
   @@map("identity_users")
 }
@@ -86,6 +94,136 @@ model ServiceCatalogEvent {
   @@map("service_catalog_events")
 }
 
+enum SupportProgramSource {
+  supporting_organization
+  negarin_csr
+}
+
+enum SupportCreditStatus {
+  available
+  reserved
+  consumed
+}
+
+enum SupportCreditAction {
+  allocated
+  reserved
+  released
+  consumed
+  reversed
+}
+
+model SupportProgram {
+  id String @id @default(uuid()) @db.Uuid
+  source SupportProgramSource
+  organizationId String? @db.Uuid
+  createdByUserId String @db.Uuid
+  creator IdentityUser @relation("SupportProgramCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  idempotencyKey String @db.Uuid
+  title String
+  description String
+  rules String
+  createdAt DateTime @default(now())
+  relationships SupportRelationship[]
+  allocations SupportAllocation[]
+  events SupportProgramEvent[]
+  @@unique([createdByUserId, idempotencyKey])
+  @@index([source, organizationId, createdAt, id])
+  @@map("support_programs")
+}
+
+model SupportProgramEvent {
+  id String @id @default(uuid()) @db.Uuid
+  programId String @db.Uuid
+  program SupportProgram @relation(fields: [programId], references: [id], onDelete: Restrict)
+  action String
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation("SupportProgramEventActor", fields: [actorUserId], references: [id], onDelete: Restrict)
+  command Json
+  requestTraceId String
+  createdAt DateTime @default(now())
+  @@map("support_program_events")
+}
+
+model SupportRelationship {
+  id String @id @default(uuid()) @db.Uuid
+  programId String @db.Uuid
+  program SupportProgram @relation(fields: [programId], references: [id], onDelete: Restrict)
+  artistUserId String @db.Uuid
+  artist IdentityUser @relation("SupportRelationshipArtist", fields: [artistUserId], references: [id], onDelete: Restrict)
+  sponsorApprovedByUserId String @db.Uuid
+  sponsorApprover IdentityUser @relation("SupportSponsorApprover", fields: [sponsorApprovedByUserId], references: [id], onDelete: Restrict)
+  sponsorApprovedAt DateTime @default(now())
+  negarinApprovedByUserId String? @db.Uuid
+  negarinApprover IdentityUser? @relation("SupportNegarinApprover", fields: [negarinApprovedByUserId], references: [id], onDelete: Restrict)
+  negarinApprovedAt DateTime?
+  version Int @default(0)
+  createdAt DateTime @default(now())
+  allocations SupportAllocation[]
+  events SupportRelationshipEvent[]
+  @@unique([programId, artistUserId])
+  @@unique([id, programId])
+  @@index([artistUserId, createdAt, id])
+  @@map("support_relationships")
+}
+
+model SupportRelationshipEvent {
+  id String @id @default(uuid()) @db.Uuid
+  relationshipId String @db.Uuid
+  relationship SupportRelationship @relation(fields: [relationshipId], references: [id], onDelete: Restrict)
+  version Int
+  action String
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation("SupportRelationshipEventActor", fields: [actorUserId], references: [id], onDelete: Restrict)
+  command Json
+  requestTraceId String
+  createdAt DateTime @default(now())
+  @@unique([relationshipId, version])
+  @@map("support_relationship_events")
+}
+
+model SupportAllocation {
+  id String @id @default(uuid()) @db.Uuid
+  programId String @db.Uuid
+  program SupportProgram @relation(fields: [programId], references: [id], onDelete: Restrict)
+  relationshipId String @db.Uuid
+  relationship SupportRelationship @relation(fields: [relationshipId, programId], references: [id, programId], onDelete: Restrict)
+  createdByUserId String @db.Uuid
+  creator IdentityUser @relation("SupportAllocationCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  idempotencyKey String @db.Uuid
+  amountToman BigInt
+  rulesSnapshot String
+  status SupportCreditStatus @default(available)
+  version Int @default(0)
+  currentServiceRequestId String? @db.Uuid
+  currentServiceRequest ServiceRequest? @relation(fields: [currentServiceRequestId], references: [id], onDelete: Restrict)
+  createdAt DateTime @default(now())
+  events SupportCreditEvent[]
+  @@unique([createdByUserId, idempotencyKey])
+  @@index([relationshipId, status, createdAt, id])
+  @@index([currentServiceRequestId])
+  @@map("support_allocations")
+}
+
+model SupportCreditEvent {
+  id String @id @default(uuid()) @db.Uuid
+  allocationId String @db.Uuid
+  allocation SupportAllocation @relation(fields: [allocationId], references: [id], onDelete: Restrict)
+  version Int
+  action SupportCreditAction
+  amountToman BigInt
+  serviceRequestId String? @db.Uuid
+  serviceRequest ServiceRequest? @relation(fields: [serviceRequestId], references: [id], onDelete: Restrict)
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation("SupportCreditEventActor", fields: [actorUserId], references: [id], onDelete: Restrict)
+  command Json
+  requestTraceId String
+  createdAt DateTime @default(now())
+  @@unique([allocationId, version])
+  @@index([serviceRequestId, createdAt, id])
+  @@map("support_credit_events")
+}
+
 enum ServiceRequestStatus {
   awaiting_assignment
   assigned
@@ -115,6 +253,8 @@ model ServiceRequest {
   createdAt DateTime @default(now())
   assignments ServiceAssignment[]
   events ServiceRequestEvent[]
+  supportAllocations SupportAllocation[]
+  supportCreditEvents SupportCreditEvent[]
   @@unique([createdByUserId, idempotencyKey])
   @@index([serviceCatalogItemId])
   @@index([artistUserId, createdAt, id])
