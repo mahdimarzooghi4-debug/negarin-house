@@ -132,6 +132,7 @@ describe("Customer payments HTTP and PostgreSQL", () => {
     expect(results.every(r => r.statusCode === 201 && r.json().status === "succeeded" && r.json().redirectUrl === null)).toBe(true);
     const order = await database.customerOrder.findUniqueOrThrow({ where: { id: a.order.id } }); expect(order).toMatchObject({ status: "placed", paymentStatus: "paid", version: 2 }); expect(order.paidAt).not.toBeNull();
     expect(await database.paymentReceipt.count({ where: { attemptId: attempt.id } })).toBe(1);
+    expect(await database.financialEvent.count({ where: { orderId: a.order.id } })).toBe(2);
     expect(await database.paymentEvent.count({ where: { attemptId: attempt.id, reason: "server-verified-payment" } })).toBe(1);
     expect((await cancel(a.user, a.order.id, 2)).statusCode).toBe(409);
     await database.customerOrder.update({ where: { id: a.order.id }, data: { reservedUntil: new Date(Date.now() - 1000) } });
@@ -215,5 +216,26 @@ describe("Customer payments HTTP and PostgreSQL", () => {
     } finally { await database.$executeRawUnsafe(`DROP FUNCTION IF EXISTS "${name}"()`); }
     expect((await verify(a.user, a.order.id, attempt.id)).json().status).toBe("succeeded");
     expect(await database.paymentReceipt.count({ where: { attemptId: attempt.id } })).toBe(1);
+    expect(await database.financialEvent.count({ where: { orderId: a.order.id } })).toBe(2);
   });
+  it("rolls back verified payment and receipt if its financial journal fails", async () => {
+    const a = await reserve(), attempt = (await start(a.user, a.order.id, a.body)).json();
+    const name = "journal_" + randomUUID().replaceAll("-", "");
+    await database.$executeRawUnsafe('CREATE FUNCTION "' + name + '"() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW."orderId" = ' + "'" + a.order.id + "'" + "::uuid THEN RAISE EXCEPTION 'journal failure'; END IF; RETURN NEW; END $$");
+    try {
+      await database.$executeRawUnsafe('CREATE TRIGGER "' + name + '" BEFORE INSERT ON "financial_events" FOR EACH ROW EXECUTE FUNCTION "' + name + '"()');
+      try {
+        expect((await verify(a.user, a.order.id, attempt.id)).statusCode).toBe(500);
+        expect(await database.paymentReceipt.count({ where: { attemptId: attempt.id } })).toBe(0);
+        expect(await database.financialEvent.count({ where: { orderId: a.order.id } })).toBe(0);
+        expect(await database.customerOrder.findUniqueOrThrow({ where: { id: a.order.id } })).toMatchObject({ status: "reserved", paymentStatus: "unpaid" });
+      } finally { await database.$executeRawUnsafe('DROP TRIGGER IF EXISTS "' + name + '" ON "financial_events"'); }
+    } finally { await database.$executeRawUnsafe('DROP FUNCTION IF EXISTS "' + name + '"()'); }
+    expect((await verify(a.user, a.order.id, attempt.id)).json().status).toBe("succeeded");
+    const events = await database.financialEvent.findMany({ where: { orderId: a.order.id } });
+    expect(events).toHaveLength(2);
+    expect(events.find(e => e.kind === "payment_received")?.amountToman).toBe(a.body.expectedPayableToman);
+    expect(events.find(e => e.kind === "sale_verified")).toMatchObject({ amountToman: a.p.priceToman.toString(), artistUserId: a.p.artistUserId });
+  });
+
 });
