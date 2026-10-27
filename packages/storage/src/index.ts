@@ -20,6 +20,7 @@ export type SignedUpload = Readonly<{
 
 export interface ObjectStorage {
   createUploadUrl(input: UploadRequest): Promise<SignedUpload>;
+  putImmutableObject(objectKey: string, body: Uint8Array, contentType: string): Promise<void>;
   createReadUrl(objectKey: string): Promise<string>;
   deleteObject(objectKey: string): Promise<void>;
 }
@@ -49,6 +50,14 @@ export class S3ObjectStorage implements ObjectStorage {
         secretAccessKey: config.secretAccessKey
       }
     });
+  }
+
+  async putImmutableObject(objectKey: string, body: Uint8Array, contentType: string): Promise<void> {
+    if (!objectKey || !body.byteLength || !contentType) throw new Error("Invalid object");
+    await this.client.send(new PutObjectCommand({
+      Bucket: this.config.bucket, Key: objectKey, Body: body,
+      ContentLength: body.byteLength, ContentType: contentType, IfNoneMatch: "*"
+    }));
   }
 
   async createUploadUrl(input: UploadRequest): Promise<SignedUpload> {

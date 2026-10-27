@@ -8,7 +8,7 @@ import { productContentSnapshot } from "./product-specifications.js";
 
 const reviewSelect = {
   id: true, title: true, description: true, publicationStatus: true,
-  category: true, dimensions: true, materials: true, weight: true, color: true,
+  imageIds: true, category: true, dimensions: true, materials: true, weight: true, color: true,
   technique: true, careInstructions: true,
   version: true, updatedAt: true
 } as const;

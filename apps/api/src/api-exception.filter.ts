@@ -40,6 +40,12 @@ export class ApiExceptionFilter implements ExceptionFilter {
       }
     }
 
+    if (exception && typeof exception === "object" && "code" in exception && exception.code === "FST_ERR_CTP_BODY_TOO_LARGE") {
+      status = HttpStatus.PAYLOAD_TOO_LARGE;
+      code = "PAYLOAD_TOO_LARGE";
+      message = "Request body too large";
+    }
+
     response.status(status).send({
       error: {
         code,

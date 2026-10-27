@@ -51,6 +51,8 @@ model ArtistProduct {
   weight            String?
   color             String?
   technique         String?
+  imageIds          String[]                 @default([]) @db.Uuid
+  images            ProductImage[]
   careInstructions  String?
   priceToman        BigInt
   publicationStatus ProductPublicationStatus @default(draft)
@@ -171,4 +173,19 @@ model ProductPublicationEvent {
   @@unique([productId, version])
   @@index([productId, createdAt])
   @@map("product_publication_events")
+}
+
+// Immutable media retained for publication-history references.
+model ProductImage {
+  id          String        @id @db.Uuid
+  productId   String        @db.Uuid
+  product     ArtistProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  objectKey   String        @unique
+  width       Int
+  height      Int
+  byteLength  Int
+  createdAt   DateTime      @default(now())
+
+  @@index([productId])
+  @@map("product_images")
 }
