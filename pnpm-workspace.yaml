@@ -9,3 +9,6 @@ allowBuilds:
   protobufjs: true
   "@scarf/scarf": false
   msgpackr-extract: false
+
+overrides:
+  source-map-js: 1.2.2
