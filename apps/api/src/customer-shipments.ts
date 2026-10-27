@@ -16,7 +16,7 @@ export function parseShipmentIssue(body: unknown): ShipmentIssueCommand {
   if (!description || description.length > 2000) throw new BadRequestException();
   return { version, kind: v.kind as ShipmentIssueCommand["kind"], description };
 }
-const include = { receipt: true, issue: true, preparation: { include: { order: true } } } as const;
+const include = { receipt: true, issue: { include: { refundReviews: true } }, preparation: { include: { order: true } } } as const;
 @Injectable()
 export class CustomerShipmentsService {
   constructor(private readonly db: PrismaService) {}

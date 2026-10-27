@@ -38,6 +38,7 @@ model IdentityUser {
   shipmentReceipts CustomerShipmentReceipt[]
   shipmentIssues CustomerShipmentIssue[]
   shipmentIssueEvents ShipmentIssueEvent[]
+  refundReviews ShipmentRefundReview[]
 
   @@map("identity_users")
 }
@@ -299,6 +300,7 @@ model CustomerOrder {
   paidAt            DateTime?
   payableQuote      OrderPayableQuote?
   payments          PaymentAttempt[]
+  refundReviews     ShipmentRefundReview[]
   preparations      ArtistOrderPreparation[]
   items             CustomerOrderItem[]
   inventoryEvents   ProductInventoryEvent[]
@@ -364,6 +366,7 @@ model PaymentAttempt {
 }
 
 model PaymentReceipt {
+  refundReviews ShipmentRefundReview[]
   id String @id @default(uuid()) @db.Uuid
   attemptId String @unique @db.Uuid
   attempt PaymentAttempt @relation(fields: [attemptId], references: [id], onDelete: Restrict)
@@ -468,6 +471,7 @@ model CustomerShipmentReceipt {
   @@map("customer_shipment_receipts")
 }
 model CustomerShipmentIssue {
+  refundReviews ShipmentRefundReview[]
   status ShipmentIssueStatus @default(open)
   version Int @default(0)
   resolution ShipmentIssueResolution?
@@ -510,4 +514,29 @@ model ShipmentIssueEvent {
   createdAt DateTime @default(now())
   @@unique([shipmentId, version])
   @@map("shipment_issue_events")
+}
+
+enum RefundReviewDecision {
+  approved
+  rejected
+}
+model ShipmentRefundReview {
+  id String @id @default(uuid()) @db.Uuid
+  shipmentId String @db.Uuid
+  issue CustomerShipmentIssue @relation(fields: [shipmentId], references: [shipmentId], onDelete: Restrict)
+  issueVersion Int
+  orderId String @db.Uuid
+  order CustomerOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  receiptId String? @db.Uuid
+  receipt PaymentReceipt? @relation(fields: [receiptId], references: [id], onDelete: Restrict)
+  decision RefundReviewDecision
+  amountToman String?
+  reason String
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  requestId String
+  reviewedAt DateTime @default(now())
+  @@unique([shipmentId, issueVersion])
+  @@index([orderId, decision])
+  @@map("shipment_refund_reviews")
 }

@@ -26,7 +26,7 @@ export function parseOrderPage(query: Record<string, unknown>) {
   };
   return { page: number(query.page, 1, 1000), pageSize: number(query.pageSize, 20, 50) };
 }
-const orderInclude = { preparations: { include: { shipment: { include: { receipt: true, issue: true } } }, orderBy: { artistUserId: "asc" } }, items: { orderBy: { productId: "asc" } } } satisfies Prisma.CustomerOrderInclude;
+const orderInclude = { preparations: { include: { shipment: { include: { receipt: true, issue: { include: { refundReviews: true } } } } }, orderBy: { artistUserId: "asc" } }, items: { orderBy: { productId: "asc" } } } satisfies Prisma.CustomerOrderInclude;
 type Order = Prisma.CustomerOrderGetPayload<{ include: typeof orderInclude }>;
 export function orderView(order: Order) {
   return { id: order.id, version: order.version, status: order.status, paymentStatus: order.paymentStatus, paidAt: order.paidAt?.toISOString() ?? null, shippingAddress: order.shippingAddress,

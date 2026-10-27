@@ -55,6 +55,7 @@ export class ShipmentIssueSupportService {
       const last = i.events.at(-1);
       if (i.version === input.version + 1 && last?.actorUserId === context.userId && last.toStatus === input.status &&
         last.summary === input.summary && last.resolution === (input.resolution ?? null)) return view(i, true);
+      if (await tx.shipmentRefundReview.count({ where: { shipmentId, decision: "approved" } })) throw new ConflictException("approved-refund-requires-finance-workflow");
       if (i.version !== input.version) throw new ConflictException("issue-state-changed");
       if (!(input.status === "in_review" && ["open", "closed"].includes(i.status)) && !(input.status === "closed" && i.status === "in_review")) throw new ConflictException("issue-transition-invalid");
       await tx.customerShipmentIssue.update({ where: { shipmentId }, data: { status: input.status, version: { increment: 1 }, resolution: input.resolution ?? null, resolutionSummary: input.status === "closed" ? input.summary : null } });

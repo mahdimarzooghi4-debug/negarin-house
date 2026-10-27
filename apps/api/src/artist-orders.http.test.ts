@@ -337,4 +337,89 @@ describe("Artist preparation HTTP and PostgreSQL", () => {
     expect((await supportChange(s.staff, s.shipmentId, closeBody)).statusCode).toBe(201);
   });
 
+  async function refundCase(proof = true) {
+    const s = await supportCase(), finance = await signIn("staff", "finance");
+    await supportChange(s.staff, s.shipmentId, reviewBody);
+    await supportChange(s.staff, s.shipmentId, { ...closeBody, resolution: "referred_for_refund_review" });
+    if (proof) {
+      // CI-only server-verified payment fixture; no fake gateway is enabled in the application.
+      await db.orderPayableQuote.create({ data: { orderId: s.id, createdByUserId: finance.userId, shippingFeeToman: "0", payableToman: "18014398509481986", sourceReference: "CI-payment-fixture", expiresAt: new Date(Date.now() + 60000) } });
+      await db.paymentAttempt.create({ data: { orderId: s.id, idempotencyKey: randomUUID(), requestHash: "ci-proof", provider: "ci-only", providerReference: randomUUID(), amountToman: "18014398509481986", status: "succeeded",
+        receipt: { create: { provider: "ci-only", transactionReference: randomUUID(), amount: "18014398509481986", unit: "toman" } } } });
+    }
+    return { ...s, finance };
+  }
+  function refund(u: User, id: string, body: object) {
+    return app.inject({ method: "POST", url: "/api/v1/admin/refund-reviews/" + id, headers: u.headers, payload: body });
+  }
+  const approveBody = { issueVersion: 2, decision: "approved", amountToman: "9007199254740993", reason: "تأیید مبلغ اقلام" };
+  it("approves exact merchandise amounts once, exposes nonexecuted status and freezes support reopening", async () => {
+    const s = await refundCase();
+    const r = await Promise.all([refund(s.finance, s.shipmentId, approveBody), refund(s.finance, s.shipmentId, approveBody)]);
+    expect(r.map(v => v.statusCode)).toEqual([201, 201]); expect(r[0]!.json()).toEqual(r[1]!.json());
+    expect(r[0]!.json()).toMatchObject({ merchandiseSubtotalToman: "9007199254740993", reviews: [{ amountToman: "9007199254740993", executionStatus: "not_executed" }] });
+    expect(await db.shipmentRefundReview.count({ where: { shipmentId: s.shipmentId } })).toBe(1);
+    const customer = await app.inject({ method: "GET", url: "/api/v1/customer/orders/" + s.id + "/shipments/" + s.shipmentId, headers: s.customer.headers });
+    expect(customer.json().issue.refundReview).toMatchObject({ decision: "approved", amountToman: "9007199254740993", executionStatus: "not_executed" });
+    expect(customer.json().issue.refundReview).not.toHaveProperty("reason"); expect(customer.json().issue.refundReview).not.toHaveProperty("actorUserId");
+    expect((await supportChange(s.staff, s.shipmentId, { ...reviewBody, version: 2 })).statusCode).toBe(409);
+    expect(await db.customerOrder.findUniqueOrThrow({ where: { id: s.id } })).toMatchObject({ paymentStatus: "paid", status: "placed", version: 1 });
+    expect(await db.artistProduct.findUniqueOrThrow({ where: { id: s.products[0]!.id } })).toMatchObject({ stockQuantity: 9, inventoryVersion: 1 });
+  });
+  it("rejects missing payment evidence, excess amount and stale referral revision", async () => {
+    const s = await refundCase(false);
+    expect((await refund(s.finance, s.shipmentId, approveBody)).statusCode).toBe(409);
+    const t = await refundCase();
+    expect((await refund(t.finance, t.shipmentId, { ...approveBody, amountToman: "9007199254740994" })).statusCode).toBe(409);
+    expect((await refund(t.finance, t.shipmentId, { ...approveBody, issueVersion: 1 })).statusCode).toBe(409);
+    await supportChange(t.staff, t.shipmentId, { ...reviewBody, version: 2 });
+    expect((await refund(t.finance, t.shipmentId, { ...approveBody, issueVersion: 3 })).statusCode).toBe(409);
+  });
+  it("records rejection without an amount and retains decisions across support reopening", async () => {
+    const s = await refundCase();
+    const rejected = { issueVersion: 2, decision: "rejected", reason: "مدارک کافی نیست" };
+    expect((await refund(s.finance, s.shipmentId, rejected)).statusCode).toBe(201);
+    expect((await refund(s.finance, s.shipmentId, rejected)).statusCode).toBe(201);
+    expect((await supportChange(s.staff, s.shipmentId, { ...reviewBody, version: 2 })).statusCode).toBe(201);
+    expect((await supportChange(s.staff, s.shipmentId, { ...closeBody, version: 3, resolution: "referred_for_refund_review" })).statusCode).toBe(201);
+    expect((await refund(s.finance, s.shipmentId, { ...approveBody, issueVersion: 4 })).json().reviews).toHaveLength(2);
+  });
+  it("enforces finance-only access, bounded queue and one competing decision", async () => {
+    const s = await refundCase(), path = "/api/v1/admin/refund-reviews";
+    for (const u of [s.staff, s.customer, s.a, await signIn("staff")]) {
+      expect((await refund(u, s.shipmentId, approveBody)).statusCode).toBe(403);
+      expect((await app.inject({ method: "GET", url: path, headers: u.headers })).statusCode).toBe(403);
+    }
+    expect((await app.inject({ method: "GET", url: path + "?pageSize=51", headers: s.finance.headers })).statusCode).toBe(400);
+    expect((await app.inject({ method: "GET", url: path + "?pageSize=50", headers: s.finance.headers })).json().items.some((i: { shipmentId: string }) => i.shipmentId === s.shipmentId)).toBe(true);
+    const other = await signIn("staff", "finance");
+    const r = await Promise.all([refund(s.finance, s.shipmentId, approveBody), refund(other, s.shipmentId, { issueVersion: 2, decision: "rejected", reason: "نیاز به بررسی" })]);
+    expect(r.map(v => v.statusCode).sort()).toEqual([201, 409]);
+  });
+  it("rolls back failed review persistence, leaving support reopening and retry intact", async () => {
+    const s = await refundCase(), name = "refund_" + randomUUID().replaceAll("-", "");
+    await db.$executeRawUnsafe('CREATE FUNCTION "' + name + '"() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW."shipmentId" = ' + "'" + s.shipmentId + "'" + "::uuid THEN RAISE EXCEPTION 'refund persistence failure'; END IF; RETURN NEW; END $$");
+    try {
+      await db.$executeRawUnsafe('CREATE TRIGGER "' + name + '" BEFORE INSERT ON "shipment_refund_reviews" FOR EACH ROW EXECUTE FUNCTION "' + name + '"()');
+      try {
+        expect((await refund(s.finance, s.shipmentId, approveBody)).statusCode).toBe(500);
+        expect(await db.shipmentRefundReview.count({ where: { shipmentId: s.shipmentId } })).toBe(0);
+      } finally { await db.$executeRawUnsafe('DROP TRIGGER IF EXISTS "' + name + '" ON "shipment_refund_reviews"'); }
+    } finally { await db.$executeRawUnsafe('DROP FUNCTION IF EXISTS "' + name + '"()'); }
+    expect((await refund(s.finance, s.shipmentId, approveBody)).statusCode).toBe(201);
+  });
+
+  it("refuses inconsistent payment receipt unit, amount or provider", async () => {
+    const s = await refundCase();
+    const p = await db.paymentAttempt.findFirstOrThrow({ where: { orderId: s.id }, include: { receipt: true } });
+    const where = { id: p.receipt!.id };
+    for (const data of [{ unit: "rial" }, { unit: "toman", amount: "1" }, { amount: p.amountToman, provider: "different-provider" }]) {
+      await db.paymentReceipt.update({ where, data });
+      expect((await refund(s.finance, s.shipmentId, approveBody)).statusCode).toBe(409);
+    }
+    expect(await db.shipmentRefundReview.count({ where: { shipmentId: s.shipmentId } })).toBe(0);
+    await db.paymentReceipt.update({ where, data: { provider: p.provider } });
+    expect((await refund(s.finance, s.shipmentId, approveBody)).statusCode).toBe(201);
+  });
+
 });

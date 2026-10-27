@@ -14,9 +14,10 @@ export function parseShipment(body: unknown): ShipmentCommand {
   if (!carrierName || carrierName.length > 100 || trackingCode.length > 100 || !/^[A-Za-z0-9-]+$/.test(trackingCode)) throw new BadRequestException();
   return { version: v.version as number, carrierName, trackingCode };
 }
-export function shipmentView(s: Prisma.ArtistShipmentReportGetPayload<{ include: { receipt: true; issue: true } }> | null) {
+export function shipmentView(s: Prisma.ArtistShipmentReportGetPayload<{ include: { receipt: true; issue: { include: { refundReviews: true } } } }> | null) {
   if (!s) return null;
+  const review = s.issue?.refundReviews.find(r => r.issueVersion === s.issue!.version);
   return { id: s.id, customerVersion: s.customerVersion, receipt: s.receipt ? { source: "customer_confirmation", receivedAt: s.receipt.receivedAt.toISOString() } : null,
-    issue: s.issue ? { status: s.issue.status, version: s.issue.version, resolution: s.issue.resolution, resolutionSummary: s.issue.resolutionSummary, kind: s.issue.kind, description: s.issue.description, reportedAt: s.issue.reportedAt.toISOString() } : null, status: "reported_dispatched" as const, source: "artist_report" as const, carrierVerified: false,
+    issue: s.issue ? { refundReview: review ? { decision: review.decision, amountToman: review.amountToman, reviewedAt: review.reviewedAt.toISOString(), executionStatus: "not_executed" } : null, status: s.issue.status, version: s.issue.version, resolution: s.issue.resolution, resolutionSummary: s.issue.resolutionSummary, kind: s.issue.kind, description: s.issue.description, reportedAt: s.issue.reportedAt.toISOString() } : null, status: "reported_dispatched" as const, source: "artist_report" as const, carrierVerified: false,
     carrierName: s.carrierName, trackingCode: s.trackingCode, reportedAt: s.reportedAt.toISOString() };
 }

@@ -17,7 +17,7 @@ export function parsePreparation(body: unknown): PreparationCommand {
 export function nextPreparation(current: PreparationCommand["status"], target: PreparationCommand["status"]) {
   if (preparationSteps.indexOf(target) !== preparationSteps.indexOf(current) + 1) throw new ConflictException("preparation-transition-invalid");
 }
-const include = { shipment: { include: { receipt: true, issue: true } }, order: true, items: { orderBy: { productId: "asc" } }, events: { orderBy: { version: "asc" } } } satisfies Prisma.ArtistOrderPreparationInclude;
+const include = { shipment: { include: { receipt: true, issue: { include: { refundReviews: true } } } }, order: true, items: { orderBy: { productId: "asc" } }, events: { orderBy: { version: "asc" } } } satisfies Prisma.ArtistOrderPreparationInclude;
 type Preparation = Prisma.ArtistOrderPreparationGetPayload<{ include: typeof include }>;
 function view(p: Preparation, detail = false) {
   return { orderId: p.orderId, status: p.status, version: p.version, createdAt: p.order.createdAt.toISOString(),
