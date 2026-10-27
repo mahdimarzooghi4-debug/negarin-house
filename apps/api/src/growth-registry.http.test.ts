@@ -19,27 +19,14 @@ describe("Growth registry HTTP", () => {
     await identity.requestCode(phone);
     const verified = await identity.verifyCode(phone, codes.get(phone)!);
     const grant = await db.roleGrant.create({
-      data: {
-        userId: verified.userId,
-        role,
-        ...(domain ? { staffDomains: { create: [{ domain }] } } : {})
-      }
+      data: { userId: verified.userId, role, ...(domain ? { staffDomains: { create: [{ domain }] } } : {}) }
     });
     await contexts.select(verified.sessionToken, grant.id);
     return { userId: verified.userId, headers: { authorization: `Bearer ${verified.sessionToken}` } };
   }
 
-  beforeAll(async () => {
-    app = await createApplication();
-    await app.init();
-    await app.getHttpAdapter().getInstance().ready();
-    await db.$connect();
-  });
-
-  afterAll(async () => {
-    await app?.close();
-    await db.$disconnect();
-  });
+  beforeAll(async () => { app = await createApplication(); await app.init(); await app.getHttpAdapter().getInstance().ready(); await db.$connect(); });
+  afterAll(async () => { await app?.close(); await db.$disconnect(); });
 
   it("gives Artist the exact canonical Growth taxonomy with no thresholds or purchase controls", async () => {
     const artist = await signIn("artist");
@@ -77,9 +64,6 @@ describe("Growth registry HTTP", () => {
       { method: "POST" as const, url: "/api/v1/admin/growth/promote", headers: growth.headers, payload: { artistUserId: randomUUID(), level: "شکوفه" } },
       { method: "PATCH" as const, url: "/api/v1/admin/growth/levels/1", headers: growth.headers, payload: { name: "سطح جدید" } }
     ];
-    for (const attempt of attempts) {
-      const response = await app.inject(attempt);
-      expect(response.statusCode).toBe(404);
-    }
+    for (const attempt of attempts) expect((await app.inject(attempt)).statusCode).toBe(404);
   });
 });
