@@ -201,7 +201,7 @@ model SupportAllocation {
   currentServiceRequest ServiceRequest? @relation(fields: [currentServiceRequestId], references: [id], onDelete: Restrict)
   createdAt DateTime @default(now())
   events SupportCreditEvent[]
-  @@unique([createdByUserId, idempotencyKey])
+  @@unique([relationshipId, createdByUserId, idempotencyKey], map: "support_allocation_relationship_creator_idem_key")
   @@index([relationshipId, status, createdAt, id])
   @@index([currentServiceRequestId])
   @@map("support_allocations")

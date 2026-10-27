@@ -93,3 +93,10 @@ Supporting Organization and Artist allocation views include the linked request s
 ## Release boundary
 
 This Draft does not merge or deploy. PostgreSQL migration must still be validated on Stage against stacked historical data. ArtistReferral, automated policy-rule evaluation, UI binding and any banking/settlement mechanism remain separate slices.
+
+
+## Multi-organization retry isolation
+
+SupportAllocation creation first resolves the target relationship under the authenticated owner scope. Only after that authorization succeeds does it acquire the advisory lock and resolve an idempotent retry.
+
+The database key is `relationshipId + createdByUserId + idempotencyKey`, and the advisory lock uses the same relationship-aware scope. This prevents a user who switches between Supporting Organization contexts from replaying an allocation belonging to another organization while still allowing the same key to be used independently for a different authorized relationship.

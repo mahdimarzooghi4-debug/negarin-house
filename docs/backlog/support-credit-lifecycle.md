@@ -78,3 +78,10 @@ Out of scope:
 - Partner access;
 - UI binding;
 - merge, Stage deployment, QA approval or Production release.
+
+
+## Multi-organization idempotency safety
+
+A single identity may hold multiple explicit Supporting Organization contexts. SupportAllocation creation must authorize the target SupportRelationship against the active organization before any idempotent retry can be resolved.
+
+Allocation idempotency is scoped by `relationshipId + createdByUserId + idempotencyKey`. The same user may reuse a key independently on another authorized relationship, including a relationship under another explicitly selected organization context. A relationship from another organization remains concealed with 404 and cannot be replayed through idempotency.
