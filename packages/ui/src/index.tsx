@@ -14,7 +14,7 @@ export const tokens = {
 } as const;
 
 type ButtonProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> & {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "unstyled";
 };
 
 export function Button({ variant = "primary", type = "button", style, children, ...props }: ButtonProps) {
@@ -22,7 +22,7 @@ export function Button({ variant = "primary", type = "button", style, children, 
     <button
       type={type}
       {...props}
-      style={{
+      style={variant === "unstyled" ? style : {
         borderRadius: 8,
         border: variant === "secondary" ? "1px solid " + tokens.border : "none",
         background: variant === "primary" ? tokens.accent : tokens.surface,

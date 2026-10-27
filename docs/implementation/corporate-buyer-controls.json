@@ -1,0 +1,3070 @@
+[
+  {
+    "screen": "dashboard",
+    "node": "961:260",
+    "name": "Frame",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "961:298",
+    "name": "Frame",
+    "label": "مشاهده سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "961:300",
+    "name": "Frame",
+    "label": "مشاهده محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "961:302",
+    "name": "Frame",
+    "label": "ثبت درخواست خرید",
+    "destination": "new-purchase-request",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "961:385",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "961:388",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "961:391",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "961:394",
+    "name": "nav-item-offers",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "961:397",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "961:400",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "961:403",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "dashboard",
+    "node": "961:406",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:419",
+    "name": "Frame",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:429",
+    "name": "Frame",
+    "label": "همه موارد شخصی‌سازی:",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:433",
+    "name": "Frame",
+    "label": "آماده ارسال موجودی:",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:437",
+    "name": "Frame",
+    "label": "همه هنرمندان هنرمند / کارگاه:",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:441",
+    "name": "Frame",
+    "label": "صنایع دستی دسته‌بندی:",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:445",
+    "name": "Frame",
+    "label": "فیلتر",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:460",
+    "name": "Frame",
+    "label": "افزودن به درخواست",
+    "destination": "new-purchase-request",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:462",
+    "name": "Frame",
+    "label": "مشاهده محصول",
+    "destination": "product-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:475",
+    "name": "Frame",
+    "label": "افزودن به درخواست",
+    "destination": "new-purchase-request",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:477",
+    "name": "Frame",
+    "label": "مشاهده محصول",
+    "destination": "product-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:490",
+    "name": "Frame",
+    "label": "افزودن به درخواست",
+    "destination": "new-purchase-request",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:492",
+    "name": "Frame",
+    "label": "مشاهده محصول",
+    "destination": "product-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:506",
+    "name": "Frame",
+    "label": "افزودن به درخواست",
+    "destination": "new-purchase-request",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:508",
+    "name": "Frame",
+    "label": "مشاهده محصول",
+    "destination": "product-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:521",
+    "name": "Frame",
+    "label": "افزودن به درخواست",
+    "destination": "new-purchase-request",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:523",
+    "name": "Frame",
+    "label": "مشاهده محصول",
+    "destination": "product-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:536",
+    "name": "Frame",
+    "label": "افزودن به درخواست",
+    "destination": "new-purchase-request",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:538",
+    "name": "Frame",
+    "label": "مشاهده محصول",
+    "destination": "product-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:541",
+    "name": "Frame",
+    "label": "صفحه قبل",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:543",
+    "name": "Frame",
+    "label": "۳",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:545",
+    "name": "Frame",
+    "label": "۲",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:547",
+    "name": "Frame",
+    "label": "۱",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:549",
+    "name": "Frame",
+    "label": "صفحه بعد",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:560",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:563",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:566",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:569",
+    "name": "nav-item-offers",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:572",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:575",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:578",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "corporate-products",
+    "node": "961:581",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "product-detail",
+    "node": "961:594",
+    "name": "Frame",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "product-detail",
+    "node": "961:656",
+    "name": "Frame",
+    "label": "افزودن به درخواست خرید",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "product-detail",
+    "node": "961:658",
+    "name": "Frame",
+    "label": "مشاهده هنرمند",
+    "destination": "artist-profile",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "product-detail",
+    "node": "961:675",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "product-detail",
+    "node": "961:678",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "product-detail",
+    "node": "961:681",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "product-detail",
+    "node": "961:684",
+    "name": "nav-item-offers",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "product-detail",
+    "node": "961:687",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "product-detail",
+    "node": "961:690",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "product-detail",
+    "node": "961:693",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "product-detail",
+    "node": "961:696",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "artist-profile",
+    "node": "961:709",
+    "name": "Frame",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "artist-profile",
+    "node": "961:773",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "artist-profile",
+    "node": "961:776",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "artist-profile",
+    "node": "961:779",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "artist-profile",
+    "node": "961:782",
+    "name": "nav-item-offers",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "artist-profile",
+    "node": "961:785",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "artist-profile",
+    "node": "961:788",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "artist-profile",
+    "node": "961:791",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "artist-profile",
+    "node": "961:794",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:964",
+    "name": "Frame",
+    "label": "همه وضعیت‌ها وضعیت:",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:968",
+    "name": "Frame",
+    "label": "همه انواع نوع درخواست:",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:972",
+    "name": "Frame",
+    "label": "ثبت درخواست جدید",
+    "destination": "new-purchase-request",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:988",
+    "name": "Frame",
+    "label": "مشاهده",
+    "destination": "purchase-request-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1003",
+    "name": "Frame",
+    "label": "​",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1018",
+    "name": "Frame",
+    "label": "​",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1033",
+    "name": "Frame",
+    "label": "​",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1048",
+    "name": "Frame",
+    "label": "​",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1062",
+    "name": "Frame",
+    "label": "۳",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1064",
+    "name": "Frame",
+    "label": "۲",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1066",
+    "name": "Frame",
+    "label": "۱",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1079",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1082",
+    "name": "nav-item-درخواست‌های خرید",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1085",
+    "name": "nav-item-محصولات سازمانی",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1088",
+    "name": "nav-item-پیشنهادها",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1091",
+    "name": "nav-item-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1094",
+    "name": "nav-item-تحویل‌ها",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1097",
+    "name": "nav-item-گزارش‌ها",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-requests",
+    "node": "961:1100",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "new-purchase-request",
+    "node": "961:1181",
+    "name": "Frame",
+    "label": "ثبت درخواست",
+    "destination": "purchase-request-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "new-purchase-request",
+    "node": "961:1183",
+    "name": "Frame",
+    "label": "ذخیره پیش‌نویس",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "new-purchase-request",
+    "node": "961:1194",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "new-purchase-request",
+    "node": "961:1197",
+    "name": "nav-item-درخواست‌های خرید",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "new-purchase-request",
+    "node": "961:1200",
+    "name": "nav-item-محصولات سازمانی",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "new-purchase-request",
+    "node": "961:1203",
+    "name": "nav-item-پیشنهادها",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "new-purchase-request",
+    "node": "961:1206",
+    "name": "nav-item-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "new-purchase-request",
+    "node": "961:1209",
+    "name": "nav-item-تحویل‌ها",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "new-purchase-request",
+    "node": "961:1212",
+    "name": "nav-item-گزارش‌ها",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "new-purchase-request",
+    "node": "961:1215",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-request-detail",
+    "node": "961:1318",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-request-detail",
+    "node": "961:1321",
+    "name": "nav-item-درخواست‌های خرید",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-request-detail",
+    "node": "961:1324",
+    "name": "nav-item-محصولات سازمانی",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-request-detail",
+    "node": "961:1327",
+    "name": "nav-item-پیشنهادها",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-request-detail",
+    "node": "961:1330",
+    "name": "nav-item-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-request-detail",
+    "node": "961:1333",
+    "name": "nav-item-تحویل‌ها",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-request-detail",
+    "node": "961:1336",
+    "name": "nav-item-گزارش‌ها",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "purchase-request-detail",
+    "node": "961:1339",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "request-needs-info",
+    "node": "961:1385",
+    "name": "Frame",
+    "label": "ارسال اطلاعات",
+    "destination": "purchase-request-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "request-needs-info",
+    "node": "961:1431",
+    "name": "nav-item-پیشخوان",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "request-needs-info",
+    "node": "961:1434",
+    "name": "nav-item-درخواست‌های خرید",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "request-needs-info",
+    "node": "961:1437",
+    "name": "nav-item-محصولات سازمانی",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "request-needs-info",
+    "node": "961:1440",
+    "name": "nav-item-پیشنهادها",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "request-needs-info",
+    "node": "961:1443",
+    "name": "nav-item-سفارش‌ها",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "request-needs-info",
+    "node": "961:1446",
+    "name": "nav-item-تحویل‌ها",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "request-needs-info",
+    "node": "961:1449",
+    "name": "nav-item-گزارش‌ها",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "request-needs-info",
+    "node": "961:1452",
+    "name": "nav-item-حساب سازمان",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1500",
+    "name": "Frame",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1531",
+    "name": "Frame",
+    "label": "مشاهده",
+    "destination": "proposal-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1548",
+    "name": "Frame",
+    "label": "مشاهده",
+    "destination": "proposal-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1565",
+    "name": "Frame",
+    "label": "مشاهده",
+    "destination": "proposal-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1587",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1591",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1595",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1599",
+    "name": "nav-item-proposals",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1603",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1607",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1611",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposals",
+    "node": "961:1615",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-detail",
+    "node": "961:1629",
+    "name": "Frame",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-detail",
+    "node": "961:1760",
+    "name": "Frame",
+    "label": "درخواست اصلاح",
+    "destination": "proposal-revision",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-detail",
+    "node": "961:1762",
+    "name": "Frame",
+    "label": "تأیید نهایی پیشنهاد",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-detail",
+    "node": "961:1773",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-detail",
+    "node": "961:1777",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-detail",
+    "node": "961:1781",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-detail",
+    "node": "961:1785",
+    "name": "nav-item-proposals",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-detail",
+    "node": "961:1789",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-detail",
+    "node": "961:1793",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-detail",
+    "node": "961:1797",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-detail",
+    "node": "961:1801",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-revision",
+    "node": "961:1815",
+    "name": "Frame",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-revision",
+    "node": "961:1868",
+    "name": "Frame",
+    "label": "انصراف",
+    "destination": "proposal-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-revision",
+    "node": "961:1870",
+    "name": "Frame",
+    "label": "ارسال درخواست اصلاح",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-revision",
+    "node": "961:1881",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-revision",
+    "node": "961:1885",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-revision",
+    "node": "961:1889",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-revision",
+    "node": "961:1893",
+    "name": "nav-item-proposals",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-revision",
+    "node": "961:1897",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-revision",
+    "node": "961:1901",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-revision",
+    "node": "961:1905",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "proposal-revision",
+    "node": "961:1909",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-submitted",
+    "node": "961:1923",
+    "name": "Frame",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-submitted",
+    "node": "961:1984",
+    "name": "Frame",
+    "label": "بازگشت به پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-submitted",
+    "node": "961:1986",
+    "name": "Frame",
+    "label": "مشاهده جزئیات سفارش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-submitted",
+    "node": "961:1997",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-submitted",
+    "node": "961:2001",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-submitted",
+    "node": "961:2005",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-submitted",
+    "node": "961:2009",
+    "name": "nav-item-proposals",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-submitted",
+    "node": "961:2013",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-submitted",
+    "node": "961:2017",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-submitted",
+    "node": "961:2021",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-submitted",
+    "node": "961:2025",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2062",
+    "name": "dropdown",
+    "label": "همه موارد وضعیت اجرا:",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2067",
+    "name": "dropdown",
+    "label": "همه موارد وضعیت سفارش:",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2093",
+    "name": "btn",
+    "label": "مشاهده",
+    "destination": "order-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2115",
+    "name": "btn",
+    "label": "مشاهده",
+    "destination": "order-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2137",
+    "name": "btn",
+    "label": "مشاهده",
+    "destination": "order-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2159",
+    "name": "btn",
+    "label": "مشاهده",
+    "destination": "order-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2181",
+    "name": "Frame",
+    "label": "۲",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2183",
+    "name": "Frame",
+    "label": "۳",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2197",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2201",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2205",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2209",
+    "name": "nav-item-offers",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2213",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2217",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2221",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "orders",
+    "node": "961:2225",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-detail",
+    "node": "961:2389",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-detail",
+    "node": "961:2393",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-detail",
+    "node": "961:2397",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-detail",
+    "node": "961:2401",
+    "name": "nav-item-offers",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-detail",
+    "node": "961:2405",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-detail",
+    "node": "961:2409",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-detail",
+    "node": "961:2413",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "order-detail",
+    "node": "961:2417",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2444",
+    "name": "dropdown",
+    "label": "همه موارد وضعیت تحویل:",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2468",
+    "name": "btn",
+    "label": "مشاهده",
+    "destination": "delivery-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2487",
+    "name": "btn",
+    "label": "مشاهده",
+    "destination": "delivery-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2506",
+    "name": "btn",
+    "label": "مشاهده",
+    "destination": "delivery-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2525",
+    "name": "Frame",
+    "label": "۲",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2527",
+    "name": "Frame",
+    "label": "۳",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2541",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2545",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2549",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2553",
+    "name": "nav-item-offers",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2557",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2561",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2565",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "deliveries",
+    "node": "961:2569",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-detail",
+    "node": "961:2606",
+    "name": "btn",
+    "label": "تأیید دریافت محموله",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-detail",
+    "node": "961:2608",
+    "name": "btn",
+    "label": "گزارش مغایرت یا مشکل",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-detail",
+    "node": "961:2661",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-detail",
+    "node": "961:2665",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-detail",
+    "node": "961:2669",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-detail",
+    "node": "961:2673",
+    "name": "nav-item-offers",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-detail",
+    "node": "961:2677",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-detail",
+    "node": "961:2681",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-detail",
+    "node": "961:2685",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-detail",
+    "node": "961:2689",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:281",
+    "name": "Frame",
+    "label": "ORD-B2B-2035",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:285",
+    "name": "Frame",
+    "label": "DLV-B2B-5001",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:304",
+    "name": "Frame",
+    "label": "انصراف",
+    "destination": "delivery-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:306",
+    "name": "Frame",
+    "label": "ارسال گزارش",
+    "destination": "issue-detail",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:321",
+    "name": "nav-item-0",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:325",
+    "name": "nav-item-1",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:329",
+    "name": "nav-item-2",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:333",
+    "name": "nav-item-3",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:337",
+    "name": "nav-item-4",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:341",
+    "name": "nav-item-5",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:345",
+    "name": "nav-item-6",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:349",
+    "name": "nav-item-7",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "report-issue",
+    "node": "962:353",
+    "name": "nav-item-8",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "issue-detail",
+    "node": "962:388",
+    "name": "Frame",
+    "label": "در حال بررسی",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "issue-detail",
+    "node": "962:390",
+    "name": "Frame",
+    "label": "آسیب‌دیدگی محصول",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "issue-detail",
+    "node": "962:454",
+    "name": "nav-item-0",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "issue-detail",
+    "node": "962:458",
+    "name": "nav-item-1",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "issue-detail",
+    "node": "962:462",
+    "name": "nav-item-2",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "issue-detail",
+    "node": "962:466",
+    "name": "nav-item-3",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "issue-detail",
+    "node": "962:470",
+    "name": "nav-item-4",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "issue-detail",
+    "node": "962:474",
+    "name": "nav-item-5",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "issue-detail",
+    "node": "962:478",
+    "name": "nav-item-6",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "issue-detail",
+    "node": "962:482",
+    "name": "nav-item-7",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "issue-detail",
+    "node": "962:486",
+    "name": "nav-item-8",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:531",
+    "name": "Frame",
+    "label": "مشاهده گزارش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:543",
+    "name": "Frame",
+    "label": "مشاهده گزارش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:555",
+    "name": "Frame",
+    "label": "مشاهده گزارش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:567",
+    "name": "Frame",
+    "label": "مشاهده گزارش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:578",
+    "name": "nav-item-0",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:582",
+    "name": "nav-item-1",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:586",
+    "name": "nav-item-2",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:590",
+    "name": "nav-item-3",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:594",
+    "name": "nav-item-4",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:598",
+    "name": "nav-item-5",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:602",
+    "name": "nav-item-6",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:606",
+    "name": "nav-item-7",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "reports",
+    "node": "962:610",
+    "name": "nav-item-8",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:641",
+    "name": "Frame",
+    "label": "همه ۶",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:645",
+    "name": "Frame",
+    "label": "خوانده‌نشده ۲",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:649",
+    "name": "Frame",
+    "label": "سفارش‌ها ۲",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:653",
+    "name": "Frame",
+    "label": "تحویل‌ها ۱",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:662",
+    "name": "Frame",
+    "label": "مشاهده",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:675",
+    "name": "Frame",
+    "label": "مشاهده",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:688",
+    "name": "Frame",
+    "label": "مشاهده",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:700",
+    "name": "Frame",
+    "label": "مشاهده",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:712",
+    "name": "Frame",
+    "label": "مشاهده",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:724",
+    "name": "Frame",
+    "label": "مشاهده",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:733",
+    "name": "Frame",
+    "label": "بعدی",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:735",
+    "name": "Frame",
+    "label": "قبلی",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:747",
+    "name": "nav-item-0",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:751",
+    "name": "nav-item-1",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:755",
+    "name": "nav-item-2",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:759",
+    "name": "nav-item-3",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:763",
+    "name": "nav-item-4",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:767",
+    "name": "nav-item-5",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:771",
+    "name": "nav-item-6",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:775",
+    "name": "nav-item-7",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "notifications",
+    "node": "962:779",
+    "name": "nav-item-8",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:846",
+    "name": "Frame",
+    "label": "تنظیمات اعلان‌ها",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:848",
+    "name": "Frame",
+    "label": "آدرس‌های تحویل",
+    "destination": "delivery-addresses",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:850",
+    "name": "Frame",
+    "label": "کاربران و دسترسی",
+    "destination": "users-and-access",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:852",
+    "name": "Frame",
+    "label": "اطلاعات سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:887",
+    "name": "Frame",
+    "label": "ویرایش اطلاعات",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:925",
+    "name": "Frame",
+    "label": "تغییر رمز عبور",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:950",
+    "name": "nav-item-0",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:953",
+    "name": "nav-item-1",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:956",
+    "name": "nav-item-2",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:959",
+    "name": "nav-item-3",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:962",
+    "name": "nav-item-4",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:965",
+    "name": "nav-item-5",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:968",
+    "name": "nav-item-6",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "account",
+    "node": "962:971",
+    "name": "nav-item-7",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:994",
+    "name": "Frame",
+    "label": "تنظیمات اعلان‌ها",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:996",
+    "name": "Frame",
+    "label": "آدرس‌های تحویل",
+    "destination": "delivery-addresses",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:998",
+    "name": "Frame",
+    "label": "کاربران و دسترسی",
+    "destination": "users-and-access",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1000",
+    "name": "Frame",
+    "label": "اطلاعات سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1009",
+    "name": "Frame",
+    "label": "عملیات آخرین ورود وضعیت نقش ایمیل نام کاربر",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1018",
+    "label": "ویرایش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1029",
+    "label": "ویرایش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1040",
+    "label": "ویرایش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1051",
+    "label": "ویرایش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1071",
+    "name": "nav-item-0",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1074",
+    "name": "nav-item-1",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1077",
+    "name": "nav-item-2",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1080",
+    "name": "nav-item-3",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1083",
+    "name": "nav-item-4",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1086",
+    "name": "nav-item-5",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1089",
+    "name": "nav-item-6",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "users-and-access",
+    "node": "962:1092",
+    "name": "nav-item-7",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1115",
+    "name": "Frame",
+    "label": "تنظیمات اعلان‌ها",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1117",
+    "name": "Frame",
+    "label": "آدرس‌های تحویل",
+    "destination": "delivery-addresses",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1119",
+    "name": "Frame",
+    "label": "کاربران و دسترسی",
+    "destination": "users-and-access",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1121",
+    "name": "Frame",
+    "label": "اطلاعات سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1146",
+    "label": "حذف",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1147",
+    "label": "ویرایش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1162",
+    "label": "حذف",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1163",
+    "label": "ویرایش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1179",
+    "label": "حذف",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1180",
+    "label": "ویرایش",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1191",
+    "name": "nav-item-0",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1194",
+    "name": "nav-item-1",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1197",
+    "name": "nav-item-2",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1200",
+    "name": "nav-item-3",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1203",
+    "name": "nav-item-4",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1206",
+    "name": "nav-item-5",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1209",
+    "name": "nav-item-6",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "delivery-addresses",
+    "node": "962:1212",
+    "name": "nav-item-7",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "empty-states",
+    "node": "962:1231",
+    "name": "bell-container",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "empty-states",
+    "node": "962:1250",
+    "name": "action-button",
+    "label": "ثبت اولین درخواست",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "empty-states",
+    "node": "962:1291",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "empty-states",
+    "node": "962:1294",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "empty-states",
+    "node": "962:1297",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "empty-states",
+    "node": "962:1300",
+    "name": "nav-item-offers",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "empty-states",
+    "node": "962:1303",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "empty-states",
+    "node": "962:1306",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "empty-states",
+    "node": "962:1309",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "empty-states",
+    "node": "962:1312",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "loading-states",
+    "node": "962:1325",
+    "name": "bell-container",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "loading-states",
+    "node": "962:1442",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "loading-states",
+    "node": "962:1445",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "loading-states",
+    "node": "962:1448",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "loading-states",
+    "node": "962:1451",
+    "name": "nav-item-offers",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "loading-states",
+    "node": "962:1454",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "loading-states",
+    "node": "962:1457",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "loading-states",
+    "node": "962:1460",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "loading-states",
+    "node": "962:1463",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1476",
+    "name": "bell-container",
+    "label": "اعلان‌ها",
+    "destination": "notifications",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1496",
+    "name": "action-button",
+    "label": "تلاش مجدد",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1507",
+    "name": "action-button",
+    "label": "تلاش مجدد",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1518",
+    "name": "action-button",
+    "label": "بازگشت به پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1529",
+    "name": "action-button",
+    "label": "بازگشت",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1538",
+    "name": "action-button",
+    "label": "ورود مجدد",
+    "destination": null,
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1549",
+    "name": "nav-item-dashboard",
+    "label": "پیشخوان",
+    "destination": "dashboard",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1552",
+    "name": "nav-item-requests",
+    "label": "درخواست‌های خرید",
+    "destination": "purchase-requests",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1555",
+    "name": "nav-item-products",
+    "label": "محصولات سازمانی",
+    "destination": "corporate-products",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1558",
+    "name": "nav-item-offers",
+    "label": "پیشنهادها",
+    "destination": "proposals",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1561",
+    "name": "nav-item-orders",
+    "label": "سفارش‌ها",
+    "destination": "orders",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1564",
+    "name": "nav-item-deliveries",
+    "label": "تحویل‌ها",
+    "destination": "deliveries",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1567",
+    "name": "nav-item-reports",
+    "label": "گزارش‌ها",
+    "destination": "reports",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  },
+  {
+    "screen": "error-states",
+    "node": "962:1570",
+    "name": "nav-item-account",
+    "label": "حساب سازمان",
+    "destination": "account",
+    "implemented": true,
+    "source": "inferred preview mapping; zero native container/text prototype links"
+  }
+]

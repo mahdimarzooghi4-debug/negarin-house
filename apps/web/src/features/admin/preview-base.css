@@ -1,0 +1,32 @@
+/* Scoped Figma values. Native CSS; no Tailwind dependency. */
+.admin-design {--navigation-sidebar-muted:#405654;font-family:"Vazirmatn Variable",sans-serif;line-height:1.5;color:#111827;direction:ltr;width:1440px;isolation:isolate;position:relative;background:white;}
+.admin-design *, .admin-design *::before, .admin-design *::after {box-sizing:border-box;border-width:0;border-style:solid;}
+.admin-design p,.admin-design h1,.admin-design h2,.admin-design h3 {margin:0;}
+.admin-design a {text-decoration:none;}
+.admin-design img {display:block;}
+.admin-design button {margin:0;padding:0;font:inherit;background:transparent;text-align:inherit;color:inherit;}
+.admin-design aside {display:block;}
+.admin-design a:focus-visible,.admin-design button:focus-visible,.admin-design input:focus-visible,.admin-design textarea:focus-visible {outline:2px solid #07a7b2;outline-offset:3px;}
+.admin-design [aria-disabled=true] {cursor:not-allowed;}
+.design-field {cursor:text;}
+.design-field-input {position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent;color:#171f2e;font:inherit;font-size:13px;line-height:1.5;padding:0 14px;text-align:right;resize:none;}
+.design-field[data-editing=true] > .design-field-artwork {visibility:hidden;}
+.design-field-input::placeholder {color:#98a2b3;}
+.design-field-artwork {display:contents;pointer-events:none;}
+.design-field[data-phone=true] input {padding-left:64px;}
+.design-field[data-phone=true][data-editing=true] .design-field-artwork > p:first-child {visibility:visible;}
+.design-field[data-otp=true] input {font-size:24px;text-align:center;padding:0;}
+.design-choice[data-changed=true][data-selected=true] {outline:2px solid #07a7b2;}
+.design-upload-name {position:absolute;bottom:4px;left:8px;right:8px;color:#07858f;background:white;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;pointer-events:none;}
+.design-file-input {position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;}
+.preview-toolbar {font:13px "Vazirmatn Variable",sans-serif;direction:rtl;display:flex;gap:16px;align-items:center;justify-content:space-between;padding:12px 24px;background:#041b65;color:white;min-width:1440px;}
+.preview-toolbar a {color:white;text-decoration:none;}
+.preview-toast {position:fixed;bottom:24px;left:24px;max-width:450px;background:#041b65;color:white;border-radius:12px;padding:16px 24px;z-index:1000;direction:rtl;box-shadow:0 4px 20px #0003;font:14px "Vazirmatn Variable",sans-serif;}
+.preview-catalog {max-width:1280px;margin:auto;padding:40px;font-family:"Vazirmatn Variable",sans-serif;}
+.preview-catalog h1 {font-size:28px;color:#041b65;}
+.preview-catalog .preview-groups {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+.preview-catalog section {border:1px solid #e3e8ea;border-radius:16px;background:white;padding:20px;}
+.preview-catalog ul {list-style:none;padding:0;}
+.preview-catalog li {padding:8px 0;border-bottom:1px solid #eef2f6;font-size:13px;}
+.preview-catalog a {text-decoration:none;color:#041b65;}
+.preview-catalog small {color:#667085;}

@@ -1,0 +1,98 @@
+[
+  {
+    "node": "1001:18",
+    "frame": "1001:10",
+    "x": 1222.5,
+    "y": 41,
+    "w": 40,
+    "h": 40,
+    "imageHash": "d99590e6cc8368a81c98984fdcb4dab6328b3db5",
+    "effects": [],
+    "screen": "dashboard",
+    "path": "/service-partner-assets/negarin-logo.png"
+  },
+  {
+    "node": "1001:93",
+    "frame": "1001:85",
+    "x": 1222.5,
+    "y": 41,
+    "w": 40,
+    "h": 40,
+    "imageHash": "d99590e6cc8368a81c98984fdcb4dab6328b3db5",
+    "effects": [],
+    "screen": "assigned-requests",
+    "path": "/service-partner-assets/negarin-logo.png"
+  },
+  {
+    "node": "1001:165",
+    "frame": "1001:157",
+    "x": 1222.5,
+    "y": 41,
+    "w": 40,
+    "h": 40,
+    "imageHash": "d99590e6cc8368a81c98984fdcb4dab6328b3db5",
+    "effects": [],
+    "screen": "request-detail",
+    "path": "/service-partner-assets/negarin-logo.png"
+  },
+  {
+    "node": "1001:214",
+    "frame": "1001:206",
+    "x": 1222.5,
+    "y": 41,
+    "w": 40,
+    "h": 40,
+    "imageHash": "d99590e6cc8368a81c98984fdcb4dab6328b3db5",
+    "effects": [],
+    "screen": "schedule-and-execution",
+    "path": "/service-partner-assets/negarin-logo.png"
+  },
+  {
+    "node": "1001:266",
+    "frame": "1001:258",
+    "x": 1222.5,
+    "y": 41,
+    "w": 40,
+    "h": 40,
+    "imageHash": "d99590e6cc8368a81c98984fdcb4dab6328b3db5",
+    "effects": [],
+    "screen": "submit-deliverable",
+    "path": "/service-partner-assets/negarin-logo.png"
+  },
+  {
+    "node": "1001:308",
+    "frame": "1001:300",
+    "x": 1222.5,
+    "y": 41,
+    "w": 40,
+    "h": 40,
+    "imageHash": "d99590e6cc8368a81c98984fdcb4dab6328b3db5",
+    "effects": [],
+    "screen": "history",
+    "path": "/service-partner-assets/negarin-logo.png"
+  },
+  {
+    "node": "1001:366",
+    "frame": "1001:358",
+    "x": 1222.5,
+    "y": 41,
+    "w": 40,
+    "h": 40,
+    "imageHash": "d99590e6cc8368a81c98984fdcb4dab6328b3db5",
+    "effects": [],
+    "screen": "account",
+    "path": "/service-partner-assets/negarin-logo.png"
+  },
+  {
+    "node": "1001:414",
+    "frame": "1001:406",
+    "x": 1222.5,
+    "y": 41,
+    "w": 40,
+    "h": 40,
+    "imageHash": "d99590e6cc8368a81c98984fdcb4dab6328b3db5",
+    "effects": [],
+    "screen": "states-and-qa",
+    "path": "/service-partner-assets/negarin-logo.png"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "figmaPage": "401:2",
+  "implementedFrames": 32,
+  "totalFrames": 32,
+  "nativePrototypeLinks": 42,
+  "documentedActions": 214,
+  "linkedActions": 210,
+  "assetFiles": 90,
+  "imageSlots": 162,
+  "http200Frames": 32,
+  "browserErrors": [],
+  "brokenImages": 0,
+  "geometryTolerancePx": 2,
+  "geometryOutliers": [],
+  "nativeAutoLayoutBoxes": 67,
+  "validation": {
+    "webBuild": "passed",
+    "eslint": "passed",
+    "webUnitTests": 7,
+    "playwrightTests": 12
+  },
+  "limitations": [
+    "Fixed 390px web review canvases, not adaptive production integration or a native application.",
+    "Sample data; server operations are not implemented.",
+    "Image geometry and selected visual comparisons are not full pixel equivalence.",
+    "Other destinations beyond the 42 native prototype links are inferred preview mappings.",
+    "Cart amounts, reference filter/search results and profile summaries remain static."
+  ]
+}

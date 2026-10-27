@@ -11,3 +11,7 @@ coverage
 apps/api/src/generated
 playwright-report
 test-results
+
+.figma-cache/
+*.tsbuildinfo
+__pycache__/

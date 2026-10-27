@@ -1,0 +1,28 @@
+{
+  "scope": "Artist desktop canvas 49:2; includes shared authentication and Future states",
+  "figmaFileKey": "Uo0ifnpFmJFhWqaEVmVOZ1",
+  "screenCount": 83,
+  "screenWidthPx": 1440,
+  "localAssetFiles": 88,
+  "renderAudit": {
+    "routesWithHTTP200": 83,
+    "pageErrors": [],
+    "loadedImageSlots": 1087,
+    "imageGeometryTolerancePx": 2,
+    "imageGeometryOutliers": []
+  },
+  "checks": {
+    "webBuild": "passed",
+    "eslint": "passed",
+    "webUnitTestsPassed": 7,
+    "uiUnitTestsPassed": 10,
+    "artistE2ETestsPassed": 4,
+    "frozenLockfileCheck": "passed"
+  },
+  "limitations": [
+    "Desktop preview only; no tablet implementation",
+    "Sample data and in-memory input state; no backend integration",
+    "Customer, foreign partner and native mobile panels excluded",
+    "Geometry audit is not a full pixel comparison"
+  ]
+}

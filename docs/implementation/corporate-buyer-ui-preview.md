@@ -1,0 +1,23 @@
+# Corporate Buyer desktop preview
+
+Source: [Negarin House — Corporate Buyer / Portal](https://www.figma.com/design/Uo0ifnpFmJFhWqaEVmVOZ1/Negarin-House?node-id=961-2). All 26 native desktop frames in nine source sections are now enabled at `/preview/corporate-buyer`. The retry recovered all 266 previously missing originals (18 PNG/248 SVG). Pending routes and partial image checkpoints have been removed.
+
+## Coverage
+
+The catalog includes dashboard; corporate products/product detail/artist profile; purchase requests/new request/detail/needs info; proposals/detail/revision; submitted order/orders/detail; deliveries/detail/report issue/issue detail; reports; notifications; organization account/users/access/delivery addresses; and empty/loading/error reference states. `?canvas=1` hides the review toolbar. Production previews require `NEGARIN_UI_PREVIEW=1`. Source width is 1440px with per-frame native heights; no tablet layout is added.
+
+All 304 original local files (28 PNG/276 SVG) are complete, used in 507 rendering callsites. PNG length/FNV and SVG XML completeness are verified; final SHA256 hashes are recorded in the verification JSON. Native markup preserves 1,643 auto-layout boxes, 529 scoped CSS groups, packaged Vazirmatn and source main-area/right-sidebar order. Exports preserve native vector-network strokes with `svgSimplifyStroke:false`; zero-height line exports retain physical stroke bounds. SVG viewBox margins are applied once. Source photo borders overlay the image bounds instead of shrinking the original twice. No image substitutions, redrawn icons, frame screenshots as assets, temporary Figma URLs or remote fonts are used.
+
+Four filled, open-segment native vectors (children `961:2224`, `961:2416`, `961:2568`, `961:2688`) fail export from both wrapper and original VECTOR nodes. They have no source strokes or exported visible artwork. Their original 18px wrappers retain non-rendering spans, with native export errors recorded in `corporate-buyer-non-rendering-assets.json`. They have no substitute artwork.
+
+## Preview behavior
+
+One semantic sidebar preserves eight native destinations, or nine in source variants that include Notifications. Header bells open Notifications. All native container/instance/component/text reaction audits found zero links; all 342 enabled action mappings are inferred. Static table headings and explanatory text remain noninteractive. Every product has separate View Product and Add to Request links. Drilldowns connect the native request, proposal, order, delivery, issue and account reference screens.
+
+Ten New Purchase Request fields are editable. Submit requires a title, description and positive quantity, accepting Persian/Latin digits, then opens the static request detail reference. Issue reporting requires a description and valid contact number; the attachment input accepts only JPG/PNG up to the native 5 MB limit. Files are selected locally without server upload. Other form fields and multiline drafts persist within the active preview. Saving drafts and submitting revisions acknowledge preview scope. Filters, pagination, request type/city/date selections, invitations, preferences and approvals remain previews; native dropdown/date controls are editable text fields. Product links do not assemble a live purchase draft, and submit does not generate a record or replace sample detail data.
+
+## Verification and integration limits
+
+All 26 screens returned HTTP 200 with zero page errors, broken images, callsite mismatches or original-image bounds outliers beyond 2px across 507 slots. Product Detail and New Purchase Request were visually compared with source screenshots. Final web build, scoped ESLint, seven web unit tests and six Corporate Buyer Playwright tests passed. Browser tests cover every original callsite, catalog coverage, sidebar/navigation, product drilldowns, editable requests, quantity validation, contact validation and valid/invalid/oversized attachments. Other portal suites were not rerun for this isolated update. Geometry checks and selected visual comparisons do not establish full pixel equivalence.
+
+The source sidebar's large logo/brand gap, clipped source groups, circle-X dashboard icon and differing QA/source icon variants remain unchanged. These fixed reference canvases do not provide production responsive layouts. Real authentication, corporate organization isolation, authorization, pricing, persistence, requests/proposals/approvals/orders, uploads, reporting, notification preferences and business operations remain backend work. See the inventory, controls, asset slots and `corporate-buyer-ui-verification.json` for exact coverage and recorded limitations.
