@@ -113,7 +113,7 @@ describe("Artist preparation HTTP and PostgreSQL", () => {
     expect(response.json()).toMatchObject({ status: "ready_for_dispatch", version: 5, shipment: {
       status: "reported_dispatched", source: "artist_report", carrierVerified: false, carrierName: "پست", trackingCode: "001234AB-5"
     } });
-    for (const key of ["id", "artistUserId", "reportedByUserId", "requestId", "preparationVersion", "deliveredAt", "settledAt"]) expect(response.json().shipment).not.toHaveProperty(key);
+    for (const key of ["artistUserId", "reportedByUserId", "requestId", "preparationVersion", "deliveredAt", "settledAt"]) expect(response.json().shipment).not.toHaveProperty(key);
     expect(response.json().history).toHaveLength(4);
     expect((await get(s.b, s.id)).json()).toMatchObject({ version: 0, shipment: null });
     const customer = await app.inject({ method: "GET", url: `/api/v1/customer/orders/${s.id}`, headers: s.customer.headers });
@@ -173,6 +173,94 @@ describe("Artist preparation HTTP and PostgreSQL", () => {
       } finally { await db.$executeRawUnsafe(`DROP TRIGGER IF EXISTS "${name}" ON "artist_shipment_reports"`); }
     } finally { await db.$executeRawUnsafe(`DROP FUNCTION IF EXISTS "${name}"()`); }
     expect((await dispatch(s.a, s.id)).statusCode).toBe(201);
+  });
+
+  async function dispatched() {
+    const s = await setup(); await ready(s.a, s.id);
+    const shipment = (await dispatch(s.a, s.id)).json().shipment;
+    return { ...s, shipmentId: shipment.id as string };
+  }
+  function outcome(u: User, orderId: string, shipmentId: string, action: string, payload: object) {
+    return app.inject({ method: "POST", url: "/api/v1/customer/orders/" + orderId + "/shipments/" + shipmentId + "/" + action, headers: u.headers, payload });
+  }
+  const issueBody = { version: 0, kind: "damaged", description: "بسته آسیب دیده" };
+  it("confirms a shipment once without touching finance or inventory", async () => {
+    const s = await dispatched();
+    const r = await Promise.all([outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 0 }), outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 0 })]);
+    expect(r.map(v => v.statusCode)).toEqual([201, 201]); expect(r[0]!.json()).toEqual(r[1]!.json());
+    expect(r[0]!.headers["cache-control"]).toBe("no-store");
+    expect(r[0]!.json()).toMatchObject({ customerVersion: 1, carrierVerified: false, issue: null, receipt: { source: "customer_confirmation" } });
+    for (const key of ["customerUserId", "requestId", "commandVersion"]) expect(r[0]!.json().receipt).not.toHaveProperty(key);
+    expect(await db.customerShipmentReceipt.count({ where: { shipmentId: s.shipmentId } })).toBe(1);
+    expect((await get(s.a, s.id)).json()).toMatchObject({ version: 5, shipment: { receipt: { source: "customer_confirmation" } } });
+    expect((await get(s.b, s.id)).json().shipment).toBeNull();
+    expect(await db.customerOrder.findUniqueOrThrow({ where: { id: s.id } })).toMatchObject({ status: "placed", paymentStatus: "paid", version: 1 });
+    expect(await db.artistProduct.findUniqueOrThrow({ where: { id: s.products[0]!.id } })).toMatchObject({ stockQuantity: 9, inventoryVersion: 1 });
+    expect((await outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 1 })).statusCode).toBe(409);
+  });
+  it("records a scoped open issue once, and prevents receipt while it is open", async () => {
+    const s = await dispatched();
+    const r = await Promise.all([outcome(s.customer, s.id, s.shipmentId, "issues", issueBody), outcome(s.customer, s.id, s.shipmentId, "issues", { ...issueBody, description: " بسته آسیب دیده " })]);
+    expect(r.map(v => v.statusCode)).toEqual([201, 201]); expect(r[0]!.json()).toEqual(r[1]!.json());
+    expect(r[0]!.json()).toMatchObject({ customerVersion: 1, receipt: null, issue: { status: "open", kind: "damaged", description: issueBody.description } });
+    const read = await app.inject({ method: "GET", url: "/api/v1/customer/orders/" + s.id + "/shipments/" + s.shipmentId, headers: s.customer.headers });
+    expect(read.statusCode).toBe(200); expect(read.json()).toEqual(r[0]!.json());
+    expect((await get(s.a, s.id)).json().shipment.issue).toEqual(read.json().issue);
+    expect((await outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 1 })).statusCode).toBe(409);
+    expect((await outcome(s.customer, s.id, s.shipmentId, "issues", { ...issueBody, description: "تغییر" })).statusCode).toBe(409);
+    expect(await db.customerShipmentIssue.count({ where: { shipmentId: s.shipmentId } })).toBe(1);
+    expect(await db.customerShipmentIssue.findUniqueOrThrow({ where: { shipmentId: s.shipmentId } })).toMatchObject({ customerUserId: s.customer.userId, commandVersion: 0 });
+  });
+  it("permits damage after receipt but rejects contradictory nonreceipt", async () => {
+    const s = await dispatched();
+    expect((await outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 0 })).statusCode).toBe(201);
+    expect((await outcome(s.customer, s.id, s.shipmentId, "issues", { ...issueBody, version: 1, kind: "not_received" })).statusCode).toBe(409);
+    expect((await outcome(s.customer, s.id, s.shipmentId, "issues", { ...issueBody, version: 1 })).statusCode).toBe(201);
+    expect((await outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 0 })).json()).toMatchObject({ customerVersion: 2, issue: { status: "open" }, receipt: { source: "customer_confirmation" } });
+  });
+  it("serializes receipt/nonreceipt races and conflicting issue descriptions", async () => {
+    const s = await dispatched();
+    const r = await Promise.all([outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 0 }), outcome(s.customer, s.id, s.shipmentId, "issues", { ...issueBody, kind: "not_received" })]);
+    expect(r.map(v => v.statusCode).sort()).toEqual([201, 409]);
+    const report = await db.artistShipmentReport.findUniqueOrThrow({ where: { id: s.shipmentId }, include: { receipt: true, issue: true } });
+    expect(report.customerVersion).toBe(1); expect(Boolean(report.receipt) !== Boolean(report.issue)).toBe(true);
+    const t = await dispatched();
+    const issues = await Promise.all(["اول", "دوم"].map(description => outcome(t.customer, t.id, t.shipmentId, "issues", { ...issueBody, description })));
+    expect(issues.map(v => v.statusCode).sort()).toEqual([201, 409]);
+  });
+  it("enforces account/order/role/paid gates, stale data and forbids server timestamp overrides", async () => {
+    const s = await dispatched(), stranger = await signIn("customer");
+    for (const action of ["receipt", "issues"]) {
+      const body = action === "receipt" ? { version: 0 } : issueBody;
+      expect((await outcome(stranger, s.id, s.shipmentId, action, body)).statusCode).toBe(404);
+      expect((await outcome(s.customer, randomUUID(), s.shipmentId, action, body)).statusCode).toBe(404);
+      expect((await outcome(s.customer, s.id, randomUUID(), action, body)).statusCode).toBe(404);
+      expect((await outcome(s.a, s.id, s.shipmentId, action, body)).statusCode).toBe(403);
+      expect((await outcome(await signIn("staff"), s.id, s.shipmentId, action, body)).statusCode).toBe(403);
+      expect((await outcome(s.customer, s.id, s.shipmentId, action, { ...body, version: 1 })).statusCode).toBe(409);
+      expect((await outcome(s.customer, s.id, s.shipmentId, action, { ...body, receivedAt: "2000-01-01" })).statusCode).toBe(400);
+    }
+    const path = "/api/v1/customer/orders/" + s.id + "/shipments/" + s.shipmentId;
+    expect((await app.inject({ method: "GET", url: path, headers: stranger.headers })).statusCode).toBe(404);
+    expect((await app.inject({ method: "GET", url: path })).statusCode).toBe(401);
+    await db.customerOrder.update({ where: { id: s.id }, data: { status: "reserved", paymentStatus: "unpaid", paidAt: null } });
+    expect((await outcome(s.customer, s.id, s.shipmentId, "receipt", { version: 0 })).statusCode).toBe(404);
+  });
+  it("rolls back outcome revision on receipt and issue persistence failures", async () => {
+    for (const action of ["receipt", "issues"]) {
+      const s = await dispatched(), name = "outcome_" + randomUUID().replaceAll("-", "");
+      const table = action === "receipt" ? "customer_shipment_receipts" : "customer_shipment_issues";
+      const body = action === "receipt" ? { version: 0 } : issueBody;
+      await db.$executeRawUnsafe('CREATE FUNCTION "' + name + '"() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW."shipmentId" = ' + "'" + s.shipmentId + "'" + "::uuid THEN RAISE EXCEPTION 'outcome failure'; END IF; RETURN NEW; END $$");
+      try {
+        await db.$executeRawUnsafe('CREATE TRIGGER "' + name + '" BEFORE INSERT ON "' + table + '" FOR EACH ROW EXECUTE FUNCTION "' + name + '"()');
+        try {
+          expect((await outcome(s.customer, s.id, s.shipmentId, action, body)).statusCode).toBe(500);
+          expect(await db.artistShipmentReport.findUniqueOrThrow({ where: { id: s.shipmentId }, include: { receipt: true, issue: true } })).toMatchObject({ customerVersion: 0, receipt: null, issue: null });
+        } finally { await db.$executeRawUnsafe('DROP TRIGGER IF EXISTS "' + name + '" ON "' + table + '"'); }
+      } finally { await db.$executeRawUnsafe('DROP FUNCTION IF EXISTS "' + name + '"()'); }
+      expect((await outcome(s.customer, s.id, s.shipmentId, action, body)).statusCode).toBe(201);
+    }
   });
 
 });

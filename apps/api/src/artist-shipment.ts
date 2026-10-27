@@ -1,5 +1,5 @@
 import { BadRequestException } from "@nestjs/common";
-import type { ArtistShipmentReport } from "./generated/prisma/client.js";
+import type { Prisma } from "./generated/prisma/client.js";
 export type ShipmentCommand = { version: number; carrierName: string; trackingCode: string };
 export function parseShipment(body: unknown): ShipmentCommand {
   if (!body || typeof body !== "object" || Array.isArray(body)) throw new BadRequestException();
@@ -14,8 +14,9 @@ export function parseShipment(body: unknown): ShipmentCommand {
   if (!carrierName || carrierName.length > 100 || trackingCode.length > 100 || !/^[A-Za-z0-9-]+$/.test(trackingCode)) throw new BadRequestException();
   return { version: v.version as number, carrierName, trackingCode };
 }
-export function shipmentView(s: ArtistShipmentReport | null) {
+export function shipmentView(s: Prisma.ArtistShipmentReportGetPayload<{ include: { receipt: true; issue: true } }> | null) {
   if (!s) return null;
-  return { status: "reported_dispatched" as const, source: "artist_report" as const, carrierVerified: false,
+  return { id: s.id, customerVersion: s.customerVersion, receipt: s.receipt ? { source: "customer_confirmation", receivedAt: s.receipt.receivedAt.toISOString() } : null,
+    issue: s.issue ? { status: "open", kind: s.issue.kind, description: s.issue.description, reportedAt: s.issue.reportedAt.toISOString() } : null, status: "reported_dispatched" as const, source: "artist_report" as const, carrierVerified: false,
     carrierName: s.carrierName, trackingCode: s.trackingCode, reportedAt: s.reportedAt.toISOString() };
 }
