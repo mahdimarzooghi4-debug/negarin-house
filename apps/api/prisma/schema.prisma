@@ -41,8 +41,81 @@ model IdentityUser {
   refundReviews ShipmentRefundReview[]
   financialSubjects FinancialEvent[] @relation("FinancialSubject")
   financialActors FinancialEvent[] @relation("FinancialActor")
+  serviceRequests ServiceRequest[] @relation("ServiceArtist")
+  createdServiceRequests ServiceRequest[] @relation("ServiceCreator")
+  serviceAssignments ServiceAssignment[]
+  serviceEvents ServiceRequestEvent[]
 
   @@map("identity_users")
+}
+
+enum ServiceRequestStatus {
+  awaiting_assignment
+  assigned
+  accepted
+}
+
+enum ServiceAssignmentStatus {
+  assigned
+  accepted
+  declined
+}
+
+model ServiceRequest {
+  id String @id @default(uuid()) @db.Uuid
+  artistUserId String @db.Uuid
+  artist IdentityUser @relation("ServiceArtist", fields: [artistUserId], references: [id], onDelete: Restrict)
+  createdByUserId String @db.Uuid
+  creator IdentityUser @relation("ServiceCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  idempotencyKey String @db.Uuid
+  title String
+  description String
+  internalNote String?
+  status ServiceRequestStatus @default(awaiting_assignment)
+  version Int @default(0)
+  createdAt DateTime @default(now())
+  assignments ServiceAssignment[]
+  events ServiceRequestEvent[]
+  @@unique([createdByUserId, idempotencyKey])
+  @@index([artistUserId, createdAt, id])
+  @@index([status, createdAt, id])
+  @@map("service_requests")
+}
+
+model ServiceAssignment {
+  id String @id @default(uuid()) @db.Uuid
+  requestId String @db.Uuid
+  request ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Restrict)
+  partnerOrganizationId String @db.Uuid
+  partnerUserId String @db.Uuid
+  partner IdentityUser @relation(fields: [partnerUserId], references: [id], onDelete: Restrict)
+  assignedVersion Int
+  status ServiceAssignmentStatus @default(assigned)
+  responseSummary String?
+  assignedAt DateTime @default(now())
+  respondedAt DateTime?
+  events ServiceRequestEvent[]
+  @@unique([requestId, assignedVersion])
+  @@unique([id, requestId])
+  @@index([partnerOrganizationId, partnerUserId, assignedAt, id])
+  @@map("service_assignments")
+}
+
+model ServiceRequestEvent {
+  id String @id @default(uuid()) @db.Uuid
+  requestId String @db.Uuid
+  request ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Restrict)
+  assignmentId String? @db.Uuid
+  assignment ServiceAssignment? @relation(fields: [assignmentId, requestId], references: [id, requestId], onDelete: Restrict)
+  version Int
+  action String
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  command Json
+  requestTraceId String
+  createdAt DateTime @default(now())
+  @@unique([requestId, version])
+  @@map("service_request_events")
 }
 
 enum ProductPublicationStatus {
