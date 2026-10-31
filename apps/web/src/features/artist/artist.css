@@ -2827,3 +2827,9 @@
   color: #8ebcf1;
   text-align: center;
 }
+
+
+/* Match OTP verification visual panel to the Figma auth flow. */
+.artist-design [data-node-id="831:575"] {
+  background-color: #faf8f2;
+}
