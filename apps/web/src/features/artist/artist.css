@@ -2886,3 +2886,28 @@
   left: 48px;
   width: calc(100% - 96px);
 }
+
+
+/* Center the full verification-success brand group in the right panel. */
+.artist-design [data-node-id="831:767"] {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: #faf8f2;
+}
+.artist-design [data-node-id="1171:34"] { display: none; }
+.artist-design [data-node-id="831:774"] {
+  align-items: center;
+  text-align: center;
+}
+.artist-design [data-node-id="831:775"] {
+  color: #041b65;
+  text-align: center;
+}
+.artist-design [data-node-id="831:776"] { text-align: center; }
+.artist-design [data-node-id="831:777"] {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  width: calc(100% - 96px);
+}
