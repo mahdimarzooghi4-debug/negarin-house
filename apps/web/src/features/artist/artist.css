@@ -2795,3 +2795,35 @@
 .artist-design .fg-05acf36491 {
   background-color: #faf8f2;
 }
+
+
+/* Align artist login visual panel with Figma 831:498. */
+.artist-design [data-node-id="1163:50"] {
+  visibility: hidden;
+}
+
+.artist-design [data-node-id="831:526"] {
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  background-color: #faf8f2;
+}
+
+.artist-design [data-node-id="1171:29"] {
+  display: none;
+}
+
+.artist-design [data-node-id="831:533"] {
+  align-items: center;
+  text-align: center;
+}
+
+.artist-design [data-node-id="831:534"],
+.artist-design [data-node-id="831:536"] {
+  display: none;
+}
+
+.artist-design [data-node-id="831:535"] {
+  color: #8ebcf1;
+  text-align: center;
+}
