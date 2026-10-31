@@ -2836,3 +2836,28 @@
   justify-content: center;
   background-color: #faf8f2;
 }
+
+
+/* Center the full OTP-expired brand group in the right panel. */
+.artist-design [data-node-id="831:626"] {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: #faf8f2;
+}
+.artist-design [data-node-id="1171:31"] { display: none; }
+.artist-design [data-node-id="831:633"] {
+  align-items: center;
+  text-align: center;
+}
+.artist-design [data-node-id="831:634"] {
+  color: #041b65;
+  text-align: center;
+}
+.artist-design [data-node-id="831:635"] { text-align: center; }
+.artist-design [data-node-id="831:636"] {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  width: calc(100% - 96px);
+}
