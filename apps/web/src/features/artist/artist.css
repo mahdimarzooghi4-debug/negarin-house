@@ -2861,3 +2861,28 @@
   left: 48px;
   width: calc(100% - 96px);
 }
+
+
+/* Center the full OTP-resend brand group in the right panel. */
+.artist-design [data-node-id="831:727"] {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: #faf8f2;
+}
+.artist-design [data-node-id="1171:33"] { display: none; }
+.artist-design [data-node-id="831:734"] {
+  align-items: center;
+  text-align: center;
+}
+.artist-design [data-node-id="831:735"] {
+  color: #041b65;
+  text-align: center;
+}
+.artist-design [data-node-id="831:736"] { text-align: center; }
+.artist-design [data-node-id="831:737"] {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  width: calc(100% - 96px);
+}
