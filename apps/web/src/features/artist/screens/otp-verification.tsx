@@ -94,29 +94,12 @@ export default function AuthOtpVerificationDesktop() {
             <img alt="" className="fg-acc3667e96" src="/artist-assets/5a2c9b9eab881522.svg" />
           </div>
         </div>
-        <div className="fg-bd8cbd285d" data-node-id="831:576" data-name="top-tag">
-          <div className="fg-2e0ff451d2" data-node-id="831:577" data-name="brand-header">
-            <div className="fg-aa3cc88f7e" data-node-id="831:578" data-name="logo">
-              <div className="fg-f84de76785" data-node-id="836:59" data-name="Negarin Logo">
-                <img alt="" className="fg-71eecc63f8" src="/artist-assets/71ee9bd1446ae19.png" />
-              </div>
-            </div>
-            <p className="fg-1a0ee5dd8f" dir="auto" data-node-id="831:581">
-              نــگــاریــن
-            </p>
-          </div>
+        <div className="fg-2c4391ba8b" data-node-id="1356:29" data-name="لوگوی نگارین (2) 1">
+          <img alt="" className="fg-6296272086" src="/artist-assets/d1620814bc0bdfda.png" />
         </div>
         <div className="fg-0fd3ae64ad" data-node-id="831:582" data-name="hero-copy">
-          <p className="fg-03b587c50b" dir="auto" data-node-id="831:583">
-            تأیید هویت امن
-          </p>
           <p className="fg-889bf1aa9a" dir="auto" data-node-id="831:584">
             حریم خصوصی و امنیت اطلاعات شما در نگارین محفوظ است.
-          </p>
-        </div>
-        <div className="fg-397ec49421" data-node-id="831:585" data-name="footer-stamp">
-          <p className="fg-2464397d98" dir="auto" data-node-id="831:586">
-            تمامی حقوق مادی و معنوی برای نگارین محفوظ است.
           </p>
         </div>
       </div>
