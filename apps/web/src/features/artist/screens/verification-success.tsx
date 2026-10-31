@@ -59,17 +59,8 @@ export default function AuthVerificationSuccessDesktop() {
             <img alt="" className="fg-acc3667e96" src="/artist-assets/5a2c9b9eab881522.svg" />
           </div>
         </div>
-        <div className="fg-bd8cbd285d" data-node-id="831:768" data-name="top-tag">
-          <div className="fg-2e0ff451d2" data-node-id="831:769" data-name="brand-header">
-            <div className="fg-aa3cc88f7e" data-node-id="831:770" data-name="logo">
-              <div className="fg-f84de76785" data-node-id="836:63" data-name="Negarin Logo">
-                <img alt="" className="fg-71eecc63f8" src="/artist-assets/71ee9bd1446ae19.png" />
-              </div>
-            </div>
-            <p className="fg-1a0ee5dd8f" dir="auto" data-node-id="831:773">
-              نــگــاریــن
-            </p>
-          </div>
+        <div className="fg-2c4391ba8b" data-node-id="1356:33" data-name="لوگوی نگارین">
+          <img alt="" className="fg-6296272086" src="/artist-assets/d1620814bc0bdfda.png" />
         </div>
         <div className="fg-0fd3ae64ad" data-node-id="831:774" data-name="hero-copy">
           <p className="fg-03b587c50b" dir="auto" data-node-id="831:775">
