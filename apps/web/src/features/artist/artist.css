@@ -2804,7 +2804,7 @@
 
 .artist-design [data-node-id="831:526"] {
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 8px;
   background-color: #faf8f2;
 }
@@ -2831,5 +2831,8 @@
 
 /* Match OTP verification visual panel to the Figma auth flow. */
 .artist-design [data-node-id="831:575"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #faf8f2;
 }
