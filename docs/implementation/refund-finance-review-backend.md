@@ -13,4 +13,4 @@ Audit stores receipt link, source issue version, actor/request and server timest
 
 Validation: strict contracts and PostgreSQL HTTP test evidence/amount/referral gates, exact >2^53 amounts, retry/races, authorization, history, privacy and persistence failure. Full CI required.
 
-Actual refund execution, approval cancellation, shipping refunds, settlement, UI binding and deployment are later work. Gateway remains disabled. No AI or commission.
+The live Staff workspace at `/admin/refund-reviews` lists referred cases, shows the merchandise cap and decision history, and submits exact Toman approvals or rejections through authenticated same-origin BFF routes. It requires the finance domain. The interface labels decisions as not executed; approval cancellation, actual refund execution, shipping refunds and settlement remain later work. Gateway remains disabled. No AI or commission.

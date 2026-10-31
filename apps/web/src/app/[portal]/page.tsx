@@ -12,6 +12,9 @@ export default async function PortalPage({
 
   if (!definition) notFound();
   if (portal === "corporate-buyer") redirect("/corporate-buyer/corporate-products");
+  if (portal === "customer") redirect("/customer/products");
+  if (portal === "supporting-organization") redirect("/supporting-organization/support-programs");
+  if (portal === "service-partner") redirect("/service-partner/assignments");
 
   return <PortalShell portal={portal as PortalKey} {...definition} />;
 }

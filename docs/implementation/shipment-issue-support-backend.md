@@ -11,4 +11,4 @@ Customer and owning Artist projections expose current status/revision and public
 
 Validation: strict contracts and PostgreSQL HTTP cover domain authorization, queue bounds, transitions/reopen, concurrency/replay, audit privacy, receipt gates and audit rollback. Full migration/security/lint/typecheck/build/browser CI required.
 
-API-only draft, no UI binding, merge or deployment. Attachments, additional issue history, actual finance refund review and settlement remain future work.
+The live Staff workspace at `/admin/shipment-issues` consumes the bounded queue and case history through authenticated same-origin BFF routes. Staff with the orders domain can start review, close with either supported outcome, or reopen a closed case; every command includes the issue revision and a required summary. Customer phone/address and payment details are not shown. Attachments, customer evidence, actual finance refund review and settlement remain future work. No merge or deployment.

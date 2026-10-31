@@ -135,9 +135,13 @@ export class ServiceAssignmentsService {
       return requestView(await tx.serviceRequest.findUniqueOrThrow({ where: { id }, include }), true);
     });
   }
-  async assignments(context: AuthorizationContext, page: number, pageSize: number) {
+  async assignments(context: AuthorizationContext, page: number, pageSize: number, view: "assignments" | "schedule" | "deliveries" | "history" = "assignments") {
     partner(context);
-    const rows = await this.db.$transaction(tx => tx.serviceAssignment.findMany({ where: { partnerOrganizationId: context.organizationId, partnerUserId: context.userId }, include: assignmentInclude,
+    const where: Prisma.ServiceAssignmentWhereInput = { partnerOrganizationId: context.organizationId, partnerUserId: context.userId };
+    if (view === "schedule") where.execution = { is: { status: { in: ["accepted", "scheduled", "in_progress"] } } };
+    else if (view === "deliveries") where.execution = { is: { status: { in: ["submitted", "changes_requested", "completed"] } } };
+    else if (view === "history") where.OR = [{ status: "declined" }, { execution: { is: { status: "completed" } } }];
+    const rows = await this.db.$transaction(tx => tx.serviceAssignment.findMany({ where, include: assignmentInclude,
       orderBy: [{ assignedAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1 }), { isolationLevel: "RepeatableRead" });
     return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(assignmentView) };
   }

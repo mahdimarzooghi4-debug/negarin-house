@@ -7,6 +7,7 @@ import styles from "./live.module.css";
 const nav=[
   ["محصولات سازمانی","/corporate-buyer/corporate-products"],
   ["درخواست‌های خرید","/corporate-buyer/purchase-requests"],
+  ["سفارش‌ها","/corporate-buyer/orders"],
   ["ثبت درخواست","/corporate-buyer/new-purchase-request"]
 ] as const;
 
@@ -25,7 +26,6 @@ export function CorporateLiveShell({title,children}:{title:string;children:React
       <nav className={styles.nav} aria-label="منوی خریدار سازمانی">
         {nav.map(([label,href])=><Link key={href} href={href}>{label}</Link>)}
         <span aria-disabled="true">پیشنهادها <small>پس از تصویب قرارداد Proposal</small></span>
-        <span aria-disabled="true">سفارش‌ها <small>پس از CorporateOrder</small></span>
       </nav>
       <button className={styles.logout} type="button" onClick={()=>void logout()}>خروج امن</button>
     </aside>

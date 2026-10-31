@@ -28,6 +28,7 @@ model IdentityUser {
   publicationEvents ProductPublicationEvent[]
   inventoryEvents ProductInventoryEvent[]
   customerCart CustomerCart?
+  customerFavorites CustomerFavorite[]
   addressBook CustomerAddressBook?
   customerOrders CustomerOrder[]
   paymentEvents PaymentEvent[]
@@ -57,8 +58,20 @@ model IdentityUser {
   supportRelationshipEvents SupportRelationshipEvent[] @relation("SupportRelationshipEventActor")
   createdSupportAllocations SupportAllocation[] @relation("SupportAllocationCreator")
   supportCreditEvents SupportCreditEvent[] @relation("SupportCreditEventActor")
+  organizationInvitationsCreated OrganizationInvitation[] @relation("OrganizationInvitationCreator")
+  organizationInvitationsAccepted OrganizationInvitation[] @relation("OrganizationInvitationAcceptor")
   createdCorporatePurchaseRequests CorporatePurchaseRequest[] @relation("CorporatePurchaseRequestCreator")
   corporatePurchaseRequestEvents CorporatePurchaseRequestEvent[] @relation("CorporatePurchaseRequestEventActor")
+  createdCorporateProposals CorporateProposal[] @relation("CorporateProposalCreator")
+  corporateProposalEvents CorporateProposalEvent[] @relation("CorporateProposalEventActor")
+  corporateProposalItems CorporateProposalItem[] @relation("CorporateProposalItemArtist")
+  createdCorporateOrders CorporateOrder[] @relation("CorporateOrderCreator")
+  corporateOrderEvents CorporateOrderEvent[] @relation("CorporateOrderEventActor")
+  corporateOrderPreparations CorporateOrderPreparation[] @relation("CorporateOrderPreparationArtist")
+  corporateOrderPreparationEvents CorporateOrderPreparationEvent[] @relation("CorporateOrderPreparationEventActor")
+  corporateOrderShipmentReports CorporateOrderShipmentReport[] @relation("CorporateOrderShipmentReporter")
+  storefront ArtistStorefront?
+  storefrontEvents ArtistStorefrontEvent[]
 
   @@map("identity_users")
 }
@@ -243,6 +256,7 @@ model CorporatePurchaseRequest {
   submittedAt DateTime?
   items CorporatePurchaseRequestItem[]
   events CorporatePurchaseRequestEvent[]
+  proposals CorporateProposal[]
   @@unique([buyerOrganizationId, createdByUserId, idempotencyKey], map: "corp_purchase_request_org_creator_idem_key")
   @@index([buyerOrganizationId, createdAt, id])
   @@index([status, createdAt, id])
@@ -276,6 +290,197 @@ model CorporatePurchaseRequestEvent {
   createdAt DateTime @default(now())
   @@unique([requestId, version])
   @@map("corporate_purchase_request_events")
+}
+
+enum CorporateProposalStatus {
+  sent
+  accepted
+  rejected
+  revision_requested
+}
+
+model CorporateProposal {
+  id String @id @default(uuid()) @db.Uuid
+  requestId String @db.Uuid
+  request CorporatePurchaseRequest @relation(fields: [requestId], references: [id], onDelete: Restrict)
+  buyerOrganizationId String @db.Uuid
+  createdByUserId String @db.Uuid
+  creator IdentityUser @relation("CorporateProposalCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  idempotencyKey String @db.Uuid
+  version Int @default(0)
+  status CorporateProposalStatus @default(sent)
+  summary String
+  productionStartsAt DateTime
+  productionCompletesAt DateTime
+  estimatedDeliveryAt DateTime
+  packagingDetails String
+  customizationDetails String
+  totalToman BigInt
+  createdAt DateTime @default(now())
+  items CorporateProposalItem[]
+  events CorporateProposalEvent[]
+  order CorporateOrder?
+  @@unique([requestId, createdByUserId, idempotencyKey])
+  @@index([buyerOrganizationId, createdAt, id])
+  @@index([requestId, createdAt, id])
+  @@index([status, createdAt, id])
+  @@map("corporate_proposals")
+}
+
+model CorporateProposalItem {
+  proposalId String @db.Uuid
+  proposal CorporateProposal @relation(fields: [proposalId], references: [id], onDelete: Restrict)
+  productId String @db.Uuid
+  product ArtistProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  artistUserId String @db.Uuid
+  artist IdentityUser @relation("CorporateProposalItemArtist", fields: [artistUserId], references: [id], onDelete: Restrict)
+  title String
+  quantity Int
+  unitPriceToman BigInt
+  packagingDetails String
+  customizationDetails String
+  @@id([proposalId, productId])
+  @@index([productId])
+  @@index([artistUserId, proposalId])
+  @@map("corporate_proposal_items")
+}
+
+model CorporateProposalEvent {
+  id String @id @default(uuid()) @db.Uuid
+  proposalId String @db.Uuid
+  proposal CorporateProposal @relation(fields: [proposalId], references: [id], onDelete: Restrict)
+  version Int
+  action String
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation("CorporateProposalEventActor", fields: [actorUserId], references: [id], onDelete: Restrict)
+  command Json
+  requestTraceId String
+  createdAt DateTime @default(now())
+  @@unique([proposalId, version])
+  @@map("corporate_proposal_events")
+}
+
+enum CorporateOrderStatus {
+  awaiting_payment_setup
+  awaiting_payment
+  payment_under_review
+  paid
+  fulfilling
+  completed
+  cancelled
+}
+
+model CorporateOrder {
+  id String @id @default(uuid()) @db.Uuid
+  proposalId String @unique @db.Uuid
+  proposal CorporateProposal @relation(fields: [proposalId], references: [id], onDelete: Restrict)
+  buyerOrganizationId String @db.Uuid
+  createdByUserId String @db.Uuid
+  creator IdentityUser @relation("CorporateOrderCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  status CorporateOrderStatus @default(awaiting_payment_setup)
+  version Int @default(0)
+  totalToman BigInt
+  shippingAddress Json?
+  paymentAmountToman BigInt?
+  paymentDueAt DateTime?
+  paymentInstructions String?
+  paymentReportedAmountToman BigInt?
+  paymentReference String?
+  paymentReportedAt DateTime?
+  paymentVerifiedAt DateTime?
+  createdAt DateTime @default(now())
+  items CorporateOrderItem[]
+  events CorporateOrderEvent[]
+  inventoryEvents ProductInventoryEvent[]
+  fulfillments CorporateOrderPreparation[]
+  @@index([buyerOrganizationId, createdAt, id])
+  @@index([status, createdAt, id])
+  @@map("corporate_orders")
+}
+
+model CorporateOrderItem {
+  orderId String @db.Uuid
+  order CorporateOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  productId String @db.Uuid
+  product ArtistProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  artistUserId String @db.Uuid
+  title String
+  quantity Int
+  unitPriceToman BigInt
+  @@id([orderId, productId])
+  @@index([productId])
+  @@index([artistUserId, orderId])
+  @@map("corporate_order_items")
+}
+
+model CorporateOrderEvent {
+  id String @id @default(uuid()) @db.Uuid
+  orderId String @db.Uuid
+  order CorporateOrder @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  version Int
+  action String
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation("CorporateOrderEventActor", fields: [actorUserId], references: [id], onDelete: Restrict)
+  command Json
+  requestTraceId String
+  createdAt DateTime @default(now())
+  @@unique([orderId, version])
+  @@map("corporate_order_events")
+}
+
+enum CorporateFulfillmentStatus {
+  awaiting_acceptance
+  accepted
+  preparing
+  packaging
+  ready_for_dispatch
+}
+
+model CorporateOrderPreparation {
+  corporateOrderId String @db.Uuid
+  corporateOrder CorporateOrder @relation(fields: [corporateOrderId], references: [id], onDelete: Restrict)
+  artistUserId String @db.Uuid
+  artist IdentityUser @relation("CorporateOrderPreparationArtist", fields: [artistUserId], references: [id], onDelete: Restrict)
+  status CorporateFulfillmentStatus @default(awaiting_acceptance)
+  version Int @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  events CorporateOrderPreparationEvent[]
+  shipment CorporateOrderShipmentReport?
+  @@id([corporateOrderId, artistUserId])
+  @@index([artistUserId, status, createdAt])
+  @@map("corporate_order_preparations")
+}
+
+model CorporateOrderPreparationEvent {
+  corporateOrderId String @db.Uuid
+  artistUserId String @db.Uuid
+  preparation CorporateOrderPreparation @relation(fields: [corporateOrderId, artistUserId], references: [corporateOrderId, artistUserId], onDelete: Restrict)
+  version Int
+  action String
+  status CorporateFulfillmentStatus
+  actorUserId String @db.Uuid
+  actor IdentityUser @relation("CorporateOrderPreparationEventActor", fields: [actorUserId], references: [id], onDelete: Restrict)
+  requestTraceId String
+  createdAt DateTime @default(now())
+  @@id([corporateOrderId, artistUserId, version])
+  @@map("corporate_order_preparation_events")
+}
+
+model CorporateOrderShipmentReport {
+  corporateOrderId String @db.Uuid
+  artistUserId String @db.Uuid
+  preparation CorporateOrderPreparation @relation(fields: [corporateOrderId, artistUserId], references: [corporateOrderId, artistUserId], onDelete: Restrict)
+  preparationVersion Int
+  carrierName String
+  trackingCode String
+  reportedByUserId String @db.Uuid
+  reporter IdentityUser @relation("CorporateOrderShipmentReporter", fields: [reportedByUserId], references: [id], onDelete: Restrict)
+  requestTraceId String
+  reportedAt DateTime @default(now())
+  @@id([corporateOrderId, artistUserId])
+  @@unique([corporateOrderId, artistUserId, preparationVersion])
+  @@map("corporate_order_shipment_reports")
 }
 
 enum ServiceRequestStatus {
@@ -426,6 +631,12 @@ enum ProductPublicationStatus {
   published
 }
 
+enum ProductChangeStatus {
+  draft
+  under_review
+  changes_requested
+}
+
 model ArtistProduct {
   id                String                   @id @default(uuid()) @db.Uuid
   artistUserId      String                   @db.Uuid
@@ -433,6 +644,7 @@ model ArtistProduct {
   title             String
   description       String?
   category          String?
+  preparationTime   String?
   dimensions        String?
   materials         String?
   weight            String?
@@ -441,16 +653,23 @@ model ArtistProduct {
   imageIds          String[]                 @default([]) @db.Uuid
   images            ProductImage[]
   cartItems         CartItem[]
+  customerFavorites CustomerFavorite[]
   orderItems        CustomerOrderItem[]
   careInstructions  String?
   priceToman        BigInt
   publicationStatus ProductPublicationStatus @default(draft)
   version           Int                      @default(0)
   publicationEvents ProductPublicationEvent[]
+  changeStatus      ProductChangeStatus?
+  changeContent     Json?
+  changeReason      String?
   stockQuantity     Int                      @default(0)
+  inventoryConfigured Boolean                @default(false)
   inventoryVersion  Int                      @default(0)
   inventoryEvents   ProductInventoryEvent[]
   corporatePurchaseRequestItems CorporatePurchaseRequestItem[]
+  corporateProposalItems CorporateProposalItem[]
+  corporateOrderItems CorporateOrderItem[]
   archivedAt        DateTime?
   createdAt         DateTime                 @default(now())
   updatedAt         DateTime                 @updatedAt
@@ -462,6 +681,50 @@ model ArtistProduct {
   @@map("artist_products")
 }
 
+model ArtistStorefront {
+  id           String   @id @default(uuid()) @db.Uuid
+  artistUserId String   @unique @db.Uuid
+  artist       IdentityUser @relation(fields: [artistUserId], references: [id], onDelete: Restrict)
+  storeName    String   @default("")
+  shortIntro   String   @default("")
+  about        String   @default("")
+  coverImageId String?  @db.Uuid
+  avatarImageId String? @db.Uuid
+  version      Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  events       ArtistStorefrontEvent[]
+  images       ArtistStorefrontImage[]
+  @@map("artist_storefronts")
+}
+
+model ArtistStorefrontImage {
+  id           String          @id @default(uuid()) @db.Uuid
+  storefrontId String          @db.Uuid
+  storefront   ArtistStorefront @relation(fields: [storefrontId], references: [id], onDelete: Restrict)
+  objectKey    String          @unique
+  width        Int
+  height       Int
+  byteLength   Int
+  createdAt    DateTime        @default(now())
+  @@index([storefrontId, createdAt, id])
+  @@map("artist_storefront_images")
+}
+
+model ArtistStorefrontEvent {
+  id           String          @id @default(uuid()) @db.Uuid
+  storefrontId String          @db.Uuid
+  storefront   ArtistStorefront @relation(fields: [storefrontId], references: [id], onDelete: Restrict)
+  actorUserId  String          @db.Uuid
+  actor        IdentityUser    @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  version      Int
+  snapshot     Json
+  requestId    String
+  createdAt    DateTime        @default(now())
+  @@unique([storefrontId, version])
+  @@map("artist_storefront_events")
+}
+
 // Append-only through inventory commands; no update/delete API.
 model ProductInventoryEvent {
   id               String        @id @default(uuid()) @db.Uuid
@@ -471,6 +734,8 @@ model ProductInventoryEvent {
   actor            IdentityUser? @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
   orderId          String?       @db.Uuid
   order            CustomerOrder? @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  corporateOrderId String?       @db.Uuid
+  corporateOrder   CorporateOrder? @relation(fields: [corporateOrderId], references: [id], onDelete: Restrict)
   previousQuantity Int
   stockQuantity    Int
   inventoryVersion Int
@@ -537,6 +802,25 @@ model RoleGrant {
   @@map("role_grants")
 }
 
+model OrganizationInvitation {
+  id String @id @default(uuid()) @db.Uuid
+  organizationId String @db.Uuid
+  invitedPhone String
+  tokenHash String @unique
+  createdByUserId String @db.Uuid
+  creator IdentityUser @relation("OrganizationInvitationCreator", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  acceptedByUserId String? @db.Uuid
+  acceptedBy IdentityUser? @relation("OrganizationInvitationAcceptor", fields: [acceptedByUserId], references: [id], onDelete: Restrict)
+  expiresAt DateTime
+  acceptedAt DateTime?
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([organizationId, createdAt, id])
+  @@index([invitedPhone, expiresAt, acceptedAt, revokedAt])
+  @@map("organization_invitations")
+}
+
 model StaffDomainGrant {
   id        String    @id @default(uuid()) @db.Uuid
   roleGrantId String  @db.Uuid
@@ -547,7 +831,7 @@ model StaffDomainGrant {
   @@map("staff_domain_grants")
 }
 
-// Append-only through application commands; no update/delete API is exposed.
+// Append-only in application commands and protected by a database trigger.
 model ProductPublicationEvent {
   id          String                   @id @default(uuid()) @db.Uuid
   productId   String                   @db.Uuid
@@ -606,6 +890,18 @@ model CartItem {
   @@id([cartId, productId])
   @@index([productId])
   @@map("cart_items")
+}
+
+model CustomerFavorite {
+  userId    String @db.Uuid
+  user      IdentityUser @relation(fields: [userId], references: [id], onDelete: Restrict)
+  productId String @db.Uuid
+  product   ArtistProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  createdAt DateTime @default(now())
+
+  @@id([userId, productId])
+  @@index([userId, createdAt, productId])
+  @@map("customer_favorites")
 }
 
 model CustomerAddressBook {

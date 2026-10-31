@@ -44,4 +44,6 @@ Creation has no ServiceAssignment or ServiceExecution side effect and creates no
 
 PostgreSQL tests cover inactive/active visibility, role isolation, rejection of commercial fields, concurrent idempotency, availability rollback when audit insertion fails, immutable catalog audit, catalog-bound Artist ownership, inactive-service rejection, shared service identity across Partner view, and retry after catalog deactivation.
 
+The live Artist workspace at `/artist/services` reads the available catalog, creates catalog-bound requests with idempotent retries, and shows account-scoped status/history, Partner execution updates, Staff review outcomes and submitted deliverables through authenticated same-origin BFF routes. Artist file reads use the API's submitted-event authorization and short-lived signed URLs. The UI does not imply pricing, payment, credit use or guaranteed scheduling.
+
 Stage must still validate migration behavior against stacked historical data. No merge, Stage deploy, QA sign-off or Production release is part of this Draft PR.

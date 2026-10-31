@@ -7,7 +7,7 @@ import sharp from "sharp";
 import { PrismaService } from "./prisma.service.js";
 import { enforceDecision } from "./authorization.guard.js";
 import { parseArtistProductId } from "./artist-products.js";
-import { productContentSnapshot } from "./product-specifications.js";
+import { parseProductContent, productContentSnapshot } from "./product-specifications.js";
 
 export const maxImageBytes = 5 * 1024 * 1024;
 export const maxGalleryImages = 8;
@@ -79,6 +79,12 @@ export class ProductImagesService {
     }
   }
 
+  private editableChange(product: { archivedAt: Date | null; publicationStatus: string; changeStatus: string | null; changeContent: unknown; version: number }, version: number) {
+    if (product.archivedAt || product.publicationStatus !== "published" || !["draft", "changes_requested"].includes(product.changeStatus ?? "") || !product.changeContent || product.version !== version) {
+      throw new ConflictException("product-change-state-changed");
+    }
+  }
+
   async upload(context: AuthorizationContext, id: string, version: number, bytes: Buffer, requestId: string) {
     const product = await this.owned(context, id);
     this.editable(product, version);
@@ -129,6 +135,53 @@ export class ProductImagesService {
         fromStatus: product.publicationStatus, toStatus: product.publicationStatus === "approved" ? "draft" : product.publicationStatus,
         version: version + 1, content: productContentSnapshot({ ...product, imageIds }), requestId
       } });
+      return { imageIds, version: version + 1 };
+    });
+  }
+
+  async uploadChangeProposal(context: AuthorizationContext, id: string, version: number, bytes: Buffer, requestId: string) {
+    const product = await this.owned(context, id);
+    this.editableChange(product, version);
+    const content = parseProductContent(product.changeContent);
+    if (content.imageIds.length >= maxGalleryImages) throw new ConflictException("product-gallery-full");
+    if (await this.db.productImage.count({ where: { productId: id } }) >= 100) throw new ConflictException("product-media-limit");
+    const image = await normalizeProductImage(bytes);
+    const imageId = randomUUID(), objectKey = `product-images/${id}/${imageId}.webp`;
+    try { await this.storage.store.putImmutableObject(objectKey, image.data, "image/webp"); }
+    catch { throw new ServiceUnavailableException("image-storage-unavailable"); }
+    try {
+      return await this.db.$transaction(async tx => {
+        const imageIds = [...content.imageIds, imageId];
+        const proposed = { ...content, imageIds };
+        const changed = await tx.artistProduct.updateMany({ where: { id, version, archivedAt: null, publicationStatus: "published", changeStatus: product.changeStatus },
+          data: { changeContent: proposed, version: { increment: 1 } } });
+        if (changed.count !== 1) throw new ConflictException("product-change-state-changed");
+        await tx.productImage.create({ data: { id: imageId, productId: id, objectKey, width: image.width, height: image.height, byteLength: image.data.length } });
+        await tx.productPublicationEvent.create({ data: { productId: id, actorUserId: context.userId, actorRole: "artist", action: "change-images-updated",
+          fromStatus: "published", toStatus: "published", version: version + 1, content: proposed, requestId } });
+        return { id: imageId, imageIds, version: version + 1 };
+      });
+    } catch (error) {
+      try { const committed = await this.db.productImage.findUnique({ where: { id: imageId } }); if (!committed) await this.storage.store.deleteObject(objectKey); }
+      catch { /* An uncertain commit is retained for reconciliation. */ }
+      throw error;
+    }
+  }
+
+  async galleryChangeProposal(context: AuthorizationContext, id: string, version: number, imageIds: string[], requestId: string) {
+    const product = await this.owned(context, id);
+    this.editableChange(product, version);
+    const content = parseProductContent(product.changeContent);
+    const count = await this.db.productImage.count({ where: { productId: id, id: { in: imageIds } } });
+    if (count !== imageIds.length) throw new NotFoundException();
+    if (JSON.stringify(content.imageIds) === JSON.stringify(imageIds)) return { imageIds, version };
+    const proposed = { ...content, imageIds };
+    return this.db.$transaction(async tx => {
+      const changed = await tx.artistProduct.updateMany({ where: { id, version, archivedAt: null, publicationStatus: "published", changeStatus: product.changeStatus },
+        data: { changeContent: proposed, version: { increment: 1 } } });
+      if (changed.count !== 1) throw new ConflictException("product-change-state-changed");
+      await tx.productPublicationEvent.create({ data: { productId: id, actorUserId: context.userId, actorRole: "artist", action: "change-images-updated",
+        fromStatus: "published", toStatus: "published", version: version + 1, content: proposed, requestId } });
       return { imageIds, version: version + 1 };
     });
   }

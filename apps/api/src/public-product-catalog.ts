@@ -51,14 +51,15 @@ export function parseCatalogQuery(raw: Record<string, unknown>): CatalogQuery {
 
 const visible = { publicationStatus: "published", archivedAt: null } as const;
 const publicSelect = {
-  id: true, title: true, description: true, category: true, dimensions: true, materials: true,
+  id: true, title: true, description: true, category: true, preparationTime: true, dimensions: true, materials: true,
   weight: true, color: true, technique: true, careInstructions: true, priceToman: true,
-  imageIds: true, stockQuantity: true, createdAt: true
+  imageIds: true, stockQuantity: true, createdAt: true,
+  artist: { select: { storefront: { select: { id: true } } } }
 } as const;
 type PublicProduct = Prisma.ArtistProductGetPayload<{ select: typeof publicSelect }>;
 function view(product: PublicProduct) {
-  const { stockQuantity, priceToman, createdAt, ...content } = product;
-  return { ...content, priceToman: priceToman.toString(), availability: stockQuantity > 0 ? "in_stock" : "out_of_stock",
+  const { stockQuantity, priceToman, createdAt, artist, ...content } = product;
+  return { ...content, storefrontId: artist.storefront?.id ?? null, priceToman: priceToman.toString(), availability: stockQuantity > 0 ? "in_stock" : "out_of_stock",
     coverImageId: product.imageIds[0] ?? null, createdAt: createdAt.toISOString() };
 }
 // Prisma contains uses LIKE. Treat user percent/underscore/backslash as literal characters.
@@ -67,6 +68,13 @@ function literalSearch(value: string) { return value.replace(/[\\%_]/g, (charact
 @Injectable()
 export class PublicProductCatalogService {
   constructor(private readonly db: PrismaService, private readonly storage: ProductImageStorage) {}
+  async categories() {
+    const rows = await this.db.artistProduct.groupBy({
+      by: ["category"], where: { ...visible, category: { not: null } },
+      _count: { _all: true }, orderBy: { category: "asc" }
+    });
+    return { items: rows.flatMap(row => row.category?.trim() ? [{ name: row.category, productCount: row._count._all }] : []) };
+  }
   async list(input: CatalogQuery) {
     const search = input.q === undefined ? undefined : literalSearch(input.q);
     const where: Prisma.ArtistProductWhereInput = {
@@ -93,6 +101,30 @@ export class PublicProductCatalogService {
     const product = await this.db.artistProduct.findFirst({ where: { id, ...visible }, select: publicSelect });
     if (!product) throw new NotFoundException();
     return view(product);
+  }
+  async storefront(id: string, page: number, pageSize: number) {
+    const storefront = await this.db.artistStorefront.findFirst({ where: { id, artist: { artistProducts: { some: visible } } }, select: {
+      storeName: true, shortIntro: true, about: true, coverImageId: true, avatarImageId: true,
+      artist: { select: { artistProducts: { where: visible, select: publicSelect,
+        orderBy: [{ createdAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1 } } }
+    } });
+    if (!storefront) throw new NotFoundException();
+    const products = storefront.artist.artistProducts;
+    return { storeName: storefront.storeName, shortIntro: storefront.shortIntro, about: storefront.about,
+      coverImageId: storefront.coverImageId, avatarImageId: storefront.avatarImageId,
+      items: products.slice(0, pageSize).map(view), page, pageSize, hasMore: products.length > pageSize };
+  }
+  async storefrontImage(id: string, imageId: string) {
+    const storefront = await this.db.artistStorefront.findFirst({ where: { id,
+      OR: [{ coverImageId: imageId }, { avatarImageId: imageId }],
+      artist: { artistProducts: { some: visible } }
+    } });
+    if (!storefront) throw new NotFoundException();
+    const image = await this.db.artistStorefrontImage.findFirst({ where: { id: imageId, storefrontId: id } });
+    if (!image) throw new NotFoundException();
+    try { return { id: image.id, width: image.width, height: image.height, byteLength: image.byteLength,
+      contentType: "image/webp", url: await this.storage.store.createReadUrl(image.objectKey), expiresInSeconds: 300 }; }
+    catch { throw new ServiceUnavailableException("image-storage-unavailable"); }
   }
   async image(id: string, imageId: string) {
     // Visibility, membership and asset ownership are checked together in one database read.

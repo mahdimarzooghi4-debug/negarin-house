@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Header, Param, Post, Query, Req, UseGuards } from "@nestjs/common";
+import { BadRequestException, Body, Controller, Get, Header, Param, Post, Query, Req, UseGuards } from "@nestjs/common";
 import { AuthorizationGuard, type AuthorizedRequest } from "./authorization.guard.js";
 import { parseArtistProductId } from "./artist-products.js";
 import { parseOrderPage } from "./customer-orders.js";
@@ -46,7 +46,10 @@ export class PartnerAssignmentsController {
   @Get()
   @Header("Cache-Control", "no-store")
   list(@Req() r: Request, @Query() query: Record<string, unknown>) {
-    const p = parseOrderPage(query); return this.services.assignments(r.authorizationContext!, p.page, p.pageSize);
+    const view = query.view;
+    if (view !== undefined && view !== "assignments" && view !== "schedule" && view !== "deliveries" && view !== "history") throw new BadRequestException();
+    const pagination = { ...query }; delete pagination.view;
+    const p = parseOrderPage(pagination); return this.services.assignments(r.authorizationContext!, p.page, p.pageSize, (view ?? "assignments") as "assignments" | "schedule" | "deliveries" | "history");
   }
   @Get(":id")
   @Header("Cache-Control", "no-store")

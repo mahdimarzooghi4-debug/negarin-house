@@ -1,4 +1,5 @@
 import { BadRequestException, ConflictException, ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
+import { createHash, randomBytes } from "node:crypto";
 import { canAccessStaffDomain, type AuthorizationContext } from "@negarin/authz";
 import { enforceDecision } from "./authorization.guard.js";
 import { parseArtistProductId } from "./artist-products.js";
@@ -26,6 +27,19 @@ export function parseSupportProgramCreate(body: unknown) {
     idempotencyKey: parseArtistProductId(b.idempotencyKey as string),
     title: text(b.title, 200), description: text(b.description, 4000), rules: text(b.rules, 8000)
   };
+}
+function normalizeInvitePhone(value: unknown) {
+  if (typeof value !== "string" || value.trim().length > 40) throw new BadRequestException();
+  let phone = value.trim().replace(/[۰-۹]/g, digit => String(digit.charCodeAt(0) - 1776)).replace(/[٠-٩]/g, digit => String(digit.charCodeAt(0) - 1632)).replace(/[\s().-]/g, "");
+  if (phone.startsWith("00")) phone = `+${phone.slice(2)}`;
+  if (/^09\d{9}$/.test(phone)) phone = `+98${phone.slice(1)}`;
+  else if (/^98\d{10}$/.test(phone)) phone = `+${phone}`;
+  if (!/^\+[1-9]\d{7,14}$/.test(phone)) throw new BadRequestException();
+  return phone;
+}
+export function parseOrganizationInvitationCreate(body: unknown) {
+  const b = object(body, ["phone"]);
+  return { phone: normalizeInvitePhone(b.phone) };
 }
 export function parseSupportRelationshipCreate(body: unknown) {
   const b = object(body, ["artistUserId"]);
@@ -68,7 +82,16 @@ const allocationInclude = {
   currentServiceRequest: { select: requestSelect },
   events: { orderBy: { version: "asc" }, include: eventInclude }
 } satisfies Prisma.SupportAllocationInclude;
+const organizationAllocationInclude = {
+  ...allocationInclude,
+  relationship: { include: { artist: { select: { storefront: { select: { storeName: true, shortIntro: true } } } } } }
+} satisfies Prisma.SupportAllocationInclude;
+const staffRelationshipInclude = {
+  program: { select: { title: true, source: true } },
+  artist: { select: { storefront: { select: { storeName: true, shortIntro: true } } } }
+} satisfies Prisma.SupportRelationshipInclude;
 type Allocation = Prisma.SupportAllocationGetPayload<{ include: typeof allocationInclude }>;
+type OrganizationAllocation = Prisma.SupportAllocationGetPayload<{ include: typeof organizationAllocationInclude }>;
 function programView(p: { id: string; source: string; organizationId: string | null; title: string; description: string; rules: string; createdAt: Date }) {
   return { id: p.id, source: p.source, organizationId: p.organizationId, title: p.title, description: p.description, rules: p.rules, createdAt: p.createdAt.toISOString() };
 }
@@ -95,6 +118,15 @@ function allocationView(a: Allocation) {
     }))
   };
 }
+function organizationAllocationView(a: OrganizationAllocation) {
+  return {
+    ...allocationView(a),
+    artist: {
+      storeName: a.relationship.artist.storefront?.storeName || "فروشگاه هنرمند",
+      shortIntro: a.relationship.artist.storefront?.shortIntro ?? ""
+    }
+  };
+}
 function sameCommand(a: unknown, b: Record<string, unknown>) {
   if (!a || typeof a !== "object" || Array.isArray(a)) return false;
   const x = a as Record<string, unknown>;
@@ -103,6 +135,7 @@ function sameCommand(a: unknown, b: Record<string, unknown>) {
 function organization(context: AuthorizationContext) {
   if (context.activeRole !== "supporting-organization" || !context.organizationId) throw new ForbiddenException();
 }
+function maskedPhone(phone: string) { return `•••• •••• ${phone.replace(/\D/g, "").slice(-4)}`; }
 function artist(context: AuthorizationContext) {
   if (context.activeRole !== "artist") throw new ForbiddenException();
 }
@@ -110,6 +143,28 @@ function artist(context: AuthorizationContext) {
 @Injectable()
 export class SupportCreditsService {
   constructor(private readonly db: PrismaService) {}
+
+  async artistDirectory(context: AuthorizationContext, query: string | undefined, page: number, pageSize: number, audience: "organization" | "staff" = "organization") {
+    if (audience === "staff") enforceDecision(canAccessStaffDomain(context, "artists"));
+    else organization(context);
+    const search = query?.trim().replace(/[\\%_]/g, character => `\\${character}`);
+    const rows = await this.db.identityUser.findMany({
+      where: {
+        roleGrants: { some: { role: "artist", revokedAt: null } },
+        artistProducts: { some: { publicationStatus: "published", archivedAt: null } },
+        ...(search ? { storefront: { is: { OR: [
+          { storeName: { contains: search, mode: "insensitive" } },
+          { shortIntro: { contains: search, mode: "insensitive" } }
+        ] } } } : {})
+      },
+      orderBy: [{ createdAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1,
+      select: { id: true, storefront: { select: { storeName: true, shortIntro: true } } }
+    });
+    return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(row => ({
+      artistUserId: row.id, storeName: row.storefront?.storeName ?? "فروشگاه هنرمند",
+      shortIntro: row.storefront?.shortIntro ?? ""
+    })) };
+  }
 
   async createOrganizationProgram(context: AuthorizationContext, input: ReturnType<typeof parseSupportProgramCreate>, trace: string) {
     organization(context);
@@ -141,6 +196,70 @@ export class SupportCreditsService {
     else { organization(context); where = { source: "supporting_organization", organizationId: context.organizationId }; }
     const rows = await this.db.supportProgram.findMany({ where, orderBy: [{ createdAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1 });
     return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(programView) };
+  }
+  async organizationMembers(context: AuthorizationContext, page: number, pageSize: number) {
+    organization(context);
+    const rows = await this.db.roleGrant.findMany({
+      where: { role: "supporting_organization", organizationId: context.organizationId, revokedAt: null },
+      orderBy: [{ createdAt: "asc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1,
+      select: { id: true, createdAt: true, user: { select: { phone: true } } }
+    });
+    return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(row => ({
+      id: row.id, maskedPhone: maskedPhone(row.user.phone), accessGrantedAt: row.createdAt.toISOString()
+    })) };
+  }
+  async createOrganizationInvitation(context: AuthorizationContext, input: ReturnType<typeof parseOrganizationInvitationCreate>) {
+    organization(context);
+    const phone = normalizeInvitePhone(input.phone);
+    if (await this.db.roleGrant.findFirst({ where: { role: "supporting_organization", organizationId: context.organizationId, revokedAt: null, user: { phone } }, select: { id: true } })) throw new ConflictException("organization-member-exists");
+    const token = randomBytes(32).toString("base64url");
+    const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+    const invitation = await this.db.organizationInvitation.create({ data: {
+      organizationId: context.organizationId!, invitedPhone: phone, tokenHash: createHash("sha256").update(token).digest("hex"),
+      createdByUserId: context.userId, expiresAt
+    } });
+    return { id: invitation.id, maskedPhone: maskedPhone(phone), token, expiresAt: expiresAt.toISOString() };
+  }
+  async organizationInvitations(context: AuthorizationContext, page: number, pageSize: number) {
+    organization(context);
+    const rows = await this.db.organizationInvitation.findMany({ where: { organizationId: context.organizationId },
+      orderBy: [{ createdAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1,
+      select: { id: true, invitedPhone: true, expiresAt: true, acceptedAt: true, revokedAt: true, createdAt: true }
+    });
+    const now = Date.now();
+    return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(row => ({
+      id: row.id, maskedPhone: maskedPhone(row.invitedPhone), createdAt: row.createdAt.toISOString(), expiresAt: row.expiresAt.toISOString(),
+      acceptedAt: row.acceptedAt?.toISOString() ?? null, status: row.acceptedAt ? "accepted" : row.revokedAt ? "revoked" : row.expiresAt.getTime() <= now ? "expired" : "pending"
+    })) };
+  }
+  async revokeOrganizationInvitation(context: AuthorizationContext, id: string) {
+    organization(context);
+    const result = await this.db.organizationInvitation.updateMany({ where: { id, organizationId: context.organizationId, acceptedAt: null, revokedAt: null }, data: { revokedAt: new Date() } });
+    if (!result.count) throw new NotFoundException();
+    return { id, status: "revoked" };
+  }
+  async acceptOrganizationInvitation(userId: string, token: string) {
+    if (typeof token !== "string" || !/^[A-Za-z0-9_-]{40,50}$/.test(token)) throw new BadRequestException();
+    const tokenHash = createHash("sha256").update(token).digest("hex");
+    return this.db.$transaction(async tx => {
+      const locked = await tx.$queryRawUnsafe<Array<{ id: string }>>('SELECT "id" FROM "organization_invitations" WHERE "tokenHash" = $1 FOR UPDATE', tokenHash);
+      if (!locked.length) throw new NotFoundException();
+      const invitation = await tx.organizationInvitation.findUniqueOrThrow({ where: { tokenHash } });
+      const user = await tx.identityUser.findUnique({ where: { id: userId }, select: { id: true, phone: true } });
+      if (!user || user.phone !== invitation.invitedPhone) throw new ForbiddenException("invitation-phone-mismatch");
+      if (invitation.acceptedAt) {
+        if (invitation.acceptedByUserId !== userId) throw new ConflictException("invitation-already-used");
+        const grant = await tx.roleGrant.findFirst({ where: { userId, role: "supporting_organization", organizationId: invitation.organizationId, revokedAt: null }, select: { id: true } });
+        if (!grant) throw new ConflictException("invitation-access-revoked");
+        return { grantId: grant.id, organizationId: invitation.organizationId };
+      }
+      if (invitation.revokedAt || invitation.expiresAt <= new Date()) throw new ConflictException("invitation-expired-or-revoked");
+      const existing = await tx.roleGrant.findFirst({ where: { userId, role: "supporting_organization", organizationId: invitation.organizationId, revokedAt: null }, select: { id: true } });
+      const grant = existing ?? await tx.roleGrant.create({ data: { userId, role: "supporting_organization", organizationId: invitation.organizationId }, select: { id: true } });
+      await tx.organizationInvitation.update({ where: { id: invitation.id }, data: { acceptedByUserId: userId, acceptedAt: new Date() } });
+      await tx.organizationInvitation.updateMany({ where: { organizationId: invitation.organizationId, invitedPhone: invitation.invitedPhone, id: { not: invitation.id }, acceptedAt: null, revokedAt: null }, data: { revokedAt: new Date() } });
+      return { grantId: grant.id, organizationId: invitation.organizationId };
+    });
   }
   async program(context: AuthorizationContext, id: string, staff = false) {
     let where: Prisma.SupportProgramWhereInput = { id };
@@ -199,11 +318,29 @@ export class SupportCreditsService {
     });
   }
 
-  async relationships(context: AuthorizationContext, page: number, pageSize: number, audience: "organization" | "artist" | "staff") {
+  async relationships(context: AuthorizationContext, page: number, pageSize: number, audience: "organization" | "artist" | "staff", pendingOnly = false) {
     let where: Prisma.SupportRelationshipWhereInput;
-    if (audience === "staff") { enforceDecision(canAccessStaffDomain(context, "artists")); where = {}; }
+    if (audience === "staff") { enforceDecision(canAccessStaffDomain(context, "artists")); where = pendingOnly ? { negarinApprovedAt: null } : {}; }
     else if (audience === "artist") { artist(context); where = { artistUserId: context.userId }; }
     else { organization(context); where = { program: { source: "supporting_organization", organizationId: context.organizationId } }; }
+    if (audience === "organization") {
+      const rows = await this.db.supportRelationship.findMany({ where, orderBy: [{ createdAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1,
+        select: { id: true, programId: true, artistUserId: true, sponsorApprovedByUserId: true, sponsorApprovedAt: true,
+          negarinApprovedByUserId: true, negarinApprovedAt: true, version: true, createdAt: true,
+          program: { select: { title: true } }, artist: { select: { storefront: { select: { storeName: true, shortIntro: true } } } } }
+      });
+      return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(row => ({
+        ...relationshipView(row), programTitle: row.program.title,
+        artist: { storeName: row.artist.storefront?.storeName || "فروشگاه هنرمند", shortIntro: row.artist.storefront?.shortIntro ?? "" }
+      })) };
+    }
+    if (audience === "staff") {
+      const rows = await this.db.supportRelationship.findMany({ where, orderBy: [{ createdAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1, include: staffRelationshipInclude });
+      return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(row => ({
+        ...relationshipView(row), programTitle: row.program.title, programSource: row.program.source,
+        artist: { storeName: row.artist.storefront?.storeName || "فروشگاه هنرمند", shortIntro: row.artist.storefront?.shortIntro ?? "" }
+      })) };
+    }
     const rows = await this.db.supportRelationship.findMany({ where, orderBy: [{ createdAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1 });
     return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(relationshipView) };
   }
@@ -262,6 +399,10 @@ export class SupportCreditsService {
     if (audience === "staff") { enforceDecision(canAccessStaffDomain(context, "artists")); where = {}; }
     else if (audience === "artist") { artist(context); where = { relationship: { artistUserId: context.userId } }; }
     else { organization(context); where = { program: { source: "supporting_organization", organizationId: context.organizationId } }; }
+    if (audience === "organization") {
+      const rows = await this.db.supportAllocation.findMany({ where, include: organizationAllocationInclude, orderBy: [{ createdAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1 });
+      return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(organizationAllocationView) };
+    }
     const rows = await this.db.supportAllocation.findMany({ where, include: allocationInclude, orderBy: [{ createdAt: "desc" }, { id: "asc" }], skip: (page - 1) * pageSize, take: pageSize + 1 });
     return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(allocationView) };
   }
@@ -270,6 +411,11 @@ export class SupportCreditsService {
     if (audience === "staff") enforceDecision(canAccessStaffDomain(context, "artists"));
     else if (audience === "artist") { artist(context); where = { id, relationship: { artistUserId: context.userId } }; }
     else { organization(context); where = { id, program: { source: "supporting_organization", organizationId: context.organizationId } }; }
+    if (audience === "organization") {
+      const allocation = await this.db.supportAllocation.findFirst({ where, include: organizationAllocationInclude });
+      if (!allocation) throw new NotFoundException();
+      return organizationAllocationView(allocation);
+    }
     const a = await this.db.supportAllocation.findFirst({ where, include: allocationInclude });
     if (!a) throw new NotFoundException();
     return allocationView(a);

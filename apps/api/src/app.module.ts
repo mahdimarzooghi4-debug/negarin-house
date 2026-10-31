@@ -8,7 +8,7 @@ import { CorporateBuyerController, AdminCorporateProcurementController } from ".
 import { SupportReportingService } from "./support-reporting.js";
 import { SupportingOrganizationSupportReportingController, ArtistSupportReportingController, AdminSupportReportingController } from "./support-reporting.controller.js";
 import { SupportCreditsService } from "./support-credits.js";
-import { SupportingOrganizationSupportController, ArtistSupportController, AdminSupportController } from "./support-credits.controller.js";
+import { SupportingOrganizationSupportController, ArtistSupportController, AdminSupportController, OrganizationInvitationAcceptController } from "./support-credits.controller.js";
 import { ServiceCatalogService } from "./service-catalog.js";
 import { AdminServiceCatalogController, ArtistServiceCatalogController } from "./service-catalog.controller.js";
 import { ServiceDeliverablesService, ServiceDeliverableStorage } from "./service-deliverables.js";
@@ -27,18 +27,22 @@ import { ShipmentIssueSupportController } from "./shipment-issue-support.control
 import { ShipmentIssueSupportService } from "./shipment-issue-support.js";
 import { CustomerShipmentsController } from "./customer-shipments.controller.js";
 import { CustomerShipmentsService } from "./customer-shipments.js";
-import { ArtistOrdersController } from "./artist-orders.controller.js";
+import { ArtistCorporateOrdersController, ArtistOrdersController } from "./artist-orders.controller.js";
 import { ArtistOrdersService } from "./artist-orders.js";
 import { CustomerPaymentsController } from "./customer-payments.controller.js";
 import { CustomerPaymentsService, PaymentGateway } from "./customer-payments.js";
 import { OrderReservationExpiry } from "./order-reservation-expiry.js";
 import { CustomerOrdersController } from "./customer-orders.controller.js";
 import { CustomerOrdersService } from "./customer-orders.js";
+import { CustomerOrderImagesController } from "./customer-order-images.controller.js";
+import { CustomerOrderImagesService } from "./customer-order-images.js";
 import { CustomerAddressesController } from "./customer-addresses.controller.js";
 import { CustomerAddressesService } from "./customer-addresses.js";
 import { CustomerCartController } from "./customer-cart.controller.js";
 import { CustomerCartService } from "./customer-cart.js";
-import { PublicProductCatalogController } from "./public-product-catalog.controller.js";
+import { CustomerFavoritesController } from "./customer-favorites.controller.js";
+import { CustomerFavoritesService } from "./customer-favorites.js";
+import { PublicArtistStorefrontController, PublicProductCatalogController, PublicProductCategoriesController } from "./public-product-catalog.controller.js";
 import { PublicProductCatalogService } from "./public-product-catalog.js";
 import { ArtistProductImagesController, AdminProductImagesController } from "./product-images.controller.js";
 import { ProductImagesService, ProductImageStorage } from "./product-images.js";
@@ -52,13 +56,15 @@ import { AuthorizationGuard } from "./authorization.guard.js";
 import { IdentityContextController } from "./identity-context.controller.js";
 import { ArtistProductsController } from "./artist-products.controller.js";
 import { ArtistProductsService } from "./artist-products.js";
+import { ArtistStorefrontService } from "./artist-storefront.js";
+import { ArtistStorefrontController } from "./artist-storefront.controller.js";
 
 import { ArtistPublicationController, AdminProductReviewsController } from "./product-publication.controller.js";
 import { ProductPublicationService } from "./product-publication.js";
 
 @Module({
-  controllers: [AdminServiceTraceController, AdminOrderTraceController, ArtistGrowthRegistryController, AdminGrowthRegistryController, CorporateBuyerController, AdminCorporateProcurementController, SupportingOrganizationSupportReportingController, ArtistSupportReportingController, AdminSupportReportingController, SupportingOrganizationSupportController, ArtistSupportController, AdminSupportController, AdminServiceCatalogController, ArtistServiceCatalogController, PartnerDeliverablesController, ArtistDeliverablesController, AdminDeliverablesController, PartnerServiceExecutionController, AdminServiceExecutionController, AdminServiceRequestsController, ArtistServiceRequestsController, PartnerAssignmentsController, ArtistFinancialEventsController, AdminFinancialEventsController, ArtistFinanceController, AdminDomesticFinanceController, RefundFinanceController, ShipmentIssueSupportController, CustomerShipmentsController, ArtistOrdersController, CustomerPaymentsController, CustomerOrdersController, CustomerAddressesController, CustomerCartController, PublicProductCatalogController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController],
-  providers: [AdminServiceTraceService, AdminOrderTraceService, CorporateProcurementService, SupportReportingService, SupportCreditsService, ServiceCatalogService, ServiceDeliverablesService, ServiceDeliverableStorage, ServiceExecutionService, ServiceAssignmentsService, FinancialEventsService, ArtistFinanceService, RefundFinanceService, ShipmentIssueSupportService, CustomerShipmentsService, ArtistOrdersService, CustomerPaymentsService, PaymentGateway, OrderReservationExpiry, CustomerOrdersService, CustomerAddressesService, CustomerCartService, PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService],
+  controllers: [AdminServiceTraceController, AdminOrderTraceController, ArtistGrowthRegistryController, AdminGrowthRegistryController, CorporateBuyerController, AdminCorporateProcurementController, SupportingOrganizationSupportReportingController, ArtistSupportReportingController, AdminSupportReportingController, SupportingOrganizationSupportController, ArtistSupportController, AdminSupportController, OrganizationInvitationAcceptController, AdminServiceCatalogController, ArtistServiceCatalogController, PartnerDeliverablesController, ArtistDeliverablesController, AdminDeliverablesController, PartnerServiceExecutionController, AdminServiceExecutionController, AdminServiceRequestsController, ArtistServiceRequestsController, PartnerAssignmentsController, ArtistFinancialEventsController, AdminFinancialEventsController, ArtistFinanceController, AdminDomesticFinanceController, RefundFinanceController, ShipmentIssueSupportController, CustomerShipmentsController, ArtistOrdersController, ArtistCorporateOrdersController, CustomerPaymentsController, CustomerOrderImagesController, CustomerOrdersController, CustomerAddressesController, CustomerFavoritesController, CustomerCartController, PublicProductCategoriesController, PublicProductCatalogController, PublicArtistStorefrontController, ArtistProductImagesController, AdminProductImagesController, ProductInventoryController, ArtistPublicationController, AdminProductReviewsController, HealthController, FoundationController, IdentityContextController, ArtistProductsController, ArtistStorefrontController],
+  providers: [AdminServiceTraceService, AdminOrderTraceService, CorporateProcurementService, SupportReportingService, SupportCreditsService, ServiceCatalogService, ServiceDeliverablesService, ServiceDeliverableStorage, ServiceExecutionService, ServiceAssignmentsService, FinancialEventsService, ArtistFinanceService, RefundFinanceService, ShipmentIssueSupportService, CustomerShipmentsService, ArtistOrdersService, CustomerPaymentsService, PaymentGateway, OrderReservationExpiry, CustomerOrderImagesService, CustomerOrdersService, CustomerAddressesService, CustomerFavoritesService, CustomerCartService, PublicProductCatalogService, ProductImagesService, ProductImageStorage, ProductInventoryService, ProductPublicationService, PrismaService, AuthorizationGuard, ArtistProductsService, ArtistStorefrontService],
   exports: [AuthorizationGuard]
 })
 export class AppModule {}

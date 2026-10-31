@@ -5,6 +5,7 @@ Read-only visitor endpoints, without session or active role:
 - GET `/api/v1/catalog/products`
 - GET `/api/v1/catalog/products/:id`
 - GET `/api/v1/catalog/products/:id/images/:imageId`
+- GET `/api/v1/catalog/categories`
 
 Every read requires `published` and `archivedAt = null`. Draft, under-review, changes-requested, approved, archived and missing products return the same 404 on detail/image reads. Invalid UUIDs return 400. Public endpoints expose no mutation route.
 
@@ -30,10 +31,12 @@ Products contain public specifications, exact string priceToman, ordered imageId
 
 Image endpoint checks asset ownership, current-gallery membership and product visibility together in one database read. Detached historical assets stay private even if their IDs are known. Private S3 keys never appear as a separate response field; the signed URL necessarily identifies its resource. Signed read URLs expire after five minutes. Archival/detachment blocks new URL issuance; already issued URLs can remain usable until expiry. Responses use `Cache-Control: no-store`. Signing failures return 503.
 
+The Customer live marketplace consumes this read API through public same-origin BFF routes at `/api/catalog/categories`, `/api/catalog/products`, `/api/catalog/products/:id`, and `/api/catalog/products/:id/images/:imageId`. `/customer/categories` lists categories computed from currently published, unarchived products; selecting one opens `/customer/products?category=<exact-name>`. The other live pages are `/customer/products` and `/customer/product-detail?id=<uuid>`. The BFF only forwards the documented list query keys, rejects duplicate keys, validates UUID path parameters and keeps the API origin server-side. Authenticated cart mutations are documented separately in `customer-cart-backend.md`. The Figma-only static preview remains at `/preview/customer-web`.
+
 ## Checks and remaining integration
 
 Tests cover query boundaries, wide exact Toman prices, visibility for every publication state, archive removal, private-field exclusion, literal searches/category matching, sort ties/pagination, public-image membership, hidden/foreign/detached images, storage failure, invalid input and absence of public writes. HTTP tests use PostgreSQL and a controlled signing adapter, not a deployed bucket.
 
 Two indexes support published/unarchived price and creation-time reads. Contains search may still scan rows; Persian linguistic normalization, search ranking/trigram indexes, taxonomy/category discovery and cursor/snapshot pagination are later slices.
 
-Remaining: bind Customer pages to this API, verify the private bucket, and build the cart/order/reservation path. No demo deployment changes.
+Remaining: verify the private bucket and bind identity and story pages to their APIs. Catalog discovery/detail remains read-only; authenticated add-to-cart/cart management and favorites are implemented separately in `customer-cart-backend.md` and `customer-favorites-backend.md`. The end-to-end purchase flow still awaits a configured finance quote and payment provider. No demo deployment changes.

@@ -19,6 +19,18 @@ export class ArtistProductImagesController {
     const input = parseImageCommand(body, false);
     return this.images.gallery(request.authorizationContext!, parseArtistProductId(id), input.version, input.imageIds, request.id);
   }
+  @Post(":id/change-proposal/images")
+  @Header("Cache-Control", "no-store")
+  uploadChangeProposal(@Req() request: AuthorizedRequest & { id: string }, @Param("id") id: string, @Body() body: unknown) {
+    const input = parseImageCommand(body, true);
+    return this.images.uploadChangeProposal(request.authorizationContext!, parseArtistProductId(id), input.version, input.bytes, request.id);
+  }
+  @Patch(":id/change-proposal/images")
+  @Header("Cache-Control", "no-store")
+  galleryChangeProposal(@Req() request: AuthorizedRequest & { id: string }, @Param("id") id: string, @Body() body: unknown) {
+    const input = parseImageCommand(body, false);
+    return this.images.galleryChangeProposal(request.authorizationContext!, parseArtistProductId(id), input.version, input.imageIds, request.id);
+  }
   @Get(":id/images/:imageId")
   @Header("Cache-Control", "no-store")
   read(@Req() request: AuthorizedRequest, @Param("id") id: string, @Param("imageId") imageId: string) {

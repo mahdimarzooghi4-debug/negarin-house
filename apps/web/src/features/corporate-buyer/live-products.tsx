@@ -122,6 +122,7 @@ export function CorporateProductDetailLive({id}:{id:string}){
         <div className={styles.kv}><small>وضعیت موجودی</small>{product.availability==="in_stock"?"موجود":"ناموجود"}</div>
         <div className={styles.kv}><small>مواد اولیه</small>{product.materials??"—"}</div>
         <div className={styles.kv}><small>ابعاد</small>{product.dimensions??"—"}</div>
+        <div className={styles.kv}><small>زمان آماده‌سازی</small>{product.preparationTime??"—"}</div>
         <div className={styles.kv}><small>تکنیک</small>{product.technique??"—"}</div>
         <p className={styles.notice}>این قیمت صرفاً قیمت جاریِ Artist است و داخل PurchaseRequest به‌عنوان قیمت تجاری یا توافقی ذخیره نمی‌شود.</p>
       </div>

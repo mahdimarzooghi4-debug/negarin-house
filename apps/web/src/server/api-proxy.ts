@@ -3,6 +3,7 @@ import {
   NEGARIN_SESSION_COOKIE,
   isSameOriginMutation,
   isSessionToken,
+  apiUrl,
   negarinFetch,
   sessionCookieOptions
 } from "./negarin-api";
@@ -52,6 +53,20 @@ export async function authenticatedProxy(
   if (!token) return unauthorized();
   const upstream = await negarinFetch(path, token, init, request.headers.get("x-request-id"));
   return proxyResponse(upstream);
+}
+
+export async function publicProxy(request: NextRequest, path: string): Promise<NextResponse> {
+  const headers = new Headers({ accept: "application/json" });
+  const requestId = request.headers.get("x-request-id");
+  if (requestId) headers.set("x-request-id", requestId);
+  try {
+    const upstream = await fetch(apiUrl(path), { headers, cache: "no-store", redirect: "manual" });
+    return proxyResponse(upstream, false);
+  } catch {
+    return NextResponse.json({ error: { code: "upstream-unavailable", message: "Service unavailable" } }, {
+      status: 503, headers: { "Cache-Control": "no-store" }
+    });
+  }
 }
 
 export async function jsonBody(request: NextRequest, maxBytes = 64 * 1024): Promise<string | null> {

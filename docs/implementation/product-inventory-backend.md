@@ -20,7 +20,7 @@ or delete endpoint exists. SQL CHECK constraints keep persisted quantities nonne
 
 This is a manual stock ledger. Order reservation, overselling prevention, shipment deductions,
 cancellations and returns must be added with the order lifecycle. It is not an available-to-promise
-calculation. Product images, specifications, public catalog and live UI binding remain separate work.
+calculation. Product images, specifications and the public catalog are integrated in separate slices. The Artist product workspace now submits an optional change reason and displays the newest inventory events with before/after quantity, revision, time and reason. An authenticated same-origin BFF exposes the history read route.
 
 Verification: input boundary tests and HTTP integration tests cover zero stock, no-op behavior,
 stale updates, archived products, tenant/role access, concurrent writers, publication independence

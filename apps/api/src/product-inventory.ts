@@ -38,13 +38,13 @@ export class ProductInventoryService {
     const product = await this.owned(context, id);
     if (product.archivedAt) throw new ConflictException("product-archived");
     if (product.inventoryVersion !== input.inventoryVersion) throw new ConflictException("inventory-state-changed");
-    if (product.stockQuantity === input.stockQuantity) return this.view(product);
+    if (product.stockQuantity === input.stockQuantity && product.inventoryConfigured) return this.view(product);
     if (product.inventoryVersion === 2_147_483_647) throw new ConflictException("inventory-version-exhausted");
     return this.database.$transaction(async tx => {
       const updated = await tx.artistProduct.updateMany({
         where: { id, artistUserId: context.userId, archivedAt: null,
           version: product.version, inventoryVersion: input.inventoryVersion },
-        data: { stockQuantity: input.stockQuantity, inventoryVersion: { increment: 1 } }
+        data: { stockQuantity: input.stockQuantity, inventoryConfigured: true, inventoryVersion: { increment: 1 } }
       });
       if (updated.count !== 1) throw new ConflictException("inventory-state-changed");
       await tx.productInventoryEvent.create({ data: {
@@ -64,9 +64,9 @@ export class ProductInventoryService {
     });
   }
 
-  private view(product: { id: string; stockQuantity: number; inventoryVersion: number }) {
+  private view(product: { id: string; stockQuantity: number; inventoryVersion: number; inventoryConfigured: boolean }) {
     return { productId: product.id, stockQuantity: product.stockQuantity, inventoryVersion: product.inventoryVersion,
-      availability: product.stockQuantity > 0 ? "in_stock" : "out_of_stock" };
+      inventoryConfigured: product.inventoryConfigured, availability: product.stockQuantity > 0 ? "in_stock" : "out_of_stock" };
   }
 }
 

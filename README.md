@@ -20,7 +20,7 @@ Figma remains the canonical visual/product design source for UI/UX, while this r
 
 **Native panel previews: 460 / 460 inventoried screens/states implemented (draft PR #36)**
 
-**Backend continuation: initial product publication lifecycle implemented for review; media, live panel integration and release gates remain open**
+**Backend continuation: initial publication lifecycle, design-derived readiness gates and live Artist/Admin product workspaces are implemented**
 
 Canonical design file:
 - Figma: https://www.figma.com/design/Uo0ifnpFmJFhWqaEVmVOZ1/Negarin-House
@@ -71,4 +71,4 @@ Business → Technical → Scrum/Product Backlog → Sprint → Code → Code Re
 
 ## Next step
 
-Continue **Epic E3 — Artist & Product Lifecycle**. Initial publication commands and review history are described in `docs/implementation/product-publication-backend.md`. Complete media/required publication gates and live Artist/Admin integration before storefront release. Preview coverage is recorded in `docs/implementation/panel-coverage.json`.
+Continue **Epic E3 — Artist & Product Lifecycle**. Initial publication commands, Figma-derived readiness gates, published-content change proposals, paginated review queues, immutable decision audit and live Artist/Admin workspaces are described in `docs/implementation/product-publication-backend.md`. Customer catalog, cart, favorites, address/checkout reservation, order history/detail and shipment outcome UI now consume their APIs; payment provider integration and release readiness remain before storefront release. Preview coverage is recorded in `docs/implementation/panel-coverage.json`.

@@ -4,6 +4,7 @@ import { getPartnerMessages } from "../partner-localization";
 import type { PartnerLocale } from "@negarin/i18n";
 import { EmptyState } from "@negarin/ui";
 import Image from "next/image";
+import Link from "next/link";
 
 export function PortalShell({
   portal,
@@ -63,14 +64,16 @@ export function PortalShell({
 
         <nav className="portal-navigation" aria-label={partnerMessages?.sectionsLabel ?? (direction === "rtl" ? "بخش‌های پنل" : "Portal sections")}>
           {items.map((item) => (
-            <span
+            item.href ? <Link
+              className={`portal-nav-item${item.active ? " is-active" : ""}`}
+              key={item.label}
+              href={item.href}
+              aria-current={item.active ? "page" : undefined}
+            ><span className="nav-marker" aria-hidden="true" /><span>{item.label}</span></Link> : <span
               className={`portal-nav-item${item.active ? " is-active" : ""}`}
               key={item.label}
               aria-current={item.active ? "page" : undefined}
-            >
-              <span className="nav-marker" aria-hidden="true" />
-              <span>{item.label}</span>
-            </span>
+            ><span className="nav-marker" aria-hidden="true" /><span>{item.label}</span></span>
           ))}
         </nav>
 

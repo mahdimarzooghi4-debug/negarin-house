@@ -78,6 +78,10 @@ No internal note, Partner data, Artist bank/private finance/Growth data, payment
 
 Architecture names `ReferralStatus` but does not define allowed values or transitions. This slice therefore does not invent an ArtistReferral state machine. Referral remains separate from SupportRelationship and cannot be inferred from report data.
 
+## Live UI binding
+
+The Staff workspace at `/admin/support-reports` consumes the summary and paginated activity read models through authenticated same-origin BFF routes. It presents current allocation stock separately from historical lifecycle flows, uses exact Toman values, and displays only the normalized reason and bounded support context. The report permission is enforced by the API. No support mutations are exposed on this page.
+
 ## Release boundary
 
 No schema migration is required. This Draft does not merge or deploy; Stage/QA/Release Approval remain separate gates.

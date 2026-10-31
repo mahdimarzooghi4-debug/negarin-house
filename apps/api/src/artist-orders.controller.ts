@@ -30,3 +30,30 @@ export class ArtistOrdersController {
     return this.orders.advance(req.authorizationContext!, parseArtistProductId(id), parsePreparation(body), req.id);
   }
 }
+
+@Controller("artist/corporate-orders")
+@UseGuards(AuthorizationGuard)
+export class ArtistCorporateOrdersController {
+  constructor(private readonly orders: ArtistOrdersService) {}
+  @Get()
+  @Header("Cache-Control", "no-store")
+  list(@Req() req: AuthorizedRequest, @Query() query: Record<string, unknown>) {
+    const { page, pageSize } = parseOrderPage(query);
+    return this.orders.corporateList(req.authorizationContext!, page, pageSize);
+  }
+  @Get(":id")
+  @Header("Cache-Control", "no-store")
+  get(@Req() req: AuthorizedRequest, @Param("id") id: string) {
+    return this.orders.corporateGet(req.authorizationContext!, parseArtistProductId(id));
+  }
+  @Post(":id/preparation")
+  @Header("Cache-Control", "no-store")
+  advance(@Req() req: AuthorizedRequest & { id: string }, @Param("id") id: string, @Body() body: unknown) {
+    return this.orders.advanceCorporate(req.authorizationContext!, parseArtistProductId(id), parsePreparation(body), req.id);
+  }
+  @Post(":id/shipment")
+  @Header("Cache-Control", "no-store")
+  dispatch(@Req() req: AuthorizedRequest & { id: string }, @Param("id") id: string, @Body() body: unknown) {
+    return this.orders.dispatchCorporate(req.authorizationContext!, parseArtistProductId(id), parseShipment(body), req.id);
+  }
+}

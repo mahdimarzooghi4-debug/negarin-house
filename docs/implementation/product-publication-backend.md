@@ -1,10 +1,10 @@
-# Product publication backend — E3 initial lifecycle
+# Product publication backend — E3 publication lifecycle
 
-Branch: `feat/product-publication-lifecycle` (stacked on the completed preview branch).
+Branch: `feat/admin-product-review-live`.
 
 ## Scope
 
-Adds persistent initial-product publication to the existing Artist product API. This slice covers the existing title/description content model, with separate Artist-owned pricing. It does not complete E3 or connect the Figma previews to these endpoints.
+Adds persistent initial-product publication to the existing Artist product API. This slice covers the existing product content/specification model, with separate Artist-owned pricing. The live Artist workspace consumes product, image, history and publication endpoints through the secure BFF, while the live Admin review workspace consumes the queue, detail, history and image endpoints and submits review decisions.
 
 | Actor | Command | Required current state | Result |
 | --- | --- | --- | --- |
@@ -12,6 +12,9 @@ Adds persistent initial-product publication to the existing Artist product API. 
 | Staff with products permission | request-changes, nonempty reason | under_review | changes_requested |
 | Staff with products permission | approve | under_review | approved |
 | Owning Artist | publish | approved | published |
+| Owning Artist | save / submit published-content proposal | published + draft / changes_requested proposal | published + under_review proposal |
+| Staff with products permission | request-changes on published-content proposal | published + under_review proposal | published + changes_requested proposal |
+| Staff with products permission | approve published-content proposal | published + under_review proposal | updated published content; proposal cleared |
 
 Every command includes `{ "version": <current integer> }`. Request-changes additionally requires `reason` (1–2000 characters after trimming). All other fields, including price/owner/status, are rejected. Invalid states, archived resources and stale versions return 409. No automatic publication occurs on approval.
 
@@ -21,20 +24,25 @@ All routes are under `/api/v1`, require a live bearer session/resolved active gr
 
 - `POST /artist/products/:id/submit`
 - `POST /artist/products/:id/publish`
+- `GET /artist/products/:id/change-proposal`
+- `PUT /artist/products/:id/change-proposal` — save a private proposal `{ version, content }`
+- `POST /artist/products/:id/change-proposal/submit`
+- `POST /artist/products/:id/change-proposal/images` and `PATCH` — upload/reorder proposal-only images
 - `GET /artist/products/:id/publication-history`
-- `GET /admin/product-reviews` — first 100 active under-review products, deterministic order; pagination remains to be added
+- `GET /admin/product-reviews` — first 30 active under-review products in deterministic oldest-first order; returns `{ items, hasMore, nextCursor }`
+- `GET /admin/product-reviews?cursor=<opaque>` — next page using the last row's timestamp and ID as a keyset cursor
 - `GET /admin/product-reviews/:id`
 - `GET /admin/product-reviews/:id/history`
 - `POST /admin/product-reviews/:id/approve`
 - `POST /admin/product-reviews/:id/request-changes`
 
-Review projections exclude price, ownership/session data and private Artist information. History exposes only publication action/state/version/reason/content snapshot/time; internal actor and request identifiers remain in storage. Artist product GET/list/create/PATCH/archive responses now include `version`.
+Review projections exclude price, ownership/session data and private Artist information. Artist history exposes publication action/state/version/reason/content snapshot/time, without internal actor or request identifiers. Staff history additionally exposes the event ID, actor user ID/role and request ID for audit tracing. Artist product GET/list/create/PATCH/archive responses now include `version`. The live Admin page displays the content and stored gallery without price, uses expiring server-issued image URLs, and records approve or reasoned request-changes decisions.
 
 ## Concurrency and history
 
-Publication state and its immutable application history entry are written in the same transaction. A conditional version/state/archival update allows only one competing decision to succeed. The history stores actor, active role, action, source/target state, version, request ID and the reviewed title/description snapshot. No history update/delete endpoint exists; database operators still need ordinary operational access controls.
+Publication state and its immutable application history entry are written in the same transaction. A conditional version/state/archival update allows only one competing decision to succeed. The history stores actor, active role, action, source/target state, version, request ID, reason and the reviewed content snapshot. Staff can trace who made each decision and correlate it with request logs; Artist views receive only the decision details relevant to them. A PostgreSQL trigger rejects event updates and deletes, including direct SQL operations through ordinary application roles. Database owners and superusers remain able to bypass application-level controls.
 
-Content edits increment the version and record a content-updated entry transactionally. Editing approved content returns it to draft and requires fresh submission/review. Content is locked while under review. Content edits on a published product are blocked until a separate pending-change/version workflow is implemented, preserving the currently published record. Artist price-only edits are allowed independently of review/publication, do not change the content version and require no Admin price approval. Archive/restore increments version to invalidate stale commands.
+Content edits increment the version and record a content-updated entry transactionally. Editing approved content returns it to draft and requires fresh submission/review. Content is locked while under review. For a published product, the proposal content and its gallery are stored in separate nullable fields; the current content and public image list remain unchanged while the proposal is drafted, reviewed, or returned for changes. Proposal image files are private because the public catalog only exposes IDs in the current product image list. Approval copies the proposal snapshot into the live content and clears the proposal in the same transaction. Request-changes preserves the live version and stores the reviewer reason with the proposal. Artists can update and resubmit that proposal. Artist price and inventory edits remain independent of content review. Archive/restore increments version to invalidate stale commands.
 
 ## Validation
 
@@ -47,7 +55,7 @@ Content edits increment the version and record a content-updated entry transacti
 
 ## Next work and release limits
 
-Media upload, image/specification/quality validation, required-field publication gates, availability/inventory, published-content change proposals, cursor pagination, denial audit expansion, browser authentication, live panel binding and a public marketplace read model remain separate work. An approved/published row here is not sufficient evidence for production storefront release. No marketplace purchase, export eligibility, price approval, payment or settlement capability is created. Stage/QA/release approval remain required by the repository delivery process.
+Submission and publication require the Figma readiness checklist: title and category, at least one image, positive price and an explicitly configured inventory value (zero is valid), plus description and preparation time. These gates are checked in the API and shown in the Artist workspace. The checklist is visible in Figma nodes `269:80–91` and `271:249–267`; the product editor shows the preparation-time field and active-store publication note in node `269:59–61` and related publication content. The preparation-time field is versioned as product content and appears in review/history/public catalog projections; the reviewer still does not receive price or inventory. The migration recognizes existing positive stock and any prior inventory history as configured; zero-stock products without an inventory history must have the value explicitly saved before submission. The public catalog API and read-only Customer listing/detail are described in `public-product-catalog-backend.md`; materialized search ranking, taxonomy discovery and full Customer purchase-flow binding remain separate work. An approved/published row here is not sufficient evidence for production storefront release. No marketplace purchase, export eligibility, price approval, payment or settlement capability is created. Stage/QA/release approval remain required by the repository delivery process.
 
 ## Follow-up — Arabic review button compatibility
 

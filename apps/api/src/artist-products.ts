@@ -6,7 +6,7 @@ import { canEditArtistProduct } from "@negarin/authz";
 import { PrismaService } from "./prisma.service.js";
 import { enforceDecision } from "./authorization.guard.js";
 
-import { parseProductSpecifications, productContentSnapshot, specificationFields, type ProductSpecifications } from "./product-specifications.js";
+import { parseProductContent, parseProductSpecifications, productContentSnapshot, specificationFields, type ProductContent, type ProductSpecifications } from "./product-specifications.js";
 
 export type ArtistProductWrite = Partial<ProductSpecifications> & {
   version?: number;
@@ -14,6 +14,7 @@ export type ArtistProductWrite = Partial<ProductSpecifications> & {
   description?: string | null;
   priceToman?: bigint;
 };
+export type ArtistProductChangeWrite = { version: number; content: ProductContent };
 
 @Injectable()
 export class ArtistProductsService {
@@ -83,6 +84,30 @@ export class ArtistProductsService {
     return this.get(context, id);
   }
 
+  async saveChangeProposal(context: AuthorizationContext, id: string, input: ArtistProductChangeWrite, requestId: string) {
+    const product = await this.ownedProduct(context, id);
+    if (product.archivedAt || product.publicationStatus !== "published" || product.changeStatus === "under_review" || product.version !== input.version) {
+      throw new ConflictException("product-change-state-changed");
+    }
+    const imageCount = await this.database.productImage.count({ where: { productId: id, id: { in: input.content.imageIds } } });
+    if (imageCount !== input.content.imageIds.length) throw new NotFoundException();
+    if (product.version >= 2_147_483_647) throw new ConflictException("product-version-exhausted");
+    const nextStatus = product.changeStatus === "changes_requested" ? "changes_requested" as const : "draft" as const;
+    await this.database.$transaction(async tx => {
+      const updated = await tx.artistProduct.updateMany({
+        where: { id, artistUserId: context.userId, publicationStatus: "published", archivedAt: null, version: input.version, changeStatus: product.changeStatus },
+        data: { changeContent: input.content, changeStatus: nextStatus, changeReason: nextStatus === "changes_requested" ? product.changeReason : null, version: { increment: 1 } }
+      });
+      if (updated.count !== 1) throw new ConflictException("product-change-state-changed");
+      await tx.productPublicationEvent.create({ data: {
+        productId: id, actorUserId: context.userId, actorRole: "artist", action: "change-content-updated",
+        fromStatus: "published", toStatus: "published", version: input.version + 1,
+        content: input.content, requestId
+      } });
+    });
+    return this.get(context, id);
+  }
+
   async setArchived(context: AuthorizationContext, id: string, archived: boolean) {
     const product = await this.ownedProduct(context, id);
     if (Boolean(product.archivedAt) === archived) return this.view(product);
@@ -120,9 +145,13 @@ export class ArtistProductsService {
     version: number;
     stockQuantity: number;
     inventoryVersion: number;
+    inventoryConfigured: boolean;
     archivedAt: Date | null;
     createdAt: Date;
     updatedAt: Date;
+    changeStatus: "draft" | "under_review" | "changes_requested" | null;
+    changeContent: unknown;
+    changeReason: string | null;
   }) {
     return {
       id: product.id,
@@ -132,6 +161,10 @@ export class ArtistProductsService {
       version: product.version,
       stockQuantity: product.stockQuantity,
       inventoryVersion: product.inventoryVersion,
+      inventoryConfigured: product.inventoryConfigured,
+      pendingChange: product.changeStatus && product.changeContent ? {
+        status: product.changeStatus, content: parseProductContent(product.changeContent), reason: product.changeReason
+      } : null,
       availability: product.stockQuantity > 0 ? "in_stock" : "out_of_stock",
       archivedAt: product.archivedAt?.toISOString() ?? null,
       createdAt: product.createdAt.toISOString(),
