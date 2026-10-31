@@ -2911,3 +2911,28 @@
   left: 48px;
   width: calc(100% - 96px);
 }
+
+
+/* Center the full account-not-found brand group in the right panel. */
+.artist-design [data-node-id="831:807"] {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: #faf8f2;
+}
+.artist-design [data-node-id="1171:35"] { display: none; }
+.artist-design [data-node-id="831:814"] {
+  align-items: center;
+  text-align: center;
+}
+.artist-design [data-node-id="831:815"] {
+  color: #041b65;
+  text-align: center;
+}
+.artist-design [data-node-id="831:816"] { text-align: center; }
+.artist-design [data-node-id="831:817"] {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  width: calc(100% - 96px);
+}
