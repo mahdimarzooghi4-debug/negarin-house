@@ -2783,3 +2783,15 @@
 .artist-design .fg-737c7f2029{--fg-tx:-50%;--fg-ty:-50%;word-break:break-word;position:absolute;display:flex;flex-direction:column;font-family:"Vazirmatn Variable";font-weight:500;height:32px;justify-content:center;line-height:0;left:79px;color:#07858f;font-size:13px;text-align:center;top:20px;width:160px;transform:translate(var(--fg-tx,0),var(--fg-ty,0)) rotate(var(--fg-rotate,0deg)) scaleY(var(--fg-sy,1));}
 .artist-design .fg-6d75a09fa8{position:absolute;background-color:#07858f;display:block;height:42px;left:180px;overflow:clip;border-radius:12px;top:20px;width:210px;}
 .artist-design .fg-8194038fca{--fg-tx:-50%;--fg-ty:-50%;word-break:break-word;position:absolute;display:flex;flex-direction:column;font-family:"Vazirmatn Variable";font-weight:500;height:32px;justify-content:center;line-height:0;left:105px;font-size:13px;text-align:center;color:white;top:21px;width:210px;transform:translate(var(--fg-tx,0),var(--fg-ty,0)) rotate(var(--fg-rotate,0deg)) scaleY(var(--fg-sy,1));}
+
+
+/* The Figma artist dashboard sidebar uses a warm neutral surface. */
+.artist-design .fg-b5daea3ae7,
+.artist-design .fg-d6d1298c1e,
+.artist-design .fg-2f1ba76dce,
+.artist-design .fg-3c9f42e775,
+.artist-design .fg-99922ebc85,
+.artist-design .fg-a162d7240e,
+.artist-design .fg-05acf36491 {
+  background-color: #faf8f2;
+}
