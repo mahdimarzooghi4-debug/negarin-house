@@ -34,38 +34,38 @@ export default function AdminExportPartnersDesktop() {
         <div className="fg-82ef0f7123" data-node-id="899:258" data-name="Main Layout">
           <div className="fg-f756ab8780" data-node-id="899:259" data-name="Scrollable Content">
             <div className="fg-867b1b2e34" data-node-id="899:260" data-name="Operational Summary">
-              <DesignAction className="fg-89dbc7beb5" data-node-id="899:261" data-name="Metric Shortcut" label="۱۲ کل شرکای صادراتی" >
+              <div className="fg-89dbc7beb5" data-node-id="899:261" data-name="Metric Shortcut">
                 <p className="fg-5061c0f8a0" data-node-id="899:262">
                   ۱۲
                 </p>
                 <p className="fg-8f2e8dbd17" dir="auto" data-node-id="899:263">
                   کل شرکای صادراتی
                 </p>
-              </DesignAction>
-              <DesignAction className="fg-89dbc7beb5" data-node-id="899:264" data-name="Metric Shortcut" label="۷ شرکای فعال" >
+              </div>
+              <div className="fg-89dbc7beb5" data-node-id="899:264" data-name="Metric Shortcut">
                 <p className="fg-bdab2c756d" data-node-id="899:265">
                   ۷
                 </p>
                 <p className="fg-8f2e8dbd17" dir="auto" data-node-id="899:266">
                   شرکای فعال
                 </p>
-              </DesignAction>
-              <DesignAction className="fg-89dbc7beb5" data-node-id="899:267" data-name="Metric Shortcut" label="۳ در حال راه‌اندازی" >
+              </div>
+              <div className="fg-89dbc7beb5" data-node-id="899:267" data-name="Metric Shortcut">
                 <p className="fg-c9547361f2" data-node-id="899:268">
                   ۳
                 </p>
                 <p className="fg-8f2e8dbd17" dir="auto" data-node-id="899:269">
                   در حال راه‌اندازی
                 </p>
-              </DesignAction>
-              <DesignAction className="fg-89dbc7beb5" data-node-id="899:270" data-name="Metric Shortcut" label="۲ غیرفعال شده" >
+              </div>
+              <div className="fg-89dbc7beb5" data-node-id="899:270" data-name="Metric Shortcut">
                 <p className="fg-73ab430732" data-node-id="899:271">
                   ۲
                 </p>
                 <p className="fg-8f2e8dbd17" dir="auto" data-node-id="899:272">
                   غیرفعال شده
                 </p>
-              </DesignAction>
+              </div>
             </div>
             <div className="fg-b7fb0ce9ee" data-node-id="899:273" data-name="Filters Row">
               <div className="fg-c96fe10678" data-node-id="899:274" data-name="Filter Content">
