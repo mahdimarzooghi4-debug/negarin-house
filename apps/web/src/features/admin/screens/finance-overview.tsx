@@ -56,7 +56,7 @@ export default function AdminFinanceOverviewDesktop() {
                   تسویه‌های تکمیل‌شده (۳۰ روز اخیر)
                 </p>
               </DesignAction>
-              <DesignAction className="fg-8f76a4e2ed" data-node-id="894:3641" data-name="Metric Shortcut" label="۳ مورد تراکنش‌های مسترد" destination="service-requests">
+              <DesignAction className="fg-8f76a4e2ed" data-node-id="894:3641" data-name="Metric Shortcut" label="۳ مورد تراکنش‌های مسترد" destination="transactions">
                 <p className="fg-1733ae3e8a" dir="auto" data-node-id="894:3642">
                   ۳ مورد
                 </p>
