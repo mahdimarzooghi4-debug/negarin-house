@@ -5379,3 +5379,23 @@
 .admin-design [data-name="Sidebar"] [data-name="chevron-down"] {
   display: none;
 }
+
+
+/* Prevent source group frames from stretching individual admin navigation rows. */
+.admin-design [data-name="Nav Groups"] > [data-name^="Group-"] {
+  display: flex !important;
+  flex: 0 0 38px !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  overflow: visible !important;
+  position: relative !important;
+  width: 100% !important;
+}
+.admin-design [data-name="Nav Groups"] [data-name="Group Header"] {
+  flex: 0 0 38px !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+}
