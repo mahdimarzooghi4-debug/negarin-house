@@ -3022,3 +3022,46 @@
   color: #94a3b8;
   text-align: center;
 }
+
+
+/* Center the error screen brand group on the cream panel. */
+.artist-design [data-node-id="831:947"] {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  background-color: #faf8f2;
+}
+.artist-design [data-node-id="1171:38"] { display: none; }
+.artist-design [data-node-id="831:948"] {
+  position: relative;
+  width: 156px;
+  height: 156px;
+}
+.artist-design [data-node-id="831:948"] img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.artist-design [data-node-id="831:954"] {
+  align-items: center;
+  text-align: center;
+}
+.artist-design [data-node-id="831:955"] {
+  color: #041b65;
+  text-align: center;
+}
+.artist-design [data-node-id="831:956"] {
+  color: #6b9ed8;
+  text-align: center;
+}
+.artist-design [data-node-id="831:957"] {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  width: calc(100% - 96px);
+}
+.artist-design [data-node-id="831:958"] {
+  color: #94a3b8;
+  text-align: center;
+}
