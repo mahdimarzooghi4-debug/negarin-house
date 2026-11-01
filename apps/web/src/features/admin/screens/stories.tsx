@@ -31,38 +31,38 @@ export default function AdminStoriesDesktop() {
         </div>
         <div className="fg-28892a2677" data-node-id="894:5703" data-name="Scrollable Content">
           <div className="fg-867b1b2e34" data-node-id="894:5704" data-name="Operational Summary">
-            <DesignAction className="fg-bff106adf2" data-node-id="894:5705" data-name="Metric Shortcut" label="۱۲۴ کل استوری‌ها" destination="service-requests">
+            <div className="fg-bff106adf2" data-node-id="894:5705" data-name="Metric Shortcut">
               <p className="fg-cbf2c4bfe6" data-node-id="894:5706">
                 ۱۲۴
               </p>
               <p className="fg-0929981b97" dir="auto" data-node-id="894:5707">
                 کل استوری‌ها
               </p>
-            </DesignAction>
-            <DesignAction className="fg-bff106adf2" data-node-id="894:5708" data-name="Metric Shortcut" label="۸۲ منتشرشده" destination="service-requests">
+            </div>
+            <div className="fg-bff106adf2" data-node-id="894:5708" data-name="Metric Shortcut">
               <p className="fg-b4c3d742fe" data-node-id="894:5709">
                 ۸۲
               </p>
               <p className="fg-0929981b97" dir="auto" data-node-id="894:5710">
                 منتشرشده
               </p>
-            </DesignAction>
-            <DesignAction className="fg-bff106adf2" data-node-id="894:5711" data-name="Metric Shortcut" label="۴۲ پیش‌نویس" destination="service-requests">
+            </div>
+            <div className="fg-bff106adf2" data-node-id="894:5711" data-name="Metric Shortcut">
               <p className="fg-2181579efc" data-node-id="894:5712">
                 ۴۲
               </p>
               <p className="fg-0929981b97" dir="auto" data-node-id="894:5713">
                 پیش‌نویس
               </p>
-            </DesignAction>
-            <DesignAction className="fg-bff106adf2" data-node-id="894:5714" data-name="Metric Shortcut" label="۹ نیاز به بررسی" destination="product-review-queue">
+            </div>
+            <div className="fg-bff106adf2" data-node-id="894:5714" data-name="Metric Shortcut">
               <p className="fg-16cfff2cee" data-node-id="894:5715">
                 ۹
               </p>
               <p className="fg-0929981b97" dir="auto" data-node-id="894:5716">
                 نیاز به بررسی
               </p>
-            </DesignAction>
+            </div>
           </div>
           <div className="fg-df4057f7e5" data-node-id="894:5717" data-name="Filters Strip">
             <div className="fg-9708e8d183" data-node-id="894:5718" data-name="Left Filters">
