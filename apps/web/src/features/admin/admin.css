@@ -5422,23 +5422,16 @@
   align-items: center;
   display: flex;
   flex: 0 0 56px;
-  gap: 10px;
-  justify-content: flex-start;
+  justify-content: flex-end;
   min-height: 56px;
   overflow: visible;
-  width: 100%;
+  width: 179px;
 }
 .admin-design .admin-sidebar-brand img {
-  height: 40px;
+  display: block;
+  height: 56px;
   object-fit: contain;
-  width: 40px;
-}
-.admin-design .admin-sidebar-brand strong {
-  color: #405654;
-  font-family: "Vazirmatn Variable", sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  white-space: nowrap;
+  width: 179px;
 }
 .admin-design .admin-sidebar-nav {
   align-items: stretch;
