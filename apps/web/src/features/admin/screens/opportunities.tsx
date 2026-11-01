@@ -40,7 +40,7 @@ export default function AdminOpportunitiesDesktop() {
         </div>
         <div className="fg-28892a2677" data-node-id="894:244" data-name="Scrollable Content">
           <div className="fg-867b1b2e34" data-node-id="894:245" data-name="Operational Summary">
-            <DesignAction className="fg-bff106adf2" data-node-id="894:246" data-name="Metric Shortcut" label="۲۹ کل فرصت‌های سیستم" destination="service-requests">
+            <DesignAction className="fg-bff106adf2" data-node-id="894:246" data-name="Metric Shortcut" label="۲۹ کل فرصت‌های سیستم">
               <p className="fg-347c9bc708" data-node-id="894:247">
                 ۲۹
               </p>
@@ -48,7 +48,7 @@ export default function AdminOpportunitiesDesktop() {
                 کل فرصت‌های سیستم
               </p>
             </DesignAction>
-            <DesignAction className="fg-bff106adf2" data-node-id="894:249" data-name="Metric Shortcut" label="۸ در حال تطبیق ظرفیت" destination="service-requests">
+            <DesignAction className="fg-bff106adf2" data-node-id="894:249" data-name="Metric Shortcut" label="۸ در حال تطبیق ظرفیت">
               <p className="fg-1fada239a3" data-node-id="894:250">
                 ۸
               </p>
@@ -56,7 +56,7 @@ export default function AdminOpportunitiesDesktop() {
                 در حال تطبیق ظرفیت
               </p>
             </DesignAction>
-            <DesignAction className="fg-bff106adf2" data-node-id="894:252" data-name="Metric Shortcut" label="۱۵ فرصت‌های فعال" destination="service-requests">
+            <DesignAction className="fg-bff106adf2" data-node-id="894:252" data-name="Metric Shortcut" label="۱۵ فرصت‌های فعال">
               <p className="fg-347c9bc708" data-node-id="894:253">
                 ۱۵
               </p>
@@ -64,7 +64,7 @@ export default function AdminOpportunitiesDesktop() {
                 فرصت‌های فعال
               </p>
             </DesignAction>
-            <DesignAction className="fg-bff106adf2" data-node-id="894:255" data-name="Metric Shortcut" label="۶ تکمیل و نهایی شده" destination="service-requests">
+            <DesignAction className="fg-bff106adf2" data-node-id="894:255" data-name="Metric Shortcut" label="۶ تکمیل و نهایی شده">
               <p className="fg-4dbbe7cf6e" data-node-id="894:256">
                 ۶
               </p>
