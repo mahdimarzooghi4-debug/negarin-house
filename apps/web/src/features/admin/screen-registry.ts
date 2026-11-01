@@ -1165,6 +1165,18 @@ export const adminScreens = [
   },
   {
     "id": "903:739",
+    "name": "Admin / Settings — Configuration Detail",
+    "w": 1440,
+    "h": 1100,
+    "section": "10 — Reports, Settings & Permissions",
+    "contextReceived": true,
+    "assetsMissing": [],
+    "implemented": true,
+    "slug": "settings-detail",
+    "pendingReason": null
+  },
+  {
+    "id": "903:739",
     "name": "Admin / Settings — Desktop",
     "w": 1440,
     "h": 1100,
@@ -1359,6 +1371,7 @@ export const adminLoaders = {
   "reports": () => import("./screens/reports"),
   "report-detail": () => import("./screens/report-detail"),
   "settings": () => import("./screens/settings"),
+  "settings-detail": () => import("./screens/settings-detail"),
   "notification-settings": () => import("./screens/notification-settings"),
   "staff-and-access": () => import("./screens/staff-and-access"),
   "staff-access-detail": () => import("./screens/staff-access-detail"),
