@@ -40,7 +40,7 @@ export default function AdminGrowthOverviewDesktop() {
         </div>
         <div className="fg-28892a2677" data-node-id="892:248" data-name="Scrollable Content Area 1">
           <div className="fg-867b1b2e34" data-node-id="892:249" data-name="Operational Summary">
-            <DesignAction className="fg-89dbc7beb5" data-node-id="892:250" data-name="Metric Shortcut" label="۸۴۲ کل هنرمندان فعال" destination="service-requests">
+            <DesignAction className="fg-89dbc7beb5" data-node-id="892:250" data-name="Metric Shortcut" label="۸۴۲ کل هنرمندان فعال" destination="artists">
               <p className="fg-03f596c0d8" data-node-id="892:251">
                 ۸۴۲
               </p>
@@ -48,7 +48,7 @@ export default function AdminGrowthOverviewDesktop() {
                 کل هنرمندان فعال
               </p>
             </DesignAction>
-            <DesignAction className="fg-89dbc7beb5" data-node-id="892:253" data-name="Metric Shortcut" label="۴۱۲ سطح جوانه" destination="service-requests">
+            <DesignAction className="fg-89dbc7beb5" data-node-id="892:253" data-name="Metric Shortcut" label="۴۱۲ سطح جوانه" destination="artists">
               <p className="fg-bdab2c756d" data-node-id="892:254">
                 ۴۱۲
               </p>
@@ -56,7 +56,7 @@ export default function AdminGrowthOverviewDesktop() {
                 سطح جوانه
               </p>
             </DesignAction>
-            <DesignAction className="fg-89dbc7beb5" data-node-id="892:256" data-name="Metric Shortcut" label="۲۸۴ سطح شکوفه" destination="service-requests">
+            <DesignAction className="fg-89dbc7beb5" data-node-id="892:256" data-name="Metric Shortcut" label="۲۸۴ سطح شکوفه" destination="artists">
               <p className="fg-f4472f86ce" data-node-id="892:257">
                 ۲۸۴
               </p>
@@ -64,7 +64,7 @@ export default function AdminGrowthOverviewDesktop() {
                 سطح شکوفه
               </p>
             </DesignAction>
-            <DesignAction className="fg-89dbc7beb5" data-node-id="892:259" data-name="Metric Shortcut" label="۱۲۶ سطح سرو زرین" destination="service-requests">
+            <DesignAction className="fg-89dbc7beb5" data-node-id="892:259" data-name="Metric Shortcut" label="۱۲۶ سطح سرو زرین" destination="artists">
               <p className="fg-c9547361f2" data-node-id="892:260">
                 ۱۲۶
               </p>
@@ -72,7 +72,7 @@ export default function AdminGrowthOverviewDesktop() {
                 سطح سرو زرین
               </p>
             </DesignAction>
-            <DesignAction className="fg-89dbc7beb5" data-node-id="892:262" data-name="Metric Shortcut" label="۲۰ سطح سفیر جهانی" destination="service-requests">
+            <DesignAction className="fg-89dbc7beb5" data-node-id="892:262" data-name="Metric Shortcut" label="۲۰ سطح سفیر جهانی" destination="artists">
               <p className="fg-5061c0f8a0" data-node-id="892:263">
                 ۲۰
               </p>
