@@ -248,3 +248,11 @@ main {
   .portal-main { padding: 24px 16px 40px; }
   .portal-header { flex-direction: column; gap: 14px; margin-bottom: 20px; }
 }
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .artist-design.admin-design {
+    zoom: calc(100vw / 1440px);
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
