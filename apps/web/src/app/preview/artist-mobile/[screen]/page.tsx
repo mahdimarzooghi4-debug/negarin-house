@@ -13,6 +13,7 @@ export default async function MobileScreenPage({params,searchParams}:{params:Pro
   </main>;
   const {default:Screen}=await mobileLoaders[screen as MobileScreenSlug]();
   return <>
+    <style>{`.artist-mobile .fg-796d52cda0{scrollbar-width:none}.artist-mobile .fg-796d52cda0::-webkit-scrollbar{display:none}`}</style>
     {canvas!=="1"&&<header className="preview-toolbar mobile-preview-toolbar"><Link href="/preview/artist-mobile">همهٔ صفحه‌های موبایل</Link><span>{entry.name} · دادهٔ نمونه</span><a target="_blank" rel="noreferrer" href={figmaURL}>مرجع فیگما</a></header>}
     <div className="artist-design artist-mobile" dir="ltr" style={{height:entry.h}}><Screen/></div>
   </>;
