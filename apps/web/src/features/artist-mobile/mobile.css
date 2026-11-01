@@ -6404,3 +6404,8 @@
 
 /* Render SVGs at their intended 20px size inside the clipped mobile navigation icon slot. */
 .artist-mobile nav .fg-0bb5547f93{width:20px;height:20px;}
+
+
+/* Keep the review result navigation in document flow, matching the Figma frames. */
+.artist-mobile [data-node-id="840:1236"],
+.artist-mobile [data-node-id="840:1308"]{justify-content:flex-start;}
