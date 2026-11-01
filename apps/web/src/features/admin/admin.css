@@ -5525,3 +5525,19 @@
   object-fit: cover;
   width: 36px;
 }
+
+
+.admin-design .admin-sidebar-icon {
+  font-family: "Material Icons Round";
+  font-feature-settings: "liga";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 18px;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
