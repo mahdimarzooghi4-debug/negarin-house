@@ -31,8 +31,7 @@ export function AdminSidebar({ children, className, ...props }: HTMLAttributes<H
       data-name="Sidebar"
     >
       <div className="admin-sidebar-brand" data-name="Brand">
-        <img src="/admin-assets/9f534c0e.png" alt="" />
-        <strong>خانه نگارین</strong>
+        <img src="/admin-assets/negarin-sidebar-brand.svg" alt="خانه نگارین" />
       </div>
 
       <nav className="admin-sidebar-nav" aria-label="بخش‌های مدیریت" data-name="Navigation">
