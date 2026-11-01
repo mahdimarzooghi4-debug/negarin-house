@@ -2979,3 +2979,46 @@
   color: #94a3b8;
   text-align: center;
 }
+
+
+/* Center the account-disabled brand group on the cream panel. */
+.artist-design [data-node-id="831:907"] {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  background-color: #faf8f2;
+}
+.artist-design [data-node-id="1171:37"] { display: none; }
+.artist-design [data-node-id="831:908"] {
+  position: relative;
+  width: 156px;
+  height: 156px;
+}
+.artist-design [data-node-id="831:908"] img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.artist-design [data-node-id="831:914"] {
+  align-items: center;
+  text-align: center;
+}
+.artist-design [data-node-id="831:915"] {
+  color: #041b65;
+  text-align: center;
+}
+.artist-design [data-node-id="831:916"] {
+  color: #6b9ed8;
+  text-align: center;
+}
+.artist-design [data-node-id="831:917"] {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  width: calc(100% - 96px);
+}
+.artist-design [data-node-id="831:918"] {
+  color: #94a3b8;
+  text-align: center;
+}
