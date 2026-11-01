@@ -142,7 +142,7 @@ export default function AdminSettingsDetailDesktop() {
               ))}
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 24, paddingTop: 20, borderTop: "1px solid #e5e7eb" }}>
-              <DesignAction label="بازگشت به تنظیمات" back style={{ padding: "10px 16px", border: "1px solid #e5e7eb", borderRadius: 8, color: "#374151", background: "#fff", cursor: "pointer" }}>
+              <DesignAction label="بازگشت به تنظیمات" destination="settings" style={{ padding: "10px 16px", border: "1px solid #e5e7eb", borderRadius: 8, color: "#374151", background: "#fff", cursor: "pointer" }}>
                 بازگشت به تنظیمات
               </DesignAction>
               <DesignAction label="ذخیره تنظیمات پیش‌نمایش" style={{ padding: "10px 18px", borderRadius: 8, color: "#fff", background: "#07858f", cursor: "pointer" }}>
