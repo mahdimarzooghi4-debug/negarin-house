@@ -2936,3 +2936,46 @@
   left: 48px;
   width: calc(100% - 96px);
 }
+
+
+/* Match the multiple-roles visual panel to the cream branded auth screens. */
+.artist-design [data-node-id="831:867"] {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  background-color: #faf8f2;
+}
+.artist-design [data-node-id="1171:36"] { display: none; }
+.artist-design [data-node-id="831:868"] {
+  position: relative;
+  width: 156px;
+  height: 156px;
+}
+.artist-design [data-node-id="831:868"] img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.artist-design [data-node-id="831:874"] {
+  align-items: center;
+  text-align: center;
+}
+.artist-design [data-node-id="831:875"] {
+  color: #041b65;
+  text-align: center;
+}
+.artist-design [data-node-id="831:876"] {
+  color: #6b9ed8;
+  text-align: center;
+}
+.artist-design [data-node-id="831:877"] {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  width: calc(100% - 96px);
+}
+.artist-design [data-node-id="831:878"] {
+  color: #94a3b8;
+  text-align: center;
+}
