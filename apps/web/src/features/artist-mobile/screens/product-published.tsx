@@ -80,9 +80,9 @@ export default function ArtistProductPublishedMobile() {
             مشاهده در فروشگاه
           </p>
         </DesignAction>
-        <DesignAction className="fg-5f5f993372" data-node-id="840:444" data-name="Negarin / Button" label="ویرایش سریع قیمت/موجودی">
+        <DesignAction className="fg-5f5f993372" data-node-id="840:444" data-name="Negarin / Button" label="ویرایش سریع">
           <p className="fg-336e74147d" dir="auto" data-node-id="I840:444;46:29">
-            ویرایش سریع قیمت/موجودی
+            ویرایش سریع
           </p>
         </DesignAction>
       </div>
