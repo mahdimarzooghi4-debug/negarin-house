@@ -45,11 +45,11 @@ export default function AdminRoleDetailDesktop() {
         <div className="fg-28892a2677" data-node-id="903:2011" data-name="Scrollable Content">
           <div className="fg-ec00f5ea47" data-node-id="903:2012" data-name="Summary Card">
             <div className="fg-34d33d0078" data-node-id="903:2013" data-name="Actions">
-              <div className="fg-a47da601aa" data-node-id="903:2014" data-name="Edit Role btn">
+              <DesignAction className="fg-a47da601aa" data-node-id="903:2014" data-name="Edit Role btn" label="ویرایش این نقش" destination="role-editor">
                 <p className="fg-8ffc872800" dir="auto" data-node-id="903:2015">
                   ویرایش این نقش
                 </p>
-              </div>
+              </DesignAction>
             </div>
             <div className="fg-639a507765" data-node-id="903:2016" data-name="Details">
               <div className="fg-ad50363799" data-node-id="903:2017" data-name="Title & ID">
