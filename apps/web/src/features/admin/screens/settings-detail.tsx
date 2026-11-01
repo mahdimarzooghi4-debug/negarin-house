@@ -71,12 +71,12 @@ const sections: Record<string, Section> = {
 };
 
 export default function AdminSettingsDetailDesktop() {
-  const [sectionKey, setSectionKey] = useState("general");
+  const [sectionKey, setSectionKey] = useState<keyof typeof sections>("general");
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get("section") || "general";
-    setSectionKey(sections[requested] ? requested : "general");
+    if (Object.prototype.hasOwnProperty.call(sections, requested)) setSectionKey(requested as keyof typeof sections);
   }, []);
-  const section = sections[sectionKey] || sections.general;
+  const section = sections[sectionKey];
 
   return (
     <div className="fg-2f84151df8" data-node-id="903:739" data-name="Admin / Settings Detail — Desktop">
