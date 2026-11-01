@@ -64,7 +64,7 @@ export default function AdminSettingsDesktop() {
           </div>
           <div className="fg-6f66965dd3" data-node-id="903:839" data-name="Settings Grid">
             <div className="fg-a84f592e22" data-node-id="903:840" data-name="Row 1">
-              <DesignAction className="fg-d02529ca60" data-node-id="903:841" data-name="Setting Tile" label="تنظیمات عمومی مدیریت اطلاعات نمایشی، ترجیحات زبانی، واحد‌های پولی و مشخصات پایه‌ای پرتال اداری نگارین.">
+              <DesignAction className="fg-d02529ca60" data-node-id="903:841" data-name="Setting Tile" label="تنظیمات عمومی مدیریت اطلاعات نمایشی، ترجیحات زبانی، واحد‌های پولی و مشخصات پایه‌ای پرتال اداری نگارین." destination="settings-detail?section=general">
                 <div className="fg-c96fe10678" data-node-id="903:842" data-name="Header Row">
                   <div className="fg-922563b3e9" data-node-id="903:843" data-name="Icon Container">
                     <div className="fg-5cca20e57d" data-node-id="903:1455" data-name="chevron-left">
@@ -86,7 +86,7 @@ export default function AdminSettingsDesktop() {
                   مدیریت اطلاعات نمایشی، ترجیحات زبانی، واحد‌های پولی و مشخصات پایه‌ای پرتال اداری نگارین.
                 </p>
               </DesignAction>
-              <DesignAction className="fg-d02529ca60" data-node-id="903:850" data-name="Setting Tile" label="پیکربندی عملیاتی تنظیم گردش کار فرآیند ثبت و تأیید آثار هنری، تخصیص خودکار کارشناسان و قوانین بررسی.">
+              <DesignAction className="fg-d02529ca60" data-node-id="903:850" data-name="Setting Tile" label="پیکربندی عملیاتی تنظیم گردش کار فرآیند ثبت و تأیید آثار هنری، تخصیص خودکار کارشناسان و قوانین بررسی." destination="settings-detail?section=operations">
                 <div className="fg-c96fe10678" data-node-id="903:851" data-name="Header Row">
                   <div className="fg-922563b3e9" data-node-id="903:852" data-name="Icon Container">
                     <div className="fg-5cca20e57d" data-node-id="903:1461" data-name="chevron-left">
@@ -108,7 +108,7 @@ export default function AdminSettingsDesktop() {
                   تنظیم گردش کار فرآیند ثبت و تأیید آثار هنری، تخصیص خودکار کارشناسان و قوانین بررسی.
                 </p>
               </DesignAction>
-              <DesignAction className="fg-d02529ca60" data-node-id="903:859" data-name="Setting Tile" label="پیکربندی عضویت تعیین شهریه سالانه عضویت هنرمندان، سهمیه‌ها و اعتبارات تخصیصی پیش‌فرض برای دوره‌های ارزیابی.">
+              <DesignAction className="fg-d02529ca60" data-node-id="903:859" data-name="Setting Tile" label="پیکربندی عضویت تعیین شهریه سالانه عضویت هنرمندان، سهمیه‌ها و اعتبارات تخصیصی پیش‌فرض برای دوره‌های ارزیابی." destination="settings-detail?section=membership">
                 <div className="fg-c96fe10678" data-node-id="903:860" data-name="Header Row">
                   <div className="fg-922563b3e9" data-node-id="903:861" data-name="Icon Container">
                     <div className="fg-5cca20e57d" data-node-id="903:1467" data-name="chevron-left">
@@ -130,7 +130,7 @@ export default function AdminSettingsDesktop() {
                   تعیین شهریه سالانه عضویت هنرمندان، سهمیه‌ها و اعتبارات تخصیصی پیش‌فرض برای دوره‌های ارزیابی.
                 </p>
               </DesignAction>
-              <DesignAction className="fg-d02529ca60" data-node-id="903:868" data-name="Setting Tile" label="پیکربندی خدمات مدیریت و دسته‌بندی خدمات رشد فعال ارائه‌شده به هنرمندان و نظارت بر تسهیلات همکار.">
+              <DesignAction className="fg-d02529ca60" data-node-id="903:868" data-name="Setting Tile" label="پیکربندی خدمات مدیریت و دسته‌بندی خدمات رشد فعال ارائه‌شده به هنرمندان و نظارت بر تسهیلات همکار." destination="settings-detail?section=services">
                 <div className="fg-c96fe10678" data-node-id="903:869" data-name="Header Row">
                   <div className="fg-922563b3e9" data-node-id="903:870" data-name="Icon Container">
                     <div className="fg-5cca20e57d" data-node-id="903:1473" data-name="chevron-left">
@@ -154,7 +154,7 @@ export default function AdminSettingsDesktop() {
               </DesignAction>
             </div>
             <div className="fg-a84f592e22" data-node-id="903:877" data-name="Row 2">
-              <DesignAction className="fg-d02529ca60" data-node-id="903:878" data-name="Setting Tile" label="پیکربندی فرصت‌ها تعیین فرآیند جریان و قالب فرصت‌های اشتغال و بازاریابی برای هنرمندان و ارگان‌ها.">
+              <DesignAction className="fg-d02529ca60" data-node-id="903:878" data-name="Setting Tile" label="پیکربندی فرصت‌ها تعیین فرآیند جریان و قالب فرصت‌های اشتغال و بازاریابی برای هنرمندان و ارگان‌ها." destination="settings-detail?section=opportunities">
                 <div className="fg-c96fe10678" data-node-id="903:879" data-name="Header Row">
                   <div className="fg-922563b3e9" data-node-id="903:880" data-name="Icon Container">
                     <div className="fg-5cca20e57d" data-node-id="903:1479" data-name="chevron-left">
@@ -176,7 +176,7 @@ export default function AdminSettingsDesktop() {
                   تعیین فرآیند جریان و قالب فرصت‌های اشتغال و بازاریابی برای هنرمندان و ارگان‌ها.
                 </p>
               </DesignAction>
-              <DesignAction className="fg-d02529ca60" data-node-id="903:887" data-name="Setting Tile" label="پیکربندی بین‌المللی تنظیم بازارهای هدف صادراتی، کدهای EXP شرکا، ارزهای پیش‌فرض بین‌المللی.">
+              <DesignAction className="fg-d02529ca60" data-node-id="903:887" data-name="Setting Tile" label="پیکربندی بین‌المللی تنظیم بازارهای هدف صادراتی، کدهای EXP شرکا، ارزهای پیش‌فرض بین‌المللی." destination="settings-detail?section=international">
                 <div className="fg-c96fe10678" data-node-id="903:888" data-name="Header Row">
                   <div className="fg-922563b3e9" data-node-id="903:889" data-name="Icon Container">
                     <div className="fg-5cca20e57d" data-node-id="903:1485" data-name="chevron-left">
