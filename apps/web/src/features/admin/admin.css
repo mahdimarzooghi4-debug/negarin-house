@@ -5399,3 +5399,129 @@
   inset: auto !important;
   width: 100% !important;
 }
+
+
+/* Figma 863:319 — shared Negarin Admin Backoffice sidebar. */
+.admin-design .admin-sidebar {
+  align-self: stretch;
+  background: #faf8f2 !important;
+  border-left: 1px solid #eee9df;
+  border-right: 0 !important;
+  box-sizing: border-box;
+  display: flex !important;
+  flex: 0 0 250px !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  justify-content: flex-start !important;
+  overflow: visible !important;
+  padding: 20px 16px !important;
+  position: relative !important;
+  width: 250px !important;
+}
+.admin-design .admin-sidebar-brand {
+  align-items: center;
+  display: flex;
+  flex: 0 0 56px;
+  gap: 10px;
+  justify-content: flex-start;
+  min-height: 56px;
+  overflow: visible;
+  width: 100%;
+}
+.admin-design .admin-sidebar-brand img {
+  height: 40px;
+  object-fit: contain;
+  width: 40px;
+}
+.admin-design .admin-sidebar-brand strong {
+  color: #405654;
+  font-family: "Vazirmatn Variable", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.admin-design .admin-sidebar-nav {
+  align-items: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 16px;
+  overflow: visible;
+  width: 100%;
+}
+.admin-design .admin-sidebar-link {
+  align-items: center;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #405654;
+  display: flex;
+  flex: 0 0 44px;
+  gap: 8px;
+  height: 44px;
+  justify-content: flex-end;
+  padding: 10px;
+  text-decoration: none;
+  width: 100%;
+}
+.admin-design .admin-sidebar-link:hover,
+.admin-design .admin-sidebar-link.is-active {
+  background: #ddeeef;
+  color: #0b6963;
+}
+.admin-design .admin-sidebar-label {
+  color: inherit;
+  flex: 1 1 auto;
+  font-family: "Vazirmatn Variable", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 22px;
+  min-width: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+.admin-design .admin-sidebar-icon {
+  direction: ltr;
+  flex: 0 0 18px;
+  font-size: 18px;
+  line-height: 18px;
+  text-align: center;
+}
+.admin-design .admin-sidebar-profile {
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  bottom: 20px;
+  box-sizing: border-box;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  left: 16px;
+  padding: 8px;
+  position: absolute;
+  right: 16px;
+}
+.admin-design .admin-sidebar-profile-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  text-align: right;
+}
+.admin-design .admin-sidebar-profile-copy strong {
+  color: #405654;
+  font-family: "Vazirmatn Variable", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+.admin-design .admin-sidebar-profile-copy span {
+  color: #70847f;
+  font-family: "Vazirmatn Variable", sans-serif;
+  font-size: 10px;
+}
+.admin-design .admin-sidebar-profile img {
+  border-radius: 50%;
+  height: 36px;
+  object-fit: cover;
+  width: 36px;
+}
