@@ -6401,3 +6401,6 @@
 
 /* Align original exports with their inspected native source slots. */
 .artist-mobile [data-node-id="858:1492"] img{translate:3px 1px;}
+
+/* Render SVGs at their intended 20px size inside the clipped mobile navigation icon slot. */
+.artist-mobile nav .fg-0bb5547f93{width:20px;height:20px;}
