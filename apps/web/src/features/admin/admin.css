@@ -5339,3 +5339,43 @@
 .admin-design [data-node-id="903:2953"] img{translate:3px 1px;}
 .admin-design [data-node-id="903:2895"] > div{inset:0;width:10px;height:10px;}
 .admin-design [data-node-id="903:2902"] > div{inset:0;width:10px;height:10px;}
+
+
+/* Keep the admin navigation vertical and fully visible across the preview pages. */
+.admin-design [data-name="Sidebar"] {
+  background-color: #faf8f2;
+  border-color: #e5e7eb;
+}
+.admin-design [data-name="Nav Groups"] {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 6px;
+  height: auto;
+  overflow: visible;
+  padding: 0;
+  width: 100%;
+}
+.admin-design [data-name^="Group-"] {
+  display: block;
+  flex: 0 0 auto;
+  height: auto;
+  min-height: 38px;
+  overflow: visible;
+  position: relative;
+  width: 100%;
+}
+.admin-design [data-name="Group Header"] {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  min-height: 38px;
+  overflow: visible;
+  padding: 8px 12px;
+  position: relative;
+  width: 100%;
+}
+.admin-design [data-name="Sidebar"] [data-name="chevron-down"] {
+  display: none;
+}
