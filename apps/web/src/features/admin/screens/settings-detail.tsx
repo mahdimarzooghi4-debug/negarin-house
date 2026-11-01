@@ -76,7 +76,7 @@ export default function AdminSettingsDetailDesktop() {
     const requested = new URLSearchParams(window.location.search).get("section") || "general";
     if (Object.prototype.hasOwnProperty.call(sections, requested)) setSectionKey(requested as keyof typeof sections);
   }, []);
-  const section = sections[sectionKey];
+  const section = sections[sectionKey] as Section;
 
   return (
     <div className="fg-2f84151df8" data-node-id="903:739" data-name="Admin / Settings Detail — Desktop">
