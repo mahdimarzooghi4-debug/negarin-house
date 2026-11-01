@@ -251,7 +251,7 @@ main {
 
 @media (min-width: 768px) and (max-width: 1439px) {
   .artist-design.admin-design {
-    zoom: calc(100vw / 1440px);
+    zoom: calc((100vw - 16px) / 1440px);
     margin-left: 0;
     margin-right: 0;
   }
