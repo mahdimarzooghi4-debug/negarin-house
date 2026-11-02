@@ -6412,3 +6412,6 @@
 
 /* Match the public preview back button width from Figma. */
 .artist-mobile [data-node-id="840:1425"]{width:156px;}
+
+/* Center the preparation action card within the mobile order detail screen. */
+.artist-mobile [data-node-id="847:335"]{margin-inline:auto;}
