@@ -6430,6 +6430,7 @@
 
 /* Back arrows in the artist app point toward the left when placed on the left. */
 .artist-mobile [data-name="Back Button"] [data-name="chevron-right"] img{transform:scaleX(-1);}
+.artist-mobile [data-node-id="855:249"] img{transform:scaleX(-1);}
 
 /* Keep the course completion bar aligned to the RTL start edge. */
 .artist-mobile [data-node-id="853:450"]{justify-content:flex-end;}
