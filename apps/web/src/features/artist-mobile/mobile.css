@@ -6421,3 +6421,9 @@
 
 /* Keep the complete order title visible on a 390px mobile header. */
 .artist-mobile [data-node-id="847:305"]{font-size:14px;max-width:calc(100% - 36px);overflow:visible;text-overflow:clip;}
+
+/* Match the latest Figma order-detail layout. */
+.artist-mobile [data-node-id="928:1816"]{display:none;}
+.artist-mobile [data-node-id="847:309"]{width:106px;height:27px;}
+.artist-mobile [data-node-id="847:307"]{height:209px;}
+.artist-mobile [data-node-id="847:349"]{margin-left:auto;}
