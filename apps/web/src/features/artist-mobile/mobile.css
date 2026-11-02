@@ -6418,3 +6418,6 @@
 
 /* Fit the long order title beside the back control without spilling outside its header row. */
 .artist-mobile [data-node-id="847:305"]{font-size:16px;max-width:calc(100% - 36px);min-width:0;flex-shrink:1;overflow:hidden;text-overflow:ellipsis;}
+
+/* Keep the complete order title visible on a 390px mobile header. */
+.artist-mobile [data-node-id="847:305"]{font-size:14px;max-width:calc(100% - 36px);overflow:visible;text-overflow:clip;}
