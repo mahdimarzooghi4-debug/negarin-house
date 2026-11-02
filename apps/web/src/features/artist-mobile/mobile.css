@@ -6434,3 +6434,4 @@
 
 /* Keep the course completion bar aligned to the RTL start edge. */
 .artist-mobile [data-node-id="853:450"]{justify-content:flex-end;}
+.artist-mobile [data-node-id="855:373"] img{transform:scaleX(-1);}
