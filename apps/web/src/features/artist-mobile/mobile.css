@@ -6409,3 +6409,6 @@
 /* Keep the review result navigation in document flow, matching the Figma frames. */
 .artist-mobile [data-node-id="840:1236"],
 .artist-mobile [data-node-id="840:1308"]{justify-content:flex-start;}
+
+/* Match the public preview back button width from Figma. */
+.artist-mobile [data-node-id="840:1425"]{width:156px;}
