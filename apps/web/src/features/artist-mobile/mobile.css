@@ -6427,3 +6427,6 @@
 .artist-mobile [data-node-id="847:309"]{width:106px;height:27px;}
 .artist-mobile [data-node-id="847:307"]{height:209px;}
 .artist-mobile [data-node-id="847:349"]{margin-left:auto;}
+
+/* Back arrows in the artist app point toward the left when placed on the left. */
+.artist-mobile [data-name="Back Button"] [data-name="chevron-right"] img{transform:scaleX(-1);}
