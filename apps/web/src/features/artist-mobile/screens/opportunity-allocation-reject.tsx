@@ -384,7 +384,7 @@ export default function ArtistOpportunityAllocationRejectMobile() {
             </p>
           </DesignAction>
           <DesignAction className="fg-9536590778" data-node-id="853:1936" data-name="Negarin / Button" label="تأیید رد تخصیص" destination="opportunity-order-allocation">
-            <p className="fg-6f2c757254" dir="auto" data-node-id="I853:1936;46:41">
+            <p className="fg-a608bfd471" dir="auto" data-node-id="I853:1936;46:41">
               تأیید رد تخصیص
             </p>
           </DesignAction>
