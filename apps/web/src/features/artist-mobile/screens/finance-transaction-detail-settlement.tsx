@@ -1,5 +1,5 @@
 // Figma 855:878 — Artist / Finance Transaction Detail — Settlement — Mobile
-import { DesignAction, DesignField } from "../../artist/design-controls";
+import { DesignAction } from "../../artist/design-controls";
 import { MobileNavigation } from "../mobile-navigation";
 
 export default function ArtistFinanceTransactionDetailSettlementMobile() {
@@ -29,7 +29,7 @@ export default function ArtistFinanceTransactionDetailSettlementMobile() {
       </div>
       <div className="fg-799f37102e" data-node-id="855:888" data-name="Header">
         <div className="fg-c96fe10678" data-node-id="855:889" data-name="Frame">
-          <DesignAction className="fg-e8210ba625" data-node-id="855:890" data-name="Back Button" label="بازگشت" destination="finance">
+          <DesignAction className="fg-e8210ba625" data-node-id="855:890" data-name="Back Button" label="بازگشت" destination="finance-transactions">
             <div className="fg-c51752dc8c" data-node-id="855:1202" data-name="chevron-left">
               <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/67971172.svg" />
             </div>
@@ -249,11 +249,11 @@ export default function ArtistFinanceTransactionDetailSettlementMobile() {
           <p className="fg-0438c58036" dir="auto" data-node-id="855:967">
             برای پیگیری و مشاهده جزئیات بیشتر برگه دیجیتال درخواست تسویه.
           </p>
-          <DesignField className="fg-60c3fad335" data-node-id="855:968" data-name="Negarin / Button" label="برای پیگیری و مشاهده جزئیات بیشتر برگه دیجیتال درخواست تسویه." placeholder="مشاهده درخواست تسویه">
+          <DesignAction className="fg-60c3fad335" data-node-id="855:968" data-name="Negarin / Button" label="مشاهده درخواست تسویه" destination="finance-settlement-completed">
             <p className="fg-40d88e90bf" dir="auto" data-node-id="I855:968;46:17">
               مشاهده درخواست تسویه
             </p>
-          </DesignField>
+          </DesignAction>
         </div>
       </div>
       <MobileNavigation className="fg-0146312cb0" data-node-id="855:971" data-name="bottom-nav">
