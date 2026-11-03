@@ -6442,6 +6442,7 @@
 
 /* Finance settlement request: use a back arrow and keep paired actions on one row. */
 .artist-mobile .fg-4f3c079069 .fg-c51752dc8c img{transform:scaleX(-1);}
-.artist-mobile .fg-ab493c410b{flex-direction:row;align-items:center;justify-content:space-between;}
-.artist-mobile .fg-ab493c410b .fg-7902cb33b7,.artist-mobile .fg-ab493c410b .fg-3651dc4f5f{width:calc(50% - 5px);flex:0 1 calc(50% - 5px);flex-shrink:1;}
-.artist-mobile .fg-ab493c410b .fg-d1070e8258,.artist-mobile .fg-ab493c410b .fg-40d88e90bf{white-space:nowrap;word-break:keep-all;}
+/* Keep submitted-settlement actions side by side with single-line labels. */
+.artist-mobile [data-node-id="855:327"]{display:flex!important;flex-direction:row-reverse!important;flex-wrap:nowrap!important;align-items:center;justify-content:space-between;gap:10px;width:358px;height:auto;}
+.artist-mobile [data-node-id="855:328"],.artist-mobile [data-node-id="855:331"]{box-sizing:border-box;width:calc(50% - 5px)!important;min-width:0;flex:1 1 0!important;white-space:nowrap;}
+.artist-mobile [data-node-id="855:328"] p,.artist-mobile [data-node-id="855:331"] p{white-space:nowrap;word-break:keep-all;}
