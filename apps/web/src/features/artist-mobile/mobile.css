@@ -6446,3 +6446,6 @@
 .artist-mobile [data-node-id="855:327"]{display:flex!important;flex-direction:row-reverse!important;flex-wrap:nowrap!important;align-items:center;justify-content:space-between;gap:10px;width:358px;height:auto;}
 .artist-mobile [data-node-id="855:328"],.artist-mobile [data-node-id="855:331"]{box-sizing:border-box;width:calc(50% - 5px)!important;min-width:0;flex:1 1 0!important;white-space:nowrap;}
 .artist-mobile [data-node-id="855:328"] p,.artist-mobile [data-node-id="855:331"] p{white-space:nowrap;word-break:keep-all;}
+
+/* Point the left-side back arrow toward the left on settlement completion. */
+.artist-mobile [data-node-id="855:460"] img{transform:scaleX(-1);}
