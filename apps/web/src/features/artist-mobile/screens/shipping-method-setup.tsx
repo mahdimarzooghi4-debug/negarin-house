@@ -89,14 +89,14 @@ export default function ArtistShippingMethodSetupMobile() {
             تعرفه‌های فعال به صورت زنده در Checkout متصل هستند. در صورت ثبت سفارش با این روش، امکان تغییر تعرفه یا تغییر یک‌طرفه روش توسط هنرمند وجود ندارد.
           </p>
         </DesignAction>
-        <div className="fg-099309aee6" data-node-id="858:964" data-name="Frame">
-          <DesignAction className="fg-a900263ddf" data-node-id="858:965" data-name="Negarin / Button" label="بازگشت به محصولات" destination="dashboard">
-            <p className="fg-e370cbda69" dir="auto" data-node-id="I858:965;45:11">
+        <div className="fg-099309aee6" data-node-id="858:964" data-name="Frame" style={{ display: "flex", flexDirection: "row", direction: "rtl", gap: "10px" }}>
+          <DesignAction className="fg-a900263ddf" data-node-id="858:965" data-name="Negarin / Button" label="بازگشت به محصولات" destination="dashboard" style={{ flex: "1 1 0", width: "calc(50% - 5px)", minWidth: 0 }}>
+            <p className="fg-e370cbda69" dir="auto" data-node-id="I858:965;45:11" style={{ whiteSpace: "nowrap" }}>
               بازگشت به محصولات
             </p>
           </DesignAction>
-          <DesignAction className="fg-757a28680d" data-node-id="858:968" data-name="Negarin / Button" label="مشاهده فروشگاه من" destination="store">
-            <p className="fg-bf29e071b6" dir="auto" data-node-id="I858:968;46:17">
+          <DesignAction className="fg-757a28680d" data-node-id="858:968" data-name="Negarin / Button" label="مشاهده فروشگاه من" destination="store" style={{ flex: "1 1 0", width: "calc(50% - 5px)", minWidth: 0 }}>
+            <p className="fg-bf29e071b6" dir="auto" data-node-id="I858:968;46:17" style={{ whiteSpace: "nowrap" }}>
               مشاهده فروشگاه من
             </p>
           </DesignAction>
