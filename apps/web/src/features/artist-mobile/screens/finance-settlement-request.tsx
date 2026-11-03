@@ -22,7 +22,7 @@ export default function ArtistFinanceSettlementRequestMobile() {
         </div>
       </div>
       <div className="fg-799f37102e" data-node-id="855:246" data-name="Header">
-        <DesignAction className="fg-c96fe10678" data-node-id="855:247" data-name="Frame" label="ثبت درخواست تسویه" destination="finance-settlement-request-submitted">
+        <DesignAction className="fg-c96fe10678" data-node-id="855:247" data-name="Frame" label="بازگشت" destination="finance">
           <div className="fg-4f3c079069" data-node-id="855:248" data-name="Frame">
             <div className="fg-c51752dc8c" data-node-id="855:249" data-name="Frame">
               <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/c83e1f65.svg" />
