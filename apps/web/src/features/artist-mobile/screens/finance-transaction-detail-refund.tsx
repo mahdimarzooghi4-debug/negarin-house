@@ -1,5 +1,5 @@
 // Figma 855:995 — Artist / Finance Transaction Detail — Refund — Mobile
-import { DesignAction, DesignField } from "../../artist/design-controls";
+import { DesignAction } from "../../artist/design-controls";
 import { MobileNavigation } from "../mobile-navigation";
 
 export default function ArtistFinanceTransactionDetailRefundMobile() {
@@ -29,7 +29,7 @@ export default function ArtistFinanceTransactionDetailRefundMobile() {
       </div>
       <div className="fg-799f37102e" data-node-id="855:1005" data-name="Header">
         <div className="fg-c96fe10678" data-node-id="855:1006" data-name="Frame">
-          <DesignAction className="fg-e8210ba625" data-node-id="855:1007" data-name="Back Button" label="بازگشت" destination="finance">
+          <DesignAction className="fg-e8210ba625" data-node-id="855:1007" data-name="Back Button" label="بازگشت" destination="finance-transactions">
             <div className="fg-c51752dc8c" data-node-id="855:1229" data-name="chevron-left">
               <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/67971172.svg" />
             </div>
@@ -146,14 +146,14 @@ export default function ArtistFinanceTransactionDetailRefundMobile() {
             </div>
           </div>
           <div className="fg-62f39da6b2" data-node-id="855:1048" data-name="Frame">
-            <DesignAction className="fg-40fa6d764d" data-node-id="855:1049" data-name="Frame" label="بازگشت وجه نوع تراکنش" destination="finance">
+            <div className="fg-40fa6d764d" data-node-id="855:1049" data-name="Frame">
               <p className="fg-32e31d6358" dir="auto" data-node-id="855:1050">
                 بازگشت وجه
               </p>
               <p className="fg-fc7a3d01c3" dir="auto" data-node-id="855:1051">
                 نوع تراکنش
               </p>
-            </DesignAction>
+            </div>
             <div className="fg-df0a3de519" data-node-id="855:1052" data-name="Line">
               <div className="fg-cf771a9448">
                 <img alt="" className="fg-acc3667e96" src="/artist-mobile-assets/2253052a.svg" />
@@ -249,11 +249,11 @@ export default function ArtistFinanceTransactionDetailRefundMobile() {
           <p className="fg-0438c58036" dir="auto" data-node-id="855:1084">
             برای بررسی جزئیات کالاها و فاکتور مرجوعی این سفارش.
           </p>
-          <DesignField className="fg-60c3fad335" data-node-id="855:1085" data-name="Negarin / Button" label="برای بررسی جزئیات کالاها و فاکتور مرجوعی این سفارش." placeholder="مشاهده سفارش">
+          <DesignAction className="fg-60c3fad335" data-node-id="855:1085" data-name="Negarin / Button" label="مشاهده سفارش" destination="orders">
             <p className="fg-40d88e90bf" dir="auto" data-node-id="I855:1085;46:17">
               مشاهده سفارش
             </p>
-          </DesignField>
+          </DesignAction>
         </div>
       </div>
       <MobileNavigation className="fg-0146312cb0" data-node-id="855:1088" data-name="bottom-nav">
