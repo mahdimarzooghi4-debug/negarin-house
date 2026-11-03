@@ -5,6 +5,10 @@ import { MobileNavigation } from "../mobile-navigation";
 export default function ArtistMembershipCenterUpgradedMobile() {
   return (
     <div className="fg-ffd48dc567" data-node-id="855:1852" data-name="Artist / Membership Center — Upgraded — Mobile">
+      <style>{`
+        .artist-mobile .membership-center-upgraded-content { flex: 1 1 0; min-height: 0; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; }
+        .artist-mobile .membership-center-upgraded-content::-webkit-scrollbar { display: none; }
+      `}</style>
       <div className="fg-aaf8c1e790" data-node-id="855:1853" data-name="Status Bar">
         <p className="fg-ec74edce3f" data-node-id="855:1854">
           ۹:۴۱
@@ -32,7 +36,7 @@ export default function ArtistMembershipCenterUpgradedMobile() {
           مدیریت عضویت سالانه، خدمات همراه و سابقه ارتقای دوره فعال
         </p>
       </div>
-      <div className="fg-9b5ba2beba" data-node-id="855:1867" data-name="Frame">
+      <div className="fg-9b5ba2beba membership-center-upgraded-content" data-node-id="855:1867" data-name="Frame">
         <div className="fg-166e340c30" data-node-id="855:1868" data-name="Hero Banner">
           <div className="fg-5aa1b320cb" data-node-id="855:1869" data-name="Frame">
             <div className="fg-cff24659a3" data-node-id="855:1870" data-name="Frame">
@@ -183,21 +187,21 @@ export default function ArtistMembershipCenterUpgradedMobile() {
                 <p className="fg-b82dd994ff" dir="auto" data-node-id="855:1932">
                   ارتقای میان‌دوره‌ای جوانه ← شکوفه ثبت شد
                 </p>
-                <DesignAction className="fg-917cd68f6d" data-node-id="855:1933" data-name="Frame" label="ارتقا">
+                <div className="fg-917cd68f6d" data-node-id="855:1933" data-name="Frame">
                   <p className="fg-f3bbd4cabc" dir="auto" data-node-id="855:1934">
                     ارتقا
                   </p>
-                </DesignAction>
+                </div>
               </div>
               <div className="fg-d8e6831b47" data-node-id="855:1935" data-name="Frame">
                 <p className="fg-b82dd994ff" dir="auto" data-node-id="855:1936">
                   عضویت سالانه سطح جوانه فعال شد
                 </p>
-                <DesignAction className="fg-fe1dc9b86c" data-node-id="855:1937" data-name="Frame" label="شروع دوره">
+                <div className="fg-fe1dc9b86c" data-node-id="855:1937" data-name="Frame">
                   <p className="fg-0472d16ac5" dir="auto" data-node-id="855:1938">
                     شروع دوره
                   </p>
-                </DesignAction>
+                </div>
               </div>
             </div>
           </div>
@@ -240,7 +244,7 @@ export default function ArtistMembershipCenterUpgradedMobile() {
               </p>
             </div>
             <div className="fg-5aa1b320cb" data-node-id="855:1955" data-name="Frame">
-              <DesignAction className="fg-61b2399ccb" data-node-id="855:1956" data-name="Negarin / Button" label="مشاهده مالی">
+              <DesignAction className="fg-61b2399ccb" data-node-id="855:1956" data-name="Negarin / Button" label="مشاهده مالی" destination="finance">
                 <p className="fg-7ee08abcb6" dir="auto" data-node-id="I855:1956;46:3">
                   مشاهده مالی
                 </p>
