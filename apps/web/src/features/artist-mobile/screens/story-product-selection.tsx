@@ -5,6 +5,20 @@ import { MobileNavigation } from "../mobile-navigation";
 export default function ArtistStoryProductSelectionMobile() {
   return (
     <div className="fg-edd573f1d7" data-node-id="858:617" data-name="Artist / Story Product Selection — Mobile">
+      <style>{`
+        .artist-mobile [data-node-id="858:642"][data-selected="true"],
+        .artist-mobile [data-node-id="858:650"][data-selected="true"],
+        .artist-mobile [data-node-id="858:657"][data-selected="true"] { background-color: #eaf7f7; --fg-border-width: 1px; --fg-border-color: #07a7b2; }
+        .artist-mobile [data-node-id="858:642"][data-selected="false"],
+        .artist-mobile [data-node-id="858:650"][data-selected="false"],
+        .artist-mobile [data-node-id="858:657"][data-selected="false"] { background-color: #fff; --fg-border-width: 1px; --fg-border-color: #e5e7eb; }
+        .artist-mobile [data-node-id="858:642"][data-selected="false"] [data-node-id="858:643"] img { display: none; }
+        .artist-mobile [data-node-id="858:642"][data-selected="false"] [data-node-id="858:643"]::before { content: ""; position: absolute; inset: 0; border: 2px solid #e5e7eb; border-radius: 50%; }
+        .artist-mobile [data-node-id="858:650"][data-selected="true"] [data-node-id="858:651"],
+        .artist-mobile [data-node-id="858:657"][data-selected="true"] [data-node-id="858:658"] { background: #07a7b2; border-radius: 50%; }
+        .artist-mobile [data-node-id="858:650"][data-selected="true"] [data-node-id="858:651"]::after,
+        .artist-mobile [data-node-id="858:657"][data-selected="true"] [data-node-id="858:658"]::after { inset: 6px; background: #fff; border: 0 !important; border-radius: 50%; }
+      `}</style>
       <div className="fg-153c0a1809" data-node-id="858:618" data-name="top-sticky">
         <div className="fg-aaf8c1e790" data-node-id="858:619" data-name="Status Bar">
           <p className="fg-ec74edce3f" data-node-id="858:620">
@@ -56,10 +70,10 @@ export default function ArtistStoryProductSelectionMobile() {
               بدون محصول مرتبط (روایت کلی)
             </p>
           </DesignChoice>
-          <div className="fg-e8ae9cc9c1" data-node-id="858:642" data-name="product-option-1">
-            <DesignChoice className="fg-b2a182ecf4" data-node-id="858:643" data-name="radio-selected" label="radio-selected" group="product-option-1" initial={false}>
+          <DesignChoice className="fg-e8ae9cc9c1" data-node-id="858:642" data-name="product-option-1" label="بشقاب میناکاری طرح شاه‌عباسی" group="product-selector-list" initial>
+            <div className="fg-b2a182ecf4" data-node-id="858:643" data-name="radio-selected">
               <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/74ded7a6.svg" />
-            </DesignChoice>
+            </div>
             <div className="fg-6bf18d6b1a" data-node-id="858:645" data-name="Frame">
               <div className="fg-ef1c18a4d5" data-node-id="858:646" data-name="Frame">
                 <p className="fg-80f54b1ead" dir="auto" data-node-id="858:647">
@@ -73,7 +87,7 @@ export default function ArtistStoryProductSelectionMobile() {
                 <img alt="" className="fg-baf1000bd5" src="/artist-mobile-assets/3eefd396.png" />
               </div>
             </div>
-          </div>
+          </DesignChoice>
           <DesignChoice className="fg-73e0673dfe" data-node-id="858:650" data-name="product-option-2" label="کیف سوزندوزی بلوچ ۱,۸۹۰,۰۰۰ تومان • پیش‌نویس" group="product-selector-list" initial={false}>
             <div className="fg-e09c3d448f" data-node-id="858:651" data-name="radio-unselected" />
             <div className="fg-6bf18d6b1a" data-node-id="858:652" data-name="Frame">
