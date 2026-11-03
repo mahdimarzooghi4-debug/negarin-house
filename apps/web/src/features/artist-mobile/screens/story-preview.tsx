@@ -5,6 +5,13 @@ import { MobileNavigation } from "../mobile-navigation";
 export default function ArtistStoryPreviewMobile() {
   return (
     <div className="fg-edd573f1d7" data-node-id="858:323" data-name="Artist / Story Preview — Mobile">
+      <style>{`
+        .artist-mobile [data-node-id="858:356"] { display: flex; flex-direction: row; direction: rtl; gap: 10px; align-items: flex-start; }
+        .artist-mobile [data-node-id="858:356"] > a,
+        .artist-mobile [data-node-id="858:356"] > button { flex: 1 1 0; width: auto; min-width: 0; padding-inline: 6px; }
+        .artist-mobile [data-node-id="858:356"] > a p,
+        .artist-mobile [data-node-id="858:356"] > button p { white-space: nowrap; }
+      `}</style>
       <div className="fg-153c0a1809" data-node-id="858:324" data-name="top-sticky">
         <div className="fg-aaf8c1e790" data-node-id="858:325" data-name="Status Bar">
           <p className="fg-ec74edce3f" data-node-id="858:326">
