@@ -139,13 +139,8 @@ export default function ServicePartnerDashboardDesktop() {
         </div>
       </div>
       <ServicePartnerSidebar className="fg-1cadfd0310" data-node-id="1001:15" data-name="Sidebar">
-        <div className="fg-24e47e687d" data-node-id="1001:16" data-name="Brand">
-          <p className="fg-013587b973" dir="auto" data-node-id="1001:17">
-            خانه نگارین
-          </p>
-          <div className="fg-842ae29a35" data-node-id="1001:18" data-name="Brand / Negarin Logo">
-            <img alt="" className="fg-71eecc63f8" src="/service-partner-assets/negarin-logo.png" />
-          </div>
+        <div className="service-sidebar-brand" data-name="Brand">
+          <img src="/admin-assets/negarin-sidebar-brand.svg" alt="خانه نگارین" />
         </div>
         <div className="fg-4c64003eb7" data-node-id="1001:19" data-name="Role Tag">
           <p className="fg-fd87dcd811" dir="auto" data-node-id="1001:20">
