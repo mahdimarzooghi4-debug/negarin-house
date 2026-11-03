@@ -77,14 +77,14 @@ export default function ArtistEditProfileMobile() {
             تغییر نام و اطلاعات رسمی غرفه ممکن است نیاز به بررسی مجدد کارشناسان نگارین و تأیید مدارک جدید داشته باشد.
           </p>
         </div>
-        <div className="fg-4418723840" data-node-id="858:1277" data-name="Frame">
-          <DesignAction className="fg-a900263ddf" data-node-id="858:1278" data-name="Negarin / Button" label="ذخیره تغییرات">
-            <p className="fg-d1070e8258" dir="auto" data-node-id="I858:1278;45:11">
+        <div className="fg-4418723840" data-node-id="858:1277" data-name="Frame" style={{ display: "flex", flexDirection: "row", direction: "rtl", gap: "10px" }}>
+          <DesignAction className="fg-a900263ddf" data-node-id="858:1278" data-name="Negarin / Button" label="ذخیره تغییرات" style={{ flex: "1 1 0", width: "calc(50% - 5px)", minWidth: 0 }}>
+            <p className="fg-d1070e8258" dir="auto" data-node-id="I858:1278;45:11" style={{ whiteSpace: "nowrap" }}>
               ذخیره تغییرات
             </p>
           </DesignAction>
-          <DesignAction className="fg-757a28680d" data-node-id="858:1281" data-name="Negarin / Button" label="انصراف" destination="account">
-            <p className="fg-bf29e071b6" dir="auto" data-node-id="I858:1281;46:17">
+          <DesignAction className="fg-757a28680d" data-node-id="858:1281" data-name="Negarin / Button" label="انصراف" destination="account" style={{ flex: "1 1 0", width: "calc(50% - 5px)", minWidth: 0 }}>
+            <p className="fg-bf29e071b6" dir="auto" data-node-id="I858:1281;46:17" style={{ whiteSpace: "nowrap" }}>
               انصراف
             </p>
           </DesignAction>
