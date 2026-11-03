@@ -119,14 +119,14 @@ export default function ArtistShippingMethodDetailMobile() {
             </p>
           </div>
         </div>
-        <div className="fg-62f39da6b2" data-node-id="858:894" data-name="Frame">
-          <DesignAction className="fg-a900263ddf" data-node-id="858:895" data-name="Negarin / Button" label="ذخیره تنظیمات روش">
-            <p className="fg-e370cbda69" dir="auto" data-node-id="I858:895;45:11">
+        <div className="fg-62f39da6b2" data-node-id="858:894" data-name="Frame" style={{ display: "flex", flexDirection: "row", direction: "rtl", gap: "10px" }}>
+          <DesignAction className="fg-a900263ddf" data-node-id="858:895" data-name="Negarin / Button" label="ذخیره تنظیمات روش" style={{ flex: "1 1 0", width: "calc(50% - 5px)", minWidth: 0 }}>
+            <p className="fg-e370cbda69" dir="auto" data-node-id="I858:895;45:11" style={{ whiteSpace: "nowrap" }}>
               ذخیره تنظیمات روش
             </p>
           </DesignAction>
-          <DesignAction className="fg-757a28680d" data-node-id="858:898" data-name="Negarin / Button" label="انصراف و بازگشت" destination="dashboard">
-            <p className="fg-bf29e071b6" dir="auto" data-node-id="I858:898;46:17">
+          <DesignAction className="fg-757a28680d" data-node-id="858:898" data-name="Negarin / Button" label="انصراف و بازگشت" destination="dashboard" style={{ flex: "1 1 0", width: "calc(50% - 5px)", minWidth: 0 }}>
+            <p className="fg-bf29e071b6" dir="auto" data-node-id="I858:898;46:17" style={{ whiteSpace: "nowrap" }}>
               انصراف و بازگشت
             </p>
           </DesignAction>
