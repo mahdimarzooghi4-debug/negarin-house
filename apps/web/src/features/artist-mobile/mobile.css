@@ -1394,7 +1394,7 @@
 .artist-mobile .fg-80cec67dc3{word-break:break-word;font-family:"Vazirmatn Variable",NegarinFullwidth;font-weight:400;line-height:normal;position:relative;flex-shrink:0;color:#5b6571;font-size:13px;text-align:right;white-space:nowrap;}
 .artist-mobile .fg-bd6c8d0298{background-color:#ecf8f8;align-content:stretch;display:flex;align-items:flex-start;padding:14px;position:relative;border-radius:14px;flex-shrink:0;width:100%;}
 .artist-mobile .fg-cea86b2a97{word-break:break-word;flex:1 0 0;font-family:"Vazirmatn Variable",NegarinFullwidth;font-weight:400;line-height:20px;min-width:1px;position:relative;color:#07858f;font-size:13px;text-align:center;}
-.artist-mobile .fg-40d88e90bf{white-space:nowrap;word-break:keep-all;flex:1 0 0;font-family:"Vazirmatn Variable",NegarinFullwidth;font-weight:500;line-height:normal;min-width:1px;position:relative;font-size:14px;color:var(--negarin-action-secondary-text,#041b65);text-align:right;}
+.artist-mobile .fg-40d88e90bf{word-break:break-word;flex:1 0 0;font-family:"Vazirmatn Variable",NegarinFullwidth;font-weight:500;line-height:normal;min-width:1px;position:relative;font-size:14px;color:var(--negarin-action-secondary-text,#041b65);text-align:right;}
 .artist-mobile .fg-decfba38c3{word-break:break-word;font-family:"Vazirmatn Variable",NegarinFullwidth;font-weight:400;line-height:normal;position:relative;flex-shrink:0;color:#5b6571;font-size:11px;text-align:center;white-space:nowrap;}
 .artist-mobile .fg-ad64be8b7b{background-color:white;--fg-border-width:1px;--fg-border-color:var(--negarin-border-default,#e5e7eb);--fg-border-style:solid;align-content:stretch;display:flex;flex-direction:column;gap:12px;align-items:center;padding:20px;position:relative;border-radius:16px;flex-shrink:0;width:100%;transform:translate(var(--fg-tx,0),var(--fg-ty,0)) rotate(var(--fg-rotate,0deg)) scaleY(var(--fg-sy,1));}
 .artist-mobile .fg-3dcceedf44{background-color:#e8f7f8;align-content:stretch;display:flex;align-items:flex-start;padding-left:12px;padding-right:12px;padding-top:4px;padding-bottom:4px;position:relative;border-radius:999px;flex-shrink:0;}
@@ -6437,3 +6437,5 @@
 .artist-mobile [data-node-id="855:373"] img{transform:scaleX(-1);}
 /* Keep finance settlement follow-up actions side by side. */
 .artist-mobile [data-node-id="855:415"],.artist-mobile [data-node-id="855:502"]{flex-direction:row-reverse;justify-content:center;align-items:center;flex-wrap:nowrap;gap:10px;}
+
+.artist-mobile .fg-60c3fad335 .fg-40d88e90bf{white-space:nowrap;word-break:keep-all;}
