@@ -5,6 +5,7 @@ import { MobileNavigation } from "../mobile-navigation";
 export default function ArtistStoriesMobile() {
   return (
     <div className="fg-edd573f1d7" data-node-id="858:173" data-name="Artist / Stories — Mobile">
+      <style>{`.artist-mobile [data-node-id="858:209"] p { white-space: nowrap; }`}</style>
       <div className="fg-153c0a1809" data-node-id="858:174" data-name="top-sticky">
         <div className="fg-aaf8c1e790" data-node-id="858:175" data-name="Status Bar">
           <p className="fg-ec74edce3f" data-node-id="858:176">
