@@ -5909,3 +5909,4 @@
 
 /* Keep the Spanish order-detail payment status at its intended card bounds. */
 .export-partner-design [data-node-id="915:9066"]{width:100%;height:88px;min-height:88px;max-height:88px;}
+.export-partner-design [data-node-id="915:9066"] .fg-833800a99c{justify-content:center;}
