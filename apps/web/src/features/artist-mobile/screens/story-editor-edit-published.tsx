@@ -119,7 +119,7 @@ export default function ArtistStoryEditorEditPublishedMobile() {
             </p>
           </div>
         </div>
-        <div className="fg-ab493c410b" data-node-id="858:582" data-name="edit-actions">
+        <div className="fg-ab493c410b" data-node-id="858:582" data-name="edit-actions" style={{ display: "flex", flexDirection: "row", direction: "rtl", gap: "10px" }}>
           <DesignAction className="fg-7902cb33b7" data-node-id="858:583" data-name="Negarin / Button" label="ذخیره تغییرات">
             <p className="fg-d1070e8258" dir="auto" data-node-id="I858:583;45:11">
               ذخیره تغییرات
