@@ -80,7 +80,7 @@ export default function ArtistStoryEditorEditPublishedMobile() {
             <div className="fg-c96fe10678" data-node-id="858:565" data-name="Frame">
               <div className="fg-e8210ba625" data-node-id="858:566" data-name="Frame">
                 <DesignAction className="fg-eda67a0b31" data-node-id="858:567" data-name="Negarin / Button" label="تغییر فایل">
-                  <p className="fg-ff0711159e" dir="auto" data-node-id="I858:567;46:49">
+                  <p className="fg-ff0711159e" dir="auto" data-node-id="I858:567;46:49" style={{ whiteSpace: "nowrap", width: "auto" }}>
                     تغییر فایل
                   </p>
                 </DesignAction>
