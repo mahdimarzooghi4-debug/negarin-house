@@ -5,6 +5,15 @@ import { MobileNavigation } from "../mobile-navigation";
 export default function ArtistMembershipMidyearUpgradeMobile() {
   return (
     <div className="fg-ffd48dc567" data-node-id="855:1385" data-name="Artist / Membership Midyear Upgrade — Mobile">
+      <style>{`
+        .artist-mobile .membership-midyear-content { flex: 1 1 0; min-height: 0; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; }
+        .artist-mobile .membership-midyear-content::-webkit-scrollbar { display: none; }
+        .artist-mobile .membership-upgrade-actions { flex-direction: row; flex-wrap: nowrap; align-items: stretch; gap: 8px; width: 100%; }
+        .artist-mobile .membership-upgrade-actions .fg-5f5f993372,
+        .artist-mobile .membership-upgrade-actions .fg-60c3fad335 { flex: 1 1 0; min-width: 0; width: auto; padding-inline: 6px; }
+        .artist-mobile .membership-upgrade-actions .fg-336e74147d,
+        .artist-mobile .membership-upgrade-actions .fg-bf29e071b6 { font-size: 12px; white-space: nowrap; }
+      `}</style>
       <div className="fg-aaf8c1e790" data-node-id="855:1386" data-name="Status Bar">
         <p className="fg-ec74edce3f" data-node-id="855:1387">
           ۹:۴۱
@@ -36,7 +45,7 @@ export default function ArtistMembershipMidyearUpgradeMobile() {
           فعال‌سازی بسته عضویت متناسب با سطح رشد جدید
         </p>
       </div>
-      <div className="fg-9b5ba2beba" data-node-id="855:1401" data-name="Frame">
+      <div className="fg-9b5ba2beba membership-midyear-content" data-node-id="855:1401" data-name="Frame">
         <div className="fg-166e340c30" data-node-id="855:1402" data-name="Hero Banner">
           <div className="fg-5aa1b320cb" data-node-id="855:1403" data-name="Frame">
             <DesignAction className="fg-cff24659a3" data-node-id="855:1404" data-name="Frame" label="سطح رشد ارتقا یافته" destination="membership-upgrade-checkout">
@@ -199,8 +208,8 @@ export default function ArtistMembershipMidyearUpgradeMobile() {
           <p className="fg-839bd3457a" dir="auto" data-node-id="855:1469">
             در مرحله بعد، مبلغ نهایی بر اساس تعرفه واقعی و مدت باقی‌مانده نمایش داده می‌شود.
           </p>
-          <div className="fg-62f39da6b2" data-node-id="855:1470" data-name="Frame">
-            <DesignAction className="fg-5f5f993372" data-node-id="855:1471" data-name="Negarin / Button" label="مشاهده مبلغ نهایی و ادامه">
+          <div className="fg-62f39da6b2 membership-upgrade-actions" data-node-id="855:1470" data-name="Frame">
+            <DesignAction className="fg-5f5f993372" data-node-id="855:1471" data-name="Negarin / Button" label="مشاهده مبلغ نهایی و ادامه" destination="membership-upgrade-checkout">
               <p className="fg-336e74147d" dir="auto" data-node-id="I855:1471;46:29">
                 مشاهده مبلغ نهایی و ادامه
               </p>
