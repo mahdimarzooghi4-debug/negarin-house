@@ -32,7 +32,7 @@ export default function ArtistMembershipUpgradeCheckoutMobile() {
       </div>
       <div className="fg-799f37102e" data-node-id="855:1511" data-name="Header">
         <div className="fg-c96fe10678" data-node-id="855:1512" data-name="Frame">
-          <DesignAction className="fg-b636a23beb" data-node-id="855:1513" data-name="Back Button" label="بازگشت" destination="membership-center">
+          <DesignAction className="fg-b636a23beb" data-node-id="855:1513" data-name="Back Button" label="بازگشت" destination="membership-midyear-upgrade">
             <div className="fg-58d29b27c0" data-node-id="855:2018" data-name="chevron-left">
               <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/8e43754d.svg" />
             </div>
@@ -214,7 +214,7 @@ export default function ArtistMembershipUpgradeCheckoutMobile() {
                 پرداخت آنلاین و فعال‌سازی
               </p>
             </DesignAction>
-            <DesignAction className="fg-60c3fad335" data-node-id="855:1590" data-name="Negarin / Button" label="بازگشت به جزئیات ارتقا" destination="membership-center">
+            <DesignAction className="fg-60c3fad335" data-node-id="855:1590" data-name="Negarin / Button" label="بازگشت به جزئیات ارتقا" destination="membership-midyear-upgrade">
               <p className="fg-bf29e071b6" dir="auto" data-node-id="I855:1590;46:17">
                 بازگشت به جزئیات ارتقا
               </p>
