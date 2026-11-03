@@ -5,6 +5,15 @@ import { MobileNavigation } from "../mobile-navigation";
 export default function ArtistMembershipUpgradePaymentMobile() {
   return (
     <div className="fg-ffd48dc567" data-node-id="855:1617" data-name="Artist / Membership Upgrade Payment — Mobile">
+      <style>{`
+        .artist-mobile .membership-upgrade-payment-content { flex: 1 1 0; min-height: 0; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; }
+        .artist-mobile .membership-upgrade-payment-content::-webkit-scrollbar { display: none; }
+        .artist-mobile .membership-payment-actions { flex-direction: row; flex-wrap: nowrap; align-items: stretch; gap: 8px; width: 100%; }
+        .artist-mobile .membership-payment-actions .fg-5f5f993372,
+        .artist-mobile .membership-payment-actions .fg-60c3fad335 { flex: 1 1 0; min-width: 0; width: auto; padding-inline: 6px; }
+        .artist-mobile .membership-payment-actions .fg-336e74147d,
+        .artist-mobile .membership-payment-actions .fg-bf29e071b6 { font-size: 12px; white-space: nowrap; }
+      `}</style>
       <div className="fg-aaf8c1e790" data-node-id="855:1618" data-name="Status Bar">
         <p className="fg-ec74edce3f" data-node-id="855:1619">
           ۹:۴۱
@@ -23,7 +32,7 @@ export default function ArtistMembershipUpgradePaymentMobile() {
       </div>
       <div className="fg-799f37102e" data-node-id="855:1627" data-name="Header">
         <div className="fg-c96fe10678" data-node-id="855:1628" data-name="Frame">
-          <DesignAction className="fg-b636a23beb" data-node-id="855:1629" data-name="Back Button" label="بازگشت" destination="membership-center">
+          <DesignAction className="fg-b636a23beb" data-node-id="855:1629" data-name="Back Button" label="بازگشت" destination="membership-upgrade-checkout">
             <div className="fg-58d29b27c0" data-node-id="855:2036" data-name="chevron-left">
               <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/8e43754d.svg" />
             </div>
@@ -36,7 +45,7 @@ export default function ArtistMembershipUpgradePaymentMobile() {
           ورود به درگاه پرداخت برای فعال‌سازی
         </p>
       </div>
-      <div className="fg-9b5ba2beba" data-node-id="855:1633" data-name="Frame">
+      <div className="fg-9b5ba2beba membership-upgrade-payment-content" data-node-id="855:1633" data-name="Frame">
         <div className="fg-166e340c30" data-node-id="855:1634" data-name="Hero Banner">
           <div className="fg-5aa1b320cb" data-node-id="855:1635" data-name="Frame">
             <DesignAction className="fg-cff24659a3" data-node-id="855:1636" data-name="Frame" label="آماده پرداخت" destination="membership-upgrade-completed">
@@ -213,13 +222,13 @@ export default function ArtistMembershipUpgradePaymentMobile() {
           <p className="fg-839bd3457a" dir="auto" data-node-id="855:1706">
             با ادامه به درگاه پرداخت هدایت می‌شوی تا فرآیند فعال‌سازی تکمیل شود.
           </p>
-          <div className="fg-62f39da6b2" data-node-id="855:1707" data-name="Frame">
+          <div className="fg-62f39da6b2 membership-payment-actions" data-node-id="855:1707" data-name="Frame">
             <DesignAction className="fg-5f5f993372" data-node-id="855:1708" data-name="Negarin / Button" label="ورود به درگاه پرداخت" destination="membership-upgrade-completed">
               <p className="fg-336e74147d" dir="auto" data-node-id="I855:1708;46:29">
                 ورود به درگاه پرداخت
               </p>
             </DesignAction>
-            <DesignAction className="fg-60c3fad335" data-node-id="855:1711" data-name="Negarin / Button" label="بازگشت به جمع‌بندی" destination="membership-center">
+            <DesignAction className="fg-60c3fad335" data-node-id="855:1711" data-name="Negarin / Button" label="بازگشت به جمع‌بندی" destination="membership-upgrade-checkout">
               <p className="fg-bf29e071b6" dir="auto" data-node-id="I855:1711;46:17">
                 بازگشت به جمع‌بندی
               </p>
