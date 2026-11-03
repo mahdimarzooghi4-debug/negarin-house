@@ -5906,3 +5906,6 @@
   font-family: "Inter Variable", "Noto Sans Arabic Variable", sans-serif;
   line-height: 17px;
 }
+
+/* Keep the Spanish order-detail payment status at its intended card bounds. */
+.export-partner-design [data-node-id="915:9066"]{width:100%;height:auto;min-height:88px;}
