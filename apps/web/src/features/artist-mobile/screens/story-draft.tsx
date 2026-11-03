@@ -5,6 +5,14 @@ import { MobileNavigation } from "../mobile-navigation";
 export default function ArtistStoryDraftMobile() {
   return (
     <div className="fg-edd573f1d7" data-node-id="858:391" data-name="Artist / Story Draft — Mobile">
+      <style>{`
+        .artist-mobile [data-node-id="858:424"] { display: flex; flex-direction: row; flex-wrap: wrap; direction: rtl; gap: 10px; align-items: flex-start; }
+        .artist-mobile [data-node-id="858:424"] > a:nth-child(1),
+        .artist-mobile [data-node-id="858:424"] > button:nth-child(2) { flex: 1 1 calc(50% - 5px); width: auto; min-width: 0; padding-inline: 6px; }
+        .artist-mobile [data-node-id="858:424"] > button:nth-child(3) { flex: 0 0 140px; width: 140px; min-width: 0; padding-inline: 6px; }
+        .artist-mobile [data-node-id="858:424"] > a p,
+        .artist-mobile [data-node-id="858:424"] > button p { white-space: nowrap; }
+      `}</style>
       <div className="fg-153c0a1809" data-node-id="858:392" data-name="top-sticky">
         <div className="fg-aaf8c1e790" data-node-id="858:393" data-name="Status Bar">
           <p className="fg-ec74edce3f" data-node-id="858:394">
