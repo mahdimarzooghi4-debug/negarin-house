@@ -5,6 +5,15 @@ import { MobileNavigation } from "../mobile-navigation";
 export default function ArtistMembershipUpgradeCompletedMobile() {
   return (
     <div className="fg-ffd48dc567" data-node-id="855:1738" data-name="Artist / Membership Upgrade — Completed — Mobile">
+      <style>{`
+        .artist-mobile .membership-upgrade-completed-content { flex: 1 1 0; min-height: 0; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; }
+        .artist-mobile .membership-upgrade-completed-content::-webkit-scrollbar { display: none; }
+        .artist-mobile .membership-completed-actions { flex-direction: row; flex-wrap: nowrap; align-items: stretch; gap: 8px; width: 100%; }
+        .artist-mobile .membership-completed-actions .fg-5f5f993372,
+        .artist-mobile .membership-completed-actions .fg-60c3fad335 { flex: 1 1 0; min-width: 0; width: auto; padding-inline: 6px; }
+        .artist-mobile .membership-completed-actions .fg-336e74147d,
+        .artist-mobile .membership-completed-actions .fg-bf29e071b6 { font-size: 12px; white-space: nowrap; }
+      `}</style>
       <div className="fg-aaf8c1e790" data-node-id="855:1739" data-name="Status Bar">
         <p className="fg-ec74edce3f" data-node-id="855:1740">
           ۹:۴۱
@@ -32,7 +41,7 @@ export default function ArtistMembershipUpgradeCompletedMobile() {
           بسته عضویت شکوفه برای ادامه دوره فعال شده است
         </p>
       </div>
-      <div className="fg-9b5ba2beba" data-node-id="855:1753" data-name="Frame">
+      <div className="fg-9b5ba2beba membership-upgrade-completed-content" data-node-id="855:1753" data-name="Frame">
         <div className="fg-166e340c30" data-node-id="855:1754" data-name="Hero Banner">
           <div className="fg-5aa1b320cb" data-node-id="855:1755" data-name="Frame">
             <DesignAction className="fg-cff24659a3" data-node-id="855:1756" data-name="Frame" label="ارتقا تکمیل‌شده" destination="membership-center-upgraded">
@@ -193,13 +202,13 @@ export default function ArtistMembershipUpgradeCompletedMobile() {
           <p className="fg-839bd3457a" dir="auto" data-node-id="855:1820">
             بسته شکوفه برای شما فعال است. اکنون می‌توانید خدمات همراه سطح جدید را مدیریت کنید.
           </p>
-          <div className="fg-62f39da6b2" data-node-id="855:1821" data-name="Frame">
+          <div className="fg-62f39da6b2 membership-completed-actions" data-node-id="855:1821" data-name="Frame">
             <DesignAction className="fg-5f5f993372" data-node-id="855:1822" data-name="Negarin / Button" label="مشاهده خدمات" destination="services">
               <p className="fg-336e74147d" dir="auto" data-node-id="I855:1822;46:29">
                 مشاهده خدمات
               </p>
             </DesignAction>
-            <DesignAction className="fg-60c3fad335" data-node-id="855:1825" data-name="Negarin / Button" label="بازگشت به جزئیات ارتقا" destination="membership-center">
+            <DesignAction className="fg-60c3fad335" data-node-id="855:1825" data-name="Negarin / Button" label="بازگشت به جزئیات ارتقا" destination="membership-center-upgraded">
               <p className="fg-bf29e071b6" dir="auto" data-node-id="I855:1825;46:17">
                 بازگشت به جزئیات ارتقا
               </p>
