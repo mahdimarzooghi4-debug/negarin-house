@@ -29,7 +29,7 @@ export default function ArtistFinanceTransactionDetailSaleMobile() {
       </div>
       <div className="fg-799f37102e" data-node-id="855:771" data-name="Header">
         <div className="fg-c96fe10678" data-node-id="855:772" data-name="Frame">
-          <DesignAction className="fg-e8210ba625" data-node-id="855:773" data-name="Back Button" label="بازگشت" destination="finance">
+          <DesignAction className="fg-e8210ba625" data-node-id="855:773" data-name="Back Button" label="بازگشت" destination="finance-transactions">
             <div className="fg-c51752dc8c" data-node-id="855:1175" data-name="chevron-left">
               <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/67971172.svg" />
             </div>
