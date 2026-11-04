@@ -2,6 +2,19 @@ import {describe,expect,it} from "vitest";
 import {CORPORATE_LIST_PAGE_SIZE,MAX_CORPORATE_LIST_PAGE,MAX_CORPORATE_LIST_PAGE_SIZE,MAX_PURCHASE_REQUEST_LINES,MAX_PURCHASE_REQUEST_QUANTITY,formatToman,isPurchaseRequestQuantity,normalizePurchaseRequestProductIds,parseCorporateProduct,parseCorporatePurchaseRequest,parseProductPage,parsePurchaseRequestPage,parsePurchaseRequestProductQuery,parseRequiredUuidQuery,requestTotalQuantity} from "./live-data";
 
 describe("Corporate live data contracts",()=>{
+  it("distinguishes missing organization totals from zero counts",()=>{
+    const page = {page:1,pageSize:20,hasMore:false,items:[]};
+    expect(parsePurchaseRequestPage(page)).toEqual(page);
+    expect(parsePurchaseRequestPage({...page,totals:{draft:0,submitted:0}})?.totals)
+      .toEqual({draft:0,submitted:0});
+    expect(parsePurchaseRequestPage({...page,totals:{draft:31,submitted:42}})?.totals)
+      .toEqual({draft:31,submitted:42});
+
+    for(const totals of [null,{draft:-1,submitted:0},{draft:1.5,submitted:0},{draft:0},{draft:"0",submitted:0}]){
+      expect(parsePurchaseRequestPage({...page,totals})).toBeNull();
+    }
+  });
+
   it("parses only the public Corporate product response",()=>{
     const product=parseCorporateProduct({
       id:"00000000-0000-4000-8000-000000000001",title:"اثر",description:"شرح",category:"مینا",
