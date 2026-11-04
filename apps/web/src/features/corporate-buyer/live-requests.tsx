@@ -30,14 +30,14 @@ export function CorporatePurchaseRequestsLive(){
       .finally(()=>{if(!controller.signal.aborted)setLoading(false);});
     return ()=>controller.abort();
   },[page]);
-  return <CorporateSessionGate><CorporateLiveShell title="درخواست‌های خرید"><section className={styles.panel}>
-    <div className={styles.toolbar}><Link className={styles.button} href="/corporate-buyer/corporate-products">انتخاب محصول و ثبت درخواست</Link></div>
+  return <CorporateSessionGate><CorporateLiveShell title="درخواست‌های خرید"><section className={styles.requestList}>
+    <div className={styles.toolbar}><Link className={styles.button} href="/corporate-buyer/corporate-products">ثبت درخواست جدید</Link></div>
     {loading&&<div className={styles.empty}>در حال دریافت درخواست‌های واقعی…</div>}
     {error&&<div className={styles.error}>{error}</div>}
-    {!loading&&!error&&data&&data.items.length===0&&<div className={styles.empty}>هنوز PurchaseRequest واقعی برای این سازمان ثبت نشده است.</div>}
-    {!loading&&!error&&data&&data.items.length>0&&<table className={styles.table}><thead><tr><th>شناسه</th><th>وضعیت</th><th>اقلام</th><th>تعداد کل</th><th>ایجاد</th><th>عملیات</th></tr></thead><tbody>
-      {data.items.map(request=><tr key={request.id}><td dir="ltr">{shortId(request.id)}</td><td><span className={styles.status}>{request.status==="draft"?"پیش‌نویس":"ارسال‌شده"}</span></td><td>{request.items.map(item=>item.title).join("، ")}</td><td>{new Intl.NumberFormat("fa-IR").format(requestTotalQuantity(request))}</td><td>{formatPersianDate(request.createdAt)}</td><td><Link className={styles.secondary} href={"/corporate-buyer/purchase-request-detail?id="+request.id}>مشاهده</Link></td></tr>)}
-    </tbody></table>}
+    {!loading&&!error&&data&&data.items.length===0&&<div className={styles.empty}>هنوز درخواست خریدی برای این سازمان ثبت نشده است.</div>}
+    {!loading&&!error&&data&&data.items.length>0&&<div className={styles.requestTable}><table className={styles.table}><thead><tr><th>شناسه</th><th>محصولات</th><th>تعداد</th><th>وضعیت</th><th>تاریخ ثبت</th><th>عملیات</th></tr></thead><tbody>
+      {data.items.map(request=><tr key={request.id}><td dir="ltr">{shortId(request.id)}</td><td>{request.items.map(item=>item.title).join("، ")}</td><td>{new Intl.NumberFormat("fa-IR").format(requestTotalQuantity(request))}</td><td><span className={styles.status} data-status={request.status}>{request.status==="draft"?"پیش‌نویس":"ارسال‌شده"}</span></td><td>{formatPersianDate(request.createdAt)}</td><td><Link className={styles.secondary} href={"/corporate-buyer/purchase-request-detail?id="+request.id}>مشاهده</Link></td></tr>)}
+    </tbody></table></div>}
     {data&&<div className={styles.pagination}><button className={styles.secondary} type="button" disabled={page<=1} onClick={()=>setPage(value=>Math.max(1,value-1))}>قبلی</button><span>صفحه {new Intl.NumberFormat("fa-IR").format(page)}</span><button className={styles.secondary} type="button" disabled={!data.hasMore||page>=MAX_CORPORATE_LIST_PAGE} onClick={()=>setPage(value=>Math.min(MAX_CORPORATE_LIST_PAGE,value+1))}>بعدی</button></div>}
   </section></CorporateLiveShell></CorporateSessionGate>;
 }
