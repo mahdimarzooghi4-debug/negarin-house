@@ -17,7 +17,7 @@ function messageForStatus(status:number, fallback:string){
   return fallback;
 }
 
-export function CorporatePurchaseRequestsLive(){
+export function CorporatePurchaseRequestsLive({dashboard=false}:{dashboard?:boolean}){
   const [page,setPage]=useState(1),[data,setData]=useState<ReturnType<typeof parsePurchaseRequestPage>>(null);
   const [loading,setLoading]=useState(true),[error,setError]=useState("");
   useEffect(()=>{
@@ -30,15 +30,22 @@ export function CorporatePurchaseRequestsLive(){
       .finally(()=>{if(!controller.signal.aborted)setLoading(false);});
     return ()=>controller.abort();
   },[page]);
-  return <CorporateSessionGate><CorporateLiveShell title="درخواست‌های خرید"><section className={styles.requestList}>
+  return <CorporateSessionGate><CorporateLiveShell title={dashboard?"پیشخوان":"درخواست‌های خرید"}><section className={styles.requestList}>
     <div className={styles.toolbar}><Link className={styles.button} href="/corporate-buyer/corporate-products">ثبت درخواست جدید</Link></div>
+    {dashboard&&<>
+      <div className={styles.toolbar}>
+        <Link href="/corporate-buyer/corporate-products">مشاهده محصولات سازمانی</Link>
+        <Link href="/corporate-buyer/purchase-requests">مشاهده همه درخواست‌ها</Link>
+      </div>
+      <h2>درخواست‌های اخیر سازمان</h2>
+    </>}
     {loading&&<div className={styles.empty}>در حال دریافت درخواست‌های واقعی…</div>}
     {error&&<div className={styles.error}>{error}</div>}
     {!loading&&!error&&data&&data.items.length===0&&<div className={styles.empty}>هنوز درخواست خریدی برای این سازمان ثبت نشده است.</div>}
     {!loading&&!error&&data&&data.items.length>0&&<div className={styles.requestTable}><table className={styles.table}><thead><tr><th>شناسه</th><th>محصولات</th><th>تعداد</th><th>وضعیت</th><th>تاریخ ثبت</th><th>عملیات</th></tr></thead><tbody>
       {data.items.map(request=><tr key={request.id}><td dir="ltr">{shortId(request.id)}</td><td>{request.items.map(item=>item.title).join("، ")}</td><td>{new Intl.NumberFormat("fa-IR").format(requestTotalQuantity(request))}</td><td><span className={styles.status} data-status={request.status}>{request.status==="draft"?"پیش‌نویس":"ارسال‌شده"}</span></td><td>{formatPersianDate(request.createdAt)}</td><td><Link className={styles.secondary} href={"/corporate-buyer/purchase-request-detail?id="+request.id}>مشاهده</Link></td></tr>)}
     </tbody></table></div>}
-    {data&&<div className={styles.pagination}><button className={styles.secondary} type="button" disabled={page<=1} onClick={()=>setPage(value=>Math.max(1,value-1))}>قبلی</button><span>صفحه {new Intl.NumberFormat("fa-IR").format(page)}</span><button className={styles.secondary} type="button" disabled={!data.hasMore||page>=MAX_CORPORATE_LIST_PAGE} onClick={()=>setPage(value=>Math.min(MAX_CORPORATE_LIST_PAGE,value+1))}>بعدی</button></div>}
+    {!dashboard&&data&&<div className={styles.pagination}><button className={styles.secondary} type="button" disabled={page<=1} onClick={()=>setPage(value=>Math.max(1,value-1))}>قبلی</button><span>صفحه {new Intl.NumberFormat("fa-IR").format(page)}</span><button className={styles.secondary} type="button" disabled={!data.hasMore||page>=MAX_CORPORATE_LIST_PAGE} onClick={()=>setPage(value=>Math.min(MAX_CORPORATE_LIST_PAGE,value+1))}>بعدی</button></div>}
   </section></CorporateLiveShell></CorporateSessionGate>;
 }
 
