@@ -53,3 +53,25 @@ test('issue preview validates contact and accepts only native JPG/PNG attachment
  await upload.setInputFiles({name:'damage.png',mimeType:'image/png',buffer:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jS1cAAAAASUVORK5CYII=','base64')});await expect(page.getByRole('status')).toContainText('damage.png');
  await page.getByRole('textbox',{name:'شرح مشکل',exact:true}).fill('آسیب بسته در زمان تحویل');await page.getByRole('textbox',{name:'شماره تماس جهت پیگیری',exact:true}).fill('۰۲۱-۸۸۹۹۰۰۱۱');await page.getByRole('button',{name:'ارسال گزارش',exact:true}).click();await ready(page,'issue-detail');
 });
+
+test("review navigation follows the Figma inventory", async ({page}) => {
+  test.setTimeout(120_000);
+  await page.goto("/preview/corporate-buyer/" + inventory[0].slug);
+  const navigation = page.getByRole("navigation", {name:"مرور صفحات پنل"});
+
+  for (const [index, screen] of inventory.entries()) {
+    await ready(page, screen.slug);
+    const previous = navigation.getByRole("link", {name:"صفحهٔ قبلی"});
+    const next = navigation.getByRole("link", {name:"صفحهٔ بعدی"});
+    if (index === 0) await expect(previous).toHaveCount(0);
+    else await expect(previous).toHaveAttribute("href", "/preview/corporate-buyer/" + inventory[index - 1].slug);
+
+    if (index === inventory.length - 1) await expect(next).toHaveCount(0);
+    else await next.click();
+  }
+
+  await navigation.getByRole("link", {name:"صفحهٔ قبلی"}).click();
+  await ready(page, inventory[inventory.length - 2].slug);
+  await page.getByRole("link", {name:"همهٔ صفحه‌های خریدار سازمانی", exact:true}).click();
+  await expect(page.locator(".preview-groups li")).toHaveCount(inventory.length);
+});
