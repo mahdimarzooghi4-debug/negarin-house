@@ -331,8 +331,8 @@ export default function CorporateBuyerDashboardDesktop() {
               <p className="fg-356a992da1" dir="auto" data-node-id="961:386">
                 پیشخوان
               </p>
-              <div className="fg-58d29b27c0" data-node-id="961:929" data-name="circle-x">
-                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/d0896b45.svg" />
+              <div className="fg-58d29b27c0" data-node-id="961:929" data-name="layout-dashboard">
+                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/4dd1d286.svg" />
               </div>
             </CorporateAction>
             <CorporateAction className="fg-337d3f989a" data-node-id="961:388" data-name="nav-item-requests" label="درخواست‌های خرید" destination="purchase-requests">

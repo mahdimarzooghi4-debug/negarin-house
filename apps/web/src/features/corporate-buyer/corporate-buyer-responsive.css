@@ -1,14 +1,32 @@
-/* Match the corporate-buyer sidebar surface and logo to Figma. */
+/* Match the shared corporate-buyer sidebar to the current Figma foundation. */
 .corporate-buyer-design .fg-7826810f37 {
   background-color: #faf8f2;
   border: 1px solid #562323;
+  justify-content: flex-start;
+  gap: 43px;
+  padding: 32px 16px 24px;
 }
-.corporate-buyer-design .fg-35f9b3d3c7 {
-  width: 32px;
-  height: 32px;
+.corporate-buyer-design .fg-35f9b3d3c7,
+.corporate-buyer-design .fg-3cbc143952,
+.corporate-buyer-design .fg-58d2e6303a {
+  align-self: stretch;
+  flex: 0 0 83px;
+  width: 100%;
+  height: 83px;
+  border-radius: 0;
+  background: url("/corporate-buyer-assets/negari-brand-sidebar.png") center / contain no-repeat;
 }
-.corporate-buyer-design .fg-b5304dc4b2 {
-  object-fit: contain;
+.corporate-buyer-design .fg-35f9b3d3c7 > img,
+.corporate-buyer-design .fg-3cbc143952 > img,
+.corporate-buyer-design .fg-58d2e6303a > img {
+  opacity: 0;
+}
+.corporate-buyer-design .fg-7826810f37 .fg-914cbaa88f {
+  display: none;
+}
+.corporate-buyer-design .fg-7826810f37 .fg-9f013eccd1 {
+  align-self: flex-end;
+  text-align: right;
 }
 .corporate-buyer-design .corporate-buyer-logout {
   align-self: stretch;
@@ -18,7 +36,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 12px;
-  margin-top: 8px;
+  margin-top: auto;
   border: 0;
   border-top: 1px solid #e7dfd6;
   padding: 16px 16px 0;
