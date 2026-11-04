@@ -196,3 +196,11 @@
 .requestTable .status[data-status="submitted"] { background: #ecfdf5; color: #047857; }
 .requestTable .secondary { background: white; border: 1px solid #e2e8f0; text-decoration: none; }
 .requestList .pagination { justify-content: center; align-items: center; }
+
+.nav span[aria-disabled="true"] { flex-direction: row; align-items: center; gap: 10px; }
+
+@media (max-width: 900px) {
+  .sidebar { display: flex; gap: 12px; padding: 16px 20px; }
+  .nav { flex-direction: row; flex-wrap: wrap; }
+  .logout { align-self: flex-start; }
+}
