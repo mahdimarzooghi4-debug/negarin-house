@@ -91,19 +91,27 @@ export function CorporateNewPurchaseRequestLive({selection}:{selection:PurchaseR
     }catch(error){setError(error instanceof Error?error.message:"خطا");}finally{setWorking(false);}
   }
 
-  return <CorporateSessionGate><CorporateLiveShell title="ثبت درخواست خرید"><section className={styles.panel}>
-    <p className={styles.notice}>قرارداد فعلی PurchaseRequest فقط محصول و تعداد را ذخیره می‌کند. بودجه، شهر، مناسبت، تخفیف و قیمت تجاری تا زمان تعریف CorporateProposal در این فرم عملیاتی وجود ندارند.</p>
+  return <CorporateSessionGate><CorporateLiveShell title="ثبت درخواست خرید"><>
+    <nav className={styles.breadcrumb} aria-label="مسیر صفحه">
+      <Link href="/corporate-buyer/purchase-requests">درخواست‌های خرید</Link>
+      <span aria-hidden="true">‹</span>
+      <span aria-current="page">ثبت درخواست جدید</span>
+    </nav>
+    <section className={styles.panel} aria-labelledby="selected-products-heading">
+      <h2 id="selected-products-heading">محصولات انتخاب‌شده</h2>
+    <p className={styles.notice}>در این مرحله فقط محصولات انتخاب‌شده و تعداد هر محصول ثبت می‌شود.</p>
     {loading&&<div className={styles.empty}>در حال اعتبارسنجی محصولات انتخاب‌شده…</div>}
     {error&&<div className={styles.error}>{error}{draftId&&<> <Link href={"/corporate-buyer/purchase-request-detail?id="+draftId}>مشاهده پیش‌نویس ذخیره‌شده</Link></>}</div>}
     {!loading&&!products.length&&!error&&<div className={styles.empty}>محصولی انتخاب نشده است. <Link href="/corporate-buyer/corporate-products">انتخاب از محصولات سازمانی</Link></div>}
     {!!products.length&&<div className={styles.form}>{products.map(product=><div className={styles.requestItem} key={product.id}>
       <div><strong>{product.title}</strong><small> · {product.category??"—"}</small></div>
-      <label>تعداد <input aria-label={"تعداد "+product.title} type="number" min={1} max={MAX_PURCHASE_REQUEST_QUANTITY} step={1} value={quantities[product.id]??1} onChange={event=>setQuantities(previous=>({...previous,[product.id]:Number(event.target.value)}))}/></label>
+      <label>تعداد <input aria-label={"تعداد "+product.title} type="number" disabled={working} min={1} max={MAX_PURCHASE_REQUEST_QUANTITY} step={1} value={quantities[product.id]??1} onChange={event=>setQuantities(previous=>({...previous,[product.id]:Number(event.target.value)}))}/></label>
       <button className={styles.danger} type="button" disabled={working} onClick={()=>setProducts(items=>items.filter(item=>item.id!==product.id))}>حذف</button>
     </div>)}
       <div className={styles.cardActions}><button className={styles.secondary} type="button" disabled={working||!products.length} onClick={()=>void create("draft")}>ذخیره پیش‌نویس</button><button className={styles.button} type="button" disabled={working||!products.length} onClick={()=>void create("submit")}>{working?"در حال ثبت…":"ثبت و ارسال درخواست"}</button></div>
     </div>}
-  </section></CorporateLiveShell></CorporateSessionGate>;
+    </section>
+  </></CorporateLiveShell></CorporateSessionGate>;
 }
 
 export function CorporatePurchaseRequestDetailLive({id}:{id:string}){
