@@ -1,5 +1,6 @@
 import "@fontsource-variable/vazirmatn";
 import "../../../features/corporate-buyer/corporate-buyer.css";
+import "../../../features/corporate-buyer/corporate-buyer-responsive.css";
 import {PreviewState} from "../../../features/artist/preview-state";
 import {notFound} from "next/navigation";
 
