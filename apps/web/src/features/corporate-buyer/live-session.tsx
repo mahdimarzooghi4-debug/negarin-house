@@ -3,7 +3,7 @@ import {useCallback,useEffect,useState,type ReactNode} from "react";
 import {isCorporateContext,parseCorporateGrantOptions,parseIdentityContext,type IdentityContext,type IdentityGrant} from "./live-session-model";
 import styles from "./live.module.css";
 
-export function CorporateSessionGate({children}:{children:ReactNode}){
+export function CorporateSessionGate({children}:{children:ReactNode|((context:IdentityContext)=>ReactNode)}){
   const [context,setContext]=useState<IdentityContext|null>(null);
   const [grants,setGrants]=useState<IdentityGrant[]|null>(null);
   const [state,setState]=useState<"loading"|"ready"|"select"|"unauthenticated"|"forbidden"|"error">("loading");
@@ -44,7 +44,7 @@ export function CorporateSessionGate({children}:{children:ReactNode}){
     }catch{setState("error");}
   }
 
-  if(state==="ready"&&context)return <>{children}</>;
+  if(state==="ready"&&context)return <>{typeof children==="function"?children(context):children}</>;
   return <main className={styles.gate} dir="rtl">
     <section className={styles.gateCard}>
       <img src="/corporate-buyer-assets/530a0f8f.png" alt="" />
