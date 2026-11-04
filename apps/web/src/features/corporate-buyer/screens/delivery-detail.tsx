@@ -170,7 +170,7 @@ export default function CorporateBuyerDeliveryDetailDesktop() {
         </div>
         <CorporateSidebar className="fg-7826810f37" data-node-id="961:2650" data-name="sidebar">
           <div className="fg-58d2e6303a" data-node-id="962:5" data-name="Negarin Logo">
-            <img alt="" className="fg-71eecc63f8" src="/corporate-buyer-assets/742e6917.png" />
+            <img alt="" className="fg-71eecc63f8" src="/corporate-buyer-assets/negari-brand-sidebar.png" />
           </div>
           <div className="fg-f380acb1b8" data-node-id="961:2651" data-name="sidebar-top">
             <div className="fg-93778178b8" data-node-id="961:2652" data-name="logo-group">

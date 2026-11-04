@@ -14,12 +14,12 @@
   width: 100%;
   height: 83px;
   border-radius: 0;
-  background: url("/corporate-buyer-assets/negari-brand-sidebar.png") center / contain no-repeat;
+  background: none;
 }
 .corporate-buyer-design .fg-35f9b3d3c7 > img,
 .corporate-buyer-design .fg-3cbc143952 > img,
 .corporate-buyer-design .fg-58d2e6303a > img {
-  opacity: 0;
+  opacity: 1;
 }
 .corporate-buyer-design .fg-7826810f37 .fg-914cbaa88f {
   display: none;

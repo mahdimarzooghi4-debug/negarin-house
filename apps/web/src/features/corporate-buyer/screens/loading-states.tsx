@@ -178,7 +178,7 @@ export default function CorporateBuyerLoadingStatesDesktop() {
       </div>
       <CorporateSidebar className="fg-7826810f37" data-node-id="962:1433" data-name="sidebar">
         <div className="fg-58d2e6303a" data-node-id="962:1693" data-name="Negarin Logo">
-          <img alt="" className="fg-71eecc63f8" src="/corporate-buyer-assets/742e6917.png" />
+          <img alt="" className="fg-71eecc63f8" src="/corporate-buyer-assets/negari-brand-sidebar.png" />
         </div>
         <div className="fg-f380acb1b8" data-node-id="962:1434" data-name="logo-section">
           <div className="fg-6a0a0c42d7" data-node-id="962:1435" data-name="logo-title">

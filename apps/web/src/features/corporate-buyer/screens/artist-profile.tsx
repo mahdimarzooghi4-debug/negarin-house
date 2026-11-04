@@ -154,7 +154,7 @@ export default function CorporateBuyerArtistProfileDesktop() {
       </div>
       <CorporateSidebar className="fg-7826810f37" data-node-id="961:764" data-name="sidebar">
         <div className="fg-35f9b3d3c7" data-node-id="961:943" data-name="Brand / Negarin Logo">
-          <img alt="" className="fg-b5304dc4b2" src="/corporate-buyer-assets/530a0f8f.png" />
+          <img alt="" className="fg-b5304dc4b2" src="/corporate-buyer-assets/negari-brand-sidebar.png" />
         </div>
         <div className="fg-f380acb1b8" data-node-id="961:765" data-name="Frame">
           <div className="fg-6a0a0c42d7" data-node-id="961:766" data-name="Frame">
