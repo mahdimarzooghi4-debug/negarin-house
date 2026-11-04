@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "@negarin/ui";
 import { usePreview } from "../../artist/preview-state";
 
 const buttonStyle = {
@@ -38,7 +39,7 @@ export function GroupReferralButton() {
 
   return (
     <>
-      <button type="button" style={buttonStyle} onClick={() => setOpen(true)}>معرفی گروهی</button>
+      <Button type="button" variant="unstyled" style={buttonStyle} onClick={() => setOpen(true)}>معرفی گروهی</Button>
       {open && (
         <div
           role="presentation"
@@ -69,8 +70,8 @@ export function GroupReferralButton() {
               مجوز ارائه اطلاعات تماس همه هنرمندان را دارم.
             </label>
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-start", marginTop: 20 }}>
-              <button type="button" style={buttonStyle} onClick={() => setOpen(false)}>انصراف</button>
-              <button type="button" style={{ ...buttonStyle, borderColor: "#0f172a", background: "#0f172a", color: "#fff" }} onClick={submit}>ثبت معرفی گروهی</button>
+              <Button type="button" variant="unstyled" style={buttonStyle} onClick={() => setOpen(false)}>انصراف</Button>
+              <Button type="button" variant="unstyled" style={{ ...buttonStyle, borderColor: "#0f172a", background: "#0f172a", color: "#fff" }} onClick={submit}>ثبت معرفی گروهی</Button>
             </div>
           </section>
         </div>
