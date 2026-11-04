@@ -115,3 +115,23 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+/* Operational shell follows the corporate portal's desktop chrome. */
+.shell { background: #f8fafc; color: #1e293b; grid-template-columns: 260px minmax(0, 1fr); }
+.sidebar { background: white; color: #405654; padding: 32px 16px 24px; border-inline-end: 1px solid #e2e8f0; }
+.brand { color: #1e293b; }
+.brand img { width: 32px; height: 32px; }
+.nav a { flex-direction: row; align-items: center; gap: 10px; }
+.nav a:hover { background: #f1f5f9; }
+.nav a[aria-current="page"] { background: #e0f2fe; color: #0369a1; font-weight: 700; }
+.logout { color: #405654; border-color: #e2e8f0; }
+.main { padding: 0 40px 40px; }
+.header { min-height: 72px; margin: 0 -40px 40px; padding: 12px 40px; background: white; border-bottom: 1px solid #e2e8f0; }
+.header h1 { font-size: 20px; }
+
+@media (max-width: 900px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  .main { padding: 0 20px 20px; }
+  .header { margin: 0 -20px 20px; padding-inline: 20px; }
+}
