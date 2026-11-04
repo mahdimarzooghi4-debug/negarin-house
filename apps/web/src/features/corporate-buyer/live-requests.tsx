@@ -36,17 +36,17 @@ export function CorporatePurchaseRequestsLive({dashboard=false}:{dashboard?:bool
       <div>شناسهٔ سازمان <bdi>{context.organizationId}</bdi></div>
     </section>}
     <div className={styles.toolbar}><Link className={styles.button} href="/corporate-buyer/corporate-products">ثبت درخواست جدید</Link></div>
-    {dashboard&&!loading&&!error&&data&&<section aria-label="خلاصه درخواست‌های اخیر">
-      <h2>خلاصه درخواست‌های اخیر</h2>
+    {dashboard&&!loading&&!error&&data?.totals&&<section aria-label="خلاصه درخواست‌های سازمان">
+      <h2>خلاصه درخواست‌های سازمان</h2>
       <div className={styles.grid}>
         {(["draft","submitted"] as const).map(status=><article key={status} className={styles.card}>
           <div className={styles.cardBody}>
             <h3>{status==="draft"?"پیش‌نویس‌ها":"درخواست‌های ارسال‌شده"}</h3>
-            <strong>{new Intl.NumberFormat("fa-IR").format(data.items.slice(0,5).filter(request=>request.status===status).length)}</strong>
+            <strong>{new Intl.NumberFormat("fa-IR").format(data.totals![status])}</strong>
           </div>
         </article>)}
       </div>
-      <p>شمارش بر اساس حداکثر پنج درخواست اخیر سازمان است.</p>
+      <p>شمارش بر اساس همهٔ درخواست‌های سازمان فعال است.</p>
     </section>}
     {dashboard&&<>
       <div className={styles.toolbar}>
