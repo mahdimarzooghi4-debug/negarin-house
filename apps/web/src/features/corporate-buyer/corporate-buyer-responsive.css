@@ -1,3 +1,16 @@
+/* Match the Figma sidebar surface and preserve the designed Negarin logo size. */
+.corporate-buyer-design .fg-7826810f37 {
+  background-color: #faf8f2;
+  border: 1px solid #562323;
+}
+.corporate-buyer-design .fg-35f9b3d3c7 {
+  width: 32px;
+  height: 32px;
+}
+.corporate-buyer-design .fg-b5304dc4b2 {
+  object-fit: contain;
+}
+
 /* Scale the 1440px corporate-buyer Figma canvas to the available desktop viewport. */
 @media (max-width: 1439px) {
   .preview-toolbar,
