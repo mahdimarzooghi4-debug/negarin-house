@@ -5,6 +5,7 @@ import "@fontsource-variable/vazirmatn";
 import "@fontsource-variable/outfit";
 import "@fontsource-variable/jetbrains-mono";
 import "../../../features/export-partner/export-partner.css";
+import "../../../features/export-partner/order-detail-responsive.css";
 import { ExportPreviewState } from "../../../features/export-partner/export-controls";
 import { notFound } from "next/navigation";
 
