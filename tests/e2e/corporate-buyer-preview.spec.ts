@@ -42,7 +42,7 @@ test('purchase preview requires a title, description and positive Persian or Lat
  await page.getByRole('button',{name:'ثبت درخواست',exact:true}).click();await expect(page.getByRole('status')).toContainText('عنوان، شرح نیاز');await expect(page).toHaveURL(/new-purchase-request$/);
  await page.getByRole('textbox',{name:'عنوان درخواست',exact:true}).fill('هدایای پایان سال');await page.getByRole('textbox',{name:'شرح نیاز',exact:true}).fill('میناکاری با بسته‌بندی سازمانی');await page.getByRole('textbox',{name:'تعداد تقریبی',exact:true}).fill('۰');await page.getByRole('button',{name:'ثبت درخواست',exact:true}).click();await expect(page).toHaveURL(/new-purchase-request$/);
  await page.getByRole('textbox',{name:'تعداد تقریبی',exact:true}).fill('۵۰۰');await page.getByRole('button',{name:'ثبت درخواست',exact:true}).click();await ready(page,'purchase-request-detail');
- await page.goto('/preview/corporate-buyer/proposal-detail');await ready(page,'proposal-detail');await expect(page.locator('a[href="/preview/corporate-buyer/proposal-revision"]')).toHaveCount(1);
+ await page.goto('/preview/corporate-buyer/proposal-detail');await ready(page,'proposal-detail');await expect(page.locator('.corporate-buyer-design a[href="/preview/corporate-buyer/proposal-revision"]')).toHaveCount(1);
 });
 
 test('issue preview validates contact and accepts only native JPG/PNG attachments up to 5 MB',async({page})=>{
