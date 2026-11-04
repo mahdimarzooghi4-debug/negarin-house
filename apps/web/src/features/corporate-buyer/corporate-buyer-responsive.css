@@ -1,0 +1,7 @@
+/* Scale the 1440px corporate-buyer Figma canvas to the available desktop viewport. */
+@media (max-width: 1439px) {
+  .preview-toolbar,
+  .corporate-buyer-design {
+    zoom: calc((100vw - 15px) / 1440px);
+  }
+}
