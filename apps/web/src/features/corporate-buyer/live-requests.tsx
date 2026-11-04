@@ -138,10 +138,19 @@ export function CorporatePurchaseRequestDetailLive({id}:{id:string}){
 
   return <CorporateSessionGate><CorporateLiveShell title="جزئیات درخواست خرید"><section className={styles.panel}>
     {loading&&<div className={styles.empty}>در حال دریافت درخواست…</div>}{error&&<div className={styles.error}>{error}</div>}
-    {request&&<><div className={styles.toolbar}><Link className={styles.secondary} href="/corporate-buyer/purchase-requests">بازگشت</Link>{request.status==="draft"&&<button className={styles.button} type="button" disabled={working} onClick={()=>void submit()}>{working?"در حال ارسال…":"ارسال برای بررسی نگارین"}</button>}</div>
-      <div className={styles.detailGrid}><div><div className={styles.kv}><small>شناسه</small><span dir="ltr">{request.id}</span></div><div className={styles.kv}><small>وضعیت</small>{request.status==="draft"?"پیش‌نویس":"ارسال‌شده"}</div><div className={styles.kv}><small>ایجاد</small>{formatPersianDate(request.createdAt)}</div><div className={styles.kv}><small>ارسال</small>{formatPersianDate(request.submittedAt)}</div></div>
-      <div><h2>اقلام درخواست</h2>{request.items.map(item=><div className={styles.kv} key={item.productId}><strong>{item.title}</strong><small>تعداد: {new Intl.NumberFormat("fa-IR").format(item.quantity)}</small></div>)}</div></div>
-      <h2>تاریخچه</h2><div className={styles.history}>{request.history.map(event=><div className={styles.historyItem} key={event.version}><strong>{event.action==="created"?"ایجاد پیش‌نویس":"ارسال درخواست"}</strong><div>{formatPersianDate(event.createdAt)} · نسخه {new Intl.NumberFormat("fa-IR").format(event.version)}</div></div>)}</div>
+    {request&&request.id===id&&<>
+      <nav className={styles.breadcrumb} aria-label="مسیر صفحه">
+        <Link href="/corporate-buyer/purchase-requests">درخواست‌های خرید</Link>
+        <span aria-hidden="true">‹</span>
+        <span aria-current="page">جزئیات درخواست</span>
+      </nav>
+      <div className={styles.toolbar}>
+        <strong>درخواست <bdi>{shortId(request.id)}</bdi></strong>
+        <span className={styles.status}>{request.status==="draft"?"پیش‌نویس":"ارسال‌شده"}</span>
+        {request.status==="draft"&&<button className={styles.button} type="button" disabled={working} onClick={()=>void submit()}>{working?"در حال ارسال…":"ارسال برای بررسی نگارین"}</button>}</div>
+      <div className={styles.detailGrid}><div><div className={styles.kv}><small>شناسه</small><span dir="ltr">{request.id}</span></div><div className={styles.kv}><small>تعداد کل</small>{new Intl.NumberFormat("fa-IR").format(requestTotalQuantity(request))}</div><div className={styles.kv}><small>ایجاد</small>{formatPersianDate(request.createdAt)}</div><div className={styles.kv}><small>ارسال</small>{formatPersianDate(request.submittedAt)}</div></div>
+      <div><h2>محصولات انتخاب‌شده</h2>{request.items.map(item=><div className={styles.kv} key={item.productId}><strong>{item.title}</strong><small>تعداد: {new Intl.NumberFormat("fa-IR").format(item.quantity)}</small></div>)}</div></div>
+      <h2>روند ثبت و ارسال درخواست</h2><div className={styles.history}>{request.history.map(event=><div className={styles.historyItem} key={event.version}><strong>{event.action==="created"?"ایجاد پیش‌نویس":"ارسال درخواست"}</strong><div>{formatPersianDate(event.createdAt)} · نسخه {new Intl.NumberFormat("fa-IR").format(event.version)}</div></div>)}</div>
       <p className={styles.notice}>این درخواست هیچ قیمت تجاری یا رزرو موجودی ایجاد نمی‌کند. مرحلهٔ Proposal/CorporateOrder هنوز فعال نشده است.</p>
     </>}
   </section></CorporateLiveShell></CorporateSessionGate>;
