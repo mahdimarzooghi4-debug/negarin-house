@@ -1554,3 +1554,21 @@
   .supporting-organization-design { zoom: min(1, calc((100vw - 16px) / 1440px)); }
   .preview-toolbar { width: 100%; min-width: 0; box-sizing: border-box; }
 }
+
+/* Keep the supporting-organization brand consistent with the other Negarin panels. */
+.supporting-organization-design .fg-47aacf6d1d {
+  justify-content: center;
+  min-height: 56px;
+}
+.supporting-organization-design .fg-47aacf6d1d > .fg-0629e67c84 {
+  display: none;
+}
+.supporting-organization-design .fg-47aacf6d1d > .fg-35f9b3d3c7 {
+  background: url("/admin-assets/negarin-sidebar-brand.svg") center / contain no-repeat;
+  border-radius: 0;
+  width: 179px;
+  height: 56px;
+}
+.supporting-organization-design .fg-47aacf6d1d > .fg-35f9b3d3c7 img {
+  display: none;
+}
