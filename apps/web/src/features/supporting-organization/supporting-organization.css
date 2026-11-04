@@ -1549,3 +1549,8 @@
 .supporting-organization-design [data-node-id="958:133"]{left:-2px;top:-3px;}
 .supporting-organization-design [data-node-id="958:136"]{left:-2px;top:-3px;}
 .supporting-organization-design [data-node-id="958:139"]{left:-2px;top:-3px;}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .supporting-organization-design { zoom: min(1, calc((100vw - 16px) / 1440px)); }
+  .preview-toolbar { width: 100%; min-width: 0; box-sizing: border-box; }
+}
