@@ -1,6 +1,7 @@
 // Figma 954:853 — Supporting Organization / New Artist Referral — Desktop
 import { DesignField, DesignChoice } from "../../artist/design-controls";
 import { OrganizationAction, OrganizationSidebar } from "../organization-controls";
+import { GroupReferralButton } from "./group-referral-button";
 
 export default function SupportingOrganizationNewArtistReferralDesktop() {
   return (
@@ -114,6 +115,7 @@ export default function SupportingOrganizationNewArtistReferralDesktop() {
                 </DesignChoice>
               </div>
               <div className="fg-b8be7c6624" data-node-id="954:900" data-name="form-buttons">
+                <GroupReferralButton />
                 <OrganizationAction className="fg-92c2d7b5f5" data-node-id="954:901" data-name="cancel-btn" label="انصراف" destination="artist-referrals">
                   <p className="fg-36ac832935" dir="auto" data-node-id="954:902">
                     انصراف
