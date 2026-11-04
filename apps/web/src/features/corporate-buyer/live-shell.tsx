@@ -1,17 +1,18 @@
 "use client";
 import Link from "next/link";
-import {useRouter} from "next/navigation";
+import {usePathname,useRouter} from "next/navigation";
 import type {ReactNode} from "react";
 import styles from "./live.module.css";
 
 const nav=[
-  ["محصولات سازمانی","/corporate-buyer/corporate-products"],
-  ["درخواست‌های خرید","/corporate-buyer/purchase-requests"],
+  ["درخواست‌های خرید","/corporate-buyer/purchase-requests","79a7e40d.svg"],
+  ["محصولات سازمانی","/corporate-buyer/corporate-products","75294634.svg"],
   ["ثبت درخواست","/corporate-buyer/new-purchase-request"]
 ] as const;
 
 export function CorporateLiveShell({title,children}:{title:string;children:ReactNode}){
   const router=useRouter();
+  const pathname=usePathname();
   async function logout(){
     const response=await fetch("/api/auth/session",{method:"DELETE"});
     if(response.ok) router.refresh();
@@ -23,7 +24,9 @@ export function CorporateLiveShell({title,children}:{title:string;children:React
         <span><strong>نگارین</strong><small>پرتال خریدار سازمانی</small></span>
       </Link>
       <nav className={styles.nav} aria-label="منوی خریدار سازمانی">
-        {nav.map(([label,href])=><Link key={href} href={href}>{label}</Link>)}
+        {nav.map(([label,href,icon])=><Link key={href} href={href} aria-current={pathname===href?"page":undefined}>
+          {icon&&<img src={"/corporate-buyer-assets/"+icon} width={18} height={18} alt="" />}{label}
+        </Link>)}
         <span aria-disabled="true">پیشنهادها <small>پس از تصویب قرارداد Proposal</small></span>
         <span aria-disabled="true">سفارش‌ها <small>پس از CorporateOrder</small></span>
       </nav>
