@@ -5,7 +5,7 @@ import type {ReactNode} from "react";
 import styles from "./live.module.css";
 
 const nav = [
-  {label:"پیشخوان", icon:"0b38f240.svg"},
+  {label:"پیشخوان", icon:"0b38f240.svg", href:"/corporate-buyer/dashboard"},
   {label:"درخواست‌های خرید", icon:"79a7e40d.svg", href:"/corporate-buyer/purchase-requests"},
   {label:"محصولات سازمانی", icon:"75294634.svg", href:"/corporate-buyer/corporate-products"},
   {label:"پیشنهادها", icon:"443db617.svg"},
