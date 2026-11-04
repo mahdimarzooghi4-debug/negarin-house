@@ -49,13 +49,8 @@ export default function ServicePartnerSubmitDeliverableDesktop() {
         </div>
       </div>
       <ServicePartnerSidebar className="fg-1cadfd0310" data-node-id="1001:263" data-name="Sidebar">
-        <div className="fg-24e47e687d" data-node-id="1001:264" data-name="Brand">
-          <p className="fg-013587b973" dir="auto" data-node-id="1001:265">
-            خانه نگارین
-          </p>
-          <div className="fg-842ae29a35" data-node-id="1001:266" data-name="Brand / Negarin Logo">
-            <img alt="" className="fg-71eecc63f8" src="/service-partner-assets/negarin-logo.png" />
-          </div>
+        <div className="service-sidebar-brand" data-name="Brand">
+          <img src="/admin-assets/negarin-sidebar-brand.svg" alt="خانه نگارین" />
         </div>
         <div className="fg-4c64003eb7" data-node-id="1001:267" data-name="Role Tag">
           <p className="fg-fd87dcd811" dir="auto" data-node-id="1001:268">
