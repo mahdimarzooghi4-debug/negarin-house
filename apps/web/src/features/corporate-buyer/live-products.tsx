@@ -53,7 +53,7 @@ export function CorporateProductsLive(){
 
   const ids=useMemo(()=>Object.keys(selected).filter(id=>selected[id]),[selected]);
   return <CorporateSessionGate><CorporateLiveShell title="محصولات سازمانی">
-    <section className={styles.panel}>
+    <section className={`${styles.panel} ${styles.catalog}`}>
       <div className={styles.toolbar}>
         <input aria-label="جستجوی محصولات" value={query} onChange={event=>{setPage(1);setQuery(event.target.value)}} placeholder="جستجو در عنوان یا توضیحات"/>
         <select aria-label="وضعیت موجودی" value={stock} onChange={event=>{setPage(1);setStock(event.target.value as typeof stock)}}>
