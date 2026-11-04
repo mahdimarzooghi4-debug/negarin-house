@@ -61,13 +61,8 @@ export default function ServicePartnerStatesQaDesktop() {
         </div>
       </div>
       <ServicePartnerSidebar className="fg-1cadfd0310" data-node-id="1001:411" data-name="Sidebar">
-        <div className="fg-24e47e687d" data-node-id="1001:412" data-name="Brand">
-          <p className="fg-013587b973" dir="auto" data-node-id="1001:413">
-            خانه نگارین
-          </p>
-          <div className="fg-842ae29a35" data-node-id="1001:414" data-name="Brand / Negarin Logo">
-            <img alt="" className="fg-71eecc63f8" src="/service-partner-assets/negarin-logo.png" />
-          </div>
+        <div className="service-sidebar-brand" data-name="Brand">
+          <img src="/admin-assets/negarin-sidebar-brand.svg" alt="خانه نگارین" />
         </div>
         <div className="fg-4c64003eb7" data-node-id="1001:415" data-name="Role Tag">
           <p className="fg-fd87dcd811" dir="auto" data-node-id="1001:416">
