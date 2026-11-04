@@ -177,3 +177,22 @@
   border-color: #e2e8f0;
   overflow-wrap: anywhere;
 }
+
+
+/* Corporate purchase request list, Figma 961:949. */
+.requestList .toolbar { margin-bottom: 24px; }
+.requestList .toolbar .button { background: #0f172a; text-decoration: none; }
+.requestTable {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: white;
+}
+.requestTable .table { min-width: 640px; }
+.requestTable .table th { background: #f8fafc; color: #475569; }
+.requestTable .table th,
+.requestTable .table td { padding: 16px; border-color: #e2e8f0; vertical-align: middle; }
+.requestTable .table tr:last-child td { border-bottom: 0; }
+.requestTable .status[data-status="submitted"] { background: #ecfdf5; color: #047857; }
+.requestTable .secondary { background: white; border: 1px solid #e2e8f0; text-decoration: none; }
+.requestList .pagination { justify-content: center; align-items: center; }
