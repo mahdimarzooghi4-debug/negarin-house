@@ -285,55 +285,55 @@ export default function CorporateBuyerDeliveriesDesktop() {
                 <p className="fg-79fc3d21bd" dir="auto" data-node-id="961:2542">
                   پیشخوان
                 </p>
-                <div className="fg-58d29b27c0" data-node-id="961:2543" data-name="icon-container">
-                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/7af5fddf.svg" />
+                <div className="fg-58d29b27c0" data-node-id="961:2543" data-name="layout-dashboard">
+                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-dashboard.svg" />
                 </div>
               </CorporateAction>
               <CorporateAction className="fg-337d3f989a" data-node-id="961:2545" data-name="nav-item-requests" label="درخواست‌های خرید" destination="purchase-requests">
                 <p className="fg-79fc3d21bd" dir="auto" data-node-id="961:2546">
                   درخواست‌های خرید
                 </p>
-                <div className="fg-58d29b27c0" data-node-id="961:2547" data-name="icon-container">
-                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/459553a7.svg" />
+                <div className="fg-58d29b27c0" data-node-id="961:2547" data-name="file-text">
+                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-requests.svg" />
                 </div>
               </CorporateAction>
               <CorporateAction className="fg-337d3f989a" data-node-id="961:2549" data-name="nav-item-products" label="محصولات سازمانی" destination="corporate-products">
                 <p className="fg-79fc3d21bd" dir="auto" data-node-id="961:2550">
                   محصولات سازمانی
                 </p>
-                <div className="fg-58d29b27c0" data-node-id="961:2551" data-name="icon-container">
-                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/929c9f98.svg" />
+                <div className="fg-58d29b27c0" data-node-id="961:2551" data-name="package">
+                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-products.svg" />
                 </div>
               </CorporateAction>
               <CorporateAction className="fg-337d3f989a" data-node-id="961:2553" data-name="nav-item-offers" label="پیشنهادها" destination="proposals">
                 <p className="fg-79fc3d21bd" dir="auto" data-node-id="961:2554">
                   پیشنهادها
                 </p>
-                <div className="fg-58d29b27c0" data-node-id="961:2555" data-name="icon-container">
-                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/7e971173.svg" />
+                <div className="fg-58d29b27c0" data-node-id="961:2555" data-name="tag">
+                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-proposals.svg" />
                 </div>
               </CorporateAction>
               <CorporateAction className="fg-337d3f989a" data-node-id="961:2557" data-name="nav-item-orders" label="سفارش‌ها" destination="orders">
                 <p className="fg-79fc3d21bd" dir="auto" data-node-id="961:2558">
                   سفارش‌ها
                 </p>
-                <div className="fg-58d29b27c0" data-node-id="961:2559" data-name="icon-container">
-                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/3e9967c3.svg" />
+                <div className="fg-58d29b27c0" data-node-id="961:2559" data-name="shopping-cart">
+                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-orders.svg" />
                 </div>
               </CorporateAction>
               <CorporateAction className="fg-d373383830" data-node-id="961:2561" data-name="nav-item-deliveries" label="تحویل‌ها" destination="deliveries">
                 <p className="fg-356a992da1" dir="auto" data-node-id="961:2562">
                   تحویل‌ها
                 </p>
-                <div className="fg-58d29b27c0" data-node-id="961:2563" data-name="icon-container">
-                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/d0b5ccae.svg" />
+                <div className="fg-58d29b27c0" data-node-id="961:2563" data-name="truck">
+                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-deliveries.svg" />
                 </div>
               </CorporateAction>
               <CorporateAction className="fg-337d3f989a" data-node-id="961:2565" data-name="nav-item-reports" label="گزارش‌ها" destination="reports">
                 <p className="fg-79fc3d21bd" dir="auto" data-node-id="961:2566">
                   گزارش‌ها
                 </p>
-                <div className="fg-58d29b27c0" data-node-id="961:2567" data-name="icon-container">
+                <div className="fg-58d29b27c0" data-node-id="961:2567" data-name="bar-chart">
                   <span aria-hidden="true" data-non-rendering-source="961:2567" />
                 </div>
               </CorporateAction>
@@ -341,8 +341,8 @@ export default function CorporateBuyerDeliveriesDesktop() {
                 <p className="fg-79fc3d21bd" dir="auto" data-node-id="961:2570">
                   حساب سازمان
                 </p>
-                <div className="fg-58d29b27c0" data-node-id="961:2571" data-name="icon-container">
-                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/a99f5361.svg" />
+                <div className="fg-58d29b27c0" data-node-id="961:2571" data-name="users">
+                  <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-account.svg" />
                 </div>
               </CorporateAction>
             </div>

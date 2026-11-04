@@ -178,8 +178,8 @@ export default function CorporateBuyerArtistProfileDesktop() {
               <p className="fg-79fc3d21bd" dir="auto" data-node-id="961:774">
                 پیشخوان
               </p>
-              <div className="fg-58d29b27c0" data-node-id="961:938" data-name="circle-x">
-                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/4e461c22.svg" />
+              <div className="fg-58d29b27c0" data-node-id="961:938" data-name="layout-dashboard">
+                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-dashboard.svg" />
               </div>
             </CorporateAction>
             <CorporateAction className="fg-337d3f989a" data-node-id="961:776" data-name="nav-item-requests" label="درخواست‌های خرید" destination="purchase-requests">
@@ -187,7 +187,7 @@ export default function CorporateBuyerArtistProfileDesktop() {
                 درخواست‌های خرید
               </p>
               <div className="fg-58d29b27c0" data-node-id="961:887" data-name="file-text">
-                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/3201c0fe.svg" />
+                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-requests.svg" />
               </div>
             </CorporateAction>
             <CorporateAction className="fg-d373383830" data-node-id="961:779" data-name="nav-item-products" label="محصولات سازمانی" destination="corporate-products">
@@ -195,7 +195,7 @@ export default function CorporateBuyerArtistProfileDesktop() {
                 محصولات سازمانی
               </p>
               <div className="fg-58d29b27c0" data-node-id="961:890" data-name="package">
-                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/75294634.svg" />
+                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-products.svg" />
               </div>
             </CorporateAction>
             <CorporateAction className="fg-337d3f989a" data-node-id="961:782" data-name="nav-item-offers" label="پیشنهادها" destination="proposals">
@@ -203,7 +203,7 @@ export default function CorporateBuyerArtistProfileDesktop() {
                 پیشنهادها
               </p>
               <div className="fg-58d29b27c0" data-node-id="961:914" data-name="tag">
-                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/048aeba2.svg" />
+                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-proposals.svg" />
               </div>
             </CorporateAction>
             <CorporateAction className="fg-337d3f989a" data-node-id="961:785" data-name="nav-item-orders" label="سفارش‌ها" destination="orders">
@@ -211,7 +211,7 @@ export default function CorporateBuyerArtistProfileDesktop() {
                 سفارش‌ها
               </p>
               <div className="fg-58d29b27c0" data-node-id="961:893" data-name="shopping-cart">
-                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/081e124d.svg" />
+                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-orders.svg" />
               </div>
             </CorporateAction>
             <CorporateAction className="fg-337d3f989a" data-node-id="961:788" data-name="nav-item-deliveries" label="تحویل‌ها" destination="deliveries">
@@ -219,7 +219,7 @@ export default function CorporateBuyerArtistProfileDesktop() {
                 تحویل‌ها
               </p>
               <div className="fg-58d29b27c0" data-node-id="961:896" data-name="truck">
-                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/bb4ba155.svg" />
+                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-deliveries.svg" />
               </div>
             </CorporateAction>
             <CorporateAction className="fg-337d3f989a" data-node-id="961:791" data-name="nav-item-reports" label="گزارش‌ها" destination="reports">
@@ -227,7 +227,7 @@ export default function CorporateBuyerArtistProfileDesktop() {
                 گزارش‌ها
               </p>
               <div className="fg-58d29b27c0" data-node-id="961:899" data-name="bar-chart">
-                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/1ab461fd.svg" />
+                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-reports.svg" />
               </div>
             </CorporateAction>
             <CorporateAction className="fg-337d3f989a" data-node-id="961:794" data-name="nav-item-account" label="حساب سازمان" destination="account">
@@ -235,7 +235,7 @@ export default function CorporateBuyerArtistProfileDesktop() {
                 حساب سازمان
               </p>
               <div className="fg-58d29b27c0" data-node-id="961:926" data-name="users">
-                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/a21d0153.svg" />
+                <img alt="" className="fg-8faf267d30" src="/corporate-buyer-assets/sidebar-nav-account.svg" />
               </div>
             </CorporateAction>
           </div>
