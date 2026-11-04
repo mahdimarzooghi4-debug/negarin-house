@@ -1,4 +1,4 @@
-/* Match the Figma sidebar surface and preserve the designed Negarin logo size. */
+/* Match the corporate-buyer sidebar surface and logo to Figma. */
 .corporate-buyer-design .fg-7826810f37 {
   background-color: #faf8f2;
   border: 1px solid #562323;
@@ -9,6 +9,42 @@
 }
 .corporate-buyer-design .fg-b5304dc4b2 {
   object-fit: contain;
+}
+.corporate-buyer-design .corporate-buyer-logout {
+  align-self: stretch;
+  display: flex;
+  width: 100%;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 8px;
+  border: 0;
+  border-top: 1px solid #e7dfd6;
+  padding: 16px 16px 0;
+  background: transparent;
+  color: #7b3636;
+  font: 600 14px/20px "Vazirmatn Variable", sans-serif;
+  text-align: right;
+  direction: rtl;
+  cursor: pointer;
+  transition: background-color .18s ease, color .18s ease;
+}
+.corporate-buyer-design .corporate-buyer-logout:hover {
+  border-radius: 8px;
+  background-color: #f2ebe4;
+  color: #562323;
+}
+.corporate-buyer-design .corporate-buyer-logout:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+.corporate-buyer-design .corporate-buyer-logout svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  transform: scaleX(-1);
 }
 
 /* Scale the 1440px corporate-buyer Figma canvas to the available desktop viewport. */
