@@ -5,7 +5,18 @@ import {Button} from "@negarin/ui";
 import {DesignAction,normalizeDigits} from "../artist/design-controls";
 import {usePreview} from "../artist/preview-state";
 
-export function CorporateSidebar({children,...props}:HTMLAttributes<HTMLElement>){return <aside {...props} aria-label="منوی خریدار سازمانی">{children}</aside>;}
+export function CorporateSidebar({children,...props}:HTMLAttributes<HTMLElement>){
+ const router=useRouter();
+ return <aside {...props} aria-label="منوی خریدار سازمانی">
+  {children}
+  <button className="corporate-buyer-logout" type="button" aria-label="خروج از پنل خریدار سازمانی" onClick={()=>router.push("/preview/corporate-buyer")}>
+   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+    <path d="M10 8l-1.4 1.4L10.2 11H3v2h7.2l-1.6 1.6L10 16l5-4-5-4zM14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5v-2h5V5h-5V3z" fill="currentColor"/>
+   </svg>
+   <span>خروج</span>
+  </button>
+ </aside>;
+}
 export function CorporateAction(props:ComponentProps<typeof DesignAction>){
  const preview=usePreview();const router=useRouter();
  const submit=preview.screen==="new-purchase-request"&&props.label==="ثبت درخواست";
