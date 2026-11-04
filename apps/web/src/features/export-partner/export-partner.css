@@ -5910,3 +5910,7 @@
 /* Keep the Spanish order-detail payment status at its intended card bounds. */
 .export-partner-design [data-node-id="915:9066"]{width:100%;height:88px;min-height:88px;max-height:88px;}
 .export-partner-design [data-node-id="915:9066"] .fg-833800a99c{justify-content:center;}
+
+/* Keep Spanish artist-profile product actions on one line. */
+.export-partner-design [data-node-id="946:1181"],.export-partner-design [data-node-id="946:1193"],.export-partner-design [data-node-id="946:1205"]{align-items:center;justify-content:center;padding-left:6px;padding-right:6px;white-space:nowrap;}
+.export-partner-design [data-node-id="946:1181"]>.fg-cf34197fcf,.export-partner-design [data-node-id="946:1193"]>.fg-cf34197fcf,.export-partner-design [data-node-id="946:1205"]>.fg-cf34197fcf{flex:0 0 auto;white-space:nowrap;word-break:normal;}
