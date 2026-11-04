@@ -30,7 +30,11 @@ export function CorporatePurchaseRequestsLive({dashboard=false}:{dashboard?:bool
       .finally(()=>{if(!controller.signal.aborted)setLoading(false);});
     return ()=>controller.abort();
   },[page]);
-  return <CorporateSessionGate><CorporateLiveShell title={dashboard?"پیشخوان":"درخواست‌های خرید"}><section className={styles.requestList}>
+  return <CorporateSessionGate>{context=><CorporateLiveShell title={dashboard?"پیشخوان":"درخواست‌های خرید"}><section className={styles.requestList}>
+    {dashboard&&<section className={styles.panel} aria-label="سازمان فعال">
+      <h2>سازمان فعال</h2>
+      <div>شناسهٔ سازمان <bdi>{context.organizationId}</bdi></div>
+    </section>}
     <div className={styles.toolbar}><Link className={styles.button} href="/corporate-buyer/corporate-products">ثبت درخواست جدید</Link></div>
     {dashboard&&!loading&&!error&&data&&<section aria-label="خلاصه درخواست‌های اخیر">
       <h2>خلاصه درخواست‌های اخیر</h2>
@@ -59,7 +63,7 @@ export function CorporatePurchaseRequestsLive({dashboard=false}:{dashboard?:bool
       {(dashboard?data.items.slice(0,5):data.items).map(request=><tr key={request.id}><td dir="ltr">{shortId(request.id)}</td><td>{request.items.map(item=>item.title).join("، ")}</td><td>{new Intl.NumberFormat("fa-IR").format(requestTotalQuantity(request))}</td><td><span className={styles.status} data-status={request.status}>{request.status==="draft"?"پیش‌نویس":"ارسال‌شده"}</span></td><td>{formatPersianDate(request.createdAt)}</td><td><Link className={styles.secondary} href={"/corporate-buyer/purchase-request-detail?id="+request.id}>مشاهده</Link></td></tr>)}
     </tbody></table></div>}
     {!dashboard&&data&&<div className={styles.pagination}><button className={styles.secondary} type="button" disabled={page<=1} onClick={()=>setPage(value=>Math.max(1,value-1))}>قبلی</button><span>صفحه {new Intl.NumberFormat("fa-IR").format(page)}</span><button className={styles.secondary} type="button" disabled={!data.hasMore||page>=MAX_CORPORATE_LIST_PAGE} onClick={()=>setPage(value=>Math.min(MAX_CORPORATE_LIST_PAGE,value+1))}>بعدی</button></div>}
-  </section></CorporateLiveShell></CorporateSessionGate>;
+  </section></CorporateLiveShell>}</CorporateSessionGate>;
 }
 
 export function CorporateNewPurchaseRequestLive({selection}:{selection:PurchaseRequestProductSelection}){
