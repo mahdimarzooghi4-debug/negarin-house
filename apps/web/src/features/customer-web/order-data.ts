@@ -5,7 +5,9 @@ import type {AddressFields} from "./address-data";
 export type OrderItem={productId:string;title:string;quantity:number;unitPriceToman:string;lineSubtotalToman:string;imageIds:string[]};
 export type CustomerOrder=OrderReceipt&{version:number;createdAt:string;shippingAddress:AddressFields;items:OrderItem[];preparation:OrderPreparation[]};
 export const preparationStatusLabels={awaiting_acceptance:"در انتظار پذیرش هنرمند",accepted:"پذیرفته‌شده",preparing:"در حال آماده‌سازی",packaging:"در حال بسته‌بندی",ready_for_dispatch:"آمادهٔ ارسال"};
-export type OrderPreparation={items:string[];status:keyof typeof preparationStatusLabels;version:number;shipment:{id:string;carrierName:string;trackingCode:string;reportedAt:string;receivedAt:string|null}|null};
+export const shipmentIssueLabels={not_received:"مرسوله نرسیده است",damaged:"آسیب‌دیدگی",wrong_items:"اقلام اشتباه",missing_items:"کسری اقلام"};
+export type ShipmentIssue={kind:keyof typeof shipmentIssueLabels;description:string;status:"open"|"in_review"|"closed";resolution:"customer_follow_up_complete"|"referred_for_refund_review"|null;resolutionSummary:string|null};
+export type OrderPreparation={items:string[];status:keyof typeof preparationStatusLabels;version:number;shipment:{id:string;carrierName:string;trackingCode:string;reportedAt:string;receivedAt:string|null;customerVersion:number;issue:ShipmentIssue|null}|null};
 function isoDate(value:unknown):value is string {
   if(typeof value!=="string")return false;
   const date=new Date(value);
@@ -34,8 +36,16 @@ function parsePreparation(value:unknown,items:OrderItem[],status:OrderReceipt["s
         if(!receipt||receipt.source!=="customer_confirmation"||!isoDate(receipt.receivedAt))return null;
         receivedAt=receipt.receivedAt;
       }
+      if(!Number.isInteger(raw.customerVersion)||(raw.customerVersion as number)<0||(raw.customerVersion as number)>2147483647)return null;
+      let issue:ShipmentIssue|null=null;
+      if(raw.issue!==null){
+        const detail=record(raw.issue);
+        if(!detail||typeof detail.kind!=="string"||!Object.hasOwn(shipmentIssueLabels,detail.kind)||typeof detail.description!=="string"||!detail.description.trim()||!["open","in_review","closed"].includes(String(detail.status))||![null,"customer_follow_up_complete","referred_for_refund_review"].includes(detail.resolution as string|null)||(detail.resolutionSummary!==null&&typeof detail.resolutionSummary!=="string"))return null;
+        if((detail.status==="closed")!==(detail.resolution!==null))return null;
+        issue={kind:detail.kind as ShipmentIssue["kind"],description:detail.description,status:detail.status as ShipmentIssue["status"],resolution:detail.resolution as ShipmentIssue["resolution"],resolutionSummary:detail.resolutionSummary as string|null};
+      }
       shipments.add(raw.id.toLowerCase());
-      shipment={id:raw.id,carrierName:raw.carrierName,trackingCode:raw.trackingCode,reportedAt:raw.reportedAt,receivedAt};
+      shipment={id:raw.id,carrierName:raw.carrierName,trackingCode:raw.trackingCode,reportedAt:raw.reportedAt,receivedAt,customerVersion:raw.customerVersion as number,issue};
     }
     result.push({items:group.items as string[],status:group.status as OrderPreparation["status"],version:group.version as number,shipment});
   }
@@ -92,4 +102,8 @@ export async function readCustomerOrders(path:string,signal:AbortSignal):Promise
     throw new Error(messages[response.status]??"دریافت اطلاعات سفارش انجام نشد.");
   }
   return response.json();
+}
+
+export function canConfirmShipment(shipment:NonNullable<OrderPreparation["shipment"]>):boolean {
+  return !shipment.receivedAt&&shipment.customerVersion<2147483647&&(!shipment.issue||(shipment.issue.status==="closed"&&shipment.issue.resolution==="customer_follow_up_complete"));
 }

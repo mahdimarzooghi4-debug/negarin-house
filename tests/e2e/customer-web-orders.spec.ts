@@ -18,11 +18,38 @@ test("customer order list opens the selected order and handles concealed resourc
 });
 
 test("customer sees artist-reported dispatch separately from confirmed receipt",async({page})=>{
-  const shipment={id,status:"reported_dispatched",source:"artist_report",carrierVerified:false,carrierName:"پست",trackingCode:"00123AB",reportedAt:order.createdAt,receipt:null};
+  const shipment={id,status:"reported_dispatched",source:"artist_report",carrierVerified:false,customerVersion:0,issue:null,carrierName:"پست",trackingCode:"00123AB",reportedAt:order.createdAt,receipt:null};
   await page.route("**/api/customer/orders/"+id,route=>route.fulfill({json:{...order,status:"placed",paymentStatus:"paid",preparation:[{items:[id],status:"ready_for_dispatch",version:5,shipment}]}}));
   await page.goto("/customer/order-detail?id="+id);
   const section=page.getByRole("region",{name:"آماده‌سازی و ارسال"});
   await expect(section.getByText("00123AB",{exact:true})).toBeVisible();
   await expect(section).toContainText("شرکت حمل هنوز آن را تأیید نکرده است");
   await expect(section).not.toContainText("دریافت توسط مشتری تأیید شده است");
+});
+
+test("customer confirms receipt and reports damage with current shipment versions",async({page})=>{
+  let shipment={id,status:"reported_dispatched",source:"artist_report",carrierVerified:false,customerVersion:0,issue:null as unknown,carrierName:"پست",trackingCode:"00123AB",reportedAt:order.createdAt,receipt:null as unknown};
+  await page.route("**/api/customer/orders/"+id,route=>route.fulfill({json:{...order,status:"placed",paymentStatus:"paid",preparation:[{items:[id],status:"ready_for_dispatch",version:5,shipment}]}}));
+  await page.route(`**/api/customer/orders/${id}/shipments/${id}/receipt`,async route=>{
+    expect(route.request().postDataJSON()).toEqual({version:0});
+    shipment={...shipment,customerVersion:1,receipt:{source:"customer_confirmation",receivedAt:order.createdAt}};
+    await route.fulfill({json:shipment});
+  });
+  await page.route(`**/api/customer/orders/${id}/shipments/${id}/issues`,async route=>{
+    expect(route.request().postDataJSON()).toEqual({version:1,kind:"damaged",description:"بسته آسیب دیده است"});
+    shipment={...shipment,customerVersion:2,issue:{kind:"damaged",description:"بسته آسیب دیده است",status:"open",resolution:null,resolutionSummary:null}};
+    await route.fulfill({json:shipment});
+  });
+  await page.goto("/customer/order-detail?id="+id);
+  await page.getByRole("button",{name:"تأیید دریافت مرسوله",exact:true}).click();
+  await page.getByRole("checkbox",{name:"این مرسوله را دریافت کرده‌ام."}).check();
+  await page.getByRole("button",{name:"ثبت تأیید دریافت",exact:true}).click();
+  await expect(page.getByText(/دریافت توسط مشتری تأیید شده است:/)).toBeVisible();
+  await page.getByRole("button",{name:"گزارش مشکل مرسوله",exact:true}).click();
+  await expect(page.getByRole("option",{name:"مرسوله نرسیده است"})).toHaveCount(0);
+  await page.getByLabel("نوع مشکل",{exact:true}).selectOption("damaged");
+  await page.getByLabel("شرح مشکل",{exact:true}).fill("بسته آسیب دیده است");
+  await page.getByRole("button",{name:"ثبت گزارش مشکل",exact:true}).click();
+  await expect(page.getByText("وضعیت رسیدگی: ثبت‌شده",{exact:true})).toBeVisible();
+  await expect(page.getByRole("button",{name:"گزارش مشکل مرسوله",exact:true})).toHaveCount(0);
 });

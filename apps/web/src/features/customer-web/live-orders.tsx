@@ -8,6 +8,7 @@ import CustomerOrdersWeb from "./screens/orders";
 import CustomerOrderDetailWeb from "./screens/order-detail";
 import {CustomerLiveNavigation} from "./customer-controls";
 import {formatReservationExpiry} from "./checkout-data";
+import {ShipmentActions} from "./shipment-actions";
 import {ProductImage} from "./live-catalog";
 import {formatToman,formatPersianDate,isUuid} from "../corporate-buyer/live-data";
 import {parseCustomerOrder,parseCustomerOrderPage,readCustomerOrders,orderStatusLabels,paymentStatusLabels,preparationStatusLabels,type CustomerOrder,type OrderPage} from "./order-data";
@@ -88,6 +89,7 @@ export function CustomerOrderDetailLive({id}:{id:string}){
               <p>ارسال توسط هنرمند گزارش شده است؛ شرکت حمل هنوز آن را تأیید نکرده است.</p>
               <dl><dt>شرکت حمل</dt><dd>{group.shipment.carrierName}</dd><dt>کد رهگیری</dt><dd><bdi dir="ltr">{group.shipment.trackingCode}</bdi></dd><dt>تاریخ اعلام ارسال</dt><dd>{formatReservationExpiry(group.shipment.reportedAt)}</dd></dl>
               {group.shipment.receivedAt&&<p>دریافت توسط مشتری تأیید شده است: {formatReservationExpiry(group.shipment.receivedAt)}</p>}
+              {order.paymentStatus==="paid"&&<ShipmentActions key={group.shipment.id+":"+group.shipment.customerVersion+":"+retry} orderId={order.id} shipment={group.shipment} onRefresh={()=>setRetry(value=>value+1)}/>}
             </>:<p>هنوز اطلاعات ارسال ثبت نشده است.</p>}
           </article>)}
         </section>}

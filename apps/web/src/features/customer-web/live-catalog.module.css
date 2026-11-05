@@ -33,3 +33,10 @@
 .fulfillmentCard { border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; background: white; overflow-wrap: anywhere; }
 .fulfillmentCard dl { display: grid; grid-template-columns: max-content 1fr; gap: 12px 24px; }
 .fulfillmentCard dd { margin: 0; }
+
+.shipmentActions { display: grid; gap: 16px; margin-top: 16px; }
+.shipmentActions fieldset { display: grid; gap: 16px; padding: 16px; border: 1px solid #e5e7eb; border-radius: 12px; }
+.shipmentActions label { display: flex; gap: 8px; align-items: center; }
+.shipmentActions textarea, .shipmentActions select { font: inherit; padding: 8px; max-width: 100%; }
+.shipmentActions button { font: inherit; padding: 8px 16px; margin-inline-end: 8px; cursor: pointer; }
+.shipmentActions button:disabled { cursor: default; opacity: .6; }
