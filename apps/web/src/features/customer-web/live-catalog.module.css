@@ -10,3 +10,8 @@
 .pagination { display:flex; gap:12px; align-items:center; }
 .pagination button:disabled { opacity:.5; cursor:default; }
 .empty { width:100%; padding:40px; text-align:center; background:#f3fbfc; border:1px solid #dee5eb; border-radius:18px; }
+.productLink { color:white; text-decoration:none; margin-top:auto; font:inherit; }
+.productLink:disabled { opacity:.5; cursor:default; }
+.gallery > div { height:568px; border-radius:24px; }
+.specification { display:flex; justify-content:space-between; gap:16px; width:100%; padding:14px 0; border-bottom:1px solid #dee5eb; white-space:normal; }
+.specification dd { margin:0; overflow-wrap:anywhere; }

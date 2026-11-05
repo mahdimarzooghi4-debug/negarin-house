@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import {useEffect, useState} from "react";
 import "@fontsource-variable/vazirmatn";
 import "@fontsource/material-icons-round";
@@ -13,7 +14,7 @@ const categories = [
   ["چوب","fd6780e8"], ["پارچه","36b2bf23"], ["زیور","2c1b163a"], ["فلز","a90c9966"]
 ] as const;
 
-function ProductImage({product}:{product:CorporateProduct}) {
+export function ProductImage({product}:{product:CorporateProduct}) {
   const [url,setUrl] = useState<string|null>(null);
   useEffect(()=>{
     setUrl(null);
@@ -80,6 +81,7 @@ export default function CustomerCatalogLive() {
         <h3 className="fg-1376618a75">{product.title}</h3>
         <p className="fg-826fb50f4c">{formatToman(product.priceToman)}</p>
         <p>{product.availability==="in_stock"?"موجود":"ناموجود"}</p>
+        <Link className={`fg-321947be2e ${styles.productLink}`} href={"/customer/product-detail?id="+product.id}>مشاهده اثر</Link>
       </article>)}</div>}
       {data&&<nav className={styles.pagination} aria-label="صفحه‌بندی آثار"><button disabled={page<=1} onClick={()=>setPage(value=>value-1)}>قبلی</button><span>صفحهٔ {new Intl.NumberFormat("fa-IR").format(page)}</span><button disabled={!data.hasMore||page>=1000} onClick={()=>setPage(value=>value+1)}>بعدی</button></nav>}
     </div>
