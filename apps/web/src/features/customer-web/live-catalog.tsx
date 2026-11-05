@@ -14,7 +14,7 @@ const categories = [
   ["چوب","fd6780e8"], ["پارچه","36b2bf23"], ["زیور","2c1b163a"], ["فلز","a90c9966"]
 ] as const;
 
-export function ProductImage({product}:{product:CorporateProduct}) {
+export function ProductImage({product}:{product:Pick<CorporateProduct,"id"|"title"|"coverImageId">}) {
   const [url,setUrl] = useState<string|null>(null);
   useEffect(()=>{
     setUrl(null);

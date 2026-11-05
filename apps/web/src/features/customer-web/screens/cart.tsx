@@ -1,3 +1,4 @@
+import type {ReactNode} from "react";
 // Native Figma 1176:5587 — Customer / Cart - Web
 import {CustomerAction} from "../customer-controls";
 
@@ -19,7 +20,7 @@ function NegarinButton({ className, label = "ادامه", size: _size = "Large",
   );
 }
 
-export default function CustomerCartWeb() {
+export default function CustomerCartWeb({content}: {content?:ReactNode} = {}) {
   return (
     <div className="fg-d37209cb37" data-node-id="1176:5587" data-name="Customer / Cart - Web">
       <div className="fg-6f037ae468" data-node-id="1176:5588" data-name="Desktop header">
@@ -83,6 +84,7 @@ export default function CustomerCartWeb() {
           </div>
         </div>
       </div>
+      {content ?? (<>
       <div className="fg-9890a7b8e5" data-node-id="1176:5614" data-name="Cart heading">
         <p className="fg-94f1d1748f" dir="auto" data-node-id="1176:5615">
           سبد خرید
@@ -221,6 +223,7 @@ export default function CustomerCartWeb() {
           </div>
         </div>
       </div>
+      </>)}
       <div className="fg-007cb0bf85" data-node-id="1176:5670" data-name="Desktop footer">
         <div className="fg-2be1b2270e" data-node-id="1176:5671" data-name="Footer content">
           <div className="fg-0e1b23ee44" data-node-id="1176:5672" data-name="Customer links">

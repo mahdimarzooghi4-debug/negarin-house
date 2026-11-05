@@ -1,4 +1,4 @@
-.page { min-height: 100vh; height: auto; }
+.page.page { min-height:100vh; height:auto; width:100%; max-width:1440px; margin-inline:auto; }
 .search { display:flex; width:100%; gap:12px; padding:12px; border:1px solid #00b3c7; border-radius:16px; background:white; }
 .search input { flex:1; min-width:0; border:0; padding:8px; font:inherit; }
 .search button,.secondary,.pagination button { border:1px solid #dee5eb; background:white; color:#041b65; border-radius:12px; padding:8px 16px; font:inherit; cursor:pointer; }
@@ -15,3 +15,8 @@
 .gallery > div { height:568px; border-radius:24px; }
 .specification { display:flex; justify-content:space-between; gap:16px; width:100%; padding:14px 0; border-bottom:1px solid #dee5eb; white-space:normal; }
 .specification dd { margin:0; overflow-wrap:anywhere; }
+.cartControls { display:flex; align-items:center; gap:12px; }
+.cartControls button { padding:8px; border:1px solid #dee5eb; border-radius:8px; background:white; cursor:pointer; }
+.cartControls button:disabled { opacity:.5; cursor:default; }
+.cartImage { width:108px; flex-shrink:0; }
+.cartImage > div { height:108px; }

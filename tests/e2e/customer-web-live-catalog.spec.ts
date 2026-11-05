@@ -1,4 +1,5 @@
 import {test,expect} from "@playwright/test";
+test.use({viewport:{width:1440,height:1100}});
 
 const product = {
   id:"00000000-0000-4000-8000-000000000001",title:"اثر منتشرشدهٔ آزمون",description:"توضیح اثر",category:"میناکاری",
@@ -37,7 +38,7 @@ test("an unavailable or empty catalog never falls back to sample products",async
     ?route.fulfill({status:502,json:{error:"catalog-unavailable"}})
     :route.fulfill({json:{page:1,pageSize:6,hasMore:false,items:[]}}));
   await page.goto("/customer/products");
-  await expect(page.getByRole("alert")).toContainText("دریافت آثار انجام نشد");
+  await expect(page.locator(".customer-web-design").getByRole("alert")).toContainText("دریافت آثار انجام نشد");
   unavailable=false;
   await page.getByRole("button",{name:"تلاش دوباره"}).click();
   await expect(page.getByRole("heading",{name:"اثری با این فیلترها پیدا نشد"})).toBeVisible();
@@ -52,9 +53,33 @@ test("view artwork opens the selected published product and handles missing prod
   await expect(page).toHaveURL(new RegExp("/customer/product-detail\\?id="+product.id));
   await expect(page.getByRole("heading",{name:product.title,exact:true})).toBeVisible();
   await expect(page.getByText("مس",{exact:true})).toBeVisible();
-  await expect(page.getByRole("button",{name:"افزودن به سبد",exact:true})).toBeDisabled();
+  await expect(page.getByRole("button",{name:"افزودن به سبد",exact:true})).toBeEnabled();
   await page.route("**/api/catalog/products/"+product.id,route=>route.fulfill({status:404,json:{error:"not-found"}}));
   await page.reload();
-  await expect(page.getByRole("alert")).toContainText("این اثر برای نمایش در دسترس نیست");
+  await expect(page.locator(".customer-web-design").getByRole("alert")).toContainText("این اثر برای نمایش در دسترس نیست");
   await expect(page.getByRole("heading",{name:product.title,exact:true})).toHaveCount(0);
+});
+
+test("customer adds an artwork, changes quantity and removes it using cart versions",async({page})=>{
+  let version=0;
+  let quantity=0;
+  const cart=()=>({version,items:quantity?[{productId:product.id,quantity,status:"available",product:{id:product.id,title:product.title,priceToman:product.priceToman,coverImageId:null},lineSubtotalToman:String(BigInt(product.priceToman)*BigInt(quantity))}]:[],subtotalToman:String(BigInt(product.priceToman)*BigInt(quantity)),canCheckout:quantity>0});
+  await page.route("**/api/catalog/products/"+product.id,route=>route.fulfill({json:product}));
+  await page.route("**/api/customer/cart",route=>route.fulfill({json:cart()}));
+  await page.route("**/api/customer/cart/items/"+product.id,route=>{
+    const body=route.request().postDataJSON();
+    expect(body.version).toBe(version);
+    quantity=route.request().method()==="DELETE"?0:body.quantity;
+    version++;
+    return route.fulfill({json:cart()});
+  });
+  await page.goto("/customer/product-detail?id="+product.id);
+  await page.getByRole("button",{name:"افزودن به سبد",exact:true}).click();
+  await expect(page).toHaveURL(/\/customer\/cart$/);
+  await expect(page.getByLabel("تعداد "+product.title)).toHaveText("۱");
+  await page.getByRole("button",{name:"افزایش تعداد "+product.title}).click();
+  await expect(page.getByLabel("تعداد "+product.title)).toHaveText("۲");
+  await page.getByRole("button",{name:"حذف",exact:true}).click();
+  await expect(page.getByText("سبد خرید شما خالی است.",{exact:true})).toBeVisible();
+  expect(version).toBe(3);
 });

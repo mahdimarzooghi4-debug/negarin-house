@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
-import {useEffect,useState} from "react";
+import {useRouter} from "next/navigation";
+import {requestCart} from "./cart-data";
+import {useEffect,useRef,useState} from "react";
 import CustomerProductDetailWeb from "./screens/product-detail";
 import {CustomerLiveNavigation} from "./customer-controls";
 import {ProductImage} from "./live-catalog";
@@ -8,6 +10,10 @@ import {formatToman,isUuid,parseCorporateProduct,type CorporateProduct} from "..
 import styles from "./live-catalog.module.css";
 
 export default function CustomerProductDetailLive({id}:{id:string}) {
+  const router=useRouter();
+  const busy=useRef(false);
+  const [adding,setAdding]=useState(false);
+  const [cartError,setCartError]=useState("");
   const [product,setProduct]=useState<CorporateProduct|null>(null);
   const [loading,setLoading]=useState(true);
   const [error,setError]=useState("");
@@ -29,6 +35,19 @@ export default function CustomerProductDetailLive({id}:{id:string}) {
     return ()=>controller.abort();
   },[id,retry]);
 
+  async function addToCart(){
+    if(!product||busy.current)return;
+    busy.current=true;setAdding(true);setCartError("");
+    try{
+      const cart=await requestCart();
+      const quantity=(cart.items.find(item=>item.productId===product.id)?.quantity??0)+1;
+      if(quantity>100)throw new Error("حداکثر تعداد هر اثر در سبد ۱۰۰ عدد است.");
+      await requestCart("/api/customer/cart/items/"+product.id,{method:"PUT",headers:{"content-type":"application/json"},body:JSON.stringify({version:cart.version,quantity})});
+      router.push("/customer/cart");
+    }catch(error){setCartError(error instanceof Error?error.message:"نتیجهٔ افزودن مشخص نیست. سبد خرید را بررسی کنید.");}
+    finally{busy.current=false;setAdding(false);}
+  }
+
   const content=<>
     <nav className="fg-3bc09ce3d9" dir="rtl" aria-label="مسیر صفحه"><Link href="/customer/products">کشف آثار</Link><span>{product?.title}</span></nav>
     {loading&&<p role="status" className={styles.empty}>در حال دریافت اثر…</p>}
@@ -44,7 +63,8 @@ export default function CustomerProductDetailLive({id}:{id:string}) {
         <dl className="fg-0cd8e02b4c">
           {[["دسته",product.category],["جنس",product.materials],["ابعاد",product.dimensions],["تکنیک",product.technique],["رنگ",product.color],["نگهداری",product.careInstructions],["وضعیت",product.availability==="in_stock"?"موجود":"ناموجود"]].map(([label,value])=><div className={styles.specification} key={label}><dt>{label}</dt><dd>{value??"ثبت نشده"}</dd></div>)}
         </dl>
-        <button className={`fg-321947be2e ${styles.productLink}`} disabled>افزودن به سبد</button>
+        {cartError&&<div role="alert"><p>{cartError}</p><Link href="/customer/cart">بررسی سبد خرید</Link></div>}
+        <button className={`fg-321947be2e ${styles.productLink}`} disabled={adding||product.availability!=="in_stock"} onClick={()=>void addToCart()}>{adding?"در حال افزودن…":"افزودن به سبد"}</button>
       </div>
     </section>}
   </>;
