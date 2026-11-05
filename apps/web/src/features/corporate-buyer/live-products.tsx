@@ -53,7 +53,7 @@ export function CorporateProductsLive(){
 
   const ids=useMemo(()=>Object.keys(selected).filter(id=>selected[id]),[selected]);
   return <CorporateSessionGate><CorporateLiveShell title="محصولات سازمانی">
-    <section className={styles.panel}>
+    <section className={`${styles.panel} ${styles.catalog}`}>
       <div className={styles.toolbar}>
         <input aria-label="جستجوی محصولات" value={query} onChange={event=>{setPage(1);setQuery(event.target.value)}} placeholder="جستجو در عنوان یا توضیحات"/>
         <select aria-label="وضعیت موجودی" value={stock} onChange={event=>{setPage(1);setStock(event.target.value as typeof stock)}}>
@@ -96,6 +96,9 @@ export function CorporateProductsLive(){
 export function CorporateProductDetailLive({id}:{id:string}){
   const [product,setProduct]=useState<CorporateProduct|null>(null),[error,setError]=useState(""),[loading,setLoading]=useState(true);
   useEffect(()=>{
+    setProduct(null);
+    setError("");
+    setLoading(true);
     if(!isUuid(id)){setError("شناسه محصول معتبر نیست.");setLoading(false);return;}
     const controller=new AbortController();
     void fetch("/api/corporate/products/"+id,{cache:"no-store",signal:controller.signal}).then(async response=>{
@@ -107,16 +110,23 @@ export function CorporateProductDetailLive({id}:{id:string}){
     return ()=>controller.abort();
   },[id]);
 
-  return <CorporateSessionGate><CorporateLiveShell title="جزئیات محصول"><section className={styles.panel}>
+  return <CorporateSessionGate><CorporateLiveShell title="جزئیات محصول"><section className={styles.productDetail}>
     {loading&&<div className={styles.empty}>در حال دریافت محصول…</div>}{error&&<ErrorBox message={error}/>}
-    {product&&<><div className={styles.detailGrid}>
+    {!loading&&!error&&product&&<>
+      <nav className={styles.breadcrumb} aria-label="مسیر صفحه">
+        <Link href="/corporate-buyer/corporate-products">محصولات سازمانی</Link>
+        <span aria-hidden="true">‹</span>
+        <span aria-current="page">{product.title}</span>
+      </nav>
+      <div className={styles.detailGrid}>
       <div>
         <ProductImage product={product}/>
         <div className={styles.cardActions}><Link className={styles.button} href={"/corporate-buyer/new-purchase-request?products="+product.id}>افزودن به درخواست خرید</Link><Link className={styles.secondary} href="/corporate-buyer/corporate-products">بازگشت به محصولات</Link></div>
       </div>
       <div>
-        <h2>{product.title}</h2>
-        <p>{product.description??"—"}</p>
+        <h2>اطلاعات فنی و مشخصات</h2>
+        <div className={styles.kv}><small>نام محصول</small>{product.title}</div>
+        <div className={styles.kv}><small>توضیحات</small>{product.description??"—"}</div>
         <div className={styles.kv}><small>دسته‌بندی</small>{product.category??"—"}</div>
         <div className={styles.kv}><small>قیمت فعلی هنرمند</small>{formatToman(product.priceToman)}</div>
         <div className={styles.kv}><small>وضعیت موجودی</small>{product.availability==="in_stock"?"موجود":"ناموجود"}</div>

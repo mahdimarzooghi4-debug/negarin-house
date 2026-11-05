@@ -42,7 +42,7 @@ test('purchase preview requires a title, description and positive Persian or Lat
  await page.getByRole('button',{name:'ثبت درخواست',exact:true}).click();await expect(page.getByRole('status')).toContainText('عنوان، شرح نیاز');await expect(page).toHaveURL(/new-purchase-request$/);
  await page.getByRole('textbox',{name:'عنوان درخواست',exact:true}).fill('هدایای پایان سال');await page.getByRole('textbox',{name:'شرح نیاز',exact:true}).fill('میناکاری با بسته‌بندی سازمانی');await page.getByRole('textbox',{name:'تعداد تقریبی',exact:true}).fill('۰');await page.getByRole('button',{name:'ثبت درخواست',exact:true}).click();await expect(page).toHaveURL(/new-purchase-request$/);
  await page.getByRole('textbox',{name:'تعداد تقریبی',exact:true}).fill('۵۰۰');await page.getByRole('button',{name:'ثبت درخواست',exact:true}).click();await ready(page,'purchase-request-detail');
- await page.goto('/preview/corporate-buyer/proposal-detail');await ready(page,'proposal-detail');await expect(page.locator('a[href="/preview/corporate-buyer/proposal-revision"]')).toHaveCount(1);
+ await page.goto('/preview/corporate-buyer/proposal-detail');await ready(page,'proposal-detail');await expect(page.locator('.corporate-buyer-design a[href="/preview/corporate-buyer/proposal-revision"]')).toHaveCount(1);
 });
 
 test('issue preview validates contact and accepts only native JPG/PNG attachments up to 5 MB',async({page})=>{
@@ -52,4 +52,26 @@ test('issue preview validates contact and accepts only native JPG/PNG attachment
  await upload.setInputFiles({name:'large.png',mimeType:'image/png',buffer:Buffer.alloc(5*1024*1024+1)});await expect(upload).toHaveValue('');
  await upload.setInputFiles({name:'damage.png',mimeType:'image/png',buffer:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jS1cAAAAASUVORK5CYII=','base64')});await expect(page.getByRole('status')).toContainText('damage.png');
  await page.getByRole('textbox',{name:'شرح مشکل',exact:true}).fill('آسیب بسته در زمان تحویل');await page.getByRole('textbox',{name:'شماره تماس جهت پیگیری',exact:true}).fill('۰۲۱-۸۸۹۹۰۰۱۱');await page.getByRole('button',{name:'ارسال گزارش',exact:true}).click();await ready(page,'issue-detail');
+});
+
+test("review navigation follows the Figma inventory", async ({page}) => {
+  test.setTimeout(120_000);
+  await page.goto("/preview/corporate-buyer/" + inventory[0].slug);
+  const navigation = page.getByRole("navigation", {name:"مرور صفحات پنل"});
+
+  for (const [index, screen] of inventory.entries()) {
+    await ready(page, screen.slug);
+    const previous = navigation.getByRole("link", {name:"صفحهٔ قبلی"});
+    const next = navigation.getByRole("link", {name:"صفحهٔ بعدی"});
+    if (index === 0) await expect(previous).toHaveCount(0);
+    else await expect(previous).toHaveAttribute("href", "/preview/corporate-buyer/" + inventory[index - 1].slug);
+
+    if (index === inventory.length - 1) await expect(next).toHaveCount(0);
+    else await next.click();
+  }
+
+  await navigation.getByRole("link", {name:"صفحهٔ قبلی"}).click();
+  await ready(page, inventory[inventory.length - 2].slug);
+  await page.getByRole("link", {name:"همهٔ صفحه‌های خریدار سازمانی", exact:true}).click();
+  await expect(page.locator(".preview-groups li")).toHaveCount(inventory.length);
 });

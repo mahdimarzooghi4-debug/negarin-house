@@ -23,6 +23,7 @@ export default async function LocalizedPortalPage({
   if (portal === "corporate-buyer") {
     if (locale === "corporate-products") return <CorporateProductsLive />;
     if (locale === "product-detail") return <CorporateProductDetailLive id={parseRequiredUuidQuery(query.id) ?? ""} />;
+    if (locale === "dashboard") return <CorporatePurchaseRequestsLive dashboard />;
     if (locale === "purchase-requests") return <CorporatePurchaseRequestsLive />;
     if (locale === "new-purchase-request") {
       return <CorporateNewPurchaseRequestLive selection={parsePurchaseRequestProductQuery(query.products)} />;

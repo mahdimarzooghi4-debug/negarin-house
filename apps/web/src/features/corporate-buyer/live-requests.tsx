@@ -17,7 +17,7 @@ function messageForStatus(status:number, fallback:string){
   return fallback;
 }
 
-export function CorporatePurchaseRequestsLive(){
+export function CorporatePurchaseRequestsLive({dashboard=false}:{dashboard?:boolean}){
   const [page,setPage]=useState(1),[data,setData]=useState<ReturnType<typeof parsePurchaseRequestPage>>(null);
   const [loading,setLoading]=useState(true),[error,setError]=useState("");
   useEffect(()=>{
@@ -30,16 +30,40 @@ export function CorporatePurchaseRequestsLive(){
       .finally(()=>{if(!controller.signal.aborted)setLoading(false);});
     return ()=>controller.abort();
   },[page]);
-  return <CorporateSessionGate><CorporateLiveShell title="درخواست‌های خرید"><section className={styles.panel}>
-    <div className={styles.toolbar}><Link className={styles.button} href="/corporate-buyer/corporate-products">انتخاب محصول و ثبت درخواست</Link></div>
+  return <CorporateSessionGate>{context=><CorporateLiveShell title={dashboard?"پیشخوان":"درخواست‌های خرید"}><section className={styles.requestList}>
+    {dashboard&&<section className={styles.panel} aria-label="سازمان فعال">
+      <h2>سازمان فعال</h2>
+      <div>شناسهٔ سازمان <bdi>{context.organizationId}</bdi></div>
+    </section>}
+    <div className={styles.toolbar}><Link className={styles.button} href="/corporate-buyer/corporate-products">ثبت درخواست جدید</Link></div>
+    {dashboard&&!loading&&!error&&data?.totals&&<section aria-label="خلاصه درخواست‌های سازمان">
+      <h2>خلاصه درخواست‌های سازمان</h2>
+      <div className={styles.grid}>
+        {(["draft","submitted"] as const).map(status=><article key={status} className={styles.card}>
+          <div className={styles.cardBody}>
+            <h3>{status==="draft"?"پیش‌نویس‌ها":"درخواست‌های ارسال‌شده"}</h3>
+            <strong>{new Intl.NumberFormat("fa-IR").format(data.totals![status])}</strong>
+          </div>
+        </article>)}
+      </div>
+      <p>شمارش بر اساس همهٔ درخواست‌های سازمان فعال است.</p>
+    </section>}
+    {dashboard&&<>
+      <div className={styles.toolbar}>
+        <Link href="/corporate-buyer/corporate-products">مشاهده محصولات سازمانی</Link>
+        <Link href="/corporate-buyer/purchase-requests">مشاهده همه درخواست‌ها</Link>
+      </div>
+      <h2>آخرین فعالیت‌ها</h2>
+      <p>آخرین درخواست‌های خرید سازمان</p>
+    </>}
     {loading&&<div className={styles.empty}>در حال دریافت درخواست‌های واقعی…</div>}
     {error&&<div className={styles.error}>{error}</div>}
-    {!loading&&!error&&data&&data.items.length===0&&<div className={styles.empty}>هنوز PurchaseRequest واقعی برای این سازمان ثبت نشده است.</div>}
-    {!loading&&!error&&data&&data.items.length>0&&<table className={styles.table}><thead><tr><th>شناسه</th><th>وضعیت</th><th>اقلام</th><th>تعداد کل</th><th>ایجاد</th><th>عملیات</th></tr></thead><tbody>
-      {data.items.map(request=><tr key={request.id}><td dir="ltr">{shortId(request.id)}</td><td><span className={styles.status}>{request.status==="draft"?"پیش‌نویس":"ارسال‌شده"}</span></td><td>{request.items.map(item=>item.title).join("، ")}</td><td>{new Intl.NumberFormat("fa-IR").format(requestTotalQuantity(request))}</td><td>{formatPersianDate(request.createdAt)}</td><td><Link className={styles.secondary} href={"/corporate-buyer/purchase-request-detail?id="+request.id}>مشاهده</Link></td></tr>)}
-    </tbody></table>}
-    {data&&<div className={styles.pagination}><button className={styles.secondary} type="button" disabled={page<=1} onClick={()=>setPage(value=>Math.max(1,value-1))}>قبلی</button><span>صفحه {new Intl.NumberFormat("fa-IR").format(page)}</span><button className={styles.secondary} type="button" disabled={!data.hasMore||page>=MAX_CORPORATE_LIST_PAGE} onClick={()=>setPage(value=>Math.min(MAX_CORPORATE_LIST_PAGE,value+1))}>بعدی</button></div>}
-  </section></CorporateLiveShell></CorporateSessionGate>;
+    {!loading&&!error&&data&&data.items.length===0&&<div className={styles.empty}>هنوز درخواست خریدی برای این سازمان ثبت نشده است.</div>}
+    {!loading&&!error&&data&&data.items.length>0&&<div className={styles.requestTable}><table className={styles.table}><thead><tr><th>شناسه</th><th>محصولات</th><th>تعداد</th><th>وضعیت</th><th>تاریخ ثبت</th><th>عملیات</th></tr></thead><tbody>
+      {(dashboard?data.items.slice(0,5):data.items).map(request=><tr key={request.id}><td dir="ltr">{shortId(request.id)}</td><td>{request.items.map(item=>item.title).join("، ")}</td><td>{new Intl.NumberFormat("fa-IR").format(requestTotalQuantity(request))}</td><td><span className={styles.status} data-status={request.status}>{request.status==="draft"?"پیش‌نویس":"ارسال‌شده"}</span></td><td>{formatPersianDate(request.createdAt)}</td><td><Link className={styles.secondary} href={"/corporate-buyer/purchase-request-detail?id="+request.id}>مشاهده</Link></td></tr>)}
+    </tbody></table></div>}
+    {!dashboard&&data&&<div className={styles.pagination}><button className={styles.secondary} type="button" disabled={page<=1} onClick={()=>setPage(value=>Math.max(1,value-1))}>قبلی</button><span>صفحه {new Intl.NumberFormat("fa-IR").format(page)}</span><button className={styles.secondary} type="button" disabled={!data.hasMore||page>=MAX_CORPORATE_LIST_PAGE} onClick={()=>setPage(value=>Math.min(MAX_CORPORATE_LIST_PAGE,value+1))}>بعدی</button></div>}
+  </section></CorporateLiveShell>}</CorporateSessionGate>;
 }
 
 export function CorporateNewPurchaseRequestLive({selection}:{selection:PurchaseRequestProductSelection}){
@@ -91,19 +115,27 @@ export function CorporateNewPurchaseRequestLive({selection}:{selection:PurchaseR
     }catch(error){setError(error instanceof Error?error.message:"خطا");}finally{setWorking(false);}
   }
 
-  return <CorporateSessionGate><CorporateLiveShell title="ثبت درخواست خرید"><section className={styles.panel}>
-    <p className={styles.notice}>قرارداد فعلی PurchaseRequest فقط محصول و تعداد را ذخیره می‌کند. بودجه، شهر، مناسبت، تخفیف و قیمت تجاری تا زمان تعریف CorporateProposal در این فرم عملیاتی وجود ندارند.</p>
+  return <CorporateSessionGate><CorporateLiveShell title="ثبت درخواست خرید"><>
+    <nav className={styles.breadcrumb} aria-label="مسیر صفحه">
+      <Link href="/corporate-buyer/purchase-requests">درخواست‌های خرید</Link>
+      <span aria-hidden="true">‹</span>
+      <span aria-current="page">ثبت درخواست جدید</span>
+    </nav>
+    <section className={styles.panel} aria-labelledby="selected-products-heading">
+      <h2 id="selected-products-heading">محصولات انتخاب‌شده</h2>
+    <p className={styles.notice}>در این مرحله فقط محصولات انتخاب‌شده و تعداد هر محصول ثبت می‌شود.</p>
     {loading&&<div className={styles.empty}>در حال اعتبارسنجی محصولات انتخاب‌شده…</div>}
     {error&&<div className={styles.error}>{error}{draftId&&<> <Link href={"/corporate-buyer/purchase-request-detail?id="+draftId}>مشاهده پیش‌نویس ذخیره‌شده</Link></>}</div>}
     {!loading&&!products.length&&!error&&<div className={styles.empty}>محصولی انتخاب نشده است. <Link href="/corporate-buyer/corporate-products">انتخاب از محصولات سازمانی</Link></div>}
     {!!products.length&&<div className={styles.form}>{products.map(product=><div className={styles.requestItem} key={product.id}>
       <div><strong>{product.title}</strong><small> · {product.category??"—"}</small></div>
-      <label>تعداد <input aria-label={"تعداد "+product.title} type="number" min={1} max={MAX_PURCHASE_REQUEST_QUANTITY} step={1} value={quantities[product.id]??1} onChange={event=>setQuantities(previous=>({...previous,[product.id]:Number(event.target.value)}))}/></label>
+      <label>تعداد <input aria-label={"تعداد "+product.title} type="number" disabled={working} min={1} max={MAX_PURCHASE_REQUEST_QUANTITY} step={1} value={quantities[product.id]??1} onChange={event=>setQuantities(previous=>({...previous,[product.id]:Number(event.target.value)}))}/></label>
       <button className={styles.danger} type="button" disabled={working} onClick={()=>setProducts(items=>items.filter(item=>item.id!==product.id))}>حذف</button>
     </div>)}
       <div className={styles.cardActions}><button className={styles.secondary} type="button" disabled={working||!products.length} onClick={()=>void create("draft")}>ذخیره پیش‌نویس</button><button className={styles.button} type="button" disabled={working||!products.length} onClick={()=>void create("submit")}>{working?"در حال ثبت…":"ثبت و ارسال درخواست"}</button></div>
     </div>}
-  </section></CorporateLiveShell></CorporateSessionGate>;
+    </section>
+  </></CorporateLiveShell></CorporateSessionGate>;
 }
 
 export function CorporatePurchaseRequestDetailLive({id}:{id:string}){
@@ -130,10 +162,19 @@ export function CorporatePurchaseRequestDetailLive({id}:{id:string}){
 
   return <CorporateSessionGate><CorporateLiveShell title="جزئیات درخواست خرید"><section className={styles.panel}>
     {loading&&<div className={styles.empty}>در حال دریافت درخواست…</div>}{error&&<div className={styles.error}>{error}</div>}
-    {request&&<><div className={styles.toolbar}><Link className={styles.secondary} href="/corporate-buyer/purchase-requests">بازگشت</Link>{request.status==="draft"&&<button className={styles.button} type="button" disabled={working} onClick={()=>void submit()}>{working?"در حال ارسال…":"ارسال برای بررسی نگارین"}</button>}</div>
-      <div className={styles.detailGrid}><div><div className={styles.kv}><small>شناسه</small><span dir="ltr">{request.id}</span></div><div className={styles.kv}><small>وضعیت</small>{request.status==="draft"?"پیش‌نویس":"ارسال‌شده"}</div><div className={styles.kv}><small>ایجاد</small>{formatPersianDate(request.createdAt)}</div><div className={styles.kv}><small>ارسال</small>{formatPersianDate(request.submittedAt)}</div></div>
-      <div><h2>اقلام درخواست</h2>{request.items.map(item=><div className={styles.kv} key={item.productId}><strong>{item.title}</strong><small>تعداد: {new Intl.NumberFormat("fa-IR").format(item.quantity)}</small></div>)}</div></div>
-      <h2>تاریخچه</h2><div className={styles.history}>{request.history.map(event=><div className={styles.historyItem} key={event.version}><strong>{event.action==="created"?"ایجاد پیش‌نویس":"ارسال درخواست"}</strong><div>{formatPersianDate(event.createdAt)} · نسخه {new Intl.NumberFormat("fa-IR").format(event.version)}</div></div>)}</div>
+    {request&&request.id===id&&<>
+      <nav className={styles.breadcrumb} aria-label="مسیر صفحه">
+        <Link href="/corporate-buyer/purchase-requests">درخواست‌های خرید</Link>
+        <span aria-hidden="true">‹</span>
+        <span aria-current="page">جزئیات درخواست</span>
+      </nav>
+      <div className={styles.toolbar}>
+        <strong>درخواست <bdi>{shortId(request.id)}</bdi></strong>
+        <span className={styles.status}>{request.status==="draft"?"پیش‌نویس":"ارسال‌شده"}</span>
+        {request.status==="draft"&&<button className={styles.button} type="button" disabled={working} onClick={()=>void submit()}>{working?"در حال ارسال…":"ارسال برای بررسی نگارین"}</button>}</div>
+      <div className={styles.detailGrid}><div><div className={styles.kv}><small>شناسه</small><span dir="ltr">{request.id}</span></div><div className={styles.kv}><small>تعداد کل</small>{new Intl.NumberFormat("fa-IR").format(requestTotalQuantity(request))}</div><div className={styles.kv}><small>ایجاد</small>{formatPersianDate(request.createdAt)}</div><div className={styles.kv}><small>ارسال</small>{formatPersianDate(request.submittedAt)}</div></div>
+      <div><h2>محصولات انتخاب‌شده</h2>{request.items.map(item=><div className={styles.kv} key={item.productId}><strong>{item.title}</strong><small>تعداد: {new Intl.NumberFormat("fa-IR").format(item.quantity)}</small></div>)}</div></div>
+      <h2>روند ثبت و ارسال درخواست</h2><div className={styles.history}>{request.history.map(event=><div className={styles.historyItem} key={event.version}><strong>{event.action==="created"?"ایجاد پیش‌نویس":"ارسال درخواست"}</strong><div>{formatPersianDate(event.createdAt)} · نسخه {new Intl.NumberFormat("fa-IR").format(event.version)}</div></div>)}</div>
       <p className={styles.notice}>این درخواست هیچ قیمت تجاری یا رزرو موجودی ایجاد نمی‌کند. مرحلهٔ Proposal/CorporateOrder هنوز فعال نشده است.</p>
     </>}
   </section></CorporateLiveShell></CorporateSessionGate>;

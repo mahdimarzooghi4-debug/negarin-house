@@ -155,12 +155,18 @@ export function parseCorporatePurchaseRequest(value: unknown): CorporatePurchase
   return {id:v.id,status:v.status,version:v.version,createdAt:v.createdAt,submittedAt:v.submittedAt,items,history};
 }
 
-export function parsePurchaseRequestPage(value: unknown, expected?:PageExpectation): Paged<CorporatePurchaseRequest> | null {
+export function parsePurchaseRequestPage(value: unknown, expected?:PageExpectation): (Paged<CorporatePurchaseRequest> & {totals?: {draft:number;submitted:number}}) | null {
   const v=record(value); if(!v||!validPageEnvelope(v,expected)) return null;
   const items=v.items.map(parseCorporatePurchaseRequest); if(items.some(item=>item===null)) return null;
   const parsed=items as CorporatePurchaseRequest[];
   if(new Set(parsed.map(item=>item.id.toLowerCase())).size!==parsed.length) return null;
-  return {page:v.page,pageSize:v.pageSize,hasMore:v.hasMore,items:parsed};
+  const page = {page:v.page,pageSize:v.pageSize,hasMore:v.hasMore,items:parsed};
+  if(v.totals===undefined) return page;
+  const totals=record(v.totals);
+  if(!totals||typeof totals.draft!=="number"||typeof totals.submitted!=="number"||
+    !Number.isSafeInteger(totals.draft)||!Number.isSafeInteger(totals.submitted)||
+    totals.draft<0||totals.submitted<0) return null;
+  return {...page,totals:{draft:totals.draft,submitted:totals.submitted}};
 }
 
 export function formatToman(value: string): string {

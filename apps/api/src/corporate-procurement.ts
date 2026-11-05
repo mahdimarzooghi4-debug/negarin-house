@@ -169,7 +169,19 @@ export class CorporateProcurementService {
       where, include, orderBy: [{ createdAt: "desc" }, { id: "asc" }],
       skip: (page - 1) * pageSize, take: pageSize + 1
     });
-    return { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(r => view(r, staff)) };
+    const result = { page, pageSize, hasMore: rows.length > pageSize, items: rows.slice(0, pageSize).map(r => view(r, staff)) };
+    if (staff || page !== 1) return result;
+
+    const counts = await this.db.corporatePurchaseRequest.groupBy({
+      by: ["status"], where, _count: { _all: true }
+    });
+    return {
+      ...result,
+      totals: {
+        draft: counts.find(row => row.status === "draft")?._count._all ?? 0,
+        submitted: counts.find(row => row.status === "submitted")?._count._all ?? 0
+      }
+    };
   }
 
   async get(context: AuthorizationContext, id: string, staff = false) {
