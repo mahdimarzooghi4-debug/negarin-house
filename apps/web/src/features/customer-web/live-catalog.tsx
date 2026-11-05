@@ -29,10 +29,10 @@ export function ProductImage({product}:{product:Pick<CorporateProduct,"id"|"titl
   return <div className="fg-cd82b7c1b5">{url ? <img className={styles.image} src={url} alt={product.title} onError={()=>setUrl(null)}/> : <span className={styles.placeholder}>تصویر در دسترس نیست</span>}</div>;
 }
 
-export default function CustomerCatalogLive() {
-  const [search,setSearch] = useState("");
-  const [query,setQuery] = useState("");
-  const [category,setCategory] = useState("");
+export default function CustomerCatalogLive({initialQuery="",initialCategory=""}:{initialQuery?:string;initialCategory?:string}={}) {
+  const [search,setSearch] = useState(initialQuery);
+  const [query,setQuery] = useState(initialQuery);
+  const [category,setCategory] = useState(initialCategory);
   const [inStock,setInStock] = useState(false);
   const [sort,setSort] = useState("newest");
   const [page,setPage] = useState(1);

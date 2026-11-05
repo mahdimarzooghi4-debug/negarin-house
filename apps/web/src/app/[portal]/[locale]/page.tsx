@@ -1,3 +1,4 @@
+import CustomerHomeLive from "../../../features/customer-web/live-home";
 import CustomerFavoritesLive from "../../../features/customer-web/live-favorites";
 import CustomerAccountLive from "../../../features/customer-web/live-account";
 import {CustomerOrdersLive,CustomerOrderDetailLive} from "../../../features/customer-web/live-orders";
@@ -28,6 +29,8 @@ export default async function LocalizedPortalPage({
   const { portal, locale } = await params;
   const query = await searchParams;
 
+  if (portal === "customer" && locale === "home") return <CustomerHomeLive />;
+  if (portal === "customer" && locale === "favorites-empty") return <CustomerFavoritesLive />;
   if (portal === "customer" && locale === "account-overview") return <CustomerAccountLive />;
   if (portal === "customer" && locale === "favorites") return <CustomerFavoritesLive />;
   if (portal === "customer" && locale === "orders") return <CustomerOrdersLive />;
@@ -41,7 +44,11 @@ export default async function LocalizedPortalPage({
   }
   if (portal === "customer" && locale === "address-book") return <CustomerAddressBookLive />;
   if (portal === "customer" && locale === "cart") return <CustomerCartLive />;
-  if (portal === "customer" && locale === "products") return <CustomerCatalogLive />;
+  if (portal === "customer" && locale === "products") {
+    const q=typeof query.q==="string"?query.q.trim().slice(0,200):"";
+    const category=typeof query.category==="string"?query.category.trim().slice(0,200):"";
+    return <CustomerCatalogLive key={JSON.stringify([q,category])} initialQuery={q} initialCategory={category}/>;
+  }
   if (portal === "customer" && locale === "product-detail") return <CustomerProductDetailLive id={parseRequiredUuidQuery(query.id)??""}/>;
 
   if (portal === "corporate-buyer") {

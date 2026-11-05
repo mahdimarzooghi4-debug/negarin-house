@@ -1,3 +1,4 @@
+import type {ReactNode} from "react";
 // Native Figma 1170:3283 — Customer / Web — Home
 import {CustomerAction} from "../customer-controls";
 import {DesignField} from "../../artist/design-controls";
@@ -29,7 +30,7 @@ function NegarinButton({ className, label = "ادامه", size = "Medium", state
   );
 }
 
-export default function CustomerWebHome() {
+export default function CustomerWebHome({search,categories,artists,stories,products}:{search?:ReactNode;categories?:ReactNode;artists?:ReactNode;stories?:ReactNode;products?:ReactNode}={}) {
   return (
     <div className="fg-d37209cb37" data-node-id="1170:3283" data-name="Customer / Web — Home">
       <div className="fg-b12d59061d" data-node-id="1170:3284" data-name="Desktop header">
@@ -152,7 +153,7 @@ export default function CustomerWebHome() {
           </div>
         </div>
       </div>
-      <div className="fg-1cce95504e" data-node-id="1170:3335" data-name="Search section">
+      <div className="fg-1cce95504e" data-node-id="1170:3335" data-name="Search section">{search ?? (<>
         <DesignField className="fg-7ca9804e6a" data-node-id="1170:3336" data-name="Search field" label="جستجوی آثار" placeholder="جست‌وجو جست‌وجوی اثر، هنرمند یا دسته search">
           <div className="fg-c96da37925" data-node-id="1170:3337" data-name="Search shortcut">
             <p className="fg-b234cd4997" dir="auto" data-node-id="1170:3338">
@@ -168,7 +169,7 @@ export default function CustomerWebHome() {
             </p>
           </div>
         </DesignField>
-      </div>
+      </>)}</div>
       <div className="fg-10750df20b" data-node-id="1170:3342" data-name="Categories section">
         <div className="fg-1f0d820576" data-node-id="1170:3343" data-name="Section header">
           <div className="fg-0971c055ad" data-node-id="1170:3344" data-name="Section action">
@@ -185,7 +186,7 @@ export default function CustomerWebHome() {
             </p>
           </div>
         </div>
-        <div className="fg-73fe6d119b" data-node-id="1170:3349" data-name="Category grid">
+        <div className="fg-73fe6d119b" data-node-id="1170:3349" data-name="Category grid">{categories ?? (<>
           <div className="fg-5cfab7290c" data-node-id="1170:3350" data-name="Category card">
             <div className="fg-c3029439ce" data-node-id="1170:3351" data-name="Category image">
               <img alt="" className="fg-7f65b5d6bb" src="/customer-web-assets/9eaff63a.png" />
@@ -258,9 +259,9 @@ export default function CustomerWebHome() {
               مینا
             </p>
           </div>
-        </div>
+        </>)}</div>
       </div>
-      <div className="fg-772ba3f285" data-node-id="1170:3377" data-name="Artists section">
+      <div className="fg-772ba3f285" data-node-id="1170:3377" data-name="Artists section">{artists ?? (<>
         <div className="fg-2f377c905c" data-node-id="1170:3378" data-name="Section header">
           <div className="fg-9782aa7bbc" data-node-id="1170:3379" data-name="Section action">
             <p className="fg-49ddcd9150" data-node-id="1170:3380">
@@ -406,8 +407,8 @@ export default function CustomerWebHome() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="fg-bcccdfcf0f" data-node-id="1170:3431" data-name="Negarin stories section">
+      </>)}</div>
+      <div className="fg-bcccdfcf0f" data-node-id="1170:3431" data-name="Negarin stories section">{stories ?? (<>
         <div className="fg-2f377c905c" data-node-id="1170:3432" data-name="Section header">
           <div className="fg-9782aa7bbc" data-node-id="1170:3433" data-name="Section action">
             <p className="fg-49ddcd9150" data-node-id="1170:3434">
@@ -518,8 +519,8 @@ export default function CustomerWebHome() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="fg-57096db4c5" data-node-id="1170:3467" data-name="Popular works section">
+      </>)}</div>
+      <div className="fg-57096db4c5" data-node-id="1170:3467" data-name="Popular works section">{products ?? (<>
         <div className="fg-2f377c905c" data-node-id="1170:3468" data-name="Section header">
           <div className="fg-9782aa7bbc" data-node-id="1170:3469" data-name="Section action">
             <p className="fg-49ddcd9150" data-node-id="1170:3470">
@@ -664,7 +665,7 @@ export default function CustomerWebHome() {
             </div>
           </div>
         </div>
-      </div>
+      </>)}</div>
       <div className="fg-fe00f0bc99" data-node-id="1170:3536" data-name="Join Negarin section">
         <div className="fg-7a16b181cc" data-node-id="1170:3537" data-name="Join panel">
           <div className="fg-6b791bc33d" data-node-id="1170:3538" data-name="Registration action">
