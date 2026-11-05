@@ -1,3 +1,4 @@
+import type {ReactNode} from "react";
 // Native Figma 1198:1531 — Customer / Account Overview — Web
 import {CustomerAction} from "../customer-controls";
 
@@ -20,7 +21,7 @@ function NegarinButton({ className, label = "ادامه", size = "Small", state 
   );
 }
 
-export default function CustomerAccountOverviewWeb() {
+export default function CustomerAccountOverviewWeb({welcome,paths,recent}:{welcome?:ReactNode;paths?:ReactNode;recent?:ReactNode}={}) {
   return (
     <div className="fg-d37209cb37" data-node-id="1198:1531" data-name="Customer / Account Overview — Web">
       <div className="fg-6f037ae468" data-node-id="1198:1532" data-name="Desktop header">
@@ -91,7 +92,7 @@ export default function CustomerAccountOverviewWeb() {
         </div>
       </div>
       <div className="fg-9413dfa16b" data-node-id="1198:1558" data-name="Account content">
-        <div className="fg-2ef19ca527" data-node-id="1198:1559" data-name="Welcome panel">
+        <div className="fg-2ef19ca527" data-node-id="1198:1559" data-name="Welcome panel">{welcome ?? (<>
           <div className="fg-0d1b10235c" data-node-id="1198:1560" data-name="Account summary">
             <div className="fg-a9ffbf07ff" data-node-id="1198:1561" data-name="Summary item">
               <p className="fg-00b08f6bc3" data-node-id="1198:1562">
@@ -133,7 +134,7 @@ export default function CustomerAccountOverviewWeb() {
               </p>
             </div>
           </div>
-        </div>
+        </>)}</div>
         <div className="fg-d6f889b3e9" data-node-id="1198:1576" data-name="Account paths section">
           <div className="fg-4e378bdac5" data-node-id="1198:1577" data-name="Section heading">
             <p className="fg-05ba77bfa5" dir="auto" data-node-id="1198:1578">
@@ -143,7 +144,7 @@ export default function CustomerAccountOverviewWeb() {
               برای مدیریت هر بخش، مسیر مستقل خودش را انتخاب کن.
             </p>
           </div>
-          <div className="fg-0bab63b93d" data-node-id="1198:1580" data-name="Account paths">
+          <div className="fg-0bab63b93d" data-node-id="1198:1580" data-name="Account paths">{paths ?? (<>
             <div className="fg-b909c45a8e" data-node-id="1198:1581" data-name="Account path">
               <div className="fg-a14631f11c" data-node-id="1198:1582" data-name="Path heading">
                 <div className="fg-74337db06e" data-node-id="1198:1583" data-name="Path icon">
@@ -228,7 +229,7 @@ export default function CustomerAccountOverviewWeb() {
               </p>
               <NegarinButton className="fg-936ea39c6e" label="ویرایش اطلاعات" />
             </div>
-          </div>
+          </>)}</div>
         </div>
         <div className="fg-4632536a12" data-node-id="1198:1625" data-name="Recent orders section">
           <div className="fg-a14631f11c" data-node-id="1198:1626" data-name="Orders heading">
@@ -242,7 +243,7 @@ export default function CustomerAccountOverviewWeb() {
               </p>
             </div>
           </div>
-          <div className="fg-fc896df784" data-node-id="1198:1633" data-name="Recent orders">
+          <div className="fg-fc896df784" data-node-id="1198:1633" data-name="Recent orders">{recent ?? (<>
             <div className="fg-8642a821ad" data-node-id="1198:1634" data-name="Recent order">
               <div className="fg-09e0f89736" data-node-id="1198:1635" data-name="Status">
                 <p className="fg-585f829b1a" dir="auto" data-node-id="1198:1636">
@@ -315,7 +316,7 @@ export default function CustomerAccountOverviewWeb() {
                 arrow_back
               </p>
             </div>
-          </div>
+          </>)}</div>
         </div>
       </div>
       <div className="fg-ebe0531eb3" data-node-id="1198:1661" data-name="Desktop footer">
