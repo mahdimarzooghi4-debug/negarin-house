@@ -1,6 +1,8 @@
 "use client";
 import {useRef,useState,type FormEvent} from "react";
 import {canConfirmShipment,shipmentIssueLabels,type OrderPreparation,type ShipmentIssue} from "./order-data";
+import {formatToman} from "../corporate-buyer/live-data";
+import {formatReservationExpiry} from "./checkout-data";
 import styles from "./live-catalog.module.css";
 
 type Shipment=NonNullable<OrderPreparation["shipment"]>;
@@ -37,6 +39,13 @@ export function ShipmentActions({orderId,shipment,onRefresh}:{orderId:string;shi
   }
   return <div className={styles.shipmentActions}>
     {issue&&<div><h4>مشکل مرسوله: {shipmentIssueLabels[issue.kind]}</h4><p>{issue.description}</p><p>وضعیت رسیدگی: {issueStatusLabels[issue.status]}</p>{issue.resolutionSummary&&<p>{issue.resolutionSummary}</p>}{issue.resolution==="referred_for_refund_review"&&<p>پرونده برای بررسی بازپرداخت ارجاع شده است.</p>}</div>}
+    {issue?.refundReview&&<section aria-label="نتیجهٔ بررسی بازپرداخت">
+      <h4>نتیجهٔ بررسی بازپرداخت</h4>
+      <p>{issue.refundReview.decision==="approved"?"بازپرداخت تأیید شده است.":"درخواست بازپرداخت رد شده است."}</p>
+      {issue.refundReview.amountToman&&<p>مبلغ تأییدشده: {formatToman(issue.refundReview.amountToman)}</p>}
+      <p>تاریخ بررسی: {formatReservationExpiry(issue.refundReview.reviewedAt)}</p>
+      {issue.refundReview.decision==="approved"&&<p>بازپرداخت هنوز اجرا نشده است؛ وجهی واریز نشده است.</p>}
+    </section>}
     {error&&<p role="alert">{error}</p>}
     {!mode&&<div>
       {canConfirmShipment(shipment)&&<button type="button" onClick={()=>setMode("receipt")}>تأیید دریافت مرسوله</button>}

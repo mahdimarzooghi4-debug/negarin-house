@@ -37,7 +37,7 @@ test("customer confirms receipt and reports damage with current shipment version
   });
   await page.route(`**/api/customer/orders/${id}/shipments/${id}/issues`,async route=>{
     expect(route.request().postDataJSON()).toEqual({version:1,kind:"damaged",description:"بسته آسیب دیده است"});
-    shipment={...shipment,customerVersion:2,issue:{kind:"damaged",description:"بسته آسیب دیده است",status:"open",resolution:null,resolutionSummary:null}};
+    shipment={...shipment,customerVersion:2,issue:{refundReview:null,kind:"damaged",description:"بسته آسیب دیده است",status:"open",resolution:null,resolutionSummary:null}};
     await route.fulfill({json:shipment});
   });
   await page.goto("/customer/order-detail?id="+id);
@@ -52,4 +52,29 @@ test("customer confirms receipt and reports damage with current shipment version
   await page.getByRole("button",{name:"ثبت گزارش مشکل",exact:true}).click();
   await expect(page.getByText("وضعیت رسیدگی: ثبت‌شده",{exact:true})).toBeVisible();
   await expect(page.getByRole("button",{name:"گزارش مشکل مرسوله",exact:true})).toHaveCount(0);
+});
+
+test("customer cancels a reservation and sees the server's final state",async({page})=>{
+  let current={...order};
+  await page.route("**/api/customer/orders/"+id,route=>route.fulfill({json:current}));
+  await page.route(`**/api/customer/orders/${id}/cancel`,async route=>{
+    expect(route.request().postDataJSON()).toEqual({version:0});
+    current={...current,status:"cancelled",version:1};
+    await route.fulfill({json:current});
+  });
+  await page.goto("/customer/order-detail?id="+id);
+  await page.getByRole("button",{name:"لغو سفارش",exact:true}).click();
+  await page.getByRole("checkbox",{name:"لغو این سفارش را تأیید می‌کنم."}).check();
+  await page.getByRole("button",{name:"ثبت لغو سفارش",exact:true}).click();
+  await expect(page.getByText("لغوشده",{exact:true})).toBeVisible();
+  await expect(page.getByRole("button",{name:"لغو سفارش",exact:true})).toHaveCount(0);
+});
+
+test("approved refund is explicitly shown as not executed",async({page})=>{
+  const issue={kind:"damaged",description:"آسیب",status:"closed",resolution:"referred_for_refund_review",resolutionSummary:"بررسی مالی",refundReview:{decision:"approved",amountToman:"1000",reviewedAt:order.createdAt,executionStatus:"not_executed"}};
+  const shipment={id,status:"reported_dispatched",source:"artist_report",carrierVerified:false,customerVersion:1,issue,carrierName:"پست",trackingCode:"001",reportedAt:order.createdAt,receipt:null};
+  await page.route("**/api/customer/orders/"+id,route=>route.fulfill({json:{...order,status:"placed",paymentStatus:"paid",preparation:[{items:[id],status:"ready_for_dispatch",version:5,shipment}]}}));
+  await page.goto("/customer/order-detail?id="+id);
+  await expect(page.getByRole("region",{name:"نتیجهٔ بررسی بازپرداخت"})).toContainText("وجهی واریز نشده است");
+  await expect(page.getByRole("button",{name:"لغو سفارش",exact:true})).toHaveCount(0);
 });

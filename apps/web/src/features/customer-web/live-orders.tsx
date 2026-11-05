@@ -8,6 +8,7 @@ import CustomerOrdersWeb from "./screens/orders";
 import CustomerOrderDetailWeb from "./screens/order-detail";
 import {CustomerLiveNavigation} from "./customer-controls";
 import {formatReservationExpiry} from "./checkout-data";
+import {OrderCancel} from "./order-cancel";
 import {ShipmentActions} from "./shipment-actions";
 import {ProductImage} from "./live-catalog";
 import {formatToman,formatPersianDate,isUuid} from "../corporate-buyer/live-data";
@@ -79,6 +80,7 @@ export function CustomerOrderDetailLive({id}:{id:string}){
       {error&&<div role="alert"><p>{error}</p>{isUuid(id)&&<button onClick={()=>setRetry(value=>value+1)}>تلاش دوباره</button>}</div>}
       {order&&<>
         <article className="fg-a76652c027"><h2>سفارش <bdi>{order.id}</bdi></h2><p>{orderStatusLabels[order.status]}</p><p>وضعیت پرداخت {paymentStatusLabels[order.paymentStatus]}</p><p>تاریخ ثبت {formatPersianDate(order.createdAt)}</p>{order.status==="reserved"&&<p>اعتبار رزرو تا {formatReservationExpiry(order.reservedUntil)}</p>}<strong>{formatToman(order.subtotalToman)}</strong></article>
+        <OrderCancel key={order.id+":"+order.version+":"+retry} order={order} onRefresh={()=>setRetry(value=>value+1)}/>
         <article className="fg-0d6a93ce07"><div><h2>آدرس تحویل</h2><p>{order.shippingAddress.recipientName}</p><p>{order.shippingAddress.province}، {order.shippingAddress.city}، {order.shippingAddress.fullAddress}</p><p><bdi>{order.shippingAddress.recipientPhone}</bdi> · <bdi>{order.shippingAddress.postalCode}</bdi></p></div></article>
         {order.status==="placed"&&<section aria-label="آماده‌سازی و ارسال" className={styles.fulfillment}>
           <h2>آماده‌سازی و ارسال</h2>

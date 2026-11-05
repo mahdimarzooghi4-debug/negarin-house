@@ -6,7 +6,8 @@ export type OrderItem={productId:string;title:string;quantity:number;unitPriceTo
 export type CustomerOrder=OrderReceipt&{version:number;createdAt:string;shippingAddress:AddressFields;items:OrderItem[];preparation:OrderPreparation[]};
 export const preparationStatusLabels={awaiting_acceptance:"در انتظار پذیرش هنرمند",accepted:"پذیرفته‌شده",preparing:"در حال آماده‌سازی",packaging:"در حال بسته‌بندی",ready_for_dispatch:"آمادهٔ ارسال"};
 export const shipmentIssueLabels={not_received:"مرسوله نرسیده است",damaged:"آسیب‌دیدگی",wrong_items:"اقلام اشتباه",missing_items:"کسری اقلام"};
-export type ShipmentIssue={kind:keyof typeof shipmentIssueLabels;description:string;status:"open"|"in_review"|"closed";resolution:"customer_follow_up_complete"|"referred_for_refund_review"|null;resolutionSummary:string|null};
+export type RefundReview={decision:"approved"|"rejected";amountToman:string|null;reviewedAt:string;executionStatus:"not_executed"};
+export type ShipmentIssue={refundReview:RefundReview|null;kind:keyof typeof shipmentIssueLabels;description:string;status:"open"|"in_review"|"closed";resolution:"customer_follow_up_complete"|"referred_for_refund_review"|null;resolutionSummary:string|null};
 export type OrderPreparation={items:string[];status:keyof typeof preparationStatusLabels;version:number;shipment:{id:string;carrierName:string;trackingCode:string;reportedAt:string;receivedAt:string|null;customerVersion:number;issue:ShipmentIssue|null}|null};
 function isoDate(value:unknown):value is string {
   if(typeof value!=="string")return false;
@@ -42,7 +43,14 @@ function parsePreparation(value:unknown,items:OrderItem[],status:OrderReceipt["s
         const detail=record(raw.issue);
         if(!detail||typeof detail.kind!=="string"||!Object.hasOwn(shipmentIssueLabels,detail.kind)||typeof detail.description!=="string"||!detail.description.trim()||!["open","in_review","closed"].includes(String(detail.status))||![null,"customer_follow_up_complete","referred_for_refund_review"].includes(detail.resolution as string|null)||(detail.resolutionSummary!==null&&typeof detail.resolutionSummary!=="string"))return null;
         if((detail.status==="closed")!==(detail.resolution!==null))return null;
-        issue={kind:detail.kind as ShipmentIssue["kind"],description:detail.description,status:detail.status as ShipmentIssue["status"],resolution:detail.resolution as ShipmentIssue["resolution"],resolutionSummary:detail.resolutionSummary as string|null};
+        let refundReview:RefundReview|null=null;
+        if(detail.refundReview!==null){
+          const review=record(detail.refundReview);
+          if(!review||detail.status!=="closed"||detail.resolution!=="referred_for_refund_review"||!["approved","rejected"].includes(String(review.decision))||!isoDate(review.reviewedAt)||review.executionStatus!=="not_executed")return null;
+          if(review.decision==="approved"?(typeof review.amountToman!=="string"||!/^[1-9]\d{0,22}$/.test(review.amountToman)):review.amountToman!==null)return null;
+          refundReview={decision:review.decision as RefundReview["decision"],amountToman:review.amountToman as string|null,reviewedAt:review.reviewedAt,executionStatus:"not_executed"};
+        }
+        issue={refundReview,kind:detail.kind as ShipmentIssue["kind"],description:detail.description,status:detail.status as ShipmentIssue["status"],resolution:detail.resolution as ShipmentIssue["resolution"],resolutionSummary:detail.resolutionSummary as string|null};
       }
       shipments.add(raw.id.toLowerCase());
       shipment={id:raw.id,carrierName:raw.carrierName,trackingCode:raw.trackingCode,reportedAt:raw.reportedAt,receivedAt,customerVersion:raw.customerVersion as number,issue};
@@ -106,4 +114,8 @@ export async function readCustomerOrders(path:string,signal:AbortSignal):Promise
 
 export function canConfirmShipment(shipment:NonNullable<OrderPreparation["shipment"]>):boolean {
   return !shipment.receivedAt&&shipment.customerVersion<2147483647&&(!shipment.issue||(shipment.issue.status==="closed"&&shipment.issue.resolution==="customer_follow_up_complete"));
+}
+
+export function canCancelOrder(order:Pick<CustomerOrder,"status"|"paymentStatus"|"version">):boolean {
+  return order.status==="reserved"&&order.paymentStatus==="unpaid"&&order.version<2147483647;
 }
