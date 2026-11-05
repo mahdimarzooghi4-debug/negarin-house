@@ -53,7 +53,7 @@ export default function CustomerCartLive(){
           {item.product&&<div className={styles.cartImage}><ProductImage product={item.product}/></div>}
         </article>)}
       </div>
-      <aside className="fg-e8dcb6caf1" dir="rtl"><h2>خلاصه سبد</h2><p>{cart.subtotalToman===null?"جمع مبلغ قابل محاسبه نیست":formatToman(cart.subtotalToman)}</p><button disabled className={`fg-321947be2e ${styles.productLink}`}>ادامهٔ خرید</button></aside>
+      <aside className="fg-e8dcb6caf1" dir="rtl"><h2>خلاصه سبد</h2><p>{cart.subtotalToman===null?"جمع مبلغ قابل محاسبه نیست":formatToman(cart.subtotalToman)}</p>{cart.canCheckout?<Link href="/customer/address-book" className={`fg-321947be2e ${styles.productLink}`}>انتخاب آدرس</Link>:<button disabled className={`fg-321947be2e ${styles.productLink}`}>انتخاب آدرس</button>}</aside>
     </section>}
   </>;
   return <CustomerLiveNavigation.Provider value={true}><main className={`customer-web-design ${styles.page}`} lang="fa" dir="ltr"><CustomerCartWeb content={content}/></main></CustomerLiveNavigation.Provider>;

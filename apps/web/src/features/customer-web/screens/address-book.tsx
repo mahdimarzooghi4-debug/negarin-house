@@ -1,3 +1,4 @@
+import type {ReactNode} from "react";
 // Native Figma 1180:2440 — Customer / Address Book - Web
 import {CustomerAction} from "../customer-controls";
 import {DesignField} from "../../artist/design-controls";
@@ -28,7 +29,7 @@ function NegarinButton({ className, label = "ادامه", size = "Large", state 
   );
 }
 
-export default function CustomerAddressBookWeb() {
+export default function CustomerAddressBookWeb({content}: {content?:ReactNode} = {}) {
   return (
     <div className="fg-d37209cb37" data-node-id="1180:2440" data-name="Customer / Address Book - Web">
       <div className="fg-6f037ae468" data-node-id="1180:2441" data-name="Desktop header">
@@ -83,6 +84,7 @@ export default function CustomerAddressBookWeb() {
           </div>
         </div>
       </div>
+      {content ?? (<>
       <div className="fg-641e585cf3" data-node-id="1180:2461" data-name="Page heading">
         <div className="fg-24380cf9d7" data-node-id="1180:2462" data-name="Heading accent">
           <p className="fg-440e08aff4" data-node-id="1180:2463">
@@ -336,6 +338,7 @@ export default function CustomerAddressBookWeb() {
           </div>
         </div>
       </div>
+      </>)}
       <div className="fg-ebe0531eb3" data-node-id="1180:2569" data-name="Desktop footer">
         <div className="fg-2be1b2270e" data-node-id="1180:2570" data-name="Footer content">
           <div className="fg-e1c7d3948f" data-node-id="1180:2571" data-name="Customer links">

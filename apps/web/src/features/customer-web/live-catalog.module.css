@@ -20,3 +20,10 @@
 .cartControls button:disabled { opacity:.5; cursor:default; }
 .cartImage { width:108px; flex-shrink:0; }
 .cartImage > div { height:108px; }
+.addressForm { display:grid; gap:16px; flex:1; min-width:0; padding:24px; background:white; border:1px solid #dee5eb; border-radius:18px; }
+.addressForm fieldset { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; min-width:0; border:0; padding:0; }
+.addressForm label { display:grid; gap:8px; }
+.addressForm input:not([type=checkbox]),.addressForm textarea { width:100%; border:1px solid #dee5eb; border-radius:12px; padding:12px; font:inherit; }
+.addressForm textarea { min-height:110px; }
+
+.fullField,.addressForm button[type=submit] { grid-column:1 / -1; }
