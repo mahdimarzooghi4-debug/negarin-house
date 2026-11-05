@@ -11,6 +11,7 @@ export default async function PortalPage({
   const definition = getPortalDefinition(portal as PortalKey);
 
   if (!definition) notFound();
+  if (portal === "customer") redirect("/customer/products");
   if (portal === "corporate-buyer") redirect("/corporate-buyer/corporate-products");
 
   return <PortalShell portal={portal as PortalKey} {...definition} />;

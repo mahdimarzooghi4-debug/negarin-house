@@ -1,3 +1,4 @@
+import type {ReactNode} from "react";
 // Native Figma 1176:5254 — Customer / Products - Web
 import {CustomerAction} from "../customer-controls";
 import {DesignField} from "../../artist/design-controls";
@@ -21,7 +22,7 @@ function NegarinButton({ className, label = "ادامه", size = "Small", state 
   );
 }
 
-export default function CustomerProductsWeb() {
+export default function CustomerProductsWeb({search, catalog, categories}: {search?:ReactNode; catalog?:ReactNode; categories?:ReactNode} = {}) {
   return (
     <div className="fg-d37209cb37" data-node-id="1176:5254" data-name="Customer / Products - Web">
       <div className="fg-6f037ae468" data-node-id="1176:5255" data-name="Desktop header">
@@ -94,6 +95,7 @@ export default function CustomerProductsWeb() {
             آثار هنرمندان را بر اساس دسته، سلیقه و موجودی کشف کن.
           </p>
         </div>
+        {search ?? (
         <DesignField className="fg-c4c2f97603" data-node-id="1176:5285" data-name="Search field" label="جستجوی آثار" placeholder="جست‌وجو جست‌وجوی اثر، هنرمند یا دسته search">
           <div className="fg-2a10b4066a" data-node-id="1176:5286" data-name="Search shortcut">
             <p className="fg-b234cd4997" dir="auto" data-node-id="1176:5287">
@@ -109,6 +111,7 @@ export default function CustomerProductsWeb() {
             </p>
           </div>
         </DesignField>
+        )}
       </div>
       <div className="fg-5140499efc" data-node-id="1176:5291" data-name="Category selection">
         <div className="fg-4e378bdac5" data-node-id="1176:5292" data-name="Section heading">
@@ -119,6 +122,7 @@ export default function CustomerProductsWeb() {
             یک دسته را انتخاب کن تا آثار و هنرمندان مرتبط را ببینی.
           </p>
         </div>
+        {categories ?? (
         <div className="fg-7757f91b36" data-node-id="1176:5295" data-name="Category grid">
           <div className="fg-385bfe6f35" data-node-id="1176:5296" data-name="Category card">
             <div className="fg-4e1c3419fa" data-node-id="1176:5297" data-name="Category image">
@@ -185,7 +189,9 @@ export default function CustomerProductsWeb() {
             </p>
           </div>
         </div>
+        )}
       </div>
+      {catalog ?? (
       <div className="fg-92a0d0998e" data-node-id="1176:5320" data-name="Catalog">
         <div className="fg-da907fb7ae" data-node-id="1176:5321" data-name="Results">
           <div className="fg-0a09a79c4c" data-node-id="1176:5322" data-name="Results heading">
@@ -479,6 +485,7 @@ export default function CustomerProductsWeb() {
           <NegarinButton className="fg-a900263ddf" label="نمایش نتایج" size="Medium" />
         </div>
       </div>
+      )}
       <div className="fg-007cb0bf85" data-node-id="1176:5450" data-name="Desktop footer">
         <div className="fg-2be1b2270e" data-node-id="1176:5451" data-name="Footer content">
           <div className="fg-0e1b23ee44" data-node-id="1176:5452" data-name="Customer links">

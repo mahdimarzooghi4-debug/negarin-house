@@ -1,3 +1,9 @@
+import {CustomerOrdersLive,CustomerOrderDetailLive} from "../../../features/customer-web/live-orders";
+import CustomerCheckoutLive from "../../../features/customer-web/live-checkout";
+import CustomerAddressBookLive from "../../../features/customer-web/live-address-book";
+import CustomerCartLive from "../../../features/customer-web/live-cart";
+import CustomerProductDetailLive from "../../../features/customer-web/live-product-detail";
+import CustomerCatalogLive from "../../../features/customer-web/live-catalog";
 import { notFound } from "next/navigation";
 import { directionForLocale, partnerLocales, type PartnerLocale } from "@negarin/i18n";
 import { getPartnerMessages } from "../../../partner-localization";
@@ -19,6 +25,20 @@ export default async function LocalizedPortalPage({
 }) {
   const { portal, locale } = await params;
   const query = await searchParams;
+
+  if (portal === "customer" && locale === "orders") return <CustomerOrdersLive />;
+  if (portal === "customer" && locale === "order-detail") {
+    const id=parseRequiredUuidQuery(query.id)??"";
+    return <CustomerOrderDetailLive key={id} id={id}/>;
+  }
+  if (portal === "customer" && locale === "checkout-review") {
+    const addressId=parseRequiredUuidQuery(query.addressId)??"";
+    return <CustomerCheckoutLive key={addressId} addressId={addressId}/>;
+  }
+  if (portal === "customer" && locale === "address-book") return <CustomerAddressBookLive />;
+  if (portal === "customer" && locale === "cart") return <CustomerCartLive />;
+  if (portal === "customer" && locale === "products") return <CustomerCatalogLive />;
+  if (portal === "customer" && locale === "product-detail") return <CustomerProductDetailLive id={parseRequiredUuidQuery(query.id)??""}/>;
 
   if (portal === "corporate-buyer") {
     if (locale === "corporate-products") return <CorporateProductsLive />;
