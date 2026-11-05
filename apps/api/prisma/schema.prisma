@@ -27,6 +27,7 @@ model IdentityUser {
   artistProducts ArtistProduct[]
   publicationEvents ProductPublicationEvent[]
   inventoryEvents ProductInventoryEvent[]
+  customerProfile CustomerProfile?
   favorites CustomerFavorites?
   customerCart CustomerCart?
   addressBook CustomerAddressBook?
@@ -967,4 +968,12 @@ model CustomerFavorite {
   @@id([userId, productId])
   @@index([userId, createdAt, productId])
   @@map("customer_favorite_items")
+}
+
+model CustomerProfile {
+  userId String @id @db.Uuid
+  user IdentityUser @relation(fields: [userId], references: [id], onDelete: Restrict)
+  version Int @default(0)
+  displayName String @default("")
+  @@map("customer_profiles")
 }

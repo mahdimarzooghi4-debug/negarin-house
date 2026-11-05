@@ -1,4 +1,5 @@
 "use client";
+import {CustomerProfileEditor} from "./profile-editor";
 import Link from "next/link";
 import {useEffect,useRef,useState} from "react";
 import "@fontsource-variable/vazirmatn";
@@ -12,6 +13,7 @@ import {parseCustomerOrderPage,readCustomerOrders,orderStatusLabels,paymentStatu
 import styles from "./live-catalog.module.css";
 
 export default function CustomerAccountLive(){
+  const [name,setName]=useState("");
   const [ready,setReady]=useState(false);
   const [loading,setLoading]=useState(true);
   const [error,setError]=useState("");
@@ -25,7 +27,7 @@ export default function CustomerAccountLive(){
   const logoutLock=useRef(false);
   useEffect(()=>{
     const controller=new AbortController();
-    setReady(false);setLoading(true);setError("");setOrders(null);setBook(null);setOrdersError("");setBookError("");
+    setName("");setReady(false);setLoading(true);setError("");setOrders(null);setBook(null);setOrdersError("");setBookError("");
     async function load(){
       try{
         const response=await fetch("/api/auth/context",{signal:controller.signal,cache:"no-store"});
@@ -65,7 +67,7 @@ export default function CustomerAccountLive(){
       <div className="fg-a9ffbf07ff"><p className="fg-00b08f6bc3">{orders?number(orders.items.length):"—"}</p><p className="fg-25f21a90e4">سفارش اخیر</p></div>
       <div className="fg-a9ffbf07ff"><p className="fg-00b08f6bc3">{book?number(book.addresses.length):"—"}</p><p className="fg-25f21a90e4">آدرس ذخیره‌شده</p></div>
     </div>
-    <div className="fg-072aa948fb" dir="rtl"><div><h2 className="fg-6a2294b6bc">{ready?"خوش آمدی":"حساب مشتری"}</h2>
+    <div className="fg-072aa948fb" dir="rtl"><div><h2 className="fg-6a2294b6bc">{ready?(name?name+"، خوش آمدی":"خوش آمدی"):"حساب مشتری"}</h2>
       {loading&&<p role="status">در حال دریافت اطلاعات حساب…</p>}
       {error&&<p role="alert">{error}</p>}
       {ready&&<button disabled={loggingOut} onClick={logout}>{loggingOut?"در حال خروج…":"خروج از حساب"}</button>}
@@ -75,12 +77,12 @@ export default function CustomerAccountLive(){
   </>;
   const paths=<>
     {[{title:"سفارش‌های من",description:"پیگیری وضعیت و مرور خریدهای قبلی",icon:"receipt_long",href:"/customer/orders",label:"مشاهده سفارش‌ها"},{title:"آدرس‌ها",description:"مدیریت نشانی‌های تحویل ذخیره‌شده",icon:"location_on",href:"/customer/address-book",label:"مدیریت آدرس‌ها"},{title:"علاقه‌مندی‌ها",description:"بازگشت به آثار ذخیره‌شده",icon:"favorite_border",href:"/customer/favorites",label:"دیدن علاقه‌مندی‌ها"}].map(path=><article className="fg-b909c45a8e" key={path.href} dir="rtl"><div className="fg-4e378bdac5"><span className="fg-440e08aff4" aria-hidden="true">{path.icon}</span><h3>{path.title}</h3><p>{path.description}</p></div>{ready&&<Link className={styles.accountLink} href={path.href}>{path.label}</Link>}</article>)}
-    {["اطلاعات حساب"].map(title=><article className="fg-b909c45a8e" key={title} dir="rtl"><h3>{title}</h3><p>به‌زودی در دسترس قرار می‌گیرد.</p><button disabled>به‌زودی</button></article>)}
+    {ready&&<CustomerProfileEditor key={retry} onName={setName}/>}
   </>;
   const recent=<div className={styles.accountRecent} dir="rtl">
     {ordersError&&<p role="alert">{ordersError}</p>}{bookError&&<p role="alert">{bookError}</p>}
     {orders?.items.length===0&&<p>هنوز سفارشی در حساب شما ثبت نشده است.</p>}
     {orders?.items.map(order=><Link key={order.id} className="fg-3cde6a351a" href={"/customer/order-detail?id="+order.id}><span>{orderStatusLabels[order.status]}</span><strong>{formatToman(order.subtotalToman)}</strong><span>{formatPersianDate(order.createdAt)}</span><span>سفارش <bdi>{order.id}</bdi><br/>{paymentStatusLabels[order.paymentStatus]}</span><span className="fg-751ef583d4" aria-hidden="true">arrow_back</span></Link>)}
   </div>;
-  return <CustomerLiveNavigation.Provider value={true}><main className={`customer-web-design ${styles.page}`} lang="fa" dir="ltr"><CustomerAccountOverviewWeb welcome={welcome} paths={paths} recent={recent}/></main></CustomerLiveNavigation.Provider>;
+  return <CustomerLiveNavigation.Provider value={true}><main className={`customer-web-design ${styles.page} ${styles.accountPage}`} lang="fa" dir="ltr"><CustomerAccountOverviewWeb welcome={welcome} paths={paths} recent={recent}/></main></CustomerLiveNavigation.Provider>;
 }

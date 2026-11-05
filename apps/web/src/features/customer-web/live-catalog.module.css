@@ -48,3 +48,16 @@
 .favoriteImage > div { width: 100%; height: 100%; }
 .favoriteRemove { display:flex; align-items:center; justify-content:center; width:100%; min-height:36px; border-radius:12px; background:#df0c24; color:white; font:inherit; }
 @media(max-width:1000px) { .favoriteGrid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+.profileForm, .profileForm fieldset { display:grid; gap:12px; width:100%; min-width:0; }
+.profileForm input { font:inherit; width:100%; min-width:0; border:1px solid #dee5eb; border-radius:12px; padding:10px; }
+.profileForm button { display:flex; align-items:center; justify-content:center; padding:8px 12px; border:1px solid #041b65; border-radius:12px; font:inherit; }
+
+.accountPage.accountPage :global([data-node-id="1198:1531"]),
+.accountPage.accountPage :global([data-node-id="1198:1558"]),
+.accountPage.accountPage :global([data-node-id="1198:1559"]),
+.accountPage.accountPage :global([data-node-id="1198:1576"]),
+.accountPage.accountPage :global([data-node-id="1198:1580"]),
+.accountPage.accountPage :global([data-node-id="1198:1625"]),
+.accountPage.accountPage :global([data-node-id="1198:1633"]) { height:auto; min-height:0; }
+.accountPage.accountPage :global([data-node-id="1198:1580"]) { align-items:stretch; }
