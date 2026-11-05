@@ -84,5 +84,5 @@ export default function CustomerAccountLive(){
     {orders?.items.length===0&&<p>هنوز سفارشی در حساب شما ثبت نشده است.</p>}
     {orders?.items.map(order=><Link key={order.id} className="fg-3cde6a351a" href={"/customer/order-detail?id="+order.id}><span>{orderStatusLabels[order.status]}</span><strong>{formatToman(order.subtotalToman)}</strong><span>{formatPersianDate(order.createdAt)}</span><span>سفارش <bdi>{order.id}</bdi><br/>{paymentStatusLabels[order.paymentStatus]}</span><span className="fg-751ef583d4" aria-hidden="true">arrow_back</span></Link>)}
   </div>;
-  return <CustomerLiveNavigation.Provider value={true}><main className={`customer-web-design ${styles.page}`} lang="fa" dir="ltr"><CustomerAccountOverviewWeb welcome={welcome} paths={paths} recent={recent}/></main></CustomerLiveNavigation.Provider>;
+  return <CustomerLiveNavigation.Provider value={true}><main className={`customer-web-design ${styles.page} ${styles.accountPage}`} lang="fa" dir="ltr"><CustomerAccountOverviewWeb welcome={welcome} paths={paths} recent={recent}/></main></CustomerLiveNavigation.Provider>;
 }
