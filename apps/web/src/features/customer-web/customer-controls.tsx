@@ -40,6 +40,7 @@ export function CustomerAction({label,children,...props}:HTMLAttributes<HTMLElem
  const preview=usePreview(),router=useRouter();const target=destination(label,preview.screen);
  const live=useContext(CustomerLiveNavigation);
  if(live){
+  if(target==="account-overview")return <Link {...props} href="/customer/account-overview" aria-label={label}>{children}</Link>;
   if(target==="orders")return <Link {...props} href="/customer/orders" aria-label={label}>{children}</Link>;
   if(target==="address-book")return <Link {...props} href="/customer/address-book" aria-label={label}>{children}</Link>;
   if(target==="cart")return <Link {...props} href="/customer/cart" aria-label={label}>{children}</Link>;
