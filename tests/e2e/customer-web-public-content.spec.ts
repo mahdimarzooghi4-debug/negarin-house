@@ -1,0 +1,33 @@
+import {test,expect} from "@playwright/test";
+test.use({viewport:{width:1440,height:1100}});
+const artistId="00000000-0000-4000-8000-000000000001",id="00000000-0000-4000-8000-000000000002";
+const profile={artistId,displayName:"هنرمند منتشرشده",biography:"دربارهٔ کارگاه هنرمند",craft:"سفال",city:"تهران"};
+const story={id,title:"روایت منتشرشده",body:"پاراگراف اول روایت\nپاراگراف دوم روایت",publishedAt:"2026-11-05T10:00:00.000Z",profile};
+const product={id,title:"اثر همان هنرمند",category:"سفال",description:null,dimensions:null,materials:null,weight:null,color:null,technique:null,careInstructions:null,priceToman:"1000",imageIds:[],coverImageId:null,availability:"in_stock",createdAt:"2026-11-05T10:00:00.000Z"};
+test("store, artist stories and story viewer follow their actual resource identifiers",async({page})=>{
+ await page.route("**/api/catalog/artists/"+artistId,route=>route.fulfill({json:profile}));
+ await page.route(`**/api/catalog/artists/${artistId}/products?*`,route=>route.fulfill({json:{page:1,pageSize:6,hasMore:false,items:[product]}}));
+ await page.route(`**/api/catalog/artists/${artistId}/stories?*`,route=>route.fulfill({json:{page:1,pageSize:6,hasMore:false,items:[story]}}));
+ await page.route("**/api/catalog/stories/"+id,route=>route.fulfill({json:story}));
+ await page.goto("/customer/artist-store?id="+artistId);
+ await expect(page.getByRole("heading",{name:"فروشگاه "+profile.displayName,exact:true})).toBeVisible();
+ await expect(page.getByRole("heading",{name:product.title,exact:true})).toBeVisible();
+ await page.getByRole("link",{name:"روایت‌های هنرمند",exact:true}).click();
+ await expect(page).toHaveURL(new RegExp("artistId="+artistId));
+ await page.getByRole("link",{name:"خواندن روایت",exact:true}).click();
+ await expect(page).toHaveURL(new RegExp("story-viewer\\?id="+id));
+ await expect(page.getByRole("heading",{name:story.title,exact:true})).toBeVisible();
+ await expect(page.getByText(story.body,{exact:true})).toBeVisible();
+ await expect(page.getByRole("link",{name:"مشاهده فروشگاه هنرمند",exact:true})).toHaveAttribute("href","/customer/artist-store?id="+artistId);
+ await page.route("**/api/catalog/stories/"+id,route=>route.fulfill({status:404,json:{error:"not-found"}}));
+ await page.reload();
+ await expect(page.locator(".customer-web-design").getByRole("alert")).toContainText("این محتوا منتشر نشده");
+ await expect(page.getByRole("heading",{name:story.title,exact:true})).toHaveCount(0);
+});
+test("story discovery shows a true empty state and rejects malformed resource routes",async({page})=>{
+ await page.route("**/api/catalog/stories?*",route=>route.fulfill({json:{page:1,pageSize:6,hasMore:false,items:[]}}));
+ await page.goto("/customer/artist-stories");
+ await expect(page.getByText("هنوز روایتی منتشر نشده است.",{exact:true})).toBeVisible();
+ await page.goto("/customer/story-viewer?id=bad");
+ await expect(page.locator(".customer-web-design").getByRole("alert")).toContainText("شناسهٔ صفحه معتبر نیست");
+});

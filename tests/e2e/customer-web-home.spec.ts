@@ -1,5 +1,8 @@
 import {test,expect} from "@playwright/test";
 test.use({viewport:{width:1440,height:1100}});
+test.beforeEach(async({page})=>{
+ for(const resource of ["artists","stories"])await page.route("**/api/catalog/"+resource+"?*",route=>{const p=new URL(route.request().url()).searchParams;return route.fulfill({json:{page:Number(p.get("page")),pageSize:Number(p.get("pageSize")),hasMore:false,items:[]}});});
+});
 const id="00000000-0000-4000-8000-000000000001";
 const product={id,title:"اثر تازهٔ خانه",category:"چرم",description:null,dimensions:null,materials:null,weight:null,color:null,technique:null,careInstructions:null,priceToman:"1000",imageIds:[],coverImageId:null,availability:"in_stock",createdAt:"2026-11-05T10:00:00.000Z"};
 test("home loads published works and carries search and category into catalog queries",async({page})=>{

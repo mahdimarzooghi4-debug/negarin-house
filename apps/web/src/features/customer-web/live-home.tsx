@@ -1,4 +1,5 @@
 "use client";
+import {PublicArtistTeasers,PublicStoryTeasers} from "./live-public-content";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
 import {useEffect,useState} from "react";
@@ -35,8 +36,8 @@ export default function CustomerHomeLive(){
  return <CustomerLiveNavigation.Provider value={true}><main className={`customer-web-design ${styles.page} ${styles.homePage}`} lang="fa" dir="ltr"><CustomerWebHome
   search={<form className={styles.search} dir="rtl" onSubmit={event=>{event.preventDefault();const value=query.trim();router.push("/customer/products"+(value?"?q="+encodeURIComponent(value):""));}}><input aria-label="جستجوی آثار" maxLength={200} value={query} onChange={event=>setQuery(event.target.value)} placeholder="جست‌وجوی عنوان یا توضیحات اثر"/><button type="submit">جست‌وجو</button></form>}
   categories={categories.map(([asset,name])=><Link className="fg-5cfab7290c" key={name} href={"/customer/products?category="+encodeURIComponent(name)}><div className="fg-c3029439ce"><img alt="" className="fg-7f65b5d6bb" src={"/customer-web-assets/"+asset}/></div><span className="fg-99538ea78b">{name}</span></Link>)}
-  artists={<section className={styles.empty} dir="rtl"><h2>هنرمندان نگارین</h2><p>بخش معرفی هنرمندان به‌زودی فعال می‌شود.</p></section>}
-  stories={<section className={styles.empty} dir="rtl"><h2>روایت‌های نگارین</h2><p>بخش روایت‌ها به‌زودی فعال می‌شود.</p></section>}
+  artists={<PublicArtistTeasers/>}
+  stories={<PublicStoryTeasers/>}
   products={products}
  /></main></CustomerLiveNavigation.Provider>;
 }
