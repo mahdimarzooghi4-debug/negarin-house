@@ -29,3 +29,19 @@ test('phone and sample OTP validation precede the address and checkout flow',asy
 test('payment outcomes, empty favorites, and account pages remain directly reviewable',async({page})=>{
  for(const screen of ['payment-success','payment-failed','favorites','favorites-empty','account-overview','orders','order-detail']){await page.goto('/preview/customer-web/'+screen);await ready(page,screen);await expect(page.locator('.customer-web-design')).toHaveAttribute('lang','fa');}
 });
+
+test("customer web review starts at home and links each frame to its Figma reference", async ({page}) => {
+  test.setTimeout(120_000);
+  await page.goto("/preview/customer-web/home");
+  const navigation = page.getByRole("navigation", {name:"مرور صفحات وب مشتری"});
+
+  for (const [index, screen] of inventory.entries()) {
+    await ready(page, screen.slug);
+    const reference = "https://www.figma.com/design/Uo0ifnpFmJFhWqaEVmVOZ1/Negarin-House?node-id=" + screen.id.replace(":", "-");
+    await expect(page.getByRole("link", {name:"مرجع فیگما", exact:true})).toHaveAttribute("href", reference);
+
+    const next = navigation.getByRole("link", {name:"صفحهٔ بعدی", exact:true});
+    if (index === inventory.length - 1) await expect(next).toHaveCount(0);
+    else await next.click();
+  }
+});
