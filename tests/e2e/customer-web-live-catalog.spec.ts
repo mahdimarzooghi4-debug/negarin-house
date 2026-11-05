@@ -76,9 +76,9 @@ test("customer adds an artwork, changes quantity and removes it using cart versi
   await page.goto("/customer/product-detail?id="+product.id);
   await page.getByRole("button",{name:"افزودن به سبد",exact:true}).click();
   await expect(page).toHaveURL(/\/customer\/cart$/);
-  await expect(page.getByLabel("تعداد "+product.title)).toHaveText("۱");
+  await expect(page.getByLabel("تعداد "+product.title,{exact:true})).toHaveText("۱");
   await page.getByRole("button",{name:"افزایش تعداد "+product.title}).click();
-  await expect(page.getByLabel("تعداد "+product.title)).toHaveText("۲");
+  await expect(page.getByLabel("تعداد "+product.title,{exact:true})).toHaveText("۲");
   await page.getByRole("button",{name:"حذف",exact:true}).click();
   await expect(page.getByText("سبد خرید شما خالی است.",{exact:true})).toBeVisible();
   expect(version).toBe(3);

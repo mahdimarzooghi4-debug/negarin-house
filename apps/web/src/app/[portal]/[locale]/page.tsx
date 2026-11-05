@@ -1,3 +1,4 @@
+import CustomerCheckoutLive from "../../../features/customer-web/live-checkout";
 import CustomerAddressBookLive from "../../../features/customer-web/live-address-book";
 import CustomerCartLive from "../../../features/customer-web/live-cart";
 import CustomerProductDetailLive from "../../../features/customer-web/live-product-detail";
@@ -24,6 +25,10 @@ export default async function LocalizedPortalPage({
   const { portal, locale } = await params;
   const query = await searchParams;
 
+  if (portal === "customer" && locale === "checkout-review") {
+    const addressId=parseRequiredUuidQuery(query.addressId)??"";
+    return <CustomerCheckoutLive key={addressId} addressId={addressId}/>;
+  }
   if (portal === "customer" && locale === "address-book") return <CustomerAddressBookLive />;
   if (portal === "customer" && locale === "cart") return <CustomerCartLive />;
   if (portal === "customer" && locale === "products") return <CustomerCatalogLive />;
