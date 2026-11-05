@@ -1,4 +1,5 @@
 "use client";
+import {FavoriteToggle} from "./live-favorites";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
 import {requestCart} from "./cart-data";
@@ -63,6 +64,7 @@ export default function CustomerProductDetailLive({id}:{id:string}) {
         <dl className="fg-0cd8e02b4c">
           {[["دسته",product.category],["جنس",product.materials],["ابعاد",product.dimensions],["تکنیک",product.technique],["رنگ",product.color],["نگهداری",product.careInstructions],["وضعیت",product.availability==="in_stock"?"موجود":"ناموجود"]].map(([label,value])=><div className={styles.specification} key={label}><dt>{label}</dt><dd>{value??"ثبت نشده"}</dd></div>)}
         </dl>
+        <FavoriteToggle key={product.id} productId={product.id}/>
         {cartError&&<div role="alert"><p>{cartError}</p><Link href="/customer/cart">بررسی سبد خرید</Link></div>}
         <button className={`fg-321947be2e ${styles.productLink}`} disabled={adding||product.availability!=="in_stock"} onClick={()=>void addToCart()}>{adding?"در حال افزودن…":"افزودن به سبد"}</button>
       </div>

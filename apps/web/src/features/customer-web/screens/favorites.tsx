@@ -1,3 +1,4 @@
+import type {ReactNode} from "react";
 // Native Figma 1198:1338 — Customer / Favorites — Web
 import {CustomerAction} from "../customer-controls";
 
@@ -27,7 +28,7 @@ function NegarinButton({ className, label = "ادامه", size = "Small", state 
   );
 }
 
-export default function CustomerFavoritesWeb() {
+export default function CustomerFavoritesWeb({content}:{content?:ReactNode}={}) {
   return (
     <div className="fg-d37209cb37" data-node-id="1198:1338" data-name="Customer / Favorites — Web">
       <div className="fg-6f037ae468" data-node-id="1198:1339" data-name="Desktop header">
@@ -97,7 +98,7 @@ export default function CustomerFavoritesWeb() {
           </p>
         </div>
       </div>
-      <div className="fg-384d72b743" data-node-id="1198:1365" data-name="Favorites content">
+      <div className="fg-384d72b743" data-node-id="1198:1365" data-name="Favorites content">{content ?? (<>
         <div className="fg-0a09a79c4c" data-node-id="1198:1366" data-name="Collection controls">
           <CustomerAction className="fg-0b98d4113a" data-node-id="1198:1367" data-name="Sort control" label="تازه‌ترین ذخیره‌ها sort">
             <p className="fg-0911c133e6" dir="auto" data-node-id="1198:1368">
@@ -254,7 +255,7 @@ export default function CustomerFavoritesWeb() {
             notifications_none
           </p>
         </div>
-      </div>
+      </>)}</div>
       <div className="fg-ebe0531eb3" data-node-id="1198:1445" data-name="Desktop footer">
         <div className="fg-2be1b2270e" data-node-id="1198:1446" data-name="Footer content">
           <div className="fg-e1c7d3948f" data-node-id="1198:1447" data-name="Customer links">

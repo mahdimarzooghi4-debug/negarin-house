@@ -27,6 +27,7 @@ model IdentityUser {
   artistProducts ArtistProduct[]
   publicationEvents ProductPublicationEvent[]
   inventoryEvents ProductInventoryEvent[]
+  favorites CustomerFavorites?
   customerCart CustomerCart?
   addressBook CustomerAddressBook?
   customerOrders CustomerOrder[]
@@ -440,6 +441,7 @@ model ArtistProduct {
   technique         String?
   imageIds          String[]                 @default([]) @db.Uuid
   images            ProductImage[]
+  favorites         CustomerFavorite[]
   cartItems         CartItem[]
   orderItems        CustomerOrderItem[]
   careInstructions  String?
@@ -947,4 +949,22 @@ model FinancialEvent {
   @@index([artistUserId, occurredAt, id])
   @@index([orderId, occurredAt, id])
   @@map("financial_events")
+}
+
+model CustomerFavorites {
+  userId String @id @db.Uuid
+  user IdentityUser @relation(fields: [userId], references: [id], onDelete: Restrict)
+  version Int @default(0)
+  items CustomerFavorite[]
+  @@map("customer_favorites")
+}
+model CustomerFavorite {
+  userId String @db.Uuid
+  productId String @db.Uuid
+  collection CustomerFavorites @relation(fields: [userId], references: [userId], onDelete: Restrict)
+  product ArtistProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  createdAt DateTime @default(now())
+  @@id([userId, productId])
+  @@index([userId, createdAt, productId])
+  @@map("customer_favorite_items")
 }
