@@ -19,7 +19,7 @@ function NegarinButton({ className, label = "ادامه", size: _size = "Large",
   );
 }
 
-export default function CustomerFavoritesEmptyWeb() {
+export default function CustomerFavoritesEmptyWeb({emptyTitle="هنوز اثری ذخیره نکرده‌ای"}:{emptyTitle?:string}={}) {
   return (
     <div className="fg-d37209cb37" data-node-id="1198:1466" data-name="Customer / Favorites Empty — Web">
       <div className="fg-6f037ae468" data-node-id="1198:1467" data-name="Desktop header">
@@ -122,7 +122,7 @@ export default function CustomerFavoritesEmptyWeb() {
           </div>
           <div className="fg-b44829d6e3" data-node-id="1198:1504" data-name="Empty copy">
             <p className="fg-e3de32be27" dir="auto" data-node-id="1198:1505">
-              هنوز اثری ذخیره نکرده‌ای
+              {emptyTitle}
             </p>
             <p className="fg-e2baaac909" dir="auto" data-node-id="1198:1506">
               در میان آثار هنرمندان نگارین بگرد؛ هر اثری که دلت را برد با نشان ذخیره نگه دار تا اینجا همیشه در دسترس باشد.

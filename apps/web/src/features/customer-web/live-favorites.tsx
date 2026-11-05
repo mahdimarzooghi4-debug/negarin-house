@@ -4,6 +4,7 @@ import {useEffect,useRef,useState} from "react";
 import "@fontsource-variable/vazirmatn";
 import "@fontsource/material-icons-round";
 import "./customer-web.css";
+import CustomerFavoritesEmptyWeb from "./screens/favorites-empty";
 import CustomerFavoritesWeb from "./screens/favorites";
 import {CustomerLiveNavigation} from "./customer-controls";
 import {ProductImage} from "./live-catalog";
@@ -63,5 +64,5 @@ export default function CustomerFavoritesLive(){
       </article>)}</div>
     </>}
   </>;
-  return <CustomerLiveNavigation.Provider value={true}><main className={`customer-web-design ${styles.page}`} lang="fa" dir="ltr"><CustomerFavoritesWeb content={content}/></main></CustomerLiveNavigation.Provider>;
+  return <CustomerLiveNavigation.Provider value={true}><main className={`customer-web-design ${styles.page}`} lang="fa" dir="ltr">{data&&data.items.length===0?<CustomerFavoritesEmptyWeb emptyTitle="هنوز اثری ذخیره نکرده‌ای."/>:<CustomerFavoritesWeb content={content}/>}</main></CustomerLiveNavigation.Provider>;
 }

@@ -61,3 +61,11 @@
 .accountPage.accountPage :global([data-node-id="1198:1625"]),
 .accountPage.accountPage :global([data-node-id="1198:1633"]) { height:auto; min-height:0; }
 .accountPage.accountPage :global([data-node-id="1198:1580"]) { align-items:stretch; }
+
+.homeWorks { display:grid; gap:24px; width:100%; }
+.homeImage, .homeImage > div { width:100%; height:286px; }
+.homePage.homePage :global([data-node-id="1170:3283"]),
+.homePage.homePage :global([data-node-id="1170:3335"]),
+.homePage.homePage :global([data-node-id="1170:3377"]),
+.homePage.homePage :global([data-node-id="1170:3431"]),
+.homePage.homePage :global([data-node-id="1170:3467"]) { height:auto; min-height:0; }
