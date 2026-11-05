@@ -43,3 +43,8 @@
 
 .accountLink { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 36px; border: 1px solid #041b65; border-radius: 12px; color: #041b65; }
 .accountRecent { display: grid; gap: 10px; width: 100%; }
+
+.favoriteGrid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; width: 100%; }
+.favoriteImage > div { width: 100%; height: 100%; }
+.favoriteRemove { display:flex; align-items:center; justify-content:center; width:100%; min-height:36px; border-radius:12px; background:#df0c24; color:white; font:inherit; }
+@media(max-width:1000px) { .favoriteGrid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
