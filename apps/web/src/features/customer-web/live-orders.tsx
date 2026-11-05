@@ -10,7 +10,7 @@ import {CustomerLiveNavigation} from "./customer-controls";
 import {formatReservationExpiry} from "./checkout-data";
 import {ProductImage} from "./live-catalog";
 import {formatToman,formatPersianDate,isUuid} from "../corporate-buyer/live-data";
-import {parseCustomerOrder,parseCustomerOrderPage,readCustomerOrders,orderStatusLabels,paymentStatusLabels,type CustomerOrder,type OrderPage} from "./order-data";
+import {parseCustomerOrder,parseCustomerOrderPage,readCustomerOrders,orderStatusLabels,paymentStatusLabels,preparationStatusLabels,type CustomerOrder,type OrderPage} from "./order-data";
 import styles from "./live-catalog.module.css";
 
 export function CustomerOrdersLive(){
@@ -79,6 +79,18 @@ export function CustomerOrderDetailLive({id}:{id:string}){
       {order&&<>
         <article className="fg-a76652c027"><h2>سفارش <bdi>{order.id}</bdi></h2><p>{orderStatusLabels[order.status]}</p><p>وضعیت پرداخت {paymentStatusLabels[order.paymentStatus]}</p><p>تاریخ ثبت {formatPersianDate(order.createdAt)}</p>{order.status==="reserved"&&<p>اعتبار رزرو تا {formatReservationExpiry(order.reservedUntil)}</p>}<strong>{formatToman(order.subtotalToman)}</strong></article>
         <article className="fg-0d6a93ce07"><div><h2>آدرس تحویل</h2><p>{order.shippingAddress.recipientName}</p><p>{order.shippingAddress.province}، {order.shippingAddress.city}، {order.shippingAddress.fullAddress}</p><p><bdi>{order.shippingAddress.recipientPhone}</bdi> · <bdi>{order.shippingAddress.postalCode}</bdi></p></div></article>
+        {order.status==="placed"&&<section aria-label="آماده‌سازی و ارسال" className={styles.fulfillment}>
+          <h2>آماده‌سازی و ارسال</h2>
+          {order.preparation.map(group=><article key={group.items[0]} className={styles.fulfillmentCard}>
+            <h3>{group.items.map(id=>order.items.find(item=>item.productId.toLowerCase()===id.toLowerCase())!.title).join("، ")}</h3>
+            <p>{preparationStatusLabels[group.status]}</p>
+            {group.shipment?<>
+              <p>ارسال توسط هنرمند گزارش شده است؛ شرکت حمل هنوز آن را تأیید نکرده است.</p>
+              <dl><dt>شرکت حمل</dt><dd>{group.shipment.carrierName}</dd><dt>کد رهگیری</dt><dd><bdi dir="ltr">{group.shipment.trackingCode}</bdi></dd><dt>تاریخ اعلام ارسال</dt><dd>{formatReservationExpiry(group.shipment.reportedAt)}</dd></dl>
+              {group.shipment.receivedAt&&<p>دریافت توسط مشتری تأیید شده است: {formatReservationExpiry(group.shipment.receivedAt)}</p>}
+            </>:<p>هنوز اطلاعات ارسال ثبت نشده است.</p>}
+          </article>)}
+        </section>}
         <h2>اقلام سفارش</h2>
         {order.items.map(item=><article key={item.productId} className="fg-c20151b560"><div><h3>{item.title}</h3><p>تعداد {new Intl.NumberFormat("fa-IR").format(item.quantity)}</p><p>{formatToman(item.lineSubtotalToman)}</p></div><div className={styles.cartImage}><ProductImage product={{id:item.productId,title:item.title,coverImageId:item.imageIds[0]??null}}/></div></article>)}
       </>}

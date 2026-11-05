@@ -3,7 +3,44 @@ import {parseOrderReceipt,type OrderReceipt} from "./checkout-data";
 import type {AddressFields} from "./address-data";
 
 export type OrderItem={productId:string;title:string;quantity:number;unitPriceToman:string;lineSubtotalToman:string;imageIds:string[]};
-export type CustomerOrder=OrderReceipt&{version:number;createdAt:string;shippingAddress:AddressFields;items:OrderItem[]};
+export type CustomerOrder=OrderReceipt&{version:number;createdAt:string;shippingAddress:AddressFields;items:OrderItem[];preparation:OrderPreparation[]};
+export const preparationStatusLabels={awaiting_acceptance:"در انتظار پذیرش هنرمند",accepted:"پذیرفته‌شده",preparing:"در حال آماده‌سازی",packaging:"در حال بسته‌بندی",ready_for_dispatch:"آمادهٔ ارسال"};
+export type OrderPreparation={items:string[];status:keyof typeof preparationStatusLabels;version:number;shipment:{id:string;carrierName:string;trackingCode:string;reportedAt:string;receivedAt:string|null}|null};
+function isoDate(value:unknown):value is string {
+  if(typeof value!=="string")return false;
+  const date=new Date(value);
+  return Number.isFinite(date.getTime())&&date.toISOString()===value;
+}
+function parsePreparation(value:unknown,items:OrderItem[],status:OrderReceipt["status"]):OrderPreparation[]|null {
+  if(!Array.isArray(value)||value.length>items.length)return null;
+  if(status!=="placed")return value.length===0?[]:null;
+  const result:OrderPreparation[]=[];
+  const assigned=new Set<string>();
+  const shipments=new Set<string>();
+  for(const entry of value){
+    const group=record(entry);
+    if(!group||typeof group.status!=="string"||!Object.hasOwn(preparationStatusLabels,group.status)||!Number.isInteger(group.version)||(group.version as number)<0||!Array.isArray(group.items)||!group.items.length)return null;
+    for(const id of group.items){
+      if(!isUuid(id)||!items.some(item=>item.productId.toLowerCase()===id.toLowerCase())||assigned.has(id.toLowerCase()))return null;
+      assigned.add(id.toLowerCase());
+    }
+    let shipment:OrderPreparation["shipment"]=null;
+    if(group.shipment!==null){
+      const raw=record(group.shipment);
+      if(!raw||group.status!=="ready_for_dispatch"||!isUuid(raw.id)||shipments.has(raw.id.toLowerCase())||raw.status!=="reported_dispatched"||raw.source!=="artist_report"||raw.carrierVerified!==false||typeof raw.carrierName!=="string"||!raw.carrierName.trim()||typeof raw.trackingCode!=="string"||!/^[A-Za-z0-9-]{1,100}$/.test(raw.trackingCode)||!isoDate(raw.reportedAt))return null;
+      let receivedAt:string|null=null;
+      if(raw.receipt!==null){
+        const receipt=record(raw.receipt);
+        if(!receipt||receipt.source!=="customer_confirmation"||!isoDate(receipt.receivedAt))return null;
+        receivedAt=receipt.receivedAt;
+      }
+      shipments.add(raw.id.toLowerCase());
+      shipment={id:raw.id,carrierName:raw.carrierName,trackingCode:raw.trackingCode,reportedAt:raw.reportedAt,receivedAt};
+    }
+    result.push({items:group.items as string[],status:group.status as OrderPreparation["status"],version:group.version as number,shipment});
+  }
+  return assigned.size===items.length?result:null;
+}
 export type OrderPage={page:number;pageSize:number;hasMore:boolean;items:CustomerOrder[]};
 export const orderStatusLabels={reserved:"رزروشده",placed:"ثبت نهایی",cancelled:"لغوشده",expired:"رزرو منقضی‌شده"};
 export const paymentStatusLabels={unpaid:"پرداخت‌نشده",paid:"پرداخت‌شده",reconciliation_required:"در حال بررسی"};
@@ -35,7 +72,9 @@ export function parseCustomerOrder(value:unknown):CustomerOrder|null{
     items.push({productId:item.productId,title:item.title,quantity:item.quantity,unitPriceToman:item.unitPriceToman,lineSubtotalToman:total.toString(),imageIds:item.imageIds});
   }
   if(subtotal.toString()!==raw.subtotalToman)return null;
-  return {...receipt,version:raw.version,createdAt:raw.createdAt,shippingAddress,items};
+  const preparation=parsePreparation(raw.preparation,items,receipt.status);
+  if(!preparation)return null;
+  return {...receipt,version:raw.version,createdAt:raw.createdAt,shippingAddress,items,preparation};
 }
 export function parseCustomerOrderPage(value:unknown,page:number,pageSize:number):OrderPage|null{
   const raw=record(value);

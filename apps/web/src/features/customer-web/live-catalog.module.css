@@ -28,3 +28,8 @@
 
 .fullField,.addressForm button[type=submit] { grid-column:1 / -1; }
 .ordersWorkspace { display:grid; gap:24px; width:100%; padding:0 96px 64px; }
+
+.fulfillment { display: grid; gap: 16px; }
+.fulfillmentCard { border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; background: white; overflow-wrap: anywhere; }
+.fulfillmentCard dl { display: grid; grid-template-columns: max-content 1fr; gap: 12px 24px; }
+.fulfillmentCard dd { margin: 0; }
