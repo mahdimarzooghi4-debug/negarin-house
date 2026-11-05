@@ -1,3 +1,4 @@
+import CustomerCatalogLive from "../../../features/customer-web/live-catalog";
 import { notFound } from "next/navigation";
 import { directionForLocale, partnerLocales, type PartnerLocale } from "@negarin/i18n";
 import { getPartnerMessages } from "../../../partner-localization";
@@ -19,6 +20,8 @@ export default async function LocalizedPortalPage({
 }) {
   const { portal, locale } = await params;
   const query = await searchParams;
+
+  if (portal === "customer" && locale === "products") return <CustomerCatalogLive />;
 
   if (portal === "corporate-buyer") {
     if (locale === "corporate-products") return <CorporateProductsLive />;

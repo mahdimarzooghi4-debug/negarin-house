@@ -1,9 +1,12 @@
 "use client";
-import {type HTMLAttributes,type ReactNode} from "react";
+import {createContext,useContext,type HTMLAttributes,type ReactNode} from "react";
+import Link from "next/link";
 import {useRouter} from "next/navigation";
 import {DesignAction,normalizeDigits} from "../artist/design-controls";
 import {usePreview} from "../artist/preview-state";
 import {Button} from "@negarin/ui";
+
+export const CustomerLiveNavigation = createContext(false);
 
 function destination(label:string,screen:string){
  const text=label.replace(/person_outline|shopping_cart|bookmark_border|bookmark|arrow_back|arrow_forward|chevron_left/g,"").trim();
@@ -35,6 +38,11 @@ function destination(label:string,screen:string){
 }
 export function CustomerAction({label,children,...props}:HTMLAttributes<HTMLElement>&{label:string;children:ReactNode}){
  const preview=usePreview(),router=useRouter();const target=destination(label,preview.screen);
+ const live=useContext(CustomerLiveNavigation);
+ if(live){
+  if(target==="products")return <Link {...props} href="/customer/products" aria-label={label}>{children}</Link>;
+  return <Button {...props} variant="unstyled" aria-label={label} disabled>{children}</Button>;
+ }
  const phone=preview.screen==='login'&&target==='otp-verification';const otp=preview.screen==='otp-verification'&&/تأیید|تایید|ادامه/.test(label);
  if(phone||otp)return <Button {...props} variant="unstyled" aria-label={label} onClick={()=>{
   if(phone&&!Object.values(preview.values).some(v=>/^09\d{9}$/.test(normalizeDigits(v)))){preview.notify('شماره همراه معتبر با ۱۱ رقم و شروع ۰۹ وارد کنید.');return;}
