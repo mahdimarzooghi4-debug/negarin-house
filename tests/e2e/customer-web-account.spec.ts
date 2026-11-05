@@ -11,7 +11,7 @@ test("account loads actual empty summaries, links to management and revokes sess
   await expect(page.getByRole("link",{name:"مدیریت آدرس‌ها",exact:true})).toHaveAttribute("href","/customer/address-book");
   await page.route("**/api/auth/session",route=>route.fulfill({status:502,json:{error:"logout-failed"}}));
   await page.getByRole("button",{name:"خروج از حساب",exact:true}).click();
-  await expect(page.getByRole("alert")).toContainText("خروج انجام نشد");
+  await expect(page.locator(".customer-web-design").getByRole("alert")).toContainText("خروج انجام نشد");
   await expect(page).toHaveURL(/\/customer\/account-overview$/);
   await page.route("**/api/auth/session",route=>{expect(route.request().method()).toBe("DELETE");return route.fulfill({status:204});});
   await page.getByRole("button",{name:"خروج از حساب",exact:true}).click();
@@ -22,7 +22,7 @@ test("account conceals summaries when the session is missing",async({page})=>{
   await page.route("**/api/auth/context",route=>route.fulfill({status:401,json:{error:"unauthorized"}}));
   await page.route("**/api/customer/**",route=>{protectedReads++;return route.fulfill({status:401});});
   await page.goto("/customer/account-overview");
-  await expect(page.getByRole("alert")).toContainText("برای مشاهدهٔ حساب وارد شوید");
+  await expect(page.locator(".customer-web-design").getByRole("alert")).toContainText("برای مشاهدهٔ حساب وارد شوید");
   expect(protectedReads).toBe(0);
   await expect(page.getByRole("button",{name:"خروج از حساب",exact:true})).toHaveCount(0);
 });
