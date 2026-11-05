@@ -1,5 +1,5 @@
 "use client";
-import {useRef,useState,type FormEvent} from "react";
+import {useId,useRef,useState,type FormEvent} from "react";
 import {canConfirmShipment,shipmentIssueLabels,type OrderPreparation,type ShipmentIssue} from "./order-data";
 import {formatToman} from "../corporate-buyer/live-data";
 import {formatReservationExpiry} from "./checkout-data";
@@ -8,6 +8,7 @@ import styles from "./live-catalog.module.css";
 type Shipment=NonNullable<OrderPreparation["shipment"]>;
 const issueStatusLabels={open:"ثبت‌شده",in_review:"در حال بررسی",closed:"بسته‌شده"};
 export function ShipmentActions({orderId,shipment,onRefresh}:{orderId:string;shipment:Shipment;onRefresh:()=>void}){
+  const fieldId=useId();
   const [mode,setMode]=useState<"receipt"|"issues"|null>(null);
   const [kind,setKind]=useState<ShipmentIssue["kind"]>(shipment.receivedAt?"damaged":"not_received");
   const [description,setDescription]=useState("");
@@ -55,8 +56,8 @@ export function ShipmentActions({orderId,shipment,onRefresh}:{orderId:string;shi
       <fieldset disabled={busy||locked.current}>
         <legend>{mode==="receipt"?"تأیید دریافت":"گزارش مشکل"}</legend>
         {mode==="receipt"?<label><input type="checkbox" required/>این مرسوله را دریافت کرده‌ام.</label>:<>
-          <label>نوع مشکل<select value={kind} onChange={event=>setKind(event.target.value as ShipmentIssue["kind"])}>{Object.entries(shipmentIssueLabels).filter(([value])=>!shipment.receivedAt||value!=="not_received").map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></label>
-          <label>شرح مشکل<textarea required maxLength={2000} value={description} onChange={event=>setDescription(event.target.value)}/></label>
+          <label htmlFor={fieldId+"-kind"}>نوع مشکل</label><select id={fieldId+"-kind"} value={kind} onChange={event=>setKind(event.target.value as ShipmentIssue["kind"])}>{Object.entries(shipmentIssueLabels).filter(([value])=>!shipment.receivedAt||value!=="not_received").map(([value,label])=><option key={value} value={value}>{label}</option>)}</select>
+          <label htmlFor={fieldId+"-description"}>شرح مشکل</label><textarea id={fieldId+"-description"} required maxLength={2000} value={description} onChange={event=>setDescription(event.target.value)}/>
         </>}
         <button type="submit">{busy?"در حال ثبت…":mode==="receipt"?"ثبت تأیید دریافت":"ثبت گزارش مشکل"}</button>
         <button type="button" onClick={()=>{setMode(null);setError("");}}>انصراف</button>
