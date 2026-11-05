@@ -9,8 +9,8 @@ import {ProductImage} from "./live-catalog";
 import {CustomerLiveNavigation} from "./customer-controls";
 import {requestCart,type CustomerCart} from "./cart-data";
 import {requestAddressBook,type AddressBook} from "./address-data";
-import {checkoutCommand,parseOrderReceipt,type CheckoutCommand,type OrderReceipt} from "./checkout-data";
-import {formatToman,formatPersianDate} from "../corporate-buyer/live-data";
+import {checkoutCommand,parseOrderReceipt,formatReservationExpiry,type CheckoutCommand,type OrderReceipt} from "./checkout-data";
+import {formatToman} from "../corporate-buyer/live-data";
 import styles from "./live-catalog.module.css";
 
 type Review={cart:CustomerCart;book:AddressBook};
@@ -56,7 +56,7 @@ export default function CustomerCheckoutLive({addressId}:{addressId:string}){
     {!receipt&&<div className="fg-66a4315384"><div className="fg-50427a0e30"><div className="fg-46eb0284d7"><p className="fg-846320e04e">۲ بررسی سفارش</p></div><div className="fg-c5353632b5"><p className="fg-fb7015ae0f">۱ اطلاعات ارسال</p></div></div></div>}
     {loading&&<p role="status" className={styles.empty}>در حال دریافت اطلاعات سفارش…</p>}
     {error&&<div role="alert" className={styles.empty}><p>{error}</p>{!pending.current&&<button disabled={working} onClick={()=>setRefresh(value=>value+1)}>تازه‌سازی اطلاعات سفارش</button>}</div>}
-    {receipt?<section className={styles.empty} dir="rtl" role="status"><h2>سفارش ثبت شد</h2><p>شناسهٔ سفارش <bdi>{receipt.id}</bdi></p><p>وضعیت {({reserved:"رزروشده",placed:"ثبت نهایی",cancelled:"لغوشده",expired:"رزرو منقضی‌شده"})[receipt.status]}</p><p>پرداخت {({unpaid:"پرداخت‌نشده",paid:"پرداخت‌شده",reconciliation_required:"در حال بررسی"})[receipt.paymentStatus]}</p><p>{formatToman(receipt.subtotalToman)}</p>{receipt.status==="reserved"&&<p>اعتبار رزرو تا {formatPersianDate(receipt.reservedUntil)}</p>}<Link href="/customer/products">بازگشت به آثار</Link></section>:
+    {receipt?<section className={styles.empty} dir="rtl" role="status"><h2>سفارش ثبت شد</h2><p>شناسهٔ سفارش <bdi>{receipt.id}</bdi></p><p>وضعیت {({reserved:"رزروشده",placed:"ثبت نهایی",cancelled:"لغوشده",expired:"رزرو منقضی‌شده"})[receipt.status]}</p><p>پرداخت {({unpaid:"پرداخت‌نشده",paid:"پرداخت‌شده",reconciliation_required:"در حال بررسی"})[receipt.paymentStatus]}</p><p>{formatToman(receipt.subtotalToman)}</p>{receipt.status==="reserved"&&<p>اعتبار رزرو تا {formatReservationExpiry(receipt.reservedUntil)}</p>}<Link href={"/customer/order-detail?id="+receipt.id}>پیگیری سفارش</Link><Link href="/customer/products">بازگشت به آثار</Link></section>:
       !loading&&review&&<section className="fg-49c2cc15db">
         <div className="fg-da907fb7ae" dir="rtl"><h2>آدرس انتخاب‌شده</h2>
           {address?<div className="fg-0d6a93ce07"><div><h3>{address.recipientName}</h3><p>{address.province}، {address.city}، {address.fullAddress}</p><p><bdi>{address.recipientPhone}</bdi> · <bdi>{address.postalCode}</bdi></p></div></div>:<p>آدرس تحویل را انتخاب کنید.</p>}

@@ -1,3 +1,4 @@
+import type {ReactNode} from "react";
 // Native Figma 1180:2696 — Customer / Orders - Web
 import {CustomerAction} from "../customer-controls";
 
@@ -19,7 +20,7 @@ function NegarinButton({ className, label = "ادامه", size: _size = "Medium"
   );
 }
 
-export default function CustomerOrdersWeb() {
+export default function CustomerOrdersWeb({content}: {content?:ReactNode} = {}) {
   return (
     <div className="fg-d37209cb37" data-node-id="1180:2696" data-name="Customer / Orders - Web">
       <div className="fg-6f037ae468" data-node-id="1180:2697" data-name="Desktop header">
@@ -74,6 +75,7 @@ export default function CustomerOrdersWeb() {
           </div>
         </div>
       </div>
+      {content ?? (<>
       <div className="fg-641e585cf3" data-node-id="1180:2717" data-name="Page heading">
         <div className="fg-24380cf9d7" data-node-id="1180:2718" data-name="Heading accent">
           <p className="fg-440e08aff4" data-node-id="1180:2719">
@@ -216,6 +218,7 @@ export default function CustomerOrdersWeb() {
           </p>
         </div>
       </div>
+      </>)}
       <div className="fg-ebe0531eb3" data-node-id="1180:2776" data-name="Desktop footer">
         <div className="fg-2be1b2270e" data-node-id="1180:2777" data-name="Footer content">
           <div className="fg-e1c7d3948f" data-node-id="1180:2778" data-name="Customer links">

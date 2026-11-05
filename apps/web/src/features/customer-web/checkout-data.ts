@@ -18,3 +18,7 @@ export function parseOrderReceipt(value:unknown,expectedSubtotal:string):OrderRe
   if(!Number.isFinite(date.getTime())||date.toISOString()!==order.reservedUntil)return null;
   return {id:order.id,status:order.status as OrderReceipt["status"],paymentStatus:order.paymentStatus as OrderReceipt["paymentStatus"],subtotalToman:expectedSubtotal,reservedUntil:order.reservedUntil};
 }
+
+export function formatReservationExpiry(value:string):string {
+  return new Intl.DateTimeFormat("fa-IR",{dateStyle:"medium",timeStyle:"short",timeZone:"Asia/Tehran"}).format(new Date(value));
+}

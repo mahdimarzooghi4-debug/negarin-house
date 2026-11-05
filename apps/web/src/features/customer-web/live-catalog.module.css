@@ -27,3 +27,4 @@
 .addressForm textarea { min-height:110px; }
 
 .fullField,.addressForm button[type=submit] { grid-column:1 / -1; }
+.ordersWorkspace { display:grid; gap:24px; width:100%; padding:0 96px 64px; }
