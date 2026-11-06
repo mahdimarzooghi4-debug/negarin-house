@@ -1,4 +1,4 @@
-name: Mobile dependency lockfile bootstrap
+name: Mobile dependency lockfile bootstrap # one-time workspace lockfile generation
 
 on:
   pull_request:
