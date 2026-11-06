@@ -9,7 +9,7 @@ import {
 } from "../domain/artist-data";
 
 const colors = {
-  background: "#fcfcfc", surface: "#ffffff", brand: "#041b65", accent: "#07858f",
+  background: "#fcfcfc", surface: "#ffffff", text: "#111827", brand: "#041b65", accent: "#07858f",
   accentSoft: "#eaf7f7", border: "#e5e7eb", muted: "#6b7280", danger: "#b91c1c",
   dangerSoft: "#fee2e2"
 };
@@ -240,6 +240,7 @@ const styles = StyleSheet.create({
   sectionTitle: { color: colors.brand, fontSize: 14, fontWeight: "800", textAlign: "right" },
   card: { backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1, borderRadius: 13, padding: 14, gap: 6 },
   itemCard: { backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1, borderRadius: 12, padding: 13, gap: 9 },
+  shipmentCard: { backgroundColor: colors.accentSoft, borderColor: colors.border, borderWidth: 1, borderRadius: 13, padding: 14, gap: 9 },
   itemTitle: { color: colors.text, fontSize: 13, fontWeight: "700", textAlign: "right" },
   itemFooter: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 8 },
   amount: { color: colors.brand, fontSize: 11, fontWeight: "700", textAlign: "right" },
