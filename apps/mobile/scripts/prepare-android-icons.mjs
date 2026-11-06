@@ -22,7 +22,8 @@ export function applyAndroidIcons(resourceDirectory, role = 'artist') {
   <item><inset android:insetLeft="20%" android:insetTop="20%" android:insetRight="20%" android:insetBottom="20%"><shape android:shape="oval"><solid android:color="#FFFFFF" /></shape></inset></item>
   <item><inset android:insetLeft="24%" android:insetTop="24%" android:insetRight="24%" android:insetBottom="24%"><bitmap android:src="@drawable/negarin_logo" android:gravity="fill" android:filter="true" /></inset></item>
 </layer-list>\n`);
-  const adaptive = `<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android"><background android:drawable="${color}" /><foreground android:drawable="@drawable/negarin_icon_foreground" /></adaptive-icon>\n`;
+  write('values/negarin_icon_colors.xml', `<resources><color name="negarin_icon_background">${color}</color></resources>\n`);
+  const adaptive = `<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android"><background android:drawable="@color/negarin_icon_background" /><foreground android:drawable="@drawable/negarin_icon_foreground" /></adaptive-icon>\n`;
   const legacy = `<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
   <item><shape android:shape="rectangle"><solid android:color="${color}" /><corners android:radius="10dp" /><size android:width="48dp" android:height="48dp" /></shape></item>
   <item android:left="6dp" android:top="6dp" android:right="6dp" android:bottom="6dp"><shape android:shape="oval"><solid android:color="#FFFFFF" /></shape></item>
