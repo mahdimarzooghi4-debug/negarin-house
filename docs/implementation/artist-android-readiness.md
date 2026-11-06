@@ -18,6 +18,14 @@
 4. **Android signing/distribution is not configured.** Debug bundle validation is separate from signed APK/AAB and store release. No signing key, EAS project, store listing, or production release is created here.
 5. **Visual assets and Vazirmatn font require native packaging.** The existing Figma assets are currently packaged for the web preview. Native asset/font packaging and screenshot parity remain a separate implementation/QA slice.
 
+## Local development
+
+- Install the workspace using `pnpm install --frozen-lockfile`.
+- Set `EXPO_PUBLIC_API_BASE_URL` to the reachable API origin before starting the app.
+- Start the Android app's Metro development server with `pnpm --filter @negarin/mobile start`.
+- Validate the Android JavaScript bundle with `pnpm --filter @negarin/mobile build`.
+- Do not run native prebuild or create a release package until `NEGARIN_ANDROID_APPLICATION_ID` is confirmed by the owner.
+
 ## Build semantics
 
 - `pnpm --filter @negarin/mobile build` exports the Android JavaScript bundle for validation; it is **not** an APK/AAB.
