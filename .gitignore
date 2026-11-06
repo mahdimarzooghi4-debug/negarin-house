@@ -15,3 +15,5 @@ test-results
 .figma-cache/
 *.tsbuildinfo
 __pycache__/
+apps/mobile/.expo/
+apps/mobile/android/
