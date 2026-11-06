@@ -144,3 +144,103 @@ export function formatToman(value: string): string {
 export function formatPersianDate(value: string): string {
   return new Intl.DateTimeFormat("fa-IR", { day: "numeric", month: "long" }).format(new Date(value));
 }
+
+
+export type ArtistShippingAddress = {
+  recipientName: string;
+  recipientPhone: string;
+  province: string;
+  city: string;
+  postalCode: string;
+  fullAddress: string;
+};
+export type ArtistOrderHistoryEntry = {
+  version: number;
+  fromStatus: ArtistOrderStatus;
+  toStatus: ArtistOrderStatus;
+  createdAt: string;
+};
+export type ArtistShipmentSummary = {
+  status: "reported_dispatched";
+  source: "artist_report";
+  carrierVerified: false;
+  carrierName: string;
+  trackingCode: string;
+  reportedAt: string;
+};
+export type ArtistOrderDetail = Omit<ArtistOrder, "shipment"> & {
+  shipment: ArtistShipmentSummary | null;
+  shippingAddress: ArtistShippingAddress;
+  history: ArtistOrderHistoryEntry[];
+};
+
+export function parseArtistOrderDetail(value: unknown): ArtistOrderDetail | null {
+  const root = record(value);
+  if (!root) return null;
+  const page = parseArtistOrders({ page: 1, pageSize: 1, hasMore: false, items: [value] });
+  if (!page || page.items.length !== 1) return null;
+  const address = record(root.shippingAddress);
+  if (!address ||
+    typeof address.recipientName !== "string" || !address.recipientName.trim() ||
+    typeof address.recipientPhone !== "string" || !address.recipientPhone.trim() ||
+    typeof address.province !== "string" || !address.province.trim() ||
+    typeof address.city !== "string" || !address.city.trim() ||
+    typeof address.postalCode !== "string" || !address.postalCode.trim() ||
+    typeof address.fullAddress !== "string" || !address.fullAddress.trim() ||
+    !Array.isArray(root.history)) return null;
+
+  const order = page.items[0]!;
+  const history: ArtistOrderHistoryEntry[] = [];
+  let previousVersion = 0;
+  for (const raw of root.history) {
+    const entry = record(raw);
+    if (!entry || !validVersion(entry.version) || entry.version <= previousVersion ||
+      entry.version > order.version ||
+      !orderStates.includes(entry.fromStatus as ArtistOrderStatus) ||
+      !orderStates.includes(entry.toStatus as ArtistOrderStatus) ||
+      !canonicalDate(entry.createdAt)) return null;
+    history.push({
+      version: entry.version,
+      fromStatus: entry.fromStatus as ArtistOrderStatus,
+      toStatus: entry.toStatus as ArtistOrderStatus,
+      createdAt: entry.createdAt
+    });
+    previousVersion = entry.version;
+  }
+
+  let shipment: ArtistShipmentSummary | null = null;
+  if (root.shipment !== null) {
+    const value = record(root.shipment);
+    if (!value || value.status !== "reported_dispatched" || value.source !== "artist_report" ||
+      value.carrierVerified !== false || typeof value.carrierName !== "string" || !value.carrierName.trim() ||
+      typeof value.trackingCode !== "string" || !value.trackingCode.trim() ||
+      !canonicalDate(value.reportedAt)) return null;
+    shipment = {
+      status: "reported_dispatched",
+      source: "artist_report",
+      carrierVerified: false,
+      carrierName: value.carrierName,
+      trackingCode: value.trackingCode,
+      reportedAt: value.reportedAt
+    };
+  }
+
+  return {
+    ...order,
+    shipment,
+    shippingAddress: {
+      recipientName: address.recipientName,
+      recipientPhone: address.recipientPhone,
+      province: address.province,
+      city: address.city,
+      postalCode: address.postalCode,
+      fullAddress: address.fullAddress
+    },
+    history
+  };
+}
+
+export function nextPreparationStatus(status: ArtistOrderStatus): ArtistOrderStatus | null {
+  const index = orderStates.indexOf(status);
+  return index < 0 ? null : orderStates[index + 1] ?? null;
+}

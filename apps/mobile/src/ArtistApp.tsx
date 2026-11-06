@@ -8,6 +8,7 @@ import {
   type ArtistOrder, type ArtistOrdersPage, type ArtistProduct
 } from "./domain/artist-data";
 import type { IdentityContext } from "./auth/identity";
+import { OrderDetailScreen } from "./screens/OrderDetailScreen";
 
 type Tab = "home" | "products" | "orders";
 type Props = { token: string; context: IdentityContext; onLogout: () => void };
@@ -57,11 +58,11 @@ function ProductCard({ product }: { product: ArtistProduct }) {
   </View>;
 }
 
-function OrderCard({ order }: { order: ArtistOrder }) {
+function OrderCard({ order, onSelect }: { order: ArtistOrder; onSelect: (orderId: string) => void }) {
   const title = order.items.length === 1 ? order.items[0]!.title
     : order.items.length > 1 ? "سفارش چندمحصولی" : "سفارش";
   const quantity = order.items.reduce((total, item) => total + item.quantity, 0);
-  return <View style={styles.card}>
+  return <Pressable accessibilityRole="button" onPress={() => onSelect(order.orderId)} style={styles.card}>
     <View style={styles.cardHeading}>
       <Text style={styles.cardTitle} numberOfLines={2}>{title}</Text>
       <Text style={styles.status}>{orderStatus[order.status]}</Text>
@@ -71,10 +72,11 @@ function OrderCard({ order }: { order: ArtistOrder }) {
       <Text style={styles.amount}>{formatToman(order.merchandiseSubtotalToman)}</Text>
       <Text style={styles.mutedText}>{number.format(order.items.length)} قلم کالا</Text>
     </View>
-  </View>;
+    <Text style={styles.detailAction}>مشاهده جزئیات سفارش ←</Text>
+  </Pressable>;
 }
 
-function HomeScreen({ token, onNavigate }: { token: string; onNavigate: (tab: Tab) => void }) {
+function HomeScreen({ token, onNavigate, onSelectOrder }: { token: string; onNavigate: (tab: Tab) => void; onSelectOrder: (orderId: string) => void }) {
   const [data, setData] = useState<{ products: ArtistProduct[]; orders: ArtistOrdersPage } | null>(null);
   const [error, setError] = useState("");
   const [retry, setRetry] = useState(0);
@@ -127,7 +129,7 @@ function HomeScreen({ token, onNavigate }: { token: string; onNavigate: (tab: Ta
       <Text style={styles.sectionTitle}>سفارش‌های اخیر</Text>
       <Pressable onPress={() => onNavigate("orders")}><Text style={styles.linkText}>مشاهده همه</Text></Pressable>
     </View>
-    {latestOrders.length ? latestOrders.map((order) => <OrderCard key={order.orderId} order={order} />)
+    {latestOrders.length ? latestOrders.map((order) => <OrderCard key={order.orderId} order={order} onSelect={onSelectOrder} />)
       : <Text style={styles.emptyText}>در صفحه دریافت‌شده، سفارشی وجود ندارد.</Text>}
     {data.orders.hasMore ? <Text style={styles.noteText}>سفارش‌های بیشتری در صفحات بعدی قرار دارند.</Text> : null}
   </ScrollView>;
@@ -162,7 +164,7 @@ function ProductsScreen({ token }: { token: string }) {
   </ScrollView>;
 }
 
-function OrdersScreen({ token }: { token: string }) {
+function OrdersScreen({ token, onSelectOrder }: { token: string; onSelectOrder: (orderId: string) => void }) {
   const [page, setPage] = useState<ArtistOrdersPage | null>(null);
   const [error, setError] = useState("");
   const [retry, setRetry] = useState(0);
@@ -203,7 +205,7 @@ function OrdersScreen({ token }: { token: string }) {
     <Text style={styles.pageTitle}>سفارش‌ها</Text>
     <Text style={styles.pageSubtitle}>سفارش‌های پرداخت‌شده تخصیص‌یافته به حساب هنرمند</Text>
     {error ? <ErrorPanel message={error} onRetry={() => setRetry((value) => value + 1)} /> : null}
-    {page?.items.length ? page.items.map((order) => <OrderCard key={order.orderId} order={order} />)
+    {page?.items.length ? page.items.map((order) => <OrderCard key={order.orderId} order={order} onSelect={onSelectOrder} />)
       : page ? <Text style={styles.emptyText}>سفارشی در این فهرست وجود ندارد.</Text> : null}
     {page?.hasMore ? <Pressable disabled={loadingMore} style={styles.moreButton} onPress={() => void loadMore()}>
       <Text style={styles.moreButtonText}>{loadingMore ? "در حال دریافت…" : "نمایش سفارش‌های بیشتر"}</Text>
@@ -211,8 +213,9 @@ function OrdersScreen({ token }: { token: string }) {
   </ScrollView>;
 }
 
-export function ArtistApp({ token, onLogout }: Props) {
+export function ArtistApp({ token, context, onLogout }: Props) {
   const [tab, setTab] = useState<Tab>("home");
+  const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
   return <View style={styles.app}>
     <View style={styles.header}>
       <View>
@@ -224,9 +227,11 @@ export function ArtistApp({ token, onLogout }: Props) {
       </Pressable>
     </View>
     <View style={styles.body}>
-      {tab === "home" ? <HomeScreen token={token} onNavigate={setTab} />
-        : tab === "products" ? <ProductsScreen token={token} />
-          : <OrdersScreen token={token} />}
+      {context.activeRole !== "artist" ? <View style={styles.statePanel}><Text style={styles.errorText}>نقش فعال نشست دیگر هنرمند نیست؛ برای ادامه دوباره دسترسی را بررسی کنید.</Text></View>
+        : selectedOrderId ? <OrderDetailScreen token={token} orderId={selectedOrderId} onBack={() => setSelectedOrderId(null)} />
+          : tab === "home" ? <HomeScreen token={token} onNavigate={setTab} onSelectOrder={setSelectedOrderId} />
+            : tab === "products" ? <ProductsScreen token={token} />
+              : <OrdersScreen token={token} onSelectOrder={setSelectedOrderId} />}
     </View>
     <View style={styles.tabBar}>
       {([
@@ -234,7 +239,7 @@ export function ArtistApp({ token, onLogout }: Props) {
         { id: "products" as const, label: "محصولات", symbol: "▦" },
         { id: "orders" as const, label: "سفارش‌ها", symbol: "▣" }
       ]).map((item) => <Pressable key={item.id} accessibilityRole="tab" accessibilityState={{ selected: tab === item.id }}
-        onPress={() => setTab(item.id)} style={styles.tab}>
+        onPress={() => { setSelectedOrderId(null); setTab(item.id); }} style={styles.tab}>
         <Text style={[styles.tabSymbol, tab === item.id && styles.tabSelected]}>{item.symbol}</Text>
         <Text style={[styles.tabLabel, tab === item.id && styles.tabSelected]}>{item.label}</Text>
       </Pressable>)}
@@ -264,6 +269,7 @@ const styles = StyleSheet.create({
   pageTitle: { color: colors.brand, fontSize: 19, fontWeight: "800", textAlign: "right" },
   pageSubtitle: { color: colors.muted, fontSize: 12, textAlign: "right", marginBottom: 2 },
   card: { backgroundColor: colors.surface, borderColor: colors.border, borderWidth: 1, borderRadius: 14, padding: 14, gap: 8 },
+  detailAction: { color: colors.accent, fontSize: 11, fontWeight: "700", textAlign: "right" },
   cardHeading: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start", gap: 8 },
   cardTitle: { flex: 1, color: colors.brand, fontSize: 14, fontWeight: "700", textAlign: "right" },
   status: { backgroundColor: colors.accentSoft, color: colors.accent, borderRadius: 18, paddingHorizontal: 9, paddingVertical: 5, fontSize: 10, overflow: "hidden", textAlign: "center" },
