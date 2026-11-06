@@ -1,0 +1,3 @@
+import Link from "next/link";
+import styles from "./live-saved.module.css";
+export function MobileCustomerNavigation(){return <nav className={styles.navigation} aria-label="منوی مشتری">{[{label:"خانه",icon:"home",href:"/customer/home"},{label:"جستجو",icon:"search",href:"/customer/products"},{label:"روایت‌ها",icon:"dynamic_feed",href:"/customer/artist-stories"},{label:"سبد",icon:"shopping_cart",href:"/customer/cart"},{label:"حساب",icon:"person",href:"/customer-mobile/account"}].map(item=><Link href={item.href} key={item.href}><span className={styles.icon} aria-hidden="true">{item.icon}</span><span>{item.label}</span></Link>)}</nav>;}
