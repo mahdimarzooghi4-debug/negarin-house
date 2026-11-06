@@ -1,0 +1,25 @@
+# Negarin Artist Android application readiness
+
+## Implemented foundation
+
+- Independent Expo / React Native / TypeScript application at `apps/mobile`.
+- Android-only Expo platform configuration (`platforms: ["android"]`); no iOS project or iOS build target is created.
+- Expo SDK 58, React Native 0.88.1, React 19.3.0, and `expo-secure-store` for the Android session credential.
+- API base URL is supplied at build time through `EXPO_PUBLIC_API_BASE_URL`; production builds reject non-HTTPS URLs.
+- Session restoration reads the bearer credential from Android secure storage and validates it before use.
+- Identity integration uses the existing `GET /api/v1/identity/grants`, `GET /api/v1/identity/context`, `POST /api/v1/identity/context/select`, and `POST /api/v1/identity/session/revoke` contracts. Artist grant selection is an explicit user action.
+- Read-only Artist products and paid-order lists consume the existing NestJS APIs. Product/order response parsing fails closed; no sample records, buyer identity, invented order numbers, payment, settlement, or delivery status are added.
+
+## Current blockers
+
+1. **Mobile sign-in is not implemented in the API.** The repository contains the internal `IdentityCore`, grant discovery/context selection, and session revocation, but no public HTTP request-code/verify-code endpoints and no configured OTP delivery adapter. The app therefore does not fabricate a login or accept a manually pasted production token. A real OTP transport/provider and its operational configuration must be selected and implemented before end-user sign-in.
+2. **API origin is not configured.** Supply `EXPO_PUBLIC_API_BASE_URL` with the reachable HTTPS API origin for a build environment. No domain is assumed.
+3. **Android application ID is not selected.** Supply `NEGARIN_ANDROID_APPLICATION_ID` only after the owner confirms the final reverse-DNS identifier. No package identifier is guessed.
+4. **Android signing/distribution is not configured.** Debug bundle validation is separate from signed APK/AAB and store release. No signing key, EAS project, store listing, or production release is created here.
+5. **Visual assets and Vazirmatn font require native packaging.** The existing Figma assets are currently packaged for the web preview. Native asset/font packaging and screenshot parity remain a separate implementation/QA slice.
+
+## Build semantics
+
+- `pnpm --filter @negarin/mobile build` exports the Android JavaScript bundle for validation; it is **not** an APK/AAB.
+- A native Android Gradle build and device QA remain required after the application ID and Android build environment are configured.
+- iOS is explicitly out of scope.

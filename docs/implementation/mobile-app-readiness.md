@@ -4,26 +4,39 @@
 
 The native Negarin Artist application is **Android-only**. An iOS version is not required and is outside the release scope (ADR-0008). Do not create an iOS project, Xcode/CocoaPods setup, iOS simulator tests, Apple signing configuration, TestFlight workflow, or iOS CI jobs.
 
-The existing artist/customer mobile screen sets are responsive web previews, not native Android packages. No APK/AAB, native Android project, or production mobile release is provided by the existing web changes.
+The existing artist/customer mobile screen sets are responsive web previews, not native Android packages. The independent native Artist workspace now exists at `apps/mobile`; this is a foundation slice, not an APK/AAB or a production release.
 
 ## Native Artist Android application
 
-The native client is planned at `apps/mobile` as React Native + TypeScript, separate from the Next.js browser application. Expo SDK 58 is the selected initial toolchain baseline; it targets React Native 0.88 / React 19.3 and supports the repository's Node.js 22.18+ requirement. Before feature implementation is treated as buildable, CI must generate the pnpm lockfile with the new dependencies and complete an actual Android development build. Only Android platform configuration and artifacts are in scope.
+The client is a separate Expo SDK 58 / React Native 0.88.1 / React 19.3.0 TypeScript app. Its Expo config enables only the Android platform. It uses `expo-secure-store` for bearer-session persistence and calls the existing NestJS API; it never connects directly to PostgreSQL, Redis, queues, or private object storage.
 
-The native client must call the existing NestJS API, use the shared identity service with Android secure session storage, and rely on backend authorization and domain state. It must not connect directly to PostgreSQL, Redis, queues, or private object storage.
+The first native slice includes:
+- Android-only app configuration and package scripts.
+- A typed API client with a required build-time API origin and HTTPS enforcement outside development.
+- Secure session read/write/revoke boundaries.
+- Identity grant discovery and explicit user selection of an Artist grant using existing API contracts.
+- Live, read-only Artist product and paid-order lists, with strict response parsing and no fabricated records or financial/fulfillment state.
 
-### Planned implementation sequence
+### Authentication and release blockers
 
-1. Create the Android-only React Native application workspace and verify dependency resolution, lockfile integrity, and Android Gradle build.
-2. Implement artist authentication/session lifecycle and role-scoped navigation.
-3. Connect the artist home, product list/editor, product media, and order list/detail to existing authenticated API contracts.
-4. Add only backend-supported preparation and fulfillment commands, preserving independent order, preparation, shipping, receipt, issue, refund, and settlement states.
-5. Add Android emulator/device tests for authentication, ownership, revision conflicts, RTL layout, media permissions, and error recovery.
-6. Establish Android development/preview/production build profiles and signing only after the application identity and operational credentials are explicitly configured.
+The API currently exposes grant discovery, active-context selection, context reads, and session revocation, but **does not expose public mobile request-code/verify-code endpoints**. The repository's `IdentityCore` is not itself a public login API, and no OTP delivery adapter/provider is configured. The app therefore does not invent an OTP provider, simulate a successful login, or accept a pasted production bearer token. End-user sign-in remains blocked until a real OTP transport and public authentication contract are implemented.
 
-No fake/sample orders, payment confirmations, settlements, or delivery outcomes may be shown as real. Artist price ownership and the no-commission rule remain unchanged. Real payment remains unimplemented and must not be implied.
+The following inputs are still required and must not be guessed:
+- `EXPO_PUBLIC_API_BASE_URL`: reachable HTTPS API origin for the target environment.
+- `NEGARIN_ANDROID_APPLICATION_ID`: owner-confirmed final Android application ID.
+- Android signing and distribution configuration, after the application identity is approved.
 
-The final Android application ID, signing key, store listing, supported device range, distribution channel, and provider credentials are not yet established and must not be guessed. No store publication or production deployment is authorized by this plan.
+The app's `build` script runs `expo export --platform android` to validate the Android JavaScript bundle. This is **not** a native Gradle build and does not produce an APK/AAB. Native Android build, emulator/device QA, and signed distribution remain separate gates.
+
+### Next implementation sequence
+
+1. Complete the real mobile sign-in API and configured OTP transport without weakening the existing session/grant authorization model.
+2. Configure the API origin and owner-confirmed Android application ID; validate the actual Android Gradle development build.
+3. Port the Figma Artist dashboard, product editor/media, order detail, preparation, and shipment flows against existing backend contracts.
+4. Add Android emulator/device tests for authentication, ownership, revision conflicts, RTL, media permissions, and error recovery.
+5. Establish Android development/preview/production build profiles and signing only after operational configuration is explicitly approved.
+
+No fake/sample orders, payment confirmations, settlements, delivery outcomes, or buyer identities may be shown as real. Artist price ownership and the no-commission rule remain unchanged. Real payment remains unimplemented and must not be implied. No store publication or production deployment is authorized by this plan.
 
 ## Existing mobile-web implementation
 
