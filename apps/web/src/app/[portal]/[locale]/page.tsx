@@ -1,3 +1,4 @@
+import {CustomerArtistStoreLive,CustomerArtistStoriesLive,CustomerStoryViewerLive} from "../../../features/customer-web/live-public-content";
 import CustomerHomeLive from "../../../features/customer-web/live-home";
 import CustomerFavoritesLive from "../../../features/customer-web/live-favorites";
 import CustomerAccountLive from "../../../features/customer-web/live-account";
@@ -29,6 +30,9 @@ export default async function LocalizedPortalPage({
   const { portal, locale } = await params;
   const query = await searchParams;
 
+  if (portal === "customer" && locale === "artist-store") {const id=parseRequiredUuidQuery(query.id)??"";return <CustomerArtistStoreLive key={id} id={id}/>;}
+  if (portal === "customer" && locale === "story-viewer") {const id=parseRequiredUuidQuery(query.id)??"";return <CustomerStoryViewerLive key={id} id={id}/>;}
+  if (portal === "customer" && locale === "artist-stories") {const artistId=query.artistId===undefined?undefined:parseRequiredUuidQuery(query.artistId)??"";return <CustomerArtistStoriesLive key={artistId??"all"} artistId={artistId}/>;}
   if (portal === "customer" && locale === "home") return <CustomerHomeLive />;
   if (portal === "customer" && locale === "favorites-empty") return <CustomerFavoritesLive />;
   if (portal === "customer" && locale === "account-overview") return <CustomerAccountLive />;

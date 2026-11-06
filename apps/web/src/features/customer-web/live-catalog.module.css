@@ -69,3 +69,9 @@
 .homePage.homePage :global([data-node-id="1170:3377"]),
 .homePage.homePage :global([data-node-id="1170:3431"]),
 .homePage.homePage :global([data-node-id="1170:3467"]) { height:auto; min-height:0; }
+
+.contentPage.contentPage > :global([data-node-id="1191:59"]),
+.contentPage.contentPage > :global([data-node-id="1191:318"]),
+.contentPage.contentPage > :global([data-node-id="1191:57"]) { height:auto; min-height:100vh; }
+.storyText { white-space:pre-wrap; overflow-wrap:anywhere; line-height:2; }
+.storyHero { background:#041b65; color:white; border-radius:28px; padding:28px; }

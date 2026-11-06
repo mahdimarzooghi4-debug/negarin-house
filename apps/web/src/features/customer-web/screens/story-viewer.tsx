@@ -1,3 +1,4 @@
+import type {ReactNode} from "react";
 // Native Figma 1191:57 — Customer / Story Viewer — Web
 import {CustomerAction} from "../customer-controls";
 
@@ -20,7 +21,7 @@ function NegarinButton({ className, label = "ادامه", size = "Small", state 
   );
 }
 
-export default function CustomerStoryViewerWeb() {
+export default function CustomerStoryViewerWeb({content}:{content?:ReactNode}={}) {
   return (
     <div className="fg-d37209cb37" data-node-id="1191:57" data-name="Customer / Story Viewer — Web">
       <div className="fg-6f037ae468" data-node-id="1191:479" data-name="Desktop header">
@@ -84,7 +85,7 @@ export default function CustomerStoryViewerWeb() {
           </div>
         </div>
       </div>
-      <div className="fg-3bc09ce3d9" data-node-id="1191:505" data-name="Breadcrumbs">
+      {content ?? (<><div className="fg-3bc09ce3d9" data-node-id="1191:505" data-name="Breadcrumbs">
         <div className="fg-3859e08116" data-node-id="1191:506" data-name="Share actions">
           <CustomerAction className="fg-63326cf1ce" data-node-id="1191:507" data-name="Share artwork" label="share">
             <p className="fg-f90ef3cbd0" data-node-id="1191:508">
@@ -325,7 +326,7 @@ export default function CustomerStoryViewerWeb() {
             </div>
           </div>
         </div>
-      </div>
+      </div></>)}
     </div>
   );
 }

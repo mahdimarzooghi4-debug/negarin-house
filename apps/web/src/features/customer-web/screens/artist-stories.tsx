@@ -1,3 +1,4 @@
+import type {ReactNode} from "react";
 // Native Figma 1191:318 — Customer / Artist Stories — Web
 import {CustomerAction} from "../customer-controls";
 
@@ -29,7 +30,7 @@ function NegarinButton({ className, label = "ادامه", size = "Small", state 
   );
 }
 
-export default function CustomerArtistStoriesWeb() {
+export default function CustomerArtistStoriesWeb({content}:{content?:ReactNode}={}) {
   return (
     <div className="fg-d37209cb37" data-node-id="1191:318" data-name="Customer / Artist Stories — Web">
       <div className="fg-6f037ae468" data-node-id="1191:319" data-name="Desktop header">
@@ -93,7 +94,7 @@ export default function CustomerArtistStoriesWeb() {
           </div>
         </div>
       </div>
-      <div className="fg-3bc09ce3d9" data-node-id="1191:345" data-name="Breadcrumbs">
+      {content ?? (<><div className="fg-3bc09ce3d9" data-node-id="1191:345" data-name="Breadcrumbs">
         <div className="fg-3859e08116" data-node-id="1191:346" data-name="Share actions">
           <CustomerAction className="fg-63326cf1ce" data-node-id="1191:347" data-name="Share artwork" label="share">
             <p className="fg-f90ef3cbd0" data-node-id="1191:348">
@@ -347,7 +348,7 @@ export default function CustomerArtistStoriesWeb() {
           <NegarinButton className="fg-5f5f993372" label="مشاهده محصول مرتبط" size="Medium" style="Accent" />
         </div>
       </div>
-      <div className="fg-007cb0bf85" data-node-id="1191:458" data-name="Desktop footer">
+      </>)}<div className="fg-007cb0bf85" data-node-id="1191:458" data-name="Desktop footer">
         <div className="fg-2be1b2270e" data-node-id="1191:459" data-name="Footer content">
           <div className="fg-0e1b23ee44" data-node-id="1191:460" data-name="Customer links">
             <p className="fg-fabc7db0ce" dir="auto" data-node-id="1191:461">
