@@ -8,13 +8,16 @@ on:
       - ".github/workflows/mobile-lockfile-bootstrap.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   resolve:
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
       - uses: pnpm/action-setup@v4
         with:
           version: 12.7.0
@@ -25,8 +28,11 @@ jobs:
         run: pnpm install --lockfile-only --no-frozen-lockfile
       - name: Verify frozen install
         run: pnpm install --frozen-lockfile
-      - uses: actions/upload-artifact@v4
-        with:
-          name: negarin-mobile-lockfile
-          path: pnpm-lock.yaml
-          retention-days: 1
+      - name: Commit generated lockfile and remove bootstrap workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/mobile-lockfile-bootstrap.yml
+          git add pnpm-lock.yaml
+          git commit -m "chore: lock Android mobile workspace dependencies"
+          git push origin HEAD:"${GITHUB_HEAD_REF}"
