@@ -1,0 +1,70 @@
+name: Artist Android preview APK
+on:
+  pull_request:
+    paths: ['apps/mobile/**', '.github/workflows/artist-android-apk.yml', 'pnpm-lock.yaml']
+  workflow_dispatch:
+    inputs:
+      api_origin:
+        description: 'Optional HTTPS API origin; empty keeps the app in its honest unconfigured state'
+        required: false
+        type: string
+permissions:
+  contents: read
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      CI: '1'
+      EXPO_NO_TELEMETRY: '1'
+      NEGARIN_ANDROID_PREVIEW_BUILD: '1'
+      NEGARIN_ANDROID_APPLICATION_ID: ir.negarin.artist.preview
+      EXPO_PUBLIC_API_BASE_URL: ${{ inputs.api_origin || '' }}
+      NODE_OPTIONS: --max-old-space-size=4096
+      GRADLE_OPTS: -Dorg.gradle.jvmargs=-Xmx3072m
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.7.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.20.0
+          cache: pnpm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
+      - uses: gradle/actions/setup-gradle@v4
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @negarin/mobile typecheck
+      - run: pnpm --filter @negarin/mobile test
+      - name: Generate Android project only
+        run: pnpm --filter @negarin/mobile exec expo prebuild --platform android --clean --no-install
+      - name: Configure preview-only signing
+        run: node apps/mobile/scripts/prepare-android-preview.mjs
+      - name: Build standalone preview APK with embedded JavaScript
+        working-directory: apps/mobile/android
+        run: ./gradlew :app:assembleRelease --no-daemon --max-workers=2 -PreactNativeArchitectures=arm64-v8a,x86_64
+      - name: Verify APK signature and package
+        run: |
+          APK=apps/mobile/android/app/build/outputs/apk/release/app-release.apk
+          test -s "$APK"
+          BUILD_TOOLS=$(find "$ANDROID_HOME/build-tools" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -1)
+          "$BUILD_TOOLS/apksigner" verify --verbose "$APK"
+          "$BUILD_TOOLS/aapt" dump badging "$APK" > /tmp/negarin-artist-apk-info.txt
+          head -5 /tmp/negarin-artist-apk-info.txt
+          mkdir -p android-artifacts
+          cp "$APK" android-artifacts/negarin-artist-android-preview.apk
+          cp /tmp/negarin-artist-apk-info.txt android-artifacts/package-info.txt
+          sha256sum android-artifacts/negarin-artist-android-preview.apk > android-artifacts/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: negarin-artist-android-preview
+          path: android-artifacts/
+          if-no-files-found: error
+          retention-days: 14
