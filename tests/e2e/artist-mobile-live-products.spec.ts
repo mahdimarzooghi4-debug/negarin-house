@@ -69,7 +69,7 @@ test("artist mobile editor fails closed after version conflict until fresh read"
   await page.goto("/artist-mobile/product-editor?id="+id);
   await page.getByLabel("قیمت فروش (تومان)").fill("3000000");
   await page.getByRole("button",{name:"ذخیره تغییرات"}).click();
-  await expect(page.locator("main").getByRole("alert")).toContainText("دوباره دریافت کنید");
+  await expect(page.locator("main").getByRole("alert")).toContainText("دوباره از سرور دریافت کنید");
   await expect(page.getByRole("button",{name:"ذخیره تغییرات"})).toHaveCount(0);
   await page.getByRole("button",{name:"دریافت دوباره محصول"}).click();
   await expect(page.getByLabel("قیمت فروش (تومان)")).toHaveValue(base.priceToman);
