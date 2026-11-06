@@ -4,7 +4,7 @@ import {
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { apiJson } from "../api/client";
-import type { ArtistProduct } from "../domain/artist-data";
+import { parseArtistProduct, type ArtistProduct } from "../domain/artist-data";
 import {
   maxProductGalleryImages, parseProductImageRead, parseProductImageUploadResult,
   productImageGalleryCommand, productImageUploadCommand
@@ -43,7 +43,7 @@ export function ProductImageGallery({ product, token, disabled, onProductChange,
     const value = await apiJson("/api/v1/artist/products/" + productId, token);
     const fresh = value && typeof value === "object" && !Array.isArray(value)
       ? value as Record<string, unknown> : null;
-    const parsed = fresh ? (await import("../domain/artist-data")).parseArtistProduct(fresh) : null;
+    const parsed = fresh ? parseArtistProduct(fresh) : null;
     if (!parsed || parsed.id.toLowerCase() !== productId.toLowerCase()) {
       throw new Error("وضعیت محصول از سرور معتبر دریافت نشد.");
     }
@@ -199,7 +199,7 @@ export function ProductImageGallery({ product, token, disabled, onProductChange,
 
   const canEditGallery = !!product && !disabled && !product.archivedAt &&
     ["draft", "changes_requested", "approved"].includes(product.publicationStatus);
-  const canAdd = canEditGallery && product.imageIds.length < maxProductGalleryImages;
+  const canAdd = !!product && canEditGallery && product.imageIds.length < maxProductGalleryImages;
 
   return <View style={styles.container}>
     <View style={styles.heading}>
