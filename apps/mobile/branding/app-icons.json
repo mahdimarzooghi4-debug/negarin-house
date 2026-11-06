@@ -1,0 +1,6 @@
+{
+  "logo": "./assets/negarin-logo.png",
+  "badgeColor": "#FFFFFF",
+  "artist": { "backgroundColor": "#07858F" },
+  "customer": { "backgroundColor": "#041B65" }
+}
