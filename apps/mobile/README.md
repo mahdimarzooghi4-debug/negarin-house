@@ -34,5 +34,10 @@ A native Android Gradle build requires the owner-confirmed `NEGARIN_ANDROID_APPL
 - `POST /api/v1/identity/session/revoke`
 - `GET /api/v1/artist/products`
 - `GET /api/v1/artist/orders?page=1&pageSize=20`
+- `GET /api/v1/artist/orders/:id`
+- `POST /api/v1/artist/orders/:id/preparation`
+- `POST /api/v1/artist/orders/:id/shipment`
+
+Order detail displays the API-pinned shipping address and status history. Preparation commands may advance only one server-defined state at a time. A shipment report is an artist statement with `carrierVerified: false`; it is not proof of carrier acceptance or customer delivery.
 
 All business state and authorization remain owned by the NestJS API. The app displays no sample product/order data and does not calculate payment, settlement, shipment verification, or delivery outcomes.
