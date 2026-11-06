@@ -85,21 +85,22 @@ export type ProductImageUploadResult = {
 
 export function parseProductImageUploadResult(value: unknown, product: ArtistProduct): ProductImageUploadResult | null {
   const item = object(value);
-  if (!item || typeof item.id !== "string" || !uuid.test(item.id) ||
+  const imageIds = item && Array.isArray(item.imageIds) ? item.imageIds as unknown[] : null;
+  if (!item || !imageIds || typeof item.id !== "string" || !uuid.test(item.id) ||
     !Number.isSafeInteger(item.width) || Number(item.width) < 1 ||
     !Number.isSafeInteger(item.height) || Number(item.height) < 1 ||
     Number(item.width) * Number(item.height) > 16_000_000 ||
     !Number.isSafeInteger(item.byteLength) || Number(item.byteLength) < 1 ||
     Number(item.byteLength) > maxProductImageBytes ||
     !Number.isSafeInteger(item.version) || item.version !== product.version + 1 ||
-    !Array.isArray(item.imageIds) || item.imageIds.length !== product.imageIds.length + 1 ||
-    !item.imageIds.every(id => typeof id === "string" && uuid.test(id)) ||
-    new Set(item.imageIds.map(id => String(id).toLowerCase())).size !== item.imageIds.length ||
-    !product.imageIds.every((id, index) => String(item.imageIds[index]).toLowerCase() === id.toLowerCase()) ||
-    String(item.imageIds.at(-1)).toLowerCase() !== item.id.toLowerCase()) return null;
+    imageIds.length !== product.imageIds.length + 1 ||
+    !imageIds.every(id => typeof id === "string" && uuid.test(id)) ||
+    new Set(imageIds.map(id => String(id).toLowerCase())).size !== imageIds.length ||
+    !product.imageIds.every((id, index) => String(imageIds[index]).toLowerCase() === id.toLowerCase()) ||
+    String(imageIds[imageIds.length - 1]).toLowerCase() !== item.id.toLowerCase()) return null;
   return {
     id: item.id, width: Number(item.width), height: Number(item.height),
-    byteLength: Number(item.byteLength), imageIds: item.imageIds as string[],
+    byteLength: Number(item.byteLength), imageIds: imageIds as string[],
     version: Number(item.version)
   };
 }
