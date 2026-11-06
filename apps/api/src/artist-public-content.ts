@@ -25,7 +25,7 @@ export function parseContentPage(raw:Record<string,unknown>){
 }
 const publicProfile={artistId:true,displayName:true,biography:true,craft:true,city:true} as const;
 const relatedProductSelect={id:true,title:true,priceToman:true,stockQuantity:true,publicationStatus:true,archivedAt:true,artistUserId:true} as const;
-const publicStory={relatedProduct:{select:relatedProductSelect},imageId:true,id:true,title:true,body:true,publishedAt:true,profile:{select:publicProfile}} as const;
+const publicStory={videoId:true,relatedProduct:{select:relatedProductSelect},imageId:true,id:true,title:true,body:true,publishedAt:true,profile:{select:publicProfile}} as const;
 const publicProducts={id:true,title:true,description:true,category:true,dimensions:true,materials:true,weight:true,color:true,technique:true,careInstructions:true,priceToman:true,imageIds:true,stockQuantity:true,createdAt:true} as const;
 export function parseStoryProduct(body:unknown){const raw=record(body);if(Object.keys(raw).some(key=>!["version","productId"].includes(key))||(raw.productId!==null&&typeof raw.productId!=="string"))throw new BadRequestException();return {version:parseCartCommand({version:raw.version}).version,productId:raw.productId===null?null:parseArtistProductId(raw.productId)};}
 function productView(product:{id:string;title:string;priceToman:bigint;stockQuantity:number}){return {id:product.id,title:product.title,priceToman:product.priceToman.toString(),availability:product.stockQuantity>0?"in_stock":"out_of_stock"};}

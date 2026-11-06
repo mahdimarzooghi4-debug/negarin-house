@@ -1,0 +1,11 @@
+# Story videos
+
+Artist story editors can upload, replace and remove one current MP4 video alongside an optional photo. Save text before media changes. Every video mutation requires the current story version, increments it, and resets publication. Failed/ambiguous writes require a fresh read. Public signed URL reads require both story and profile publication and the current video ID; owner previews require the artist role and ownership. Replaced/removed IDs cannot obtain new URLs. Already-issued URLs retain the existing 300-second expiry.
+
+Input is canonical base64, at most 5 MiB, decoded as MOV/MP4 only. Metadata must contain exactly one video stream, at most one audio stream, duration at most 60 seconds, dimensions at most 1920 on either edge, at most 2,073,600 pixels and frame rate at most 60. No external track references or network input protocols are enabled. The server re-encodes H.264/yuv420p and optional AAC, strips metadata/chapters, scales down to at most 1280 per edge, and emits fast-start MP4. Output is checked again and limited to 10 MiB. Work is limited to one encoding per API process with timeouts, single decoding/encoding/filter threads and private temporary files removed on completion. Busy processing returns 503; the UI permits retry only after re-reading the story.
+
+Files use the existing immutable private object store. A serialized 20-video history quota applies per story. Failed transactions remove only verified uncommitted objects; ambiguous commit state retains the object. A PostgreSQL migration adds video metadata and current video IDs. Public story JSON exposes only the current ID, not object keys or processing metadata.
+
+## Runtime prerequisite
+
+API hosts must install `ffmpeg` and `ffprobe` on PATH with the MOV demuxer and libx264/AAC encoders. On Debian/Ubuntu, install the distribution's `ffmpeg` package. CI installs that package explicitly. Missing executables return 503 rather than accepting unprocessed video. No server or external service is provisioned by this change. Configure the existing private S3-compatible bucket as for product/story photos. Local runtime unit tests perform real probe/encode operations; HTTP/PostgreSQL and browser media tests run in CI.

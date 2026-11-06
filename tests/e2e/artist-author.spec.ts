@@ -1,3 +1,4 @@
+import {storyVideoBase64} from "./fixtures/story-video";
 import {test,expect} from "@playwright/test";
 const artistId="00000000-0000-4000-8000-000000000001";
 test.use({viewport:{width:1440,height:1100}});
@@ -46,4 +47,17 @@ test("a conflicting story product edit requires a fresh read",async({page})=>{
  const product={id:productId,title:"گلدان",priceToman:"1000",availability:"in_stock"};let version=1;
  await page.route("**/api/artist/public-profile",route=>route.fulfill({json:{artistId,displayName:"هنرمند",biography:"کارگاه",craft:"سفال",city:"تهران",version:1,published:true}}));await page.route("**/api/artist/stories",route=>route.fulfill({json:[{id,artistId,version,title:"روایت",body:"متن",published:false,relatedProductId:version===1?null:productId}]}));await page.route("**/api/artist/stories/eligible-products?*",route=>route.fulfill({json:{page:1,pageSize:20,hasMore:false,items:[product]}}));await page.route(`**/api/artist/stories/${id}/product`,route=>{version=2;return route.fulfill({status:409,json:{error:"conflict"}});});
  await page.goto("/artist/story-editor?id="+id);await page.getByRole("button",{name:"اتصال گلدان",exact:true}).click();await expect(page.locator(".artist-design").getByRole("alert")).toContainText("دوباره دریافت کنید");await expect(page.getByRole("button",{name:"انتشار عمومی",exact:true})).toHaveCount(0);await page.getByRole("button",{name:"دریافت دوباره اطلاعات",exact:true}).click();await expect(page.getByRole("button",{name:"محصول انتخاب‌شده",exact:true})).toBeDisabled();
+});
+
+test("artist video upload returns to draft and published video loads in the customer player",async({page})=>{
+ const id="00000000-0000-4000-8000-000000000002",videoId="00000000-0000-4000-8000-000000000003";
+ const profile={artistId,displayName:"هنرمند",biography:"کارگاه",craft:"سفال",city:"تهران"};let story={id,artistId,version:1,title:"روایت ویدئویی",body:"معرفی کارگاه",published:true,videoId:null as string|null};
+ await page.route("**/api/artist/public-profile",route=>route.fulfill({json:{...profile,version:1,published:true}}));await page.route("**/api/artist/stories",route=>route.fulfill({json:[story]}));await page.route("**/api/artist/stories/eligible-products?*",route=>route.fulfill({json:{page:1,pageSize:20,hasMore:false,items:[]}}));
+ await page.route(`**/api/artist/stories/${id}/video`,route=>{const body=route.request().postDataJSON();expect(body.version).toBe(story.version);if(route.request().method()==="POST")expect(body.base64).toBe("YWJj");story={...story,version:story.version+1,published:false,videoId:route.request().method()==="POST"?videoId:null};return route.fulfill({json:story});});
+ await page.route(`**/api/artist/stories/${id}/publication`,route=>{expect(route.request().postDataJSON()).toEqual({version:2,published:true});story={...story,version:3,published:true};return route.fulfill({json:story});});
+ await page.route("https://videos.example/clip.mp4",route=>route.fulfill({contentType:"video/mp4",body:Buffer.from(storyVideoBase64,"base64")}));
+ for(const audience of ["artist","catalog"])await page.route(`**/api/${audience}/stories/${id}/videos/${videoId}`,route=>route.fulfill({json:{id:videoId,contentType:"video/mp4",url:"https://videos.example/clip.mp4"}}));
+ await page.goto("/artist/story-editor?id="+id);await page.getByLabel("انتخاب ویدئو",{exact:true}).setInputFiles({name:"clip.mp4",mimeType:"video/mp4",buffer:Buffer.from("abc")});await expect(page.getByText("ویدئو به‌روز شد؛ روایت پیش‌نویس است.")).toBeVisible();await expect(page.locator('video[aria-label="ویدئوی روایت"]')).toHaveAttribute("controls","");await page.getByRole("button",{name:"انتشار عمومی",exact:true}).click();await expect(page.getByText("انتشار ثبت شد.")).toBeVisible();
+ await page.route("**/api/catalog/stories/"+id,route=>route.fulfill({json:{id,title:story.title,body:story.body,videoId,publishedAt:"2026-11-06T10:00:00.000Z",profile}}));await page.goto("/customer/story-viewer?id="+id);await expect(page.locator("video")).toHaveAttribute("src","https://videos.example/clip.mp4");await expect(page.locator("video")).toHaveAttribute("preload","metadata");await expect.poll(()=>page.locator("video").evaluate((video:HTMLVideoElement)=>video.duration)).toBeGreaterThan(0);
+ await page.goto("/artist/story-editor?id="+id);await page.getByRole("button",{name:"حذف ویدئوی روایت",exact:true}).click();await expect(page.locator("video")).toHaveCount(0);await expect(page.getByRole("button",{name:"انتشار عمومی",exact:true})).toBeEnabled();
 });
