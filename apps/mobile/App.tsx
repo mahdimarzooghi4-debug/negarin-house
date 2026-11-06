@@ -80,7 +80,7 @@ export default function App() {
   }
 
   return <SafeAreaView style={styles.safe}>
-    <StatusBar backgroundColor={colors.background} barStyle="dark-content" />
+    <StatusBar barStyle="dark-content" />
     {state.kind === "ready"
       ? <ArtistApp token={state.token} context={state.context} onLogout={() => void logout()} />
       : state.kind === "checking"

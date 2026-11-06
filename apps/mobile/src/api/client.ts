@@ -1,3 +1,5 @@
+declare const __DEV__: boolean;
+
 const rawApiBaseUrl = process.env.EXPO_PUBLIC_API_BASE_URL?.trim() ?? "";
 
 export class ApiError extends Error {
