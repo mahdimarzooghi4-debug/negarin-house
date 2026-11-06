@@ -9,6 +9,7 @@ import {
 } from "./domain/artist-data";
 import type { IdentityContext } from "./auth/identity";
 import { OrderDetailScreen } from "./screens/OrderDetailScreen";
+import { ProductEditorScreen } from "./screens/ProductEditorScreen";
 
 type Tab = "home" | "products" | "orders";
 type Props = { token: string; context: IdentityContext; onLogout: () => void };
@@ -135,7 +136,7 @@ function HomeScreen({ token, onNavigate, onSelectOrder }: { token: string; onNav
   </ScrollView>;
 }
 
-function ProductsScreen({ token }: { token: string }) {
+function ProductsScreen({ token, onSelectProduct }: { token: string; onSelectProduct: (productId: string | "new") => void }) {
   const [products, setProducts] = useState<ArtistProduct[] | null>(null);
   const [error, setError] = useState("");
   const [retry, setRetry] = useState(0);
@@ -159,7 +160,8 @@ function ProductsScreen({ token }: { token: string }) {
   return <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
     <Text style={styles.pageTitle}>محصولات من</Text>
     <Text style={styles.pageSubtitle}>{number.format(products.length)} محصول از حساب هنرمند دریافت شد</Text>
-    {products.length ? products.map((product) => <ProductCard key={product.id} product={product} />)
+    <Pressable accessibilityRole="button" onPress={() => onSelectProduct("new")} style={styles.moreButton}><Text style={styles.moreButtonText}>افزودن محصول</Text></Pressable>
+    {products.length ? products.map((product) => <Pressable key={product.id} accessibilityRole="button" onPress={() => onSelectProduct(product.id)}><ProductCard product={product} /><Text style={styles.detailAction}>ویرایش محصول و مدیریت موجودی ←</Text></Pressable>)
       : <Text style={styles.emptyText}>هنوز محصولی ثبت نشده است.</Text>}
   </ScrollView>;
 }
@@ -216,6 +218,7 @@ function OrdersScreen({ token, onSelectOrder }: { token: string; onSelectOrder: 
 export function ArtistApp({ token, context, onLogout }: Props) {
   const [tab, setTab] = useState<Tab>("home");
   const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   return <View style={styles.app}>
     <View style={styles.header}>
       <View>
@@ -229,8 +232,9 @@ export function ArtistApp({ token, context, onLogout }: Props) {
     <View style={styles.body}>
       {context.activeRole !== "artist" ? <View style={styles.statePanel}><Text style={styles.errorText}>نقش فعال نشست دیگر هنرمند نیست؛ برای ادامه دوباره دسترسی را بررسی کنید.</Text></View>
         : selectedOrderId ? <OrderDetailScreen token={token} orderId={selectedOrderId} onBack={() => setSelectedOrderId(null)} />
+          : selectedProductId ? <ProductEditorScreen key={selectedProductId} token={token} productId={selectedProductId === "new" ? null : selectedProductId} onBack={() => setSelectedProductId(null)} />
           : tab === "home" ? <HomeScreen token={token} onNavigate={setTab} onSelectOrder={setSelectedOrderId} />
-            : tab === "products" ? <ProductsScreen token={token} />
+            : tab === "products" ? <ProductsScreen token={token} onSelectProduct={setSelectedProductId} />
               : <OrdersScreen token={token} onSelectOrder={setSelectedOrderId} />}
     </View>
     <View style={styles.tabBar}>
@@ -239,7 +243,7 @@ export function ArtistApp({ token, context, onLogout }: Props) {
         { id: "products" as const, label: "محصولات", symbol: "▦" },
         { id: "orders" as const, label: "سفارش‌ها", symbol: "▣" }
       ]).map((item) => <Pressable key={item.id} accessibilityRole="tab" accessibilityState={{ selected: tab === item.id }}
-        onPress={() => { setSelectedOrderId(null); setTab(item.id); }} style={styles.tab}>
+        onPress={() => { setSelectedOrderId(null); setSelectedProductId(null); setTab(item.id); }} style={styles.tab}>
         <Text style={[styles.tabSymbol, tab === item.id && styles.tabSelected]}>{item.symbol}</Text>
         <Text style={[styles.tabLabel, tab === item.id && styles.tabSelected]}>{item.label}</Text>
       </Pressable>)}

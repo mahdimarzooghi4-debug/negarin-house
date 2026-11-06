@@ -16,7 +16,8 @@ const config: ExpoConfig = {
   platforms: ["android"],
   android: androidPackage ? { package: androidPackage } : undefined,
   plugins: [
-    ["expo-secure-store", { configureAndroidBackup: true }]
+    ["expo-secure-store", { configureAndroidBackup: true }],
+    ["expo-image-picker", { cameraPermission: false, microphonePermission: false }]
   ],
   extra: {
     apiBaseUrl
