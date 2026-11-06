@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import {MobileCustomerNavigation} from "../customer-mobile/live-navigation";
+import mobileStyles from "../customer-mobile/live-orders.module.css";
 import {useEffect,useState} from "react";
 import "@fontsource-variable/vazirmatn";
 import "@fontsource/material-icons-round";
@@ -15,7 +17,7 @@ import {formatToman,formatPersianDate,isUuid} from "../corporate-buyer/live-data
 import {parseCustomerOrder,parseCustomerOrderPage,readCustomerOrders,orderStatusLabels,paymentStatusLabels,preparationStatusLabels,type CustomerOrder,type OrderPage} from "./order-data";
 import styles from "./live-catalog.module.css";
 
-export function CustomerOrdersLive(){
+export function CustomerOrdersLive({mobile=false}:{mobile?:boolean}={}){
   const [page,setPage]=useState(1);
   const [data,setData]=useState<OrderPage|null>(null);
   const [loading,setLoading]=useState(true);
@@ -35,7 +37,7 @@ export function CustomerOrdersLive(){
     return()=>controller.abort();
   },[page,retry]);
   const content=<>
-    <div className="fg-641e585cf3" dir="rtl"><h1>سفارش‌های من</h1><Link href="/customer/products">کشف آثار</Link></div>
+    <div className={mobile?mobileStyles.header:"fg-641e585cf3"} dir="rtl"><h1>سفارش‌های من</h1><Link href="/customer/products">کشف آثار</Link></div>
     <section className={styles.ordersWorkspace} dir="rtl">
       {loading&&<p role="status">در حال دریافت سفارش‌ها…</p>}
       {error&&<div role="alert"><p>{error}</p><button onClick={()=>setRetry(value=>value+1)}>تلاش دوباره</button></div>}
@@ -46,15 +48,16 @@ export function CustomerOrdersLive(){
         <p>{formatPersianDate(order.createdAt)}</p>
         <p>{order.items.map(item=>item.title).join("، ")}</p>
         <strong>{formatToman(order.subtotalToman)}</strong>
-        <Link href={"/customer/order-detail?id="+order.id}>مشاهدهٔ جزئیات سفارش</Link>
+        <Link href={(mobile?"/customer-mobile/order-detail?id=":"/customer/order-detail?id=")+order.id}>مشاهدهٔ جزئیات سفارش</Link>
       </article>)}
       {data&&<nav className={styles.pagination} aria-label="صفحه‌بندی سفارش‌ها"><button disabled={page<=1} onClick={()=>setPage(value=>value-1)}>قبلی</button><span>صفحهٔ {new Intl.NumberFormat("fa-IR").format(page)}</span><button disabled={!data.hasMore||page>=1000} onClick={()=>setPage(value=>value+1)}>بعدی</button></nav>}
     </section>
   </>;
+  if(mobile)return <main className={mobileStyles.page} lang="fa" dir="rtl"><div>{content}</div><MobileCustomerNavigation/></main>;
   return <CustomerLiveNavigation.Provider value={true}><main className={`customer-web-design ${styles.page}`} lang="fa" dir="ltr"><CustomerOrdersWeb content={content}/></main></CustomerLiveNavigation.Provider>;
 }
 
-export function CustomerOrderDetailLive({id}:{id:string}){
+export function CustomerOrderDetailLive({id,mobile=false}:{id:string;mobile?:boolean}){
   const [order,setOrder]=useState<CustomerOrder|null>(null);
   const [loading,setLoading]=useState(true);
   const [error,setError]=useState("");
@@ -74,7 +77,7 @@ export function CustomerOrderDetailLive({id}:{id:string}){
     return()=>controller.abort();
   },[id,retry]);
   const content=<>
-    <div className="fg-641e585cf3" dir="rtl"><h1>جزئیات سفارش</h1><Link href="/customer/orders">بازگشت به سفارش‌ها</Link></div>
+    <div className={mobile?mobileStyles.header:"fg-641e585cf3"} dir="rtl"><h1>جزئیات سفارش</h1><Link href={mobile?"/customer-mobile/my-orders":"/customer/orders"}>بازگشت به سفارش‌ها</Link></div>
     <section className={styles.ordersWorkspace} dir="rtl">
       {loading&&<p role="status">در حال دریافت سفارش…</p>}
       {error&&<div role="alert"><p>{error}</p>{isUuid(id)&&<button onClick={()=>setRetry(value=>value+1)}>تلاش دوباره</button>}</div>}
@@ -100,5 +103,6 @@ export function CustomerOrderDetailLive({id}:{id:string}){
       </>}
     </section>
   </>;
+  if(mobile)return <main className={mobileStyles.page} lang="fa" dir="rtl"><div>{content}</div><MobileCustomerNavigation/></main>;
   return <CustomerLiveNavigation.Provider value={true}><main className={`customer-web-design ${styles.page}`} lang="fa" dir="ltr"><CustomerOrderDetailWeb content={content}/></main></CustomerLiveNavigation.Provider>;
 }
