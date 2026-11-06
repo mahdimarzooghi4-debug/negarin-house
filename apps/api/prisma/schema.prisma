@@ -993,6 +993,8 @@ model ArtistPublicProfile {
  @@map("artist_public_profiles")
 }
 model ArtistStory {
+ videoId String? @db.Uuid
+ videos ArtistStoryVideo[]
  relatedProductId String? @db.Uuid
  relatedProduct ArtistProduct? @relation(fields: [relatedProductId], references: [id], onDelete: SetNull)
  imageId String? @db.Uuid
@@ -1021,4 +1023,17 @@ model ArtistStoryImage {
  byteLength Int
  @@index([storyId])
  @@map("artist_story_images")
+}
+
+model ArtistStoryVideo {
+ id String @id @db.Uuid
+ storyId String @db.Uuid
+ story ArtistStory @relation(fields: [storyId], references: [id], onDelete: Restrict)
+ objectKey String @unique
+ width Int
+ height Int
+ durationMs Int
+ byteLength Int
+ @@index([storyId])
+ @@map("artist_story_videos")
 }

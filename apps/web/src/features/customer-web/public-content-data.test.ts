@@ -21,4 +21,6 @@ describe("public content response models",()=>{
   expect(parsePublicStory({...story,product:{...product,id:"bad"}})).toBeNull();
  });
 
+ it("requires valid optional video IDs",()=>{expect(parsePublicStory({...story,videoId:id})?.videoId).toBe(id);expect(parsePublicStory({...story,videoId:null})?.videoId).toBeNull();expect(parsePublicStory({...story,videoId:"bad"})).toBeNull();});
+
 });
