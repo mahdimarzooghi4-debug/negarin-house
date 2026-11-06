@@ -41,3 +41,29 @@ A native Android Gradle build requires the owner-confirmed `NEGARIN_ANDROID_APPL
 Order detail displays the API-pinned shipping address and status history. Preparation commands may advance only one server-defined state at a time. A shipment report is an artist statement with `carrierVerified: false`; it is not proof of carrier acceptance or customer delivery.
 
 All business state and authorization remain owned by the NestJS API. The app displays no sample product/order data and does not calculate payment, settlement, shipment verification, or delivery outcomes.
+
+## Native Artist product management
+
+The Android product tab now opens an owned-product editor (Figma 840:155) and a create-draft action.
+Commands use the existing NestJS API and do not introduce a second product model:
+
+- `POST /api/v1/artist/products` creates an Artist-owned draft with an exact Toman decimal-string price.
+- `GET /api/v1/artist/products/:id` re-reads authoritative product state.
+- `PATCH /api/v1/artist/products/:id` updates only changed fields and sends the current product version.
+- `PATCH /api/v1/artist/products/:id/inventory` uses the independent inventory revision.
+- `POST /api/v1/artist/products/:id/submit` requests human review; it does not grant approval.
+- `POST /api/v1/artist/products/:id/publish` is offered only for an approved product and still requires backend authorization.
+
+The client keeps content locked during review and after publication, while the Artist retains the
+backend-permitted authority to change the price. Price inputs normalize Persian/Arabic numerals
+and validated thousands separators without floating-point calculations. Native inventory starts
+only after an owned draft exists, and the independent inventory version is preserved.
+
+Every acknowledged mutation is followed by a fresh product GET. Conflicts and uncertain acknowledgements
+require reconciliation; if the GET fails, further commands are disabled. An uncertain *create*
+is never automatically replayed, preventing accidental duplicate products.
+
+**Limit:** the native image picker/upload is not yet implemented. The editor reports the actual number of
+server-owned images, does not invent image uploads, and blocks submission while there are none.
+Full fidelity checks against Figma, Android emulator/device QA, and native APK/AAB generation are not
+claimed in this slice. The app remains Android-only.
