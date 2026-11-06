@@ -992,6 +992,8 @@ model ArtistPublicProfile {
  @@map("artist_public_profiles")
 }
 model ArtistStory {
+ imageId String? @db.Uuid
+ images ArtistStoryImage[]
  id String @id @db.Uuid
  artistId String @db.Uuid
  profile ArtistPublicProfile @relation(fields: [artistId], references: [artistId], onDelete: Restrict)
@@ -1003,4 +1005,16 @@ model ArtistStory {
  createdAt DateTime @default(now())
  @@index([artistId, published, publishedAt, id])
  @@map("artist_stories")
+}
+
+model ArtistStoryImage {
+ id String @id @db.Uuid
+ storyId String @db.Uuid
+ story ArtistStory @relation(fields: [storyId], references: [id], onDelete: Restrict)
+ objectKey String @unique
+ width Int
+ height Int
+ byteLength Int
+ @@index([storyId])
+ @@map("artist_story_images")
 }
