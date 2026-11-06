@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseArtistOrders, parseArtistProduct, parseArtistProducts } from "./artist-data";
+import { nextPreparationStatus, parseArtistOrderDetail, parseArtistOrders, parseArtistProduct, parseArtistProducts } from "./artist-data";
 
 const id = "00000000-0000-4000-8000-000000000001";
 const product = {
@@ -39,5 +39,50 @@ describe("artist API read contracts", () => {
     expect(parseArtistOrders({ ...orders, items: [{ ...orders.items[0], merchandiseSubtotalToman: "2,450,000" }] })).toBeNull();
     expect(parseArtistOrders({ ...orders, page: 1001 })).toBeNull();
     expect(parseArtistOrders({ ...orders, pageSize: 51 })).toBeNull();
+  });
+});
+
+
+const orderDetail = {
+  ...orders.items[0],
+  shippingAddress: {
+    recipientName: "گیرنده سفارش", recipientPhone: "09123456789",
+    province: "تهران", city: "تهران", postalCode: "1234567890", fullAddress: "نشانی ثبت‌شده در سفارش"
+  },
+  history: [
+    { version: 1, fromStatus: "awaiting_acceptance", toStatus: "accepted", createdAt: "2026-11-06T10:30:00.000Z" },
+    { version: 2, fromStatus: "accepted", toStatus: "preparing", createdAt: "2026-11-06T11:00:00.000Z" }
+  ]
+};
+
+describe("artist order detail and preparation contract", () => {
+  it("accepts the artist-scoped detail, immutable shipping address and ordered history", () => {
+    const parsed = parseArtistOrderDetail(orderDetail);
+    expect(parsed?.shippingAddress.recipientName).toBe("گیرنده سفارش");
+    expect(parsed?.history).toHaveLength(2);
+    expect(parsed?.shipment).toBeNull();
+  });
+
+  it("accepts only an explicitly unverified artist shipment report", () => {
+    const shipment = {
+      id, status: "reported_dispatched", source: "artist_report", carrierVerified: false,
+      carrierName: "پست", trackingCode: "001234AB-5", reportedAt: "2026-11-06T12:00:00.000Z"
+    };
+    expect(parseArtistOrderDetail({ ...orderDetail, shipment })?.shipment?.carrierVerified).toBe(false);
+    expect(parseArtistOrderDetail({ ...orderDetail, shipment: { ...shipment, carrierVerified: true } })).toBeNull();
+    expect(parseArtistOrderDetail({ ...orderDetail, shipment: { ...shipment, status: "delivered" } })).toBeNull();
+  });
+
+  it("rejects malformed addresses and history that exceeds the pinned order revision", () => {
+    expect(parseArtistOrderDetail({ ...orderDetail, shippingAddress: { ...orderDetail.shippingAddress, fullAddress: "" } })).toBeNull();
+    expect(parseArtistOrderDetail({ ...orderDetail, history: [{ ...orderDetail.history[0], version: 3 }] })).toBeNull();
+  });
+
+  it("allows only the next server-defined preparation transition", () => {
+    expect(nextPreparationStatus("awaiting_acceptance")).toBe("accepted");
+    expect(nextPreparationStatus("accepted")).toBe("preparing");
+    expect(nextPreparationStatus("preparing")).toBe("packaging");
+    expect(nextPreparationStatus("packaging")).toBe("ready_for_dispatch");
+    expect(nextPreparationStatus("ready_for_dispatch")).toBeNull();
   });
 });
