@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, View
 } from "react-native";
 import { ApiError, apiJson } from "../api/client";
+import { ProductImageGallery } from "./ProductImageGallery";
 import { parseArtistProduct, type ArtistProduct } from "../domain/artist-data";
 import {
   createProductCommand, inventoryCommand, parseStockInput, patchProductCommand,
@@ -44,6 +45,17 @@ export function ProductEditorScreen({ token, productId, onBack }: Props) {
   const [message, setMessage] = useState("");
   const [retry, setRetry] = useState(0);
   const operationLock = useRef(false);
+  const handleProductChange = useCallback((fresh: ArtistProduct) => {
+    setProduct(fresh);
+    setForm(populate(fresh));
+    setStock(String(fresh.stockQuantity));
+    setStale(false);
+  }, []);
+  const handleGalleryBusy = useCallback((next: boolean) => setBusy(next), []);
+  const handleGalleryStale = useCallback((message: string) => {
+    setStale(true);
+    setError(message);
+  }, []);
   const id = product?.id ?? productId;
 
   useEffect(() => {
@@ -208,6 +220,12 @@ export function ProductEditorScreen({ token, productId, onBack }: Props) {
 
   const canEditContent = !product || ["draft", "changes_requested", "approved"].includes(product.publicationStatus);
   const allowed = !loading && !busy && !stale && !createUncertain && (!product || !product.archivedAt);
+  const currentForm = createProductCommand(form);
+  const hasUnsavedForm = !!product && (!currentForm || currentForm.title !== product.title ||
+    currentForm.description !== product.description || currentForm.category !== product.category ||
+    currentForm.priceToman !== product.priceToman);
+  const hasUnsavedStock = !!product && parseStockInput(stock) !== product.stockQuantity;
+  const galleryDisabled = !allowed || hasUnsavedForm || hasUnsavedStock;
   const maySubmit = product && publicationCommand(product, "submit") !== null;
   const mayPublish = product && publicationCommand(product, "publish") !== null;
 
@@ -255,10 +273,9 @@ export function ProductEditorScreen({ token, productId, onBack }: Props) {
     </View>
 
     <Text style={styles.section}>تصاویر محصول</Text>
-    <View style={styles.photoPanel}>
-      <Text style={styles.infoTitle}>{product ? numbers.format(product.imageIds.length) + " تصویر ثبت‌شده" : "هنوز تصویری ثبت نشده است"}</Text>
-      <Text style={styles.hint}>بارگذاری تصویر در این بخش Native هنوز متصل نیست؛ اپ تصویر فرضی یا نمونه ارسال نمی‌کند.</Text>
-    </View>
+    <ProductImageGallery product={product} token={token} disabled={galleryDisabled}
+      onProductChange={handleProductChange} onBusyChange={handleGalleryBusy} onStale={handleGalleryStale} />
+    {product && (hasUnsavedForm || hasUnsavedStock) ? <Text style={styles.noteText}>ابتدا تغییرات اطلاعات و موجودی را ذخیره کنید؛ سپس گالری تصاویر را تغییر دهید.</Text> : null}
 
     <Text style={styles.section}>قیمت و موجودی</Text>
     <View style={styles.sectionBody}>
@@ -317,8 +334,6 @@ const styles = StyleSheet.create({
     borderColor: colors.border, paddingHorizontal: 13, paddingVertical: 10,
     fontSize: 13, color: colors.text },
   textArea: { minHeight: 90 },
-  photoPanel: { borderStyle: "dashed", borderWidth: 1, borderColor: "#bce7e8", borderRadius: 12,
-    backgroundColor: "#f7fcfc", padding: 18, marginHorizontal: 16, gap: 7 },
   info: { marginHorizontal: 16, backgroundColor: colors.accentSoft, borderRadius: 11, padding: 12, gap: 5 },
   infoTitle: { color: colors.brand, fontSize: 12, fontWeight: "800", textAlign: "right" },
   separator: { height: 1, backgroundColor: colors.border, marginVertical: 8 },

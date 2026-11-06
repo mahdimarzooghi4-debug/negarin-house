@@ -63,7 +63,6 @@ Every acknowledged mutation is followed by a fresh product GET. Conflicts and un
 require reconciliation; if the GET fails, further commands are disabled. An uncertain *create*
 is never automatically replayed, preventing accidental duplicate products.
 
-**Limit:** the native image picker/upload is not yet implemented. The editor reports the actual number of
-server-owned images, does not invent image uploads, and blocks submission while there are none.
+Native image gallery uses Expo ImagePicker ~58.0.10 to select one actual image at a time, previews only private server-owned WebP images through 300-second signed reads, and uploads canonical JPEG base64 to the existing product-image endpoint. The client enforces the 5 MiB/8-image bounds, disables camera/microphone permissions, recovers Android pending picker results, and reconciles upload/gallery mutations with an authoritative product GET. Removing an image from the active gallery does not delete its immutable media record.
 Full fidelity checks against Figma, Android emulator/device QA, and native APK/AAB generation are not
 claimed in this slice. The app remains Android-only.
