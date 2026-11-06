@@ -67,4 +67,4 @@ Native image gallery uses Expo ImagePicker ~58.0.10 to select one actual image a
 Full fidelity checks against Figma, Android emulator/device QA, and native APK/AAB generation are not
 claimed in this slice. The app remains Android-only.
 
-CI installs the FFmpeg/ffprobe 7.1 release line through the static setup action used by the repository's story-video normalization tests; this avoids relying on a mutable Ubuntu apt mirror during every run.
+CI installs the FFmpeg/ffprobe 8.1 release line through the static setup action used by the repository's story-video normalization tests; this avoids relying on a mutable Ubuntu apt mirror during every run.
