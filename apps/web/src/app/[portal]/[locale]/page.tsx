@@ -1,4 +1,5 @@
 import CustomerMobileAccountLive from "../../../features/customer-mobile/live-account";
+import {ArtistProductsListLive,ArtistProductEditorLive} from "../../../features/artist-mobile/live-products";
 import CustomerMobileSavedLive from "../../../features/customer-mobile/live-saved";
 import {ArtistAuthorLive} from "../../../features/artist/live-author";
 import {CustomerArtistStoreLive,CustomerArtistStoriesLive,CustomerStoryViewerLive} from "../../../features/customer-web/live-public-content";
@@ -33,6 +34,8 @@ export default async function LocalizedPortalPage({
   const { portal, locale } = await params;
   const query = await searchParams;
 
+  if(portal==="artist-mobile"&&locale==="products")return <ArtistProductsListLive/>;
+  if(portal==="artist-mobile"&&locale==="product-editor")return <ArtistProductEditorLive id={parseRequiredUuidQuery(query.id)??(query.id===undefined?"":"invalid")}/>;
   if(portal==="customer-mobile"&&["account","account-info"].includes(locale))return <CustomerMobileAccountLive key={locale} edit={locale==="account-info"}/>;
   if(portal==="customer-mobile"&&locale==="saved")return <CustomerMobileSavedLive/>;
   if(portal==="artist" && ["storefront-editor","stories","story-new","story-editor"].includes(locale)) return <ArtistAuthorLive key={locale+String(query.id??"")} screen={locale} id={parseRequiredUuidQuery(query.id)??""}/>;

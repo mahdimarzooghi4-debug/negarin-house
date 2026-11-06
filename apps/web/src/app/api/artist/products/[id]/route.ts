@@ -1,6 +1,6 @@
 import {NextResponse,type NextRequest} from "next/server";
-import {authenticatedProxy,jsonBody,rejectCrossOriginMutation} from "../../../../../../server/api-proxy";
-import {isUuid} from "../../../../../../server/negarin-api";
+import {authenticatedProxy,jsonBody,rejectCrossOriginMutation} from "../../../../../server/api-proxy";
+import {isUuid} from "../../../../../server/negarin-api";
 type Context={params:Promise<{id:string}>};
 export async function GET(request:NextRequest,{params}:Context) {
   const {id}=await params;

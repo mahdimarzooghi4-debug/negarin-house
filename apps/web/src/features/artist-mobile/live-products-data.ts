@@ -4,7 +4,7 @@ export type ArtistProduct={
   id:string;title:string;description:string|null;category:string|null;priceToman:string;
   publicationStatus:"draft"|"under_review"|"changes_requested"|"approved"|"published";
   version:number;inventoryVersion:number;stockQuantity:number;availability:"in_stock"|"out_of_stock";
-  archivedAt:string|null;updatedAt:string;
+  archivedAt:string|null;updatedAt:string;imageIds:string[];
 };
 function record(value:unknown):Record<string,unknown>|null{
   return value!==null&&typeof value==="object"&&!Array.isArray(value)?value as Record<string,unknown>:null;
@@ -22,13 +22,14 @@ export function parseArtistProduct(value:unknown):ArtistProduct|null{
      !states.has(String(p.publicationStatus))||!version(p.version)||!version(p.inventoryVersion)||
      !version(p.stockQuantity)||!(p.availability==="in_stock"||p.availability==="out_of_stock")||
      (p.stockQuantity===0)!==(p.availability==="out_of_stock")||
-     !(p.archivedAt===null||canonicalDate(p.archivedAt))||!canonicalDate(p.updatedAt))return null;
+     !(p.archivedAt===null||canonicalDate(p.archivedAt))||!canonicalDate(p.updatedAt)||
+     !Array.isArray(p.imageIds)||!p.imageIds.every(isUuid)||new Set(p.imageIds.map(x=>String(x).toLowerCase())).size!==p.imageIds.length)return null;
   return {
     id:p.id,title:p.title,description:p.description as string|null,category:p.category as string|null,
     priceToman:p.priceToman,publicationStatus:p.publicationStatus as ArtistProduct["publicationStatus"],
     version:p.version as number,inventoryVersion:p.inventoryVersion as number,
     stockQuantity:p.stockQuantity as number,availability:p.availability as ArtistProduct["availability"],
-    archivedAt:p.archivedAt as string|null,updatedAt:p.updatedAt as string
+    archivedAt:p.archivedAt as string|null,updatedAt:p.updatedAt as string,imageIds:p.imageIds as string[]
   };
 }
 export function parseArtistProducts(value:unknown):ArtistProduct[]|null {

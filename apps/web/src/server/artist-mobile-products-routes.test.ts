@@ -4,6 +4,8 @@ import {GET as list,POST as create} from "../app/api/artist/products/route";
 import {GET as detail,PATCH as edit} from "../app/api/artist/products/[id]/route";
 import {PATCH as stock} from "../app/api/artist/products/[id]/inventory/route";
 import {POST as submit} from "../app/api/artist/products/[id]/submit/route";
+import {POST as publish} from "../app/api/artist/products/[id]/publish/route";
+import {POST as upload} from "../app/api/artist/products/[id]/images/route";
 afterEach(()=>vi.unstubAllGlobals());
 const id="00000000-0000-4000-8000-000000000001";
 const context={params:Promise.resolve({id})},token="A".repeat(43);
@@ -30,7 +32,9 @@ describe("artist mobile product API boundaries",()=>{
       ()=>create(req("/api/artist/products","POST",{title:"a"},"https://evil.example")),
       ()=>edit(req("/api/artist/products/"+id,"PATCH",{version:2},"https://evil.example"),context),
       ()=>stock(req("/api/artist/products/"+id+"/inventory","PATCH",{inventoryVersion:3},"https://evil.example"),context),
-      ()=>submit(req("/api/artist/products/"+id+"/submit","POST",{version:2},"https://evil.example"),context)
+      ()=>submit(req("/api/artist/products/"+id+"/submit","POST",{version:2},"https://evil.example"),context),
+      ()=>publish(req("/api/artist/products/"+id+"/publish","POST",{version:2},"https://evil.example"),context),
+      ()=>upload(req("/api/artist/products/"+id+"/images","POST",{version:2,base64:"AA=="},"https://evil.example"),context)
     ];
     for(const handler of handlers)expect((await handler()).status).toBe(403);
     expect(upstream).not.toHaveBeenCalled();
@@ -39,7 +43,9 @@ describe("artist mobile product API boundaries",()=>{
     const cases=[
       {path:"/api/artist/products/"+id,method:"PATCH",body:{version:2,priceToman:"2450000"},handler:edit},
       {path:"/api/artist/products/"+id+"/inventory",method:"PATCH",body:{inventoryVersion:3,stockQuantity:7},handler:stock},
-      {path:"/api/artist/products/"+id+"/submit",method:"POST",body:{version:2},handler:submit}
+      {path:"/api/artist/products/"+id+"/submit",method:"POST",body:{version:2},handler:submit},
+      {path:"/api/artist/products/"+id+"/publish",method:"POST",body:{version:2},handler:publish},
+      {path:"/api/artist/products/"+id+"/images",method:"POST",body:{version:2,base64:"AA=="},handler:upload}
     ];
     const upstream=vi.fn(async (url:string,init:RequestInit)=>{
       expect(JSON.parse(String(init.body))).toEqual(cases.find(c=>String(url).endsWith(c.path.replace("/api/artist/","/api/v1/artist/")))?.body);
@@ -47,7 +53,7 @@ describe("artist mobile product API boundaries",()=>{
       return new Response('{"error":"product-state-changed"}',{status:409});
     });vi.stubGlobal("fetch",upstream);
     for(const c of cases)expect((await c.handler(req(c.path,c.method,c.body),context)).status).toBe(409);
-    expect(upstream).toHaveBeenCalledTimes(3);
+    expect(upstream).toHaveBeenCalledTimes(5);
   });
   it("rejects unknown ids and queries before upstream",async()=>{
     const upstream=vi.fn();vi.stubGlobal("fetch",upstream);

@@ -1,5 +1,5 @@
 import {NextResponse,type NextRequest} from "next/server";
-import {authenticatedProxy,jsonBody,rejectCrossOriginMutation} from "../../../../../server/api-proxy";
+import {authenticatedProxy,jsonBody,rejectCrossOriginMutation} from "../../../../server/api-proxy";
 
 export async function GET(request:NextRequest) {
   const includeArchived=request.nextUrl.searchParams.get("includeArchived");
