@@ -58,7 +58,7 @@ jobs:
       - name: Install video processing runtime
         uses: AnimMouse/setup-ffmpeg@v1
         with:
-          version: "7.1"
+          version: "8.1"
       - run: pnpm install --frozen-lockfile
       - run: pnpm db:generate
       - run: pnpm db:validate
