@@ -12,7 +12,7 @@ test("artist mobile product list shows only backend products in 390px and 320px"
   await page.route("**/api/artist/products",route=>route.fulfill({json:[base]}));
   await page.goto("/artist-mobile/products");
   await expect(page.getByRole("heading",{name:"گلدان سفالی",exact:true})).toBeVisible();
-  await expect(page.getByText("۲,۴۵۰,۰۰۰ تومان")).toBeVisible();
+  await expect(page.getByText(new Intl.NumberFormat("fa-IR").format(2450000)+" تومان")).toBeVisible();
   await expect(page.getByRole("link",{name:"مدیریت محصول"})).toHaveAttribute("href","/artist-mobile/product-editor?id="+id);
   await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
   await page.setViewportSize({width:320,height:740});
