@@ -1,0 +1,16 @@
+"use client";
+import Link from "next/link";
+import {MobileCustomerNavigation} from "./live-navigation";
+import {useEffect,useRef,useState} from "react";
+import "@fontsource-variable/vazirmatn";
+import "@fontsource/material-icons-round";
+import {requestFavorites,type Favorites} from "../customer-web/favorite-data";
+import {ProductImage} from "../customer-web/live-catalog";
+import {formatToman} from "../corporate-buyer/live-data";
+import styles from "./live-saved.module.css";
+export default function CustomerMobileSavedLive(){
+ const [data,setData]=useState<Favorites|null>(null),[error,setError]=useState(""),[busy,setBusy]=useState(false),[retry,setRetry]=useState(0);const lock=useRef(false);
+ useEffect(()=>{const controller=new AbortController();setData(null);setError("");void requestFavorites(undefined,{signal:controller.signal}).then(result=>{if(!controller.signal.aborted)setData(result);}).catch(e=>{if(!controller.signal.aborted)setError(e instanceof Error?e.message:"دریافت انجام نشد.");});return()=>controller.abort();},[retry]);
+ async function remove(id:string){if(!data||lock.current)return;lock.current=true;setBusy(true);setError("");try{setData(await requestFavorites("/api/customer/favorites/"+id,{method:"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({version:data.version})}));}catch(e){setData(null);setError(e instanceof Error?e.message:"نتیجه مشخص نیست؛ اطلاعات را دوباره دریافت کنید.");}finally{lock.current=false;setBusy(false);}}
+ return <main className={styles.page} dir="rtl" lang="fa" data-node-id="613:5"><header className={styles.header}><Link href="/customer-mobile/account" aria-label="بازگشت به حساب"><span className={styles.icon} aria-hidden="true">arrow_forward</span></Link><h1>ذخیره‌شده‌ها</h1></header><div className={styles.workspace}><section className={styles.explainer}><span className={styles.icon} aria-hidden="true">bookmark</span><div><h2>ذخیره برای برگشتن بعدی</h2><p>آثاری که ذخیره کرده‌ای اینجا نمایش داده می‌شوند.</p></div></section><h2 className={styles.title}>آثار ذخیره‌شده</h2>{error?<div role="alert" className={styles.state}><p>{error}</p><button disabled={busy} onClick={()=>setRetry(n=>n+1)}>دریافت دوباره ذخیره‌شده‌ها</button></div>:!data?<p role="status">در حال دریافت ذخیره‌شده‌ها…</p>:<>{data.items.length===0&&<section className={styles.state}><p>هنوز اثری ذخیره نکرده‌ای.</p><Link href="/customer/products">کشف آثار</Link></section>}{data.items.map(item=><article className={styles.card} key={item.productId}>{item.product?<><div className={styles.photo}><ProductImage product={item.product}/></div><div className={styles.details}><h3>{item.product.title}</h3>{item.product.category&&<p>{item.product.category}</p>}<strong>{formatToman(item.product.priceToman)}</strong><p>{item.product.availability==="in_stock"?"موجود":"ناموجود"}</p></div><Link className={styles.open} href={"/customer/product-detail?id="+item.productId}>مشاهده محصول</Link></>:<p>این اثر دیگر در دسترس نیست.</p>}<button className={styles.remove} disabled={busy||data.version>=2147483647} onClick={()=>void remove(item.productId)} aria-label={"حذف از ذخیره‌شده‌ها"+(item.product?": "+item.product.title:"")}><span className={styles.icon} aria-hidden="true">bookmark</span></button></article>)}</>}</div><MobileCustomerNavigation/></main>;
+}
