@@ -275,7 +275,7 @@ export function ProductEditorScreen({ token, productId, onBack }: Props) {
     <Text style={styles.section}>تصاویر محصول</Text>
     <ProductImageGallery product={product} token={token} disabled={galleryDisabled}
       onProductChange={handleProductChange} onBusyChange={handleGalleryBusy} onStale={handleGalleryStale} />
-    {product && (hasUnsavedForm || hasUnsavedStock) ? <Text style={styles.noteText}>ابتدا تغییرات اطلاعات و موجودی را ذخیره کنید؛ سپس گالری تصاویر را تغییر دهید.</Text> : null}
+    {product && (hasUnsavedForm || hasUnsavedStock) ? <Text style={styles.hint}>ابتدا تغییرات اطلاعات و موجودی را ذخیره کنید؛ سپس گالری تصاویر را تغییر دهید.</Text> : null}
 
     <Text style={styles.section}>قیمت و موجودی</Text>
     <View style={styles.sectionBody}>
