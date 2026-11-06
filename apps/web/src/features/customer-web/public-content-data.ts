@@ -1,6 +1,7 @@
+import {parseRelatedProduct,type RelatedProduct} from "../artist/related-product-data";
 import {isUuid,parseProductPage} from "../corporate-buyer/live-data";
 export type PublicArtist={artistId:string;displayName:string;biography:string;craft:string;city:string};
-export type PublicStory={imageId?:string|null;id:string;title:string;body:string;publishedAt:string;profile:PublicArtist};
+export type PublicStory={product?:RelatedProduct|null;imageId?:string|null;id:string;title:string;body:string;publishedAt:string;profile:PublicArtist};
 export type ContentPage<T>={page:number;pageSize:number;hasMore:boolean;items:T[]};
 function record(v:unknown){return v!==null&&typeof v==="object"&&!Array.isArray(v)?v as Record<string,unknown>:null;}
 export function parsePublicArtist(value:unknown):PublicArtist|null{
@@ -13,7 +14,8 @@ export function parsePublicStory(value:unknown):PublicStory|null{
  const s=record(value);if(!s||!isUuid(s.id)||typeof s.title!=="string"||!s.title.trim()||s.title.length>200||typeof s.body!=="string"||!s.body.trim()||s.body.length>10000||typeof s.publishedAt!=="string")return null;
  if(s.imageId!==undefined&&s.imageId!==null&&!isUuid(s.imageId))return null;
  const date=new Date(s.publishedAt);if(!Number.isFinite(date.getTime())||date.toISOString()!==s.publishedAt)return null;
- const profile=parsePublicArtist(s.profile);return profile?{id:s.id,title:s.title,body:s.body,publishedAt:s.publishedAt,profile,...(s.imageId===undefined?{}:{imageId:s.imageId as string|null})}:null;
+ const product=s.product===null||s.product===undefined?null:parseRelatedProduct(s.product);if(s.product!==null&&s.product!==undefined&&!product)return null;
+ const profile=parsePublicArtist(s.profile);return profile?{id:s.id,title:s.title,body:s.body,publishedAt:s.publishedAt,profile,...(s.product===undefined?{}:{product}),...(s.imageId===undefined?{}:{imageId:s.imageId as string|null})}:null;
 }
 function parsePage<T>(value:unknown,page:number,size:number,parse:(item:unknown)=>T|null,key:(item:T)=>string):ContentPage<T>|null{
  const p=record(value);if(!p||p.page!==page||p.pageSize!==size||typeof p.hasMore!=="boolean"||!Array.isArray(p.items)||p.items.length>size||(p.hasMore&&p.items.length!==size))return null;

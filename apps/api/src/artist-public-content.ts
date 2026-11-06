@@ -2,6 +2,7 @@ import {BadRequestException,ConflictException,ForbiddenException,Injectable,NotF
 import type {AuthorizationContext} from "@negarin/authz";
 import {PrismaService} from "./prisma.service.js";
 import {parseCartCommand} from "./customer-cart.js";
+import {parseArtistProductId} from "./artist-products.js";
 import type {Prisma} from "./generated/prisma/client.js";
 function record(body:unknown){if(!body||typeof body!=="object"||Array.isArray(body))throw new BadRequestException();return body as Record<string,unknown>;}
 export function parsePublicText(body:unknown,story=false){
@@ -23,8 +24,12 @@ export function parseContentPage(raw:Record<string,unknown>){
  return {page:read("page",1,1000),pageSize:read("pageSize",6,20)};
 }
 const publicProfile={artistId:true,displayName:true,biography:true,craft:true,city:true} as const;
-const publicStory={imageId:true,id:true,title:true,body:true,publishedAt:true,profile:{select:publicProfile}} as const;
+const relatedProductSelect={id:true,title:true,priceToman:true,stockQuantity:true,publicationStatus:true,archivedAt:true,artistUserId:true} as const;
+const publicStory={relatedProduct:{select:relatedProductSelect},imageId:true,id:true,title:true,body:true,publishedAt:true,profile:{select:publicProfile}} as const;
 const publicProducts={id:true,title:true,description:true,category:true,dimensions:true,materials:true,weight:true,color:true,technique:true,careInstructions:true,priceToman:true,imageIds:true,stockQuantity:true,createdAt:true} as const;
+export function parseStoryProduct(body:unknown){const raw=record(body);if(Object.keys(raw).some(key=>!["version","productId"].includes(key))||(raw.productId!==null&&typeof raw.productId!=="string"))throw new BadRequestException();return {version:parseCartCommand({version:raw.version}).version,productId:raw.productId===null?null:parseArtistProductId(raw.productId)};}
+function productView(product:{id:string;title:string;priceToman:bigint;stockQuantity:number}){return {id:product.id,title:product.title,priceToman:product.priceToman.toString(),availability:product.stockQuantity>0?"in_stock":"out_of_stock"};}
+function storyView(story:Prisma.ArtistStoryGetPayload<{select:typeof publicStory}>){const {relatedProduct,...rest}=story;return {...rest,publishedAt:story.publishedAt!.toISOString(),product:relatedProduct&&relatedProduct.artistUserId===story.profile.artistId&&relatedProduct.publicationStatus==="published"&&!relatedProduct.archivedAt?productView(relatedProduct):null};}
 @Injectable()
 export class ArtistPublicContentService {
  constructor(private readonly db:PrismaService){}
@@ -59,11 +64,18 @@ export class ArtistPublicContentService {
    if(!result.count)throw new ConflictException("story-state-changed");return tx.artistStory.findUniqueOrThrow({where:{id}});
   });
  }
+ async eligibleProducts(context:AuthorizationContext,page:number,pageSize:number){this.owner(context);const items=await this.db.artistProduct.findMany({where:{artistUserId:context.userId,publicationStatus:"published",archivedAt:null},select:relatedProductSelect,orderBy:[{createdAt:"desc"},{id:"asc"}],skip:(page-1)*pageSize,take:pageSize+1});return {page,pageSize,hasMore:items.length>pageSize,items:items.slice(0,pageSize).map(productView)};}
+ async linkProduct(context:AuthorizationContext,id:string,input:ReturnType<typeof parseStoryProduct>){this.owner(context);return this.db.$transaction(async tx=>{
+  const story=await tx.artistStory.findFirst({where:{id,artistId:context.userId}});if(!story)throw new NotFoundException();
+  if(input.productId!==null&&!await tx.artistProduct.findFirst({where:{id:input.productId,artistUserId:context.userId,publicationStatus:"published",archivedAt:null},select:{id:true}}))throw new NotFoundException();
+  const result=await tx.artistStory.updateMany({where:{id,artistId:context.userId,version:input.version},data:{relatedProductId:input.productId,published:false,publishedAt:null,version:{increment:1}}});if(!result.count)throw new ConflictException("story-state-changed");return tx.artistStory.findUniqueOrThrow({where:{id}});
+ });}
  async ownStories(context:AuthorizationContext){this.owner(context);return this.db.artistStory.findMany({where:{artistId:context.userId},orderBy:[{createdAt:"desc"},{id:"asc"}]});}
  async switchStory(context:AuthorizationContext,id:string,input:ReturnType<typeof parsePublicSwitch>){
   this.owner(context);
   return this.db.$transaction(async tx=>{
    const existing=await tx.artistStory.findFirst({where:{id,artistId:context.userId}});if(!existing)throw new NotFoundException();
+   if(input.published&&existing.relatedProductId&&!await tx.artistProduct.findFirst({where:{id:existing.relatedProductId,artistUserId:context.userId,publicationStatus:"published",archivedAt:null},select:{id:true}}))throw new ConflictException("story-product-unavailable");
    const result=await tx.artistStory.updateMany({where:{id,artistId:context.userId,version:input.version},data:{published:input.published,publishedAt:input.published?new Date():null,version:{increment:1}}});
    if(!result.count)throw new ConflictException("story-state-changed");return tx.artistStory.findUniqueOrThrow({where:{id}});
   });
@@ -80,7 +92,7 @@ export class ArtistPublicContentService {
   },{isolationLevel:"RepeatableRead"});
  }
  async stories(page:number,pageSize:number,artistId?:string){
-  const items=await this.db.artistStory.findMany({where:{published:true,profile:{published:true},...(artistId?{artistId}:{})},select:publicStory,orderBy:[{publishedAt:"desc"},{id:"asc"}],skip:(page-1)*pageSize,take:pageSize+1});return {page,pageSize,hasMore:items.length>pageSize,items:items.slice(0,pageSize).map(s=>({...s,publishedAt:s.publishedAt!.toISOString()}))};
+  const items=await this.db.artistStory.findMany({where:{published:true,profile:{published:true},...(artistId?{artistId}:{})},select:publicStory,orderBy:[{publishedAt:"desc"},{id:"asc"}],skip:(page-1)*pageSize,take:pageSize+1});return {page,pageSize,hasMore:items.length>pageSize,items:items.slice(0,pageSize).map(storyView)};
  }
- async story(id:string){const s=await this.db.artistStory.findFirst({where:{id,published:true,profile:{published:true}},select:publicStory});if(!s)throw new NotFoundException();return {...s,publishedAt:s.publishedAt!.toISOString()};}
+ async story(id:string){const s=await this.db.artistStory.findFirst({where:{id,published:true,profile:{published:true}},select:publicStory});if(!s)throw new NotFoundException();return storyView(s);}
 }

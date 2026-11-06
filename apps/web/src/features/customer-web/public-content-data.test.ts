@@ -14,4 +14,11 @@ describe("public content response models",()=>{
   expect(parseStoryPage({page:1,pageSize:6,hasMore:true,items:[story]},1,6)).toBeNull();
   expect(parseStoryPage({page:1,pageSize:6,hasMore:false,items:[story,story]},1,6)).toBeNull();
  });
+ it("accepts nullable product links while rejecting malformed product responses",()=>{
+  const product={id,title:"محصول مرتبط",priceToman:"9007199254740993",availability:"out_of_stock"};
+  expect(parsePublicStory({...story,product})?.product?.priceToman).toBe(product.priceToman);
+  expect(parsePublicStory({...story,product:null})?.product).toBeNull();
+  expect(parsePublicStory({...story,product:{...product,id:"bad"}})).toBeNull();
+ });
+
 });

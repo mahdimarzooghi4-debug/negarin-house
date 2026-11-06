@@ -48,4 +48,32 @@ describe("public artist content isolation and publication",()=>{
   expect((await get("artists/"+artist.id)).statusCode).toBe(404);
   expect((await get(`artists/${artist.id}/products`)).statusCode).toBe(404);
  });
+ it("links only own published products, hides withdrawn products and versions every link change",async()=>{
+  const artist=await user(),other=await user(),customer=await user("customer"),storyId=randomUUID(),otherStoryId=randomUUID();
+  await command(artist,"public-profile",{version:0,...profile});await command(artist,"public-profile/publication",{version:1,published:true},"POST");
+  await command(artist,"stories/"+storyId,{version:0,title:"روایت مرتبط",body:"متن"});
+  await command(other,"stories/"+otherStoryId,{version:0,title:"روایت دیگر",body:"متن دیگر"});
+  const product=await db.artistProduct.create({data:{artistUserId:artist.id,title:"محصول مرتبط",priceToman:9007199254740993n,publicationStatus:"published",stockQuantity:0}});
+  const foreign=await db.artistProduct.create({data:{artistUserId:other.id,title:"محصول دیگری",priceToman:1n,publicationStatus:"published"}});
+  const draft=await db.artistProduct.create({data:{artistUserId:artist.id,title:"محصول پیش‌نویس",priceToman:1n}});
+  const archived=await db.artistProduct.create({data:{artistUserId:artist.id,title:"بایگانی",priceToman:1n,publicationStatus:"published",archivedAt:new Date()}});
+  const list=await app.inject({method:"GET",url:"/api/v1/artist/stories/eligible-products?page=1&pageSize=20",headers:artist.headers});
+  expect(list.statusCode).toBe(200);expect(list.json().items).toEqual([{id:product.id,title:product.title,priceToman:"9007199254740993",availability:"out_of_stock"}]);
+  expect((await app.inject({method:"GET",url:"/api/v1/artist/stories/eligible-products",headers:customer.headers})).statusCode).toBe(403);
+  const link=(productId:string|null,version:number,actor=artist)=>command(actor,"stories/"+storyId+"/product",{version,productId});
+  expect((await link(product.id,1,customer)).statusCode).toBe(403);expect((await link(product.id,1,other)).statusCode).toBe(404);
+  for(const productId of [foreign.id,draft.id,archived.id,randomUUID()])expect((await link(productId,1)).statusCode).toBe(404);
+  expect((await command(artist,"stories/"+otherStoryId+"/product",{version:1,productId:product.id})).statusCode).toBe(404);
+  const linked=await link(product.id,1);expect(linked.json()).toMatchObject({version:2,relatedProductId:product.id,published:false});
+  expect((await link(null,1)).statusCode).toBe(409);
+  await command(artist,"stories/"+storyId+"/publication",{version:2,published:true},"POST");
+  const published=(await get("stories/"+storyId)).json();expect(published.product).toEqual({id:product.id,title:product.title,priceToman:"9007199254740993",availability:"out_of_stock"});
+  for(const key of ["artistUserId","publicationStatus","archivedAt","version"])expect(published.product).not.toHaveProperty(key);
+  await db.artistProduct.update({where:{id:product.id},data:{publicationStatus:"draft"}});expect((await get("stories/"+storyId)).json().product).toBeNull();
+  expect((await get(`artists/${artist.id}/stories?page=1&pageSize=6`)).json().items[0].product).toBeNull();
+  expect((await command(artist,"stories/"+storyId+"/publication",{version:3,published:true},"POST")).statusCode).toBe(409);
+  const unlinked=await link(null,3);expect(unlinked.json()).toMatchObject({relatedProductId:null,version:4,published:false});expect((await get("stories/"+storyId)).statusCode).toBe(404);
+  const races=await Promise.all([link(null,4),link(null,4)]);expect(races.map(r=>r.statusCode).sort()).toEqual([200,409]);
+ });
+
 });
