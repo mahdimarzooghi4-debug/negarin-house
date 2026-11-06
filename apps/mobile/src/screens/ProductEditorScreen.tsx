@@ -232,7 +232,7 @@ export function ProductEditorScreen({ token, productId, onBack }: Props) {
       {product.archivedAt ? <Text style={styles.warning}>این محصول بایگانی شده است و ویرایش آن مجاز نیست.</Text> : null}
     </View>}
     {error ? <View style={styles.errorBox}><Text style={styles.error}>{error}</Text>
-      {product && <Pressable disabled={busy} onPress={() => void refresh()} style={styles.minorButton}><Text style={styles.minorText}>دریافت وضعیت تازه</Text></Pressable>}
+      {product ? <Pressable disabled={busy} onPress={() => void refresh()} style={styles.minorButton}><Text style={styles.minorText}>دریافت وضعیت تازه</Text></Pressable> : productId ? <Pressable disabled={busy} onPress={() => setRetry(value => value + 1)} style={styles.minorButton}><Text style={styles.minorText}>تلاش دوباره برای دریافت محصول</Text></Pressable> : null}
     </View> : null}
     {message ? <View style={styles.successBox}><Text style={styles.success}>{message}</Text></View> : null}
     {createUncertain ? <Text style={styles.warning}>تا بررسی فهرست محصولات، ثبت دوباره غیرفعال است.</Text> : null}
