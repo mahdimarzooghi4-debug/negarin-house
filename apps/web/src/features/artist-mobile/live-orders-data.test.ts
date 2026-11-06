@@ -8,5 +8,7 @@ describe("artist order response contract",()=>{
   expect(()=>parseArtistOrders({...valid,items:[{...valid.items[0],status:"delivered"}]})).toThrow();
   expect(()=>parseArtistOrders({...valid,items:[{...valid.items[0],merchandiseSubtotalToman:"2,450,000"}]})).toThrow();
   expect(()=>parseArtistOrders({...valid,items:[{...valid.items[0],orderId:"not-a-uuid"}]})).toThrow();
+  expect(()=>parseArtistOrders({...valid,page:1001})).toThrow();
+  expect(()=>parseArtistOrders({...valid,pageSize:51})).toThrow();
  });
 });

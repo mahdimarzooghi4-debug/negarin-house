@@ -8,7 +8,7 @@ function text(value:unknown):string{if(typeof value!=="string")throw Error("اط
 function integer(value:unknown):number{if(!Number.isSafeInteger(value)||Number(value)<0)throw Error("نسخه سفارش معتبر نیست.");return Number(value);}
 export function parseArtistOrders(value:unknown):ArtistOrdersPage{
  const root=record(value);if(!Array.isArray(root.items)||typeof root.hasMore!=="boolean")throw Error("فهرست سفارش‌ها معتبر نیست.");
- const page=integer(root.page),pageSize=integer(root.pageSize);if(page<1||pageSize<1||pageSize>100)throw Error("صفحه‌بندی سفارش‌ها معتبر نیست.");
+ const page=integer(root.page),pageSize=integer(root.pageSize);if(page<1||page>1000||pageSize<1||pageSize>50)throw Error("صفحه‌بندی سفارش‌ها معتبر نیست.");
  const items=root.items.map(raw=>{const o=record(raw);
   if(!uuid.test(text(o.orderId))||!statuses.includes(o.status as ArtistOrderStatus)||!Array.isArray(o.items))throw Error("شناسه یا وضعیت سفارش معتبر نیست.");
   const lines=o.items.map(rawLine=>{const line=record(rawLine);

@@ -10,7 +10,7 @@ describe("artist mobile orders API boundary",()=>{
  });
  it("rejects unknown, duplicate, malformed and oversized query values before upstream",async()=>{
   const upstream=vi.fn();vi.stubGlobal("fetch",upstream);
-  for(const url of ["/api/artist/orders?limit=100","/api/artist/orders?page=0","/api/artist/orders?page=1&page=2","/api/artist/orders?pageSize=101","/api/artist/orders?page=1.5"])expect((await GET(req(url))).status).toBe(400);
+  for(const url of ["/api/artist/orders?limit=100","/api/artist/orders?page=0","/api/artist/orders?page=1&page=2","/api/artist/orders?pageSize=101","/api/artist/orders?page=1.5","/api/artist/orders?page=1001","/api/artist/orders?pageSize=51"])expect((await GET(req(url))).status).toBe(400);
   expect(upstream).not.toHaveBeenCalled();
  });
 });
