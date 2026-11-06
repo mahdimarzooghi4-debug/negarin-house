@@ -1,11 +1,13 @@
+import type {ReactNode} from "react";
 // Figma 762:12 — Artist / Stories — Desktop
 import { DesignAction } from "../design-controls";
 import { ArtistSidebar } from "../artist-sidebar";
 
-export default function ArtistStoriesDesktop() {
+export default function ArtistStoriesDesktop({content,sidebar}:{content?:ReactNode;sidebar?:ReactNode} = {}) {
   return (
     <div className="fg-3984f97129" data-node-id="762:12" data-name="Artist / Stories — Desktop">
       <div className="fg-893efa80c6" data-node-id="762:13" data-name="Artist / Main">
+        {content ?? <>
         <div className="fg-f11809c10b" data-node-id="762:222" data-name="Stories / Header">
           <div className="fg-3cf15b4442" data-node-id="762:223">
             <p className="fg-32bd4c7660" dir="auto">
@@ -215,8 +217,9 @@ export default function ArtistStoriesDesktop() {
             </div>
           </div>
         </div>
+        </>}
       </div>
-      <ArtistSidebar variant="sidebar-ab8cb5ebb7" />
+      {sidebar ?? <ArtistSidebar variant="sidebar-ab8cb5ebb7" />}
     </div>
   );
 }

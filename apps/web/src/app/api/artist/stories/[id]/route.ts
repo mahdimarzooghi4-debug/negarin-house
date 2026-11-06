@@ -1,0 +1,9 @@
+import {NextResponse,type NextRequest} from "next/server";
+import {authenticatedProxy,jsonBody,rejectCrossOriginMutation} from "../../../../../server/api-proxy";
+import {isUuid} from "../../../../../server/negarin-api";
+export async function PUT(request:NextRequest,context:{params:Promise<{id:string}>}){
+const forbidden=rejectCrossOriginMutation(request);if(forbidden)return forbidden;
+const {id}=await context.params;if(!isUuid(id))return NextResponse.json({error:"invalid-id"},{status:400});
+const body=await jsonBody(request,65536);if(body===null)return NextResponse.json({error:"invalid-body"},{status:400});
+return authenticatedProxy(request,"/api/v1/artist/stories/"+id,{method:"PUT",body});
+}

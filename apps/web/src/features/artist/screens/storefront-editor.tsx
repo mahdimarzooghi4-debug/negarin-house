@@ -1,11 +1,13 @@
+import type {ReactNode} from "react";
 // Figma 327:12 — Artist / Storefront Editor — Desktop
 import { DesignAction, DesignField } from "../design-controls";
 import { ArtistSidebar } from "../artist-sidebar";
 
-export default function ArtistStorefrontEditorDesktop() {
+export default function ArtistStorefrontEditorDesktop({content,sidebar}:{content?:ReactNode;sidebar?:ReactNode} = {}) {
   return (
     <div className="fg-3d2c2bcc0e" data-node-id="327:12" data-name="Artist / Storefront Editor — Desktop">
       <div className="fg-24990da9c2" data-node-id="327:13" data-name="Main">
+        {content ?? <>
         <div className="fg-44cbf3ab0c" data-node-id="327:179" data-name="Storefront Editor / Header">
           <div className="fg-6c5d671c39" data-node-id="327:180">
             <p className="fg-32bd4c7660" dir="auto">
@@ -200,8 +202,9 @@ export default function ArtistStorefrontEditorDesktop() {
             </p>
           </DesignAction>
         </div>
+        </>}
       </div>
-      <ArtistSidebar variant="sidebar-f5fc1d697b" />
+      {sidebar ?? <ArtistSidebar variant="sidebar-f5fc1d697b" />}
     </div>
   );
 }
