@@ -23,7 +23,7 @@ export function parseContentPage(raw:Record<string,unknown>){
  return {page:read("page",1,1000),pageSize:read("pageSize",6,20)};
 }
 const publicProfile={artistId:true,displayName:true,biography:true,craft:true,city:true} as const;
-const publicStory={id:true,title:true,body:true,publishedAt:true,profile:{select:publicProfile}} as const;
+const publicStory={imageId:true,id:true,title:true,body:true,publishedAt:true,profile:{select:publicProfile}} as const;
 const publicProducts={id:true,title:true,description:true,category:true,dimensions:true,materials:true,weight:true,color:true,technique:true,careInstructions:true,priceToman:true,imageIds:true,stockQuantity:true,createdAt:true} as const;
 @Injectable()
 export class ArtistPublicContentService {

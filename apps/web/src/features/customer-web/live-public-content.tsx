@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import {StoryImage} from "../artist/story-image";
 import {useEffect,useMemo,useState,type ReactNode} from "react";
 import "@fontsource-variable/vazirmatn";
 import "@fontsource/material-icons-round";
@@ -27,7 +28,7 @@ function useContent<T>(path:string|null,parse:(value:unknown)=>T|null){
 }
 function State({data,error,refresh}:{data:unknown;error:string;refresh:()=>void}){return error?<div role="alert"><p>{error}</p><button onClick={refresh}>تلاش دوباره</button></div>:!data?<p role="status">در حال دریافت اطلاعات…</p>:null;}
 function Paging({page,hasMore,onPage}:{page:number;hasMore:boolean;onPage:(page:number)=>void}){return <nav className={styles.pagination} aria-label="صفحه‌بندی محتوا"><button disabled={page<=1} onClick={()=>onPage(page-1)}>قبلی</button><span>{new Intl.NumberFormat("fa-IR").format(page)}</span><button disabled={!hasMore||page>=1000} onClick={()=>onPage(page+1)}>بعدی</button></nav>;}
-function StoryCard({story}:{story:PublicStory}){return <article className={styles.fulfillmentCard}><h3>{story.title}</h3><p>{story.profile.displayName} · {formatPersianDate(story.publishedAt)}</p><p>{story.body.slice(0,180)}</p><Link className={styles.accountLink} href={"/customer/story-viewer?id="+story.id}>خواندن روایت</Link></article>;}
+function StoryCard({story}:{story:PublicStory}){return <article className={styles.fulfillmentCard}><h3>{story.title}</h3>{story.imageId&&<StoryImage id={story.id} imageId={story.imageId}/>}<p>{story.profile.displayName} · {formatPersianDate(story.publishedAt)}</p><p>{story.body.slice(0,180)}</p><Link className={styles.accountLink} href={"/customer/story-viewer?id="+story.id}>خواندن روایت</Link></article>;}
 function ArtistCard({artist}:{artist:PublicArtist}){return <article className={styles.fulfillmentCard}><h3>{artist.displayName}</h3><p>{artist.craft} · {artist.city}</p><p>{artist.biography.slice(0,180)}</p><Link className={styles.accountLink} href={"/customer/artist-store?id="+artist.artistId}>مشاهده فروشگاه هنرمند</Link><Link href={"/customer/artist-stories?artistId="+artist.artistId}>روایت‌های هنرمند</Link></article>;}
 export function PublicArtistTeasers(){
  const [page,setPage]=useState(1);
@@ -60,6 +61,6 @@ export function CustomerArtistStoriesLive({artistId}:{artistId?:string}){
 export function CustomerStoryViewerLive({id}:{id:string}){
  const parser=useMemo(()=>(value:unknown)=>{const parsed=parsePublicStory(value);return parsed?.id.toLowerCase()===id.toLowerCase()?parsed:null;},[id]);
  const result=useContent(isUuid(id)?"/api/catalog/stories/"+id:null,parser);
- const content=<section className={styles.ordersWorkspace} dir="rtl"><Link href="/customer/artist-stories">بازگشت به روایت‌ها</Link><State {...result}/>{result.data&&<><article className={styles.storyHero}><h1>{result.data.title}</h1><p>{result.data.profile.displayName} · {formatPersianDate(result.data.publishedAt)}</p></article><p className={styles.storyText}>{result.data.body}</p><ArtistCard artist={result.data.profile}/></>}</section>;
+ const content=<section className={styles.ordersWorkspace} dir="rtl"><Link href="/customer/artist-stories">بازگشت به روایت‌ها</Link><State {...result}/>{result.data&&<><article className={styles.storyHero}><h1>{result.data.title}</h1><p>{result.data.profile.displayName} · {formatPersianDate(result.data.publishedAt)}</p></article>{result.data.imageId&&<StoryImage id={result.data.id} imageId={result.data.imageId}/>}<p className={styles.storyText}>{result.data.body}</p><ArtistCard artist={result.data.profile}/></>}</section>;
  return <ContentShell><CustomerStoryViewerWeb content={content}/></ContentShell>;
 }
