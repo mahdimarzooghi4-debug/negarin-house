@@ -16,7 +16,8 @@ test("ambiguous story creation reconciles the same identifier before publication
  const profile={artistId,version:1,displayName:"هنرمند",biography:"کارگاه",craft:"سفال",city:"تهران",published:true};
  let saved:Record<string,unknown>|null=null;
  await page.route("**/api/artist/public-profile",route=>route.fulfill({json:profile}));await page.route("**/api/artist/stories",route=>route.fulfill({json:saved?[saved]:[]}));
- await page.route("**/api/artist/stories/*",route=>{expect(saved).toBeNull();const body=route.request().postDataJSON();expect(body.version).toBe(0);saved={...body,id:route.request().url().split("/").pop(),artistId,version:1,published:false};return route.fulfill({status:502,json:{error:"ambiguous"}});});
+ await page.route("**/api/artist/stories/eligible-products?*",route=>route.fulfill({json:{page:1,pageSize:20,hasMore:false,items:[]}}));
+ await page.route(/\/api\/artist\/stories\/[0-9a-f-]{36}$/i,route=>{expect(route.request().method()).toBe("PUT");expect(saved).toBeNull();const body=route.request().postDataJSON();expect(body.version).toBe(0);saved={...body,id:route.request().url().split("/").pop(),artistId,version:1,published:false};return route.fulfill({status:502,json:{error:"ambiguous"}});});
  await page.goto("/artist/story-new");await page.getByLabel("عنوان روایت").fill("روایت کارگاه");await page.getByLabel("متن روایت").fill("متن روایت هنرمند");await page.getByRole("button",{name:"ذخیره پیش‌نویس"}).click();
  await expect(page.locator(".artist-design").getByRole("alert")).toBeVisible();await page.getByRole("button",{name:"دریافت دوباره اطلاعات"}).click();await expect(page.getByLabel("عنوان روایت")).toHaveValue("روایت کارگاه");await expect(page.getByRole("button",{name:"انتشار عمومی",exact:true})).toBeEnabled();
 });
