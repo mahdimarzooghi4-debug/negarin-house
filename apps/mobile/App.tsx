@@ -1,3 +1,4 @@
+import { CustomerApp } from "./src/customer/CustomerApp";
 import { LoginScreen } from "./src/screens/LoginScreen";
 import { useCallback, useEffect, useState } from "react";
 import {
@@ -20,6 +21,10 @@ type AppState =
 const colors = { background: "#fcfcfc", surface: "#ffffff", brand: "#041b65", accent: "#07858f", border: "#e5e7eb", muted: "#6b7280" };
 
 export default function App() {
+  return process.env.EXPO_PUBLIC_APP_ROLE === "customer" ? <CustomerApp /> : <ArtistRoot />;
+}
+
+function ArtistRoot() {
   const [state, setState] = useState<AppState>({ kind: "checking" });
   const [attempt, setAttempt] = useState(0);
   const [selecting, setSelecting] = useState<string | null>(null);

@@ -11,7 +11,7 @@ export EXPO_PUBLIC_API_BASE_URL="https://<your-api-origin>"
 pnpm --filter @negarin/mobile start
 ```
 
-The app restores an existing session from Android secure storage. It does not provide a fake sign-in path: the public OTP request/verify API and delivery adapter have not yet been implemented.
+The app restores an existing session from Android secure storage. The public OTP request/verify contracts and native sign-in form exist. The delivery adapter is deliberately unavailable, so end-user sign-in remains disabled until an approved provider and operational configuration are supplied.
 
 ## Validation
 
@@ -68,3 +68,9 @@ Full fidelity checks against Figma, Android emulator/device QA, and native APK/A
 claimed in this slice. The app remains Android-only.
 
 CI installs the FFmpeg/ffprobe 8.1 release line through the static setup action used by the repository's story-video normalization tests; this avoids relying on a mutable Ubuntu apt mirror during every run.
+
+## Customer Android discovery build
+
+Set `EXPO_PUBLIC_APP_ROLE=customer` for the native customer catalog (Figma 703:5) and product details (566:5). The independent preview application ID is `ir.negarin.customer.preview`; the unchanged Negarin logo uses the navy background. The customer APK workflow performs a clean native build. Browsing uses public backend catalog/image endpoints without a token, with real search, categories, availability, sorting and pagination. No demo products are inserted. Prices remain decimal strings.
+
+This is an initial read-only customer slice. Account, favorites, stories, artist metadata, cart, checkout and orders are not yet connected in the native customer app; unavailable navigation is marked disabled and purchase is disabled explicitly. Product imagery comes from the API, not design samples. Full screenshot parity and physical-device QA are not claimed. The installed web fonts are converted from WOFF/WOFF2 into native TTF assets; licenses are bundled. API origin remains build-time configuration.

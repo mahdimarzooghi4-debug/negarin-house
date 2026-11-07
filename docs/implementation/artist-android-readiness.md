@@ -12,7 +12,7 @@
 
 ## Current blockers
 
-1. **Mobile sign-in is not implemented in the API.** The repository contains the internal `IdentityCore`, grant discovery/context selection, and session revocation, but no public HTTP request-code/verify-code endpoints and no configured OTP delivery adapter. The app therefore does not fabricate a login or accept a manually pasted production token. A real OTP transport/provider and its operational configuration must be selected and implemented before end-user sign-in.
+1. **End-user sign-in is not activated.** Public request/verify contracts and native forms exist, but the delivery adapter is unavailable by default. An approved delivery provider, server-side OTP secret and shared ingress/IP rate limiting remain required before activation.
 2. **API origin is not configured.** Supply `EXPO_PUBLIC_API_BASE_URL` with the reachable HTTPS API origin for a build environment. No domain is assumed.
 3. **Android application ID is not selected.** Supply `NEGARIN_ANDROID_APPLICATION_ID` only after the owner confirms the final reverse-DNS identifier. No package identifier is guessed.
 4. **Android signing/distribution is not configured.** Debug bundle validation is separate from signed APK/AAB and store release. No signing key, EAS project, store listing, or production release is created here.
