@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ActivityIndicator, Alert, BackHandler, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { ApiError, apiJson } from "../api/client";
@@ -8,7 +9,12 @@ import { readProfile, saveProfile, type Profile } from "./profile";
 
 type Access = { kind: "checking" } | { kind: "signed-out" } | { kind: "error"; message: string } |
   { kind: "missing"; token: string } | { kind: "choose"; token: string; grants: IdentityGrant[] } | { kind: "ready"; token: string };
-export function CustomerAccount() {
+export type CustomerSession = { token: string; busyLogout: boolean; onLogout: () => void; onUnauthorized: () => void };
+export function CustomerAccount({ onOrders }: { onOrders?: () => void }) {
+  return <CustomerAccess render={access => <AccountProfile {...access} onOrders={onOrders} />} />;
+}
+
+export function CustomerAccess({ render }: { render: (access: CustomerSession) => ReactNode }) {
   const [state, setState] = useState<Access>({ kind: "checking" });
   const [busy, setBusy] = useState(false); const lock = useRef(false);
   const restore = useCallback(async () => {
@@ -43,7 +49,7 @@ export function CustomerAccount() {
     finally { lock.current = false; setBusy(false); }
   }
   if (state.kind === "signed-out") return <LoginScreen audience="خریدار" onSignedIn={restore} />;
-  if (state.kind === "ready") return <AccountProfile key={state.token} token={state.token} busyLogout={busy} onLogout={() => void logout()} onUnauthorized={restore} />;
+  if (state.kind === "ready") return <View key={state.token} style={styles.flex}>{render({ token: state.token, busyLogout: busy, onLogout: () => void logout(), onUnauthorized: restore })}</View>;
   return <View style={styles.center}>
     <Text style={styles.title}>حساب من</Text>
     {state.kind === "checking" ? <ActivityIndicator color="#07858f" /> : null}
@@ -56,7 +62,7 @@ export function CustomerAccount() {
 function Button({ label, onPress, disabled = false }: { label: string; onPress: () => void; disabled?: boolean }) {
   return <Pressable accessibilityRole="button" disabled={disabled} onPress={onPress} style={[styles.button, disabled && styles.disabled]}><Text style={styles.white}>{label}</Text></Pressable>;
 }
-function AccountProfile({ token, busyLogout, onLogout, onUnauthorized }: { token: string; busyLogout: boolean; onLogout: () => void; onUnauthorized: () => void }) {
+function AccountProfile({ token, busyLogout, onLogout, onUnauthorized, onOrders }: CustomerSession & { onOrders?: () => void }) {
   const [profile, setProfile] = useState<Profile | null>(null); const [name, setName] = useState("");
   const [edit, setEdit] = useState(false); const [busy, setBusy] = useState(false);
   const [error, setError] = useState(""); const [success, setSuccess] = useState(""); const [retry, setRetry] = useState(0);
@@ -101,7 +107,7 @@ function AccountProfile({ token, busyLogout, onLogout, onUnauthorized }: { token
       {profile && !edit ? <>
         <Pressable accessibilityRole="button" disabled={busyLogout} onPress={() => setEdit(true)} style={styles.profileCard}><Text style={styles.title}>{profile.displayName || "پروفایل من"}</Text><Text style={styles.message}>اطلاعات حساب و ترجیحاتت را مدیریت کن.</Text></Pressable>
         <Text style={styles.title}>دسترسی سریع</Text>
-        <View style={styles.tiles}>{["سفارش‌های من", "ذخیره‌شده‌ها", "دنبال‌شده‌ها", "آدرس‌ها"].map(label => <View key={label} accessibilityState={{ disabled: true }} style={styles.tile}><Text style={styles.label}>{label}</Text><Text style={styles.message}>در این نسخه فعال نیست</Text></View>)}</View>
+        <View style={styles.tiles}>{["سفارش‌های من", "ذخیره‌شده‌ها", "دنبال‌شده‌ها", "آدرس‌ها"].map(label => <Pressable key={label} accessibilityRole="button" disabled={label !== "سفارش‌های من" || !onOrders} onPress={onOrders} style={styles.tile}><Text style={styles.label}>{label}</Text><Text style={styles.message}>{label === "سفارش‌های من" ? "پیگیری سفارش‌های جاری و گذشته" : "در این نسخه فعال نیست"}</Text></Pressable>)}</View>
         <Text style={styles.title}>حساب و پشتیبانی</Text>
         <Pressable accessibilityRole="button" disabled={busyLogout} onPress={() => setEdit(true)} style={styles.field}><Text style={styles.label}>اطلاعات حساب</Text><Text style={styles.message}>ویرایش اطلاعات پایه حساب</Text></Pressable>
         <Button label={busyLogout ? "در حال خروج…" : "خروج از حساب"} disabled={busyLogout || busy} onPress={onLogout} />
