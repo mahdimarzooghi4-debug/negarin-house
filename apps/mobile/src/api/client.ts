@@ -36,7 +36,7 @@ function apiErrorCode(value: unknown): string | null {
 
 export async function apiJson(
   path: string,
-  token: string,
+  token: string | null,
   init: RequestInit = {}
 ): Promise<unknown> {
   const baseUrl = getApiBaseUrl();
@@ -45,7 +45,7 @@ export async function apiJson(
 
   const headers: Record<string, string> = {
     Accept: "application/json",
-    Authorization: "Bearer " + token,
+    ...(token ? { Authorization: "Bearer " + token } : {}),
     ...(init.body === undefined ? {} : { "Content-Type": "application/json" }),
     ...(init.headers && !(init.headers instanceof Headers) && !Array.isArray(init.headers)
       ? init.headers as Record<string, string>
@@ -64,7 +64,11 @@ export async function apiJson(
       ? "نشست معتبر نیست؛ دوباره وارد شوید."
       : response.status === 403
         ? "این عملیات برای نقش فعال مجاز نیست."
-        : response.status === 409
+        : response.status === 503
+          ? "سرویس ارسال کد ورود هنوز فعال نشده است."
+          : response.status === 429
+            ? "تعداد درخواست‌ها زیاد است؛ کمی صبر کنید."
+          : response.status === 409
           ? "اطلاعات تغییر کرده است؛ ابتدا وضعیت تازه را دریافت کنید."
           : "درخواست از سرور تأیید نشد.";
     throw new ApiError(response.status, code, message);
