@@ -7,7 +7,7 @@ import { storeSessionToken } from "../auth/session";
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const logo = require("../../assets/negarin-logo.png");
 
-export function LoginScreen({ onSignedIn }: { onSignedIn: () => Promise<void> }) {
+export function LoginScreen({ onSignedIn, audience = "هنرمند" }: { onSignedIn: () => Promise<void>; audience?: "هنرمند" | "خریدار" }) {
   const [phone, setPhone] = useState("");
   const [code, setCode] = useState("");
   const [sentTo, setSentTo] = useState<string | null>(null);
@@ -39,8 +39,8 @@ export function LoginScreen({ onSignedIn }: { onSignedIn: () => Promise<void> })
 
   return <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={styles.page}>
     <Image source={logo} style={styles.logo} resizeMode="contain" />
-    <Text style={styles.title}>ورود به نگارین هنرمند</Text>
-    <Text style={styles.hint}>{sentTo ? "کد ارسال‌شده به شماره موبایل را وارد کنید." : "شماره موبایل حساب هنرمند خود را وارد کنید."}</Text>
+    <Text style={styles.title}>ورود به نگارین {audience}</Text>
+    <Text style={styles.hint}>{sentTo ? "کد ارسال‌شده به شماره موبایل را وارد کنید." : `شماره موبایل حساب ${audience} خود را وارد کنید.`}</Text>
     <TextInput accessibilityLabel="شماره موبایل" placeholder="۰۹۱۲۳۴۵۶۷۸۹" value={phone} onChangeText={setPhone} editable={!busy && !sentTo} keyboardType="phone-pad" autoComplete="tel" maxLength={13} style={styles.input} />
     {sentTo ? <TextInput accessibilityLabel="کد ورود" placeholder="کد شش‌رقمی" value={code} onChangeText={setCode} editable={!busy} keyboardType="number-pad" autoComplete="sms-otp" maxLength={6} style={styles.input} /> : null}
     {error ? <Text accessibilityRole="alert" style={styles.error}>{error}</Text> : null}

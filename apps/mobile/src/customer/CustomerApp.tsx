@@ -1,3 +1,4 @@
+import { CustomerAccount } from "./CustomerAccount";
 import { useEffect, useState } from "react";
 import { useFonts } from "expo-font";
 import { ActivityIndicator, BackHandler, Image, Pressable, SafeAreaView, ScrollView, StatusBar, StyleSheet, Switch, Text, TextInput, View } from "react-native";
@@ -41,27 +42,29 @@ function ProductImage({ product, hero = false }: { product: Product; hero?: bool
 
 export function CustomerApp() {
   const [loaded, fontError] = useFonts(fonts);
+  const [tab, setTab] = useState<"catalog" | "account">("catalog");
   const [selected, setSelected] = useState<string | null>(null);
   useEffect(() => {
     const handler = BackHandler.addEventListener("hardwareBackPress", () => {
+      if (tab === "account") { setTab("catalog"); return true; }
       if (!selected) return false;
       setSelected(null); return true;
     });
     return () => handler.remove();
-  }, [selected]);
+  }, [selected, tab]);
   if (!loaded) return <SafeAreaView style={styles.safe}><View style={styles.center}>{fontError ? <Text>بارگذاری قلم انجام نشد؛ برنامه را دوباره باز کنید.</Text> : <ActivityIndicator color={color.teal} />}</View></SafeAreaView>;
   return <SafeAreaView style={styles.safe}>
     <StatusBar barStyle="dark-content" />
-    <View style={styles.header}>
+    {tab === "catalog" ? <View style={styles.header}>
       <Text style={styles.headerTitle}>{selected ? "جزئیات اثر" : "آثار"}</Text>
       {selected ? <Pressable accessibilityRole="button" accessibilityLabel="بازگشت به آثار" onPress={() => setSelected(null)} style={styles.back}><Icon code={0xe5c8} /></Pressable> : null}
-    </View>
+    </View> : null}
     {!getApiBaseUrl() ? <View style={styles.center}><Text style={styles.title}>اتصال به نگارین</Text><Text style={styles.muted}>سرویس نگارین برای این نسخه تنظیم نشده است.</Text></View>
-      : selected ? <Detail key={selected} id={selected} /> : <Catalog onSelect={setSelected} />}
+      : tab === "account" ? <CustomerAccount /> : selected ? <Detail key={selected} id={selected} /> : <Catalog onSelect={setSelected} />}
     {!selected ? <View accessibilityRole="tablist" style={styles.navigation}>
-      {[ ["خانه", 0xe88a], ["جستجو", 0xe8b6], ["روایت‌ها", 0xea14], ["سبد", 0xe8cc], ["حساب", 0xe7fd] ].map(([label, code]) => <View key={label} accessibilityState={{ disabled: label !== "جستجو", selected: label === "جستجو" }} style={styles.navItem}>
-        <Icon code={code as number} active={label === "جستجو"} /><Text style={[styles.navText, label === "جستجو" && styles.activeText]}>{label}</Text>
-      </View>)}
+      {[ ["خانه", 0xe88a], ["جستجو", 0xe8b6], ["روایت‌ها", 0xea14], ["سبد", 0xe8cc], ["حساب", 0xe7fd] ].map(([label, code]) => <Pressable key={label} accessibilityRole="tab" disabled={label !== "جستجو" && label !== "حساب"} accessibilityState={{ disabled: label !== "جستجو" && label !== "حساب", selected: label === (tab === "account" ? "حساب" : "جستجو") }} onPress={() => { setSelected(null); setTab(label === "حساب" ? "account" : "catalog"); }} style={styles.navItem}>
+        <Icon code={code as number} active={label === (tab === "account" ? "حساب" : "جستجو")} /><Text style={[styles.navText, label === (tab === "account" ? "حساب" : "جستجو") && styles.activeText]}>{label}</Text>
+      </Pressable>)}
     </View> : null}
   </SafeAreaView>;
 }
