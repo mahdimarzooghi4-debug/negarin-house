@@ -1,3 +1,4 @@
+import { LoginScreen } from "./src/screens/LoginScreen";
 import { useCallback, useEffect, useState } from "react";
 import {
   ActivityIndicator, Alert, Pressable, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View
@@ -88,7 +89,7 @@ export default function App() {
         : state.kind === "configuration"
           ? <Centered title="تنظیم اتصال" message="آدرس API در تنظیمات ساخت Android تعریف نشده است. مقدار EXPO_PUBLIC_API_BASE_URL باید به نشانی قابل دسترس و امن بک‌اند نگارین اشاره کند." />
           : state.kind === "signed-out"
-            ? <Centered title="ورود به نگارین هنرمند" message="ورود موبایل هنوز به سرویس احراز هویت بک‌اند متصل نشده است. مسیر عمومی درخواست و تأیید کد ورود باید پیش از استفاده عملیاتی اپ تکمیل شود." action="بررسی دوباره" onAction={() => setAttempt((value) => value + 1)} />
+            ? <LoginScreen onSignedIn={restore} />
             : state.kind === "no-artist"
               ? <Centered title="دسترسی هنرمند موجود نیست" message="برای این نشست، دسترسی فعال هنرمند ثبت نشده است. مجوزهای حساب باید در سامانه هویت نگارین تعریف شوند." action="بررسی دوباره" onAction={() => setAttempt((value) => value + 1)} />
               : state.kind === "choose-artist"

@@ -31,3 +31,9 @@
 - `pnpm --filter @negarin/mobile build` exports the Android JavaScript bundle for validation; it is **not** an APK/AAB.
 - A native Android Gradle build and device QA remain required after the application ID and Android build environment are configured.
 - iOS is explicitly out of scope.
+
+## OTP contract and native sign-in
+
+The native app now collects an Iranian mobile number and six-digit code, normalizes Persian/Arabic digits, calls `/api/v1/identity/otp/request` and `/verify`, and saves only a validated session token in SecureStore before discovering artist grants. The backend endpoints validate exact bodies, preserve core resend/attempt limits and return no-store responses. No role is granted by login.
+
+`LoginDelivery` is deliberately unavailable: both endpoints return 503 before database access until an approved delivery adapter and server-side `IDENTITY_OTP_SECRET` (at least 32 characters) are configured. No fixed code, code echo, SMS delivery, authentication bypass or usable deployed sign-in is claimed. Before enabling an adapter, deployment must add shared ingress/IP rate limiting and verify provider behavior. API origin and phone/device QA remain release gates.
