@@ -33,6 +33,8 @@ export default async function LocalizedPortalPage({
   const { portal, locale } = await params;
   const query = await searchParams;
 
+  if(portal==="customer-mobile"&&locale==="my-orders")return <CustomerOrdersLive mobile/>;
+  if(portal==="customer-mobile"&&locale==="order-detail"){const id=parseRequiredUuidQuery(query.id)??"";return <CustomerOrderDetailLive key={id} id={id} mobile/>;}
   if(portal==="customer-mobile"&&["account","account-info"].includes(locale))return <CustomerMobileAccountLive key={locale} edit={locale==="account-info"}/>;
   if(portal==="customer-mobile"&&locale==="saved")return <CustomerMobileSavedLive/>;
   if(portal==="artist" && ["storefront-editor","stories","story-new","story-editor"].includes(locale)) return <ArtistAuthorLive key={locale+String(query.id??"")} screen={locale} id={parseRequiredUuidQuery(query.id)??""}/>;
