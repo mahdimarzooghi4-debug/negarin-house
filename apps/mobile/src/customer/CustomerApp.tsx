@@ -1,9 +1,11 @@
+import { CartScreen, type PendingProduct } from "./CartScreen";
+import { OrdersScreen } from "./OrdersScreen";
 import { CustomerAccount } from "./CustomerAccount";
 import { useEffect, useState } from "react";
 import { useFonts } from "expo-font";
-import { ActivityIndicator, BackHandler, Image, Pressable, SafeAreaView, ScrollView, StatusBar, StyleSheet, Switch, Text, TextInput, View } from "react-native";
+import { ActivityIndicator, BackHandler, Pressable, SafeAreaView, ScrollView, StatusBar, StyleSheet, Switch, Text, TextInput, View } from "react-native";
 import { apiJson, getApiBaseUrl } from "../api/client";
-import { parseProductImageRead } from "../domain/product-media";
+import { ProductImage } from "./ProductImage";
 import { catalogPath, parseProductPage, readProduct, toman, type Product, type ProductPage, type Sort } from "./catalog";
 
 // Metro resolves bundled fonts as native asset modules.
@@ -19,34 +21,14 @@ const sortLabels: Array<[Sort, string]> = [["newest", "جدیدترین"], ["pri
 const color = { navy: "#041b65", teal: "#07858f", border: "#c3dbdf", light: "#eaf5f6", muted: "#6d7892" };
 function Icon({ code, active = false }: { code: number; active?: boolean }) { return <Text accessible={false} style={{ fontFamily: "MaterialIconsRound", fontSize: 25, color: active ? color.teal : color.navy }}>{String.fromCodePoint(code)}</Text>; }
 
-function ProductImage({ product, hero = false }: { product: Product; hero?: boolean }) {
-  const [url, setUrl] = useState<string | null>(null);
-  useEffect(() => {
-    const controller = new AbortController(); let timer: ReturnType<typeof setTimeout> | undefined;
-    setUrl(null);
-    if (product.coverImageId) {
-      void apiJson(`/api/v1/catalog/products/${product.id}/images/${product.coverImageId}`, null, { signal: controller.signal })
-        .then(body => {
-          const read = parseProductImageRead(body, product.coverImageId!, __DEV__);
-          if (!read || controller.signal.aborted) return;
-          setUrl(read.url);
-          timer = setTimeout(() => setUrl(null), read.expiresInSeconds * 1000);
-        }).catch(() => {});
-    }
-    return () => { controller.abort(); if (timer) clearTimeout(timer); };
-  }, [product.id, product.coverImageId]);
-  return <View style={hero ? styles.hero : styles.imageBox}>
-    {url ? <Image source={{ uri: url }} accessibilityLabel={product.title} resizeMode={hero ? "cover" : "contain"} style={styles.image} onError={() => setUrl(null)} /> : <Text style={styles.imageFallback}>تصویر در دسترس نیست</Text>}
-  </View>;
-}
-
 export function CustomerApp() {
   const [loaded, fontError] = useFonts(fonts);
-  const [tab, setTab] = useState<"catalog" | "account">("catalog");
+  const [tab, setTab] = useState<"catalog" | "account" | "cart" | "orders">("catalog");
+  const [pending, setPending] = useState<PendingProduct | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   useEffect(() => {
     const handler = BackHandler.addEventListener("hardwareBackPress", () => {
-      if (tab === "account") { setTab("catalog"); return true; }
+      if (tab !== "catalog") { setTab(tab === "orders" ? "account" : "catalog"); return true; }
       if (!selected) return false;
       setSelected(null); return true;
     });
@@ -60,10 +42,10 @@ export function CustomerApp() {
       {selected ? <Pressable accessibilityRole="button" accessibilityLabel="بازگشت به آثار" onPress={() => setSelected(null)} style={styles.back}><Icon code={0xe5c8} /></Pressable> : null}
     </View> : null}
     {!getApiBaseUrl() ? <View style={styles.center}><Text style={styles.title}>اتصال به نگارین</Text><Text style={styles.muted}>سرویس نگارین برای این نسخه تنظیم نشده است.</Text></View>
-      : tab === "account" ? <CustomerAccount /> : selected ? <Detail key={selected} id={selected} /> : <Catalog onSelect={setSelected} />}
+      : tab === "account" ? <CustomerAccount onOrders={() => setTab("orders")} /> : tab === "cart" ? <CartScreen pending={pending} onAdded={() => setPending(null)} /> : tab === "orders" ? <OrdersScreen onBack={() => setTab("account")} /> : selected ? <Detail key={selected} id={selected} onAdd={product => { setPending(product); setSelected(null); setTab("cart"); }} /> : <Catalog onSelect={setSelected} />}
     {!selected ? <View accessibilityRole="tablist" style={styles.navigation}>
-      {[ ["خانه", 0xe88a], ["جستجو", 0xe8b6], ["روایت‌ها", 0xea14], ["سبد", 0xe8cc], ["حساب", 0xe7fd] ].map(([label, code]) => <Pressable key={label} accessibilityRole="tab" disabled={label !== "جستجو" && label !== "حساب"} accessibilityState={{ disabled: label !== "جستجو" && label !== "حساب", selected: label === (tab === "account" ? "حساب" : "جستجو") }} onPress={() => { setSelected(null); setTab(label === "حساب" ? "account" : "catalog"); }} style={styles.navItem}>
-        <Icon code={code as number} active={label === (tab === "account" ? "حساب" : "جستجو")} /><Text style={[styles.navText, label === (tab === "account" ? "حساب" : "جستجو") && styles.activeText]}>{label}</Text>
+      {[ ["خانه", 0xe88a], ["جستجو", 0xe8b6], ["روایت‌ها", 0xea14], ["سبد", 0xe8cc], ["حساب", 0xe7fd] ].map(([label, code]) => <Pressable key={label} accessibilityRole="tab" disabled={label !== "جستجو" && label !== "حساب" && label !== "سبد"} accessibilityState={{ disabled: label !== "جستجو" && label !== "حساب" && label !== "سبد", selected: label === (tab === "cart" ? "سبد" : tab === "account" || tab === "orders" ? "حساب" : "جستجو") }} onPress={() => { setSelected(null); setTab(label === "حساب" ? "account" : label === "سبد" ? "cart" : "catalog"); }} style={styles.navItem}>
+        <Icon code={code as number} active={label === (tab === "cart" ? "سبد" : tab === "account" || tab === "orders" ? "حساب" : "جستجو")} /><Text style={[styles.navText, label === (tab === "cart" ? "سبد" : tab === "account" || tab === "orders" ? "حساب" : "جستجو") && styles.activeText]}>{label}</Text>
       </Pressable>)}
     </View> : null}
   </SafeAreaView>;
@@ -108,7 +90,7 @@ function Catalog({ onSelect }: { onSelect: (id: string) => void }) {
   </ScrollView>;
 }
 
-function Detail({ id }: { id: string }) {
+function Detail({ id, onAdd }: { id: string; onAdd: (product: PendingProduct) => void }) {
   const [product, setProduct] = useState<Product | null>(null); const [error, setError] = useState(""); const [retry, setRetry] = useState(0);
   useEffect(() => {
     const controller = new AbortController(); setProduct(null); setError("");
@@ -123,7 +105,7 @@ function Detail({ id }: { id: string }) {
     {product.description ? <View style={styles.panel}><Text style={styles.title}>داستان این اثر</Text><Text style={styles.text}>{product.description}</Text></View> : null}
     {([ ["ابعاد", product.dimensions], ["جنس", product.materials], ["وزن", product.weight], ["رنگ", product.color], ["تکنیک", product.technique], ["روش نگهداری", product.careInstructions] ] as const).filter(([, value]) => value).map(([label, value]) => <View key={label} style={styles.panel}><Text style={styles.bold}>{label}</Text><Text style={styles.text}>{value}</Text></View>)}
     <View style={styles.shipping}><Text style={styles.text}>جزئیات ارسال و هزینه نهایی در مرحله خرید نمایش داده می‌شود.</Text><Text style={styles.muted}>ارسال خرده‌فروشی بر عهده خریدار است.</Text></View>
-  </ScrollView><View style={styles.footer}><Text style={styles.muted}>خرید در این نسخه فعال نیست.</Text><Pressable accessibilityRole="button" disabled style={styles.disabledButton}><Text style={styles.white}>{product.availability === "out_of_stock" ? "ناموجود" : "افزودن به سبد"}</Text></Pressable></View></View>;
+  </ScrollView><View style={styles.footer}><Pressable accessibilityRole="button" disabled={product.availability === "out_of_stock"} onPress={() => onAdd({ id: product.id, title: product.title })} style={[styles.disabledButton, { opacity: product.availability === "out_of_stock" ? 0.5 : 1 }]}><Text style={styles.white}>{product.availability === "out_of_stock" ? "ناموجود" : "افزودن به سبد"}</Text></Pressable></View></View>;
 }
 
 const styles = StyleSheet.create({
