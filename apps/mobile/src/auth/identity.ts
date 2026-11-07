@@ -27,7 +27,7 @@ function record(value: unknown): Record<string, unknown> {
   return value as Record<string, unknown>;
 }
 
-function parseGrantDiscovery(value: unknown): { activeGrantId: string | null; grants: IdentityGrant[] } {
+export function parseGrantDiscovery(value: unknown): { activeGrantId: string | null; grants: IdentityGrant[] } {
   const root = record(value);
   if (!(root.activeGrantId === null || (typeof root.activeGrantId === "string" && uuid.test(root.activeGrantId))) || !Array.isArray(root.grants)) {
     throw new Error("فهرست دسترسی‌های حساب معتبر نیست.");
@@ -89,5 +89,25 @@ export async function selectArtistGrant(token: string, grantId: string): Promise
     body: JSON.stringify({ grantId })
   }));
   if (context.activeRole !== "artist") throw new Error("سرور نقش هنرمند را برای این نشست فعال نکرد.");
+  return context;
+}
+
+export async function discoverCustomerAccess(token: string): Promise<ArtistAccess> {
+  const discovery = parseGrantDiscovery(await apiJson("/api/v1/identity/grants", token));
+  const grants = discovery.grants.filter(grant => grant.role === "customer");
+  if (grants.some(grant => grant.id === discovery.activeGrantId)) {
+    const context = parseIdentityContext(await apiJson("/api/v1/identity/context", token));
+    if (context.activeRole !== "customer") throw new Error("نقش فعال نشست با دسترسی خریدار تطابق ندارد.");
+    return { kind: "ready", context };
+  }
+  return grants.length ? { kind: "choose", grants } : { kind: "missing" };
+}
+
+export async function selectCustomerGrant(token: string, grantId: string): Promise<IdentityContext> {
+  if (!uuid.test(grantId)) throw new Error("شناسه دسترسی خریدار معتبر نیست.");
+  const context = parseIdentityContext(await apiJson("/api/v1/identity/context/select", token, {
+    method: "POST", body: JSON.stringify({ grantId })
+  }));
+  if (context.activeRole !== "customer") throw new Error("سرور نقش خریدار را برای این نشست فعال نکرد.");
   return context;
 }
