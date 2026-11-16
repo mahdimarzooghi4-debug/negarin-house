@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type HTMLAttributes, type MouseEvent, type PointerEvent } from "react";
+import { useRef, type HTMLAttributes, type MouseEvent, type PointerEvent, type WheelEvent } from "react";
 
 type HorizontalSwipeRailProps = HTMLAttributes<HTMLDivElement>;
 
@@ -59,6 +59,18 @@ export function HorizontalSwipeRail({
     }
   }
 
+  function handleWheel(event: WheelEvent<HTMLDivElement>) {
+    const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY)
+      ? event.deltaX
+      : -event.deltaY;
+    if (delta === 0) return;
+
+    const rail = event.currentTarget;
+    const previousScrollLeft = rail.scrollLeft;
+    rail.scrollLeft += delta;
+    if (rail.scrollLeft !== previousScrollLeft) event.preventDefault();
+  }
+
   function handleClickCapture(event: MouseEvent<HTMLDivElement>) {
     if (!drag.current.suppressClick) return;
     event.preventDefault();
@@ -75,6 +87,7 @@ export function HorizontalSwipeRail({
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
       onClickCapture={handleClickCapture}
+      onWheel={handleWheel}
     >
       {children}
     </div>
