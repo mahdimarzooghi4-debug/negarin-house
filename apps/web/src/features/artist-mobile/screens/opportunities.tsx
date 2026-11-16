@@ -451,7 +451,7 @@ export default function ArtistOpportunitiesMobile() {
             حساب
           </p>
         </DesignAction>
-        <DesignAction className="fg-5cce6a5a00" data-node-id="853:953" data-name="Tab-فرصت‌ها" label="فرصت‌ها">
+        <DesignAction className="fg-5cce6a5a00" data-node-id="853:953" data-name="Tab-فرصت‌ها" label="فرصت‌ها" destination="opportunities">
           <div className="fg-b2a182ecf4" data-node-id="853:954" data-name="Icon-briefcase">
             <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/4836fca5.svg" />
           </div>
