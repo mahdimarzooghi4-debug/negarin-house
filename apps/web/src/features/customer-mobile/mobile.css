@@ -1078,6 +1078,37 @@
   height: 0;
 }
 
+/* Keep the artist and popular-product rails swipeable in RTL order. The Figma
+   export positions cards absolutely (including negative left offsets), which
+   clips those cards out of the browser's scrollable area. */
+.customer-mobile .fg-e55e57f8ca,
+.customer-mobile .fg-6fbc5f1853 {
+  display: flex;
+  flex-direction: row;
+  direction: rtl;
+  gap: 12px;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.customer-mobile .fg-e55e57f8ca > [data-name^="Artist Card"],
+.customer-mobile .fg-6fbc5f1853 > .fg-7d6f86d149,
+.customer-mobile .fg-6fbc5f1853 > [data-name^="Popular Product"] {
+  position: relative;
+  inset: auto;
+  flex: 0 0 auto;
+  transform: none;
+}
+
+.customer-mobile .fg-e55e57f8ca::-webkit-scrollbar,
+.customer-mobile .fg-6fbc5f1853::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 /* One shared bottom-tab system for every buyer mobile screen. */
 .customer-mobile .customer-mobile-bottom-nav {
   position: absolute !important;
