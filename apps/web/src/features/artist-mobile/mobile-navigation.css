@@ -23,8 +23,12 @@
 .artist-mobile .artist-mobile-nav-icon{display:block;width:22px;height:22px;flex:0 0 22px;}
 .artist-mobile .artist-mobile-nav-label{display:block;font-size:10px;line-height:16px;font-weight:500;white-space:nowrap;}
 .artist-mobile .artist-mobile-nav-item[aria-current="page"] .artist-mobile-nav-label{font-weight:700;}
-/* Keep the home tab at the far right of the RTL navigation. */
+/* Keep artist mobile tabs in the same right-to-left order on every screen. */
 .artist-mobile .artist-mobile-nav-item[href*="/artist-mobile/dashboard"]{order:-1!important;}
+.artist-mobile .artist-mobile-nav-item[href*="/artist-mobile/orders"]{order:0!important;}
+.artist-mobile .artist-mobile-nav-item[href*="/artist-mobile/products"]{order:1!important;}
+.artist-mobile .artist-mobile-nav-item[href*="/artist-mobile/opportunities"]{order:2!important;}
+.artist-mobile .artist-mobile-nav-item[href*="/artist-mobile/account"]{order:3!important;}
 
 /* A number of exported screens still render their own Bottom Nav wrapper. */
 .artist-mobile [data-name="Bottom Nav"],
@@ -79,3 +83,11 @@
 .artist-mobile [data-name="bottom-nav"] a[aria-current="page"]>span{font-weight:700!important;}
 .artist-mobile [data-name="Bottom Nav"] a[href*="/artist-mobile/dashboard"],
 .artist-mobile [data-name="bottom-nav"] a[href*="/artist-mobile/dashboard"]{order:-1!important;}
+.artist-mobile [data-name="Bottom Nav"] a[href*="/artist-mobile/orders"],
+.artist-mobile [data-name="bottom-nav"] a[href*="/artist-mobile/orders"]{order:0!important;}
+.artist-mobile [data-name="Bottom Nav"] a[href*="/artist-mobile/products"],
+.artist-mobile [data-name="bottom-nav"] a[href*="/artist-mobile/products"]{order:1!important;}
+.artist-mobile [data-name="Bottom Nav"] a[href*="/artist-mobile/opportunities"],
+.artist-mobile [data-name="bottom-nav"] a[href*="/artist-mobile/opportunities"]{order:2!important;}
+.artist-mobile [data-name="Bottom Nav"] a[href*="/artist-mobile/account"],
+.artist-mobile [data-name="bottom-nav"] a[href*="/artist-mobile/account"]{order:3!important;}
