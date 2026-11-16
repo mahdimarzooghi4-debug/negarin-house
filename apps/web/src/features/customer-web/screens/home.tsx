@@ -713,6 +713,11 @@ export default function CustomerWebHome() {
               روایت‌ها
             </CustomerAction>
           </div>
+          <div className="customer-home-apps" data-name="Negarin app">
+            <p className="customer-home-apps-title">دریافت اپلیکیشن نگارین</p>
+            <a className="customer-home-apps-link" href="/preview/customer-mobile/install">نصب وب‌اپ خریدار</a>
+            <a className="customer-home-apps-link customer-home-apps-link-secondary" href="/preview/customer-mobile/landing?canvas=1">ورود به نسخه موبایل</a>
+          </div>
           <div className="customer-home-contact" data-name="Contact information">
             <p className="customer-home-contact-title">ارتباط با ما</p>
             <div className="customer-home-contact-row">
