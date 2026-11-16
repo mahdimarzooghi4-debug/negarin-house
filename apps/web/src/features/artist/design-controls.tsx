@@ -37,7 +37,7 @@ export function DesignField({label,placeholder,otp,multiline=false,children,...p
  const multi=multiline||/توضیحات|شرح|داستان|پیام|یادداشت/.test(label);const phone=/شماره تلفن|شماره موبایل|موبایل گیرنده/.test(label);
  const shared={className:"design-field-input",'aria-label':label,placeholder:focused&&!otp?placeholder:"",value,dir:"auto" as const,onFocus:()=>setFocused(true),onBlur:()=>setFocused(false),onChange:(e:ChangeEvent<HTMLInputElement|HTMLTextAreaElement>)=>{
   const next=otp?normalizeDigits(e.target.value).replace(/\D/g,"").slice(-1):e.target.value;preview.setValue(key,next);
-  if(otp&&next){const container=e.target.closest('[data-name="otp-boxes"],[data-name="Input / Mobile"]');const fields=container?.querySelectorAll<HTMLInputElement>('input');if(fields){const index=Array.from(fields).indexOf(e.target as HTMLInputElement);fields[index+1]?.focus();}}
+  if(otp&&next){const container=e.target.closest('[data-name="otp-boxes"],[data-name="Code entry"],[data-name="Input / Mobile"]');const fields=container?.querySelectorAll<HTMLInputElement>('input');if(fields){const index=Array.from(fields).indexOf(e.target as HTMLInputElement);fields[index+1]?.focus();}}
  }};
  return <div {...props} className={props.className+" design-field"} data-editing={focused||!!value} data-otp={otp||undefined} data-phone={phone||undefined}>
   <div className="design-field-artwork">{children}</div>
