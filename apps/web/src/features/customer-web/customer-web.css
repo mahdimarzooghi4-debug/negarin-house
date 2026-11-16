@@ -1820,3 +1820,6 @@
 .customer-web-design [data-node-id="1191:318"] [data-node-id="1191:360"] { width:72px; height:96px; flex:0 0 96px; }
 .customer-web-design [data-node-id="1191:318"] [data-node-id="1191:358"],
 .customer-web-design [data-node-id="1191:318"] [data-node-id="1191:361"] { width:100%; text-align:center; white-space:normal; line-height:1.5; overflow-wrap:anywhere; }
+
+/* The thumbnail rail must fit both taller cards without clipping the second one. */
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:355"] { height:358px; min-height:358px; overflow:visible; }
