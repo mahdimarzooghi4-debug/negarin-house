@@ -1,13 +1,24 @@
-name: Build Artist Android APK
+name: Build and Publish Negarin Android Apps
 
 on:
+  push:
+    branches:
+      - stage/render-negarin-house
+    paths:
+      - '.github/workflows/build-artist-android.yml'
+      - 'apps/artist-android/**'
+      - 'apps/customer-android/**'
+      - 'apps/web/src/features/artist-mobile/**'
+      - 'apps/web/src/features/customer-mobile/**'
+      - 'apps/web/src/app/preview/artist-mobile/**'
+      - 'apps/web/src/app/preview/customer-mobile/**'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  build:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Check out source
@@ -29,13 +40,19 @@ jobs:
         with:
           gradle-version: '8.11.1'
 
-      - name: Build debug APK
-        run: gradle --no-daemon --project-dir apps/artist-android assembleDebug
+      - name: Build Android apps
+        run: |
+          gradle --no-daemon --project-dir apps/artist-android assembleDebug
+          gradle --no-daemon --project-dir apps/customer-android assembleDebug
+          cp apps/artist-android/app/build/outputs/apk/debug/app-debug.apk "$RUNNER_TEMP/negarin-artist-android.apk"
+          cp apps/customer-android/app/build/outputs/apk/debug/app-debug.apk "$RUNNER_TEMP/negarin-customer-android.apk"
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: negarin-artist-android-debug
-          path: apps/artist-android/app/build/outputs/apk/debug/app-debug.apk
-          if-no-files-found: error
-          retention-days: 14
+      - name: Create or update the Stage download release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: stage-app-downloads
+        run: |
+          if ! gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Negarin Android apps (Stage)" --notes "Builds of the Negarin artist and buyer Android apps for the Stage environment." --prerelease
+          fi
+          gh release upload "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" "$RUNNER_TEMP/negarin-artist-android.apk" "$RUNNER_TEMP/negarin-customer-android.apk" --clobber
