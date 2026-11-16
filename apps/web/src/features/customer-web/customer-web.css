@@ -1823,3 +1823,6 @@
 
 /* The thumbnail rail must fit both taller cards without clipping the second one. */
 .customer-web-design [data-node-id="1191:318"] [data-node-id="1191:355"] { height:358px; min-height:358px; overflow:visible; }
+
+/* Start OTP digits on the right for Persian reading order. */
+.customer-web-design [data-node-id="1176:5777"] { flex-direction:row-reverse; }
