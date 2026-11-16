@@ -459,7 +459,7 @@ export default function ArtistFinanceDesktop() {
           </div>
         </div>
       </div>
-      <ArtistSidebar variant="sidebar-028d0f6dcd" />
+      <ArtistSidebar variant="sidebar-5e4f8bb817" />
     </div>
   );
 }
