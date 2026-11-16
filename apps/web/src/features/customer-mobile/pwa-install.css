@@ -1,0 +1,106 @@
+.customer-pwa-install-page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #fff;
+  color: #041b65;
+  font-family: inherit;
+}
+
+.customer-pwa-install-card {
+  display: flex;
+  width: min(100%, 420px);
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 26px 26px;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 16px 48px rgb(4 27 101 / 8%);
+  text-align: center;
+}
+
+.customer-pwa-install-icon {
+  width: 112px;
+  height: 112px;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+.customer-pwa-eyebrow {
+  margin: 20px 0 4px;
+  color: #07858f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.customer-pwa-install-card h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.customer-pwa-description,
+.customer-pwa-footnote,
+.customer-pwa-install-hint,
+.customer-pwa-status {
+  line-height: 1.9;
+}
+
+.customer-pwa-description {
+  margin: 10px 0 18px;
+  color: #536079;
+  font-size: 14px;
+}
+
+.customer-pwa-install-control {
+  width: 100%;
+}
+
+.customer-pwa-install-button,
+.customer-pwa-open-link {
+  display: inline-flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 13px;
+  background: #041b65;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.customer-pwa-install-button:focus-visible,
+.customer-pwa-open-link:focus-visible {
+  outline: 3px solid #00a9b5;
+  outline-offset: 3px;
+}
+
+.customer-pwa-install-hint,
+.customer-pwa-status {
+  margin: 0;
+  padding: 11px 13px;
+  border-radius: 12px;
+  background: #f1f7f7;
+  color: #34435f;
+  font-size: 13px;
+}
+
+.customer-pwa-open-link {
+  margin-top: 10px;
+  border: 1px solid #d9e5e8;
+  background: #fff;
+  color: #041b65;
+}
+
+.customer-pwa-footnote {
+  margin: 18px 0 0;
+  color: #727c90;
+  font-size: 11px;
+}

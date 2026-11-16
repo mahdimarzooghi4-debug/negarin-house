@@ -1,0 +1,106 @@
+.artist-pwa-install-page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f8f2e8;
+  color: #071e67;
+  font-family: inherit;
+}
+
+.artist-pwa-install-card {
+  display: flex;
+  width: min(100%, 420px);
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 26px 26px;
+  border: 1px solid #e7e4de;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 16px 48px rgb(7 30 103 / 8%);
+  text-align: center;
+}
+
+.artist-pwa-install-icon {
+  width: 112px;
+  height: 112px;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+.artist-pwa-eyebrow {
+  margin: 20px 0 4px;
+  color: #009eaa;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.artist-pwa-install-card h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.artist-pwa-description,
+.artist-pwa-footnote,
+.artist-pwa-install-hint,
+.artist-pwa-status {
+  line-height: 1.9;
+}
+
+.artist-pwa-description {
+  margin: 10px 0 18px;
+  color: #536079;
+  font-size: 14px;
+}
+
+.artist-pwa-install-control {
+  width: 100%;
+}
+
+.artist-pwa-install-button,
+.artist-pwa-open-link {
+  display: inline-flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 13px;
+  background: #071e67;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.artist-pwa-install-button:focus-visible,
+.artist-pwa-open-link:focus-visible {
+  outline: 3px solid #00a9b5;
+  outline-offset: 3px;
+}
+
+.artist-pwa-install-hint,
+.artist-pwa-status {
+  margin: 0;
+  padding: 11px 13px;
+  border-radius: 12px;
+  background: #f1f7f7;
+  color: #34435f;
+  font-size: 13px;
+}
+
+.artist-pwa-open-link {
+  margin-top: 10px;
+  border: 1px solid #d9e5e8;
+  background: #fff;
+  color: #071e67;
+}
+
+.artist-pwa-footnote {
+  margin: 18px 0 0;
+  color: #727c90;
+  font-size: 11px;
+}
