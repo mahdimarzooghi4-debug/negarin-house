@@ -3,6 +3,7 @@ import "@fontsource/material-icons";
 import "@fontsource/material-icons-round";
 import "../../../features/artist/artist.css";
 import "../../../features/artist-mobile/mobile.css";
+import "../../../features/artist-mobile/mobile-navigation.css";
 import { PreviewState } from "../../../features/artist/preview-state";
 import { notFound } from "next/navigation";
 
