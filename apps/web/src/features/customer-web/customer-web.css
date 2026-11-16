@@ -1812,3 +1812,11 @@
 .customer-web-design [data-node-id="1191:318"] .fg-b440a5c4af,
 .customer-web-design [data-node-id="1191:318"] .fg-6296272086,
 .customer-web-design [data-node-id="1191:318"] .fg-2ce1fee1c9 { max-width:100%; max-height:100%; object-fit:contain; }
+
+/* Give the two artist-story thumbnails enough room for the complete image and caption. */
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:356"],
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:359"] { width:96px; height:auto; min-height:170px; align-items:center; padding:12px; overflow:hidden; }
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:357"],
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:360"] { width:72px; height:96px; flex:0 0 96px; }
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:358"],
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:361"] { width:100%; text-align:center; white-space:normal; line-height:1.5; overflow-wrap:anywhere; }
