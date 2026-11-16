@@ -698,6 +698,7 @@ export default function CustomerWebHome() {
             <CustomerAction className="fg-2df528dca1" dir="auto" data-node-id="1170:3552" label="حساب">
               حساب
             </CustomerAction>
+            <a className="customer-home-apps-link" href="/preview/customer-mobile/install">دریافت اپلیکیشن نگارین</a>
           </div>
           <div className="fg-e2342f1d2c" data-node-id="1170:3553" data-name="Explore links">
             <p className="fg-fabc7db0ce" dir="auto" data-node-id="1170:3554">
@@ -712,7 +713,6 @@ export default function CustomerWebHome() {
             <CustomerAction className="fg-2df528dca1" dir="auto" data-node-id="1170:3557" label="روایت‌ها">
               روایت‌ها
             </CustomerAction>
-            <a className="customer-home-apps-link" href="/preview/customer-mobile/install">دریافت اپلیکیشن نگارین</a>
           </div>
           <div className="customer-home-contact" data-name="Contact information">
             <p className="customer-home-contact-title">ارتباط با ما</p>
