@@ -36,7 +36,7 @@ export default function NegarinAppDownloadsPage() {
         {apps.map((app) => (
           <article className="customer-download-card" key={app.name}>
             <div className="customer-download-app-heading">
-              <span className={`customer-download-app-icon ${app.iconClass}`}><Image src={app.icon} alt="" width={52} height={58} /></span>
+              <span className={`customer-download-app-icon ${app.iconClass}`}><Image className="customer-download-app-logo" src={app.icon} alt="" width={52} height={58} priority /></span>
               <div>
                 <h2>{app.name}</h2>
                 <p>{app.description}</p>
