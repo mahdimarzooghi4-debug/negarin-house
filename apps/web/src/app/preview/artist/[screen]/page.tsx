@@ -7,6 +7,6 @@ export default async function ArtistScreenPage({params,searchParams}:{params:Pro
  const {default:Screen}=await screenLoaders[screen as ArtistScreenSlug]();
  return <>
   {canvas!=="1"&&<header className="preview-toolbar"><Link href="/preview/artist">همهٔ ۸۳ صفحه</Link><span>{entry.name.replace(/&amp;/g,"&")} · دادهٔ نمونه</span><a target="_blank" rel="noreferrer" href={"https://www.figma.com/design/Uo0ifnpFmJFhWqaEVmVOZ1/Negarin-House?node-id="+entry.id.replace(":","-")}>مرجع فیگما</a></header>}
-  <div className={`artist-design${screen==="dashboard"?" artist-dashboard-responsive":""}`} dir="ltr" style={{height:entry.h}}><Screen/></div>
+  <div className={`artist-design${screen==="dashboard"?" artist-dashboard-responsive":""}`} dir="ltr" style={{height:entry.h,marginInline:"auto"}}><Screen/></div>
  </>;
 }
