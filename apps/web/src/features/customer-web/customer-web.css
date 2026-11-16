@@ -1761,7 +1761,10 @@
 .customer-web-design [data-node-id="1170:3553"]{order:3;}
 .customer-web-design [data-node-id="1170:3558"]{order:4;margin-right:0;}
 .customer-web-design .customer-home-contact{order:0;flex-basis:300px;}
-.customer-web-design .customer-home-apps{display:flex;order:1;flex:0 0 190px;flex-direction:column;gap:12px;align-items:flex-end;min-width:0;color:#263a5c;font-family:"Vazirmatn Variable",sans-serif;}
-.customer-web-design .customer-home-apps-title{width:100%;color:#041b65;font-size:15px;font-weight:700;}
+
+
+.customer-web-design [data-node-id="1170:3553"]{order:3;width:190px;height:auto;overflow:visible;}
+.customer-web-design [data-node-id="1170:3548"]{order:2;}
+.customer-web-design [data-node-id="1170:3558"]{order:5;margin-right:0;}
+.customer-web-design .customer-home-contact{order:4;flex-basis:300px;}
 .customer-web-design .customer-home-apps-link{display:block;width:100%;border-radius:9px;background:#07858f;padding:8px 10px;color:white;text-align:center;font-size:12px;font-weight:600;line-height:1.6;text-decoration:none;}
-.customer-web-design .customer-home-apps-link-secondary{border:1px solid rgba(7,133,143,.3);background:transparent;color:#07858f;}
