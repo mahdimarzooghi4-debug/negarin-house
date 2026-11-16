@@ -1,6 +1,7 @@
 import { CustomerQuantityStep, CustomerQuantityValue } from "../customer-controls";
 // Figma 572:5 — Customer / Cart - Mobile
 import { DesignAction } from "../../artist/design-controls";
+import { MobileNavigation } from "../mobile-navigation";
 
 export default function CustomerCartMobile() {
   return (
@@ -123,6 +124,7 @@ export default function CustomerCartMobile() {
           </div>
         </DesignAction>
       </div>
+      <MobileNavigation data-node-id="402:60" data-name="Bottom Navigation" />
     </div>
   );
 }

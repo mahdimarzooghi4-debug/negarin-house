@@ -1153,3 +1153,9 @@
   background: #07a7b2;
   transform: translateX(-50%);
 }
+
+/* Keep the cart checkout action above the shared bottom navigation. */
+.customer-mobile [data-node-id="572:35"] {
+  top: 660px;
+  height: 100px;
+}
