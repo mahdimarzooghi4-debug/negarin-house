@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@negarin/ui";
 import { useEffect, useRef, useState, type HTMLAttributes, type ReactNode, type ChangeEvent } from "react";
 import { usePreview } from "./preview-state";
@@ -9,22 +9,23 @@ export function normalizeDigits(value:string){return value.replace(/[۰-۹]/g,d=
 
 type ActionProps=HTMLAttributes<HTMLElement>&{label:string;destination?:string;back?:boolean;children:ReactNode};
 export function DesignAction({label,destination,back,children,...props}:ActionProps){
- const router=useRouter();const preview=usePreview();
+ const router=useRouter();const searchParams=useSearchParams();const preview=usePreview();
+ const query=searchParams.toString();const withQuery=(path:string)=>path+(query?`?${query}`:"");
  const disabled=String((props as Record<string,unknown>)["data-name"]||"").includes("Disabled");
  const phoneSubmit=preview.screen==="login-and-register"&&destination==="otp-verification";
  const customer=preview.basePath==="/preview/customer-mobile";
  const otpSubmit=preview.screen.startsWith("otp-")&&(destination==="verification-success"||(customer&&destination==="checkout-shipping-info"));
  const needsValidation=phoneSubmit||otpSubmit;
  function run(){
-  if(back){router.push(preview.basePath);return;}
+  if(back){router.push(withQuery(preview.basePath));return;}
   if(/ذخیره/.test(label))preview.notify("تغییرات در همین پیش‌نمایش نگه داشته شد؛ داده‌ای به سرور ارسال نشده است.");
   else preview.notify("این کنترل در پیش‌نمایش رابط کاربری است؛ عملیات واقعی پس از اتصال بک‌اند فعال می‌شود.");
  }
- if(preview.screen==="multiple-roles"&&destination==="dashboard"){return <Button {...props} variant="unstyled" aria-label={label} onClick={()=>{const role=preview.values["multiple-roles:choice:roles-list"];if(role&&!role.includes("هنرمند")){preview.notify("پیش‌نمایش این بخش فعلاً برای نقش هنرمند آماده شده است.");return;}router.push(preview.basePath+"/dashboard");}}>{children}</Button>;}
- if(destination&&!needsValidation&&!disabled)return <Link {...props} href={preview.basePath+"/"+destination} aria-label={label}>{children}</Link>;
+ if(preview.screen==="multiple-roles"&&destination==="dashboard"){return <Button {...props} variant="unstyled" aria-label={label} onClick={()=>{const role=preview.values["multiple-roles:choice:roles-list"];if(role&&!role.includes("هنرمند")){preview.notify("پیش‌نمایش این بخش فعلاً برای نقش هنرمند آماده شده است.");return;}router.push(withQuery(preview.basePath+"/dashboard"));}}>{children}</Button>;}
+ if(destination&&!needsValidation&&!disabled)return <Link {...props} href={withQuery(preview.basePath+"/"+destination)} scroll={false} aria-current={preview.screen===destination?"page":undefined} aria-label={label}>{children}</Link>;
  return <Button {...props} variant="unstyled" disabled={disabled} aria-disabled={disabled||undefined} aria-label={label} onClick={()=>{
-  if(phoneSubmit){const phone=Object.values(preview.values).find(v=>/^09\d{9}$/.test(normalizeDigits(v)));if(!phone){preview.notify("شماره همراه معتبر با ۱۱ رقم و شروع ۰۹ وارد کنید.");return;}router.push(preview.basePath+"/"+destination);return;}
-  if(otpSubmit){const code=Array.from({length:6},(_,i)=>preview.values[preview.screen+":رقم "+(i+1)+" کد تأیید"]||"").join("");if(!/^\d{6}$/.test(normalizeDigits(code))){preview.notify("کد تأیید شش‌رقمی را کامل وارد کنید. کد نمونه برای پیش‌نمایش: ۱۲۳۴۵۶");return;}if(customer&&normalizeDigits(code)!=="123456"){preview.notify("کد نمونه نادرست است. برای پیش‌نمایش ۱۲۳۴۵۶ را وارد کنید.");return;}router.push(preview.basePath+"/"+(normalizeDigits(code)==="123456"?destination:"otp-invalid"));return;}
+  if(phoneSubmit){const phone=Object.values(preview.values).find(v=>/^09\d{9}$/.test(normalizeDigits(v)));if(!phone){preview.notify("شماره همراه معتبر با ۱۱ رقم و شروع ۰۹ وارد کنید.");return;}router.push(withQuery(preview.basePath+"/"+destination));return;}
+  if(otpSubmit){const code=Array.from({length:6},(_,i)=>preview.values[preview.screen+":رقم "+(i+1)+" کد تأیید"]||"").join("");if(!/^\d{6}$/.test(normalizeDigits(code))){preview.notify("کد تأیید شش‌رقمی را کامل وارد کنید. کد نمونه برای پیش‌نمایش: ۱۲۳۴۵۶");return;}if(customer&&normalizeDigits(code)!=="123456"){preview.notify("کد نمونه نادرست است. برای پیش‌نمایش ۱۲۳۴۵۶ را وارد کنید.");return;}router.push(withQuery(preview.basePath+"/"+(normalizeDigits(code)==="123456"?destination:"otp-invalid")));return;}
   run();
  }}>{children}</Button>;
 }
