@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { mobileScreens,mobileLoaders,type MobileScreenSlug } from "../../../../features/customer-mobile/screen-registry";
+import { CustomerMobileScreenShell } from "../../../../features/customer-mobile/mobile-navigation";
 
 export default async function MobileScreenPage({params,searchParams}:{params:Promise<{screen:string}>;searchParams:Promise<{canvas?:string}>}){
   const {screen}=await params;const {canvas}=await searchParams;
@@ -9,6 +10,6 @@ export default async function MobileScreenPage({params,searchParams}:{params:Pro
   const {default:Screen}=await mobileLoaders[screen as MobileScreenSlug]();
   return <>
     {canvas!=="1"&&<header className="preview-toolbar mobile-preview-toolbar"><Link href="/preview/customer-mobile">همهٔ صفحه‌های موبایل</Link><span>{entry.name} · دادهٔ نمونه</span><a target="_blank" rel="noreferrer" href={figmaURL}>مرجع فیگما</a></header>}
-    <div className="artist-design customer-mobile" dir="ltr" style={{height:entry.h}}><Screen/></div>
+    <CustomerMobileScreenShell height={entry.h}><Screen/></CustomerMobileScreenShell>
   </>;
 }

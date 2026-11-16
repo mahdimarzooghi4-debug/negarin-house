@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import type { HTMLAttributes, ReactNode } from "react";
+import { createContext, useContext } from "react";
 import { usePreview } from "../artist/preview-state";
 
 type NavigationTab = {
@@ -77,7 +78,20 @@ const navigationTabs: NavigationTab[] = [
   }
 ];
 
-export function MobileNavigation(props: HTMLAttributes<HTMLElement> & { children?: ReactNode }) {
+const SharedNavigationContext = createContext(false);
+
+export function CustomerMobileScreenShell({ children, height }: { children: ReactNode; height: number }) {
+  return (
+    <SharedNavigationContext.Provider value>
+      <div className="artist-design customer-mobile" dir="ltr" style={{ height, position: "relative" }}>
+        {children}
+        <CustomerMobileNavigationBar />
+      </div>
+    </SharedNavigationContext.Provider>
+  );
+}
+
+function CustomerMobileNavigationBar(props: HTMLAttributes<HTMLElement> = {}) {
   const preview = usePreview();
   const searchParams = useSearchParams();
   const query = searchParams.toString();
@@ -106,4 +120,11 @@ export function MobileNavigation(props: HTMLAttributes<HTMLElement> & { children
       })}
     </nav>
   );
+}
+
+// Older Figma screen exports still include this placeholder. The shared shell
+// renders one navigation bar for the whole screen, so nested copies disappear.
+export function MobileNavigation(props: HTMLAttributes<HTMLElement> & { children?: ReactNode }) {
+  const isInsideSharedShell = useContext(SharedNavigationContext);
+  return isInsideSharedShell ? null : <CustomerMobileNavigationBar {...props} />;
 }
