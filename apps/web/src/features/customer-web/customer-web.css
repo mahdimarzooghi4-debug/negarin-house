@@ -1795,3 +1795,6 @@
 .customer-download-android:hover{background:#056f78;}
 .customer-download-pwa:hover{background:#e8f7f7;}
 @media(max-width:760px){.customer-download-page{padding:18px 16px 56px;}.customer-download-header{margin:16px auto 28px;}.customer-download-grid{grid-template-columns:1fr;gap:16px;}.customer-download-card{padding:20px;gap:20px;}.customer-download-options{grid-template-columns:1fr;}}
+
+.customer-download-app-icon{display:grid;width:64px;height:64px;flex:none;place-items:center;border-radius:14px;background:#fff;}
+.customer-download-artist-icon{background:#f8f2e8;}

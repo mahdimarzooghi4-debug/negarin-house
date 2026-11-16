@@ -5,14 +5,16 @@ const apps = [
   {
     name: "اپ خریدار",
     description: "آثار را پیدا کنید، هنرمندان را دنبال کنید و از خود هنرمند خرید کنید.",
-    icon: "/brand/customer-pwa-icon-192.png",
+    icon: "/customer-web-assets/b65a7682.png",
+    iconClass: "customer-download-buyer-icon",
     android: "https://github.com/mahdimarzooghi4-debug/negarin-house/releases/download/stage-app-downloads/negarin-customer-android.apk",
     pwa: "/preview/customer-mobile/install",
   },
   {
     name: "اپ هنرمند",
     description: "فروشگاه، محصولات، سفارش‌ها و فرصت‌های هنری خود را مدیریت کنید.",
-    icon: "/brand/artist-pwa-icon-192.png",
+    icon: "/customer-web-assets/b65a7682.png",
+    iconClass: "customer-download-artist-icon",
     android: "https://github.com/mahdimarzooghi4-debug/negarin-house/releases/download/stage-app-downloads/negarin-artist-android.apk",
     pwa: "/preview/artist-mobile/install",
   },
@@ -34,7 +36,7 @@ export default function NegarinAppDownloadsPage() {
         {apps.map((app) => (
           <article className="customer-download-card" key={app.name}>
             <div className="customer-download-app-heading">
-              <Image src={app.icon} alt="" width={64} height={64} />
+              <span className={`customer-download-app-icon ${app.iconClass}`}><Image src={app.icon} alt="" width={52} height={58} /></span>
               <div>
                 <h2>{app.name}</h2>
                 <p>{app.description}</p>
