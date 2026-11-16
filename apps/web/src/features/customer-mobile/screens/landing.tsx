@@ -1,6 +1,7 @@
 import { CustomerCardLink } from "../customer-controls";
 // Figma 401:3 — Customer / Landing - Mobile
 import { DesignAction, DesignChoice } from "../../artist/design-controls";
+import { MobileNavigation } from "../mobile-navigation";
 
 export default function CustomerLandingMobile() {
   return (
@@ -215,51 +216,7 @@ export default function CustomerLandingMobile() {
           </p>
         </div>
       </div>
-      <div className="fg-570212c0a8" data-node-id="402:60" data-name="Frame">
-        <div className="fg-7cc7d053de" data-node-id="402:61" data-name="Frame">
-          <DesignAction className="fg-6fe5ab989e" data-node-id="402:75" data-name="Frame" label="حساب person" destination="account">
-            <p className="fg-5df00cecfa" dir="auto" data-node-id="402:77">
-              حساب
-            </p>
-            <div className="fg-4a5d6fb0b4" data-node-id="416:46">
-              <p className="fg-32bd4c7660">person</p>
-            </div>
-          </DesignAction>
-          <DesignAction className="fg-6fe5ab989e" data-node-id="402:72" data-name="Frame" label="سبد shopping_cart" destination="cart">
-            <p className="fg-5df00cecfa" dir="auto" data-node-id="402:74">
-              سبد
-            </p>
-            <div className="fg-4a5d6fb0b4" data-node-id="416:45">
-              <p className="fg-32bd4c7660">shopping_cart</p>
-            </div>
-          </DesignAction>
-          <DesignAction className="fg-6fe5ab989e" data-node-id="402:69" data-name="Frame" label="روایت‌ها dynamic_feed" destination="stories">
-            <p className="fg-5df00cecfa" dir="auto" data-node-id="402:71">
-              روایت‌ها
-            </p>
-            <div className="fg-b69530fac1" data-node-id="416:44">
-              <p className="fg-32bd4c7660">dynamic_feed</p>
-            </div>
-          </DesignAction>
-          <DesignAction className="fg-6fe5ab989e" data-node-id="402:66" data-name="Frame" label="کشف search" destination="search-and-discover">
-            <p className="fg-5df00cecfa" dir="auto" data-node-id="402:68">
-              کشف
-            </p>
-            <div className="fg-4a5d6fb0b4" data-node-id="416:43">
-              <p className="fg-32bd4c7660">search</p>
-            </div>
-          </DesignAction>
-          <div className="fg-f6276bcc43" data-node-id="402:62" data-name="Frame">
-            <p className="fg-29e2aa54a1" dir="auto" data-node-id="402:65">
-              خانه
-            </p>
-            <div className="fg-9b83615bf5" data-node-id="416:41">
-              <p className="fg-32bd4c7660">home</p>
-            </div>
-            <div className="fg-eefc7937f8" data-node-id="416:42" data-name="Active Indicator" />
-          </div>
-        </div>
-      </div>
+      <MobileNavigation data-node-id="402:60" data-name="Bottom Navigation" />
       <div className="fg-e55e57f8ca" data-node-id="412:5" data-name="Artists / Suggested — Horizontal Scroll / RTL">
         <CustomerCardLink className="fg-1d52c75475" data-node-id="439:5" data-name="Artist Card / زهرا محمدی" label="زهرا محمدی میناکاری دنبال کردن" destination="artist-public-profile">
           <div className="fg-b0234e88b0" data-node-id="439:6" data-name="Ellipse">
