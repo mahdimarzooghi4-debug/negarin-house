@@ -1,4 +1,5 @@
 // Figma 853:1617 — Artist / Opportunity Allocation Accept — Mobile
+import { MobileNavigation } from "../mobile-navigation";
 import { DesignAction, DesignDialog, DesignChoice } from "../../artist/design-controls";
 
 export default function ArtistOpportunityAllocationAcceptMobile() {
@@ -258,48 +259,7 @@ export default function ArtistOpportunityAllocationAcceptMobile() {
             </p>
           </DesignAction>
         </div>
-        <div className="fg-97849b76a8" data-node-id="853:1720" data-name="Bottom Nav">
-          <DesignAction className="fg-5cce6a5a00" data-node-id="853:1721" data-name="Tab-حساب" label="حساب" destination="account">
-            <div className="fg-b2a182ecf4" data-node-id="853:1722" data-name="Icon-profile">
-              <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/4c8e3296.svg" />
-            </div>
-            <p className="fg-5c87ac42ec" dir="auto" data-node-id="853:1724">
-              حساب
-            </p>
-          </DesignAction>
-          <DesignAction className="fg-5cce6a5a00" data-node-id="853:1725" data-name="Tab-فرصت‌ها" label="فرصت‌ها">
-            <div className="fg-b2a182ecf4" data-node-id="853:1726" data-name="Icon-opportunities">
-              <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/4836fca5.svg" />
-            </div>
-            <p className="fg-c07cb6c830" dir="auto" data-node-id="853:1728">
-              فرصت‌ها
-            </p>
-          </DesignAction>
-          <DesignAction className="fg-5cce6a5a00" data-node-id="853:1729" data-name="Tab-محصولات" label="محصولات" destination="products">
-            <div className="fg-b2a182ecf4" data-node-id="853:1730" data-name="Icon-products">
-              <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/5727e4ec.svg" />
-            </div>
-            <p className="fg-5c87ac42ec" dir="auto" data-node-id="853:1732">
-              محصولات
-            </p>
-          </DesignAction>
-          <DesignAction className="fg-5cce6a5a00" data-node-id="853:1733" data-name="Tab-سفارش‌ها" label="سفارش‌ها" destination="orders">
-            <div className="fg-b2a182ecf4" data-node-id="853:1734" data-name="Icon-orders">
-              <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/d6d42b84.svg" />
-            </div>
-            <p className="fg-5c87ac42ec" dir="auto" data-node-id="853:1736">
-              سفارش‌ها
-            </p>
-          </DesignAction>
-          <DesignAction className="fg-5cce6a5a00" data-node-id="853:1737" data-name="Tab-خانه" label="خانه" destination="dashboard">
-            <div className="fg-b2a182ecf4" data-node-id="853:1738" data-name="Icon-home">
-              <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/705856a5.svg" />
-            </div>
-            <p className="fg-5c87ac42ec" dir="auto" data-node-id="853:1740">
-              خانه
-            </p>
-          </DesignAction>
-        </div>
+        <MobileNavigation data-node-id="853:1720" data-name="Bottom Nav" />
       </div>
       <div className="fg-4401716318" data-node-id="853:1741" data-name="Scrim" />
       <DesignDialog className="fg-f404237b98" data-node-id="853:1742" data-name="Accept Bottom Sheet" label="Artist / Opportunity Allocation Accept — Mobile" closeDestination="opportunities">
