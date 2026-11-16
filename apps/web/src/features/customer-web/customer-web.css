@@ -1798,3 +1798,17 @@
 
 .customer-download-app-icon{display:grid;width:64px;height:64px;flex:none;place-items:center;border-radius:14px;background:#fff;}
 .customer-download-artist-icon{background:#f8f2e8;}
+
+/* Keep artist story artwork fully inside its media frames. */
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:357"],
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:360"],
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:363"],
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:404"],
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:419"],
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:432"],
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:442"],
+.customer-web-design [data-node-id="1191:318"] [data-node-id="1191:443"] { overflow:hidden; }
+.customer-web-design [data-node-id="1191:318"] .fg-8e3c2e60fd,
+.customer-web-design [data-node-id="1191:318"] .fg-b440a5c4af,
+.customer-web-design [data-node-id="1191:318"] .fg-6296272086,
+.customer-web-design [data-node-id="1191:318"] .fg-2ce1fee1c9 { max-width:100%; max-height:100%; object-fit:contain; }
