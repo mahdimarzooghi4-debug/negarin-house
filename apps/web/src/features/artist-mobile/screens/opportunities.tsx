@@ -1,4 +1,5 @@
 // Figma 853:767 — Artist / Opportunities — Mobile
+import { MobileNavigation } from "../mobile-navigation";
 import { DesignAction } from "../../artist/design-controls";
 
 export default function ArtistOpportunitiesMobile() {
@@ -442,48 +443,7 @@ export default function ArtistOpportunitiesMobile() {
           </div>
         </div>
       </div>
-      <div className="fg-97849b76a8" data-node-id="853:948" data-name="Bottom Nav">
-        <DesignAction className="fg-5cce6a5a00" data-node-id="853:949" data-name="Tab-حساب" label="حساب" destination="account">
-          <div className="fg-b2a182ecf4" data-node-id="853:950" data-name="Icon-user">
-            <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/9cfa18de.svg" />
-          </div>
-          <p className="fg-5c87ac42ec" dir="auto" data-node-id="853:952">
-            حساب
-          </p>
-        </DesignAction>
-        <DesignAction className="fg-5cce6a5a00" data-node-id="853:953" data-name="Tab-فرصت‌ها" label="فرصت‌ها" destination="opportunities">
-          <div className="fg-b2a182ecf4" data-node-id="853:954" data-name="Icon-briefcase">
-            <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/4836fca5.svg" />
-          </div>
-          <p className="fg-c07cb6c830" dir="auto" data-node-id="853:956">
-            فرصت‌ها
-          </p>
-        </DesignAction>
-        <DesignAction className="fg-5cce6a5a00" data-node-id="853:957" data-name="Tab-محصولات" label="محصولات" destination="products">
-          <div className="fg-b2a182ecf4" data-node-id="853:958" data-name="Icon-package">
-            <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/5727e4ec.svg" />
-          </div>
-          <p className="fg-5c87ac42ec" dir="auto" data-node-id="853:960">
-            محصولات
-          </p>
-        </DesignAction>
-        <DesignAction className="fg-5cce6a5a00" data-node-id="853:961" data-name="Tab-سفارش‌ها" label="سفارش‌ها" destination="orders">
-          <div className="fg-b2a182ecf4" data-node-id="853:962" data-name="Icon-shopping-bag">
-            <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/d6d42b84.svg" />
-          </div>
-          <p className="fg-5c87ac42ec" dir="auto" data-node-id="853:964">
-            سفارش‌ها
-          </p>
-        </DesignAction>
-        <DesignAction className="fg-5cce6a5a00" data-node-id="853:965" data-name="Tab-خانه" label="خانه" destination="dashboard">
-          <div className="fg-b2a182ecf4" data-node-id="853:966" data-name="Icon-home">
-            <img alt="" className="fg-8faf267d30" src="/artist-mobile-assets/705856a5.svg" />
-          </div>
-          <p className="fg-5c87ac42ec" dir="auto" data-node-id="853:968">
-            خانه
-          </p>
-        </DesignAction>
-      </div>
+      <MobileNavigation data-node-id="853:948" data-name="Bottom Nav" />
     </div>
   );
 }
