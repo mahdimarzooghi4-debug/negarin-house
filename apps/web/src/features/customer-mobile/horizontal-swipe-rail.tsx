@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type HTMLAttributes, type MouseEvent, type PointerEvent, type WheelEvent } from "react";
+import { useEffect, useRef, type HTMLAttributes, type MouseEvent, type PointerEvent } from "react";
 
 type HorizontalSwipeRailProps = HTMLAttributes<HTMLDivElement>;
 
@@ -9,6 +9,7 @@ export function HorizontalSwipeRail({
   children,
   ...props
 }: HorizontalSwipeRailProps) {
+  const railRef = useRef<HTMLDivElement>(null);
   const drag = useRef({
     pointerId: -1,
     startX: 0,
@@ -17,6 +18,28 @@ export function HorizontalSwipeRail({
     moved: false,
     suppressClick: false,
   });
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+
+    const handleWheel = (event: WheelEvent) => {
+      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY)
+        ? event.deltaX
+        : -event.deltaY;
+      if (delta === 0) return;
+
+      const previousScrollLeft = rail.scrollLeft;
+      rail.scrollLeft += delta;
+      if (rail.scrollLeft !== previousScrollLeft) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    };
+
+    rail.addEventListener("wheel", handleWheel, { passive: false });
+    return () => rail.removeEventListener("wheel", handleWheel);
+  }, []);
 
   function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
     if (event.pointerType === "mouse" && event.button !== 0) return;
@@ -59,18 +82,6 @@ export function HorizontalSwipeRail({
     }
   }
 
-  function handleWheel(event: WheelEvent<HTMLDivElement>) {
-    const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY)
-      ? event.deltaX
-      : -event.deltaY;
-    if (delta === 0) return;
-
-    const rail = event.currentTarget;
-    const previousScrollLeft = rail.scrollLeft;
-    rail.scrollLeft += delta;
-    if (rail.scrollLeft !== previousScrollLeft) event.preventDefault();
-  }
-
   function handleClickCapture(event: MouseEvent<HTMLDivElement>) {
     if (!drag.current.suppressClick) return;
     event.preventDefault();
@@ -81,13 +92,13 @@ export function HorizontalSwipeRail({
   return (
     <div
       {...props}
+      ref={railRef}
       className={className}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
       onClickCapture={handleClickCapture}
-      onWheel={handleWheel}
     >
       {children}
     </div>
