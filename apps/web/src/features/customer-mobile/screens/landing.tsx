@@ -2,6 +2,7 @@ import { CustomerCardLink } from "../customer-controls";
 // Figma 401:3 — Customer / Landing - Mobile
 import { DesignAction, DesignChoice } from "../../artist/design-controls";
 import { MobileNavigation } from "../mobile-navigation";
+import { HorizontalSwipeRail } from "../horizontal-swipe-rail";
 
 export default function CustomerLandingMobile() {
   return (
@@ -217,7 +218,7 @@ export default function CustomerLandingMobile() {
         </div>
       </div>
       <MobileNavigation data-node-id="402:60" data-name="Bottom Navigation" />
-      <div className="fg-e55e57f8ca" data-node-id="412:5" data-name="Artists / Suggested — Horizontal Scroll / RTL">
+      <HorizontalSwipeRail className="fg-e55e57f8ca" data-node-id="412:5" data-name="Artists / Suggested — Horizontal Scroll / RTL">
         <CustomerCardLink className="fg-1d52c75475" data-node-id="439:5" data-name="Artist Card / زهرا محمدی" label="زهرا محمدی میناکاری دنبال کردن" destination="artist-public-profile">
           <div className="fg-b0234e88b0" data-node-id="439:6" data-name="Ellipse">
             <img alt="" className="fg-8faf267d30" height="44" src="/customer-mobile-assets/39f76771.png" width="44" />
@@ -368,8 +369,8 @@ export default function CustomerLandingMobile() {
             </div>
           </DesignChoice>
         </div>
-      </div>
-      <div className="fg-6fbc5f1853" data-node-id="430:31" data-name="Popular Products / Horizontal Scroll / RTL">
+      </HorizontalSwipeRail>
+      <HorizontalSwipeRail className="fg-6fbc5f1853" data-node-id="430:31" data-name="Popular Products / Horizontal Scroll / RTL">
         <div className="fg-7d6f86d149" data-node-id="402:43" data-name="Frame">
           <div className="fg-5a5777e975" data-node-id="402:44" data-name="Frame">
             <div className="fg-d8374ea478" data-node-id="402:45" data-name="Rectangle">
@@ -433,7 +434,7 @@ export default function CustomerLandingMobile() {
             </p>
           </DesignAction>
         </div>
-      </div>
+      </HorizontalSwipeRail>
       <div className="fg-a2468304c4" data-node-id="691:61" data-name="Stories / Horizontal Scroll / RTL">
         <CustomerCardLink className="fg-eeb84cdf3f" data-node-id="691:33" data-name="Card 3" label="زهرا محمدی فروشگاه زهرا محمدی ••• ۱۴۰ ۵ «بشقاب میناکاری طرح شاه‌عباسی»؛ بخشی از روایت ساخت این اثر و دستان هنرمندی که پشت آن است." destination="story-detail">
           <div className="fg-bfacfce7a5" data-node-id="691:34" data-name="Ellipse">
