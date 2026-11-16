@@ -698,7 +698,7 @@ export default function CustomerWebHome() {
             <CustomerAction className="fg-2df528dca1" dir="auto" data-node-id="1170:3552" label="حساب">
               حساب
             </CustomerAction>
-            <a className="customer-home-apps-link" href="/preview/customer-mobile/install">دریافت اپلیکیشن نگارین</a>
+            <a className="fg-2df528dca1 customer-home-apps-link" href="/preview/customer-web/downloads">دریافت اپلیکیشن نگارین</a>
           </div>
           <div className="fg-e2342f1d2c" data-node-id="1170:3553" data-name="Explore links">
             <p className="fg-fabc7db0ce" dir="auto" data-node-id="1170:3554">
@@ -733,20 +733,12 @@ export default function CustomerWebHome() {
             </div>
           </div>
           <div className="fg-6e8165ea86" data-node-id="1170:3558" data-name="Footer brand">
-            <div className="fg-5db7c3a069" data-node-id="1170:3559" data-name="Brand statement">
-              <p className="fg-24992208b4" dir="auto" data-node-id="1170:3560">
-                خانه نگارین
-              </p>
-              <p className="fg-52ce500770" dir="auto" data-node-id="1170:3561">
-                نگارین؛ جایی برای کشف، دنبال‌کردن و خرید هنر
-              </p>
-              <p className="fg-3d505c9ccd" dir="auto" data-node-id="1170:3562">
-                روایتگر هنر اصیل ایرانی
-              </p>
-            </div>
             <div className="fg-791a4ad62e" data-node-id="1170:3563" data-name="Negarin logo">
-              <img alt="" className="fg-71eecc63f8" src="/customer-web-assets/b65a7682.png" />
+              <img alt="نشان خانه نگارین" className="fg-71eecc63f8" src="/customer-web-assets/b65a7682.png" />
             </div>
+            <p className="customer-home-brand-copy" dir="auto">
+              خانه نگارین؛ جایی برای کشف، دنبال‌کردن و خرید هنر
+            </p>
           </div>
         </div>
         <div className="fg-89826d30c2" data-node-id="1170:3564" data-name="Footer base">
