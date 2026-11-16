@@ -23,3 +23,55 @@
 .artist-mobile .artist-mobile-nav-icon{display:block;width:22px;height:22px;flex:0 0 22px;}
 .artist-mobile .artist-mobile-nav-label{display:block;font-size:10px;line-height:16px;font-weight:500;white-space:nowrap;}
 .artist-mobile .artist-mobile-nav-item[aria-current="page"] .artist-mobile-nav-label{font-weight:700;}
+
+/* A number of exported screens still render their own Bottom Nav wrapper. */
+.artist-mobile [data-name="Bottom Nav"],
+.artist-mobile [data-name="bottom-nav"]{
+  position:absolute!important;left:0!important;right:auto!important;bottom:0!important;top:auto!important;
+  display:flex!important;flex-direction:row!important;align-items:stretch!important;justify-content:space-around!important;
+  width:390px!important;height:84px!important;min-height:84px!important;max-height:84px!important;
+  padding:5px 8px 6px!important;margin:0!important;overflow:hidden!important;flex:none!important;gap:0!important;
+  direction:rtl!important;background:#fff!important;border-top:1px solid #e5e7eb!important;box-sizing:border-box!important;
+  z-index:30!important;transform:none!important;
+}
+.artist-mobile [data-name="Bottom Nav"]>[data-name="nav-items-container"],
+.artist-mobile [data-name="bottom-nav"]>[data-name="nav-items-container"]{
+  display:flex!important;width:100%!important;height:100%!important;align-items:stretch!important;justify-content:space-around!important;gap:0!important;
+}
+.artist-mobile [data-name="Bottom Nav"]>a,
+.artist-mobile [data-name="bottom-nav"]>a,
+.artist-mobile [data-name="Bottom Nav"]>[data-name="nav-items-container"]>a,
+.artist-mobile [data-name="bottom-nav"]>[data-name="nav-items-container"]>a{
+  position:relative!important;display:flex!important;flex:1 1 20%!important;min-width:0!important;height:100%!important;
+  align-items:center!important;justify-content:center!important;flex-direction:column!important;gap:3px!important;
+  padding:7px 2px 3px!important;margin:0!important;border:0!important;border-radius:0!important;
+  color:#66716f!important;text-decoration:none!important;background:transparent!important;box-sizing:border-box!important;
+}
+.artist-mobile [data-name="Bottom Nav"]>a[aria-current="page"],
+.artist-mobile [data-name="bottom-nav"]>a[aria-current="page"],
+.artist-mobile [data-name="Bottom Nav"]>[data-name="nav-items-container"]>a[aria-current="page"],
+.artist-mobile [data-name="bottom-nav"]>[data-name="nav-items-container"]>a[aria-current="page"]{
+  color:#079ca6!important;font-weight:700!important;
+}
+.artist-mobile [data-name="Bottom Nav"]>a[aria-current="page"]::before,
+.artist-mobile [data-name="bottom-nav"]>a[aria-current="page"]::before,
+.artist-mobile [data-name="Bottom Nav"]>[data-name="nav-items-container"]>a[aria-current="page"]::before,
+.artist-mobile [data-name="bottom-nav"]>[data-name="nav-items-container"]>a[aria-current="page"]::before{
+  content:"";position:absolute;top:1px;left:50%;width:24px;height:3px;border-radius:0 0 3px 3px;background:currentColor;transform:translateX(-50%);
+}
+.artist-mobile [data-name="Bottom Nav"] a>div,
+.artist-mobile [data-name="bottom-nav"] a>div{width:22px!important;height:22px!important;flex:0 0 22px!important;}
+.artist-mobile [data-name="Bottom Nav"] a>div img,
+.artist-mobile [data-name="bottom-nav"] a>div img,
+.artist-mobile [data-name="Bottom Nav"] a>svg,
+.artist-mobile [data-name="bottom-nav"] a>svg{display:block!important;width:22px!important;height:22px!important;}
+.artist-mobile [data-name="Bottom Nav"] a>p,
+.artist-mobile [data-name="bottom-nav"] a>p,
+.artist-mobile [data-name="Bottom Nav"] a>span,
+.artist-mobile [data-name="bottom-nav"] a>span{
+  display:block!important;margin:0!important;font-size:10px!important;line-height:16px!important;font-weight:500!important;white-space:nowrap!important;
+}
+.artist-mobile [data-name="Bottom Nav"] a[aria-current="page"]>p,
+.artist-mobile [data-name="bottom-nav"] a[aria-current="page"]>p,
+.artist-mobile [data-name="Bottom Nav"] a[aria-current="page"]>span,
+.artist-mobile [data-name="bottom-nav"] a[aria-current="page"]>span{font-weight:700!important;}
