@@ -106,15 +106,15 @@ export default function ArtistDashboardDesktop() {
         <div className="fg-f1d6d9cdd8" data-node-id="53:4" data-name="Dashboard / Lower Grid">
           <div className="fg-a31e7f9e40" data-node-id="53:5" data-name="Dashboard / Recent Orders">
             <div className="fg-17e113d24b" data-node-id="53:6" data-name="Orders / Header">
-              <p className="fg-91a8fe5d15" dir="auto" data-node-id="53:7">
-                مشاهده همه
-              </p>
+              <DesignAction className="fg-91a8fe5d15" data-node-id="53:7" data-name="Orders / View All" destination="orders" label="مشاهده همه سفارش‌ها">
+                <span dir="auto">مشاهده همه</span>
+              </DesignAction>
               <p className="fg-256bd06d3f" dir="auto" data-node-id="53:8">
                 سفارش‌های اخیر
               </p>
             </div>
             <div className="fg-dcaddddc88" data-node-id="53:9" data-name="Orders / Divider" />
-            <div className="fg-7b54a0043b" data-node-id="53:10" data-name="Order / #NG-1048">
+            <DesignAction className="fg-7b54a0043b" data-node-id="53:10" data-name="Order / #NG-1048" destination="order-detail-preparing" label="مشاهده سفارش شماره NG-1048">
               <div className="fg-3f2e8dbcad" data-node-id="53:11" data-name="Status / در حال آماده‌سازی">
                 <p className="fg-020e935aeb" dir="auto" data-node-id="53:12">
                   در حال آماده‌سازی
@@ -129,8 +129,8 @@ export default function ArtistDashboardDesktop() {
               <p className="fg-48539141ef" data-node-id="53:15">
                 #NG-1048
               </p>
-            </div>
-            <div className="fg-7b54a0043b" data-node-id="53:16" data-name="Order / #NG-1042">
+            </DesignAction>
+            <DesignAction className="fg-7b54a0043b" data-node-id="53:16" data-name="Order / #NG-1042" destination="order-detail-shipping" label="مشاهده سفارش شماره NG-1042">
               <div className="fg-7b9795f63a" data-node-id="53:17" data-name="Status / ارسال شده">
                 <p className="fg-7c4796206c" dir="auto" data-node-id="53:18">
                   ارسال شده
@@ -145,8 +145,8 @@ export default function ArtistDashboardDesktop() {
               <p className="fg-48539141ef" data-node-id="53:21">
                 #NG-1042
               </p>
-            </div>
-            <div className="fg-7b54a0043b" data-node-id="53:22" data-name="Order / #NG-1039">
+            </DesignAction>
+            <DesignAction className="fg-7b54a0043b" data-node-id="53:22" data-name="Order / #NG-1039" destination="order-detail-completed" label="مشاهده سفارش شماره NG-1039">
               <div className="fg-25e51baa82" data-node-id="53:23" data-name="Status / تکمیل شده">
                 <p className="fg-0390982896" dir="auto" data-node-id="53:24">
                   تکمیل شده
@@ -161,8 +161,8 @@ export default function ArtistDashboardDesktop() {
               <p className="fg-48539141ef" data-node-id="53:27">
                 #NG-1039
               </p>
-            </div>
-            <div className="fg-7b54a0043b" data-node-id="61:4" data-name="Order / #NG-1036">
+            </DesignAction>
+            <DesignAction className="fg-7b54a0043b" data-node-id="61:4" data-name="Order / #NG-1036" destination="order-detail-preparing" label="مشاهده سفارش شماره NG-1036">
               <div className="fg-3f2e8dbcad" data-node-id="61:5" data-name="Status / در حال آماده‌سازی">
                 <p className="fg-020e935aeb" dir="auto" data-node-id="61:6">
                   در حال آماده‌سازی
@@ -177,8 +177,8 @@ export default function ArtistDashboardDesktop() {
               <p className="fg-48539141ef" data-node-id="61:9">
                 #NG-1036
               </p>
-            </div>
-            <div className="fg-7b54a0043b" data-node-id="61:10" data-name="Order / #NG-1031">
+            </DesignAction>
+            <DesignAction className="fg-7b54a0043b" data-node-id="61:10" data-name="Order / #NG-1031" destination="order-detail-shipping" label="مشاهده سفارش شماره NG-1031">
               <div className="fg-7b9795f63a" data-node-id="61:11" data-name="Status / ارسال شده">
                 <p className="fg-7c4796206c" dir="auto" data-node-id="61:12">
                   ارسال شده
@@ -193,8 +193,8 @@ export default function ArtistDashboardDesktop() {
               <p className="fg-48539141ef" data-node-id="61:15">
                 #NG-1031
               </p>
-            </div>
-            <div className="fg-7b54a0043b" data-node-id="61:16" data-name="Order / #NG-1027">
+            </DesignAction>
+            <DesignAction className="fg-7b54a0043b" data-node-id="61:16" data-name="Order / #NG-1027" destination="order-detail-completed" label="مشاهده سفارش شماره NG-1027">
               <div className="fg-25e51baa82" data-node-id="61:17" data-name="Status / تکمیل شده">
                 <p className="fg-0390982896" dir="auto" data-node-id="61:18">
                   تکمیل شده
@@ -209,7 +209,7 @@ export default function ArtistDashboardDesktop() {
               <p className="fg-48539141ef" data-node-id="61:21">
                 #NG-1027
               </p>
-            </div>
+            </DesignAction>
             <div className="fg-a584296003" data-node-id="53:28" data-name="Orders / Footer Hint">
               <p className="fg-cff1fbe79d" dir="auto" data-node-id="53:29">
                 ۲ سفارش نیاز به اقدام تو دارند.
@@ -217,7 +217,7 @@ export default function ArtistDashboardDesktop() {
             </div>
           </div>
           <div className="fg-a2fc39064c" data-node-id="53:30" data-name="Dashboard / Side Cards">
-            <div className="fg-204ead0e4d" data-node-id="53:31" data-name="Dashboard / Membership">
+            <DesignAction className="fg-204ead0e4d" data-node-id="53:31" data-name="Dashboard / Membership" destination="membership-center" label="مشاهده وضعیت عضویت">
               <div className="fg-8ab18a0639" data-node-id="53:32" data-name="Frame">
                 <div className="fg-25e51baa82" data-node-id="53:33" data-name="Status / فعال">
                   <p className="fg-0390982896" dir="auto" data-node-id="53:34">
@@ -234,7 +234,7 @@ export default function ArtistDashboardDesktop() {
               <p className="fg-62292a0a9e" dir="auto" data-node-id="53:37">
                 ۲۱۴ روز تا تمدید عضویت
               </p>
-            </div>
+            </DesignAction>
             <div className="fg-17cdcf1abc" data-node-id="53:38" data-name="Dashboard / Growth Recommendations">
               <div className="fg-84588004be" data-node-id="69:2" data-name="Growth Recommendations / Header">
                 <p className="fg-53eea43a2f" dir="auto" data-node-id="69:3">
@@ -248,9 +248,9 @@ export default function ArtistDashboardDesktop() {
                 این خدمات برای رشد فروش تو پیشنهاد شده‌اند.
               </p>
               <div className="fg-058477b716" data-node-id="69:6" data-name="Growth Recommendation / Training">
-                <p className="fg-53eea43a2f" dir="auto" data-node-id="69:7">
-                  شروع آموزش
-                </p>
+                <DesignAction className="fg-53eea43a2f" data-node-id="69:7" data-name="Growth Recommendation / Training / Action" destination="service-detail-offline-course" label="شروع آموزش">
+                  <span dir="auto">شروع آموزش</span>
+                </DesignAction>
                 <div className="fg-f7674ba274" data-node-id="69:8" data-name="Growth Recommendation / Training / Info">
                   <p className="fg-e19d7996f1" dir="auto" data-node-id="69:9">
                     آموزش قیمت‌گذاری
@@ -261,9 +261,9 @@ export default function ArtistDashboardDesktop() {
                 </div>
               </div>
               <div className="fg-058477b716" data-node-id="69:11" data-name="Growth Recommendation / Content">
-                <p className="fg-53eea43a2f" dir="auto" data-node-id="69:12">
-                  درخواست محتوا
-                </p>
+                <DesignAction className="fg-53eea43a2f" data-node-id="69:12" data-name="Growth Recommendation / Content / Action" destination="services" label="درخواست محتوا">
+                  <span dir="auto">درخواست محتوا</span>
+                </DesignAction>
                 <div className="fg-f7674ba274" data-node-id="69:13" data-name="Growth Recommendation / Content / Info">
                   <p className="fg-e19d7996f1" dir="auto" data-node-id="69:14">
                     تولید محتوای ۳ محصول
@@ -274,9 +274,9 @@ export default function ArtistDashboardDesktop() {
                 </div>
               </div>
               <div className="fg-058477b716" data-node-id="69:16" data-name="Growth Recommendation / Packaging">
-                <p className="fg-53eea43a2f" dir="auto" data-node-id="69:17">
-                  فعال‌سازی
-                </p>
+                <DesignAction className="fg-53eea43a2f" data-node-id="69:17" data-name="Growth Recommendation / Packaging / Action" destination="services" label="فعال‌سازی بسته‌بندی حرفه‌ای">
+                  <span dir="auto">فعال‌سازی</span>
+                </DesignAction>
                 <div className="fg-f7674ba274" data-node-id="69:18" data-name="Growth Recommendation / Packaging / Info">
                   <p className="fg-e19d7996f1" dir="auto" data-node-id="69:19">
                     بسته‌بندی حرفه‌ای
@@ -287,7 +287,7 @@ export default function ArtistDashboardDesktop() {
                 </div>
               </div>
             </div>
-            <div className="fg-61f164f32d" data-node-id="53:49" data-name="Dashboard / Opportunities">
+            <DesignAction className="fg-61f164f32d" data-node-id="53:49" data-name="Dashboard / Opportunities" destination="opportunities" label="مشاهده فرصت‌های مناسب">
               <p className="fg-f1a3cf069c" dir="auto" data-node-id="53:50">
                 فرصت‌های مناسب تو
               </p>
@@ -297,7 +297,7 @@ export default function ArtistDashboardDesktop() {
               <p className="fg-9f9fa5545e" dir="auto" data-node-id="53:52">
                 یک سفارش سازمانی و یک کمپین فروش برای سطح فعلی تو فعال است.
               </p>
-            </div>
+            </DesignAction>
           </div>
         </div>
       </div>
