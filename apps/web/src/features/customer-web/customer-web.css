@@ -1741,3 +1741,18 @@
 .customer-web-design a{color:inherit;}
 
 .customer-web-design [data-node-id="1176:5512"] > img{position:absolute;inset:-3px;width:calc(100% + 6px);height:calc(100% + 6px);}
+
+.customer-web-design [data-node-id="1170:3310"],.customer-web-design [data-node-id="1170:3313"]{width:150px;height:151px;align-items:center;padding:12px;}
+.customer-web-design [data-node-id="1170:3311"],.customer-web-design [data-node-id="1170:3314"]{width:96px;height:96px;}
+.customer-web-design [data-node-id="1170:3312"],.customer-web-design [data-node-id="1170:3315"]{width:100%;text-align:center;white-space:nowrap;}
+.customer-web-design .customer-home-contact{display:flex;flex:0 0 300px;flex-direction:column;gap:12px;align-items:flex-end;min-width:0;color:#263a5c;font-family:"Vazirmatn Variable",sans-serif;}
+.customer-web-design .customer-home-contact-title{width:100%;color:#041b65;font-size:15px;font-weight:700;}
+.customer-web-design .customer-home-contact-row{display:grid;grid-template-columns:18px auto 1fr;gap:8px;align-items:center;width:100%;direction:rtl;font-size:12px;line-height:1.6;}
+.customer-web-design .customer-home-contact-icon{color:#07858f;font-family:"Material Icons Round",sans-serif;font-size:18px;line-height:1;}
+.customer-web-design .customer-home-contact-label{font-weight:600;white-space:nowrap;}
+.customer-web-design .customer-home-contact-value{color:#64748b;text-align:right;}
+.customer-web-design a.customer-home-contact-value{text-decoration:none;}
+.customer-web-design [data-node-id="1170:3546"]{height:auto;min-height:304px;overflow:visible;}
+.customer-web-design [data-node-id="1170:3547"]{height:auto;min-height:131px;align-items:flex-start;gap:28px;}
+.customer-web-design [data-node-id="1170:3558"]{margin-right:auto;}
+.customer-web-design [data-node-id="1170:3564"]{margin-top:0;}

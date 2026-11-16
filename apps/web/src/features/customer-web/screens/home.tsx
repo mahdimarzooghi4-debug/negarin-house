@@ -713,6 +713,24 @@ export default function CustomerWebHome() {
               روایت‌ها
             </CustomerAction>
           </div>
+          <div className="customer-home-contact" data-name="Contact information">
+            <p className="customer-home-contact-title">ارتباط با ما</p>
+            <div className="customer-home-contact-row">
+              <span className="customer-home-contact-icon" aria-hidden="true">location_on</span>
+              <span className="customer-home-contact-label">آدرس</span>
+              <span className="customer-home-contact-value">خیابان انقلاب، خیابان رازی، کوچه شهبازیان، پلاک ۲۲</span>
+            </div>
+            <div className="customer-home-contact-row">
+              <span className="customer-home-contact-icon" aria-hidden="true">mail</span>
+              <span className="customer-home-contact-label">ایمیل</span>
+              <a className="customer-home-contact-value" href="mailto:info@negarinhouse.ir" dir="ltr">info@negarinhouse.ir</a>
+            </div>
+            <div className="customer-home-contact-row">
+              <span className="customer-home-contact-icon" aria-hidden="true">call</span>
+              <span className="customer-home-contact-label">تلفن</span>
+              <a className="customer-home-contact-value" href="tel:+982166485374" dir="ltr">۰۲۱-۶۶۴۸۵۳۷۴</a>
+            </div>
+          </div>
           <div className="fg-6e8165ea86" data-node-id="1170:3558" data-name="Footer brand">
             <div className="fg-5db7c3a069" data-node-id="1170:3559" data-name="Brand statement">
               <p className="fg-24992208b4" dir="auto" data-node-id="1170:3560">
