@@ -100,7 +100,7 @@ export default function CustomerPaymentRedirectWeb() {
                 شماره سفارش
               </p>
               <p className="fg-00b08f6bc3" data-node-id="1194:563">
-                #NG-1054
+                <bdi dir="ltr">#NG-۱۰۵۴</bdi>
               </p>
             </div>
           </div>
