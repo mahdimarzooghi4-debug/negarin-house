@@ -1,5 +1,5 @@
 /* Scoped Figma values. Native CSS; no Tailwind dependency. */
-.customer-web-design {--navigation-sidebar-muted:#405654;font-family:"Vazirmatn Variable",sans-serif;line-height:1.5;color:#111827;direction:ltr;width:1440px;isolation:isolate;position:relative;background:white;}
+.customer-web-design {--navigation-sidebar-muted:#405654;font-family:"Vazirmatn Variable",sans-serif;line-height:1.5;color:#111827;direction:ltr;width:min(1440px,100vw);max-width:100%;isolation:isolate;position:relative;background:white;}
 .customer-web-design *, .customer-web-design *::before, .customer-web-design *::after {box-sizing:border-box;border-width:0;border-style:solid;}
 .customer-web-design p,.customer-web-design h1,.customer-web-design h2,.customer-web-design h3 {margin:0;}
 .customer-web-design a {text-decoration:none;}
