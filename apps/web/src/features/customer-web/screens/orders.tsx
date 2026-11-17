@@ -126,7 +126,7 @@ export default function CustomerOrdersWeb() {
             </div>
             <div className="fg-d007f21719" data-node-id="1180:2739" data-name="Order identity">
               <p className="fg-6edbc50726" dir="auto" data-node-id="1180:2740">
-                سفارش #NG-1054
+                سفارش <bdi dir="ltr">#NG-۱۰۵۴</bdi>
               </p>
               <p className="fg-34f9f973f6" dir="auto" data-node-id="1180:2741">
                 پرداخت‌شده · روش ارسال ثبت شده
