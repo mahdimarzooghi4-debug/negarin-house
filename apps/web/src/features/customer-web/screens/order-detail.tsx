@@ -85,7 +85,7 @@ export default function CustomerOrderDetailWeb() {
             جزئیات سفارش
           </p>
           <p className="fg-3f8a9e3928" dir="auto" data-node-id="1180:2823">
-            محصول، آدرس تحویل، مبلغ و وضعیت فعلی سفارش #NG-1054
+            محصول، آدرس تحویل، مبلغ و وضعیت فعلی سفارش <bdi dir="ltr">#NG-۱۰۵۴</bdi>
           </p>
         </div>
       </div>
@@ -98,7 +98,7 @@ export default function CustomerOrderDetailWeb() {
           </div>
           <div className="fg-99f811552b" data-node-id="1180:2828" data-name="Order identity">
             <p className="fg-94055221e6" dir="auto" data-node-id="1180:2829">
-              سفارش #NG-1054
+              سفارش <bdi dir="ltr">#NG-۱۰۵۴</bdi>
             </p>
             <p className="fg-b72ba594c7" dir="auto" data-node-id="1180:2830">
               پرداخت‌شده · روش ارسال ثبت شده
