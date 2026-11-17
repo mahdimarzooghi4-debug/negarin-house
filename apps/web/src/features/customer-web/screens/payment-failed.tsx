@@ -105,7 +105,7 @@ export default function CustomerPaymentFailedWeb() {
               پرداخت انجام نشد
             </p>
             <p className="fg-745d3d42ce" dir="auto" data-node-id="1194:696">
-              پرداخت لغو شد یا فرایند آن کامل نشد. وضعیت سفارش #NG-1054 هنوز نهایی نشده و مبلغی برای این سفارش ثبت نشده است.
+              پرداخت لغو شد یا فرایند آن کامل نشد. وضعیت سفارش <bdi dir="ltr">#NG-۱۰۵۴</bdi> هنوز نهایی نشده و مبلغی برای این سفارش ثبت نشده است.
             </p>
           </div>
           <div className="fg-abf34ed7e8" data-node-id="1194:697" data-name="Order summary">
@@ -123,7 +123,7 @@ export default function CustomerPaymentFailedWeb() {
                 شماره سفارش
               </p>
               <p className="fg-00b08f6bc3" data-node-id="1194:704">
-                #NG-1054
+                <bdi dir="ltr">#NG-۱۰۵۴</bdi>
               </p>
             </div>
           </div>
