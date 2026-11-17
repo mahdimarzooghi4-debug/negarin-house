@@ -1826,3 +1826,23 @@
 
 /* Start OTP digits on the right for Persian reading order. */
 .customer-web-design [data-node-id="1176:5777"] { flex-direction:row-reverse; }
+
+/* Keep artist-store hero notes readable and prevent their captions from clipping. */
+.customer-web-design [data-node-id="1191:59"] [data-node-id="1191:89"] {
+  height:358px; min-height:358px; overflow:visible;
+}
+.customer-web-design [data-node-id="1191:59"] [data-node-id="1191:90"],
+.customer-web-design [data-node-id="1191:59"] [data-node-id="1191:93"] {
+  width:96px; height:auto; min-height:170px; align-items:center; padding:12px; overflow:hidden;
+}
+.customer-web-design [data-node-id="1191:59"] [data-node-id="1191:91"],
+.customer-web-design [data-node-id="1191:59"] [data-node-id="1191:94"] {
+  width:72px; height:96px; flex:0 0 96px;
+}
+.customer-web-design [data-node-id="1191:59"] [data-node-id="1191:92"],
+.customer-web-design [data-node-id="1191:59"] [data-node-id="1191:95"] {
+  width:100%; text-align:center; white-space:normal; line-height:1.5; overflow-wrap:anywhere;
+}
+.customer-web-design [data-node-id="1191:59"] [data-node-id="1191:105"] p {
+  font-size:42px; line-height:1.45;
+}
