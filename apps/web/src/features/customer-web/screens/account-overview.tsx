@@ -257,7 +257,7 @@ export default function CustomerAccountOverviewWeb() {
               </p>
               <div className="fg-57c13d9488" data-node-id="1198:1639" data-name="Order identity">
                 <p className="fg-7320b0b031" dir="auto" data-node-id="1198:1640">
-                  سفارش #NG-1054
+                  سفارش <bdi dir="ltr">#NG-۱۰۵۴</bdi>
                 </p>
                 <p className="fg-f624da537b" dir="auto" data-node-id="1198:1641">
                   پرداخت‌شده
@@ -281,7 +281,7 @@ export default function CustomerAccountOverviewWeb() {
               </p>
               <div className="fg-57c13d9488" data-node-id="1198:1648" data-name="Order identity">
                 <p className="fg-7320b0b031" dir="auto" data-node-id="1198:1649">
-                  سفارش #NG-1028
+                  سفارش <bdi dir="ltr">#NG-۱۰۲۸</bdi>
                 </p>
                 <p className="fg-f624da537b" dir="auto" data-node-id="1198:1650">
                   پرداخت‌شده
@@ -305,7 +305,7 @@ export default function CustomerAccountOverviewWeb() {
               </p>
               <div className="fg-57c13d9488" data-node-id="1198:1657" data-name="Order identity">
                 <p className="fg-7320b0b031" dir="auto" data-node-id="1198:1658">
-                  سفارش #NG-0996
+                  سفارش <bdi dir="ltr">#NG-۰۹۹۶</bdi>
                 </p>
                 <p className="fg-f624da537b" dir="auto" data-node-id="1198:1659">
                   پرداخت‌شده
