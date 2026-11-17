@@ -1,0 +1,76 @@
+services:
+  - type: keyvalue
+    name: negarin-stage-queue
+    region: frankfurt
+    plan: free
+    maxmemoryPolicy: noeviction
+    persistenceMode: off
+    ipAllowList: []
+
+  - type: web
+    name: negarin-stage-api
+    runtime: node
+    region: frankfurt
+    plan: 0.5c-512mb
+    branch: stage/render-negarin-house
+    buildCommand: npm install --prefix .render-tools --no-save pnpm@12.7.0 && .render-tools/node_modules/.bin/pnpm install --frozen-lockfile && .render-tools/node_modules/.bin/pnpm exec turbo run build --filter=@negarin/api...
+    preDeployCommand: .render-tools/node_modules/.bin/pnpm --filter @negarin/api prisma:migrate:deploy
+    startCommand: .render-tools/node_modules/.bin/pnpm --filter @negarin/api start
+    autoDeployTrigger: off
+    healthCheckPath: /api/v1/health
+    maxShutdownDelaySeconds: 60
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: API_PORT
+        value: 10000
+      - key: WEB_URL
+        value: https://negarin-stage-web.onrender.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: negarin-stage-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: negarin-stage-queue
+          property: connectionString
+      - key: OTEL_SDK_DISABLED
+        value: "true"
+
+  - type: worker
+    name: negarin-stage-worker
+    runtime: node
+    region: frankfurt
+    plan: 0.5c-512mb
+    branch: stage/render-negarin-house
+    buildCommand: npm install --prefix .render-tools --no-save pnpm@12.7.0 && .render-tools/node_modules/.bin/pnpm install --frozen-lockfile && .render-tools/node_modules/.bin/pnpm exec turbo run build --filter=@negarin/worker...
+    startCommand: .render-tools/node_modules/.bin/pnpm --filter @negarin/worker start
+    autoDeployTrigger: off
+    maxShutdownDelaySeconds: 60
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: API_PORT
+        value: 10000
+      - key: WEB_URL
+        value: https://negarin-stage-web.onrender.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: negarin-stage-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: negarin-stage-queue
+          property: connectionString
+      - key: OTEL_SDK_DISABLED
+        value: "true"
+
+databases:
+  - name: negarin-stage-db
+    databaseName: negarin_stage_db
+    user: negarin_stage_user
+    region: frankfurt
+    plan: 0.1c-256mb
+    postgresMajorVersion: "18"
