@@ -11,6 +11,11 @@ type ActionProps=HTMLAttributes<HTMLElement>&{label:string;destination?:string;b
 export function DesignAction({label,destination,back,children,...props}:ActionProps){
  const router=useRouter();const searchParams=useSearchParams();const preview=usePreview();
  const query=searchParams.toString();const withQuery=(path:string)=>path+(query?`?${query}`:"");
+ const actionName=String((props as Record<string,unknown>)["data-name"]||label).trim();
+ const actionText=(actionName+" "+label).toLocaleLowerCase();
+ const actionKey="demo-action:"+preview.screen+":"+actionName;
+ const actionState=preview.values[actionKey]||"";
+ const toggleAction=/bookmark|favorite|follow|like|علاقه‌مند|ذخیره|دنبال/.test(actionText);
  const disabled=String((props as Record<string,unknown>)["data-name"]||"").includes("Disabled");
  const phoneSubmit=preview.screen==="login-and-register"&&destination==="otp-verification";
  const customer=preview.basePath==="/preview/customer-mobile";
@@ -18,12 +23,20 @@ export function DesignAction({label,destination,back,children,...props}:ActionPr
  const needsValidation=phoneSubmit||otpSubmit;
  function run(){
   if(back){router.push(withQuery(preview.basePath));return;}
-  if(/ذخیره/.test(label))preview.notify("تغییرات در همین پیش‌نمایش نگه داشته شد؛ داده‌ای به سرور ارسال نشده است.");
-  else preview.notify("این کنترل در پیش‌نمایش رابط کاربری است؛ عملیات واقعی پس از اتصال بک‌اند فعال می‌شود.");
+  const title=label.replace(/person_outline|shopping_cart|bookmark_border|bookmark|arrow_back|arrow_forward|chevron_left|notification-btn|delete_outline/g,"").trim()
+   || actionName.replace(/[_/]+/g," ").trim();
+  if(toggleAction){
+   const active=actionState!=="active";
+   preview.setValue(actionKey,active?"active":"inactive");
+   preview.notify(active?`«${title}» در نسخهٔ نمایشی فعال شد.`:`«${title}» در نسخهٔ نمایشی غیرفعال شد.`);
+   return;
+  }
+  preview.setValue(actionKey,"done");
+  preview.notify(`«${title}» در نسخهٔ نمایشی انجام شد.`);
  }
  if(preview.screen==="multiple-roles"&&destination==="dashboard"){return <Button {...props} variant="unstyled" aria-label={label} onClick={()=>{const role=preview.values["multiple-roles:choice:roles-list"];if(role&&!role.includes("هنرمند")){preview.notify("پیش‌نمایش این بخش فعلاً برای نقش هنرمند آماده شده است.");return;}router.push(withQuery(preview.basePath+"/dashboard"));}}>{children}</Button>;}
  if(destination&&!needsValidation&&!disabled)return <Link {...props} href={withQuery(preview.basePath+"/"+destination)} scroll={false} aria-current={preview.screen===destination?"page":undefined} aria-label={label}>{children}</Link>;
- return <Button {...props} variant="unstyled" disabled={disabled} aria-disabled={disabled||undefined} aria-label={label} onClick={()=>{
+ return <Button {...props} variant="unstyled" disabled={disabled} aria-disabled={disabled||undefined} aria-label={label} aria-pressed={toggleAction?actionState==="active":undefined} data-demo-state={actionState||undefined} onClick={()=>{
   if(phoneSubmit){const phone=Object.values(preview.values).find(v=>/^09\d{9}$/.test(normalizeDigits(v)));if(!phone){preview.notify("شماره همراه معتبر با ۱۱ رقم و شروع ۰۹ وارد کنید.");return;}router.push(withQuery(preview.basePath+"/"+destination));return;}
   if(otpSubmit){const code=Array.from({length:6},(_,i)=>preview.values[preview.screen+":رقم "+(i+1)+" کد تأیید"]||"").join("");if(!/^\d{6}$/.test(normalizeDigits(code))){preview.notify("کد تأیید شش‌رقمی را کامل وارد کنید. کد نمونه برای پیش‌نمایش: ۱۲۳۴۵۶");return;}if(customer&&normalizeDigits(code)!=="123456"){preview.notify("کد نمونه نادرست است. برای پیش‌نمایش ۱۲۳۴۵۶ را وارد کنید.");return;}router.push(withQuery(preview.basePath+"/"+(normalizeDigits(code)==="123456"?destination:"otp-invalid")));return;}
   run();
