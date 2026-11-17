@@ -105,7 +105,7 @@ export default function CustomerPaymentSuccessWeb() {
               سفارش با موفقیت ثبت شد
             </p>
             <p className="fg-745d3d42ce" dir="auto" data-node-id="1194:625">
-              پرداختت با موفقیت انجام شد و سفارش #NG-1054 در خانه نگارین ثبت شد. جزئیات و روند آماده‌سازی را از بخش سفارش‌ها می‌توانی دنبال کنی.
+              پرداختت با موفقیت انجام شد و سفارش <bdi dir="ltr">#NG-۱۰۵۴</bdi> در خانه نگارین ثبت شد. جزئیات و روند آماده‌سازی را از بخش سفارش‌ها می‌توانی دنبال کنی.
             </p>
           </div>
           <div className="fg-abf34ed7e8" data-node-id="1194:626" data-name="Order summary">
@@ -123,7 +123,7 @@ export default function CustomerPaymentSuccessWeb() {
                 شماره سفارش
               </p>
               <p className="fg-00b08f6bc3" data-node-id="1194:633">
-                #NG-1054
+                <bdi dir="ltr">#NG-۱۰۵۴</bdi>
               </p>
             </div>
           </div>
