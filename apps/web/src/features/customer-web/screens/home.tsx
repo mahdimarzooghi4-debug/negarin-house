@@ -110,7 +110,7 @@ export default function CustomerWebHome() {
             </div>
             <div className="fg-713ca3f404" data-node-id="1170:3316" data-name="Featured artwork">
               <div className="fg-01e71c0036" data-node-id="1170:3317" data-name="Artwork image">
-                <img alt="" className="fg-b440a5c4af" src="/customer-web-assets/560c234b.png" />
+                <img alt="" className="fg-b440a5c4af" src="/customer-web-assets/f2e34add.png" />
               </div>
               <div className="fg-0a09a79c4c" data-node-id="1170:3318" data-name="Artwork caption">
                 <p className="fg-374f98fc6e" dir="auto" data-node-id="1170:3319">
